@@ -29,14 +29,15 @@ import Foundation
 
 // Aspose.Words.Cloud API for Swift
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-protocol Encryptor {
+public protocol Encryptor {
     func encrypt(data: String) throws -> String
 }
 
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class WordsAPI : Encryptor {
 
     private let configuration : Configuration;
-    private let apiInvoker : ApiInvoker;
+    private var apiInvoker : ApiInvoker?;
 
 #if os(Linux)
     // Encryption of passwords in query params not supported on linux
@@ -48,29 +49,27 @@ public class WordsAPI : Encryptor {
     // Initializes a new instance of the WordsAPI class based on Configuration object.
     public init(configuration : Configuration) throws {
         self.configuration = configuration;
-#if os(Linux)
-        self.apiInvoker = ApiInvoker(configuration: configuration);
-#else
-        self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
-#endif
     }
 
     // Initializes a new instance of the WordsAPI class based on ClientId and clientSecret.
     public init(clientId: String, clientSecret: String) throws {
         self.configuration = Configuration(clientId: clientId, clientSecret: clientSecret);
-#if os(Linux)
-        self.apiInvoker = ApiInvoker(configuration: configuration);
-#else
-        self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
-#endif
     }
 
     // Async representation of acceptAllRevisions method
     // Accepts all revisions in the document.
     public func acceptAllRevisions(request : AcceptAllRevisionsRequest, callback : @escaping (_ response : RevisionsModificationResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -115,8 +114,16 @@ public class WordsAPI : Encryptor {
     // Accepts all revisions in the document.
     public func acceptAllRevisionsOnline(request : AcceptAllRevisionsOnlineRequest, callback : @escaping (_ response : AcceptAllRevisionsOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -161,8 +168,16 @@ public class WordsAPI : Encryptor {
     // Appends documents to the original document.
     public func appendDocument(request : AppendDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -207,8 +222,16 @@ public class WordsAPI : Encryptor {
     // Appends documents to the original document.
     public func appendDocumentOnline(request : AppendDocumentOnlineRequest, callback : @escaping (_ response : AppendDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -253,8 +276,16 @@ public class WordsAPI : Encryptor {
     // Applies a style to the document node.
     public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest, callback : @escaping (_ response : WordsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -299,8 +330,16 @@ public class WordsAPI : Encryptor {
     // Applies a style to the document node.
     public func applyStyleToDocumentElementOnline(request : ApplyStyleToDocumentElementOnlineRequest, callback : @escaping (_ response : ApplyStyleToDocumentElementOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -345,8 +384,16 @@ public class WordsAPI : Encryptor {
     // Executes the report generation process using the specified document template and the external data source in XML, JSON or CSV format.
     public func buildReport(request : BuildReportRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -391,8 +438,16 @@ public class WordsAPI : Encryptor {
     // Executes the report generation process online using the specified document template and the external data source in XML, JSON or CSV format.
     public func buildReportOnline(request : BuildReportOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -437,8 +492,16 @@ public class WordsAPI : Encryptor {
     // Runs a multi-class text classification for the specified raw text.
     public func classify(request : ClassifyRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -483,8 +546,16 @@ public class WordsAPI : Encryptor {
     // Runs a multi-class text classification for the document.
     public func classifyDocument(request : ClassifyDocumentRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -529,8 +600,16 @@ public class WordsAPI : Encryptor {
     // Runs a multi-class text classification for the document.
     public func classifyDocumentOnline(request : ClassifyDocumentOnlineRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -575,8 +654,16 @@ public class WordsAPI : Encryptor {
     // Compares two documents.
     public func compareDocument(request : CompareDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -621,8 +708,16 @@ public class WordsAPI : Encryptor {
     // Compares two documents.
     public func compareDocumentOnline(request : CompareDocumentOnlineRequest, callback : @escaping (_ response : CompareDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -667,8 +762,16 @@ public class WordsAPI : Encryptor {
     // Converts a document on a local drive to the specified format.
     public func convertDocument(request : ConvertDocumentRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -713,8 +816,16 @@ public class WordsAPI : Encryptor {
     // Copy file.
     public func copyFile(request : CopyFileRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -746,8 +857,16 @@ public class WordsAPI : Encryptor {
     // Copy folder.
     public func copyFolder(request : CopyFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -779,8 +898,16 @@ public class WordsAPI : Encryptor {
     // Makes a copy of the style in the document.
     public func copyStyle(request : CopyStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -825,8 +952,16 @@ public class WordsAPI : Encryptor {
     // Makes a copy of the style in the document.
     public func copyStyleOnline(request : CopyStyleOnlineRequest, callback : @escaping (_ response : CopyStyleOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -871,8 +1006,16 @@ public class WordsAPI : Encryptor {
     // Copies styles from the origin document to the target document.
     public func copyStylesFromTemplate(request : CopyStylesFromTemplateRequest, callback : @escaping (_ response : WordsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -917,8 +1060,16 @@ public class WordsAPI : Encryptor {
     // Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
     public func createDocument(request : CreateDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -963,8 +1114,16 @@ public class WordsAPI : Encryptor {
     // Create the folder.
     public func createFolder(request : CreateFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -996,8 +1155,16 @@ public class WordsAPI : Encryptor {
     // Adds a new or updates an existing document property.
     public func createOrUpdateDocumentProperty(request : CreateOrUpdateDocumentPropertyRequest, callback : @escaping (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1042,8 +1209,16 @@ public class WordsAPI : Encryptor {
     // Adds a new or updates an existing document property.
     public func createOrUpdateDocumentPropertyOnline(request : CreateOrUpdateDocumentPropertyOnlineRequest, callback : @escaping (_ response : CreateOrUpdateDocumentPropertyOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1088,8 +1263,16 @@ public class WordsAPI : Encryptor {
     // Removes paragraph tab stops from the document node.
     public func deleteAllParagraphTabStops(request : DeleteAllParagraphTabStopsRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1134,8 +1317,16 @@ public class WordsAPI : Encryptor {
     // Removes paragraph tab stops from the document node.
     public func deleteAllParagraphTabStopsOnline(request : DeleteAllParagraphTabStopsOnlineRequest, callback : @escaping (_ response : DeleteAllParagraphTabStopsOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1180,8 +1371,16 @@ public class WordsAPI : Encryptor {
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBorder(request : DeleteBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1226,8 +1425,16 @@ public class WordsAPI : Encryptor {
     // Removes a border from the document node.
     public func deleteBorderOnline(request : DeleteBorderOnlineRequest, callback : @escaping (_ response : DeleteBorderOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1272,8 +1479,16 @@ public class WordsAPI : Encryptor {
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBorders(request : DeleteBordersRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1318,8 +1533,16 @@ public class WordsAPI : Encryptor {
     // Removes borders from the document node.
     public func deleteBordersOnline(request : DeleteBordersOnlineRequest, callback : @escaping (_ response : DeleteBordersOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1364,8 +1587,16 @@ public class WordsAPI : Encryptor {
     // Removes a comment from the document.
     public func deleteComment(request : DeleteCommentRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -1397,8 +1628,16 @@ public class WordsAPI : Encryptor {
     // Removes a comment from the document.
     public func deleteCommentOnline(request : DeleteCommentOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1443,8 +1682,16 @@ public class WordsAPI : Encryptor {
     // Removes all comments from the document.
     public func deleteComments(request : DeleteCommentsRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -1476,8 +1723,16 @@ public class WordsAPI : Encryptor {
     // Removes all comments from the document.
     public func deleteCommentsOnline(request : DeleteCommentsOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1522,8 +1777,16 @@ public class WordsAPI : Encryptor {
     // Removes the custom xml part from the document.
     public func deleteCustomXmlPart(request : DeleteCustomXmlPartRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -1555,8 +1818,16 @@ public class WordsAPI : Encryptor {
     // Removes the custom xml part from the document.
     public func deleteCustomXmlPartOnline(request : DeleteCustomXmlPartOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1601,8 +1872,16 @@ public class WordsAPI : Encryptor {
     // Removes all custom xml parts from the document.
     public func deleteCustomXmlParts(request : DeleteCustomXmlPartsRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -1634,8 +1913,16 @@ public class WordsAPI : Encryptor {
     // Removes all custom xml parts from the document.
     public func deleteCustomXmlPartsOnline(request : DeleteCustomXmlPartsOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1680,8 +1967,16 @@ public class WordsAPI : Encryptor {
     // Removes a document property.
     public func deleteDocumentProperty(request : DeleteDocumentPropertyRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -1713,8 +2008,16 @@ public class WordsAPI : Encryptor {
     // Removes a document property.
     public func deleteDocumentPropertyOnline(request : DeleteDocumentPropertyOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1759,8 +2062,16 @@ public class WordsAPI : Encryptor {
     // Removes a DrawingObject from the document node.
     public func deleteDrawingObject(request : DeleteDrawingObjectRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -1792,8 +2103,16 @@ public class WordsAPI : Encryptor {
     // Removes a DrawingObject from the document node.
     public func deleteDrawingObjectOnline(request : DeleteDrawingObjectOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1838,8 +2157,16 @@ public class WordsAPI : Encryptor {
     // Removes a field from the document node.
     public func deleteField(request : DeleteFieldRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -1871,8 +2198,16 @@ public class WordsAPI : Encryptor {
     // Removes a field from the document node.
     public func deleteFieldOnline(request : DeleteFieldOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1917,8 +2252,16 @@ public class WordsAPI : Encryptor {
     // Removes fields from the document node.
     public func deleteFields(request : DeleteFieldsRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -1950,8 +2293,16 @@ public class WordsAPI : Encryptor {
     // Removes fields from the document node.
     public func deleteFieldsOnline(request : DeleteFieldsOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1996,8 +2347,16 @@ public class WordsAPI : Encryptor {
     // Delete file.
     public func deleteFile(request : DeleteFileRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -2029,8 +2388,16 @@ public class WordsAPI : Encryptor {
     // Delete folder.
     public func deleteFolder(request : DeleteFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -2062,8 +2429,16 @@ public class WordsAPI : Encryptor {
     // Removes a footnote from the document node.
     public func deleteFootnote(request : DeleteFootnoteRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -2095,8 +2470,16 @@ public class WordsAPI : Encryptor {
     // Removes a footnote from the document node.
     public func deleteFootnoteOnline(request : DeleteFootnoteOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2141,8 +2524,16 @@ public class WordsAPI : Encryptor {
     // Removes a form field from the document node.
     public func deleteFormField(request : DeleteFormFieldRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -2174,8 +2565,16 @@ public class WordsAPI : Encryptor {
     // Removes a form field from the document node.
     public func deleteFormFieldOnline(request : DeleteFormFieldOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2220,8 +2619,16 @@ public class WordsAPI : Encryptor {
     // Removes a HeaderFooter object from the document section.
     public func deleteHeaderFooter(request : DeleteHeaderFooterRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -2253,8 +2660,16 @@ public class WordsAPI : Encryptor {
     // Removes a HeaderFooter object from the document section.
     public func deleteHeaderFooterOnline(request : DeleteHeaderFooterOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2299,8 +2714,16 @@ public class WordsAPI : Encryptor {
     // Removes HeaderFooter objects from the document section.
     public func deleteHeadersFooters(request : DeleteHeadersFootersRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -2332,8 +2755,16 @@ public class WordsAPI : Encryptor {
     // Removes HeaderFooter objects from the document section.
     public func deleteHeadersFootersOnline(request : DeleteHeadersFootersOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2378,8 +2809,16 @@ public class WordsAPI : Encryptor {
     // Removes macros from the document.
     public func deleteMacros(request : DeleteMacrosRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -2411,8 +2850,16 @@ public class WordsAPI : Encryptor {
     // Removes macros from the document.
     public func deleteMacrosOnline(request : DeleteMacrosOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2457,8 +2904,16 @@ public class WordsAPI : Encryptor {
     // Removes an OfficeMath object from the document node.
     public func deleteOfficeMathObject(request : DeleteOfficeMathObjectRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -2490,8 +2945,16 @@ public class WordsAPI : Encryptor {
     // Removes an OfficeMath object from the document node.
     public func deleteOfficeMathObjectOnline(request : DeleteOfficeMathObjectOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2536,8 +2999,16 @@ public class WordsAPI : Encryptor {
     // Removes a paragraph from the document node.
     public func deleteParagraph(request : DeleteParagraphRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -2569,8 +3040,16 @@ public class WordsAPI : Encryptor {
     // Removes the formatting properties of a paragraph list from the document node.
     public func deleteParagraphListFormat(request : DeleteParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2615,8 +3094,16 @@ public class WordsAPI : Encryptor {
     // Removes the formatting properties of a paragraph list from the document node.
     public func deleteParagraphListFormatOnline(request : DeleteParagraphListFormatOnlineRequest, callback : @escaping (_ response : DeleteParagraphListFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2661,8 +3148,16 @@ public class WordsAPI : Encryptor {
     // Removes a paragraph from the document node.
     public func deleteParagraphOnline(request : DeleteParagraphOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2707,8 +3202,16 @@ public class WordsAPI : Encryptor {
     // Removes a paragraph tab stop from the document node.
     public func deleteParagraphTabStop(request : DeleteParagraphTabStopRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2753,8 +3256,16 @@ public class WordsAPI : Encryptor {
     // Removes a paragraph tab stop from the document node.
     public func deleteParagraphTabStopOnline(request : DeleteParagraphTabStopOnlineRequest, callback : @escaping (_ response : DeleteParagraphTabStopOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2799,8 +3310,16 @@ public class WordsAPI : Encryptor {
     // Removes a Run object from the paragraph.
     public func deleteRun(request : DeleteRunRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -2832,8 +3351,16 @@ public class WordsAPI : Encryptor {
     // Removes a Run object from the paragraph.
     public func deleteRunOnline(request : DeleteRunOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2878,8 +3405,16 @@ public class WordsAPI : Encryptor {
     // Removes a section from the document.
     public func deleteSection(request : DeleteSectionRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -2911,8 +3446,16 @@ public class WordsAPI : Encryptor {
     // Removes a section from the document.
     public func deleteSectionOnline(request : DeleteSectionOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2957,8 +3500,16 @@ public class WordsAPI : Encryptor {
     // Removes a table from the document node.
     public func deleteTable(request : DeleteTableRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -2990,8 +3541,16 @@ public class WordsAPI : Encryptor {
     // Removes a cell from the table row.
     public func deleteTableCell(request : DeleteTableCellRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -3023,8 +3582,16 @@ public class WordsAPI : Encryptor {
     // Removes a cell from the table row.
     public func deleteTableCellOnline(request : DeleteTableCellOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3069,8 +3636,16 @@ public class WordsAPI : Encryptor {
     // Removes a table from the document node.
     public func deleteTableOnline(request : DeleteTableOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3115,8 +3690,16 @@ public class WordsAPI : Encryptor {
     // Removes a row from the table.
     public func deleteTableRow(request : DeleteTableRowRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -3148,8 +3731,16 @@ public class WordsAPI : Encryptor {
     // Removes a row from the table.
     public func deleteTableRowOnline(request : DeleteTableRowOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3194,8 +3785,16 @@ public class WordsAPI : Encryptor {
     // Removes a watermark from the document.
     public func deleteWatermark(request : DeleteWatermarkRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3240,8 +3839,16 @@ public class WordsAPI : Encryptor {
     // Removes a watermark from the document.
     public func deleteWatermarkOnline(request : DeleteWatermarkOnlineRequest, callback : @escaping (_ response : DeleteWatermarkOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3286,8 +3893,16 @@ public class WordsAPI : Encryptor {
     // Download file.
     public func downloadFile(request : DownloadFileRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3332,8 +3947,16 @@ public class WordsAPI : Encryptor {
     // Executes a Mail Merge operation.
     public func executeMailMerge(request : ExecuteMailMergeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3378,8 +4001,16 @@ public class WordsAPI : Encryptor {
     // Executes a Mail Merge operation online.
     public func executeMailMergeOnline(request : ExecuteMailMergeOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3424,8 +4055,16 @@ public class WordsAPI : Encryptor {
     // Reads available fonts from the document.
     public func getAvailableFonts(request : GetAvailableFontsRequest, callback : @escaping (_ response : AvailableFontsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3470,8 +4109,16 @@ public class WordsAPI : Encryptor {
     // Reads a bookmark, specified by name, from the document.
     public func getBookmarkByName(request : GetBookmarkByNameRequest, callback : @escaping (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3516,8 +4163,16 @@ public class WordsAPI : Encryptor {
     // Reads a bookmark, specified by name, from the document.
     public func getBookmarkByNameOnline(request : GetBookmarkByNameOnlineRequest, callback : @escaping (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3562,8 +4217,16 @@ public class WordsAPI : Encryptor {
     // Reads bookmarks from the document.
     public func getBookmarks(request : GetBookmarksRequest, callback : @escaping (_ response : BookmarksResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3608,8 +4271,16 @@ public class WordsAPI : Encryptor {
     // Reads bookmarks from the document.
     public func getBookmarksOnline(request : GetBookmarksOnlineRequest, callback : @escaping (_ response : BookmarksResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3654,8 +4325,16 @@ public class WordsAPI : Encryptor {
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func getBorder(request : GetBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3700,8 +4379,16 @@ public class WordsAPI : Encryptor {
     // Reads a border from the document node.
     public func getBorderOnline(request : GetBorderOnlineRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3746,8 +4433,16 @@ public class WordsAPI : Encryptor {
     // Reads borders from the document node.
     public func getBorders(request : GetBordersRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3792,8 +4487,16 @@ public class WordsAPI : Encryptor {
     // Reads borders from the document node.
     public func getBordersOnline(request : GetBordersOnlineRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3838,8 +4541,16 @@ public class WordsAPI : Encryptor {
     // Reads a comment from the document.
     public func getComment(request : GetCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3884,8 +4595,16 @@ public class WordsAPI : Encryptor {
     // Reads a comment from the document.
     public func getCommentOnline(request : GetCommentOnlineRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3930,8 +4649,16 @@ public class WordsAPI : Encryptor {
     // Reads comments from the document.
     public func getComments(request : GetCommentsRequest, callback : @escaping (_ response : CommentsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3976,8 +4703,16 @@ public class WordsAPI : Encryptor {
     // Reads comments from the document.
     public func getCommentsOnline(request : GetCommentsOnlineRequest, callback : @escaping (_ response : CommentsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4022,8 +4757,16 @@ public class WordsAPI : Encryptor {
     // Reads the custom xml part from the document.
     public func getCustomXmlPart(request : GetCustomXmlPartRequest, callback : @escaping (_ response : CustomXmlPartResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4068,8 +4811,16 @@ public class WordsAPI : Encryptor {
     // Reads the custom xml part from the document.
     public func getCustomXmlPartOnline(request : GetCustomXmlPartOnlineRequest, callback : @escaping (_ response : CustomXmlPartResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4114,8 +4865,16 @@ public class WordsAPI : Encryptor {
     // Reads custom xml parts from the document.
     public func getCustomXmlParts(request : GetCustomXmlPartsRequest, callback : @escaping (_ response : CustomXmlPartsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4160,8 +4919,16 @@ public class WordsAPI : Encryptor {
     // Reads custom xml parts from the document.
     public func getCustomXmlPartsOnline(request : GetCustomXmlPartsOnlineRequest, callback : @escaping (_ response : CustomXmlPartsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4206,8 +4973,16 @@ public class WordsAPI : Encryptor {
     // Reads common information from the document.
     public func getDocument(request : GetDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4252,8 +5027,16 @@ public class WordsAPI : Encryptor {
     // Reads a DrawingObject from the document node.
     public func getDocumentDrawingObjectByIndex(request : GetDocumentDrawingObjectByIndexRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4298,8 +5081,16 @@ public class WordsAPI : Encryptor {
     // Reads a DrawingObject from the document node.
     public func getDocumentDrawingObjectByIndexOnline(request : GetDocumentDrawingObjectByIndexOnlineRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4344,8 +5135,16 @@ public class WordsAPI : Encryptor {
     // Reads image data of a DrawingObject from the document node.
     public func getDocumentDrawingObjectImageData(request : GetDocumentDrawingObjectImageDataRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4390,8 +5189,16 @@ public class WordsAPI : Encryptor {
     // Reads image data of a DrawingObject from the document node.
     public func getDocumentDrawingObjectImageDataOnline(request : GetDocumentDrawingObjectImageDataOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4436,8 +5243,16 @@ public class WordsAPI : Encryptor {
     // Reads OLE data of a DrawingObject from the document node.
     public func getDocumentDrawingObjectOleData(request : GetDocumentDrawingObjectOleDataRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4482,8 +5297,16 @@ public class WordsAPI : Encryptor {
     // Reads OLE data of a DrawingObject from the document node.
     public func getDocumentDrawingObjectOleDataOnline(request : GetDocumentDrawingObjectOleDataOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4528,8 +5351,16 @@ public class WordsAPI : Encryptor {
     // Reads DrawingObjects from the document node.
     public func getDocumentDrawingObjects(request : GetDocumentDrawingObjectsRequest, callback : @escaping (_ response : DrawingObjectsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4574,8 +5405,16 @@ public class WordsAPI : Encryptor {
     // Reads DrawingObjects from the document node.
     public func getDocumentDrawingObjectsOnline(request : GetDocumentDrawingObjectsOnlineRequest, callback : @escaping (_ response : DrawingObjectsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4620,8 +5459,16 @@ public class WordsAPI : Encryptor {
     // Reads merge field names from the document.
     public func getDocumentFieldNames(request : GetDocumentFieldNamesRequest, callback : @escaping (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4666,8 +5513,16 @@ public class WordsAPI : Encryptor {
     // Reads merge field names from the document.
     public func getDocumentFieldNamesOnline(request : GetDocumentFieldNamesOnlineRequest, callback : @escaping (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4712,8 +5567,16 @@ public class WordsAPI : Encryptor {
     // Reads a hyperlink from the document.
     public func getDocumentHyperlinkByIndex(request : GetDocumentHyperlinkByIndexRequest, callback : @escaping (_ response : HyperlinkResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4758,8 +5621,16 @@ public class WordsAPI : Encryptor {
     // Reads a hyperlink from the document.
     public func getDocumentHyperlinkByIndexOnline(request : GetDocumentHyperlinkByIndexOnlineRequest, callback : @escaping (_ response : HyperlinkResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4804,8 +5675,16 @@ public class WordsAPI : Encryptor {
     // Reads hyperlinks from the document.
     public func getDocumentHyperlinks(request : GetDocumentHyperlinksRequest, callback : @escaping (_ response : HyperlinksResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4850,8 +5729,16 @@ public class WordsAPI : Encryptor {
     // Reads hyperlinks from the document.
     public func getDocumentHyperlinksOnline(request : GetDocumentHyperlinksOnlineRequest, callback : @escaping (_ response : HyperlinksResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4896,8 +5783,16 @@ public class WordsAPI : Encryptor {
     // Reads document properties.
     public func getDocumentProperties(request : GetDocumentPropertiesRequest, callback : @escaping (_ response : DocumentPropertiesResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4942,8 +5837,16 @@ public class WordsAPI : Encryptor {
     // Reads document properties.
     public func getDocumentPropertiesOnline(request : GetDocumentPropertiesOnlineRequest, callback : @escaping (_ response : DocumentPropertiesResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4988,8 +5891,16 @@ public class WordsAPI : Encryptor {
     // Reads a document property.
     public func getDocumentProperty(request : GetDocumentPropertyRequest, callback : @escaping (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5034,8 +5945,16 @@ public class WordsAPI : Encryptor {
     // Reads a document property.
     public func getDocumentPropertyOnline(request : GetDocumentPropertyOnlineRequest, callback : @escaping (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5080,8 +5999,16 @@ public class WordsAPI : Encryptor {
     // Reads protection properties from the document.
     public func getDocumentProtection(request : GetDocumentProtectionRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5126,8 +6053,16 @@ public class WordsAPI : Encryptor {
     // Reads protection properties from the document.
     public func getDocumentProtectionOnline(request : GetDocumentProtectionOnlineRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5172,8 +6107,16 @@ public class WordsAPI : Encryptor {
     // Reads document statistics.
     public func getDocumentStatistics(request : GetDocumentStatisticsRequest, callback : @escaping (_ response : StatDataResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5218,8 +6161,16 @@ public class WordsAPI : Encryptor {
     // Reads document statistics.
     public func getDocumentStatisticsOnline(request : GetDocumentStatisticsOnlineRequest, callback : @escaping (_ response : StatDataResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5264,8 +6215,16 @@ public class WordsAPI : Encryptor {
     // Converts a document in cloud storage to the specified format.
     public func getDocumentWithFormat(request : GetDocumentWithFormatRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5310,8 +6269,16 @@ public class WordsAPI : Encryptor {
     // Reads a field from the document node.
     public func getField(request : GetFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5356,8 +6323,16 @@ public class WordsAPI : Encryptor {
     // Reads a field from the document node.
     public func getFieldOnline(request : GetFieldOnlineRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5402,8 +6377,16 @@ public class WordsAPI : Encryptor {
     // Reads fields from the document node.
     public func getFields(request : GetFieldsRequest, callback : @escaping (_ response : FieldsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5448,8 +6431,16 @@ public class WordsAPI : Encryptor {
     // Reads fields from the document node.
     public func getFieldsOnline(request : GetFieldsOnlineRequest, callback : @escaping (_ response : FieldsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5494,8 +6485,16 @@ public class WordsAPI : Encryptor {
     // Get all files and folders within a folder.
     public func getFilesList(request : GetFilesListRequest, callback : @escaping (_ response : FilesList?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5540,8 +6539,16 @@ public class WordsAPI : Encryptor {
     // Reads a footnote from the document node.
     public func getFootnote(request : GetFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5586,8 +6593,16 @@ public class WordsAPI : Encryptor {
     // Reads a footnote from the document node.
     public func getFootnoteOnline(request : GetFootnoteOnlineRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5632,8 +6647,16 @@ public class WordsAPI : Encryptor {
     // Reads footnotes from the document node.
     public func getFootnotes(request : GetFootnotesRequest, callback : @escaping (_ response : FootnotesResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5678,8 +6701,16 @@ public class WordsAPI : Encryptor {
     // Reads footnotes from the document node.
     public func getFootnotesOnline(request : GetFootnotesOnlineRequest, callback : @escaping (_ response : FootnotesResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5724,8 +6755,16 @@ public class WordsAPI : Encryptor {
     // Reads a form field from the document node.
     public func getFormField(request : GetFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5770,8 +6809,16 @@ public class WordsAPI : Encryptor {
     // Reads a form field from the document node.
     public func getFormFieldOnline(request : GetFormFieldOnlineRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5816,8 +6863,16 @@ public class WordsAPI : Encryptor {
     // Reads form fields from the document node.
     public func getFormFields(request : GetFormFieldsRequest, callback : @escaping (_ response : FormFieldsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5862,8 +6917,16 @@ public class WordsAPI : Encryptor {
     // Reads form fields from the document node.
     public func getFormFieldsOnline(request : GetFormFieldsOnlineRequest, callback : @escaping (_ response : FormFieldsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5908,8 +6971,16 @@ public class WordsAPI : Encryptor {
     // Reads a HeaderFooter object from the document.
     public func getHeaderFooter(request : GetHeaderFooterRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5954,8 +7025,16 @@ public class WordsAPI : Encryptor {
     // Reads a HeaderFooter object from the document section.
     public func getHeaderFooterOfSection(request : GetHeaderFooterOfSectionRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6000,8 +7079,16 @@ public class WordsAPI : Encryptor {
     // Reads a HeaderFooter object from the document section.
     public func getHeaderFooterOfSectionOnline(request : GetHeaderFooterOfSectionOnlineRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6046,8 +7133,16 @@ public class WordsAPI : Encryptor {
     // Reads a HeaderFooter object from the document.
     public func getHeaderFooterOnline(request : GetHeaderFooterOnlineRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6092,8 +7187,16 @@ public class WordsAPI : Encryptor {
     // Reads HeaderFooter objects from the document section.
     public func getHeaderFooters(request : GetHeaderFootersRequest, callback : @escaping (_ response : HeaderFootersResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6138,8 +7241,16 @@ public class WordsAPI : Encryptor {
     // Reads HeaderFooter objects from the document section.
     public func getHeaderFootersOnline(request : GetHeaderFootersOnlineRequest, callback : @escaping (_ response : HeaderFootersResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6184,8 +7295,16 @@ public class WordsAPI : Encryptor {
     // Returns application info.
     public func getInfo(request : GetInfoRequest, callback : @escaping (_ response : InfoResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6230,8 +7349,16 @@ public class WordsAPI : Encryptor {
     // Reads a list from the document.
     public func getList(request : GetListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6276,8 +7403,16 @@ public class WordsAPI : Encryptor {
     // Reads a list from the document.
     public func getListOnline(request : GetListOnlineRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6322,8 +7457,16 @@ public class WordsAPI : Encryptor {
     // Reads lists from the document.
     public func getLists(request : GetListsRequest, callback : @escaping (_ response : ListsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6368,8 +7511,16 @@ public class WordsAPI : Encryptor {
     // Reads lists from the document.
     public func getListsOnline(request : GetListsOnlineRequest, callback : @escaping (_ response : ListsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6414,8 +7565,16 @@ public class WordsAPI : Encryptor {
     // Reads an OfficeMath object from the document node.
     public func getOfficeMathObject(request : GetOfficeMathObjectRequest, callback : @escaping (_ response : OfficeMathObjectResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6460,8 +7619,16 @@ public class WordsAPI : Encryptor {
     // Reads an OfficeMath object from the document node.
     public func getOfficeMathObjectOnline(request : GetOfficeMathObjectOnlineRequest, callback : @escaping (_ response : OfficeMathObjectResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6506,8 +7673,16 @@ public class WordsAPI : Encryptor {
     // Reads OfficeMath objects from the document node.
     public func getOfficeMathObjects(request : GetOfficeMathObjectsRequest, callback : @escaping (_ response : OfficeMathObjectsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6552,8 +7727,16 @@ public class WordsAPI : Encryptor {
     // Reads OfficeMath objects from the document node.
     public func getOfficeMathObjectsOnline(request : GetOfficeMathObjectsOnlineRequest, callback : @escaping (_ response : OfficeMathObjectsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6598,8 +7781,16 @@ public class WordsAPI : Encryptor {
     // Reads a paragraph from the document node.
     public func getParagraph(request : GetParagraphRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6644,8 +7835,16 @@ public class WordsAPI : Encryptor {
     // Reads the formatting properties of a paragraph from the document node.
     public func getParagraphFormat(request : GetParagraphFormatRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6690,8 +7889,16 @@ public class WordsAPI : Encryptor {
     // Reads the formatting properties of a paragraph from the document node.
     public func getParagraphFormatOnline(request : GetParagraphFormatOnlineRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6736,8 +7943,16 @@ public class WordsAPI : Encryptor {
     // Reads the formatting properties of a paragraph list from the document node.
     public func getParagraphListFormat(request : GetParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6782,8 +7997,16 @@ public class WordsAPI : Encryptor {
     // Reads the formatting properties of a paragraph list from the document node.
     public func getParagraphListFormatOnline(request : GetParagraphListFormatOnlineRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6828,8 +8051,16 @@ public class WordsAPI : Encryptor {
     // Reads a paragraph from the document node.
     public func getParagraphOnline(request : GetParagraphOnlineRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6874,8 +8105,16 @@ public class WordsAPI : Encryptor {
     // Reads paragraphs from the document node.
     public func getParagraphs(request : GetParagraphsRequest, callback : @escaping (_ response : ParagraphLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6920,8 +8159,16 @@ public class WordsAPI : Encryptor {
     // Reads paragraphs from the document node.
     public func getParagraphsOnline(request : GetParagraphsOnlineRequest, callback : @escaping (_ response : ParagraphLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6966,8 +8213,16 @@ public class WordsAPI : Encryptor {
     // Reads paragraph tab stops from the document node.
     public func getParagraphTabStops(request : GetParagraphTabStopsRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7012,8 +8267,16 @@ public class WordsAPI : Encryptor {
     // Reads paragraph tab stops from the document node.
     public func getParagraphTabStopsOnline(request : GetParagraphTabStopsOnlineRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7058,8 +8321,16 @@ public class WordsAPI : Encryptor {
     // Get assymetric public key.
     public func getPublicKey(request : GetPublicKeyRequest, callback : @escaping (_ response : PublicKeyResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7104,8 +8375,16 @@ public class WordsAPI : Encryptor {
     // Reads range text from the document.
     public func getRangeText(request : GetRangeTextRequest, callback : @escaping (_ response : RangeTextResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7150,8 +8429,16 @@ public class WordsAPI : Encryptor {
     // Reads range text from the document.
     public func getRangeTextOnline(request : GetRangeTextOnlineRequest, callback : @escaping (_ response : RangeTextResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7196,8 +8483,16 @@ public class WordsAPI : Encryptor {
     // Reads a Run object from the paragraph.
     public func getRun(request : GetRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7242,8 +8537,16 @@ public class WordsAPI : Encryptor {
     // Reads the font properties of a Run object from the paragraph.
     public func getRunFont(request : GetRunFontRequest, callback : @escaping (_ response : FontResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7288,8 +8591,16 @@ public class WordsAPI : Encryptor {
     // Reads the font properties of a Run object from the paragraph.
     public func getRunFontOnline(request : GetRunFontOnlineRequest, callback : @escaping (_ response : FontResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7334,8 +8645,16 @@ public class WordsAPI : Encryptor {
     // Reads a Run object from the paragraph.
     public func getRunOnline(request : GetRunOnlineRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7380,8 +8699,16 @@ public class WordsAPI : Encryptor {
     // Reads Run objects from the paragraph.
     public func getRuns(request : GetRunsRequest, callback : @escaping (_ response : RunsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7426,8 +8753,16 @@ public class WordsAPI : Encryptor {
     // Reads Run objects from the paragraph.
     public func getRunsOnline(request : GetRunsOnlineRequest, callback : @escaping (_ response : RunsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7472,8 +8807,16 @@ public class WordsAPI : Encryptor {
     // Reads a section from the document.
     public func getSection(request : GetSectionRequest, callback : @escaping (_ response : SectionResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7518,8 +8861,16 @@ public class WordsAPI : Encryptor {
     // Reads a section from the document.
     public func getSectionOnline(request : GetSectionOnlineRequest, callback : @escaping (_ response : SectionResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7564,8 +8915,16 @@ public class WordsAPI : Encryptor {
     // Reads the page setup of a section from the document.
     public func getSectionPageSetup(request : GetSectionPageSetupRequest, callback : @escaping (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7610,8 +8969,16 @@ public class WordsAPI : Encryptor {
     // Reads the page setup of a section from the document.
     public func getSectionPageSetupOnline(request : GetSectionPageSetupOnlineRequest, callback : @escaping (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7656,8 +9023,16 @@ public class WordsAPI : Encryptor {
     // Reads sections from the document.
     public func getSections(request : GetSectionsRequest, callback : @escaping (_ response : SectionLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7702,8 +9077,16 @@ public class WordsAPI : Encryptor {
     // Reads sections from the document.
     public func getSectionsOnline(request : GetSectionsOnlineRequest, callback : @escaping (_ response : SectionLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7748,8 +9131,16 @@ public class WordsAPI : Encryptor {
     // Reads a style from the document.
     public func getStyle(request : GetStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7794,8 +9185,16 @@ public class WordsAPI : Encryptor {
     // Reads a style from the document node.
     public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7840,8 +9239,16 @@ public class WordsAPI : Encryptor {
     // Reads a style from the document node.
     public func getStyleFromDocumentElementOnline(request : GetStyleFromDocumentElementOnlineRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7886,8 +9293,16 @@ public class WordsAPI : Encryptor {
     // Reads a style from the document.
     public func getStyleOnline(request : GetStyleOnlineRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7932,8 +9347,16 @@ public class WordsAPI : Encryptor {
     // Reads styles from the document.
     public func getStyles(request : GetStylesRequest, callback : @escaping (_ response : StylesResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7978,8 +9401,16 @@ public class WordsAPI : Encryptor {
     // Reads styles from the document.
     public func getStylesOnline(request : GetStylesOnlineRequest, callback : @escaping (_ response : StylesResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8024,8 +9455,16 @@ public class WordsAPI : Encryptor {
     // Reads a table from the document node.
     public func getTable(request : GetTableRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8070,8 +9509,16 @@ public class WordsAPI : Encryptor {
     // Reads a cell from the table row.
     public func getTableCell(request : GetTableCellRequest, callback : @escaping (_ response : TableCellResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8116,8 +9563,16 @@ public class WordsAPI : Encryptor {
     // Reads the formatting properties of a table cell.
     public func getTableCellFormat(request : GetTableCellFormatRequest, callback : @escaping (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8162,8 +9617,16 @@ public class WordsAPI : Encryptor {
     // Reads the formatting properties of a table cell.
     public func getTableCellFormatOnline(request : GetTableCellFormatOnlineRequest, callback : @escaping (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8208,8 +9671,16 @@ public class WordsAPI : Encryptor {
     // Reads a cell from the table row.
     public func getTableCellOnline(request : GetTableCellOnlineRequest, callback : @escaping (_ response : TableCellResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8254,8 +9725,16 @@ public class WordsAPI : Encryptor {
     // Reads a table from the document node.
     public func getTableOnline(request : GetTableOnlineRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8300,8 +9779,16 @@ public class WordsAPI : Encryptor {
     // Reads properties of a table from the document node.
     public func getTableProperties(request : GetTablePropertiesRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8346,8 +9833,16 @@ public class WordsAPI : Encryptor {
     // Reads properties of a table from the document node.
     public func getTablePropertiesOnline(request : GetTablePropertiesOnlineRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8392,8 +9887,16 @@ public class WordsAPI : Encryptor {
     // Reads a row from the table.
     public func getTableRow(request : GetTableRowRequest, callback : @escaping (_ response : TableRowResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8438,8 +9941,16 @@ public class WordsAPI : Encryptor {
     // Reads the formatting properties of a table row.
     public func getTableRowFormat(request : GetTableRowFormatRequest, callback : @escaping (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8484,8 +9995,16 @@ public class WordsAPI : Encryptor {
     // Reads the formatting properties of a table row.
     public func getTableRowFormatOnline(request : GetTableRowFormatOnlineRequest, callback : @escaping (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8530,8 +10049,16 @@ public class WordsAPI : Encryptor {
     // Reads a row from the table.
     public func getTableRowOnline(request : GetTableRowOnlineRequest, callback : @escaping (_ response : TableRowResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8576,8 +10103,16 @@ public class WordsAPI : Encryptor {
     // Reads tables from the document node.
     public func getTables(request : GetTablesRequest, callback : @escaping (_ response : TableLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8622,8 +10157,16 @@ public class WordsAPI : Encryptor {
     // Reads tables from the document node.
     public func getTablesOnline(request : GetTablesOnlineRequest, callback : @escaping (_ response : TableLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8668,8 +10211,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new comment to the document.
     public func insertComment(request : InsertCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8714,8 +10265,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new comment to the document.
     public func insertCommentOnline(request : InsertCommentOnlineRequest, callback : @escaping (_ response : InsertCommentOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8760,8 +10319,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new custom xml part to the document.
     public func insertCustomXmlPart(request : InsertCustomXmlPartRequest, callback : @escaping (_ response : CustomXmlPartResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8806,8 +10373,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new custom xml part to the document.
     public func insertCustomXmlPartOnline(request : InsertCustomXmlPartOnlineRequest, callback : @escaping (_ response : InsertCustomXmlPartOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8852,8 +10427,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new DrawingObject to the document node.
     public func insertDrawingObject(request : InsertDrawingObjectRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8898,8 +10481,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new DrawingObject to the document node.
     public func insertDrawingObjectOnline(request : InsertDrawingObjectOnlineRequest, callback : @escaping (_ response : InsertDrawingObjectOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8944,8 +10535,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new field to the document node.
     public func insertField(request : InsertFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8990,8 +10589,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new field to the document node.
     public func insertFieldOnline(request : InsertFieldOnlineRequest, callback : @escaping (_ response : InsertFieldOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9036,8 +10643,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new footnote to the document node.
     public func insertFootnote(request : InsertFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9082,8 +10697,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new footnote to the document node.
     public func insertFootnoteOnline(request : InsertFootnoteOnlineRequest, callback : @escaping (_ response : InsertFootnoteOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9128,8 +10751,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new form field to the document node.
     public func insertFormField(request : InsertFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9174,8 +10805,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new form field to the document node.
     public func insertFormFieldOnline(request : InsertFormFieldOnlineRequest, callback : @escaping (_ response : InsertFormFieldOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9220,8 +10859,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new HeaderFooter object to the document section.
     public func insertHeaderFooter(request : InsertHeaderFooterRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9266,8 +10913,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new HeaderFooter object to the document section.
     public func insertHeaderFooterOnline(request : InsertHeaderFooterOnlineRequest, callback : @escaping (_ response : InsertHeaderFooterOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9312,8 +10967,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new list to the document.
     public func insertList(request : InsertListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9358,8 +11021,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new list to the document.
     public func insertListOnline(request : InsertListOnlineRequest, callback : @escaping (_ response : InsertListOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9404,8 +11075,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new or updates an existing paragraph tab stop in the document node.
     public func insertOrUpdateParagraphTabStop(request : InsertOrUpdateParagraphTabStopRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9450,8 +11129,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new or updates an existing paragraph tab stop in the document node.
     public func insertOrUpdateParagraphTabStopOnline(request : InsertOrUpdateParagraphTabStopOnlineRequest, callback : @escaping (_ response : InsertOrUpdateParagraphTabStopOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9496,8 +11183,16 @@ public class WordsAPI : Encryptor {
     // Inserts page numbers to the document.
     public func insertPageNumbers(request : InsertPageNumbersRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9542,8 +11237,16 @@ public class WordsAPI : Encryptor {
     // Inserts page numbers to the document.
     public func insertPageNumbersOnline(request : InsertPageNumbersOnlineRequest, callback : @escaping (_ response : InsertPageNumbersOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9588,8 +11291,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new paragraph to the document node.
     public func insertParagraph(request : InsertParagraphRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9634,8 +11345,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new paragraph to the document node.
     public func insertParagraphOnline(request : InsertParagraphOnlineRequest, callback : @escaping (_ response : InsertParagraphOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9680,8 +11399,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new Run object to the paragraph.
     public func insertRun(request : InsertRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9726,8 +11453,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new Run object to the paragraph.
     public func insertRunOnline(request : InsertRunOnlineRequest, callback : @escaping (_ response : InsertRunOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9772,8 +11507,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new style to the document.
     public func insertStyle(request : InsertStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9818,8 +11561,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new style to the document.
     public func insertStyleOnline(request : InsertStyleOnlineRequest, callback : @escaping (_ response : InsertStyleOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9864,8 +11615,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new table to the document node.
     public func insertTable(request : InsertTableRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9910,8 +11669,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new cell to the table row.
     public func insertTableCell(request : InsertTableCellRequest, callback : @escaping (_ response : TableCellResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9956,8 +11723,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new cell to the table row.
     public func insertTableCellOnline(request : InsertTableCellOnlineRequest, callback : @escaping (_ response : InsertTableCellOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10002,8 +11777,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new table to the document node.
     public func insertTableOnline(request : InsertTableOnlineRequest, callback : @escaping (_ response : InsertTableOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10048,8 +11831,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new row to the table.
     public func insertTableRow(request : InsertTableRowRequest, callback : @escaping (_ response : TableRowResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10094,8 +11885,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new row to the table.
     public func insertTableRowOnline(request : InsertTableRowOnlineRequest, callback : @escaping (_ response : InsertTableRowOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10140,8 +11939,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new watermark image to the document.
     public func insertWatermarkImage(request : InsertWatermarkImageRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10186,8 +11993,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new watermark image to the document.
     public func insertWatermarkImageOnline(request : InsertWatermarkImageOnlineRequest, callback : @escaping (_ response : InsertWatermarkImageOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10232,8 +12047,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new watermark text to the document.
     public func insertWatermarkText(request : InsertWatermarkTextRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10278,8 +12101,16 @@ public class WordsAPI : Encryptor {
     // Inserts a new watermark text to the document.
     public func insertWatermarkTextOnline(request : InsertWatermarkTextOnlineRequest, callback : @escaping (_ response : InsertWatermarkTextOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10324,8 +12155,16 @@ public class WordsAPI : Encryptor {
     // Downloads a document from the Web using URL and saves it to cloud storage in the specified format.
     public func loadWebDocument(request : LoadWebDocumentRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10370,8 +12209,16 @@ public class WordsAPI : Encryptor {
     // Move file.
     public func moveFile(request : MoveFileRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -10403,8 +12250,16 @@ public class WordsAPI : Encryptor {
     // Move folder.
     public func moveFolder(request : MoveFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -10436,8 +12291,16 @@ public class WordsAPI : Encryptor {
     // Applies document content optimization options, specific to a particular versions of Microsoft Word.
     public func optimizeDocument(request : OptimizeDocumentRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -10469,8 +12332,16 @@ public class WordsAPI : Encryptor {
     // Applies document content optimization options, specific to a particular versions of Microsoft Word.
     public func optimizeDocumentOnline(request : OptimizeDocumentOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10515,8 +12386,16 @@ public class WordsAPI : Encryptor {
     // Adds protection to the document.
     public func protectDocument(request : ProtectDocumentRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10561,8 +12440,16 @@ public class WordsAPI : Encryptor {
     // Adds protection to the document.
     public func protectDocumentOnline(request : ProtectDocumentOnlineRequest, callback : @escaping (_ response : ProtectDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10607,8 +12494,16 @@ public class WordsAPI : Encryptor {
     // Rejects all revisions in the document.
     public func rejectAllRevisions(request : RejectAllRevisionsRequest, callback : @escaping (_ response : RevisionsModificationResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10653,8 +12548,16 @@ public class WordsAPI : Encryptor {
     // Rejects all revisions in the document.
     public func rejectAllRevisionsOnline(request : RejectAllRevisionsOnlineRequest, callback : @escaping (_ response : RejectAllRevisionsOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10699,8 +12602,16 @@ public class WordsAPI : Encryptor {
     // Removes a range from the document.
     public func removeRange(request : RemoveRangeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10745,8 +12656,16 @@ public class WordsAPI : Encryptor {
     // Removes a range from the document.
     public func removeRangeOnline(request : RemoveRangeOnlineRequest, callback : @escaping (_ response : RemoveRangeOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10791,8 +12710,16 @@ public class WordsAPI : Encryptor {
     // Renders a DrawingObject to the specified format.
     public func renderDrawingObject(request : RenderDrawingObjectRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10837,8 +12764,16 @@ public class WordsAPI : Encryptor {
     // Renders a DrawingObject to the specified format.
     public func renderDrawingObjectOnline(request : RenderDrawingObjectOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10883,8 +12818,16 @@ public class WordsAPI : Encryptor {
     // Renders an OfficeMath object to the specified format.
     public func renderMathObject(request : RenderMathObjectRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10929,8 +12872,16 @@ public class WordsAPI : Encryptor {
     // Renders an OfficeMath object to the specified format.
     public func renderMathObjectOnline(request : RenderMathObjectOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10975,8 +12926,16 @@ public class WordsAPI : Encryptor {
     // Renders a page to the specified format.
     public func renderPage(request : RenderPageRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11021,8 +12980,16 @@ public class WordsAPI : Encryptor {
     // Renders a page to the specified format.
     public func renderPageOnline(request : RenderPageOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11067,8 +13034,16 @@ public class WordsAPI : Encryptor {
     // Renders a paragraph to the specified format.
     public func renderParagraph(request : RenderParagraphRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11113,8 +13088,16 @@ public class WordsAPI : Encryptor {
     // Renders a paragraph to the specified format.
     public func renderParagraphOnline(request : RenderParagraphOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11159,8 +13142,16 @@ public class WordsAPI : Encryptor {
     // Renders a table to the specified format.
     public func renderTable(request : RenderTableRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11205,8 +13196,16 @@ public class WordsAPI : Encryptor {
     // Renders a table to the specified format.
     public func renderTableOnline(request : RenderTableOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11251,8 +13250,16 @@ public class WordsAPI : Encryptor {
     // Replaces text in the document.
     public func replaceText(request : ReplaceTextRequest, callback : @escaping (_ response : ReplaceTextResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11297,8 +13304,16 @@ public class WordsAPI : Encryptor {
     // Replaces text in the document.
     public func replaceTextOnline(request : ReplaceTextOnlineRequest, callback : @escaping (_ response : ReplaceTextOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11343,8 +13358,16 @@ public class WordsAPI : Encryptor {
     // Replaces a range with text in the document.
     public func replaceWithText(request : ReplaceWithTextRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11389,8 +13412,16 @@ public class WordsAPI : Encryptor {
     // Replaces a range with text in the document.
     public func replaceWithTextOnline(request : ReplaceWithTextOnlineRequest, callback : @escaping (_ response : ReplaceWithTextOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11435,8 +13466,16 @@ public class WordsAPI : Encryptor {
     // Clears the font cache.
     public func resetCache(request : ResetCacheRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     callback(error);
                 }
@@ -11468,8 +13507,16 @@ public class WordsAPI : Encryptor {
     // Converts a document in cloud storage to the specified format.
     public func saveAs(request : SaveAsRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11514,8 +13561,16 @@ public class WordsAPI : Encryptor {
     // Converts a document to the specified format.
     public func saveAsOnline(request : SaveAsOnlineRequest, callback : @escaping (_ response : SaveAsOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11560,8 +13615,16 @@ public class WordsAPI : Encryptor {
     // Saves a range as a new document.
     public func saveAsRange(request : SaveAsRangeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11606,8 +13669,16 @@ public class WordsAPI : Encryptor {
     // Saves a range as a new document.
     public func saveAsRangeOnline(request : SaveAsRangeOnlineRequest, callback : @escaping (_ response : SaveAsRangeOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11652,8 +13723,16 @@ public class WordsAPI : Encryptor {
     // Converts a document in cloud storage to TIFF format using detailed conversion settings.
     public func saveAsTiff(request : SaveAsTiffRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11698,8 +13777,16 @@ public class WordsAPI : Encryptor {
     // Converts a document to TIFF format using detailed conversion settings.
     public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest, callback : @escaping (_ response : SaveAsTiffOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11744,8 +13831,16 @@ public class WordsAPI : Encryptor {
     // Searches text, specified by the regular expression, in the document.
     public func search(request : SearchRequest, callback : @escaping (_ response : SearchResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11790,8 +13885,16 @@ public class WordsAPI : Encryptor {
     // Searches text, specified by the regular expression, in the document.
     public func searchOnline(request : SearchOnlineRequest, callback : @escaping (_ response : SearchResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11836,8 +13939,16 @@ public class WordsAPI : Encryptor {
     // Splits a document into parts and saves them in the specified format.
     public func splitDocument(request : SplitDocumentRequest, callback : @escaping (_ response : SplitDocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11882,8 +13993,16 @@ public class WordsAPI : Encryptor {
     // Splits a document into parts and saves them in the specified format.
     public func splitDocumentOnline(request : SplitDocumentOnlineRequest, callback : @escaping (_ response : SplitDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11928,8 +14047,16 @@ public class WordsAPI : Encryptor {
     // Removes protection from the document.
     public func unprotectDocument(request : UnprotectDocumentRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11974,8 +14101,16 @@ public class WordsAPI : Encryptor {
     // Removes protection from the document.
     public func unprotectDocumentOnline(request : UnprotectDocumentOnlineRequest, callback : @escaping (_ response : UnprotectDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12020,8 +14155,16 @@ public class WordsAPI : Encryptor {
     // Updates a bookmark in the document.
     public func updateBookmark(request : UpdateBookmarkRequest, callback : @escaping (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12066,8 +14209,16 @@ public class WordsAPI : Encryptor {
     // Updates a bookmark in the document.
     public func updateBookmarkOnline(request : UpdateBookmarkOnlineRequest, callback : @escaping (_ response : UpdateBookmarkOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12112,8 +14263,16 @@ public class WordsAPI : Encryptor {
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func updateBorder(request : UpdateBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12158,8 +14317,16 @@ public class WordsAPI : Encryptor {
     // Updates a border in the document node.
     public func updateBorderOnline(request : UpdateBorderOnlineRequest, callback : @escaping (_ response : UpdateBorderOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12204,8 +14371,16 @@ public class WordsAPI : Encryptor {
     // Updates a comment in the document.
     public func updateComment(request : UpdateCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12250,8 +14425,16 @@ public class WordsAPI : Encryptor {
     // Updates a comment in the document.
     public func updateCommentOnline(request : UpdateCommentOnlineRequest, callback : @escaping (_ response : UpdateCommentOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12296,8 +14479,16 @@ public class WordsAPI : Encryptor {
     // Updates the custom xml part in the document.
     public func updateCustomXmlPart(request : UpdateCustomXmlPartRequest, callback : @escaping (_ response : CustomXmlPartResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12342,8 +14533,16 @@ public class WordsAPI : Encryptor {
     // Updates the custom xml part in the document.
     public func updateCustomXmlPartOnline(request : UpdateCustomXmlPartOnlineRequest, callback : @escaping (_ response : UpdateCustomXmlPartOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12388,8 +14587,16 @@ public class WordsAPI : Encryptor {
     // Updates a DrawingObject in the document node.
     public func updateDrawingObject(request : UpdateDrawingObjectRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12434,8 +14641,16 @@ public class WordsAPI : Encryptor {
     // Updates a DrawingObject in the document node.
     public func updateDrawingObjectOnline(request : UpdateDrawingObjectOnlineRequest, callback : @escaping (_ response : UpdateDrawingObjectOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12480,8 +14695,16 @@ public class WordsAPI : Encryptor {
     // Updates a field in the document node.
     public func updateField(request : UpdateFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12526,8 +14749,16 @@ public class WordsAPI : Encryptor {
     // Updates a field in the document node.
     public func updateFieldOnline(request : UpdateFieldOnlineRequest, callback : @escaping (_ response : UpdateFieldOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12572,8 +14803,16 @@ public class WordsAPI : Encryptor {
     // Reevaluates field values in the document.
     public func updateFields(request : UpdateFieldsRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12618,8 +14857,16 @@ public class WordsAPI : Encryptor {
     // Reevaluates field values in the document.
     public func updateFieldsOnline(request : UpdateFieldsOnlineRequest, callback : @escaping (_ response : UpdateFieldsOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12664,8 +14911,16 @@ public class WordsAPI : Encryptor {
     // Updates a footnote in the document node.
     public func updateFootnote(request : UpdateFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12710,8 +14965,16 @@ public class WordsAPI : Encryptor {
     // Updates a footnote in the document node.
     public func updateFootnoteOnline(request : UpdateFootnoteOnlineRequest, callback : @escaping (_ response : UpdateFootnoteOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12756,8 +15019,16 @@ public class WordsAPI : Encryptor {
     // Updates a form field in the document node.
     public func updateFormField(request : UpdateFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12802,8 +15073,16 @@ public class WordsAPI : Encryptor {
     // Updates a form field in the document node.
     public func updateFormFieldOnline(request : UpdateFormFieldOnlineRequest, callback : @escaping (_ response : UpdateFormFieldOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12848,8 +15127,16 @@ public class WordsAPI : Encryptor {
     // Updates a list in the document.
     public func updateList(request : UpdateListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12894,8 +15181,16 @@ public class WordsAPI : Encryptor {
     // Updates the level of a List element in the document.
     public func updateListLevel(request : UpdateListLevelRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12940,8 +15235,16 @@ public class WordsAPI : Encryptor {
     // Updates the level of a List element in the document.
     public func updateListLevelOnline(request : UpdateListLevelOnlineRequest, callback : @escaping (_ response : UpdateListLevelOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12986,8 +15289,16 @@ public class WordsAPI : Encryptor {
     // Updates a list in the document.
     public func updateListOnline(request : UpdateListOnlineRequest, callback : @escaping (_ response : UpdateListOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13032,8 +15343,16 @@ public class WordsAPI : Encryptor {
     // Updates the formatting properties of a paragraph in the document node.
     public func updateParagraphFormat(request : UpdateParagraphFormatRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13078,8 +15397,16 @@ public class WordsAPI : Encryptor {
     // Updates the formatting properties of a paragraph in the document node.
     public func updateParagraphFormatOnline(request : UpdateParagraphFormatOnlineRequest, callback : @escaping (_ response : UpdateParagraphFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13124,8 +15451,16 @@ public class WordsAPI : Encryptor {
     // Updates the formatting properties of a paragraph list in the document node.
     public func updateParagraphListFormat(request : UpdateParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13170,8 +15505,16 @@ public class WordsAPI : Encryptor {
     // Updates the formatting properties of a paragraph list in the document node.
     public func updateParagraphListFormatOnline(request : UpdateParagraphListFormatOnlineRequest, callback : @escaping (_ response : UpdateParagraphListFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13216,8 +15559,16 @@ public class WordsAPI : Encryptor {
     // Updates a Run object in the paragraph.
     public func updateRun(request : UpdateRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13262,8 +15613,16 @@ public class WordsAPI : Encryptor {
     // Updates the font properties of a Run object in the paragraph.
     public func updateRunFont(request : UpdateRunFontRequest, callback : @escaping (_ response : FontResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13308,8 +15667,16 @@ public class WordsAPI : Encryptor {
     // Updates the font properties of a Run object in the paragraph.
     public func updateRunFontOnline(request : UpdateRunFontOnlineRequest, callback : @escaping (_ response : UpdateRunFontOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13354,8 +15721,16 @@ public class WordsAPI : Encryptor {
     // Updates a Run object in the paragraph.
     public func updateRunOnline(request : UpdateRunOnlineRequest, callback : @escaping (_ response : UpdateRunOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13400,8 +15775,16 @@ public class WordsAPI : Encryptor {
     // Updates the page setup of a section in the document.
     public func updateSectionPageSetup(request : UpdateSectionPageSetupRequest, callback : @escaping (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13446,8 +15829,16 @@ public class WordsAPI : Encryptor {
     // Updates the page setup of a section in the document.
     public func updateSectionPageSetupOnline(request : UpdateSectionPageSetupOnlineRequest, callback : @escaping (_ response : UpdateSectionPageSetupOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13492,8 +15883,16 @@ public class WordsAPI : Encryptor {
     // Updates a style in the document.
     public func updateStyle(request : UpdateStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13538,8 +15937,16 @@ public class WordsAPI : Encryptor {
     // Updates a style in the document.
     public func updateStyleOnline(request : UpdateStyleOnlineRequest, callback : @escaping (_ response : UpdateStyleOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13584,8 +15991,16 @@ public class WordsAPI : Encryptor {
     // Updates the formatting properties of a cell in the table row.
     public func updateTableCellFormat(request : UpdateTableCellFormatRequest, callback : @escaping (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13630,8 +16045,16 @@ public class WordsAPI : Encryptor {
     // Updates the formatting properties of a cell in the table row.
     public func updateTableCellFormatOnline(request : UpdateTableCellFormatOnlineRequest, callback : @escaping (_ response : UpdateTableCellFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13676,8 +16099,16 @@ public class WordsAPI : Encryptor {
     // Updates properties of a table in the document node.
     public func updateTableProperties(request : UpdateTablePropertiesRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13722,8 +16153,16 @@ public class WordsAPI : Encryptor {
     // Updates properties of a table in the document node.
     public func updateTablePropertiesOnline(request : UpdateTablePropertiesOnlineRequest, callback : @escaping (_ response : UpdateTablePropertiesOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13768,8 +16207,16 @@ public class WordsAPI : Encryptor {
     // Updates the formatting properties of a table row.
     public func updateTableRowFormat(request : UpdateTableRowFormatRequest, callback : @escaping (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13814,8 +16261,16 @@ public class WordsAPI : Encryptor {
     // Updates the formatting properties of a table row.
     public func updateTableRowFormatOnline(request : UpdateTableRowFormatOnlineRequest, callback : @escaping (_ response : UpdateTableRowFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13860,8 +16315,16 @@ public class WordsAPI : Encryptor {
     // Upload file.
     public func uploadFile(request : UploadFileRequest, callback : @escaping (_ response : FilesUploadResult?, _ error : Error?) -> ()) {
         do {
-            apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
                 callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13905,7 +16368,15 @@ public class WordsAPI : Encryptor {
     // Async representation of batch method
     public func batch(requests : [BatchRequest], displayIntermediateResults : Bool = true, callback : @escaping (_ response : [Any?]?, _ error : Error?) -> ()) {
         do {
-            let apiRequestData = try requests.map { try $0.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration) };
+            if (self.apiInvoker == nil) {
+#if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+#else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+#endif
+            }
+
+            let apiRequestData = try requests.map { try $0.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration) };
             let formParams = try apiRequestData.map { RequestFormParam(name: nil, body: try $0.toBatchPart(configuration: self.configuration), contentType: "application/http; msgtype=request") };
             let apiBatchUrl = (try self.configuration.getApiRootUrl()).appendingPathComponent("/words/batch");
             var urlBuilder = URLComponents(url: apiBatchUrl, resolvingAgainstBaseURL: false)!;
@@ -13915,7 +16386,7 @@ public class WordsAPI : Encryptor {
 
             var apiBatchRequestData = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
             apiBatchRequestData.setBody(formParams: formParams);
-            apiInvoker.invoke(
+            apiInvoker!.invoke(
                 apiRequestData: apiBatchRequestData,
                 callback: { response, headers, error in
                     if (response != nil) {
@@ -13978,10 +16449,10 @@ public class WordsAPI : Encryptor {
 #else    
     // Encrypt string data
     public func encrypt(data : String) throws -> String {
-        if (encryptionKey == null) {
+        if (encryptionKey == nil) {
 
-            let modulus = self.configuration.getRsaModulus();
-            let exponent = self.configuration.getRsaExponent();
+            var modulus = self.configuration.getRsaModulus();
+            var exponent = self.configuration.getRsaExponent();
 
             if (modulus == nil || exponent == nil) {
                 let response = try getPublicKey(request: GetPublicKeyRequest());
@@ -13989,7 +16460,7 @@ public class WordsAPI : Encryptor {
                 modulus = response.getModulus();
             }
 
-            setEncryptionData(exponent, modulus);
+            try setEncryptionData(exponent: exponent!, modulus: modulus!);
         }
 
         let buffer = data.data(using: .utf8)!;
@@ -14003,25 +16474,33 @@ public class WordsAPI : Encryptor {
     }
 
     private func setEncryptionData(exponent: String, modulus: String) throws {
-        let exponent = Data(base64Encoded: data.getExponent()!)!;
-        let modulus = Data(base64Encoded: data.getModulus()!)!;
+        if (self.apiInvoker == nil) {
+#if os(Linux)
+            self.apiInvoker = ApiInvoker(configuration: configuration);
+#else
+            self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+#endif
+        }
+
+        let exponent = Data(base64Encoded: exponent)!;
+        let modulus = Data(base64Encoded: modulus)!;
         let exponentBytes = [UInt8](exponent);
         var modulusBytes = [UInt8](modulus);
         modulusBytes.insert(0x00, at: 0);
 
         var modulusEncoded: [UInt8] = [];
         modulusEncoded.append(0x02);
-        modulusEncoded.append(contentsOf: lengthField(of: modulusBytes));
+        modulusEncoded.append(contentsOf: apiInvoker!.lengthField(of: modulusBytes));
         modulusEncoded.append(contentsOf: modulusBytes);
 
         var exponentEncoded: [UInt8] = [];
         exponentEncoded.append(0x02);
-        exponentEncoded.append(contentsOf: lengthField(of: exponentBytes));
+        exponentEncoded.append(contentsOf: apiInvoker!.lengthField(of: exponentBytes));
         exponentEncoded.append(contentsOf: exponentBytes);
 
         var sequenceEncoded: [UInt8] = [];
         sequenceEncoded.append(0x30);
-        sequenceEncoded.append(contentsOf: lengthField(of: (modulusEncoded + exponentEncoded)));
+        sequenceEncoded.append(contentsOf: apiInvoker!.lengthField(of: (modulusEncoded + exponentEncoded)));
         sequenceEncoded.append(contentsOf: (modulusEncoded + exponentEncoded));
 
         let keyData = Data(bytes: sequenceEncoded);

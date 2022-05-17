@@ -33,9 +33,6 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     // Gets or sets the hash algorithm.
     public enum HashAlgorithm : String, Codable
     {
-        // Enum value "sha1"
-        case sha1 = "Sha1"
-
         // Enum value "sha256"
         case sha256 = "Sha256"
 
@@ -44,9 +41,6 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
 
         // Enum value "sha512"
         case sha512 = "Sha512"
-
-        // Enum value "md5"
-        case md5 = "Md5"
 
         // Enum value "ripeMD160"
         case ripeMD160 = "RipeMD160"
