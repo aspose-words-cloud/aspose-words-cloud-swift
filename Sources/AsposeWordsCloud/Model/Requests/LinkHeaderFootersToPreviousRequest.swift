@@ -250,7 +250,7 @@ public class LinkHeaderFootersToPreviousRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          return result;
     }
 

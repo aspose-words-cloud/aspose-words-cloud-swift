@@ -105,7 +105,11 @@ class SectionTests: BaseTestContext {
 
     // Test for linking headers and footers to previous section.
     func testLinkHeaderFootersToPrevious() throws {
-      let request = LinkHeaderFootersToPreviousRequest(name: "DocumentElements/Sections/Source.docx", sectionIndex: 1);
+      let remoteFileName = "TestLinkHeaderFootersToPrevious.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("DocumentElements/Sections/Source.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = LinkHeaderFootersToPreviousRequest(name: remoteFileName, sectionIndex: 1, folder: remoteDataFolder);
       try super.getApi().linkHeaderFootersToPrevious(request: request);
     }
 }
