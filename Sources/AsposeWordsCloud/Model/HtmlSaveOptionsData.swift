@@ -384,30 +384,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         }
     }
 
-    // Field of exportShapesAsSvg. Container class for html save options.
-    private var _exportShapesAsSvg : Bool? = nil;
-
-    public var exportShapesAsSvg : Bool? {
-        get {
-            return self._exportShapesAsSvg;
-        }
-        set {
-            self._exportShapesAsSvg = newValue;
-        }
-    }
-
-    // Field of exportTextBoxAsSvg. Container class for html save options.
-    private var _exportTextBoxAsSvg : Bool? = nil;
-
-    public var exportTextBoxAsSvg : Bool? {
-        get {
-            return self._exportTextBoxAsSvg;
-        }
-        set {
-            self._exportTextBoxAsSvg = newValue;
-        }
-    }
-
     // Field of exportTextInputFormFieldAsText. Container class for html save options.
     private var _exportTextInputFormFieldAsText : Bool? = nil;
 
@@ -654,8 +630,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         case exportPageSetup = "ExportPageSetup";
         case exportRelativeFontSize = "ExportRelativeFontSize";
         case exportRoundtripInformation = "ExportRoundtripInformation";
-        case exportShapesAsSvg = "ExportShapesAsSvg";
-        case exportTextBoxAsSvg = "ExportTextBoxAsSvg";
         case exportTextInputFormFieldAsText = "ExportTextInputFormFieldAsText";
         case exportTocPageNumbers = "ExportTocPageNumbers";
         case exportXhtmlTransitional = "ExportXhtmlTransitional";
@@ -704,8 +678,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         self.exportPageSetup = try container.decodeIfPresent(Bool.self, forKey: .exportPageSetup);
         self.exportRelativeFontSize = try container.decodeIfPresent(Bool.self, forKey: .exportRelativeFontSize);
         self.exportRoundtripInformation = try container.decodeIfPresent(Bool.self, forKey: .exportRoundtripInformation);
-        self.exportShapesAsSvg = try container.decodeIfPresent(Bool.self, forKey: .exportShapesAsSvg);
-        self.exportTextBoxAsSvg = try container.decodeIfPresent(Bool.self, forKey: .exportTextBoxAsSvg);
         self.exportTextInputFormFieldAsText = try container.decodeIfPresent(Bool.self, forKey: .exportTextInputFormFieldAsText);
         self.exportTocPageNumbers = try container.decodeIfPresent(Bool.self, forKey: .exportTocPageNumbers);
         self.exportXhtmlTransitional = try container.decodeIfPresent(Bool.self, forKey: .exportXhtmlTransitional);
@@ -788,12 +760,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         }
         if (self.exportRoundtripInformation != nil) {
             try container.encode(self.exportRoundtripInformation, forKey: .exportRoundtripInformation);
-        }
-        if (self.exportShapesAsSvg != nil) {
-            try container.encode(self.exportShapesAsSvg, forKey: .exportShapesAsSvg);
-        }
-        if (self.exportTextBoxAsSvg != nil) {
-            try container.encode(self.exportTextBoxAsSvg, forKey: .exportTextBoxAsSvg);
         }
         if (self.exportTextInputFormFieldAsText != nil) {
             try container.encode(self.exportTextInputFormFieldAsText, forKey: .exportTextInputFormFieldAsText);
@@ -1088,30 +1054,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Gets exportRoundtripInformation. Gets or sets a value indicating whether to write the roundtrip information when saving to HTML. The default value is true.
     public func getExportRoundtripInformation() -> Bool? {
         return self.exportRoundtripInformation;
-    }
-
-
-    // Sets exportShapesAsSvg. Gets or sets the flag, that controls whether Aspose.Words.Drawing.Shape nodes are converted to SVG images when saving to HTML, MHTML or EPUB. Default value is false.
-    public func setExportShapesAsSvg(exportShapesAsSvg : Bool?) -> HtmlSaveOptionsData {
-        self.exportShapesAsSvg = exportShapesAsSvg;
-        return self;
-    }
-
-    // Gets exportShapesAsSvg. Gets or sets the flag, that controls whether Aspose.Words.Drawing.Shape nodes are converted to SVG images when saving to HTML, MHTML or EPUB. Default value is false.
-    public func getExportShapesAsSvg() -> Bool? {
-        return self.exportShapesAsSvg;
-    }
-
-
-    // Sets exportTextBoxAsSvg. Gets or sets the flag, that controls how textboxes represented by Aspose.Words.Drawing.Shape are saved to HTML, MHTML or EPUB. The default value is false. When set to true, exports textboxes as inline "svg" elements. When false, exports as "image" elements.
-    public func setExportTextBoxAsSvg(exportTextBoxAsSvg : Bool?) -> HtmlSaveOptionsData {
-        self.exportTextBoxAsSvg = exportTextBoxAsSvg;
-        return self;
-    }
-
-    // Gets exportTextBoxAsSvg. Gets or sets the flag, that controls how textboxes represented by Aspose.Words.Drawing.Shape are saved to HTML, MHTML or EPUB. The default value is false. When set to true, exports textboxes as inline "svg" elements. When false, exports as "image" elements.
-    public func getExportTextBoxAsSvg() -> Bool? {
-        return self.exportTextBoxAsSvg;
     }
 
 

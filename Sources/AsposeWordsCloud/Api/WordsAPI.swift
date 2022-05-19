@@ -12151,6 +12151,47 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of linkHeaderFootersToPrevious method
+    // Links headers / footers of the section to the previous one.
+    public func linkHeaderFootersToPrevious(request : LinkHeaderFootersToPreviousRequest, callback : @escaping (_ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    callback(error);
+                }
+            );
+        }
+        catch let error {
+            callback(error);
+        }
+    }
+
+    // Sync representation of linkHeaderFootersToPrevious method
+    // Links headers / footers of the section to the previous one.
+    public func linkHeaderFootersToPrevious(request : LinkHeaderFootersToPreviousRequest) throws {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseError : Error? = nil;
+        self.linkHeaderFootersToPrevious(request : request, callback: { error in
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+    }
+
     // Async representation of loadWebDocument method
     // Downloads a document from the Web using URL and saves it to cloud storage in the specified format.
     public func loadWebDocument(request : LoadWebDocumentRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
