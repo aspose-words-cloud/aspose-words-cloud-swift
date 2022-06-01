@@ -1367,6 +1367,196 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of deleteBookmark method
+    // Removes a bookmark from the document.
+    public func deleteBookmark(request : DeleteBookmarkRequest, callback : @escaping (_ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    callback(error);
+                }
+            );
+        }
+        catch let error {
+            callback(error);
+        }
+    }
+
+    // Sync representation of deleteBookmark method
+    // Removes a bookmark from the document.
+    public func deleteBookmark(request : DeleteBookmarkRequest) throws {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseError : Error? = nil;
+        self.deleteBookmark(request : request, callback: { error in
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+    }
+
+    // Async representation of deleteBookmarkOnline method
+    // Removes a bookmark from the document.
+    public func deleteBookmarkOnline(request : DeleteBookmarkOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of deleteBookmarkOnline method
+    // Removes a bookmark from the document.
+    public func deleteBookmarkOnline(request : DeleteBookmarkOnlineRequest) throws -> [String: Data] {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : [String: Data]? = nil;
+        var responseError : Error? = nil;
+        self.deleteBookmarkOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of deleteBookmarks method
+    // Removes all bookmarks from the document.
+    public func deleteBookmarks(request : DeleteBookmarksRequest, callback : @escaping (_ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    callback(error);
+                }
+            );
+        }
+        catch let error {
+            callback(error);
+        }
+    }
+
+    // Sync representation of deleteBookmarks method
+    // Removes all bookmarks from the document.
+    public func deleteBookmarks(request : DeleteBookmarksRequest) throws {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseError : Error? = nil;
+        self.deleteBookmarks(request : request, callback: { error in
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+    }
+
+    // Async representation of deleteBookmarksOnline method
+    // Removes all bookmarks from the document.
+    public func deleteBookmarksOnline(request : DeleteBookmarksOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of deleteBookmarksOnline method
+    // Removes all bookmarks from the document.
+    public func deleteBookmarksOnline(request : DeleteBookmarksOnlineRequest) throws -> [String: Data] {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : [String: Data]? = nil;
+        var responseError : Error? = nil;
+        self.deleteBookmarksOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of deleteBorder method
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBorder(request : DeleteBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
@@ -10194,6 +10384,114 @@ public class WordsAPI : Encryptor {
         var responseObject : TableLinkCollectionResponse? = nil;
         var responseError : Error? = nil;
         self.getTablesOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of insertBookmark method
+    // Inserts a new bookmark to the document.
+    public func insertBookmark(request : InsertBookmarkRequest, callback : @escaping (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? BookmarkResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of insertBookmark method
+    // Inserts a new bookmark to the document.
+    public func insertBookmark(request : InsertBookmarkRequest) throws -> BookmarkResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : BookmarkResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertBookmark(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of insertBookmarkOnline method
+    // Inserts a new bookmark to the document.
+    public func insertBookmarkOnline(request : InsertBookmarkOnlineRequest, callback : @escaping (_ response : InsertBookmarkOnlineResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertBookmarkOnlineResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of insertBookmarkOnline method
+    // Inserts a new bookmark to the document.
+    public func insertBookmarkOnline(request : InsertBookmarkOnlineRequest) throws -> InsertBookmarkOnlineResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : InsertBookmarkOnlineResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertBookmarkOnline(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();

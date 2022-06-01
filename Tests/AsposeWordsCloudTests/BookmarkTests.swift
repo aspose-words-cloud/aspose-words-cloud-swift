@@ -37,7 +37,13 @@ class BookmarkTests: BaseTestContext {
         ("testGetBookmarkByName", testGetBookmarkByName),
         ("testGetBookmarkByNameOnline", testGetBookmarkByNameOnline),
         ("testUpdateBookmark", testUpdateBookmark),
-        ("testUpdateBookmarkOnline", testUpdateBookmarkOnline)
+        ("testUpdateBookmarkOnline", testUpdateBookmarkOnline),
+        ("testDeleteBookmark", testDeleteBookmark),
+        ("testDeleteBookmarkOnline", testDeleteBookmarkOnline),
+        ("testDeleteBookmarks", testDeleteBookmarks),
+        ("testDeleteBookmarksOnline", testDeleteBookmarksOnline),
+        ("testInsertBookmark", testInsertBookmark),
+        ("testInsertBookmarkOnline", testInsertBookmarkOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Bookmarks";
@@ -102,5 +108,82 @@ class BookmarkTests: BaseTestContext {
         .setText(text: "This will be the text for Aspose");
       let request = UpdateBookmarkOnlineRequest(document: requestDocument, bookmarkName: bookmarkName, bookmarkData: requestBookmarkData, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateBookmarkOnline(request: request);
+    }
+
+    // Test for deleting bookmark by specified name.
+    func testDeleteBookmark() throws {
+      let remoteFileName = "TestDeleteBookmark.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = DeleteBookmarkRequest(name: remoteFileName, bookmarkName: bookmarkName, folder: remoteDataFolder);
+      try super.getApi().deleteBookmark(request: request);
+    }
+
+    // Test for deleting bookmark by specified name online.
+    func testDeleteBookmarkOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = DeleteBookmarkOnlineRequest(document: requestDocument, bookmarkName: bookmarkName);
+      _ = try super.getApi().deleteBookmarkOnline(request: request);
+    }
+
+    // Test for deleting all bookmarks from document.
+    func testDeleteBookmarks() throws {
+      let remoteFileName = "TestDeleteBookmarks.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = DeleteBookmarksRequest(name: remoteFileName, folder: remoteDataFolder);
+      try super.getApi().deleteBookmarks(request: request);
+    }
+
+    // Test for deleting all bookmarks from document online.
+    func testDeleteBookmarksOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = DeleteBookmarksOnlineRequest(document: requestDocument);
+      _ = try super.getApi().deleteBookmarksOnline(request: request);
+    }
+
+    // Test for inserting new bookmark.
+    func testInsertBookmark() throws {
+      let remoteFileName = "TestInsertBookmark.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestBookmarkStartRangeNode = NodeLink()
+        .setNodeId(nodeId: "0.0.0.0");
+      let requestBookmarkStartRange = DocumentPosition()
+        .setNode(node: requestBookmarkStartRangeNode);
+      let requestBookmarkEndRangeNode = NodeLink()
+        .setNodeId(nodeId: "0.0.0.0");
+      let requestBookmarkEndRange = DocumentPosition()
+        .setNode(node: requestBookmarkEndRangeNode);
+      let requestBookmark = BookmarkInsert()
+        .setEndRange(endRange: requestBookmarkEndRange)
+        .setStartRange(startRange: requestBookmarkStartRange)
+        .setName(name: "new_bookmark")
+        .setText(text: "Some text");
+      let request = InsertBookmarkRequest(name: remoteFileName, bookmark: requestBookmark as! BookmarkInsert, folder: remoteDataFolder);
+      _ = try super.getApi().insertBookmark(request: request);
+    }
+
+    // Test for inserting new bookmark online.
+    func testInsertBookmarkOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let requestBookmarkStartRangeNode = NodeLink()
+        .setNodeId(nodeId: "0.0.0.0");
+      let requestBookmarkStartRange = DocumentPosition()
+        .setNode(node: requestBookmarkStartRangeNode);
+      let requestBookmarkEndRangeNode = NodeLink()
+        .setNodeId(nodeId: "0.0.0.0");
+      let requestBookmarkEndRange = DocumentPosition()
+        .setNode(node: requestBookmarkEndRangeNode);
+      let requestBookmark = BookmarkInsert()
+        .setEndRange(endRange: requestBookmarkEndRange)
+        .setStartRange(startRange: requestBookmarkStartRange)
+        .setName(name: "new_bookmark")
+        .setText(text: "Some text");
+      let request = InsertBookmarkOnlineRequest(document: requestDocument, bookmark: requestBookmark as! BookmarkInsert);
+      _ = try super.getApi().insertBookmarkOnline(request: request);
     }
 }
