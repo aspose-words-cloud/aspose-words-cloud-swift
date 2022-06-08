@@ -1057,7 +1057,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Async representation of createDocument method
-    // Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
+    // Supported all save format extensions.
     public func createDocument(request : CreateDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -1091,7 +1091,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Sync representation of createDocument method
-    // Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
+    // Supported all save format extensions.
     public func createDocument(request : CreateDocumentRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
