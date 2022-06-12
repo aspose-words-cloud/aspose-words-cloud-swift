@@ -13,6 +13,19 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 22.6
+
+- Added 'DeleteBookmark' and 'DeleteBookmarkOnline' API methods for delete bookmarks by name from the document.
+- Added 'DeleteBookmarks' and 'DeleteBookmarksOnline' API methods for delete all bookmarks from the document.
+- Added 'InsertBookmark' and 'InsertBookmarkOnline' API methods for create new bookmarks in the document.
+- Support all save formats for 'CreateDocument' operation.
+
+
+## Enhancements in Version 22.5
+
+- Internal API fixes and improvments.
+
+
 ## Enhancements in Version 22.4
 
 - Added ExportShapesAsSvg to HtmlSaveOption.
@@ -204,7 +217,7 @@ Add link to this repository as dependency to your Package.swift:
 
 dependencies: [
     // Dependencies declare other packages that this package depends on.
-    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "22.5"),
+    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "22.6"),
 ],
 targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -222,7 +235,7 @@ targets: [
 Add link to git repository as dependency to your Podfile:
 
 ```ruby
-pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '22.5'
+pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '22.6'
 ```
 
 ## Getting Started
