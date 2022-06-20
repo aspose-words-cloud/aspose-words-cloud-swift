@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class AppendDocumentRequest : WordsApiRequest {
     private let name : String;
-    private let documentList : DocumentEntryList;
+    private let documentList : BaseEntryList;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -56,7 +56,7 @@ public class AppendDocumentRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the AppendDocumentRequest class.
-    public init(name : String, documentList : DocumentEntryList, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, documentList : BaseEntryList, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.documentList = documentList;
         self.folder = folder;
@@ -74,8 +74,8 @@ public class AppendDocumentRequest : WordsApiRequest {
         return self.name;
     }
 
-    // <see cref="DocumentEntryList"/> with a list of documents to append.
-    public func getDocumentList() -> DocumentEntryList {
+    // <see cref="BaseEntryList"/> with a list of entries to append.
+    public func getDocumentList() -> BaseEntryList {
         return self.documentList;
     }
 

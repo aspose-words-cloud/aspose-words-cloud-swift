@@ -29,7 +29,7 @@ import Foundation
 
 // Represents a list of documents which will be appended to the original resource document.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class DocumentEntryList : Codable, WordsApiModel {
+public class DocumentEntryList : BaseEntryList {
     // Field of applyBaseDocumentHeadersAndFootersToAppendingDocuments. Represents a list of documents which will be appended to the original resource document.
     private var _applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool? = nil;
 
@@ -60,16 +60,19 @@ public class DocumentEntryList : Codable, WordsApiModel {
         case invalidCodingKey;
     }
 
-    public init() {
+    public override init() {
+        super.init();
     }
 
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.applyBaseDocumentHeadersAndFootersToAppendingDocuments = try container.decodeIfPresent(Bool.self, forKey: .applyBaseDocumentHeadersAndFootersToAppendingDocuments);
         self.documentEntries = try container.decodeIfPresent([DocumentEntry].self, forKey: .documentEntries);
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.applyBaseDocumentHeadersAndFootersToAppendingDocuments != nil) {
             try container.encode(self.applyBaseDocumentHeadersAndFootersToAppendingDocuments, forKey: .applyBaseDocumentHeadersAndFootersToAppendingDocuments);
