@@ -37,6 +37,7 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(ClassificationTests.allTests),
         testCase(CommentTests.allTests),
         testCase(CompareDocumentTests.allTests),
+        testCase(CompressDocumentTests.allTests),
         testCase(ConvertDocumentTests.allTests),
         testCase(CustomXmlPartsTests.allTests),
         testCase(DocumentTests.allTests),
