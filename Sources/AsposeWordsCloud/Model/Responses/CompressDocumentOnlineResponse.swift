@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ReportBuildOptions.swift">
+ * <copyright company="Aspose" file="CompressDocumentOnlineResponse.swift">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,24 +27,31 @@
 
 import Foundation
 
-// Specifies options controlling behavior of ReportingEngine while building a report.
-public enum ReportBuildOptions : String, Codable
-{
-    // Enum value "_none"
-    case _none = "None"
+// Response model for compressDocumentOnline operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
+public class CompressDocumentOnlineResponse {
+    private let model : CompressResponse?;
+    private let document : [String: Data]?;
 
-    // Enum value "allowMissingMembers"
-    case allowMissingMembers = "AllowMissingMembers"
+    private enum CodingKeys: String, CodingKey {
+        case model;
+        case document;
+        case invalidCodingKey;
+    }
 
-    // Enum value "removeEmptyParagraphs"
-    case removeEmptyParagraphs = "RemoveEmptyParagraphs"
+    // Initializes a new instance of the CompressDocumentOnlineResponse class.
+    public init(model : CompressResponse?, document : [String: Data]?) {
+        self.model = model;
+        self.document = document;
+    }
 
-    // Enum value "inlineErrorMessages"
-    case inlineErrorMessages = "InlineErrorMessages"
+    // The response model.
+    public func getModel() -> CompressResponse? {
+        return self.model;
+    }
 
-    // Enum value "useLegacyHeaderFooterVisiting"
-    case useLegacyHeaderFooterVisiting = "UseLegacyHeaderFooterVisiting"
-
-    // Enum value "respectJpegExifOrientation"
-    case respectJpegExifOrientation = "RespectJpegExifOrientation"
+    // The document after modification.
+    public func getDocument() -> [String: Data]? {
+        return self.document;
+    }
 }

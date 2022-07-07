@@ -758,6 +758,114 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of compressDocument method
+    // The default settings allows to reduce the size of the document without any visible degradation of images quality.
+    public func compressDocument(request : CompressDocumentRequest, callback : @escaping (_ response : CompressResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CompressResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of compressDocument method
+    // The default settings allows to reduce the size of the document without any visible degradation of images quality.
+    public func compressDocument(request : CompressDocumentRequest) throws -> CompressResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : CompressResponse? = nil;
+        var responseError : Error? = nil;
+        self.compressDocument(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of compressDocumentOnline method
+    // Compress and resize images inside the document.
+    public func compressDocumentOnline(request : CompressDocumentOnlineRequest, callback : @escaping (_ response : CompressDocumentOnlineResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CompressDocumentOnlineResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of compressDocumentOnline method
+    // Compress and resize images inside the document.
+    public func compressDocumentOnline(request : CompressDocumentOnlineRequest) throws -> CompressDocumentOnlineResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : CompressDocumentOnlineResponse? = nil;
+        var responseError : Error? = nil;
+        self.compressDocumentOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of convertDocument method
     // Converts a document on a local drive to the specified format.
     public func convertDocument(request : ConvertDocumentRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
