@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="AppendDocumentRequest.swift">
+ * <copyright company="Aspose" file="CompressDocumentRequest.swift">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,46 +27,40 @@
 
 import Foundation
 
-// Request model for appendDocument operation.
+// Request model for compressDocument operation.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class AppendDocumentRequest : WordsApiRequest {
+public class CompressDocumentRequest : WordsApiRequest {
     private let name : String;
-    private let documentList : BaseEntryList;
+    private let compressOptions : CompressOptions;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
     private let destFileName : String?;
-    private let revisionAuthor : String?;
-    private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case documentList;
+        case compressOptions;
         case folder;
         case storage;
         case loadEncoding;
         case password;
         case encryptedPassword;
         case destFileName;
-        case revisionAuthor;
-        case revisionDateTime;
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the AppendDocumentRequest class.
-    public init(name : String, documentList : BaseEntryList, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    // Initializes a new instance of the CompressDocumentRequest class.
+    public init(name : String, compressOptions : CompressOptions, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil) {
         self.name = name;
-        self.documentList = documentList;
+        self.compressOptions = compressOptions;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
         self.destFileName = destFileName;
-        self.revisionAuthor = revisionAuthor;
-        self.revisionDateTime = revisionDateTime;
     }
 
     // The filename of the input document.
@@ -74,9 +68,9 @@ public class AppendDocumentRequest : WordsApiRequest {
         return self.name;
     }
 
-    // <see cref="BaseEntryList"/> with a list of entries to append.
-    public func getDocumentList() -> BaseEntryList {
-        return self.documentList;
+    // Options for compress the document.
+    public func getCompressOptions() -> CompressOptions {
+        return self.compressOptions;
     }
 
     // Original document folder.
@@ -109,19 +103,9 @@ public class AppendDocumentRequest : WordsApiRequest {
         return self.destFileName;
     }
 
-    // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-    public func getRevisionAuthor() -> String? {
-        return self.revisionAuthor;
-    }
-
-    // The date and time to use for revisions.
-    public func getRevisionDateTime() -> String? {
-        return self.revisionDateTime;
-    }
-
     // Creates the api request data
     public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/{name}/appendDocument";
+         var rawPath = "/words/{name}/compress";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
@@ -200,41 +184,17 @@ public class AppendDocumentRequest : WordsApiRequest {
          #endif        
              }
 
-
-             if (self.getRevisionAuthor() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
-
-         #endif        
-             }
-
-
-             if (self.getRevisionDateTime() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
-
-         #endif        
-             }
-
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getDocumentList()), contentType: "application/json");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getCompressOptions()), contentType: "application/json");
          return result;
     }
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data, headers : [String: String]) throws -> Any? {
-        return try ObjectSerializer.deserialize(type: DocumentResponse.self, from: data);
+        return try ObjectSerializer.deserialize(type: CompressResponse.self, from: data);
     }
 }

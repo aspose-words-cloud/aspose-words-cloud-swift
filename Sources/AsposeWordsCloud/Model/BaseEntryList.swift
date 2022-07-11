@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ReportBuildOptions.swift">
+ * <copyright company="Aspose" file="BaseEntryList.swift">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,24 +27,20 @@
 
 import Foundation
 
-// Specifies options controlling behavior of ReportingEngine while building a report.
-public enum ReportBuildOptions : String, Codable
-{
-    // Enum value "_none"
-    case _none = "None"
+// Represents a list of entries which will be appended to the original resource entry.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
+public class BaseEntryList : Codable, WordsApiModel {
+    private enum CodingKeys: String, CodingKey {
+        case invalidCodingKey;
+    }
 
-    // Enum value "allowMissingMembers"
-    case allowMissingMembers = "AllowMissingMembers"
+    internal init() {
+    }
 
-    // Enum value "removeEmptyParagraphs"
-    case removeEmptyParagraphs = "RemoveEmptyParagraphs"
+    public required init(from decoder: Decoder) throws {
+    }
 
-    // Enum value "inlineErrorMessages"
-    case inlineErrorMessages = "InlineErrorMessages"
+    public func encode(to encoder: Encoder) throws {
+    }
 
-    // Enum value "useLegacyHeaderFooterVisiting"
-    case useLegacyHeaderFooterVisiting = "UseLegacyHeaderFooterVisiting"
-
-    // Enum value "respectJpegExifOrientation"
-    case respectJpegExifOrientation = "RespectJpegExifOrientation"
 }

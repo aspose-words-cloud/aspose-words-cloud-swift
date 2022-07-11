@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ReportBuildOptions.swift">
+ * <copyright company="Aspose" file="ImageEntry.swift">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,24 +27,23 @@
 
 import Foundation
 
-// Specifies options controlling behavior of ReportingEngine while building a report.
-public enum ReportBuildOptions : String, Codable
-{
-    // Enum value "_none"
-    case _none = "None"
+// Represents a image which will be appended to the original resource image or document.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
+public class ImageEntry : BaseEntry {
+    private enum CodingKeys: String, CodingKey {
+        case invalidCodingKey;
+    }
 
-    // Enum value "allowMissingMembers"
-    case allowMissingMembers = "AllowMissingMembers"
+    public override init() {
+        super.init();
+    }
 
-    // Enum value "removeEmptyParagraphs"
-    case removeEmptyParagraphs = "RemoveEmptyParagraphs"
+    public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
+    }
 
-    // Enum value "inlineErrorMessages"
-    case inlineErrorMessages = "InlineErrorMessages"
+    public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
+    }
 
-    // Enum value "useLegacyHeaderFooterVisiting"
-    case useLegacyHeaderFooterVisiting = "UseLegacyHeaderFooterVisiting"
-
-    // Enum value "respectJpegExifOrientation"
-    case respectJpegExifOrientation = "RespectJpegExifOrientation"
 }
