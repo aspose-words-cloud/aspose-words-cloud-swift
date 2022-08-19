@@ -104,18 +104,18 @@ public class HeaderFooter : HeaderFooterLink {
         if (self.childNodes != nil)
         {
             for element in self.childNodes! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 
         if (self.drawingObjects != nil)
         {
-            self.drawingObjects!.collectFilesContent(resultFilesContent);
+            self.drawingObjects!.collectFilesContent(&resultFilesContent);
         }
 
         if (self.paragraphs != nil)
         {
-            self.paragraphs!.collectFilesContent(resultFilesContent);
+            self.paragraphs!.collectFilesContent(&resultFilesContent);
         }
 
     }

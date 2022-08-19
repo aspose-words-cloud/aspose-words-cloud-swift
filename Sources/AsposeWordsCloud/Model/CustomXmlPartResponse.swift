@@ -69,7 +69,7 @@ public class CustomXmlPartResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.customXmlPart != nil)
         {
-            self.customXmlPart!.collectFilesContent(resultFilesContent);
+            self.customXmlPart!.collectFilesContent(&resultFilesContent);
         }
 
     }

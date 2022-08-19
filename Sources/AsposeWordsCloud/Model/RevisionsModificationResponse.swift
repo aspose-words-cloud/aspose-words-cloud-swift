@@ -69,7 +69,7 @@ public class RevisionsModificationResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.result != nil)
         {
-            self.result!.collectFilesContent(resultFilesContent);
+            self.result!.collectFilesContent(&resultFilesContent);
         }
 
     }

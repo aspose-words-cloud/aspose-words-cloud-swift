@@ -104,7 +104,7 @@ public class ClassificationResponse : WordsResponse {
         if (self.bestResults != nil)
         {
             for element in self.bestResults! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

@@ -86,12 +86,12 @@ public class BookmarkInsert : BookmarkData {
         super.collectFilesContent(resultFilesContent);
         if (self.endRange != nil)
         {
-            self.endRange!.collectFilesContent(resultFilesContent);
+            self.endRange!.collectFilesContent(&resultFilesContent);
         }
 
         if (self.startRange != nil)
         {
-            self.startRange!.collectFilesContent(resultFilesContent);
+            self.startRange!.collectFilesContent(&resultFilesContent);
         }
 
     }

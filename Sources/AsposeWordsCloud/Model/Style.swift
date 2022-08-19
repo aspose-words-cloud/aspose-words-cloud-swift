@@ -1393,7 +1393,7 @@ public class Style : LinkElement {
         super.collectFilesContent(resultFilesContent);
         if (self.font != nil)
         {
-            self.font!.collectFilesContent(resultFilesContent);
+            self.font!.collectFilesContent(&resultFilesContent);
         }
 
 

@@ -151,7 +151,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
         if (self.bookmarksOutlineLevels != nil)
         {
             for element in self.bookmarksOutlineLevels! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

@@ -70,7 +70,7 @@ public class ImageEntryList : BaseImageEntryList {
         if (self.imageEntries != nil)
         {
             for element in self.imageEntries! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

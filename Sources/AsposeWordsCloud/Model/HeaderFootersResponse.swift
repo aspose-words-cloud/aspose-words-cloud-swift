@@ -69,7 +69,7 @@ public class HeaderFootersResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.headerFooters != nil)
         {
-            self.headerFooters!.collectFilesContent(resultFilesContent);
+            self.headerFooters!.collectFilesContent(&resultFilesContent);
         }
 
     }

@@ -1726,7 +1726,7 @@ public class ParagraphFormatBase : LinkElement {
         super.collectFilesContent(resultFilesContent);
         if (self.shading != nil)
         {
-            self.shading!.collectFilesContent(resultFilesContent);
+            self.shading!.collectFilesContent(&resultFilesContent);
         }
 
 

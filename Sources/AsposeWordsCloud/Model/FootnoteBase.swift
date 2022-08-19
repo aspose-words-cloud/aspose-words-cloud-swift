@@ -126,7 +126,7 @@ public class FootnoteBase : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.position != nil)
         {
-            self.position!.collectFilesContent(resultFilesContent);
+            self.position!.collectFilesContent(&resultFilesContent);
         }
 
 

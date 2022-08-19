@@ -69,7 +69,7 @@ public class FootnoteResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.footnote != nil)
         {
-            self.footnote!.collectFilesContent(resultFilesContent);
+            self.footnote!.collectFilesContent(&resultFilesContent);
         }
 
     }

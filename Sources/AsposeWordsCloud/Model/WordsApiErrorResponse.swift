@@ -69,7 +69,7 @@ public class WordsApiErrorResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.error != nil)
         {
-            self.error!.collectFilesContent(resultFilesContent);
+            self.error!.collectFilesContent(&resultFilesContent);
         }
 
     }

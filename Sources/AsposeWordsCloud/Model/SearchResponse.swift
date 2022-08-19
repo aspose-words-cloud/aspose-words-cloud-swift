@@ -86,7 +86,7 @@ public class SearchResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.searchResults != nil)
         {
-            self.searchResults!.collectFilesContent(resultFilesContent);
+            self.searchResults!.collectFilesContent(&resultFilesContent);
         }
 
     }

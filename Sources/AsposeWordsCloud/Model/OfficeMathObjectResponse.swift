@@ -69,7 +69,7 @@ public class OfficeMathObjectResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.officeMathObject != nil)
         {
-            self.officeMathObject!.collectFilesContent(resultFilesContent);
+            self.officeMathObject!.collectFilesContent(&resultFilesContent);
         }
 
     }

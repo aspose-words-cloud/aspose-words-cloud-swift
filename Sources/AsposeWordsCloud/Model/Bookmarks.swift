@@ -70,7 +70,7 @@ public class Bookmarks : LinkElement {
         if (self.bookmarkList != nil)
         {
             for element in self.bookmarkList! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

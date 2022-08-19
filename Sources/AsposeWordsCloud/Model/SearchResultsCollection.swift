@@ -70,7 +70,7 @@ public class SearchResultsCollection : LinkElement {
         if (self.resultsList != nil)
         {
             for element in self.resultsList! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

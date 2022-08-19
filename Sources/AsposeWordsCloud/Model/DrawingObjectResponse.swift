@@ -69,7 +69,7 @@ public class DrawingObjectResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.drawingObject != nil)
         {
-            self.drawingObject!.collectFilesContent(resultFilesContent);
+            self.drawingObject!.collectFilesContent(&resultFilesContent);
         }
 
     }

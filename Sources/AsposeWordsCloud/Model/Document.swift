@@ -217,7 +217,7 @@ public class Document : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.documentProperties != nil)
         {
-            self.documentProperties!.collectFilesContent(resultFilesContent);
+            self.documentProperties!.collectFilesContent(&resultFilesContent);
         }
 
 
@@ -226,7 +226,7 @@ public class Document : Codable, WordsApiModel {
         if (self.links != nil)
         {
             for element in self.links! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

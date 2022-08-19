@@ -70,7 +70,7 @@ public class TabStopsResponse : WordsResponse {
         if (self.tabStops != nil)
         {
             for element in self.tabStops! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

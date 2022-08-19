@@ -1953,12 +1953,12 @@ public class Font : LinkElement {
         super.collectFilesContent(resultFilesContent);
         if (self.border != nil)
         {
-            self.border!.collectFilesContent(resultFilesContent);
+            self.border!.collectFilesContent(&resultFilesContent);
         }
 
         if (self.color != nil)
         {
-            self.color!.collectFilesContent(resultFilesContent);
+            self.color!.collectFilesContent(&resultFilesContent);
         }
 
 
@@ -1968,7 +1968,7 @@ public class Font : LinkElement {
 
         if (self.highlightColor != nil)
         {
-            self.highlightColor!.collectFilesContent(resultFilesContent);
+            self.highlightColor!.collectFilesContent(&resultFilesContent);
         }
 
 
@@ -2000,7 +2000,7 @@ public class Font : LinkElement {
 
         if (self.underlineColor != nil)
         {
-            self.underlineColor!.collectFilesContent(resultFilesContent);
+            self.underlineColor!.collectFilesContent(&resultFilesContent);
         }
 
     }

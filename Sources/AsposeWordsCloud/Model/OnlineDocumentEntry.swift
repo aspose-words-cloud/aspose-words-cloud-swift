@@ -69,7 +69,7 @@ public class OnlineDocumentEntry : BaseDocumentEntry {
         super.collectFilesContent(resultFilesContent);
         if (self.file != nil)
         {
-            self.file!.collectFilesContent(resultFilesContent);
+            self.file!.collectFilesContent(&resultFilesContent);
         }
 
     }

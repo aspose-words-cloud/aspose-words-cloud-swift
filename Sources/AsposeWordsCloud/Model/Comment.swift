@@ -176,19 +176,19 @@ public class Comment : CommentLink {
         super.collectFilesContent(resultFilesContent);
         if (self.content != nil)
         {
-            self.content!.collectFilesContent(resultFilesContent);
+            self.content!.collectFilesContent(&resultFilesContent);
         }
 
 
 
         if (self.rangeEnd != nil)
         {
-            self.rangeEnd!.collectFilesContent(resultFilesContent);
+            self.rangeEnd!.collectFilesContent(&resultFilesContent);
         }
 
         if (self.rangeStart != nil)
         {
-            self.rangeStart!.collectFilesContent(resultFilesContent);
+            self.rangeStart!.collectFilesContent(&resultFilesContent);
         }
 
 

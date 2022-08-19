@@ -69,7 +69,7 @@ public class SaveResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.saveResult != nil)
         {
-            self.saveResult!.collectFilesContent(resultFilesContent);
+            self.saveResult!.collectFilesContent(&resultFilesContent);
         }
 
     }

@@ -69,7 +69,7 @@ public class StyleResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.style != nil)
         {
-            self.style!.collectFilesContent(resultFilesContent);
+            self.style!.collectFilesContent(&resultFilesContent);
         }
 
     }

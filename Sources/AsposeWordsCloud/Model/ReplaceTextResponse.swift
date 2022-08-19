@@ -86,7 +86,7 @@ public class ReplaceTextResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.documentLink != nil)
         {
-            self.documentLink!.collectFilesContent(resultFilesContent);
+            self.documentLink!.collectFilesContent(&resultFilesContent);
         }
 
 

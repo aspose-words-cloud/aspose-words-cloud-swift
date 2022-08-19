@@ -70,7 +70,7 @@ public class CommentsCollection : LinkElement {
         if (self.commentList != nil)
         {
             for element in self.commentList! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

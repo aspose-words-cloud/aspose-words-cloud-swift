@@ -69,7 +69,7 @@ public class BorderResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.border != nil)
         {
-            self.border!.collectFilesContent(resultFilesContent);
+            self.border!.collectFilesContent(&resultFilesContent);
         }
 
     }

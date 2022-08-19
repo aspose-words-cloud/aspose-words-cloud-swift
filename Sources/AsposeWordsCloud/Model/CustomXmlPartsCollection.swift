@@ -70,7 +70,7 @@ public class CustomXmlPartsCollection : LinkElement {
         if (self.customXmlPartsList != nil)
         {
             for element in self.customXmlPartsList! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

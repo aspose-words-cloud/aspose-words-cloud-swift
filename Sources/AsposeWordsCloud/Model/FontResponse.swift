@@ -69,7 +69,7 @@ public class FontResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.font != nil)
         {
-            self.font!.collectFilesContent(resultFilesContent);
+            self.font!.collectFilesContent(&resultFilesContent);
         }
 
     }

@@ -69,7 +69,7 @@ public class SplitDocumentResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.splitResult != nil)
         {
-            self.splitResult!.collectFilesContent(resultFilesContent);
+            self.splitResult!.collectFilesContent(&resultFilesContent);
         }
 
     }

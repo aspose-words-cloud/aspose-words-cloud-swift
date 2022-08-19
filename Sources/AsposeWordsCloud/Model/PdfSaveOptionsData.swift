@@ -619,19 +619,19 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         super.collectFilesContent(resultFilesContent);
         if (self.digitalSignatureDetails != nil)
         {
-            self.digitalSignatureDetails!.collectFilesContent(resultFilesContent);
+            self.digitalSignatureDetails!.collectFilesContent(&resultFilesContent);
         }
 
 
         if (self.downsampleOptions != nil)
         {
-            self.downsampleOptions!.collectFilesContent(resultFilesContent);
+            self.downsampleOptions!.collectFilesContent(&resultFilesContent);
         }
 
 
         if (self.encryptionDetails != nil)
         {
-            self.encryptionDetails!.collectFilesContent(resultFilesContent);
+            self.encryptionDetails!.collectFilesContent(&resultFilesContent);
         }
 
 
@@ -644,7 +644,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
         if (self.outlineOptions != nil)
         {
-            self.outlineOptions!.collectFilesContent(resultFilesContent);
+            self.outlineOptions!.collectFilesContent(&resultFilesContent);
         }
 
 

@@ -104,21 +104,21 @@ public class AvailableFontsResponse : WordsResponse {
         if (self.additionalFonts != nil)
         {
             for element in self.additionalFonts! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 
         if (self.customFonts != nil)
         {
             for element in self.customFonts! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 
         if (self.systemFonts != nil)
         {
             for element in self.systemFonts! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

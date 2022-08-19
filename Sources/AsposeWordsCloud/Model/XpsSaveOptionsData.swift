@@ -129,7 +129,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         super.collectFilesContent(resultFilesContent);
         if (self.outlineOptions != nil)
         {
-            self.outlineOptions!.collectFilesContent(resultFilesContent);
+            self.outlineOptions!.collectFilesContent(&resultFilesContent);
         }
 
 

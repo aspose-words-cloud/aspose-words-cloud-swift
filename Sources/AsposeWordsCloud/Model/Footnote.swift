@@ -147,13 +147,13 @@ public class Footnote : FootnoteLink {
         super.collectFilesContent(resultFilesContent);
         if (self.content != nil)
         {
-            self.content!.collectFilesContent(resultFilesContent);
+            self.content!.collectFilesContent(&resultFilesContent);
         }
 
 
         if (self.position != nil)
         {
-            self.position!.collectFilesContent(resultFilesContent);
+            self.position!.collectFilesContent(&resultFilesContent);
         }
 
 

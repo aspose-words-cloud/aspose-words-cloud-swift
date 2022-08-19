@@ -70,7 +70,7 @@ public class ParagraphLinkCollection : LinkElement {
         if (self.paragraphLinkList != nil)
         {
             for element in self.paragraphLinkList! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

@@ -82,7 +82,7 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.saveOptions != nil)
         {
-            self.saveOptions!.collectFilesContent(resultFilesContent);
+            self.saveOptions!.collectFilesContent(&resultFilesContent);
         }
 
     }

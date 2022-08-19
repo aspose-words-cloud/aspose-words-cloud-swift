@@ -69,7 +69,7 @@ public class ParagraphResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.paragraph != nil)
         {
-            self.paragraph!.collectFilesContent(resultFilesContent);
+            self.paragraph!.collectFilesContent(&resultFilesContent);
         }
 
     }

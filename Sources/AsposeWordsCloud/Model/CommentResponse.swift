@@ -69,7 +69,7 @@ public class CommentResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.comment != nil)
         {
-            self.comment!.collectFilesContent(resultFilesContent);
+            self.comment!.collectFilesContent(&resultFilesContent);
         }
 
     }

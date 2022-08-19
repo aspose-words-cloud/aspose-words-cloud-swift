@@ -83,7 +83,7 @@ public class FilesUploadResult : Codable, WordsApiModel {
         if (self.errors != nil)
         {
             for element in self.errors! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

@@ -69,7 +69,7 @@ public class FieldsResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.fields != nil)
         {
-            self.fields!.collectFilesContent(resultFilesContent);
+            self.fields!.collectFilesContent(&resultFilesContent);
         }
 
     }

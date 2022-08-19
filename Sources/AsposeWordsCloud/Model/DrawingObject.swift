@@ -309,13 +309,13 @@ public class DrawingObject : DrawingObjectLink {
         super.collectFilesContent(resultFilesContent);
         if (self.imageDataLink != nil)
         {
-            self.imageDataLink!.collectFilesContent(resultFilesContent);
+            self.imageDataLink!.collectFilesContent(&resultFilesContent);
         }
 
 
         if (self.oleDataLink != nil)
         {
-            self.oleDataLink!.collectFilesContent(resultFilesContent);
+            self.oleDataLink!.collectFilesContent(&resultFilesContent);
         }
 
 
@@ -323,7 +323,7 @@ public class DrawingObject : DrawingObjectLink {
         if (self.renderLinks != nil)
         {
             for element in self.renderLinks! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

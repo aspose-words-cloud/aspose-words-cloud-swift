@@ -104,7 +104,7 @@ public class InfoResponse : WordsResponse {
         if (self.additionalInfo != nil)
         {
             for element in self.additionalInfo! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

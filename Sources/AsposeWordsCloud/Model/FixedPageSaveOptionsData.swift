@@ -201,7 +201,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         super.collectFilesContent(resultFilesContent);
         if (self.metafileRenderingOptions != nil)
         {
-            self.metafileRenderingOptions!.collectFilesContent(resultFilesContent);
+            self.metafileRenderingOptions!.collectFilesContent(&resultFilesContent);
         }
 
 

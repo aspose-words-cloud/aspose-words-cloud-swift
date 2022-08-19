@@ -70,7 +70,7 @@ public class Hyperlinks : LinkElement {
         if (self.hyperlinkList != nil)
         {
             for element in self.hyperlinkList! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

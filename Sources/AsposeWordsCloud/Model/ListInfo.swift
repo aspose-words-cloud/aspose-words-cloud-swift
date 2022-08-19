@@ -171,12 +171,12 @@ public class ListInfo : LinkElement {
         super.collectFilesContent(resultFilesContent);
         if (self.listLevels != nil)
         {
-            self.listLevels!.collectFilesContent(resultFilesContent);
+            self.listLevels!.collectFilesContent(&resultFilesContent);
         }
 
         if (self.style != nil)
         {
-            self.style!.collectFilesContent(resultFilesContent);
+            self.style!.collectFilesContent(&resultFilesContent);
         }
 
     }

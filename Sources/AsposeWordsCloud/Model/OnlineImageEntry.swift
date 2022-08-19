@@ -65,7 +65,7 @@ public class OnlineImageEntry : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.file != nil)
         {
-            self.file!.collectFilesContent(resultFilesContent);
+            self.file!.collectFilesContent(&resultFilesContent);
         }
 
     }

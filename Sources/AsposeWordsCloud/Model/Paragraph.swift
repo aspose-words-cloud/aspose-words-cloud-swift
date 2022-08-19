@@ -70,7 +70,7 @@ public class Paragraph : NodeLink {
         if (self.childNodes != nil)
         {
             for element in self.childNodes! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

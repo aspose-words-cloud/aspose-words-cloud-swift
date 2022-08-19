@@ -69,7 +69,7 @@ public class TableLinkCollectionResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.tables != nil)
         {
-            self.tables!.collectFilesContent(resultFilesContent);
+            self.tables!.collectFilesContent(&resultFilesContent);
         }
 
     }

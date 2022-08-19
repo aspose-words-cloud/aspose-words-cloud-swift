@@ -69,7 +69,7 @@ public class TableRowResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.row != nil)
         {
-            self.row!.collectFilesContent(resultFilesContent);
+            self.row!.collectFilesContent(&resultFilesContent);
         }
 
     }

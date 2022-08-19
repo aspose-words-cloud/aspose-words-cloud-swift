@@ -69,7 +69,7 @@ public class RunResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.run != nil)
         {
-            self.run!.collectFilesContent(resultFilesContent);
+            self.run!.collectFilesContent(&resultFilesContent);
         }
 
     }

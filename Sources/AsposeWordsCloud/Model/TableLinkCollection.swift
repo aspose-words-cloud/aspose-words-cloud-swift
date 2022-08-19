@@ -70,7 +70,7 @@ public class TableLinkCollection : LinkElement {
         if (self.tableLinkList != nil)
         {
             for element in self.tableLinkList! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

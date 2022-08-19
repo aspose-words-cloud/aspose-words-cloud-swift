@@ -69,7 +69,7 @@ public class ParagraphFormatResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.paragraphFormat != nil)
         {
-            self.paragraphFormat!.collectFilesContent(resultFilesContent);
+            self.paragraphFormat!.collectFilesContent(&resultFilesContent);
         }
 
     }

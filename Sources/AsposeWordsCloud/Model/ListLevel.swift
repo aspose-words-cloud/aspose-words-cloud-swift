@@ -472,13 +472,13 @@ public class ListLevel : LinkElement {
         super.collectFilesContent(resultFilesContent);
         if (self.font != nil)
         {
-            self.font!.collectFilesContent(resultFilesContent);
+            self.font!.collectFilesContent(&resultFilesContent);
         }
 
 
         if (self.linkedStyle != nil)
         {
-            self.linkedStyle!.collectFilesContent(resultFilesContent);
+            self.linkedStyle!.collectFilesContent(&resultFilesContent);
         }
 
 

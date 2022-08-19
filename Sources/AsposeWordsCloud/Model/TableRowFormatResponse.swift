@@ -69,7 +69,7 @@ public class TableRowFormatResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.rowFormat != nil)
         {
-            self.rowFormat!.collectFilesContent(resultFilesContent);
+            self.rowFormat!.collectFilesContent(&resultFilesContent);
         }
 
     }

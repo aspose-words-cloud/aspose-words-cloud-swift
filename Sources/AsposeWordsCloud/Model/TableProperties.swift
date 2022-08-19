@@ -1485,7 +1485,7 @@ public class TableProperties : LinkElement {
         super.collectFilesContent(resultFilesContent);
         if (self.preferredWidth != nil)
         {
-            self.preferredWidth!.collectFilesContent(resultFilesContent);
+            self.preferredWidth!.collectFilesContent(&resultFilesContent);
         }
 
 

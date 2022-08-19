@@ -70,7 +70,7 @@ public class Lists : LinkElement {
         if (self.listInfo != nil)
         {
             for element in self.listInfo! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

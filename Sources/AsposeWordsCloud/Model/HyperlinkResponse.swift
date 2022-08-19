@@ -69,7 +69,7 @@ public class HyperlinkResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.hyperlink != nil)
         {
-            self.hyperlink!.collectFilesContent(resultFilesContent);
+            self.hyperlink!.collectFilesContent(&resultFilesContent);
         }
 
     }

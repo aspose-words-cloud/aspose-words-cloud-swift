@@ -70,7 +70,7 @@ public class StylesResponse : WordsResponse {
         if (self.styles != nil)
         {
             for element in self.styles! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

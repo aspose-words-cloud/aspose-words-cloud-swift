@@ -246,7 +246,7 @@ public class OfficeMathObject : OfficeMathLink {
         super.collectFilesContent(resultFilesContent);
         if (self.content != nil)
         {
-            self.content!.collectFilesContent(resultFilesContent);
+            self.content!.collectFilesContent(&resultFilesContent);
         }
 
 

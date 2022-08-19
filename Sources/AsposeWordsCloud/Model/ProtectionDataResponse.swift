@@ -86,12 +86,12 @@ public class ProtectionDataResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.documentLink != nil)
         {
-            self.documentLink!.collectFilesContent(resultFilesContent);
+            self.documentLink!.collectFilesContent(&resultFilesContent);
         }
 
         if (self.protectionData != nil)
         {
-            self.protectionData!.collectFilesContent(resultFilesContent);
+            self.protectionData!.collectFilesContent(&resultFilesContent);
         }
 
     }

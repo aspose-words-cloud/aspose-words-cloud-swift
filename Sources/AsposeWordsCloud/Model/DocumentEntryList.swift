@@ -70,7 +70,7 @@ public class DocumentEntryList : BaseDocumentEntryList {
         if (self.documentEntries != nil)
         {
             for element in self.documentEntries! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

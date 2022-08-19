@@ -69,7 +69,7 @@ public class SectionResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.section != nil)
         {
-            self.section!.collectFilesContent(resultFilesContent);
+            self.section!.collectFilesContent(&resultFilesContent);
         }
 
     }

@@ -69,7 +69,7 @@ public class ListResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.list != nil)
         {
-            self.list!.collectFilesContent(resultFilesContent);
+            self.list!.collectFilesContent(&resultFilesContent);
         }
 
     }

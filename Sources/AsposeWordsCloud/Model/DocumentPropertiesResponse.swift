@@ -69,7 +69,7 @@ public class DocumentPropertiesResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.documentProperties != nil)
         {
-            self.documentProperties!.collectFilesContent(resultFilesContent);
+            self.documentProperties!.collectFilesContent(&resultFilesContent);
         }
 
     }

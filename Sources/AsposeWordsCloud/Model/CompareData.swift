@@ -138,7 +138,7 @@ public class CompareData : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.compareOptions != nil)
         {
-            self.compareOptions!.collectFilesContent(resultFilesContent);
+            self.compareOptions!.collectFilesContent(&resultFilesContent);
         }
 
 

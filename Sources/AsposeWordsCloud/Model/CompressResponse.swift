@@ -69,7 +69,7 @@ public class CompressResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.document != nil)
         {
-            self.document!.collectFilesContent(resultFilesContent);
+            self.document!.collectFilesContent(&resultFilesContent);
         }
 
     }

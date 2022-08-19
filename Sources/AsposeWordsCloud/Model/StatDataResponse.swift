@@ -86,12 +86,12 @@ public class StatDataResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.documentLink != nil)
         {
-            self.documentLink!.collectFilesContent(resultFilesContent);
+            self.documentLink!.collectFilesContent(&resultFilesContent);
         }
 
         if (self.statData != nil)
         {
-            self.statData!.collectFilesContent(resultFilesContent);
+            self.statData!.collectFilesContent(&resultFilesContent);
         }
 
     }

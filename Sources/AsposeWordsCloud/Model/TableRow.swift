@@ -86,13 +86,13 @@ public class TableRow : NodeLink {
         super.collectFilesContent(resultFilesContent);
         if (self.rowFormat != nil)
         {
-            self.rowFormat!.collectFilesContent(resultFilesContent);
+            self.rowFormat!.collectFilesContent(&resultFilesContent);
         }
 
         if (self.tableCellList != nil)
         {
             for element in self.tableCellList! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

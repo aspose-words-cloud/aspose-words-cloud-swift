@@ -86,13 +86,13 @@ public class Table : NodeLink {
         super.collectFilesContent(resultFilesContent);
         if (self.tableProperties != nil)
         {
-            self.tableProperties!.collectFilesContent(resultFilesContent);
+            self.tableProperties!.collectFilesContent(&resultFilesContent);
         }
 
         if (self.tableRowList != nil)
         {
             for element in self.tableRowList! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

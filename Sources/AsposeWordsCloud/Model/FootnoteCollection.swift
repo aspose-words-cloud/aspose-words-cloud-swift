@@ -70,7 +70,7 @@ public class FootnoteCollection : LinkElement {
         if (self.list != nil)
         {
             for element in self.list! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

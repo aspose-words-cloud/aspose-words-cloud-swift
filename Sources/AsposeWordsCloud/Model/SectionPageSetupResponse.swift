@@ -69,7 +69,7 @@ public class SectionPageSetupResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.pageSetup != nil)
         {
-            self.pageSetup!.collectFilesContent(resultFilesContent);
+            self.pageSetup!.collectFilesContent(&resultFilesContent);
         }
 
     }

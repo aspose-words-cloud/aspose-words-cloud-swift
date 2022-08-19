@@ -138,28 +138,28 @@ public class Section : LinkElement {
         if (self.childNodes != nil)
         {
             for element in self.childNodes! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 
         if (self.headerFooters != nil)
         {
-            self.headerFooters!.collectFilesContent(resultFilesContent);
+            self.headerFooters!.collectFilesContent(&resultFilesContent);
         }
 
         if (self.pageSetup != nil)
         {
-            self.pageSetup!.collectFilesContent(resultFilesContent);
+            self.pageSetup!.collectFilesContent(&resultFilesContent);
         }
 
         if (self.paragraphs != nil)
         {
-            self.paragraphs!.collectFilesContent(resultFilesContent);
+            self.paragraphs!.collectFilesContent(&resultFilesContent);
         }
 
         if (self.tables != nil)
         {
-            self.tables!.collectFilesContent(resultFilesContent);
+            self.tables!.collectFilesContent(&resultFilesContent);
         }
 
     }

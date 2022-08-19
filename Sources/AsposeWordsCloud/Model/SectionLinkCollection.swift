@@ -70,7 +70,7 @@ public class SectionLinkCollection : LinkElement {
         if (self.sectionLinkList != nil)
         {
             for element in self.sectionLinkList! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 

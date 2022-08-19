@@ -270,7 +270,7 @@ public class Border : LinkElement {
         super.collectFilesContent(resultFilesContent);
         if (self.color != nil)
         {
-            self.color!.collectFilesContent(resultFilesContent);
+            self.color!.collectFilesContent(&resultFilesContent);
         }
 
 

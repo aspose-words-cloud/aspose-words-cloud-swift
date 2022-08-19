@@ -69,7 +69,7 @@ public class BookmarksResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent);
         if (self.bookmarks != nil)
         {
-            self.bookmarks!.collectFilesContent(resultFilesContent);
+            self.bookmarks!.collectFilesContent(&resultFilesContent);
         }
 
     }

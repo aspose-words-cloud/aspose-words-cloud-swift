@@ -70,7 +70,7 @@ public class ListLevels : LinkElement {
         if (self.listLevel != nil)
         {
             for element in self.listLevel! {
-                element.collectFilesContent(resultFilesContent);
+                element.collectFilesContent(&resultFilesContent);
             }
         }
 
