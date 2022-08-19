@@ -242,7 +242,7 @@ public class OfficeMathObject : OfficeMathLink {
         }
     }
 
-    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.content != nil)
         {

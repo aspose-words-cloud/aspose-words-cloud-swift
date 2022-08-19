@@ -79,7 +79,7 @@ public class ModificationOperationResult : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.dest != nil)
         {
             self.dest!.collectFilesContent(resultFilesContent: resultFilesContent);

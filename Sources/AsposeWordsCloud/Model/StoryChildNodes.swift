@@ -62,7 +62,7 @@ public class StoryChildNodes : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.childNodes != nil)
         {
             for element in self.childNodes! {

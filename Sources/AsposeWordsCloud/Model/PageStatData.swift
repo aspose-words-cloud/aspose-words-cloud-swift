@@ -113,7 +113,7 @@ public class PageStatData : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.footnotesStatData != nil)
         {
             self.footnotesStatData!.collectFilesContent(resultFilesContent: resultFilesContent);

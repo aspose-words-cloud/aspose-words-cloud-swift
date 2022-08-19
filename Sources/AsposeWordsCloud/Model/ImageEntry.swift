@@ -62,7 +62,7 @@ public class ImageEntry : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
     }
 
     // Sets href. Gets or sets the path to entry to append at the server.

@@ -96,7 +96,7 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
     }
 
     // Sets ownerPassword. Gets or sets the owner password for the encrypted PDF document.

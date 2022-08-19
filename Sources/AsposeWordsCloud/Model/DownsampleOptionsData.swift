@@ -96,7 +96,7 @@ public class DownsampleOptionsData : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
     }
 
     // Sets downsampleImages. Gets or sets a value indicating whether images should be downsampled.

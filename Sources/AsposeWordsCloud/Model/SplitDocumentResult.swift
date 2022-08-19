@@ -96,7 +96,7 @@ public class SplitDocumentResult : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.pages != nil)
         {
             for element in self.pages! {

@@ -152,7 +152,7 @@ public class CommentBase : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.rangeEnd != nil)
         {
             self.rangeEnd!.collectFilesContent(resultFilesContent: resultFilesContent);

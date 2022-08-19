@@ -341,7 +341,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.customTimeZoneInfoData != nil)
         {
             self.customTimeZoneInfoData!.collectFilesContent(resultFilesContent: resultFilesContent);

@@ -214,7 +214,7 @@ public class Document : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.documentProperties != nil)
         {
             self.documentProperties!.collectFilesContent(resultFilesContent: resultFilesContent);

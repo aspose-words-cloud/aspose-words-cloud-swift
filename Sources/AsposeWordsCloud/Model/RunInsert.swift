@@ -46,7 +46,7 @@ public class RunInsert : RunBase {
         try super.encode(to: encoder);
     }
 
-    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
     }
 

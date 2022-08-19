@@ -113,7 +113,7 @@ public class PageNumber : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
     }
 
     // Sets alignment. Gets or sets text alignment, possible values are left, right, center or justify.

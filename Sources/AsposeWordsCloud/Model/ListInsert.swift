@@ -132,7 +132,7 @@ public class ListInsert : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
     }
 
     // Sets template. Gets or sets the option that controls how list should be restarted at each section.

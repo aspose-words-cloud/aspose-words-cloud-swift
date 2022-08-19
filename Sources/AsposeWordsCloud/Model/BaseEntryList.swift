@@ -43,7 +43,7 @@ public class BaseEntryList : Codable, WordsApiModel {
     public func encode(to encoder: Encoder) throws {
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
     }
 
 }

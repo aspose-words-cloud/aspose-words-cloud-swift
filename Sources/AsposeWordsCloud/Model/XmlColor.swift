@@ -79,7 +79,7 @@ public class XmlColor : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
     }
 
     // Sets alpha. Gets or sets the Alpha component of color structure.

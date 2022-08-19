@@ -90,7 +90,7 @@ public class OptimizationOptions : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
     }
 
     // Sets msWordVersion. Gets or sets the specific MSWord version.

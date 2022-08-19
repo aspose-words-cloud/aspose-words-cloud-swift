@@ -79,7 +79,7 @@ public class ClassificationResult : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
     }
 
     // Sets className. Gets or sets the name of the class.

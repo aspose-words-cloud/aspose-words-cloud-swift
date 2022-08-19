@@ -76,7 +76,7 @@ public class FileContent : Codable, WordsApiModel {
         try container.encode(self.filename, forKey: .filename);
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         resultFilesContent.append(self);
     }
 }

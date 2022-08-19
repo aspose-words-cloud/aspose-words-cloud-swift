@@ -95,7 +95,7 @@ public class StyleInsert : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
     }
 
     // Sets styleName. Gets or sets the case sensitive name of the style to create.

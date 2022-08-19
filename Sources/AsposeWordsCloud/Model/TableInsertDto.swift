@@ -96,7 +96,7 @@ public class TableInsertDto : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.position != nil)
         {
             self.position!.collectFilesContent(resultFilesContent: resultFilesContent);

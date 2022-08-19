@@ -251,7 +251,7 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
     }
 
     // Sets height. Gets or sets the height of the DrawingObject in points.

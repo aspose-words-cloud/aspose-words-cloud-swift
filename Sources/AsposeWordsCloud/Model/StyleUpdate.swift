@@ -113,7 +113,7 @@ public class StyleUpdate : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
     }
 
     // Sets baseStyleName. Gets or sets the name of the style this style is based on.

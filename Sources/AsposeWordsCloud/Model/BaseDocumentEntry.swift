@@ -79,7 +79,7 @@ public class BaseDocumentEntry : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
     }
 
     // Sets encryptedPassword. Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
