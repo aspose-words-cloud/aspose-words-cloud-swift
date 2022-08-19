@@ -83,10 +83,10 @@ public class SearchResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.searchResults != nil)
         {
-            self.searchResults!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.searchResults!.collectFilesContent(resultFilesContent);
         }
 
     }

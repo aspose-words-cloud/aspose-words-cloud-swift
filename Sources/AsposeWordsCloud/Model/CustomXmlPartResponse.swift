@@ -66,10 +66,10 @@ public class CustomXmlPartResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.customXmlPart != nil)
         {
-            self.customXmlPart!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.customXmlPart!.collectFilesContent(resultFilesContent);
         }
 
     }

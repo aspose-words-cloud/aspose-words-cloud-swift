@@ -306,16 +306,16 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.imageDataLink != nil)
         {
-            self.imageDataLink!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.imageDataLink!.collectFilesContent(resultFilesContent);
         }
 
 
         if (self.oleDataLink != nil)
         {
-            self.oleDataLink!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.oleDataLink!.collectFilesContent(resultFilesContent);
         }
 
 
@@ -323,7 +323,7 @@ public class DrawingObject : DrawingObjectLink {
         if (self.renderLinks != nil)
         {
             for element in self.renderLinks! {
-                element.collectFilesContent(resultFilesContent: resultFilesContent);
+                element.collectFilesContent(resultFilesContent);
             }
         }
 

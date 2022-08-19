@@ -66,7 +66,7 @@ public class BaseDocumentEntryList : BaseEntryList {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
     }
 
     // Sets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.

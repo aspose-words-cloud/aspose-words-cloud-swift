@@ -66,10 +66,10 @@ public class BookmarksResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.bookmarks != nil)
         {
-            self.bookmarks!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.bookmarks!.collectFilesContent(resultFilesContent);
         }
 
     }

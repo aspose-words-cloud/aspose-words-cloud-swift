@@ -66,11 +66,11 @@ public class StylesResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.styles != nil)
         {
             for element in self.styles! {
-                element.collectFilesContent(resultFilesContent: resultFilesContent);
+                element.collectFilesContent(resultFilesContent);
             }
         }
 

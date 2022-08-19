@@ -265,12 +265,12 @@ public class Shading : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.backgroundPatternColor != nil)
         {
-            self.backgroundPatternColor!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.backgroundPatternColor!.collectFilesContent(resultFilesContent);
         }
 
         if (self.foregroundPatternColor != nil)
         {
-            self.foregroundPatternColor!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.foregroundPatternColor!.collectFilesContent(resultFilesContent);
         }
 
 

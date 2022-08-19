@@ -66,10 +66,10 @@ public class ParagraphListFormatResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.listFormat != nil)
         {
-            self.listFormat!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.listFormat!.collectFilesContent(resultFilesContent);
         }
 
     }

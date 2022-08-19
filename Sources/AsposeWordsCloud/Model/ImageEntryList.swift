@@ -66,11 +66,11 @@ public class ImageEntryList : BaseImageEntryList {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.imageEntries != nil)
         {
             for element in self.imageEntries! {
-                element.collectFilesContent(resultFilesContent: resultFilesContent);
+                element.collectFilesContent(resultFilesContent);
             }
         }
 

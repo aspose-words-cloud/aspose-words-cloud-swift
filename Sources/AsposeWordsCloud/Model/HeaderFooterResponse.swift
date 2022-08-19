@@ -66,10 +66,10 @@ public class HeaderFooterResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.headerFooter != nil)
         {
-            self.headerFooter!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.headerFooter!.collectFilesContent(resultFilesContent);
         }
 
     }

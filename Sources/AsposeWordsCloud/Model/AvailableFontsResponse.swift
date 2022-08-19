@@ -100,25 +100,25 @@ public class AvailableFontsResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.additionalFonts != nil)
         {
             for element in self.additionalFonts! {
-                element.collectFilesContent(resultFilesContent: resultFilesContent);
+                element.collectFilesContent(resultFilesContent);
             }
         }
 
         if (self.customFonts != nil)
         {
             for element in self.customFonts! {
-                element.collectFilesContent(resultFilesContent: resultFilesContent);
+                element.collectFilesContent(resultFilesContent);
             }
         }
 
         if (self.systemFonts != nil)
         {
             for element in self.systemFonts! {
-                element.collectFilesContent(resultFilesContent: resultFilesContent);
+                element.collectFilesContent(resultFilesContent);
             }
         }
 

@@ -66,10 +66,10 @@ public class SectionPageSetupResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.pageSetup != nil)
         {
-            self.pageSetup!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.pageSetup!.collectFilesContent(resultFilesContent);
         }
 
     }

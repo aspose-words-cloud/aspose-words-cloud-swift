@@ -66,11 +66,11 @@ public class TabStopsResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.tabStops != nil)
         {
             for element in self.tabStops! {
-                element.collectFilesContent(resultFilesContent: resultFilesContent);
+                element.collectFilesContent(resultFilesContent);
             }
         }
 

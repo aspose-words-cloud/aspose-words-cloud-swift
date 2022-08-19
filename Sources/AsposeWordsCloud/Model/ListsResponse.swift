@@ -66,10 +66,10 @@ public class ListsResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.lists != nil)
         {
-            self.lists!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.lists!.collectFilesContent(resultFilesContent);
         }
 
     }

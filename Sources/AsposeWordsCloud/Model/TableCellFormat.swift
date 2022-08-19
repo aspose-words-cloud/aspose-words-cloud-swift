@@ -314,10 +314,10 @@ public class TableCellFormat : LinkElement {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.preferredWidth != nil)
         {
-            self.preferredWidth!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.preferredWidth!.collectFilesContent(resultFilesContent);
         }
 
 

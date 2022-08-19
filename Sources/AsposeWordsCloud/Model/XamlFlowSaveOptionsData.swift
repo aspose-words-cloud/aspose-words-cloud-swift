@@ -92,7 +92,7 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
     }
 
     // Sets imagesFolder. Gets or sets the physical folder where images are saved when exporting.

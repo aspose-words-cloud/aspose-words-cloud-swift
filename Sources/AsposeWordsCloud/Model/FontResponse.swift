@@ -66,10 +66,10 @@ public class FontResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.font != nil)
         {
-            self.font!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.font!.collectFilesContent(resultFilesContent);
         }
 
     }

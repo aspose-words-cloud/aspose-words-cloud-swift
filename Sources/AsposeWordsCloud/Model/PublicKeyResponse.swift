@@ -83,7 +83,7 @@ public class PublicKeyResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
     }
 
     // Sets exponent. Gets or sets RSA key exponent as Base64 string.

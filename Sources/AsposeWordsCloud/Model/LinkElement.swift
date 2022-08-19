@@ -65,7 +65,7 @@ public class LinkElement : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
         if (self.link != nil)
         {
-            self.link!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.link!.collectFilesContent(resultFilesContent);
         }
 
     }

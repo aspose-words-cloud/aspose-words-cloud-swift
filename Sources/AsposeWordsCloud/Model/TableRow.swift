@@ -83,16 +83,16 @@ public class TableRow : NodeLink {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.rowFormat != nil)
         {
-            self.rowFormat!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.rowFormat!.collectFilesContent(resultFilesContent);
         }
 
         if (self.tableCellList != nil)
         {
             for element in self.tableCellList! {
-                element.collectFilesContent(resultFilesContent: resultFilesContent);
+                element.collectFilesContent(resultFilesContent);
             }
         }
 

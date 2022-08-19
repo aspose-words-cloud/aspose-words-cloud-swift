@@ -83,7 +83,7 @@ public class FormFieldDropDown : FormField {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
     }
 
     // Sets dropDownItems. Gets or sets the items array of a dropdown form field.

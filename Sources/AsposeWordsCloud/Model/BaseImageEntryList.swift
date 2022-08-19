@@ -66,7 +66,7 @@ public class BaseImageEntryList : BaseEntryList {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
     }
 
     // Sets appendEachImageOnNewPage. Gets or sets a value indicating whether each image should be added to a new page in the document.

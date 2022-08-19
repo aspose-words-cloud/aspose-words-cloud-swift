@@ -66,10 +66,10 @@ public class DocumentPropertiesResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.documentProperties != nil)
         {
-            self.documentProperties!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.documentProperties!.collectFilesContent(resultFilesContent);
         }
 
     }

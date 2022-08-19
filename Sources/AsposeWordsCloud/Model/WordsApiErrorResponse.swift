@@ -66,10 +66,10 @@ public class WordsApiErrorResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.error != nil)
         {
-            self.error!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.error!.collectFilesContent(resultFilesContent);
         }
 
     }

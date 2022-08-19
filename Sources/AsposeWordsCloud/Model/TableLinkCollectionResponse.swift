@@ -66,10 +66,10 @@ public class TableLinkCollectionResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.tables != nil)
         {
-            self.tables!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.tables!.collectFilesContent(resultFilesContent);
         }
 
     }

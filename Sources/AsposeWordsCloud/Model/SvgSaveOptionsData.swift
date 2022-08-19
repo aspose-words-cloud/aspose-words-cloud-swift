@@ -173,7 +173,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
     }
 
     // Sets exportEmbeddedImages. Gets or sets a value indicating whether images should be embedded into SVG document as base64.

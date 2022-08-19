@@ -75,7 +75,7 @@ public class WordMLSaveOptionsData : SaveOptionsData {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
     }
 
     // Sets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.

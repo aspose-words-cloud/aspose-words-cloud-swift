@@ -871,7 +871,7 @@ public class PageSetup : LinkElement {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
     }
 
     // Sets bidi. Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text.

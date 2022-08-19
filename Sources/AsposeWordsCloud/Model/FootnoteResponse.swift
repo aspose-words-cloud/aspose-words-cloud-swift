@@ -66,10 +66,10 @@ public class FootnoteResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.footnote != nil)
         {
-            self.footnote!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.footnote!.collectFilesContent(resultFilesContent);
         }
 
     }

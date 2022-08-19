@@ -66,10 +66,10 @@ public class SectionLinkCollectionResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.sections != nil)
         {
-            self.sections!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.sections!.collectFilesContent(resultFilesContent);
         }
 
     }

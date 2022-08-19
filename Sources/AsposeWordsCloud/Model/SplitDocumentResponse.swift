@@ -66,10 +66,10 @@ public class SplitDocumentResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.splitResult != nil)
         {
-            self.splitResult!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.splitResult!.collectFilesContent(resultFilesContent);
         }
 
     }

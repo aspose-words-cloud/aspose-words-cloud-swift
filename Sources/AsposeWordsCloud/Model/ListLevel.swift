@@ -469,16 +469,16 @@ public class ListLevel : LinkElement {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent: resultFilesContent);
+        super.collectFilesContent(resultFilesContent);
         if (self.font != nil)
         {
-            self.font!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.font!.collectFilesContent(resultFilesContent);
         }
 
 
         if (self.linkedStyle != nil)
         {
-            self.linkedStyle!.collectFilesContent(resultFilesContent: resultFilesContent);
+            self.linkedStyle!.collectFilesContent(resultFilesContent);
         }
 
 
