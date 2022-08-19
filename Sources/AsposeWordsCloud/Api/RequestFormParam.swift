@@ -37,6 +37,7 @@ public struct RequestFormParam {
 
     public init(name : String?, body : Data, contentType : String) {
         self.name = name;
+        self.filename = nil;
         self.body = body;
         self.contentType = contentType;
     }
