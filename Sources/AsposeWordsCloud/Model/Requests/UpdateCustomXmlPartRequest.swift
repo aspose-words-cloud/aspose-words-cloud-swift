@@ -240,7 +240,7 @@ public class UpdateCustomXmlPartRequest : WordsApiRequest {
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
          formParams.append(RequestFormParam(name: "customXmlPart", body: try ObjectSerializer.serialize(value: self.getCustomXmlPart()), contentType: "application/json"));
-         self.getCustomXmlPart().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getCustomXmlPart().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

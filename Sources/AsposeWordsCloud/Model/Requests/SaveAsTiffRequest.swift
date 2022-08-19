@@ -530,7 +530,7 @@ public class SaveAsTiffRequest : WordsApiRequest {
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
          formParams.append(RequestFormParam(name: "saveOptions", body: try ObjectSerializer.serialize(value: self.getSaveOptions()), contentType: "application/json"));
-         self.getSaveOptions().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getSaveOptions().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

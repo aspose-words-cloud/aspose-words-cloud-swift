@@ -250,7 +250,7 @@ public class UpdateRunRequest : WordsApiRequest {
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
          formParams.append(RequestFormParam(name: "run", body: try ObjectSerializer.serialize(value: self.getRun()), contentType: "application/json"));
-         self.getRun().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getRun().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

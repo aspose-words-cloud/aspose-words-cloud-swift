@@ -141,7 +141,7 @@ public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
 
          if (self.getOptions() != nil) {
              formParams.append(RequestFormParam(name: "options", body: try ObjectSerializer.serialize(value: self.getOptions()!), contentType: "application/json"));
-             self.getOptions()!.collectFilesContent(resultFilesContent: requestFilesContent);
+             self.getOptions()!.collectFilesContent(&requestFilesContent);
          }
 
          for requestFileContent in requestFilesContent {

@@ -240,7 +240,7 @@ public class UpdateBookmarkRequest : WordsApiRequest {
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
          formParams.append(RequestFormParam(name: "bookmarkData", body: try ObjectSerializer.serialize(value: self.getBookmarkData()), contentType: "application/json"));
-         self.getBookmarkData().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getBookmarkData().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

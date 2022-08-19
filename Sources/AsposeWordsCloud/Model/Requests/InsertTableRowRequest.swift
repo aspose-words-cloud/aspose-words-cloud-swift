@@ -240,7 +240,7 @@ public class InsertTableRowRequest : WordsApiRequest {
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
          formParams.append(RequestFormParam(name: "row", body: try ObjectSerializer.serialize(value: self.getRow()), contentType: "application/json"));
-         self.getRow().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getRow().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

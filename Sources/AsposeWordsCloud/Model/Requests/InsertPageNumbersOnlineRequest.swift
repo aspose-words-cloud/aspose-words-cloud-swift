@@ -190,7 +190,7 @@ public class InsertPageNumbersOnlineRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "pageNumber", body: try ObjectSerializer.serialize(value: self.getPageNumber()), contentType: "application/json"));
-         self.getPageNumber().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getPageNumber().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

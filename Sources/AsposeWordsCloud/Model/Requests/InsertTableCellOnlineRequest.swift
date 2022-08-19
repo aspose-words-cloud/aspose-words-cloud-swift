@@ -200,7 +200,7 @@ public class InsertTableCellOnlineRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "cell", body: try ObjectSerializer.serialize(value: self.getCell()), contentType: "application/json"));
-         self.getCell().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getCell().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

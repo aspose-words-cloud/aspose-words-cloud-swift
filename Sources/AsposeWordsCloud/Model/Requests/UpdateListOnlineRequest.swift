@@ -200,7 +200,7 @@ public class UpdateListOnlineRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "listUpdate", body: try ObjectSerializer.serialize(value: self.getListUpdate()), contentType: "application/json"));
-         self.getListUpdate().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getListUpdate().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

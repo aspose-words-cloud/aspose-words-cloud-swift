@@ -230,7 +230,7 @@ public class InsertCommentRequest : WordsApiRequest {
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
          formParams.append(RequestFormParam(name: "comment", body: try ObjectSerializer.serialize(value: self.getComment()), contentType: "application/json"));
-         self.getComment().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getComment().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

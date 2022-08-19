@@ -255,7 +255,7 @@ public class UpdateFootnoteRequest : WordsApiRequest {
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
          formParams.append(RequestFormParam(name: "footnoteDto", body: try ObjectSerializer.serialize(value: self.getFootnoteDto()), contentType: "application/json"));
-         self.getFootnoteDto().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getFootnoteDto().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

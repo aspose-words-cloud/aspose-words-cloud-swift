@@ -240,7 +240,7 @@ public class UpdateStyleRequest : WordsApiRequest {
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
          formParams.append(RequestFormParam(name: "styleUpdate", body: try ObjectSerializer.serialize(value: self.getStyleUpdate()), contentType: "application/json"));
-         self.getStyleUpdate().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getStyleUpdate().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

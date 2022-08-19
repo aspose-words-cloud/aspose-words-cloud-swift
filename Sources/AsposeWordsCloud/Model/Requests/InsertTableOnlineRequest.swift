@@ -205,7 +205,7 @@ public class InsertTableOnlineRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "table", body: try ObjectSerializer.serialize(value: self.getTable()), contentType: "application/json"));
-         self.getTable().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getTable().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

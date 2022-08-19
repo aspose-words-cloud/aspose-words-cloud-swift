@@ -210,7 +210,7 @@ public class UpdateRunFontOnlineRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "fontDto", body: try ObjectSerializer.serialize(value: self.getFontDto()), contentType: "application/json"));
-         self.getFontDto().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getFontDto().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

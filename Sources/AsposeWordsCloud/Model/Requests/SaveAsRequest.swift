@@ -190,7 +190,7 @@ public class SaveAsRequest : WordsApiRequest {
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
          formParams.append(RequestFormParam(name: "saveOptionsData", body: try ObjectSerializer.serialize(value: self.getSaveOptionsData()), contentType: "application/json"));
-         self.getSaveOptionsData().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getSaveOptionsData().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

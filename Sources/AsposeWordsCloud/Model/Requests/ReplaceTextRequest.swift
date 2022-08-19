@@ -230,7 +230,7 @@ public class ReplaceTextRequest : WordsApiRequest {
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
          formParams.append(RequestFormParam(name: "replaceText", body: try ObjectSerializer.serialize(value: self.getReplaceText()), contentType: "application/json"));
-         self.getReplaceText().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getReplaceText().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));

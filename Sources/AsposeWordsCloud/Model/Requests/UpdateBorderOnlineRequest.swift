@@ -215,7 +215,7 @@ public class UpdateBorderOnlineRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "borderProperties", body: try ObjectSerializer.serialize(value: self.getBorderProperties()), contentType: "application/json"));
-         self.getBorderProperties().collectFilesContent(resultFilesContent: requestFilesContent);
+         self.getBorderProperties().collectFilesContent(&requestFilesContent);
 
          for requestFileContent in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));
