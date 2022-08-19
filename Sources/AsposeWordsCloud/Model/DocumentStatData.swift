@@ -139,8 +139,8 @@ public class DocumentStatData : Codable, WordsApiModel {
 
         if (self.pageStatData != nil)
         {
-            self.pageStatData!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.pageStatData! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

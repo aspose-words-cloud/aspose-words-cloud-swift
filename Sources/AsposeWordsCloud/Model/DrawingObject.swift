@@ -322,8 +322,8 @@ public class DrawingObject : DrawingObjectLink {
 
         if (self.renderLinks != nil)
         {
-            self.renderLinks!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.renderLinks! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

@@ -69,8 +69,8 @@ public class FormFieldCollection : LinkElement {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.list != nil)
         {
-            self.list!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.list! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

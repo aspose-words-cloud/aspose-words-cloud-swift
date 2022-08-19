@@ -99,8 +99,8 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     public func collectFilesContent(resultFilesContent : [FileContent]) {
         if (self.pages != nil)
         {
-            self.pages!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.pages! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

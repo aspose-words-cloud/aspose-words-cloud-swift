@@ -69,8 +69,8 @@ public class StylesResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.styles != nil)
         {
-            self.styles!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.styles! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

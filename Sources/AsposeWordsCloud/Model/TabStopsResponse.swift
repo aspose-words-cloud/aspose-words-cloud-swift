@@ -69,8 +69,8 @@ public class TabStopsResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.tabStops != nil)
         {
-            self.tabStops!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.tabStops! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

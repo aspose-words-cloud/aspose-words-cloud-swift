@@ -227,13 +227,13 @@ public class InsertStyleRequest : WordsApiRequest {
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
-         var formParams : [RequestFormParam] = [];
-         var requestFilesContent : [FileContent] = [];
+         var formParams = [RequestFormParam]();
+         var requestFilesContent = [FileContent]();
          formParams.append(RequestFormParam(name: "styleInsert", body: try ObjectSerializer.serialize(value: self.getStyleInsert()), contentType: "application/json"));
          self.getStyleInsert().collectFilesContent(resultFilesContent: requestFilesContent);
 
-         requestFilesContent.forEach {
-             formParams.append(RequestFormParam(name: $0.id, filename: $0.filename, body: try ObjectSerializer.serializeFile(value: $0.content), contentType: "application/octet-stream"));
+         for requestFileContent in requestFilesContent {
+             formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");

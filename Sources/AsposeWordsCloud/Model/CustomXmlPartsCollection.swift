@@ -69,8 +69,8 @@ public class CustomXmlPartsCollection : LinkElement {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.customXmlPartsList != nil)
         {
-            self.customXmlPartsList!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.customXmlPartsList! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

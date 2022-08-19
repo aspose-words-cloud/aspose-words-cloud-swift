@@ -150,8 +150,8 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     public func collectFilesContent(resultFilesContent : [FileContent]) {
         if (self.bookmarksOutlineLevels != nil)
         {
-            self.bookmarksOutlineLevels!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.bookmarksOutlineLevels! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

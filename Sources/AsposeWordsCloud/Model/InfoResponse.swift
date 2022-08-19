@@ -103,8 +103,8 @@ public class InfoResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.additionalInfo != nil)
         {
-            self.additionalInfo!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.additionalInfo! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

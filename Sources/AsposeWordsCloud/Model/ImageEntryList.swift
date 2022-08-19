@@ -69,8 +69,8 @@ public class ImageEntryList : BaseImageEntryList {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.imageEntries != nil)
         {
-            self.imageEntries!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.imageEntries! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

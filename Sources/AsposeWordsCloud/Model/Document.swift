@@ -225,8 +225,8 @@ public class Document : Codable, WordsApiModel {
 
         if (self.links != nil)
         {
-            self.links!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.links! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

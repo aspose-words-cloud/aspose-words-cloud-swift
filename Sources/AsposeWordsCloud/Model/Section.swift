@@ -137,8 +137,8 @@ public class Section : LinkElement {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.childNodes != nil)
         {
-            self.childNodes!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.childNodes! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

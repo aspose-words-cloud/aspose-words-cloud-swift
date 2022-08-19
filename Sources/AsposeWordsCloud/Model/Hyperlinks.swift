@@ -69,8 +69,8 @@ public class Hyperlinks : LinkElement {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.hyperlinkList != nil)
         {
-            self.hyperlinkList!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.hyperlinkList! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

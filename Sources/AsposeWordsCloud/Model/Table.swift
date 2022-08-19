@@ -91,8 +91,8 @@ public class Table : NodeLink {
 
         if (self.tableRowList != nil)
         {
-            self.tableRowList!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.tableRowList! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

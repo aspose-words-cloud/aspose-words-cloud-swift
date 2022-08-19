@@ -69,8 +69,8 @@ public class OnlineDocumentEntryList : BaseDocumentEntryList {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.onlineDocumentEntries != nil)
         {
-            self.onlineDocumentEntries!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.onlineDocumentEntries! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

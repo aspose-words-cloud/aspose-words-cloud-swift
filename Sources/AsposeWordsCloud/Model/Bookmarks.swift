@@ -69,8 +69,8 @@ public class Bookmarks : LinkElement {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.bookmarkList != nil)
         {
-            self.bookmarkList!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.bookmarkList! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

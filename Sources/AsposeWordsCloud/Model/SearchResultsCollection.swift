@@ -69,8 +69,8 @@ public class SearchResultsCollection : LinkElement {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.resultsList != nil)
         {
-            self.resultsList!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.resultsList! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

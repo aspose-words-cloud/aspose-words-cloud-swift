@@ -69,8 +69,8 @@ public class Lists : LinkElement {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.listInfo != nil)
         {
-            self.listInfo!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.listInfo! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

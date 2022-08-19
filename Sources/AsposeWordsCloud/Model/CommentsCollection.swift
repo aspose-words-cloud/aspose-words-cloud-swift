@@ -69,8 +69,8 @@ public class CommentsCollection : LinkElement {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.commentList != nil)
         {
-            self.commentList!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.commentList! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

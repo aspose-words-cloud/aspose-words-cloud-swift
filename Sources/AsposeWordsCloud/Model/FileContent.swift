@@ -72,12 +72,8 @@ public class FileContent : Codable, WordsApiModel {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.id != nil) {
-            try container.encode(self.id, forKey: .id);
-        }
-        if (self.filename != nil) {
-            try container.encode(self.filename, forKey: .filename);
-        }
+        try container.encode(self.id, forKey: .id);
+        try container.encode(self.filename, forKey: .filename);
     }
 
     public func collectFilesContent(resultFilesContent : [FileContent]) {

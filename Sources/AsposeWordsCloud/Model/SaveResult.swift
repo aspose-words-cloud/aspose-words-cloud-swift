@@ -99,8 +99,8 @@ public class SaveResult : Codable, WordsApiModel {
     public func collectFilesContent(resultFilesContent : [FileContent]) {
         if (self.additionalItems != nil)
         {
-            self.additionalItems!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.additionalItems! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

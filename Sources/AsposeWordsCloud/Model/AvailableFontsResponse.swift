@@ -103,22 +103,22 @@ public class AvailableFontsResponse : WordsResponse {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.additionalFonts != nil)
         {
-            self.additionalFonts!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.additionalFonts! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 
         if (self.customFonts != nil)
         {
-            self.customFonts!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.customFonts! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 
         if (self.systemFonts != nil)
         {
-            self.systemFonts!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.systemFonts! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

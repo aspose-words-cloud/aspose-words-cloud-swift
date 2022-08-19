@@ -65,8 +65,8 @@ public class FilesList : Codable, WordsApiModel {
     public func collectFilesContent(resultFilesContent : [FileContent]) {
         if (self.value != nil)
         {
-            self.value!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.value! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

@@ -69,8 +69,8 @@ public class TableLinkCollection : LinkElement {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.tableLinkList != nil)
         {
-            self.tableLinkList!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.tableLinkList! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

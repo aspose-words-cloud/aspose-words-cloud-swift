@@ -69,8 +69,8 @@ public class OnlineImageEntryList : BaseImageEntryList {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.onlineImageEntries != nil)
         {
-            self.onlineImageEntries!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.onlineImageEntries! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

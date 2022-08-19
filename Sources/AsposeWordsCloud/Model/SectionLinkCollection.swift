@@ -69,8 +69,8 @@ public class SectionLinkCollection : LinkElement {
         super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.sectionLinkList != nil)
         {
-            self.sectionLinkList!.forEach {
-                $0.collectFilesContent(resultFilesContent: resultFilesContent);
+            for element in self.sectionLinkList! {
+                element.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 
