@@ -267,7 +267,7 @@ public class Border : LinkElement {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.color != nil)
         {
             self.color!.collectFilesContent(&resultFilesContent);

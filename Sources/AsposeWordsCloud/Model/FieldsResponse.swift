@@ -66,7 +66,7 @@ public class FieldsResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.fields != nil)
         {
             self.fields!.collectFilesContent(&resultFilesContent);

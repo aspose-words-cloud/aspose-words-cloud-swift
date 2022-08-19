@@ -66,7 +66,7 @@ public class HyperlinksResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.hyperlinks != nil)
         {
             self.hyperlinks!.collectFilesContent(&resultFilesContent);

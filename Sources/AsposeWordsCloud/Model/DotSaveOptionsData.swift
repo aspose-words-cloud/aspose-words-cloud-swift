@@ -56,7 +56,7 @@ public class DotSaveOptionsData : DocSaveOptionsData {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
     }
 
 }

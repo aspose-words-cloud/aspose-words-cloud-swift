@@ -47,7 +47,7 @@ public class CommentUpdate : CommentBase {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
     }
 
 }

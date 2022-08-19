@@ -56,7 +56,7 @@ public class JpegSaveOptionsData : ImageSaveOptionsData {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
     }
 
 }

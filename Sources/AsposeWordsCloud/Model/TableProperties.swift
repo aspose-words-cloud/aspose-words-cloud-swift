@@ -1482,7 +1482,7 @@ public class TableProperties : LinkElement {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.preferredWidth != nil)
         {
             self.preferredWidth!.collectFilesContent(&resultFilesContent);

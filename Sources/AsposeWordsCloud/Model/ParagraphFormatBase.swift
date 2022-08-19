@@ -1723,7 +1723,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.shading != nil)
         {
             self.shading!.collectFilesContent(&resultFilesContent);

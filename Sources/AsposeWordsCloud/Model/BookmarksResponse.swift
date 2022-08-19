@@ -66,7 +66,7 @@ public class BookmarksResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.bookmarks != nil)
         {
             self.bookmarks!.collectFilesContent(&resultFilesContent);

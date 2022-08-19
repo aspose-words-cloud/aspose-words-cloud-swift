@@ -47,7 +47,7 @@ public class DocumentPropertyCreateOrUpdate : DocumentPropertyBase {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
     }
 
 }

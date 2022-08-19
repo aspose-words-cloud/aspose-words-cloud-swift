@@ -168,7 +168,7 @@ public class ListInfo : LinkElement {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.listLevels != nil)
         {
             self.listLevels!.collectFilesContent(&resultFilesContent);

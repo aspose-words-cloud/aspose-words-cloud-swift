@@ -126,7 +126,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.outlineOptions != nil)
         {
             self.outlineOptions!.collectFilesContent(&resultFilesContent);

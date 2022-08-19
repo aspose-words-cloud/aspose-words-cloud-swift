@@ -1390,7 +1390,7 @@ public class Style : LinkElement {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.font != nil)
         {
             self.font!.collectFilesContent(&resultFilesContent);

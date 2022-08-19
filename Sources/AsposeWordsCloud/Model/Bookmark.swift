@@ -83,7 +83,7 @@ public class Bookmark : LinkElement {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
     }
 
     // Sets name. Gets or sets the name of the bookmark.

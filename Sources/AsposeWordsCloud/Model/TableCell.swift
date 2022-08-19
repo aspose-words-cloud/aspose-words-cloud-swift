@@ -66,7 +66,7 @@ public class TableCell : NodeLink {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.childNodes != nil)
         {
             for element in self.childNodes! {

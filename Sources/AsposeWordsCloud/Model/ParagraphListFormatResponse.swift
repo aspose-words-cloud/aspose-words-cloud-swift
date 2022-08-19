@@ -66,7 +66,7 @@ public class ParagraphListFormatResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.listFormat != nil)
         {
             self.listFormat!.collectFilesContent(&resultFilesContent);

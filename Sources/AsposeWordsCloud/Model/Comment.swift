@@ -173,7 +173,7 @@ public class Comment : CommentLink {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.content != nil)
         {
             self.content!.collectFilesContent(&resultFilesContent);

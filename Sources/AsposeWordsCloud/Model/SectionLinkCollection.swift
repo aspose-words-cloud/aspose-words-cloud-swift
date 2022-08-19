@@ -66,7 +66,7 @@ public class SectionLinkCollection : LinkElement {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.sectionLinkList != nil)
         {
             for element in self.sectionLinkList! {

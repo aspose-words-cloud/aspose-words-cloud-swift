@@ -66,7 +66,7 @@ public class ListLevels : LinkElement {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.listLevel != nil)
         {
             for element in self.listLevel! {

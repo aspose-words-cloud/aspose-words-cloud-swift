@@ -66,7 +66,7 @@ public class BorderResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.border != nil)
         {
             self.border!.collectFilesContent(&resultFilesContent);

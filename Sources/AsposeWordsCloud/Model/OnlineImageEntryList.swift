@@ -66,7 +66,7 @@ public class OnlineImageEntryList : BaseImageEntryList {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.onlineImageEntries != nil)
         {
             for element in self.onlineImageEntries! {

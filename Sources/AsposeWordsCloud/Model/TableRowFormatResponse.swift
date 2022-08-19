@@ -66,7 +66,7 @@ public class TableRowFormatResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.rowFormat != nil)
         {
             self.rowFormat!.collectFilesContent(&resultFilesContent);

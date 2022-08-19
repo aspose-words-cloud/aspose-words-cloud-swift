@@ -66,7 +66,7 @@ public class RevisionsModificationResponse : WordsResponse {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.result != nil)
         {
             self.result!.collectFilesContent(&resultFilesContent);

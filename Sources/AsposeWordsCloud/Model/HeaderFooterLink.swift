@@ -88,7 +88,7 @@ public class HeaderFooterLink : LinkElement {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
     }
 
     // Sets type. Gets or sets the paragraph's text.

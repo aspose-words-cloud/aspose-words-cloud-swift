@@ -616,7 +616,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+        super.collectFilesContent(&resultFilesContent);
         if (self.digitalSignatureDetails != nil)
         {
             self.digitalSignatureDetails!.collectFilesContent(&resultFilesContent);
