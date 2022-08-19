@@ -249,6 +249,7 @@ public class UpdateListLevelRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "listUpdate", body: try ObjectSerializer.serialize(value: self.getListUpdate()), contentType: "application/json"));
          self.getListUpdate().collectFilesContent(&requestFilesContent);
 

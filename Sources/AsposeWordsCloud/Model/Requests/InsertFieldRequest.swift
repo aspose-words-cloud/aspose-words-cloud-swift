@@ -264,6 +264,7 @@ public class InsertFieldRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "field", body: try ObjectSerializer.serialize(value: self.getField()), contentType: "application/json"));
          self.getField().collectFilesContent(&requestFilesContent);
 

@@ -262,6 +262,7 @@ public class UpdateDrawingObjectRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "drawingObject", body: try ObjectSerializer.serialize(value: self.getDrawingObject()), contentType: "application/json"));
          self.getDrawingObject().collectFilesContent(&requestFilesContent);
 

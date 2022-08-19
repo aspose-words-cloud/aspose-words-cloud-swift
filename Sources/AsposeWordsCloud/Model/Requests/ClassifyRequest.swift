@@ -79,6 +79,7 @@ public class ClassifyRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "text", body: try ObjectSerializer.serialize(value: self.getText()), contentType: "text/plain"));
 
          for requestFileContent in requestFilesContent {

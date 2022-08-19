@@ -214,6 +214,7 @@ public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "tabStopInsertDto", body: try ObjectSerializer.serialize(value: self.getTabStopInsertDto()), contentType: "application/json"));
          self.getTabStopInsertDto().collectFilesContent(&requestFilesContent);
 

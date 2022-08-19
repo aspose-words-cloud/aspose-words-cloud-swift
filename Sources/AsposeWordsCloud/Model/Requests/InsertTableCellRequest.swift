@@ -239,6 +239,7 @@ public class InsertTableCellRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "cell", body: try ObjectSerializer.serialize(value: self.getCell()), contentType: "application/json"));
          self.getCell().collectFilesContent(&requestFilesContent);
 

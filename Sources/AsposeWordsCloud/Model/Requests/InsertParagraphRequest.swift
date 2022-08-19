@@ -264,6 +264,7 @@ public class InsertParagraphRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "paragraph", body: try ObjectSerializer.serialize(value: self.getParagraph()), contentType: "application/json"));
          self.getParagraph().collectFilesContent(&requestFilesContent);
 

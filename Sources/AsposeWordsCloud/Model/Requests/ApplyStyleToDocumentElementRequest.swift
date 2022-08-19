@@ -239,6 +239,7 @@ public class ApplyStyleToDocumentElementRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "styleApply", body: try ObjectSerializer.serialize(value: self.getStyleApply()), contentType: "application/json"));
          self.getStyleApply().collectFilesContent(&requestFilesContent);
 

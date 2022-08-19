@@ -249,6 +249,7 @@ public class UpdateTableRowFormatRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "format", body: try ObjectSerializer.serialize(value: self.getFormat()), contentType: "application/json"));
          self.getFormat().collectFilesContent(&requestFilesContent);
 

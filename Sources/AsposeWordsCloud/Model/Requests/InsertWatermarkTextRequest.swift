@@ -229,6 +229,7 @@ public class InsertWatermarkTextRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "watermarkText", body: try ObjectSerializer.serialize(value: self.getWatermarkText()), contentType: "application/json"));
          self.getWatermarkText().collectFilesContent(&requestFilesContent);
 

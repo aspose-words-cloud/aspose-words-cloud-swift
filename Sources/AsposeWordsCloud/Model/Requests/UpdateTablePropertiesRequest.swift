@@ -254,6 +254,7 @@ public class UpdateTablePropertiesRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "properties", body: try ObjectSerializer.serialize(value: self.getProperties()), contentType: "application/json"));
          self.getProperties().collectFilesContent(&requestFilesContent);
 

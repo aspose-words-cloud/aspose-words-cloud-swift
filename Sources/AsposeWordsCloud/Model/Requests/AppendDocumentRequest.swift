@@ -229,6 +229,7 @@ public class AppendDocumentRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "documentList", body: try ObjectSerializer.serialize(value: self.getDocumentList()), contentType: "application/json"));
          self.getDocumentList().collectFilesContent(&requestFilesContent);
 

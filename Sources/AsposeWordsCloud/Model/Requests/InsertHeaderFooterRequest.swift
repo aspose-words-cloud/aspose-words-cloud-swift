@@ -239,6 +239,7 @@ public class InsertHeaderFooterRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "headerFooterType", body: try ObjectSerializer.serialize(value: self.getHeaderFooterType()), contentType: "text/plain"));
 
          for requestFileContent in requestFilesContent {

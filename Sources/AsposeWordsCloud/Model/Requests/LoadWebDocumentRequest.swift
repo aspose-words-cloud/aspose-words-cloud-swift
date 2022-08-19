@@ -79,6 +79,7 @@ public class LoadWebDocumentRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()), contentType: "application/json"));
          self.getData().collectFilesContent(&requestFilesContent);
 

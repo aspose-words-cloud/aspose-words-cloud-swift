@@ -194,6 +194,7 @@ public class SaveAsRangeRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "documentParameters", body: try ObjectSerializer.serialize(value: self.getDocumentParameters()), contentType: "application/json"));
          self.getDocumentParameters().collectFilesContent(&requestFilesContent);
 

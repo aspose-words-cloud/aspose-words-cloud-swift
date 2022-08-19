@@ -189,6 +189,7 @@ public class CompressDocumentRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "compressOptions", body: try ObjectSerializer.serialize(value: self.getCompressOptions()), contentType: "application/json"));
          self.getCompressOptions().collectFilesContent(&requestFilesContent);
 

@@ -277,6 +277,7 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          if (self.getData() != nil) {
              formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()!), contentType: "text/plain"));
          }

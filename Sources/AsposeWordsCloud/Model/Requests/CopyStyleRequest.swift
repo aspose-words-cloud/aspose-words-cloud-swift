@@ -229,6 +229,7 @@ public class CopyStyleRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "styleCopy", body: try ObjectSerializer.serialize(value: self.getStyleCopy()), contentType: "application/json"));
          self.getStyleCopy().collectFilesContent(&requestFilesContent);
 

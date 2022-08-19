@@ -249,6 +249,7 @@ public class UpdateRunFontRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "fontDto", body: try ObjectSerializer.serialize(value: self.getFontDto()), contentType: "application/json"));
          self.getFontDto().collectFilesContent(&requestFilesContent);
 

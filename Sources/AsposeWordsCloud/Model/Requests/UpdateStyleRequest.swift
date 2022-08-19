@@ -239,6 +239,7 @@ public class UpdateStyleRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "styleUpdate", body: try ObjectSerializer.serialize(value: self.getStyleUpdate()), contentType: "application/json"));
          self.getStyleUpdate().collectFilesContent(&requestFilesContent);
 

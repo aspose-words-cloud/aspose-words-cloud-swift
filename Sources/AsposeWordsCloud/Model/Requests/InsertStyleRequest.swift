@@ -229,6 +229,7 @@ public class InsertStyleRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "styleInsert", body: try ObjectSerializer.serialize(value: self.getStyleInsert()), contentType: "application/json"));
          self.getStyleInsert().collectFilesContent(&requestFilesContent);
 

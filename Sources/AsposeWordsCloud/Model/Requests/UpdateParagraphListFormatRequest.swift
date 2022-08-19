@@ -254,6 +254,7 @@ public class UpdateParagraphListFormatRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "listFormatDto", body: try ObjectSerializer.serialize(value: self.getListFormatDto()), contentType: "application/json"));
          self.getListFormatDto().collectFilesContent(&requestFilesContent);
 

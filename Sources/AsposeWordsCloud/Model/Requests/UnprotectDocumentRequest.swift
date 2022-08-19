@@ -189,6 +189,7 @@ public class UnprotectDocumentRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "protectionRequest", body: try ObjectSerializer.serialize(value: self.getProtectionRequest()), contentType: "application/json"));
          self.getProtectionRequest().collectFilesContent(&requestFilesContent);
 

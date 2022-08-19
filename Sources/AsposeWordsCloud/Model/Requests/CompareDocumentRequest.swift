@@ -209,6 +209,7 @@ public class CompareDocumentRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "compareData", body: try ObjectSerializer.serialize(value: self.getCompareData()), contentType: "application/json"));
          self.getCompareData().collectFilesContent(&requestFilesContent);
 

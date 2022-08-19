@@ -135,6 +135,7 @@ public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: self.getTemplate()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serializeFile(value: self.getData()), contentType: "application/octet-stream"));

@@ -214,6 +214,7 @@ public class ReplaceWithTextRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "rangeText", body: try ObjectSerializer.serialize(value: self.getRangeText()), contentType: "application/json"));
          self.getRangeText().collectFilesContent(&requestFilesContent);
 

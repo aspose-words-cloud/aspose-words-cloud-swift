@@ -207,6 +207,7 @@ public class UpdateTableCellFormatOnlineRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "format", body: try ObjectSerializer.serialize(value: self.getFormat()), contentType: "application/json"));

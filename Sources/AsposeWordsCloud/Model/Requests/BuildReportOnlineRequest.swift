@@ -95,6 +95,7 @@ public class BuildReportOnlineRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: self.getTemplate()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()), contentType: "text/plain"));

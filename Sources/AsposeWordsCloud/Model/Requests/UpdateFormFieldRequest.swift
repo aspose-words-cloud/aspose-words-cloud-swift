@@ -254,6 +254,7 @@ public class UpdateFormFieldRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "formField", body: try ObjectSerializer.serialize(value: self.getFormField()), contentType: "application/json"));
          self.getFormField().collectFilesContent(&requestFilesContent);
 

@@ -259,6 +259,7 @@ public class InsertRunRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "run", body: try ObjectSerializer.serialize(value: self.getRun()), contentType: "application/json"));
          self.getRun().collectFilesContent(&requestFilesContent);
 

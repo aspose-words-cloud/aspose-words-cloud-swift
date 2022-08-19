@@ -187,6 +187,7 @@ public class InsertBookmarkOnlineRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "bookmark", body: try ObjectSerializer.serialize(value: self.getBookmark()), contentType: "application/json"));

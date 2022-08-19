@@ -229,6 +229,7 @@ public class InsertListRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "listInsert", body: try ObjectSerializer.serialize(value: self.getListInsert()), contentType: "application/json"));
          self.getListInsert().collectFilesContent(&requestFilesContent);
 

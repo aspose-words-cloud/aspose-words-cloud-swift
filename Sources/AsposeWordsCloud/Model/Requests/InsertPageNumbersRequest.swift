@@ -229,6 +229,7 @@ public class InsertPageNumbersRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "pageNumber", body: try ObjectSerializer.serialize(value: self.getPageNumber()), contentType: "application/json"));
          self.getPageNumber().collectFilesContent(&requestFilesContent);
 

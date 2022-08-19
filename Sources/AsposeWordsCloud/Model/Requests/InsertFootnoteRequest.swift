@@ -244,6 +244,7 @@ public class InsertFootnoteRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "footnoteDto", body: try ObjectSerializer.serialize(value: self.getFootnoteDto()), contentType: "application/json"));
          self.getFootnoteDto().collectFilesContent(&requestFilesContent);
 

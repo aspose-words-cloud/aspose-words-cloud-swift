@@ -254,6 +254,7 @@ public class UpdateBorderRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "borderProperties", body: try ObjectSerializer.serialize(value: self.getBorderProperties()), contentType: "application/json"));
          self.getBorderProperties().collectFilesContent(&requestFilesContent);
 
