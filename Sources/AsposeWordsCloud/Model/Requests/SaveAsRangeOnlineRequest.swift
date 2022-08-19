@@ -155,7 +155,7 @@ public class SaveAsRangeOnlineRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "documentParameters", body: try ObjectSerializer.serialize(value: self.getDocumentParameters()), contentType: "application/json"));
-         self.getDocumentParameters().collectFilesContent(requestFilesContent);
+         self.getDocumentParameters().collectFilesContent(resultFilesContent: requestFilesContent);
 
          requestFilesContent.forEach {
              formParams.append(RequestFormParam(name: $0.id, filename: $0.filename, body: try ObjectSerializer.serializeFile(value: $0.content), contentType: "application/octet-stream"));

@@ -255,7 +255,7 @@ public class UpdateParagraphFormatRequest : WordsApiRequest {
          var formParams : [RequestFormParam] = [];
          var requestFilesContent : [FileContent] = [];
          formParams.append(RequestFormParam(name: "paragraphFormatDto", body: try ObjectSerializer.serialize(value: self.getParagraphFormatDto()), contentType: "application/json"));
-         self.getParagraphFormatDto().collectFilesContent(requestFilesContent);
+         self.getParagraphFormatDto().collectFilesContent(resultFilesContent: requestFilesContent);
 
          requestFilesContent.forEach {
              formParams.append(RequestFormParam(name: $0.id, filename: $0.filename, body: try ObjectSerializer.serializeFile(value: $0.content), contentType: "application/octet-stream"));

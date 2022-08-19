@@ -100,7 +100,7 @@ public class BuildReportOnlineRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()), contentType: "text/plain"));
 
          formParams.append(RequestFormParam(name: "reportEngineSettings", body: try ObjectSerializer.serialize(value: self.getReportEngineSettings()), contentType: "application/json"));
-         self.getReportEngineSettings().collectFilesContent(requestFilesContent);
+         self.getReportEngineSettings().collectFilesContent(resultFilesContent: requestFilesContent);
 
          requestFilesContent.forEach {
              formParams.append(RequestFormParam(name: $0.id, filename: $0.filename, body: try ObjectSerializer.serializeFile(value: $0.content), contentType: "application/octet-stream"));

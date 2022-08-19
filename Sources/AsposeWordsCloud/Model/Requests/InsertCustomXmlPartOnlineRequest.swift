@@ -190,7 +190,7 @@ public class InsertCustomXmlPartOnlineRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "customXmlPart", body: try ObjectSerializer.serialize(value: self.getCustomXmlPart()), contentType: "application/json"));
-         self.getCustomXmlPart().collectFilesContent(requestFilesContent);
+         self.getCustomXmlPart().collectFilesContent(resultFilesContent: requestFilesContent);
 
          requestFilesContent.forEach {
              formParams.append(RequestFormParam(name: $0.id, filename: $0.filename, body: try ObjectSerializer.serializeFile(value: $0.content), contentType: "application/octet-stream"));

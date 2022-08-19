@@ -190,7 +190,7 @@ public class AppendDocumentOnlineRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "documentList", body: try ObjectSerializer.serialize(value: self.getDocumentList()), contentType: "application/json"));
-         self.getDocumentList().collectFilesContent(requestFilesContent);
+         self.getDocumentList().collectFilesContent(resultFilesContent: requestFilesContent);
 
          requestFilesContent.forEach {
              formParams.append(RequestFormParam(name: $0.id, filename: $0.filename, body: try ObjectSerializer.serializeFile(value: $0.content), contentType: "application/octet-stream"));

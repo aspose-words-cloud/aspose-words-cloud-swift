@@ -230,7 +230,7 @@ public class CopyStyleRequest : WordsApiRequest {
          var formParams : [RequestFormParam] = [];
          var requestFilesContent : [FileContent] = [];
          formParams.append(RequestFormParam(name: "styleCopy", body: try ObjectSerializer.serialize(value: self.getStyleCopy()), contentType: "application/json"));
-         self.getStyleCopy().collectFilesContent(requestFilesContent);
+         self.getStyleCopy().collectFilesContent(resultFilesContent: requestFilesContent);
 
          requestFilesContent.forEach {
              formParams.append(RequestFormParam(name: $0.id, filename: $0.filename, body: try ObjectSerializer.serializeFile(value: $0.content), contentType: "application/octet-stream"));
