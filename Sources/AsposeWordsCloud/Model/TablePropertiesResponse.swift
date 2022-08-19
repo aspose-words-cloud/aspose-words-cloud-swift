@@ -65,11 +65,11 @@ public class TablePropertiesResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.properties != nil)
         {
-            self.properties!.collectFilesContent(resultFilesContent);
+            self.properties!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

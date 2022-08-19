@@ -100,18 +100,18 @@ public class SplitDocumentResult : Codable, WordsApiModel {
         if (self.pages != nil)
         {
             self.pages!.forEach {
-                $0.collectFilesContent(resultFilesContent);
+                $0.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 
         if (self.sourceDocument != nil)
         {
-            self.sourceDocument!.collectFilesContent(resultFilesContent);
+            self.sourceDocument!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.zippedPages != nil)
         {
-            self.zippedPages!.collectFilesContent(resultFilesContent);
+            self.zippedPages!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

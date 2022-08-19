@@ -65,12 +65,12 @@ public class Bookmarks : LinkElement {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.bookmarkList != nil)
         {
             self.bookmarkList!.forEach {
-                $0.collectFilesContent(resultFilesContent);
+                $0.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

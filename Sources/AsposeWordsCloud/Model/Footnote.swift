@@ -143,17 +143,17 @@ public class Footnote : FootnoteLink {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.content != nil)
         {
-            self.content!.collectFilesContent(resultFilesContent);
+            self.content!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 
         if (self.position != nil)
         {
-            self.position!.collectFilesContent(resultFilesContent);
+            self.position!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

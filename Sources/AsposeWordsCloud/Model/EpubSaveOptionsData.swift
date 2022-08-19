@@ -74,8 +74,8 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
     }
 
     // Sets epubNavigationMapLevel. Gets or sets the maximum level of headings populated to the navigation map when exporting.

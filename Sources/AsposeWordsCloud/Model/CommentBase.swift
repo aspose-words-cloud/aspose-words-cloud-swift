@@ -155,12 +155,12 @@ public class CommentBase : Codable, WordsApiModel {
     public func collectFilesContent(resultFilesContent : [FileContent]) {
         if (self.rangeEnd != nil)
         {
-            self.rangeEnd!.collectFilesContent(resultFilesContent);
+            self.rangeEnd!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.rangeStart != nil)
         {
-            self.rangeStart!.collectFilesContent(resultFilesContent);
+            self.rangeStart!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

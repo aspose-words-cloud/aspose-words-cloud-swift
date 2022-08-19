@@ -82,16 +82,16 @@ public class BookmarkInsert : BookmarkData {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.endRange != nil)
         {
-            self.endRange!.collectFilesContent(resultFilesContent);
+            self.endRange!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.startRange != nil)
         {
-            self.startRange!.collectFilesContent(resultFilesContent);
+            self.startRange!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

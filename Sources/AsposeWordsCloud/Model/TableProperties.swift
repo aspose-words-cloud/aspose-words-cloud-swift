@@ -1481,11 +1481,11 @@ public class TableProperties : LinkElement {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.preferredWidth != nil)
         {
-            self.preferredWidth!.collectFilesContent(resultFilesContent);
+            self.preferredWidth!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

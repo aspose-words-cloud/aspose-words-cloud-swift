@@ -65,12 +65,12 @@ public class SearchResultsCollection : LinkElement {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.resultsList != nil)
         {
             self.resultsList!.forEach {
-                $0.collectFilesContent(resultFilesContent);
+                $0.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

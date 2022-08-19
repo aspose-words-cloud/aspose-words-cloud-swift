@@ -65,11 +65,11 @@ public class TableRowFormatResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.rowFormat != nil)
         {
-            self.rowFormat!.collectFilesContent(resultFilesContent);
+            self.rowFormat!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

@@ -82,16 +82,16 @@ public class StatDataResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.documentLink != nil)
         {
-            self.documentLink!.collectFilesContent(resultFilesContent);
+            self.documentLink!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.statData != nil)
         {
-            self.statData!.collectFilesContent(resultFilesContent);
+            self.statData!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

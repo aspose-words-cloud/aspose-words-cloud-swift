@@ -136,8 +136,8 @@ public class OdtSaveOptionsData : SaveOptionsData {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
     }
 
     // Sets isStrictSchema11. Gets or sets a value indicating whether export should correspond to ODT specification 1.1 strictly.

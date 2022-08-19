@@ -99,23 +99,23 @@ public class HeaderFooter : HeaderFooterLink {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.childNodes != nil)
         {
             self.childNodes!.forEach {
-                $0.collectFilesContent(resultFilesContent);
+                $0.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 
         if (self.drawingObjects != nil)
         {
-            self.drawingObjects!.collectFilesContent(resultFilesContent);
+            self.drawingObjects!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.paragraphs != nil)
         {
-            self.paragraphs!.collectFilesContent(resultFilesContent);
+            self.paragraphs!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

@@ -65,11 +65,11 @@ public class SectionLinkCollectionResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.sections != nil)
         {
-            self.sections!.collectFilesContent(resultFilesContent);
+            self.sections!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

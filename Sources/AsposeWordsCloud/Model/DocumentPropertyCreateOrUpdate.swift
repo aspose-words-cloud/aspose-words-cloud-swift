@@ -46,8 +46,8 @@ public class DocumentPropertyCreateOrUpdate : DocumentPropertyBase {
         try super.encode(to: encoder);
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
     }
 
 }

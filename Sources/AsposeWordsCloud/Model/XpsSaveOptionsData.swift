@@ -125,11 +125,11 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.outlineOptions != nil)
         {
-            self.outlineOptions!.collectFilesContent(resultFilesContent);
+            self.outlineOptions!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

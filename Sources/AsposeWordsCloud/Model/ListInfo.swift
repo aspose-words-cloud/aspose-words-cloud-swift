@@ -167,16 +167,16 @@ public class ListInfo : LinkElement {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.listLevels != nil)
         {
-            self.listLevels!.collectFilesContent(resultFilesContent);
+            self.listLevels!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.style != nil)
         {
-            self.style!.collectFilesContent(resultFilesContent);
+            self.style!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

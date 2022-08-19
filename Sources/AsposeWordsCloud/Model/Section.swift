@@ -133,33 +133,33 @@ public class Section : LinkElement {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.childNodes != nil)
         {
             self.childNodes!.forEach {
-                $0.collectFilesContent(resultFilesContent);
+                $0.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 
         if (self.headerFooters != nil)
         {
-            self.headerFooters!.collectFilesContent(resultFilesContent);
+            self.headerFooters!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.pageSetup != nil)
         {
-            self.pageSetup!.collectFilesContent(resultFilesContent);
+            self.pageSetup!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.paragraphs != nil)
         {
-            self.paragraphs!.collectFilesContent(resultFilesContent);
+            self.paragraphs!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.tables != nil)
         {
-            self.tables!.collectFilesContent(resultFilesContent);
+            self.tables!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

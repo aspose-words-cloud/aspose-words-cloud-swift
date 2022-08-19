@@ -82,12 +82,12 @@ public class ModificationOperationResult : Codable, WordsApiModel {
     public func collectFilesContent(resultFilesContent : [FileContent]) {
         if (self.dest != nil)
         {
-            self.dest!.collectFilesContent(resultFilesContent);
+            self.dest!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.source != nil)
         {
-            self.source!.collectFilesContent(resultFilesContent);
+            self.source!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

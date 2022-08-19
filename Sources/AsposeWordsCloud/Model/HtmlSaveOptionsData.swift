@@ -817,8 +817,8 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
     }
 
     // Sets allowNegativeIndent. Gets or sets a value indicating whether negative left and right indents of paragraphs are allowed (not normalized).

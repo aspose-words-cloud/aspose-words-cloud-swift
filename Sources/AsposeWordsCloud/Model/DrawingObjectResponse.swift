@@ -65,11 +65,11 @@ public class DrawingObjectResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.drawingObject != nil)
         {
-            self.drawingObject!.collectFilesContent(resultFilesContent);
+            self.drawingObject!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

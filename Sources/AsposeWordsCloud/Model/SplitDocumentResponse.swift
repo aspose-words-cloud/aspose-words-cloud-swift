@@ -65,11 +65,11 @@ public class SplitDocumentResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.splitResult != nil)
         {
-            self.splitResult!.collectFilesContent(resultFilesContent);
+            self.splitResult!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

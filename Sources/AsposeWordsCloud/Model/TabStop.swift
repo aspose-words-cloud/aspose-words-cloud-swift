@@ -65,8 +65,8 @@ public class TabStop : TabStopBase {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
     }
 
     // Sets isClear. Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.

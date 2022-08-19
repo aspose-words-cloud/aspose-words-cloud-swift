@@ -82,7 +82,7 @@ public class DocumentPosition : Codable, WordsApiModel {
     public func collectFilesContent(resultFilesContent : [FileContent]) {
         if (self.node != nil)
         {
-            self.node!.collectFilesContent(resultFilesContent);
+            self.node!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

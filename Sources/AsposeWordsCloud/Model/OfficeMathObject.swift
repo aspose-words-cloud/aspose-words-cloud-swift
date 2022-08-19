@@ -242,11 +242,11 @@ public class OfficeMathObject : OfficeMathLink {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.content != nil)
         {
-            self.content!.collectFilesContent(resultFilesContent);
+            self.content!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

@@ -138,7 +138,7 @@ public class ApiError : Codable, WordsApiModel {
     public func collectFilesContent(resultFilesContent : [FileContent]) {
         if (self.innerError != nil)
         {
-            self.innerError!.collectFilesContent(resultFilesContent);
+            self.innerError!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

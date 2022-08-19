@@ -266,11 +266,11 @@ public class Border : LinkElement {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.color != nil)
         {
-            self.color!.collectFilesContent(resultFilesContent);
+            self.color!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

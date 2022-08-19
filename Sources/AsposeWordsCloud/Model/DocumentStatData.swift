@@ -133,14 +133,14 @@ public class DocumentStatData : Codable, WordsApiModel {
     public func collectFilesContent(resultFilesContent : [FileContent]) {
         if (self.footnotesStatData != nil)
         {
-            self.footnotesStatData!.collectFilesContent(resultFilesContent);
+            self.footnotesStatData!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 
         if (self.pageStatData != nil)
         {
             self.pageStatData!.forEach {
-                $0.collectFilesContent(resultFilesContent);
+                $0.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

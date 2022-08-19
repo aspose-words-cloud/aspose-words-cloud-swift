@@ -65,11 +65,11 @@ public class CustomXmlPartsResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.customXmlParts != nil)
         {
-            self.customXmlParts!.collectFilesContent(resultFilesContent);
+            self.customXmlParts!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

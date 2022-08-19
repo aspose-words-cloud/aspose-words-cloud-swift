@@ -468,17 +468,17 @@ public class ListLevel : LinkElement {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.font != nil)
         {
-            self.font!.collectFilesContent(resultFilesContent);
+            self.font!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 
         if (self.linkedStyle != nil)
         {
-            self.linkedStyle!.collectFilesContent(resultFilesContent);
+            self.linkedStyle!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

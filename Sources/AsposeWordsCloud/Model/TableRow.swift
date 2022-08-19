@@ -82,17 +82,17 @@ public class TableRow : NodeLink {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.rowFormat != nil)
         {
-            self.rowFormat!.collectFilesContent(resultFilesContent);
+            self.rowFormat!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.tableCellList != nil)
         {
             self.tableCellList!.forEach {
-                $0.collectFilesContent(resultFilesContent);
+                $0.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

@@ -65,11 +65,11 @@ public class FormFieldsResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.formFields != nil)
         {
-            self.formFields!.collectFilesContent(resultFilesContent);
+            self.formFields!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

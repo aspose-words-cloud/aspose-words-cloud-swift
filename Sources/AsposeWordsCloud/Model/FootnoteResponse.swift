@@ -65,11 +65,11 @@ public class FootnoteResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.footnote != nil)
         {
-            self.footnote!.collectFilesContent(resultFilesContent);
+            self.footnote!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

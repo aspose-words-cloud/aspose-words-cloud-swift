@@ -66,7 +66,7 @@ public class FilesList : Codable, WordsApiModel {
         if (self.value != nil)
         {
             self.value!.forEach {
-                $0.collectFilesContent(resultFilesContent);
+                $0.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

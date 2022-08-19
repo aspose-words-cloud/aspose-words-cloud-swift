@@ -65,11 +65,11 @@ public class SectionResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.section != nil)
         {
-            self.section!.collectFilesContent(resultFilesContent);
+            self.section!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

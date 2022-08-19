@@ -100,18 +100,18 @@ public class SaveResult : Codable, WordsApiModel {
         if (self.additionalItems != nil)
         {
             self.additionalItems!.forEach {
-                $0.collectFilesContent(resultFilesContent);
+                $0.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 
         if (self.destDocument != nil)
         {
-            self.destDocument!.collectFilesContent(resultFilesContent);
+            self.destDocument!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.sourceDocument != nil)
         {
-            self.sourceDocument!.collectFilesContent(resultFilesContent);
+            self.sourceDocument!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

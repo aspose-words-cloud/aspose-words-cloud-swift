@@ -65,11 +65,11 @@ public class HyperlinksResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.hyperlinks != nil)
         {
-            self.hyperlinks!.collectFilesContent(resultFilesContent);
+            self.hyperlinks!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

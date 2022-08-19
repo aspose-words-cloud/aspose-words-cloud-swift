@@ -172,23 +172,23 @@ public class Comment : CommentLink {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.content != nil)
         {
-            self.content!.collectFilesContent(resultFilesContent);
+            self.content!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 
 
         if (self.rangeEnd != nil)
         {
-            self.rangeEnd!.collectFilesContent(resultFilesContent);
+            self.rangeEnd!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.rangeStart != nil)
         {
-            self.rangeStart!.collectFilesContent(resultFilesContent);
+            self.rangeStart!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

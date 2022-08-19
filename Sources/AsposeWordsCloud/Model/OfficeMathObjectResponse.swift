@@ -65,11 +65,11 @@ public class OfficeMathObjectResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.officeMathObject != nil)
         {
-            self.officeMathObject!.collectFilesContent(resultFilesContent);
+            self.officeMathObject!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

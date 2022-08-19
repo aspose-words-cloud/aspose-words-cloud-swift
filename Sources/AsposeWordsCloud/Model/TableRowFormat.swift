@@ -129,8 +129,8 @@ public class TableRowFormat : LinkElement {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
     }
 
     // Sets allowBreakAcrossPages. Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.

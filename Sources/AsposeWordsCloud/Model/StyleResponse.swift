@@ -65,11 +65,11 @@ public class StyleResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.style != nil)
         {
-            self.style!.collectFilesContent(resultFilesContent);
+            self.style!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

@@ -197,11 +197,11 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.metafileRenderingOptions != nil)
         {
-            self.metafileRenderingOptions!.collectFilesContent(resultFilesContent);
+            self.metafileRenderingOptions!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

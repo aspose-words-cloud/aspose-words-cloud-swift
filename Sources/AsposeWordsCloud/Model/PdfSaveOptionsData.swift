@@ -615,23 +615,23 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.digitalSignatureDetails != nil)
         {
-            self.digitalSignatureDetails!.collectFilesContent(resultFilesContent);
+            self.digitalSignatureDetails!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 
         if (self.downsampleOptions != nil)
         {
-            self.downsampleOptions!.collectFilesContent(resultFilesContent);
+            self.downsampleOptions!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 
         if (self.encryptionDetails != nil)
         {
-            self.encryptionDetails!.collectFilesContent(resultFilesContent);
+            self.encryptionDetails!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 
@@ -644,7 +644,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
         if (self.outlineOptions != nil)
         {
-            self.outlineOptions!.collectFilesContent(resultFilesContent);
+            self.outlineOptions!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

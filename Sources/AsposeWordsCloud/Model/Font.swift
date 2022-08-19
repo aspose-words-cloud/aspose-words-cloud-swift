@@ -1949,16 +1949,16 @@ public class Font : LinkElement {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.border != nil)
         {
-            self.border!.collectFilesContent(resultFilesContent);
+            self.border!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
         if (self.color != nil)
         {
-            self.color!.collectFilesContent(resultFilesContent);
+            self.color!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 
@@ -1968,7 +1968,7 @@ public class Font : LinkElement {
 
         if (self.highlightColor != nil)
         {
-            self.highlightColor!.collectFilesContent(resultFilesContent);
+            self.highlightColor!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 
@@ -2000,7 +2000,7 @@ public class Font : LinkElement {
 
         if (self.underlineColor != nil)
         {
-            self.underlineColor!.collectFilesContent(resultFilesContent);
+            self.underlineColor!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

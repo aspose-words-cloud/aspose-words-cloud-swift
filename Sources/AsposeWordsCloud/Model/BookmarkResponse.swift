@@ -65,11 +65,11 @@ public class BookmarkResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.bookmark != nil)
         {
-            self.bookmark!.collectFilesContent(resultFilesContent);
+            self.bookmark!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

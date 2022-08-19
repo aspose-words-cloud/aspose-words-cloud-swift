@@ -66,7 +66,7 @@ public class StoryChildNodes : Codable, WordsApiModel {
         if (self.childNodes != nil)
         {
             self.childNodes!.forEach {
-                $0.collectFilesContent(resultFilesContent);
+                $0.collectFilesContent(resultFilesContent: resultFilesContent);
             }
         }
 

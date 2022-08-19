@@ -1389,11 +1389,11 @@ public class Style : LinkElement {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.font != nil)
         {
-            self.font!.collectFilesContent(resultFilesContent);
+            self.font!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

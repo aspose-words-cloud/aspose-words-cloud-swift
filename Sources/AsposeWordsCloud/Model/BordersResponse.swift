@@ -65,11 +65,11 @@ public class BordersResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.borders != nil)
         {
-            self.borders!.collectFilesContent(resultFilesContent);
+            self.borders!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

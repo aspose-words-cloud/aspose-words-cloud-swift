@@ -99,8 +99,8 @@ public class DocumentProperty : LinkElement {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
     }
 
     // Sets builtIn. Gets or sets a value indicating whether the property is built-in or not. If true the property is built-in, if false the property is custom.

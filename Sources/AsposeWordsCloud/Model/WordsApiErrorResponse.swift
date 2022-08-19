@@ -65,11 +65,11 @@ public class WordsApiErrorResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.error != nil)
         {
-            self.error!.collectFilesContent(resultFilesContent);
+            self.error!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

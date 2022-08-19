@@ -65,8 +65,8 @@ public class DocumentEntry : BaseDocumentEntry {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
     }
 
     // Sets href. Gets or sets the path to document to append at the server.

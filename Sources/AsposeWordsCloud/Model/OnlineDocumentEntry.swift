@@ -65,11 +65,11 @@ public class OnlineDocumentEntry : BaseDocumentEntry {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.file != nil)
         {
-            self.file!.collectFilesContent(resultFilesContent);
+            self.file!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

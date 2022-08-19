@@ -65,11 +65,11 @@ public class TableLinkCollectionResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.tables != nil)
         {
-            self.tables!.collectFilesContent(resultFilesContent);
+            self.tables!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

@@ -65,11 +65,11 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
         }
     }
 
-    public func collectFilesContent(resultFilesContent : [FileContent]) {
-        super.collectFilesContent(resultFilesContent);
+    public override func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent: resultFilesContent);
         if (self.paragraphs != nil)
         {
-            self.paragraphs!.collectFilesContent(resultFilesContent);
+            self.paragraphs!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }

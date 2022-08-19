@@ -99,7 +99,7 @@ public class TableInsert : Codable, WordsApiModel {
     public func collectFilesContent(resultFilesContent : [FileContent]) {
         if (self.position != nil)
         {
-            self.position!.collectFilesContent(resultFilesContent);
+            self.position!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 

@@ -163,20 +163,20 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     public func collectFilesContent(resultFilesContent : [FileContent]) {
         if (self.csvDataLoadOptions != nil)
         {
-            self.csvDataLoadOptions!.collectFilesContent(resultFilesContent);
+            self.csvDataLoadOptions!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 
 
         if (self.jsonDataLoadOptions != nil)
         {
-            self.jsonDataLoadOptions!.collectFilesContent(resultFilesContent);
+            self.jsonDataLoadOptions!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
 
         if (self.xmlDataLoadOptions != nil)
         {
-            self.xmlDataLoadOptions!.collectFilesContent(resultFilesContent);
+            self.xmlDataLoadOptions!.collectFilesContent(resultFilesContent: resultFilesContent);
         }
 
     }
