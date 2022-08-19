@@ -65,6 +65,15 @@ public class CommentResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.comment != nil)
+        {
+            self.comment!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets comment. Gets or sets the comment.
     public func setComment(comment : Comment?) -> CommentResponse {
         self.comment = comment;

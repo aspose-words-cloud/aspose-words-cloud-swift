@@ -237,9 +237,19 @@ public class CreateOrUpdateDocumentPropertyRequest : WordsApiRequest {
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
+         var formParams : [RequestFormParam] = [];
+         var requestFilesContent : [FileContent] = [];
+         formParams.append(RequestFormParam(name: "property", body: try ObjectSerializer.serialize(value: self.getProperty()), contentType: "application/json"));
+         self.getProperty().collectFilesContent(requestFilesContent);
+
+         requestFilesContent.forEach {
+             formParams.append(RequestFormParam(name: $0.id, filename: $0.filename, body: try ObjectSerializer.serializeFile(value: $0.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getProperty()), contentType: "application/json");
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

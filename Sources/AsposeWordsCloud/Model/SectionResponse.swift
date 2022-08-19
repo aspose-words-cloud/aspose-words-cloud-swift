@@ -65,6 +65,15 @@ public class SectionResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.section != nil)
+        {
+            self.section!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets section. Gets or sets the section.
     public func setSection(section : Section?) -> SectionResponse {
         self.section = section;

@@ -65,6 +65,17 @@ public class HeaderFooterLinkCollection : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.list != nil)
+        {
+            self.list!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets list. Gets or sets the collection of HeaderFooter's links.
     public func setList(list : [HeaderFooterLink]?) -> HeaderFooterLinkCollection {
         self.list = list;

@@ -65,6 +65,17 @@ public class CommentsCollection : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.commentList != nil)
+        {
+            self.commentList!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets commentList. Gets or sets the collection of comments.
     public func setCommentList(commentList : [Comment]?) -> CommentsCollection {
         self.commentList = commentList;

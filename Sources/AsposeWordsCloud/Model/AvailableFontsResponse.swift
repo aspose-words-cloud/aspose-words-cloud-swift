@@ -99,6 +99,31 @@ public class AvailableFontsResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.additionalFonts != nil)
+        {
+            self.additionalFonts!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+        if (self.customFonts != nil)
+        {
+            self.customFonts!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+        if (self.systemFonts != nil)
+        {
+            self.systemFonts!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets additionalFonts. Gets or sets the list of additional fonts, provided by Aspose team.
     public func setAdditionalFonts(additionalFonts : [FontInfo]?) -> AvailableFontsResponse {
         self.additionalFonts = additionalFonts;

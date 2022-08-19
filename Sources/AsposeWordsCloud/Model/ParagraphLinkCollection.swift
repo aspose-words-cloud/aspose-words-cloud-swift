@@ -65,6 +65,17 @@ public class ParagraphLinkCollection : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.paragraphLinkList != nil)
+        {
+            self.paragraphLinkList!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets paragraphLinkList. Gets or sets the collection of paragraph's links.
     public func setParagraphLinkList(paragraphLinkList : [ParagraphLink]?) -> ParagraphLinkCollection {
         self.paragraphLinkList = paragraphLinkList;

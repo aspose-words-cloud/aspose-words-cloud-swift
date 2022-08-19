@@ -55,4 +55,8 @@ public class FlatOpcMacroSaveOptionsData : OoxmlSaveOptionsData {
         try super.encode(to: encoder);
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+    }
+
 }

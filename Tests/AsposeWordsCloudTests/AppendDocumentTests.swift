@@ -49,7 +49,7 @@ class AppendDocumentTests: BaseTestContext {
         .setHref(href: remoteDataFolder + "/" + remoteFileName)
         .setImportFormatMode(importFormatMode: "KeepSourceFormatting");
       let requestDocumentListDocumentEntries = [
-        requestDocumentListDocumentEntries0
+        requestDocumentListDocumentEntries0 as! DocumentEntry
       ];
       let requestDocumentList = DocumentEntryList()
         .setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
@@ -61,19 +61,17 @@ class AppendDocumentTests: BaseTestContext {
 
     // Test for appending document online.
     func testAppendDocumentOnline() throws {
-      let remoteFileName = "TestAppendDocument.docx";
-
-      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
-
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestDocumentListDocumentEntries0 = DocumentEntry()
-        .setHref(href: remoteDataFolder + "/" + remoteFileName)
+      let requestDocumentListOnlineDocumentEntries0FileStream = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let requestDocumentListOnlineDocumentEntries0File = FileContent(filename: localFile, content: requestDocumentListOnlineDocumentEntries0FileStream);
+      let requestDocumentListOnlineDocumentEntries0 = OnlineDocumentEntry()
+        .setFile(file: requestDocumentListOnlineDocumentEntries0File)
         .setImportFormatMode(importFormatMode: "KeepSourceFormatting");
-      let requestDocumentListDocumentEntries = [
-        requestDocumentListDocumentEntries0
+      let requestDocumentListOnlineDocumentEntries = [
+        requestDocumentListOnlineDocumentEntries0 as! OnlineDocumentEntry
       ];
-      let requestDocumentList = DocumentEntryList()
-        .setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
+      let requestDocumentList = OnlineDocumentEntryList()
+        .setOnlineDocumentEntries(onlineDocumentEntries: requestDocumentListOnlineDocumentEntries);
       let request = AppendDocumentOnlineRequest(document: requestDocument, documentList: requestDocumentList);
       _ = try super.getApi().appendDocumentOnline(request: request);
     }

@@ -99,6 +99,19 @@ public class InfoResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.additionalInfo != nil)
+        {
+            self.additionalInfo!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+
+
+    }
+
     // Sets additionalInfo. Gets or sets additional info.
     public func setAdditionalInfo(additionalInfo : [InfoAdditionalItem]?) -> InfoResponse {
         self.additionalInfo = additionalInfo;

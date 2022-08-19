@@ -305,6 +305,33 @@ public class DrawingObject : DrawingObjectLink {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.imageDataLink != nil)
+        {
+            self.imageDataLink!.collectFilesContent(resultFilesContent);
+        }
+
+
+        if (self.oleDataLink != nil)
+        {
+            self.oleDataLink!.collectFilesContent(resultFilesContent);
+        }
+
+
+
+        if (self.renderLinks != nil)
+        {
+            self.renderLinks!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+
+
+
+    }
+
     // Sets height. Gets or sets the height of the DrawingObject in points.
     public func setHeight(height : Double?) -> DrawingObject {
         self.height = height;

@@ -62,6 +62,9 @@ public class TableCellInsertDto : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    }
+
     // Sets insertAfter. Gets or sets the 0-based index, the table cell will be inserted after.
     public func setInsertAfter(insertAfter : Int?) -> TableCellInsertDto {
         self.insertAfter = insertAfter;

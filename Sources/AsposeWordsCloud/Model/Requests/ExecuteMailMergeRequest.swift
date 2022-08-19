@@ -276,17 +276,24 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
          var formParams : [RequestFormParam] = [];
+         var requestFilesContent : [FileContent] = [];
          if (self.getData() != nil) {
-             formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()!), contentType: "application/json"));
+             formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()!), contentType: "text/plain"));
          }
 
          if (self.getOptions() != nil) {
              formParams.append(RequestFormParam(name: "options", body: try ObjectSerializer.serialize(value: self.getOptions()!), contentType: "application/json"));
+             self.getOptions()!.collectFilesContent(requestFilesContent);
          }
 
+         requestFilesContent.forEach {
+             formParams.append(RequestFormParam(name: $0.id, filename: $0.filename, body: try ObjectSerializer.serializeFile(value: $0.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
-         result.setBody(formParams: formParams);
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

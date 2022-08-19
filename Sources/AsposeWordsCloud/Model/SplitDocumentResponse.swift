@@ -65,6 +65,15 @@ public class SplitDocumentResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.splitResult != nil)
+        {
+            self.splitResult!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets splitResult. Gets or sets the result of document splitting.
     public func setSplitResult(splitResult : SplitDocumentResult?) -> SplitDocumentResponse {
         self.splitResult = splitResult;

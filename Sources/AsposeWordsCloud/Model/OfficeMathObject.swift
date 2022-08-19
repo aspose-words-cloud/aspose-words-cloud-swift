@@ -242,6 +242,18 @@ public class OfficeMathObject : OfficeMathLink {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.content != nil)
+        {
+            self.content!.collectFilesContent(resultFilesContent);
+        }
+
+
+
+
+    }
+
     // Sets content. Gets or sets the content of a footnote.
     public func setContent(content : StoryChildNodes?) -> OfficeMathObject {
         self.content = content;

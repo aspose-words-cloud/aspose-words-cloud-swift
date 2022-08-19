@@ -82,6 +82,10 @@ public class Field : FieldLink {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+    }
+
     // Sets localeId. Gets or sets the LCID of the field.
     public func setLocaleId(localeId : String?) -> Field {
         self.localeId = localeId;

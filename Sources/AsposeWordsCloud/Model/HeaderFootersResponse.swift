@@ -65,6 +65,15 @@ public class HeaderFootersResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.headerFooters != nil)
+        {
+            self.headerFooters!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets headerFooters. Gets or sets the collection of HeaderFooter elements.
     public func setHeaderFooters(headerFooters : HeaderFooterLinkCollection?) -> HeaderFootersResponse {
         self.headerFooters = headerFooters;

@@ -167,6 +167,20 @@ public class ListInfo : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.listLevels != nil)
+        {
+            self.listLevels!.collectFilesContent(resultFilesContent);
+        }
+
+        if (self.style != nil)
+        {
+            self.style!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style.
     public func setIsListStyleDefinition(isListStyleDefinition : Bool?) -> ListInfo {
         self.isListStyleDefinition = isListStyleDefinition;

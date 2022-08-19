@@ -82,6 +82,20 @@ public class ProtectionDataResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.documentLink != nil)
+        {
+            self.documentLink!.collectFilesContent(resultFilesContent);
+        }
+
+        if (self.protectionData != nil)
+        {
+            self.protectionData!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets documentLink. Gets or sets the link to the document.
     public func setDocumentLink(documentLink : FileLink?) -> ProtectionDataResponse {
         self.documentLink = documentLink;

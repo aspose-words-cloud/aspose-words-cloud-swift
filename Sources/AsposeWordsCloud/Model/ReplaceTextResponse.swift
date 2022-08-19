@@ -82,6 +82,16 @@ public class ReplaceTextResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.documentLink != nil)
+        {
+            self.documentLink!.collectFilesContent(resultFilesContent);
+        }
+
+
+    }
+
     // Sets documentLink. Gets or sets the link to the document.
     public func setDocumentLink(documentLink : FileLink?) -> ReplaceTextResponse {
         self.documentLink = documentLink;

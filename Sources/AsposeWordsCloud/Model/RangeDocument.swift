@@ -62,6 +62,9 @@ public class RangeDocument : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    }
+
     // Sets documentName. Gets or sets the name for a new document.
     public func setDocumentName(documentName : String?) -> RangeDocument {
         self.documentName = documentName;

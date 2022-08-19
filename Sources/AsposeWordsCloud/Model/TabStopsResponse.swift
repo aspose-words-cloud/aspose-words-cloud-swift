@@ -65,6 +65,17 @@ public class TabStopsResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.tabStops != nil)
+        {
+            self.tabStops!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets tabStops. Gets or sets the array of tab stops.
     public func setTabStops(tabStops : [TabStop]?) -> TabStopsResponse {
         self.tabStops = tabStops;

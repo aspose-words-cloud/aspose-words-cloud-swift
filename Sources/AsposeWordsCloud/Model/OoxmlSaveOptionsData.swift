@@ -145,6 +145,10 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+    }
+
     // Sets compliance. Gets or sets the oOXML version for the output document.
     public func setCompliance(compliance : Compliance?) -> OoxmlSaveOptionsData {
         self.compliance = compliance;

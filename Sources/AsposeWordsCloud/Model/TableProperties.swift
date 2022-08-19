@@ -1481,6 +1481,21 @@ public class TableProperties : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.preferredWidth != nil)
+        {
+            self.preferredWidth!.collectFilesContent(resultFilesContent);
+        }
+
+
+
+
+
+
+
+    }
+
     // Sets alignment. Gets or sets the option that controls how an inline table is aligned in the document.
     public func setAlignment(alignment : Alignment?) -> TableProperties {
         self.alignment = alignment;

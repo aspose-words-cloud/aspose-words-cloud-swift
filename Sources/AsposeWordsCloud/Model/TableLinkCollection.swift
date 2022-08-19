@@ -65,6 +65,17 @@ public class TableLinkCollection : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.tableLinkList != nil)
+        {
+            self.tableLinkList!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets tableLinkList. Gets or sets the collection of table's links.
     public func setTableLinkList(tableLinkList : [TableLink]?) -> TableLinkCollection {
         self.tableLinkList = tableLinkList;

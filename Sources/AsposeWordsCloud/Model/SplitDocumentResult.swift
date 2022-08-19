@@ -96,6 +96,26 @@ public class SplitDocumentResult : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        if (self.pages != nil)
+        {
+            self.pages!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+        if (self.sourceDocument != nil)
+        {
+            self.sourceDocument!.collectFilesContent(resultFilesContent);
+        }
+
+        if (self.zippedPages != nil)
+        {
+            self.zippedPages!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets pages. Gets or sets the list of pages.
     public func setPages(pages : [FileLink]?) -> SplitDocumentResult {
         self.pages = pages;

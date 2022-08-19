@@ -135,6 +135,15 @@ public class ApiError : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        if (self.innerError != nil)
+        {
+            self.innerError!.collectFilesContent(resultFilesContent);
+        }
+
+
+    }
+
     // Sets code. Gets or sets the API error code.
     public func setCode(code : String?) -> ApiError {
         self.code = code;

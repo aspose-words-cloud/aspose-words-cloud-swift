@@ -65,6 +65,17 @@ public class Lists : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.listInfo != nil)
+        {
+            self.listInfo!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets listInfo. Gets or sets the array of document lists.
     public func setListInfo(listInfo : [ListInfo]?) -> Lists {
         self.listInfo = listInfo;

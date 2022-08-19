@@ -113,6 +113,15 @@ public class InternalError : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        if (self.innerError != nil)
+        {
+            self.innerError!.collectFilesContent(resultFilesContent);
+        }
+
+
+    }
+
     // Sets code. Code.
     public func setCode(code : String?) -> InternalError {
         self.code = code;

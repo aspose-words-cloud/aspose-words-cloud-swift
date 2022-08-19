@@ -65,6 +65,15 @@ public class FieldResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.field != nil)
+        {
+            self.field!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets field. Gets or sets the field.
     public func setField(field : Field?) -> FieldResponse {
         self.field = field;

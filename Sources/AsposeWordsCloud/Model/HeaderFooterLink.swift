@@ -87,6 +87,10 @@ public class HeaderFooterLink : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+    }
+
     // Sets type. Gets or sets the paragraph's text.
     public func setType(type : ModelType?) -> HeaderFooterLink {
         self.type = type;

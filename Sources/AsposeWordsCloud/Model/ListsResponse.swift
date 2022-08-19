@@ -65,6 +65,15 @@ public class ListsResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.lists != nil)
+        {
+            self.lists!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets lists. Gets or sets the collection of lists, contained in the document.
     public func setLists(lists : Lists?) -> ListsResponse {
         self.lists = lists;

@@ -65,6 +65,15 @@ public class BookmarksResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.bookmarks != nil)
+        {
+            self.bookmarks!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets bookmarks. Gets or sets the collection of bookmarks.
     public func setBookmarks(bookmarks : Bookmarks?) -> BookmarksResponse {
         self.bookmarks = bookmarks;

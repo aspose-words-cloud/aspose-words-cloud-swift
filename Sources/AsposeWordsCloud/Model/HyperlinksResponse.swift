@@ -65,6 +65,15 @@ public class HyperlinksResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.hyperlinks != nil)
+        {
+            self.hyperlinks!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets hyperlinks. Gets or sets the collection of hyperlinks.
     public func setHyperlinks(hyperlinks : Hyperlinks?) -> HyperlinksResponse {
         self.hyperlinks = hyperlinks;

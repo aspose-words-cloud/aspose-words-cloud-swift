@@ -46,4 +46,8 @@ public class CustomXmlPartInsert : CustomXmlPart {
         try super.encode(to: encoder);
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+    }
+
 }

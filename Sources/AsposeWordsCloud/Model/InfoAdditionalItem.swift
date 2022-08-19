@@ -79,6 +79,9 @@ public class InfoAdditionalItem : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    }
+
     // Sets key. Gets or sets Key.
     public func setKey(key : String?) -> InfoAdditionalItem {
         self.key = key;

@@ -302,6 +302,10 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+    }
+
     // Sets horizontalResolution. Gets or sets the horizontal resolution in dots per inch for the generated images. This property has effect only when saving to raster image formats. The default value is 96.
     public func setHorizontalResolution(horizontalResolution : Double?) -> ImageSaveOptionsData {
         self.horizontalResolution = horizontalResolution;

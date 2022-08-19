@@ -65,6 +65,17 @@ public class Hyperlinks : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.hyperlinkList != nil)
+        {
+            self.hyperlinkList!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets hyperlinkList. Gets or sets the array of Hyperlink.
     public func setHyperlinkList(hyperlinkList : [Hyperlink]?) -> Hyperlinks {
         self.hyperlinkList = hyperlinkList;

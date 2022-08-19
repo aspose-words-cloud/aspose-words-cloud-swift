@@ -65,6 +65,15 @@ public class DrawingObjectResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.drawingObject != nil)
+        {
+            self.drawingObject!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets drawingObject. Gets or sets the DrawingObject.
     public func setDrawingObject(drawingObject : DrawingObject?) -> DrawingObjectResponse {
         self.drawingObject = drawingObject;

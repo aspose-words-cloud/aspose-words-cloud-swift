@@ -65,6 +65,17 @@ public class SectionLinkCollection : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.sectionLinkList != nil)
+        {
+            self.sectionLinkList!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets sectionLinkList. Gets or sets the collection of section's links.
     public func setSectionLinkList(sectionLinkList : [SectionLink]?) -> SectionLinkCollection {
         self.sectionLinkList = sectionLinkList;

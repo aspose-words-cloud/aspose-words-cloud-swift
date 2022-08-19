@@ -65,6 +65,15 @@ public class FootnoteResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.footnote != nil)
+        {
+            self.footnote!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets footnote. Gets or sets the footnote.
     public func setFootnote(footnote : Footnote?) -> FootnoteResponse {
         self.footnote = footnote;

@@ -65,6 +65,15 @@ public class BorderResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.border != nil)
+        {
+            self.border!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets border. Gets or sets the border.
     public func setBorder(border : Border?) -> BorderResponse {
         self.border = border;

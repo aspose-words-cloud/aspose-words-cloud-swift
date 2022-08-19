@@ -65,6 +65,10 @@ public class FieldLink : NodeLink {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+    }
+
     // Sets fieldCode. Gets or sets the field code.
     public func setFieldCode(fieldCode : String?) -> FieldLink {
         self.fieldCode = fieldCode;

@@ -65,6 +65,15 @@ public class FormFieldResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.formField != nil)
+        {
+            self.formField!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets formField. Gets or sets the form field.
     public func setFormField(formField : FormField?) -> FormFieldResponse {
         self.formField = formField;

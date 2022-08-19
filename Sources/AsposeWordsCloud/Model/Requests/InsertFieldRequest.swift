@@ -262,9 +262,19 @@ public class InsertFieldRequest : WordsApiRequest {
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
+         var formParams : [RequestFormParam] = [];
+         var requestFilesContent : [FileContent] = [];
+         formParams.append(RequestFormParam(name: "field", body: try ObjectSerializer.serialize(value: self.getField()), contentType: "application/json"));
+         self.getField().collectFilesContent(requestFilesContent);
+
+         requestFilesContent.forEach {
+             formParams.append(RequestFormParam(name: $0.id, filename: $0.filename, body: try ObjectSerializer.serializeFile(value: $0.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getField()), contentType: "application/json");
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

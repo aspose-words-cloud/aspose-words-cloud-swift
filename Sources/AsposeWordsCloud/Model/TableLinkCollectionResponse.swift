@@ -65,6 +65,15 @@ public class TableLinkCollectionResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.tables != nil)
+        {
+            self.tables!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets tables. Gets or sets the collection of tables.
     public func setTables(tables : TableLinkCollection?) -> TableLinkCollectionResponse {
         self.tables = tables;

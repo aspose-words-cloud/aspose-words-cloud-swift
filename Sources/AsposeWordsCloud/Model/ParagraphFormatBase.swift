@@ -1722,6 +1722,24 @@ public class ParagraphFormatBase : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.shading != nil)
+        {
+            self.shading!.collectFilesContent(resultFilesContent);
+        }
+
+
+
+
+
+
+
+
+
+
+    }
+
     // Sets addSpaceBetweenFarEastAndAlpha. Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.
     public func setAddSpaceBetweenFarEastAndAlpha(addSpaceBetweenFarEastAndAlpha : Bool?) -> ParagraphFormatBase {
         self.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;

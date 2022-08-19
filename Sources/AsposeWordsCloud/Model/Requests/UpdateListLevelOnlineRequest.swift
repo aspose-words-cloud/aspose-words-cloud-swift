@@ -206,13 +206,20 @@ public class UpdateListLevelOnlineRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
          var formParams : [RequestFormParam] = [];
+         var requestFilesContent : [FileContent] = [];
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "listUpdate", body: try ObjectSerializer.serialize(value: self.getListUpdate()), contentType: "application/json"));
+         self.getListUpdate().collectFilesContent(requestFilesContent);
 
+         requestFilesContent.forEach {
+             formParams.append(RequestFormParam(name: $0.id, filename: $0.filename, body: try ObjectSerializer.serializeFile(value: $0.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
-         result.setBody(formParams: formParams);
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

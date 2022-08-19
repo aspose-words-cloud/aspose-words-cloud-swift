@@ -65,6 +65,17 @@ public class StylesResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.styles != nil)
+        {
+            self.styles!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets styles. Gets or sets the array of styles.
     public func setStyles(styles : [Style]?) -> StylesResponse {
         self.styles = styles;

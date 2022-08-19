@@ -31,6 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public struct RequestFormParam {
     private let name : String?;
+    private let filename : String?;
     private let body : Data;
     private let contentType : String;
 
@@ -40,8 +41,19 @@ public struct RequestFormParam {
         self.contentType = contentType;
     }
 
+    public init(name : String?, filename : String?, body : Data, contentType : String) {
+        self.name = name;
+        self.filename = filename;
+        self.body = body;
+        self.contentType = contentType;
+    }
+
     public func getName() -> String? {
         return self.name;
+    }
+
+    public func getFilename() -> String? {
+        return self.filename;
     }
 
     public func getBody() -> Data {

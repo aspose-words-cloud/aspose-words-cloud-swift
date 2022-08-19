@@ -65,6 +65,15 @@ public class RevisionsModificationResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.result != nil)
+        {
+            self.result!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets result. Gets or sets the result of the modification operations for the revisions collection.
     public func setResult(result : ModificationOperationResult?) -> RevisionsModificationResponse {
         self.result = result;

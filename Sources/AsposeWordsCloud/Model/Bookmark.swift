@@ -82,6 +82,10 @@ public class Bookmark : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+    }
+
     // Sets name. Gets or sets the name of the bookmark.
     public func setName(name : String?) -> Bookmark {
         self.name = name;

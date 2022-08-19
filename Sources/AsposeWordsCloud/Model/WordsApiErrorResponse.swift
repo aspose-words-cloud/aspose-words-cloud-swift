@@ -65,6 +65,15 @@ public class WordsApiErrorResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.error != nil)
+        {
+            self.error!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets error. Gets or sets the API error.
     public func setError(error : ApiError?) -> WordsApiErrorResponse {
         self.error = error;

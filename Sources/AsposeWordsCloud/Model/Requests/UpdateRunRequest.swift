@@ -247,9 +247,19 @@ public class UpdateRunRequest : WordsApiRequest {
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
+         var formParams : [RequestFormParam] = [];
+         var requestFilesContent : [FileContent] = [];
+         formParams.append(RequestFormParam(name: "run", body: try ObjectSerializer.serialize(value: self.getRun()), contentType: "application/json"));
+         self.getRun().collectFilesContent(requestFilesContent);
+
+         requestFilesContent.forEach {
+             formParams.append(RequestFormParam(name: $0.id, filename: $0.filename, body: try ObjectSerializer.serializeFile(value: $0.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getRun()), contentType: "application/json");
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

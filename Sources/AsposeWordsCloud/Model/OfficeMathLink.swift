@@ -46,4 +46,8 @@ public class OfficeMathLink : NodeLink {
         try super.encode(to: encoder);
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+    }
+
 }

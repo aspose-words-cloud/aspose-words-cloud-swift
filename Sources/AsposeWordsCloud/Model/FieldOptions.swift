@@ -301,6 +301,25 @@ public class FieldOptions : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        if (self.currentUser != nil)
+        {
+            self.currentUser!.collectFilesContent(resultFilesContent);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
     // Sets builtInTemplatesPaths. Gets or sets BuiltIn Templates Paths.
     public func setBuiltInTemplatesPaths(builtInTemplatesPaths : [String]?) -> FieldOptions {
         self.builtInTemplatesPaths = builtInTemplatesPaths;

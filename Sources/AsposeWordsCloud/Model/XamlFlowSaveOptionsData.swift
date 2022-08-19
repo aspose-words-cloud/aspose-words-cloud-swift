@@ -91,6 +91,10 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+    }
+
     // Sets imagesFolder. Gets or sets the physical folder where images are saved when exporting.
     public func setImagesFolder(imagesFolder : String?) -> XamlFlowSaveOptionsData {
         self.imagesFolder = imagesFolder;

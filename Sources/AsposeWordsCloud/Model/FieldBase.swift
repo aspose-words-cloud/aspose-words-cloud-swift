@@ -79,6 +79,9 @@ public class FieldBase : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    }
+
     // Sets fieldCode. Gets or sets the field code.
     public func setFieldCode(fieldCode : String?) -> FieldBase {
         self.fieldCode = fieldCode;

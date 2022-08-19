@@ -65,6 +65,15 @@ public class FontResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.font != nil)
+        {
+            self.font!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets font. Gets or sets the font.
     public func setFont(font : Font?) -> FontResponse {
         self.font = font;

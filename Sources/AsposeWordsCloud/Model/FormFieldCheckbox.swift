@@ -99,6 +99,10 @@ public class FormFieldCheckbox : FormField {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+    }
+
     // Sets checkBoxSize. Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.
     public func setCheckBoxSize(checkBoxSize : Double?) -> FormFieldCheckbox {
         self.checkBoxSize = checkBoxSize;

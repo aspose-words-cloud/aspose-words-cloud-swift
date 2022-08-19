@@ -143,6 +143,23 @@ public class Footnote : FootnoteLink {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.content != nil)
+        {
+            self.content!.collectFilesContent(resultFilesContent);
+        }
+
+
+        if (self.position != nil)
+        {
+            self.position!.collectFilesContent(resultFilesContent);
+        }
+
+
+
+    }
+
     // Sets content. Gets or sets the content of the footnote.
     public func setContent(content : StoryChildNodes?) -> Footnote {
         self.content = content;

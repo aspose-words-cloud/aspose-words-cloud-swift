@@ -84,6 +84,9 @@ public class ErrorDetails : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+    }
+
     // Sets errorDateTime. Error datetime.
     public func setErrorDateTime(errorDateTime : Date?) -> ErrorDetails {
         self.errorDateTime = errorDateTime;

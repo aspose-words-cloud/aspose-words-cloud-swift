@@ -36,8 +36,16 @@ public class ResetCacheRequest : WordsApiRequest {
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var formParams : [RequestFormParam] = [];
+         var requestFilesContent : [FileContent] = [];
+         requestFilesContent.forEach {
+             formParams.append(RequestFormParam(name: $0.id, filename: $0.filename, body: try ObjectSerializer.serializeFile(value: $0.content), contentType: "application/octet-stream"));
+         }
 
-         let result = WordsApiRequestData(url: urlPath, method: "DELETE");
+         var result = WordsApiRequestData(url: urlPath, method: "DELETE");
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

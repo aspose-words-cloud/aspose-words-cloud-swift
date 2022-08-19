@@ -65,6 +65,17 @@ public class ListLevels : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.listLevel != nil)
+        {
+            self.listLevel!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets listLevel. Gets or sets the collection of list levels for this list.
     public func setListLevel(listLevel : [ListLevel]?) -> ListLevels {
         self.listLevel = listLevel;

@@ -870,6 +870,10 @@ public class PageSetup : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+    }
+
     // Sets bidi. Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text.
     public func setBidi(bidi : Bool?) -> PageSetup {
         self.bidi = bidi;

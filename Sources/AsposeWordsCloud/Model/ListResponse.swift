@@ -65,6 +65,15 @@ public class ListResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.list != nil)
+        {
+            self.list!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets list. Gets or sets the list information.
     public func setList(list : ListInfo?) -> ListResponse {
         self.list = list;

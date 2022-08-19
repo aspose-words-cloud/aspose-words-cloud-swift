@@ -65,6 +65,17 @@ public class SearchResultsCollection : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.resultsList != nil)
+        {
+            self.resultsList!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets resultsList. Gets or sets the collection of comments.
     public func setResultsList(resultsList : [SearchResult]?) -> SearchResultsCollection {
         self.resultsList = resultsList;

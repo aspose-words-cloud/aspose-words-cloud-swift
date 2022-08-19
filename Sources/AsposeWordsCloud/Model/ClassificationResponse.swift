@@ -99,6 +99,17 @@ public class ClassificationResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.bestResults != nil)
+        {
+            self.bestResults!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets bestClassName. Gets or sets the best class name.
     public func setBestClassName(bestClassName : String?) -> ClassificationResponse {
         self.bestClassName = bestClassName;

@@ -65,6 +65,17 @@ public class FootnoteCollection : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.list != nil)
+        {
+            self.list!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets list. Gets or sets the collection of footnotes.
     public func setList(list : [Footnote]?) -> FootnoteCollection {
         self.list = list;

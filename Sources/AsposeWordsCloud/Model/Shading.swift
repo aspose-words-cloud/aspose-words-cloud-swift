@@ -262,6 +262,20 @@ public class Shading : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        if (self.backgroundPatternColor != nil)
+        {
+            self.backgroundPatternColor!.collectFilesContent(resultFilesContent);
+        }
+
+        if (self.foregroundPatternColor != nil)
+        {
+            self.foregroundPatternColor!.collectFilesContent(resultFilesContent);
+        }
+
+
+    }
+
     // Sets backgroundPatternColor. Gets or sets the color that's applied to the background of the Shading object.
     public func setBackgroundPatternColor(backgroundPatternColor : XmlColor?) -> Shading {
         self.backgroundPatternColor = backgroundPatternColor;

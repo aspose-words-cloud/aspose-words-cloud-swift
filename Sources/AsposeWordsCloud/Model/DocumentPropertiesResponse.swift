@@ -65,6 +65,15 @@ public class DocumentPropertiesResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.documentProperties != nil)
+        {
+            self.documentProperties!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets documentProperties. Gets or sets the collection of document properties.
     public func setDocumentProperties(documentProperties : DocumentProperties?) -> DocumentPropertiesResponse {
         self.documentProperties = documentProperties;

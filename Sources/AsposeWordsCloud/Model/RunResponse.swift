@@ -65,6 +65,15 @@ public class RunResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.run != nil)
+        {
+            self.run!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets run. Gets or sets the Run element.
     public func setRun(run : Run?) -> RunResponse {
         self.run = run;

@@ -65,6 +65,15 @@ public class TableRowResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.row != nil)
+        {
+            self.row!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets row. Gets or sets the table row.
     public func setRow(row : TableRow?) -> TableRowResponse {
         self.row = row;

@@ -65,6 +65,17 @@ public class DrawingObjectCollection : LinkElement {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.list != nil)
+        {
+            self.list!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets list. Gets or sets the collection of DrawingObjects links.
     public func setList(list : [LinkElement]?) -> DrawingObjectCollection {
         self.list = list;

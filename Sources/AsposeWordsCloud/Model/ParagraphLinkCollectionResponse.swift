@@ -65,6 +65,15 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.paragraphs != nil)
+        {
+            self.paragraphs!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets paragraphs. Gets or sets the collection of paragraphs.
     public func setParagraphs(paragraphs : ParagraphLinkCollection?) -> ParagraphLinkCollectionResponse {
         self.paragraphs = paragraphs;

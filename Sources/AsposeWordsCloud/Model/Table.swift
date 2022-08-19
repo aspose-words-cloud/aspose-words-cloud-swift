@@ -82,6 +82,22 @@ public class Table : NodeLink {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.tableProperties != nil)
+        {
+            self.tableProperties!.collectFilesContent(resultFilesContent);
+        }
+
+        if (self.tableRowList != nil)
+        {
+            self.tableRowList!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets tableProperties. Gets or sets table properties.
     public func setTableProperties(tableProperties : TableProperties?) -> Table {
         self.tableProperties = tableProperties;

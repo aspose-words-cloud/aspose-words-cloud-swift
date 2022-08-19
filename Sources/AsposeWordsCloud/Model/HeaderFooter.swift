@@ -99,6 +99,27 @@ public class HeaderFooter : HeaderFooterLink {
         }
     }
 
+    public func collectFilesContent(resultFilesContent : [FileContent]) {
+        super.collectFilesContent(resultFilesContent);
+        if (self.childNodes != nil)
+        {
+            self.childNodes!.forEach {
+                $0.collectFilesContent(resultFilesContent);
+            }
+        }
+
+        if (self.drawingObjects != nil)
+        {
+            self.drawingObjects!.collectFilesContent(resultFilesContent);
+        }
+
+        if (self.paragraphs != nil)
+        {
+            self.paragraphs!.collectFilesContent(resultFilesContent);
+        }
+
+    }
+
     // Sets childNodes. Gets or sets the child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) -> HeaderFooter {
         self.childNodes = childNodes;
