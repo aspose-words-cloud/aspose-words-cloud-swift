@@ -35,6 +35,9 @@ public class ConvertDocumentRequest : WordsApiRequest {
     private let outPath : String?;
     private let fileNameFieldValue : String?;
     private let storage : String?;
+    private let loadEncoding : String?;
+    private let password : String?;
+    private let encryptedPassword : String?;
     private let fontsLocation : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -43,17 +46,23 @@ public class ConvertDocumentRequest : WordsApiRequest {
         case outPath;
         case fileNameFieldValue;
         case storage;
+        case loadEncoding;
+        case password;
+        case encryptedPassword;
         case fontsLocation;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the ConvertDocumentRequest class.
-    public init(document : InputStream, format : String, outPath : String? = nil, fileNameFieldValue : String? = nil, storage : String? = nil, fontsLocation : String? = nil) {
+    public init(document : InputStream, format : String, outPath : String? = nil, fileNameFieldValue : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, fontsLocation : String? = nil) {
         self.document = document;
         self.format = format;
         self.outPath = outPath;
         self.fileNameFieldValue = fileNameFieldValue;
         self.storage = storage;
+        self.loadEncoding = loadEncoding;
+        self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.fontsLocation = fontsLocation;
     }
 
@@ -82,6 +91,21 @@ public class ConvertDocumentRequest : WordsApiRequest {
         return self.storage;
     }
 
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
+    // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
+    }
+
     // Folder in filestorage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;
@@ -90,6 +114,13 @@ public class ConvertDocumentRequest : WordsApiRequest {
     // Creates the api request data
     public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/convert";
+         if (self.getOutPath() != nil) {
+             rawPath = rawPath.replacingOccurrences(of: "{outPath}", with: try ObjectSerializer.serializeToString(value: self.getOutPath()!));
+         }
+         else {
+             rawPath = rawPath.replacingOccurrences(of: "{outPath}", with: "");
+         }
+
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
@@ -100,18 +131,6 @@ public class ConvertDocumentRequest : WordsApiRequest {
          #else
                  queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: self.getFormat())));
          #endif
-
-
-             if (self.getOutPath() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: self.getOutPath()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: self.getOutPath()!)));
-
-         #endif        
-             }
 
 
              if (self.getFileNameFieldValue() != nil) {
@@ -133,6 +152,42 @@ public class ConvertDocumentRequest : WordsApiRequest {
 
          #else
                      queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+
+         #endif        
+             }
+
+
+             if (self.getLoadEncoding() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+
+         #endif        
+             }
+
+
+             if (self.getPassword() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "encryptedPassword", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+
+         #endif        
+             }
+
+
+             if (self.getEncryptedPassword() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
 
          #endif        
              }
