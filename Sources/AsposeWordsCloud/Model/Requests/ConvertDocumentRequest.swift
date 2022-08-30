@@ -114,13 +114,6 @@ public class ConvertDocumentRequest : WordsApiRequest {
     // Creates the api request data
     public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/convert";
-         if (self.getOutPath() != nil) {
-             rawPath = rawPath.replacingOccurrences(of: "{outPath}", with: try ObjectSerializer.serializeToString(value: self.getOutPath()!));
-         }
-         else {
-             rawPath = rawPath.replacingOccurrences(of: "{outPath}", with: "");
-         }
-
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
@@ -131,6 +124,18 @@ public class ConvertDocumentRequest : WordsApiRequest {
          #else
                  queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: self.getFormat())));
          #endif
+
+
+             if (self.getOutPath() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: self.getOutPath()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: self.getOutPath()!)));
+
+         #endif        
+             }
 
 
              if (self.getFileNameFieldValue() != nil) {
