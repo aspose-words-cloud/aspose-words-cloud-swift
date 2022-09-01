@@ -79,6 +79,9 @@ public class ClassificationResult : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    }
+
     // Sets className. Gets or sets the name of the class.
     public func setClassName(className : String?) -> ClassificationResult {
         self.className = className;

@@ -187,9 +187,20 @@ public class UnprotectDocumentRequest : WordsApiRequest {
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
+         var formParams = [RequestFormParam]();
+         var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
+         formParams.append(RequestFormParam(name: "protectionRequest", body: try ObjectSerializer.serialize(value: self.getProtectionRequest()), contentType: "application/json"));
+         self.getProtectionRequest().collectFilesContent(&requestFilesContent);
+
+         for requestFileContent in requestFilesContent {
+             formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "DELETE");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getProtectionRequest()), contentType: "application/json");
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

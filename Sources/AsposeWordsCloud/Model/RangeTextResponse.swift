@@ -65,6 +65,10 @@ public class RangeTextResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+    }
+
     // Sets text. Gets or sets the range's text.
     public func setText(text : String?) -> RangeTextResponse {
         self.text = text;

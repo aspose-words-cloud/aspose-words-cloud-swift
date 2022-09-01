@@ -156,6 +156,9 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    }
+
     // Sets emfPlusDualRenderingMode. Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
     public func setEmfPlusDualRenderingMode(emfPlusDualRenderingMode : EmfPlusDualRenderingMode?) -> MetafileRenderingOptionsData {
         self.emfPlusDualRenderingMode = emfPlusDualRenderingMode;

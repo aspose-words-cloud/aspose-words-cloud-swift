@@ -195,14 +195,22 @@ public class BuildReportRequest : WordsApiRequest {
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
-         var formParams : [RequestFormParam] = [];
-         formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()), contentType: "application/json"));
+         var formParams = [RequestFormParam]();
+         var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
+         formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()), contentType: "text/plain"));
 
          formParams.append(RequestFormParam(name: "reportEngineSettings", body: try ObjectSerializer.serialize(value: self.getReportEngineSettings()), contentType: "application/json"));
+         self.getReportEngineSettings().collectFilesContent(&requestFilesContent);
 
+         for requestFileContent in requestFilesContent {
+             formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
-         result.setBody(formParams: formParams);
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

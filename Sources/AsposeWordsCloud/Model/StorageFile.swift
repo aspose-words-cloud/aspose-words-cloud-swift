@@ -135,6 +135,9 @@ public class StorageFile : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    }
+
     // Sets isFolder. True if it is a folder.
     public func setIsFolder(isFolder : Bool?) -> StorageFile {
         self.isFolder = isFolder;

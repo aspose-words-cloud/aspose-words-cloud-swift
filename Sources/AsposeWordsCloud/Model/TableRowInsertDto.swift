@@ -79,6 +79,9 @@ public class TableRowInsertDto : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    }
+
     // Sets columnsCount. Gets or sets the count of columns. The default value is 1.
     public func setColumnsCount(columnsCount : Int?) -> TableRowInsertDto {
         self.columnsCount = columnsCount;

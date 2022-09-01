@@ -151,6 +151,9 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    }
+
     // Sets certificateFilename. Gets or sets the certificate's filename using for signing.
     public func setCertificateFilename(certificateFilename : String?) -> PdfDigitalSignatureDetailsData {
         self.certificateFilename = certificateFilename;

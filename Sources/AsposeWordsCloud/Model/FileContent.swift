@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="BaseEntry.swift">
+ * <copyright company="Aspose" file="FileContent.swift">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,49 +27,56 @@
 
 import Foundation
 
-// Represents a entry which will be appended to the original resource document.
+// File content special model.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class BaseEntry : Codable, WordsApiModel {
-    // Field of href. Represents a entry which will be appended to the original resource document.
-    private var _href : String? = nil;
-
-    public var href : String? {
+public class FileContent : Codable, WordsApiModel {
+    // File id for multipart request.
+    private var _id : String;
+    public var id : String {
         get {
-            return self._href;
+            return self._id;
         }
-        set {
-            self._href = newValue;
+    }
+
+    // Filename for multipart request.
+    private var _filename : String;
+    public var filename : String {
+        get {
+            return self._filename;
+        }
+    }
+
+    // File content for multipart request.
+    private var _content : InputStream;
+    public var content : InputStream {
+        get {
+            return self._content;
         }
     }
 
     private enum CodingKeys: String, CodingKey {
-        case href = "Href";
+        case id = "Id";
+        case filename = "Filename";
         case invalidCodingKey;
     }
 
-    public init() {
+    public init(filename : String, content : InputStream) {
+        self._id = UUID().uuidString;
+        self._filename = filename;
+        self._content = content;
     }
 
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.href = try container.decodeIfPresent(String.self, forKey: .href);
+        throw WordsApiError.invalidTypeSerialization(typeName: "FileContent");
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.href != nil) {
-            try container.encode(self.href, forKey: .href);
-        }
+        try container.encode(self.id, forKey: .id);
+        try container.encode(self.filename, forKey: .filename);
     }
 
-    // Sets href. Gets or sets the path to entry to append at the server.
-    public func setHref(href : String?) -> BaseEntry {
-        self.href = href;
-        return self;
-    }
-
-    // Gets href. Gets or sets the path to entry to append at the server.
-    public func getHref() -> String? {
-        return self.href;
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        resultFilesContent.append(self);
     }
 }

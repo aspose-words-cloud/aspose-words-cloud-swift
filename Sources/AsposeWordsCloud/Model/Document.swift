@@ -214,6 +214,25 @@ public class Document : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        if (self.documentProperties != nil)
+        {
+            self.documentProperties!.collectFilesContent(&resultFilesContent);
+        }
+
+
+
+
+        if (self.links != nil)
+        {
+            for element in self.links! {
+                element.collectFilesContent(&resultFilesContent);
+            }
+        }
+
+
+    }
+
     // Sets documentProperties. Gets or sets the document properties.
     public func setDocumentProperties(documentProperties : DocumentProperties?) -> Document {
         self.documentProperties = documentProperties;

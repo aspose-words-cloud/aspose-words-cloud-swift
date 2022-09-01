@@ -82,6 +82,22 @@ public class Table : NodeLink {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.tableProperties != nil)
+        {
+            self.tableProperties!.collectFilesContent(&resultFilesContent);
+        }
+
+        if (self.tableRowList != nil)
+        {
+            for element in self.tableRowList! {
+                element.collectFilesContent(&resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets tableProperties. Gets or sets table properties.
     public func setTableProperties(tableProperties : TableProperties?) -> Table {
         self.tableProperties = tableProperties;

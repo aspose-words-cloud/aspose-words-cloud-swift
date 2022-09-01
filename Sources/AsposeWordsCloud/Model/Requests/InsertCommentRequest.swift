@@ -227,9 +227,20 @@ public class InsertCommentRequest : WordsApiRequest {
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
+         var formParams = [RequestFormParam]();
+         var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
+         formParams.append(RequestFormParam(name: "comment", body: try ObjectSerializer.serialize(value: self.getComment()), contentType: "application/json"));
+         self.getComment().collectFilesContent(&requestFilesContent);
+
+         for requestFileContent in requestFilesContent {
+             formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getComment()), contentType: "application/json");
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

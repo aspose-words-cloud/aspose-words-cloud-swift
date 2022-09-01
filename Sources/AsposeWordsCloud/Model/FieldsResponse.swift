@@ -65,6 +65,15 @@ public class FieldsResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.fields != nil)
+        {
+            self.fields!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets fields. Gets or sets the collection of fields.
     public func setFields(fields : FieldCollection?) -> FieldsResponse {
         self.fields = fields;

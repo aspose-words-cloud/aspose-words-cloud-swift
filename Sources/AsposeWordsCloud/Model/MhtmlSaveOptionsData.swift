@@ -74,6 +74,10 @@ public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+    }
+
     // Sets exportCidUrlsForMhtmlResources. Gets or sets a value indicating whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. The default value is false.
     public func setExportCidUrlsForMhtmlResources(exportCidUrlsForMhtmlResources : Bool?) -> MhtmlSaveOptionsData {
         self.exportCidUrlsForMhtmlResources = exportCidUrlsForMhtmlResources;

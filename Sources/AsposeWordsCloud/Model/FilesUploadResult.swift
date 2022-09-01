@@ -79,6 +79,17 @@ public class FilesUploadResult : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        if (self.errors != nil)
+        {
+            for element in self.errors! {
+                element.collectFilesContent(&resultFilesContent);
+            }
+        }
+
+
+    }
+
     // Sets errors. List of errors.
     public func setErrors(errors : [InternalError]?) -> FilesUploadResult {
         self.errors = errors;

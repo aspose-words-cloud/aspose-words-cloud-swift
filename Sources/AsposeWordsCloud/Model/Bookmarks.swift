@@ -65,6 +65,17 @@ public class Bookmarks : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.bookmarkList != nil)
+        {
+            for element in self.bookmarkList! {
+                element.collectFilesContent(&resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets bookmarkList. Gets or sets the array of bookmarks.
     public func setBookmarkList(bookmarkList : [Bookmark]?) -> Bookmarks {
         self.bookmarkList = bookmarkList;

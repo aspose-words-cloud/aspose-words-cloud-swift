@@ -82,6 +82,15 @@ public class SearchResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.searchResults != nil)
+        {
+            self.searchResults!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets searchingPattern. Gets or sets the regular expression pattern used to find matches.
     public func setSearchingPattern(searchingPattern : String?) -> SearchResponse {
         self.searchingPattern = searchingPattern;

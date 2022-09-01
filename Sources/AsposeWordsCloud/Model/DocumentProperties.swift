@@ -65,6 +65,17 @@ public class DocumentProperties : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.list != nil)
+        {
+            for element in self.list! {
+                element.collectFilesContent(&resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets list. Gets or sets the collection of document properties.
     public func setList(list : [DocumentProperty]?) -> DocumentProperties {
         self.list = list;

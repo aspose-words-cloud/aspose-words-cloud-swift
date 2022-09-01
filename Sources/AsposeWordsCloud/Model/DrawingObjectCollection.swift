@@ -65,6 +65,17 @@ public class DrawingObjectCollection : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.list != nil)
+        {
+            for element in self.list! {
+                element.collectFilesContent(&resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets list. Gets or sets the collection of DrawingObjects links.
     public func setList(list : [LinkElement]?) -> DrawingObjectCollection {
         self.list = list;

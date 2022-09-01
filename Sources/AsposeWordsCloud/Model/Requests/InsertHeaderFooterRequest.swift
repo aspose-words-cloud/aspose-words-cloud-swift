@@ -237,9 +237,19 @@ public class InsertHeaderFooterRequest : WordsApiRequest {
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
+         var formParams = [RequestFormParam]();
+         var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
+         formParams.append(RequestFormParam(name: "headerFooterType", body: try ObjectSerializer.serialize(value: self.getHeaderFooterType()), contentType: "text/plain"));
+
+         for requestFileContent in requestFilesContent {
+             formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getHeaderFooterType()), contentType: "application/json");
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

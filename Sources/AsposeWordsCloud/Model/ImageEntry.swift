@@ -29,21 +29,50 @@ import Foundation
 
 // Represents a image which will be appended to the original resource image or document.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class ImageEntry : BaseEntry {
+public class ImageEntry : Codable, WordsApiModel {
+    // Field of href. Represents a image which will be appended to the original resource image or document.
+    private var _href : String? = nil;
+
+    public var href : String? {
+        get {
+            return self._href;
+        }
+        set {
+            self._href = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
+        case href = "Href";
         case invalidCodingKey;
     }
 
-    public override init() {
-        super.init();
+    public init() {
     }
 
     public required init(from decoder: Decoder) throws {
-        try super.init(from: decoder);
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.href = try container.decodeIfPresent(String.self, forKey: .href);
     }
 
-    public override func encode(to encoder: Encoder) throws {
-        try super.encode(to: encoder);
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.href != nil) {
+            try container.encode(self.href, forKey: .href);
+        }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    }
+
+    // Sets href. Gets or sets the path to entry to append at the server.
+    public func setHref(href : String?) -> ImageEntry {
+        self.href = href;
+        return self;
+    }
+
+    // Gets href. Gets or sets the path to entry to append at the server.
+    public func getHref() -> String? {
+        return self.href;
+    }
 }

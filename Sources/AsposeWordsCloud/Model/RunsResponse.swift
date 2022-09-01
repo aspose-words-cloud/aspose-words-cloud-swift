@@ -65,6 +65,15 @@ public class RunsResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.runs != nil)
+        {
+            self.runs!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets runs. Gets or sets the collection of Run elements.
     public func setRuns(runs : Runs?) -> RunsResponse {
         self.runs = runs;

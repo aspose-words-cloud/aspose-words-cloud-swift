@@ -29,19 +29,7 @@ import Foundation
 
 // Represents a list of documents which will be appended to the original resource document.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class DocumentEntryList : BaseEntryList {
-    // Field of applyBaseDocumentHeadersAndFootersToAppendingDocuments. Represents a list of documents which will be appended to the original resource document.
-    private var _applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool? = nil;
-
-    public var applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool? {
-        get {
-            return self._applyBaseDocumentHeadersAndFootersToAppendingDocuments;
-        }
-        set {
-            self._applyBaseDocumentHeadersAndFootersToAppendingDocuments = newValue;
-        }
-    }
-
+public class DocumentEntryList : BaseDocumentEntryList {
     // Field of documentEntries. Represents a list of documents which will be appended to the original resource document.
     private var _documentEntries : [DocumentEntry]? = nil;
 
@@ -55,7 +43,6 @@ public class DocumentEntryList : BaseEntryList {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case applyBaseDocumentHeadersAndFootersToAppendingDocuments = "ApplyBaseDocumentHeadersAndFootersToAppendingDocuments";
         case documentEntries = "DocumentEntries";
         case invalidCodingKey;
     }
@@ -67,32 +54,27 @@ public class DocumentEntryList : BaseEntryList {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.applyBaseDocumentHeadersAndFootersToAppendingDocuments = try container.decodeIfPresent(Bool.self, forKey: .applyBaseDocumentHeadersAndFootersToAppendingDocuments);
         self.documentEntries = try container.decodeIfPresent([DocumentEntry].self, forKey: .documentEntries);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.applyBaseDocumentHeadersAndFootersToAppendingDocuments != nil) {
-            try container.encode(self.applyBaseDocumentHeadersAndFootersToAppendingDocuments, forKey: .applyBaseDocumentHeadersAndFootersToAppendingDocuments);
-        }
         if (self.documentEntries != nil) {
             try container.encode(self.documentEntries, forKey: .documentEntries);
         }
     }
 
-    // Sets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
-    public func setApplyBaseDocumentHeadersAndFootersToAppendingDocuments(applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool?) -> DocumentEntryList {
-        self.applyBaseDocumentHeadersAndFootersToAppendingDocuments = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
-        return self;
-    }
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.documentEntries != nil)
+        {
+            for element in self.documentEntries! {
+                element.collectFilesContent(&resultFilesContent);
+            }
+        }
 
-    // Gets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
-    public func getApplyBaseDocumentHeadersAndFootersToAppendingDocuments() -> Bool? {
-        return self.applyBaseDocumentHeadersAndFootersToAppendingDocuments;
     }
-
 
     // Sets documentEntries. Gets or sets the list of documents.
     public func setDocumentEntries(documentEntries : [DocumentEntry]?) -> DocumentEntryList {

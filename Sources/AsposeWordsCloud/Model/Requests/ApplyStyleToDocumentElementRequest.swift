@@ -237,9 +237,20 @@ public class ApplyStyleToDocumentElementRequest : WordsApiRequest {
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
+         var formParams = [RequestFormParam]();
+         var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
+         formParams.append(RequestFormParam(name: "styleApply", body: try ObjectSerializer.serialize(value: self.getStyleApply()), contentType: "application/json"));
+         self.getStyleApply().collectFilesContent(&requestFilesContent);
+
+         for requestFileContent in requestFilesContent {
+             formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getStyleApply()), contentType: "application/json");
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

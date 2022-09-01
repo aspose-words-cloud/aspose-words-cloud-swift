@@ -79,6 +79,14 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        if (self.saveOptions != nil)
+        {
+            self.saveOptions!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets loadingDocumentUrl. Gets or sets the web document URL.
     public func setLoadingDocumentUrl(loadingDocumentUrl : String?) -> LoadWebDocumentData {
         self.loadingDocumentUrl = loadingDocumentUrl;

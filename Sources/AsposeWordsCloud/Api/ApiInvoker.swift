@@ -88,6 +88,11 @@ public class ApiInvoker {
         public var access_token : String?;
     }
 
+    // Internal function for prepare files content list
+    public func prepareFilesContent(_ : inout [FileContent]) {
+        // Do nothing...
+    }
+
     // Invoke request to the API with the specified set of arguments and execute callback after the request is completed
     public func invoke(apiRequestData : WordsApiRequestData, callback: @escaping (_ response: Data?, _ headers: [String: String], _ error: Error?) -> ()
     ) {

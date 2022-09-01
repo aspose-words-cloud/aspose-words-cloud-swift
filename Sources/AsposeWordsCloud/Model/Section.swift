@@ -133,6 +133,37 @@ public class Section : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.childNodes != nil)
+        {
+            for element in self.childNodes! {
+                element.collectFilesContent(&resultFilesContent);
+            }
+        }
+
+        if (self.headerFooters != nil)
+        {
+            self.headerFooters!.collectFilesContent(&resultFilesContent);
+        }
+
+        if (self.pageSetup != nil)
+        {
+            self.pageSetup!.collectFilesContent(&resultFilesContent);
+        }
+
+        if (self.paragraphs != nil)
+        {
+            self.paragraphs!.collectFilesContent(&resultFilesContent);
+        }
+
+        if (self.tables != nil)
+        {
+            self.tables!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets childNodes. Gets or sets the list of child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) -> Section {
         self.childNodes = childNodes;

@@ -65,6 +65,17 @@ public class TabStopsResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.tabStops != nil)
+        {
+            for element in self.tabStops! {
+                element.collectFilesContent(&resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets tabStops. Gets or sets the array of tab stops.
     public func setTabStops(tabStops : [TabStop]?) -> TabStopsResponse {
         self.tabStops = tabStops;

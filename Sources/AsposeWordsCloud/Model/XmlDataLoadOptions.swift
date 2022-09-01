@@ -62,6 +62,9 @@ public class XmlDataLoadOptions : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    }
+
     // Sets alwaysGenerateRootObject. Gets or sets a flag indicating whether a generated data source will always contain an object for an XML root element. If an XML root element has no attributes and all its child elements have same names, such an object is not created by default.
     public func setAlwaysGenerateRootObject(alwaysGenerateRootObject : Bool?) -> XmlDataLoadOptions {
         self.alwaysGenerateRootObject = alwaysGenerateRootObject;

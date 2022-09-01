@@ -65,6 +65,15 @@ public class FootnotesResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.footnotes != nil)
+        {
+            self.footnotes!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets footnotes. Gets or sets the collection of footnotes.
     public func setFootnotes(footnotes : FootnoteCollection?) -> FootnotesResponse {
         self.footnotes = footnotes;

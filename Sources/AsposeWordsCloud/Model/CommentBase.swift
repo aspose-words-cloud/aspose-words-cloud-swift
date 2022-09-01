@@ -152,6 +152,20 @@ public class CommentBase : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        if (self.rangeEnd != nil)
+        {
+            self.rangeEnd!.collectFilesContent(&resultFilesContent);
+        }
+
+        if (self.rangeStart != nil)
+        {
+            self.rangeStart!.collectFilesContent(&resultFilesContent);
+        }
+
+
+    }
+
     // Sets author. Gets or sets the author name for a comment.
     public func setAuthor(author : String?) -> CommentBase {
         self.author = author;

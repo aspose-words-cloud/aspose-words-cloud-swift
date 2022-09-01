@@ -65,6 +65,10 @@ public class ParagraphLink : NodeLink {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+    }
+
     // Sets text. Gets or sets the paragraph's text.
     public func setText(text : String?) -> ParagraphLink {
         self.text = text;

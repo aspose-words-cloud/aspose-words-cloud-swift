@@ -99,6 +99,19 @@ public class InfoResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.additionalInfo != nil)
+        {
+            for element in self.additionalInfo! {
+                element.collectFilesContent(&resultFilesContent);
+            }
+        }
+
+
+
+    }
+
     // Sets additionalInfo. Gets or sets additional info.
     public func setAdditionalInfo(additionalInfo : [InfoAdditionalItem]?) -> InfoResponse {
         self.additionalInfo = additionalInfo;

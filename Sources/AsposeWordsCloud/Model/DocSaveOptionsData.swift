@@ -125,6 +125,10 @@ public class DocSaveOptionsData : SaveOptionsData {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+    }
+
     // Sets alwaysCompressMetafiles. Gets or sets a value indicating when False, that small metafiles are not compressed for performance reason. The default value is true, all metafiles are compressed regardless of its size.
     public func setAlwaysCompressMetafiles(alwaysCompressMetafiles : Bool?) -> DocSaveOptionsData {
         self.alwaysCompressMetafiles = alwaysCompressMetafiles;

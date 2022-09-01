@@ -82,6 +82,20 @@ public class BookmarkInsert : BookmarkData {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.endRange != nil)
+        {
+            self.endRange!.collectFilesContent(&resultFilesContent);
+        }
+
+        if (self.startRange != nil)
+        {
+            self.startRange!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets endRange. Gets or sets the link to end bookmark node.
     public func setEndRange(endRange : DocumentPosition?) -> BookmarkInsert {
         self.endRange = endRange;

@@ -79,6 +79,15 @@ public class DocumentPosition : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        if (self.node != nil)
+        {
+            self.node!.collectFilesContent(&resultFilesContent);
+        }
+
+
+    }
+
     // Sets node. Gets or sets the link to a node.
     public func setNode(node : NodeLink?) -> DocumentPosition {
         self.node = node;

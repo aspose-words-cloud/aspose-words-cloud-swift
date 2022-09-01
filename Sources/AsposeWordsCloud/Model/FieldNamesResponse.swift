@@ -65,6 +65,15 @@ public class FieldNamesResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.fieldNames != nil)
+        {
+            self.fieldNames!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets fieldNames. Gets or sets the collection of mail merge fields.
     public func setFieldNames(fieldNames : FieldNames?) -> FieldNamesResponse {
         self.fieldNames = fieldNames;

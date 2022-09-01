@@ -65,6 +65,15 @@ public class SaveResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.saveResult != nil)
+        {
+            self.saveResult!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets saveResult. Gets or sets the save result.
     public func setSaveResult(saveResult : SaveResult?) -> SaveResponse {
         self.saveResult = saveResult;

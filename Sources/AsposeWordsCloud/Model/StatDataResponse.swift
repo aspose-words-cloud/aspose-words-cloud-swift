@@ -82,6 +82,20 @@ public class StatDataResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.documentLink != nil)
+        {
+            self.documentLink!.collectFilesContent(&resultFilesContent);
+        }
+
+        if (self.statData != nil)
+        {
+            self.statData!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets documentLink. Gets or sets the link to the document.
     public func setDocumentLink(documentLink : FileLink?) -> StatDataResponse {
         self.documentLink = documentLink;

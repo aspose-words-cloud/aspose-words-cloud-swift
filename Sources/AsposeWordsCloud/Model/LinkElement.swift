@@ -62,6 +62,14 @@ public class LinkElement : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        if (self.link != nil)
+        {
+            self.link!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets link. Gets or sets the link to the document.
     public func setLink(link : WordsApiLink?) -> LinkElement {
         self.link = link;

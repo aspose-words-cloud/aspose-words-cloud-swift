@@ -79,6 +79,9 @@ public class CompressOptions : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    }
+
     // Sets imagesQuality. Gets or sets the quality level of images from 0 to 100. Default value is 75.
     public func setImagesQuality(imagesQuality : Int?) -> CompressOptions {
         self.imagesQuality = imagesQuality;

@@ -65,6 +65,15 @@ public class TableRowFormatResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.rowFormat != nil)
+        {
+            self.rowFormat!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets rowFormat. Gets or sets the formatting properties of a table row.
     public func setRowFormat(rowFormat : TableRowFormat?) -> TableRowFormatResponse {
         self.rowFormat = rowFormat;

@@ -172,6 +172,28 @@ public class Comment : CommentLink {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.content != nil)
+        {
+            self.content!.collectFilesContent(&resultFilesContent);
+        }
+
+
+
+        if (self.rangeEnd != nil)
+        {
+            self.rangeEnd!.collectFilesContent(&resultFilesContent);
+        }
+
+        if (self.rangeStart != nil)
+        {
+            self.rangeStart!.collectFilesContent(&resultFilesContent);
+        }
+
+
+    }
+
     // Sets author. Gets or sets the author name for a comment.
     public func setAuthor(author : String?) -> Comment {
         self.author = author;

@@ -65,6 +65,15 @@ public class StyleResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.style != nil)
+        {
+            self.style!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets style. Gets or sets the style, containded in the document.
     public func setStyle(style : Style?) -> StyleResponse {
         self.style = style;

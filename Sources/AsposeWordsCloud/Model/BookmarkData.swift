@@ -79,6 +79,9 @@ public class BookmarkData : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    }
+
     // Sets name. Gets or sets the name of the bookmark.
     public func setName(name : String?) -> BookmarkData {
         self.name = name;

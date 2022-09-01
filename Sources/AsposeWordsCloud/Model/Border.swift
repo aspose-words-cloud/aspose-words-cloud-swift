@@ -266,6 +266,19 @@ public class Border : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.color != nil)
+        {
+            self.color!.collectFilesContent(&resultFilesContent);
+        }
+
+
+
+
+
+    }
+
     // Sets borderType. Gets or sets the border type.
     public func setBorderType(borderType : BorderType?) -> Border {
         self.borderType = borderType;

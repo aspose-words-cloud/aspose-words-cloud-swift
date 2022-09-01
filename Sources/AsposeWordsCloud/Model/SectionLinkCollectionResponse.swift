@@ -65,6 +65,15 @@ public class SectionLinkCollectionResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.sections != nil)
+        {
+            self.sections!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets sections. Gets or sets the collection of sections.
     public func setSections(sections : SectionLinkCollection?) -> SectionLinkCollectionResponse {
         self.sections = sections;

@@ -212,9 +212,20 @@ public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
+         var formParams = [RequestFormParam]();
+         var requestFilesContent = [FileContent]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
+         formParams.append(RequestFormParam(name: "tabStopInsertDto", body: try ObjectSerializer.serialize(value: self.getTabStopInsertDto()), contentType: "application/json"));
+         self.getTabStopInsertDto().collectFilesContent(&requestFilesContent);
+
+         for requestFileContent in requestFilesContent {
+             formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getTabStopInsertDto()), contentType: "application/json");
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

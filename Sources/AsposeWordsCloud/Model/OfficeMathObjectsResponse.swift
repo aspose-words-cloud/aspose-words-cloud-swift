@@ -65,6 +65,15 @@ public class OfficeMathObjectsResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.officeMathObjects != nil)
+        {
+            self.officeMathObjects!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
     // Sets officeMathObjects. Gets or sets the collection of OfficeMath objects.
     public func setOfficeMathObjects(officeMathObjects : OfficeMathObjectsCollection?) -> OfficeMathObjectsResponse {
         self.officeMathObjects = officeMathObjects;
