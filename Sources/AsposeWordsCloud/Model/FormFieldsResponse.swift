@@ -65,13 +65,7 @@ public class FormFieldsResponse : WordsResponse {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.formFields != nil)
-        {
-            self.formFields!.collectFilesContent(&resultFilesContent);
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets formFields. Gets or sets the collection of form fields.

@@ -91,8 +91,7 @@ public class MarkdownSaveOptionsData : TxtSaveOptionsBaseData {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets tableContentAlignment. Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format. The default value is Auto.

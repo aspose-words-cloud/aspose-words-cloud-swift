@@ -468,27 +468,7 @@ public class ListLevel : LinkElement {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.font != nil)
-        {
-            self.font!.collectFilesContent(&resultFilesContent);
-        }
-
-
-        if (self.linkedStyle != nil)
-        {
-            self.linkedStyle!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-
-
-
-
-
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets alignment. Gets or sets the justification of the actual number of the list item.

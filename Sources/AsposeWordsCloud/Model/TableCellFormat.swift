@@ -313,19 +313,7 @@ public class TableCellFormat : LinkElement {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.preferredWidth != nil)
-        {
-            self.preferredWidth!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-
-
-
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets bottomPadding. Gets or sets the amount of space (in points) to add below the contents of the cell.

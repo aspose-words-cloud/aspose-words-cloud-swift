@@ -79,15 +79,7 @@ public class FilesUploadResult : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        if (self.errors != nil)
-        {
-            for element in self.errors! {
-                element.collectFilesContent(&resultFilesContent);
-            }
-        }
-
-
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets errors. List of errors.

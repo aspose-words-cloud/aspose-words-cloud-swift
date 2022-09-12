@@ -143,7 +143,7 @@ public class TabStopBase : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets alignment. Gets or sets the alignment of text at this tab stop.

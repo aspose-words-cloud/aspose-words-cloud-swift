@@ -65,15 +65,7 @@ public class ParagraphLinkCollection : LinkElement {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.paragraphLinkList != nil)
-        {
-            for element in self.paragraphLinkList! {
-                element.collectFilesContent(&resultFilesContent);
-            }
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets paragraphLinkList. Gets or sets the collection of paragraph's links.

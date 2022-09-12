@@ -145,8 +145,7 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets compliance. Gets or sets the oOXML version for the output document.

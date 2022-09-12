@@ -225,7 +225,7 @@ public class CompareOptions : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets acceptAllRevisionsBeforeComparison. Gets or sets whether accept revisions before comparison or not.

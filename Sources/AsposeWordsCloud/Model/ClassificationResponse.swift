@@ -99,15 +99,7 @@ public class ClassificationResponse : WordsResponse {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.bestResults != nil)
-        {
-            for element in self.bestResults! {
-                element.collectFilesContent(&resultFilesContent);
-            }
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets bestClassName. Gets or sets the best class name.

@@ -113,7 +113,7 @@ public class TimeZoneInfoData : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets baseUtcOffset. Gets or sets base utc offset in hh:mm:ss format.

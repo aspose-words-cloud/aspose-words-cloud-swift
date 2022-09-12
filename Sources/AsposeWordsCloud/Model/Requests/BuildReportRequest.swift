@@ -196,15 +196,15 @@ public class BuildReportRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
          var formParams = [RequestFormParam]();
-         var requestFilesContent = [FileContent]();
+         var requestFilesContent = [FileReference]();
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()), contentType: "text/plain"));
 
          formParams.append(RequestFormParam(name: "reportEngineSettings", body: try ObjectSerializer.serialize(value: self.getReportEngineSettings()), contentType: "application/json"));
          self.getReportEngineSettings().collectFilesContent(&requestFilesContent);
 
-         for requestFileContent in requestFilesContent {
-             formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));
+         for requestFileReference in requestFilesContent {
+             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");

@@ -62,7 +62,7 @@ public class RangeDocument : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets documentName. Gets or sets the name for a new document.

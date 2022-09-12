@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="FileContent.swift">
+ * <copyright company="Aspose" file="FileReference.swift">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,54 +29,62 @@ import Foundation
 
 // File content special model.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class FileContent : Codable, WordsApiModel {
-    // File id for multipart request.
-    private var _id : String;
-    public var id : String {
+public class FileReference : Codable, WordsApiModel {
+    // File source.
+    private var _source : String;
+    public var source : String {
         get {
-            return self._id;
+            return self._source;
         }
     }
 
-    // Filename for multipart request.
-    private var _filename : String;
-    public var filename : String {
+    // File reference.
+    private var _reference : String;
+    public var reference : String {
         get {
-            return self._filename;
+            return self._reference;
         }
     }
 
     // File content for multipart request.
-    private var _content : InputStream;
+    private var _content : InputStream?;
     public var content : InputStream {
         get {
-            return self._content;
+            return self._content!;
         }
     }
 
     private enum CodingKeys: String, CodingKey {
-        case id = "Id";
-        case filename = "Filename";
+        case source = "Source";
+        case reference = "Reference";
         case invalidCodingKey;
     }
 
-    public init(filename : String, content : InputStream) {
-        self._id = UUID().uuidString;
-        self._filename = filename;
-        self._content = content;
+    public init(remoteFilePath : String) {
+        self._source = "Storage";
+        self._reference = remoteFilePath;
+        self._content = nil;
+    }
+
+    public init(localFileContent : InputStream) {
+        self._source = "Request";
+        self._reference = UUID().uuidString;
+        self._content = localFileContent;
     }
 
     public required init(from decoder: Decoder) throws {
-        throw WordsApiError.invalidTypeSerialization(typeName: "FileContent");
+        throw WordsApiError.invalidTypeSerialization(typeName: "FileReference");
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.id, forKey: .id);
-        try container.encode(self.filename, forKey: .filename);
+        try container.encode(self.source, forKey: .source);
+        try container.encode(self.reference, forKey: .reference);
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        resultFilesContent.append(self);
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+        if (self._source == "Request") {
+            resultFilesContent.append(self);
+        }
     }
 }

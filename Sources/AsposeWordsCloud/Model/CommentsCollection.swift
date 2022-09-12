@@ -65,15 +65,7 @@ public class CommentsCollection : LinkElement {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.commentList != nil)
-        {
-            for element in self.commentList! {
-                element.collectFilesContent(&resultFilesContent);
-            }
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets commentList. Gets or sets the collection of comments.

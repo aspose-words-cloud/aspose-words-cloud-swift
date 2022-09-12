@@ -45,9 +45,10 @@ class AppendDocumentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
+      let requestDocumentListDocumentEntries0FileReference = FileReference(remoteFilePath: remoteDataFolder + "/" + remoteFileName);
       let requestDocumentListDocumentEntries0 = DocumentEntry()
-        .setHref(href: remoteDataFolder + "/" + remoteFileName)
-        .setImportFormatMode(importFormatMode: "KeepSourceFormatting");
+        .setImportFormatMode(importFormatMode: "KeepSourceFormatting")
+        .setFileReference(fileReference: requestDocumentListDocumentEntries0FileReference);
       let requestDocumentListDocumentEntries = [
         requestDocumentListDocumentEntries0 as! DocumentEntry
       ];
@@ -62,16 +63,16 @@ class AppendDocumentTests: BaseTestContext {
     // Test for appending document online.
     func testAppendDocumentOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestDocumentListOnlineDocumentEntries0FileStream = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestDocumentListOnlineDocumentEntries0File = FileContent(filename: localFile, content: requestDocumentListOnlineDocumentEntries0FileStream);
-      let requestDocumentListOnlineDocumentEntries0 = OnlineDocumentEntry()
-        .setFile(file: requestDocumentListOnlineDocumentEntries0File)
-        .setImportFormatMode(importFormatMode: "KeepSourceFormatting");
-      let requestDocumentListOnlineDocumentEntries = [
-        requestDocumentListOnlineDocumentEntries0 as! OnlineDocumentEntry
+      let requestDocumentListDocumentEntries0FileReferenceStream = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let requestDocumentListDocumentEntries0FileReference = FileReference(localFileContent: requestDocumentListDocumentEntries0FileReferenceStream);
+      let requestDocumentListDocumentEntries0 = DocumentEntry()
+        .setImportFormatMode(importFormatMode: "KeepSourceFormatting")
+        .setFileReference(fileReference: requestDocumentListDocumentEntries0FileReference);
+      let requestDocumentListDocumentEntries = [
+        requestDocumentListDocumentEntries0 as! DocumentEntry
       ];
-      let requestDocumentList = OnlineDocumentEntryList()
-        .setOnlineDocumentEntries(onlineDocumentEntries: requestDocumentListOnlineDocumentEntries);
+      let requestDocumentList = DocumentEntryList()
+        .setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
       let request = AppendDocumentOnlineRequest(document: requestDocument, documentList: requestDocumentList);
       _ = try super.getApi().appendDocumentOnline(request: request);
     }

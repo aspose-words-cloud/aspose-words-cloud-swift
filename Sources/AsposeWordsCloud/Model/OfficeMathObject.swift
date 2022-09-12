@@ -242,16 +242,7 @@ public class OfficeMathObject : OfficeMathLink {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.content != nil)
-        {
-            self.content!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets content. Gets or sets the content of a footnote.

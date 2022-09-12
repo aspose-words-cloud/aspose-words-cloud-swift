@@ -615,46 +615,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.digitalSignatureDetails != nil)
-        {
-            self.digitalSignatureDetails!.collectFilesContent(&resultFilesContent);
-        }
-
-
-        if (self.downsampleOptions != nil)
-        {
-            self.downsampleOptions!.collectFilesContent(&resultFilesContent);
-        }
-
-
-        if (self.encryptionDetails != nil)
-        {
-            self.encryptionDetails!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-
-
-
-
-
-
-        if (self.outlineOptions != nil)
-        {
-            self.outlineOptions!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-
-
-
-
-
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets compliance. Gets or sets the PDF standards compliance level for output documents.

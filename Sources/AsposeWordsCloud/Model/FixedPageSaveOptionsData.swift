@@ -197,17 +197,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.metafileRenderingOptions != nil)
-        {
-            self.metafileRenderingOptions!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets colorMode. Gets or sets the value determining how colors are rendered. { Normal | Grayscale}.

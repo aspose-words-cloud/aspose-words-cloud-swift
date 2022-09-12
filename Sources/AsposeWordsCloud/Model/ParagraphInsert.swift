@@ -62,7 +62,7 @@ public class ParagraphInsert : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets text. Gets or sets the paragraph's text.

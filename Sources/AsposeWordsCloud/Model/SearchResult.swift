@@ -79,17 +79,7 @@ public class SearchResult : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        if (self.rangeEnd != nil)
-        {
-            self.rangeEnd!.collectFilesContent(&resultFilesContent);
-        }
-
-        if (self.rangeStart != nil)
-        {
-            self.rangeStart!.collectFilesContent(&resultFilesContent);
-        }
-
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets rangeEnd. Gets or sets the link to result range end node.

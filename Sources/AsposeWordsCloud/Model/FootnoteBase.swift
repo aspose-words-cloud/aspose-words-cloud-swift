@@ -123,14 +123,7 @@ public class FootnoteBase : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        if (self.position != nil)
-        {
-            self.position!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets footnoteType. Gets or sets the option, that specifies whether this is a footnote or endnote.

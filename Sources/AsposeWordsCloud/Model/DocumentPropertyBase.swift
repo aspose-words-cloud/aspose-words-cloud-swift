@@ -62,7 +62,7 @@ public class DocumentPropertyBase : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets value. Gets or sets the value of the document property.

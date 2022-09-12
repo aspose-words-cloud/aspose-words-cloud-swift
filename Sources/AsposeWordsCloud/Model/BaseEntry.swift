@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="BaseImageEntryList.swift">
+ * <copyright company="Aspose" file="BaseEntry.swift">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,56 +27,57 @@
 
 import Foundation
 
-// Represents a list of images which will be appended to the original resource document or image.
+// Represents a base class for document which will be appended to the original resource document.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class BaseImageEntryList : BaseEntryList {
-    // Field of appendEachImageOnNewPage. Represents a list of images which will be appended to the original resource document or image.
-    private var _appendEachImageOnNewPage : Bool? = nil;
+public class BaseEntry : Codable, WordsApiModel {
+    // Field of fileReference. Represents a base class for document which will be appended to the original resource document.
+    private var _fileReference : FileReference? = nil;
 
-    public var appendEachImageOnNewPage : Bool? {
+    public var fileReference : FileReference? {
         get {
-            return self._appendEachImageOnNewPage;
+            return self._fileReference;
         }
         set {
-            self._appendEachImageOnNewPage = newValue;
+            self._fileReference = newValue;
         }
     }
 
     private enum CodingKeys: String, CodingKey {
-        case appendEachImageOnNewPage = "AppendEachImageOnNewPage";
+        case fileReference = "FileReference";
         case invalidCodingKey;
     }
 
-    public override init() {
-        super.init();
+    internal init() {
     }
 
     public required init(from decoder: Decoder) throws {
-        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.appendEachImageOnNewPage = try container.decodeIfPresent(Bool.self, forKey: .appendEachImageOnNewPage);
+        self.fileReference = try container.decodeIfPresent(FileReference.self, forKey: .fileReference);
     }
 
-    public override func encode(to encoder: Encoder) throws {
-        try super.encode(to: encoder);
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.appendEachImageOnNewPage != nil) {
-            try container.encode(self.appendEachImageOnNewPage, forKey: .appendEachImageOnNewPage);
+        if (self.fileReference != nil) {
+            try container.encode(self.fileReference, forKey: .fileReference);
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+        if (self.fileReference != nil)
+        {
+            self.fileReference!.collectFilesContent(&resultFilesContent);
+        }
+
     }
 
-    // Sets appendEachImageOnNewPage. Gets or sets a value indicating whether each image should be added to a new page in the document.
-    public func setAppendEachImageOnNewPage(appendEachImageOnNewPage : Bool?) -> BaseImageEntryList {
-        self.appendEachImageOnNewPage = appendEachImageOnNewPage;
+    // Sets fileReference. Gets or sets the file reference.
+    public func setFileReference(fileReference : FileReference?) -> BaseEntry {
+        self.fileReference = fileReference;
         return self;
     }
 
-    // Gets appendEachImageOnNewPage. Gets or sets a value indicating whether each image should be added to a new page in the document.
-    public func getAppendEachImageOnNewPage() -> Bool? {
-        return self.appendEachImageOnNewPage;
+    // Gets fileReference. Gets or sets the file reference.
+    public func getFileReference() -> FileReference? {
+        return self.fileReference;
     }
 }

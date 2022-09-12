@@ -65,13 +65,7 @@ public class HyperlinkResponse : WordsResponse {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.hyperlink != nil)
-        {
-            self.hyperlink!.collectFilesContent(&resultFilesContent);
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets hyperlink. Gets or sets the hyperlink.

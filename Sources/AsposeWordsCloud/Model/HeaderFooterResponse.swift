@@ -65,13 +65,7 @@ public class HeaderFooterResponse : WordsResponse {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.headerFooter != nil)
-        {
-            self.headerFooter!.collectFilesContent(&resultFilesContent);
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets headerFooter. Gets or sets the HeaderFooter.

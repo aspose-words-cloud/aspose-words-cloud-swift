@@ -160,25 +160,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        if (self.csvDataLoadOptions != nil)
-        {
-            self.csvDataLoadOptions!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-        if (self.jsonDataLoadOptions != nil)
-        {
-            self.jsonDataLoadOptions!.collectFilesContent(&resultFilesContent);
-        }
-
-
-        if (self.xmlDataLoadOptions != nil)
-        {
-            self.xmlDataLoadOptions!.collectFilesContent(&resultFilesContent);
-        }
-
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets csvDataLoadOptions. Gets or sets the options for parsing CSV data.

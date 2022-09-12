@@ -79,7 +79,7 @@ public class ListFormatUpdate : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets listId. Gets or sets the list id of this paragraph.

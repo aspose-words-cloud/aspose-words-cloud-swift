@@ -268,17 +268,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        if (self.position != nil)
-        {
-            self.position!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-
-
-
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets height. Gets or sets the height of the DrawingObject in points.

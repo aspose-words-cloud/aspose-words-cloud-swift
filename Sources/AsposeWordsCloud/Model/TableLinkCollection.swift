@@ -65,15 +65,7 @@ public class TableLinkCollection : LinkElement {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.tableLinkList != nil)
-        {
-            for element in self.tableLinkList! {
-                element.collectFilesContent(&resultFilesContent);
-            }
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets tableLinkList. Gets or sets the collection of table's links.

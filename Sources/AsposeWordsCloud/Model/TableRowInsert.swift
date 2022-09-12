@@ -79,7 +79,7 @@ public class TableRowInsert : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets columnsCount. Gets or sets the count of columns. The default value is 1.

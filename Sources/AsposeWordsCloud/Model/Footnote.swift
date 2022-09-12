@@ -143,21 +143,7 @@ public class Footnote : FootnoteLink {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.content != nil)
-        {
-            self.content!.collectFilesContent(&resultFilesContent);
-        }
-
-
-        if (self.position != nil)
-        {
-            self.position!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets content. Gets or sets the content of the footnote.

@@ -65,13 +65,7 @@ public class ParagraphListFormatResponse : WordsResponse {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.listFormat != nil)
-        {
-            self.listFormat!.collectFilesContent(&resultFilesContent);
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets listFormat. Gets or sets the list format for a paragraph.

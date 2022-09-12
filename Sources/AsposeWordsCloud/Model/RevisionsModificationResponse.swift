@@ -65,13 +65,7 @@ public class RevisionsModificationResponse : WordsResponse {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.result != nil)
-        {
-            self.result!.collectFilesContent(&resultFilesContent);
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets result. Gets or sets the result of the modification operations for the revisions collection.

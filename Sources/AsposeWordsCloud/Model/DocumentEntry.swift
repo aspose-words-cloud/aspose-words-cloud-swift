@@ -29,21 +29,34 @@ import Foundation
 
 // Represents a document which will be appended to the original resource document.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class DocumentEntry : BaseDocumentEntry {
-    // Field of href. Represents a document which will be appended to the original resource document.
-    private var _href : String? = nil;
+public class DocumentEntry : BaseEntry {
+    // Field of encryptedPassword. Represents a document which will be appended to the original resource document.
+    private var _encryptedPassword : String? = nil;
 
-    public var href : String? {
+    public var encryptedPassword : String? {
         get {
-            return self._href;
+            return self._encryptedPassword;
         }
         set {
-            self._href = newValue;
+            self._encryptedPassword = newValue;
+        }
+    }
+
+    // Field of importFormatMode. Represents a document which will be appended to the original resource document.
+    private var _importFormatMode : String? = nil;
+
+    public var importFormatMode : String? {
+        get {
+            return self._importFormatMode;
+        }
+        set {
+            self._importFormatMode = newValue;
         }
     }
 
     private enum CodingKeys: String, CodingKey {
-        case href = "Href";
+        case encryptedPassword = "EncryptedPassword";
+        case importFormatMode = "ImportFormatMode";
         case invalidCodingKey;
     }
 
@@ -54,29 +67,45 @@ public class DocumentEntry : BaseDocumentEntry {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.href = try container.decodeIfPresent(String.self, forKey: .href);
+        self.encryptedPassword = try container.decodeIfPresent(String.self, forKey: .encryptedPassword);
+        self.importFormatMode = try container.decodeIfPresent(String.self, forKey: .importFormatMode);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.href != nil) {
-            try container.encode(self.href, forKey: .href);
+        if (self.encryptedPassword != nil) {
+            try container.encode(self.encryptedPassword, forKey: .encryptedPassword);
+        }
+        if (self.importFormatMode != nil) {
+            try container.encode(self.importFormatMode, forKey: .importFormatMode);
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
         super.collectFilesContent(&resultFilesContent);
     }
 
-    // Sets href. Gets or sets the path to document to append at the server.
-    public func setHref(href : String?) -> DocumentEntry {
-        self.href = href;
+    // Sets encryptedPassword. Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+    public func setEncryptedPassword(encryptedPassword : String?) -> DocumentEntry {
+        self.encryptedPassword = encryptedPassword;
         return self;
     }
 
-    // Gets href. Gets or sets the path to document to append at the server.
-    public func getHref() -> String? {
-        return self.href;
+    // Gets encryptedPassword. Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
+    }
+
+
+    // Sets importFormatMode. Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
+    public func setImportFormatMode(importFormatMode : String?) -> DocumentEntry {
+        self.importFormatMode = importFormatMode;
+        return self;
+    }
+
+    // Gets importFormatMode. Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
+    public func getImportFormatMode() -> String? {
+        return self.importFormatMode;
     }
 }

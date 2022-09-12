@@ -167,18 +167,7 @@ public class ListInfo : LinkElement {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.listLevels != nil)
-        {
-            self.listLevels!.collectFilesContent(&resultFilesContent);
-        }
-
-        if (self.style != nil)
-        {
-            self.style!.collectFilesContent(&resultFilesContent);
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style.

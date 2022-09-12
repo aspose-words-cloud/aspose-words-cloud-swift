@@ -99,25 +99,7 @@ public class HeaderFooter : HeaderFooterLink {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.childNodes != nil)
-        {
-            for element in self.childNodes! {
-                element.collectFilesContent(&resultFilesContent);
-            }
-        }
-
-        if (self.drawingObjects != nil)
-        {
-            self.drawingObjects!.collectFilesContent(&resultFilesContent);
-        }
-
-        if (self.paragraphs != nil)
-        {
-            self.paragraphs!.collectFilesContent(&resultFilesContent);
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets childNodes. Gets or sets the child nodes.

@@ -305,31 +305,7 @@ public class DrawingObject : DrawingObjectLink {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.imageDataLink != nil)
-        {
-            self.imageDataLink!.collectFilesContent(&resultFilesContent);
-        }
-
-
-        if (self.oleDataLink != nil)
-        {
-            self.oleDataLink!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-        if (self.renderLinks != nil)
-        {
-            for element in self.renderLinks! {
-                element.collectFilesContent(&resultFilesContent);
-            }
-        }
-
-
-
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets height. Gets or sets the height of the DrawingObject in points.

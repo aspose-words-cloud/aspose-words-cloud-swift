@@ -46,8 +46,7 @@ public class FieldUpdate : FieldBase {
         try super.encode(to: encoder);
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
 }

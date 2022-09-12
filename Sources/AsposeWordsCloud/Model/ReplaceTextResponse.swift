@@ -82,14 +82,7 @@ public class ReplaceTextResponse : WordsResponse {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.documentLink != nil)
-        {
-            self.documentLink!.collectFilesContent(&resultFilesContent);
-        }
-
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets documentLink. Gets or sets the link to the document.

@@ -1949,60 +1949,7 @@ public class Font : LinkElement {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.border != nil)
-        {
-            self.border!.collectFilesContent(&resultFilesContent);
-        }
-
-        if (self.color != nil)
-        {
-            self.color!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-
-
-
-        if (self.highlightColor != nil)
-        {
-            self.highlightColor!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        if (self.underlineColor != nil)
-        {
-            self.underlineColor!.collectFilesContent(&resultFilesContent);
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets allCaps. Gets or sets a value indicating whether the font is formatted as all capital letters.

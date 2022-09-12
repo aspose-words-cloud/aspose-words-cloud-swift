@@ -301,23 +301,7 @@ public class FieldOptions : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        if (self.currentUser != nil)
-        {
-            self.currentUser!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-
-
-
-
-
-
-
-
-
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets builtInTemplatesPaths. Gets or sets BuiltIn Templates Paths.

@@ -113,7 +113,7 @@ public class FontInfo : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets filePath. Gets or sets the path to the font file if any.

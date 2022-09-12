@@ -65,13 +65,7 @@ public class DrawingObjectResponse : WordsResponse {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.drawingObject != nil)
-        {
-            self.drawingObject!.collectFilesContent(&resultFilesContent);
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets drawingObject. Gets or sets the DrawingObject.

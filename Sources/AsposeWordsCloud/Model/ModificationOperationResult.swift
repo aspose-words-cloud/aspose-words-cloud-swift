@@ -79,17 +79,7 @@ public class ModificationOperationResult : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        if (self.dest != nil)
-        {
-            self.dest!.collectFilesContent(&resultFilesContent);
-        }
-
-        if (self.source != nil)
-        {
-            self.source!.collectFilesContent(&resultFilesContent);
-        }
-
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets dest. Gets or sets the link to the dest document (result of the modification operation).

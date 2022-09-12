@@ -1481,19 +1481,7 @@ public class TableProperties : LinkElement {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.preferredWidth != nil)
-        {
-            self.preferredWidth!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-
-
-
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets alignment. Gets or sets the option that controls how an inline table is aligned in the document.

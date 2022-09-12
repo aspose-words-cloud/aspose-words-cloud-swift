@@ -1389,20 +1389,7 @@ public class Style : LinkElement {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.font != nil)
-        {
-            self.font!.collectFilesContent(&resultFilesContent);
-        }
-
-
-
-
-
-
-
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.

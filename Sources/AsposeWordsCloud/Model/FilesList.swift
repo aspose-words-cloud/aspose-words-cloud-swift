@@ -62,14 +62,7 @@ public class FilesList : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        if (self.value != nil)
-        {
-            for element in self.value! {
-                element.collectFilesContent(&resultFilesContent);
-            }
-        }
-
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets value. Files and folders contained by folder StorageFile.

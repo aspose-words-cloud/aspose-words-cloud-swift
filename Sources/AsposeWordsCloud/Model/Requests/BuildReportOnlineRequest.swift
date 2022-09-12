@@ -94,7 +94,7 @@ public class BuildReportOnlineRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
          var formParams = [RequestFormParam]();
-         var requestFilesContent = [FileContent]();
+         var requestFilesContent = [FileReference]();
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: self.getTemplate()), contentType: "application/octet-stream"));
 
@@ -103,8 +103,8 @@ public class BuildReportOnlineRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "reportEngineSettings", body: try ObjectSerializer.serialize(value: self.getReportEngineSettings()), contentType: "application/json"));
          self.getReportEngineSettings().collectFilesContent(&requestFilesContent);
 
-         for requestFileContent in requestFilesContent {
-             formParams.append(RequestFormParam(name: requestFileContent.id, filename: requestFileContent.filename, body: try ObjectSerializer.serializeFile(value: requestFileContent.content), contentType: "application/octet-stream"));
+         for requestFileReference in requestFilesContent {
+             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");

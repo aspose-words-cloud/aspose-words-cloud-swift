@@ -65,13 +65,7 @@ public class SplitDocumentResponse : WordsResponse {
         }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
-        super.collectFilesContent(&resultFilesContent);
-        if (self.splitResult != nil)
-        {
-            self.splitResult!.collectFilesContent(&resultFilesContent);
-        }
-
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets splitResult. Gets or sets the result of document splitting.

@@ -79,7 +79,7 @@ public class FootnotesStatData : Codable, WordsApiModel {
         }
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileContent]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets paragraphCount. Gets or sets the total count of paragraphs in footnotes.
