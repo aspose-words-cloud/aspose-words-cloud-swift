@@ -36,8 +36,17 @@ public class GetPublicKeyRequest : WordsApiRequest {
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var formParams = [RequestFormParam]();
+         var requestFilesContent = [FileReference]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
+         for requestFileReference in requestFilesContent {
+             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+         }
 
-         let result = WordsApiRequestData(url: urlPath, method: "GET");
+         var result = WordsApiRequestData(url: urlPath, method: "GET");
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

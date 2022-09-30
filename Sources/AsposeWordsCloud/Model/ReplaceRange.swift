@@ -89,6 +89,9 @@ public class ReplaceRange : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets text. Gets or sets the range's text.
     public func setText(text : String?) -> ReplaceRange {
         self.text = text;

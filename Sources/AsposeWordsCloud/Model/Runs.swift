@@ -65,6 +65,9 @@ public class Runs : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets list. Gets or sets the collection of runs.
     public func setList(list : [Run]?) -> Runs {
         self.list = list;

@@ -82,6 +82,9 @@ public class ParagraphFormat : ParagraphFormatBase {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets isHeading. Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
     public func setIsHeading(isHeading : Bool?) -> ParagraphFormat {
         self.isHeading = isHeading;

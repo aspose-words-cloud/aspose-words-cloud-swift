@@ -65,6 +65,9 @@ public class HyperlinkResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets hyperlink. Gets or sets the hyperlink.
     public func setHyperlink(hyperlink : Hyperlink?) -> HyperlinkResponse {
         self.hyperlink = hyperlink;

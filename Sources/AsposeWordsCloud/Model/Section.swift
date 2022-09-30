@@ -133,6 +133,9 @@ public class Section : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets childNodes. Gets or sets the list of child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) -> Section {
         self.childNodes = childNodes;

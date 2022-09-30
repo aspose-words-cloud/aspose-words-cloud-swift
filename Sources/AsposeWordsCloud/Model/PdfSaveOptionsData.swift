@@ -615,6 +615,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets compliance. Gets or sets the PDF standards compliance level for output documents.
     public func setCompliance(compliance : Compliance?) -> PdfSaveOptionsData {
         self.compliance = compliance;

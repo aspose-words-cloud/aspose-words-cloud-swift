@@ -113,6 +113,9 @@ public class StyleUpdate : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets baseStyleName. Gets or sets the name of the style this style is based on.
     public func setBaseStyleName(baseStyleName : String?) -> StyleUpdate {
         self.baseStyleName = baseStyleName;

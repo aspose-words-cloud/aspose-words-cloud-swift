@@ -214,6 +214,9 @@ public class Document : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets documentProperties. Gets or sets the document properties.
     public func setDocumentProperties(documentProperties : DocumentProperties?) -> Document {
         self.documentProperties = documentProperties;

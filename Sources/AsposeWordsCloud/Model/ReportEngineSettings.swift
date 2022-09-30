@@ -160,6 +160,9 @@ public class ReportEngineSettings : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets csvDataLoadOptions. Gets or sets the options for parsing CSV data.
     public func setCsvDataLoadOptions(csvDataLoadOptions : CsvDataLoadOptions?) -> ReportEngineSettings {
         self.csvDataLoadOptions = csvDataLoadOptions;

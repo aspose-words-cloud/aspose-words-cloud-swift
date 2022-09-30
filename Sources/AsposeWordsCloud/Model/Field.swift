@@ -82,6 +82,9 @@ public class Field : FieldLink {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets localeId. Gets or sets the LCID of the field.
     public func setLocaleId(localeId : String?) -> Field {
         self.localeId = localeId;

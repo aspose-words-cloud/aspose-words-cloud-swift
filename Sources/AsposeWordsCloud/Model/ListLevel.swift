@@ -468,6 +468,9 @@ public class ListLevel : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets alignment. Gets or sets the justification of the actual number of the list item.
     public func setAlignment(alignment : Alignment?) -> ListLevel {
         self.alignment = alignment;

@@ -167,6 +167,9 @@ public class ListInfo : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style.
     public func setIsListStyleDefinition(isListStyleDefinition : Bool?) -> ListInfo {
         self.isListStyleDefinition = isListStyleDefinition;

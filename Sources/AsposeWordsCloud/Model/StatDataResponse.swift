@@ -82,6 +82,9 @@ public class StatDataResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets documentLink. Gets or sets the link to the document.
     public func setDocumentLink(documentLink : FileLink?) -> StatDataResponse {
         self.documentLink = documentLink;

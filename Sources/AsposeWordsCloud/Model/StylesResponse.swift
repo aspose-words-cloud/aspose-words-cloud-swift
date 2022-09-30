@@ -65,6 +65,9 @@ public class StylesResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets styles. Gets or sets the array of styles.
     public func setStyles(styles : [Style]?) -> StylesResponse {
         self.styles = styles;

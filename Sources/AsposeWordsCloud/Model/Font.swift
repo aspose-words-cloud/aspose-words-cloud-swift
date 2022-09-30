@@ -1949,6 +1949,9 @@ public class Font : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets allCaps. Gets or sets a value indicating whether the font is formatted as all capital letters.
     public func setAllCaps(allCaps : Bool?) -> Font {
         self.allCaps = allCaps;

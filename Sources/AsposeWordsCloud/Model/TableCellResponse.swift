@@ -65,6 +65,9 @@ public class TableCellResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets cell. Gets or sets the table cell.
     public func setCell(cell : TableCell?) -> TableCellResponse {
         self.cell = cell;

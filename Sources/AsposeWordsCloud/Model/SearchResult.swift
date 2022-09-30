@@ -79,6 +79,9 @@ public class SearchResult : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets rangeEnd. Gets or sets the link to result range end node.
     public func setRangeEnd(rangeEnd : DocumentPosition?) -> SearchResult {
         self.rangeEnd = rangeEnd;

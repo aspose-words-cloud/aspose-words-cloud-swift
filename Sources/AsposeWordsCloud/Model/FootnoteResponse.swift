@@ -65,6 +65,9 @@ public class FootnoteResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets footnote. Gets or sets the footnote.
     public func setFootnote(footnote : Footnote?) -> FootnoteResponse {
         self.footnote = footnote;

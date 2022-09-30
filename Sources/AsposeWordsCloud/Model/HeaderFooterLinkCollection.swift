@@ -65,6 +65,9 @@ public class HeaderFooterLinkCollection : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets list. Gets or sets the collection of HeaderFooter's links.
     public func setList(list : [HeaderFooterLink]?) -> HeaderFooterLinkCollection {
         self.list = list;

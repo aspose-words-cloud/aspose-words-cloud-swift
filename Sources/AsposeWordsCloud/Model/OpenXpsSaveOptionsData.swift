@@ -55,4 +55,7 @@ public class OpenXpsSaveOptionsData : XpsSaveOptionsData {
         try super.encode(to: encoder);
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
 }

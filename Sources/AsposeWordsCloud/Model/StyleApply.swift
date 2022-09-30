@@ -62,6 +62,9 @@ public class StyleApply : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets styleName. Gets or sets the case sensitive name of the style to apply.
     public func setStyleName(styleName : String?) -> StyleApply {
         self.styleName = styleName;

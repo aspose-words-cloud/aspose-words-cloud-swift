@@ -82,6 +82,9 @@ public class PublicKeyResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets exponent. Gets or sets RSA key exponent as Base64 string.
     public func setExponent(exponent : String?) -> PublicKeyResponse {
         self.exponent = exponent;

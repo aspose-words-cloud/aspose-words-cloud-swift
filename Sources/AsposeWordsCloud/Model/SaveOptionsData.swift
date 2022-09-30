@@ -341,6 +341,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets allowEmbeddingPostScriptFonts. Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
     public func setAllowEmbeddingPostScriptFonts(allowEmbeddingPostScriptFonts : Bool?) -> SaveOptionsData {
         self.allowEmbeddingPostScriptFonts = allowEmbeddingPostScriptFonts;

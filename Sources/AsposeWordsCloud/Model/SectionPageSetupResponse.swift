@@ -65,6 +65,9 @@ public class SectionPageSetupResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets pageSetup. Gets or sets the page setup of a section.
     public func setPageSetup(pageSetup : PageSetup?) -> SectionPageSetupResponse {
         self.pageSetup = pageSetup;

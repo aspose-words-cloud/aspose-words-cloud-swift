@@ -65,6 +65,9 @@ public class CompressResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets document. Gets or sets the destination document info.
     public func setDocument(document : Document?) -> CompressResponse {
         self.document = document;

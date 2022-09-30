@@ -172,6 +172,9 @@ public class Comment : CommentLink {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets author. Gets or sets the author name for a comment.
     public func setAuthor(author : String?) -> Comment {
         self.author = author;

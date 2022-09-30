@@ -143,6 +143,9 @@ public class Footnote : FootnoteLink {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets content. Gets or sets the content of the footnote.
     public func setContent(content : StoryChildNodes?) -> Footnote {
         self.content = content;

@@ -113,6 +113,9 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets commentChar. Gets or sets the character that is used to comment lines of CSV data.
     public func setCommentChar(commentChar : String?) -> CsvDataLoadOptions {
         self.commentChar = commentChar;

@@ -65,6 +65,9 @@ public class BordersResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets borders. Gets or sets the collection of borders.
     public func setBorders(borders : BordersCollection?) -> BordersResponse {
         self.borders = borders;

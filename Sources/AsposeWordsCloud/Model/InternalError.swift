@@ -113,6 +113,9 @@ public class InternalError : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets code. Code.
     public func setCode(code : String?) -> InternalError {
         self.code = code;

@@ -65,6 +65,9 @@ public class SectionLinkCollection : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets sectionLinkList. Gets or sets the collection of section's links.
     public func setSectionLinkList(sectionLinkList : [SectionLink]?) -> SectionLinkCollection {
         self.sectionLinkList = sectionLinkList;

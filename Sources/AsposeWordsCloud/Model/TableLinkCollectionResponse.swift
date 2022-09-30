@@ -65,6 +65,9 @@ public class TableLinkCollectionResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets tables. Gets or sets the collection of tables.
     public func setTables(tables : TableLinkCollection?) -> TableLinkCollectionResponse {
         self.tables = tables;

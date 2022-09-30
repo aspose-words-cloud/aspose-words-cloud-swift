@@ -46,4 +46,8 @@ public class ImageEntry : BaseEntry {
         try super.encode(to: encoder);
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+        super.collectFilesContent(&resultFilesContent);
+    }
+
 }

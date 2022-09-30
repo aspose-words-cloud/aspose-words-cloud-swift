@@ -65,6 +65,9 @@ public class ListResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets list. Gets or sets the list information.
     public func setList(list : ListInfo?) -> ListResponse {
         self.list = list;

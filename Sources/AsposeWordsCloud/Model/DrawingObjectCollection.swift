@@ -65,6 +65,9 @@ public class DrawingObjectCollection : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets list. Gets or sets the collection of DrawingObjects links.
     public func setList(list : [LinkElement]?) -> DrawingObjectCollection {
         self.list = list;

@@ -65,6 +65,9 @@ public class WordsApiErrorResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets error. Gets or sets the API error.
     public func setError(error : ApiError?) -> WordsApiErrorResponse {
         self.error = error;

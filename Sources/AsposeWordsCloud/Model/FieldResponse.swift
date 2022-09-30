@@ -65,6 +65,9 @@ public class FieldResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets field. Gets or sets the field.
     public func setField(field : Field?) -> FieldResponse {
         self.field = field;

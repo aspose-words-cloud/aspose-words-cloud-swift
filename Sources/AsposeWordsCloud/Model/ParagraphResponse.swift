@@ -65,6 +65,9 @@ public class ParagraphResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets paragraph. Gets or sets the paragraph.
     public func setParagraph(paragraph : Paragraph?) -> ParagraphResponse {
         self.paragraph = paragraph;

@@ -82,6 +82,17 @@ public class DocumentEntryList : BaseEntryList {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.documentEntries != nil)
+        {
+            for element in self.documentEntries! {
+                element.collectFilesContent(&resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
     public func setApplyBaseDocumentHeadersAndFootersToAppendingDocuments(applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool?) -> DocumentEntryList {
         self.applyBaseDocumentHeadersAndFootersToAppendingDocuments = applyBaseDocumentHeadersAndFootersToAppendingDocuments;

@@ -65,6 +65,9 @@ public class TableCellFormatResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets cellFormat. Gets or sets the formatting properties of a table cell.
     public func setCellFormat(cellFormat : TableCellFormat?) -> TableCellFormatResponse {
         self.cellFormat = cellFormat;

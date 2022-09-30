@@ -62,6 +62,9 @@ public class ProtectionData : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets protectionType. Gets or sets type of the protection.
     public func setProtectionType(protectionType : String?) -> ProtectionData {
         self.protectionType = protectionType;

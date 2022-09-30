@@ -305,6 +305,9 @@ public class DrawingObject : DrawingObjectLink {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets height. Gets or sets the height of the DrawingObject in points.
     public func setHeight(height : Double?) -> DrawingObject {
         self.height = height;

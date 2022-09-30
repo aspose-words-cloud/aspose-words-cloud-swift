@@ -125,6 +125,9 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets bookmarksOutlineLevel. Gets or sets the level in the XPS document outline at which to display Word bookmarks.
     public func setBookmarksOutlineLevel(bookmarksOutlineLevel : Int?) -> XpsSaveOptionsData {
         self.bookmarksOutlineLevel = bookmarksOutlineLevel;

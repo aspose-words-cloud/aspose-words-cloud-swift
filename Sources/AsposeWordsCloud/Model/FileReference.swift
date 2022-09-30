@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="XamlFlowPackSaveOptionsData.swift">
+ * <copyright company="Aspose" file="FileReference.swift">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,35 +27,64 @@
 
 import Foundation
 
-// Container class for xamlflow_pack save options.
+// File content special model.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class XamlFlowPackSaveOptionsData : XamlFlowSaveOptionsData {
-    // Field of saveFormat. Container class for xamlflow_pack save options.
-    private final let _saveFormat : String? = "xamlflow_pack";
-
-    override public var saveFormat : String? {
+public class FileReference : Codable, WordsApiModel {
+    // File source.
+    private var _source : String;
+    public var source : String {
         get {
-            return self._saveFormat;
+            return self._source;
+        }
+    }
+
+    // File reference.
+    private var _reference : String;
+    public var reference : String {
+        get {
+            return self._reference;
+        }
+    }
+
+    // File content for multipart request.
+    private var _content : InputStream?;
+    public var content : InputStream {
+        get {
+            return self._content!;
         }
     }
 
     private enum CodingKeys: String, CodingKey {
+        case source = "Source";
+        case reference = "Reference";
         case invalidCodingKey;
     }
 
-    public override init() {
-        super.init();
+    public init(remoteFilePath : String) {
+        self._source = "Storage";
+        self._reference = remoteFilePath;
+        self._content = nil;
+    }
+
+    public init(localFileContent : InputStream) {
+        self._source = "Request";
+        self._reference = UUID().uuidString;
+        self._content = localFileContent;
     }
 
     public required init(from decoder: Decoder) throws {
-        try super.init(from: decoder);
+        throw WordsApiError.invalidTypeSerialization(typeName: "FileReference");
     }
 
-    public override func encode(to encoder: Encoder) throws {
-        try super.encode(to: encoder);
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.source, forKey: .source);
+        try container.encode(self.reference, forKey: .reference);
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+        if (self._source == "Request") {
+            resultFilesContent.append(self);
+        }
     }
-
 }

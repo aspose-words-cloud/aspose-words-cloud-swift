@@ -82,6 +82,9 @@ public class Hyperlink : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets displayText. Gets or sets the hypelink's display text.
     public func setDisplayText(displayText : String?) -> Hyperlink {
         self.displayText = displayText;
