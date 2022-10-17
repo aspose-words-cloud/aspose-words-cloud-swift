@@ -138,6 +138,9 @@ public class FormFieldTextInput : FormField {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets maxLength. Gets or sets the maximum length for the text field. Zero when the length is not limited.
     public func setMaxLength(maxLength : Int?) -> FormFieldTextInput {
         self.maxLength = maxLength;

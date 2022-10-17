@@ -45,11 +45,12 @@ class AppendDocumentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
+      let requestDocumentListDocumentEntries0FileReference = FileReference(remoteFilePath: remoteDataFolder + "/" + remoteFileName);
       let requestDocumentListDocumentEntries0 = DocumentEntry()
-        .setHref(href: remoteDataFolder + "/" + remoteFileName)
-        .setImportFormatMode(importFormatMode: "KeepSourceFormatting");
+        .setImportFormatMode(importFormatMode: "KeepSourceFormatting")
+        .setFileReference(fileReference: requestDocumentListDocumentEntries0FileReference);
       let requestDocumentListDocumentEntries = [
-        requestDocumentListDocumentEntries0
+        requestDocumentListDocumentEntries0 as! DocumentEntry
       ];
       let requestDocumentList = DocumentEntryList()
         .setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
@@ -61,16 +62,14 @@ class AppendDocumentTests: BaseTestContext {
 
     // Test for appending document online.
     func testAppendDocumentOnline() throws {
-      let remoteFileName = "TestAppendDocument.docx";
-
-      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
-
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let requestDocumentListDocumentEntries0FileReferenceStream = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let requestDocumentListDocumentEntries0FileReference = FileReference(localFileContent: requestDocumentListDocumentEntries0FileReferenceStream);
       let requestDocumentListDocumentEntries0 = DocumentEntry()
-        .setHref(href: remoteDataFolder + "/" + remoteFileName)
-        .setImportFormatMode(importFormatMode: "KeepSourceFormatting");
+        .setImportFormatMode(importFormatMode: "KeepSourceFormatting")
+        .setFileReference(fileReference: requestDocumentListDocumentEntries0FileReference);
       let requestDocumentListDocumentEntries = [
-        requestDocumentListDocumentEntries0
+        requestDocumentListDocumentEntries0 as! DocumentEntry
       ];
       let requestDocumentList = DocumentEntryList()
         .setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);

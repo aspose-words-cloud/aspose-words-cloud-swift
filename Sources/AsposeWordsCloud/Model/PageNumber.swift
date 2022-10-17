@@ -66,6 +66,18 @@ public class PageNumber : Codable, WordsApiModel {
         }
     }
 
+    // Field of pageStartingNumber. Class is used for insert page number request building.
+    private var _pageStartingNumber : Int? = nil;
+
+    public var pageStartingNumber : Int? {
+        get {
+            return self._pageStartingNumber;
+        }
+        set {
+            self._pageStartingNumber = newValue;
+        }
+    }
+
     // Field of setPageNumberOnFirstPage. Class is used for insert page number request building.
     private var _setPageNumberOnFirstPage : Bool? = nil;
 
@@ -82,6 +94,7 @@ public class PageNumber : Codable, WordsApiModel {
         case alignment = "Alignment";
         case format = "Format";
         case isTop = "IsTop";
+        case pageStartingNumber = "PageStartingNumber";
         case setPageNumberOnFirstPage = "SetPageNumberOnFirstPage";
         case invalidCodingKey;
     }
@@ -94,6 +107,7 @@ public class PageNumber : Codable, WordsApiModel {
         self.alignment = try container.decodeIfPresent(String.self, forKey: .alignment);
         self.format = try container.decodeIfPresent(String.self, forKey: .format);
         self.isTop = try container.decodeIfPresent(Bool.self, forKey: .isTop);
+        self.pageStartingNumber = try container.decodeIfPresent(Int.self, forKey: .pageStartingNumber);
         self.setPageNumberOnFirstPage = try container.decodeIfPresent(Bool.self, forKey: .setPageNumberOnFirstPage);
     }
 
@@ -108,9 +122,15 @@ public class PageNumber : Codable, WordsApiModel {
         if (self.isTop != nil) {
             try container.encode(self.isTop, forKey: .isTop);
         }
+        if (self.pageStartingNumber != nil) {
+            try container.encode(self.pageStartingNumber, forKey: .pageStartingNumber);
+        }
         if (self.setPageNumberOnFirstPage != nil) {
             try container.encode(self.setPageNumberOnFirstPage, forKey: .setPageNumberOnFirstPage);
         }
+    }
+
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
     // Sets alignment. Gets or sets text alignment, possible values are left, right, center or justify.
@@ -146,6 +166,18 @@ public class PageNumber : Codable, WordsApiModel {
     // Gets isTop. Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.
     public func getIsTop() -> Bool? {
         return self.isTop;
+    }
+
+
+    // Sets pageStartingNumber. Gets or sets the starting page number of the document.
+    public func setPageStartingNumber(pageStartingNumber : Int?) -> PageNumber {
+        self.pageStartingNumber = pageStartingNumber;
+        return self;
+    }
+
+    // Gets pageStartingNumber. Gets or sets the starting page number of the document.
+    public func getPageStartingNumber() -> Int? {
+        return self.pageStartingNumber;
     }
 
 

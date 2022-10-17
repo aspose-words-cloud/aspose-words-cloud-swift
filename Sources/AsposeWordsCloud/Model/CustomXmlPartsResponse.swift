@@ -65,6 +65,9 @@ public class CustomXmlPartsResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets customXmlParts. Gets or sets the collection of comments.
     public func setCustomXmlParts(customXmlParts : CustomXmlPartsCollection?) -> CustomXmlPartsResponse {
         self.customXmlParts = customXmlParts;

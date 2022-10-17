@@ -65,6 +65,9 @@ public class FormFieldsResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets formFields. Gets or sets the collection of form fields.
     public func setFormFields(formFields : FormFieldCollection?) -> FormFieldsResponse {
         self.formFields = formFields;

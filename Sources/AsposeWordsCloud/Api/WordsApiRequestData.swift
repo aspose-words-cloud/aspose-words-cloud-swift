@@ -82,6 +82,9 @@ public struct WordsApiRequestData {
                 if (formParam.getName() != nil) {
                     formBody.append("; name=\"\(formParam.getName()!)\"".data(using: .utf8)!);
                 }
+                if (formParam.getFilename() != nil) {
+                    formBody.append("; filename=\"\(formParam.getFilename()!)\"".data(using: .utf8)!);
+                }
                 formBody.append("\r\n\r\n".data(using: .utf8)!);
                 formBody.append(formParam.getBody());
             }

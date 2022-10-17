@@ -65,6 +65,9 @@ public class TableCell : NodeLink {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets childNodes. Gets or sets the list of child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) -> TableCell {
         self.childNodes = childNodes;

@@ -1481,6 +1481,9 @@ public class TableProperties : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets alignment. Gets or sets the option that controls how an inline table is aligned in the document.
     public func setAlignment(alignment : Alignment?) -> TableProperties {
         self.alignment = alignment;

@@ -96,6 +96,9 @@ public class ProtectionRequest : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets newPassword. Gets or sets the new password.
     public func setNewPassword(newPassword : String?) -> ProtectionRequest {
         self.newPassword = newPassword;

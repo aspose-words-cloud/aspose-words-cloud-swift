@@ -163,6 +163,18 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         case fitBox = "FitBox"
     }
 
+    // Field of cacheHeaderFooterShapes. Container class for pdf save options.
+    private var _cacheHeaderFooterShapes : Bool? = nil;
+
+    public var cacheHeaderFooterShapes : Bool? {
+        get {
+            return self._cacheHeaderFooterShapes;
+        }
+        set {
+            self._cacheHeaderFooterShapes = newValue;
+        }
+    }
+
     // Field of compliance. Container class for pdf save options.
     private var _compliance : Compliance? = nil;
 
@@ -473,6 +485,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     private enum CodingKeys: String, CodingKey {
+        case cacheHeaderFooterShapes = "CacheHeaderFooterShapes";
         case compliance = "Compliance";
         case createNoteHyperlinks = "CreateNoteHyperlinks";
         case customPropertiesExport = "CustomPropertiesExport";
@@ -508,6 +521,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.cacheHeaderFooterShapes = try container.decodeIfPresent(Bool.self, forKey: .cacheHeaderFooterShapes);
         self.compliance = try container.decodeIfPresent(Compliance.self, forKey: .compliance);
         self.createNoteHyperlinks = try container.decodeIfPresent(Bool.self, forKey: .createNoteHyperlinks);
         self.customPropertiesExport = try container.decodeIfPresent(CustomPropertiesExport.self, forKey: .customPropertiesExport);
@@ -538,6 +552,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.cacheHeaderFooterShapes != nil) {
+            try container.encode(self.cacheHeaderFooterShapes, forKey: .cacheHeaderFooterShapes);
+        }
         if (self.compliance != nil) {
             try container.encode(self.compliance, forKey: .compliance);
         }
@@ -614,6 +631,21 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
             try container.encode(self.zoomFactor, forKey: .zoomFactor);
         }
     }
+
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
+    // Sets cacheHeaderFooterShapes. Gets or sets a value indicating whether or not to cache shapes placed in header and footer of document.
+    public func setCacheHeaderFooterShapes(cacheHeaderFooterShapes : Bool?) -> PdfSaveOptionsData {
+        self.cacheHeaderFooterShapes = cacheHeaderFooterShapes;
+        return self;
+    }
+
+    // Gets cacheHeaderFooterShapes. Gets or sets a value indicating whether or not to cache shapes placed in header and footer of document.
+    public func getCacheHeaderFooterShapes() -> Bool? {
+        return self.cacheHeaderFooterShapes;
+    }
+
 
     // Sets compliance. Gets or sets the PDF standards compliance level for output documents.
     public func setCompliance(compliance : Compliance?) -> PdfSaveOptionsData {

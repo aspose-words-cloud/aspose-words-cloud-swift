@@ -65,6 +65,9 @@ public class SectionResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets section. Gets or sets the section.
     public func setSection(section : Section?) -> SectionResponse {
         self.section = section;

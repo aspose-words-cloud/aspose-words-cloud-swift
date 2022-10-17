@@ -431,6 +431,9 @@ public class ListLevelUpdate : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets alignment. Gets or sets the justification of the actual number of the list item.
     public func setAlignment(alignment : Alignment?) -> ListLevelUpdate {
         self.alignment = alignment;

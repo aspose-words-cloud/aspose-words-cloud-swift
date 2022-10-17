@@ -65,6 +65,9 @@ public class FootnoteCollection : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets list. Gets or sets the collection of footnotes.
     public func setList(list : [Footnote]?) -> FootnoteCollection {
         self.list = list;

@@ -220,14 +220,22 @@ public class InsertParagraphOnlineRequest : WordsApiRequest {
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
-         var formParams : [RequestFormParam] = [];
+         var formParams = [RequestFormParam]();
+         var requestFilesContent = [FileReference]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "paragraph", body: try ObjectSerializer.serialize(value: self.getParagraph()), contentType: "application/json"));
+         self.getParagraph().collectFilesContent(&requestFilesContent);
 
+         for requestFileReference in requestFilesContent {
+             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
-         result.setBody(formParams: formParams);
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

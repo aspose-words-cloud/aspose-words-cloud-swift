@@ -65,6 +65,9 @@ public class DrawingObjectResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets drawingObject. Gets or sets the DrawingObject.
     public func setDrawingObject(drawingObject : DrawingObject?) -> DrawingObjectResponse {
         self.drawingObject = drawingObject;

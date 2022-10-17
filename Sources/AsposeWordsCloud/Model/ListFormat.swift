@@ -99,6 +99,9 @@ public class ListFormat : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets isListItem. Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
     public func setIsListItem(isListItem : Bool?) -> ListFormat {
         self.isListItem = isListItem;

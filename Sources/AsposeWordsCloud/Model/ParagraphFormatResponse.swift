@@ -65,6 +65,9 @@ public class ParagraphFormatResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets paragraphFormat. Gets or sets the formatting properties of a paragraph.
     public func setParagraphFormat(paragraphFormat : ParagraphFormat?) -> ParagraphFormatResponse {
         self.paragraphFormat = paragraphFormat;

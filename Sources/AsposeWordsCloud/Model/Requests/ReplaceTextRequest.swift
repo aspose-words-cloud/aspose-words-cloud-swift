@@ -227,9 +227,20 @@ public class ReplaceTextRequest : WordsApiRequest {
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
+         var formParams = [RequestFormParam]();
+         var requestFilesContent = [FileReference]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
+         formParams.append(RequestFormParam(name: "replaceText", body: try ObjectSerializer.serialize(value: self.getReplaceText()), contentType: "application/json"));
+         self.getReplaceText().collectFilesContent(&requestFilesContent);
+
+         for requestFileReference in requestFilesContent {
+             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getReplaceText()), contentType: "application/json");
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

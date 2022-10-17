@@ -65,6 +65,9 @@ public class CustomXmlPartResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets customXmlPart. Gets or sets the custom xml part.
     public func setCustomXmlPart(customXmlPart : CustomXmlPart?) -> CustomXmlPartResponse {
         self.customXmlPart = customXmlPart;

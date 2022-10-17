@@ -42,4 +42,7 @@ public class TablePropertiesDto : Codable, WordsApiModel {
     public func encode(to encoder: Encoder) throws {
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
 }

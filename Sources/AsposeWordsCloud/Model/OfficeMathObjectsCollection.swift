@@ -65,6 +65,9 @@ public class OfficeMathObjectsCollection : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets list. Gets or sets the collection of OfficeMath objects.
     public func setList(list : [OfficeMathObject]?) -> OfficeMathObjectsCollection {
         self.list = list;

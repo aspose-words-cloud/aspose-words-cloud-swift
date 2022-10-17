@@ -96,6 +96,9 @@ public class SplitDocumentResult : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets pages. Gets or sets the list of pages.
     public func setPages(pages : [FileLink]?) -> SplitDocumentResult {
         self.pages = pages;

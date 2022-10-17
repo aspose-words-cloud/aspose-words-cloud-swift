@@ -79,6 +79,9 @@ public class ListFormatUpdate : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets listId. Gets or sets the list id of this paragraph.
     public func setListId(listId : Int?) -> ListFormatUpdate {
         self.listId = listId;

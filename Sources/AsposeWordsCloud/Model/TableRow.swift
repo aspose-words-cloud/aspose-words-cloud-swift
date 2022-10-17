@@ -82,6 +82,9 @@ public class TableRow : NodeLink {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets rowFormat. Gets or sets the formatting properties of a row.
     public func setRowFormat(rowFormat : TableRowFormat?) -> TableRow {
         self.rowFormat = rowFormat;

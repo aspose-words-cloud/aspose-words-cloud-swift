@@ -147,6 +147,9 @@ public class OutlineOptionsData : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets bookmarksOutlineLevels. Gets or sets the individual bookmarks outline level.
     public func setBookmarksOutlineLevels(bookmarksOutlineLevels : [BookmarksOutlineLevelData]?) -> OutlineOptionsData {
         self.bookmarksOutlineLevels = bookmarksOutlineLevels;

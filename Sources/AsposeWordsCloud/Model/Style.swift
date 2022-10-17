@@ -1389,6 +1389,9 @@ public class Style : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
     public func setAliases(aliases : [String]?) -> Style {
         self.aliases = aliases;

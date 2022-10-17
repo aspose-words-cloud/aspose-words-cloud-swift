@@ -65,6 +65,9 @@ public class FieldNames : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets names. Gets or sets the collection of fields names.
     public func setNames(names : [String]?) -> FieldNames {
         self.names = names;

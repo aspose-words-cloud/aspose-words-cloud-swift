@@ -275,18 +275,25 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
-         var formParams : [RequestFormParam] = [];
+         var formParams = [RequestFormParam]();
+         var requestFilesContent = [FileReference]();
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          if (self.getData() != nil) {
-             formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()!), contentType: "application/json"));
+             formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()!), contentType: "text/plain"));
          }
 
          if (self.getOptions() != nil) {
              formParams.append(RequestFormParam(name: "options", body: try ObjectSerializer.serialize(value: self.getOptions()!), contentType: "application/json"));
          }
 
+         for requestFileReference in requestFilesContent {
+             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+         }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
-         result.setBody(formParams: formParams);
+         if (formParams.count > 0) {
+             result.setBody(formParams: formParams);
+         }
          return result;
     }
 

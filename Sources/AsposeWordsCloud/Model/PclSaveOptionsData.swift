@@ -91,6 +91,9 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets falllbackFontName. Gets or sets the font name, that will be used if no expected font is found in printer and built-in fonts collections.
     public func setFalllbackFontName(falllbackFontName : String?) -> PclSaveOptionsData {
         self.falllbackFontName = falllbackFontName;

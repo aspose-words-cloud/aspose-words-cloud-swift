@@ -79,6 +79,9 @@ public class WatermarkText : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets rotationAngle. Gets or sets the watermark rotation angle.
     public func setRotationAngle(rotationAngle : Double?) -> WatermarkText {
         self.rotationAngle = rotationAngle;

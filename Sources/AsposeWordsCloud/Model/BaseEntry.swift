@@ -27,49 +27,57 @@
 
 import Foundation
 
-// Represents a entry which will be appended to the original resource document.
+// Represents a base class for document which will be appended to the original resource document.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BaseEntry : Codable, WordsApiModel {
-    // Field of href. Represents a entry which will be appended to the original resource document.
-    private var _href : String? = nil;
+    // Field of fileReference. Represents a base class for document which will be appended to the original resource document.
+    private var _fileReference : FileReference? = nil;
 
-    public var href : String? {
+    public var fileReference : FileReference? {
         get {
-            return self._href;
+            return self._fileReference;
         }
         set {
-            self._href = newValue;
+            self._fileReference = newValue;
         }
     }
 
     private enum CodingKeys: String, CodingKey {
-        case href = "Href";
+        case fileReference = "FileReference";
         case invalidCodingKey;
     }
 
-    public init() {
+    internal init() {
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.href = try container.decodeIfPresent(String.self, forKey: .href);
+        self.fileReference = try container.decodeIfPresent(FileReference.self, forKey: .fileReference);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.href != nil) {
-            try container.encode(self.href, forKey: .href);
+        if (self.fileReference != nil) {
+            try container.encode(self.fileReference, forKey: .fileReference);
         }
     }
 
-    // Sets href. Gets or sets the path to entry to append at the server.
-    public func setHref(href : String?) -> BaseEntry {
-        self.href = href;
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+        if (self.fileReference != nil)
+        {
+            self.fileReference!.collectFilesContent(&resultFilesContent);
+        }
+
+    }
+
+    // Sets fileReference. Gets or sets the file reference.
+    public func setFileReference(fileReference : FileReference?) -> BaseEntry {
+        self.fileReference = fileReference;
         return self;
     }
 
-    // Gets href. Gets or sets the path to entry to append at the server.
-    public func getHref() -> String? {
-        return self.href;
+    // Gets fileReference. Gets or sets the file reference.
+    public func getFileReference() -> FileReference? {
+        return self.fileReference;
     }
 }

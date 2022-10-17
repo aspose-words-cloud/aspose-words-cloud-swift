@@ -82,6 +82,17 @@ public class ImageEntryList : BaseEntryList {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+        super.collectFilesContent(&resultFilesContent);
+        if (self.imageEntries != nil)
+        {
+            for element in self.imageEntries! {
+                element.collectFilesContent(&resultFilesContent);
+            }
+        }
+
+    }
+
     // Sets appendEachImageOnNewPage. Gets or sets a value indicating whether each image should be added to a new page in the document.
     public func setAppendEachImageOnNewPage(appendEachImageOnNewPage : Bool?) -> ImageEntryList {
         self.appendEachImageOnNewPage = appendEachImageOnNewPage;

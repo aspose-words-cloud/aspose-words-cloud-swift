@@ -96,6 +96,9 @@ public class SaveResult : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets additionalItems. Gets or sets the list of links to additional items (css, images etc).
     public func setAdditionalItems(additionalItems : [FileLink]?) -> SaveResult {
         self.additionalItems = additionalItems;

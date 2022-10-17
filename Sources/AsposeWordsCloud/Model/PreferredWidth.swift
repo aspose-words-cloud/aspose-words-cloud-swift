@@ -92,6 +92,9 @@ public class PreferredWidth : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets type. Gets or sets the unit of measure used for this preferred width value.
     public func setType(type : ModelType?) -> PreferredWidth {
         self.type = type;

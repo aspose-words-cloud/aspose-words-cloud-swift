@@ -99,6 +99,9 @@ public class ClassificationResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets bestClassName. Gets or sets the best class name.
     public func setBestClassName(bestClassName : String?) -> ClassificationResponse {
         self.bestClassName = bestClassName;

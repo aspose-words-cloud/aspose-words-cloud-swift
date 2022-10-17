@@ -65,6 +65,9 @@ public class CustomXmlPartsCollection : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets customXmlPartsList. Gets or sets the collection of CustomXmlPart.
     public func setCustomXmlPartsList(customXmlPartsList : [CustomXmlPart]?) -> CustomXmlPartsCollection {
         self.customXmlPartsList = customXmlPartsList;

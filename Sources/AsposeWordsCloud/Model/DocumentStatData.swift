@@ -130,6 +130,9 @@ public class DocumentStatData : Codable, WordsApiModel {
         }
     }
 
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets footnotesStatData. Gets or sets the detailed statistics on footnotes.
     public func setFootnotesStatData(footnotesStatData : FootnotesStatData?) -> DocumentStatData {
         self.footnotesStatData = footnotesStatData;

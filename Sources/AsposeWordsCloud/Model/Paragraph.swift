@@ -65,6 +65,9 @@ public class Paragraph : NodeLink {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets childNodes. Gets or sets the list of child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) -> Paragraph {
         self.childNodes = childNodes;

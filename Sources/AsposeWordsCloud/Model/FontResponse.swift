@@ -65,6 +65,9 @@ public class FontResponse : WordsResponse {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets font. Gets or sets the font.
     public func setFont(font : Font?) -> FontResponse {
         self.font = font;

@@ -99,6 +99,9 @@ public class DocumentProperty : LinkElement {
         }
     }
 
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    }
+
     // Sets builtIn. Gets or sets a value indicating whether the property is built-in or not. If true the property is built-in, if false the property is custom.
     public func setBuiltIn(builtIn : Bool?) -> DocumentProperty {
         self.builtIn = builtIn;
