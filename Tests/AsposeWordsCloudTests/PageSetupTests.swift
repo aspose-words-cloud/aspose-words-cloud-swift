@@ -100,14 +100,14 @@ class PageSetupTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localTextFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = RenderPageRequest(name: remoteFileName, pageIndex: 1, format: "bmp", folder: remoteDataFolder);
+      let request = RenderPageRequest(name: remoteFileName, pageIndex: 1, format: "jpg", folder: remoteDataFolder);
       _ = try super.getApi().renderPage(request: request);
     }
 
     // Test for page rendering.
     func testGetRenderPageOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localTextFile, isDirectory: false))!;
-      let request = RenderPageOnlineRequest(document: requestDocument, pageIndex: 1, format: "bmp");
+      let request = RenderPageOnlineRequest(document: requestDocument, pageIndex: 1, format: "jpg");
       _ = try super.getApi().renderPageOnline(request: request);
     }
 }
