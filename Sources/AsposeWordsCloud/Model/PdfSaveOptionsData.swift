@@ -163,15 +163,15 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         case fitBox = "FitBox"
     }
 
-    // Field of cacheHeaderFooterShapes. Container class for pdf save options.
-    private var _cacheHeaderFooterShapes : Bool? = nil;
+    // Field of cacheBackgroundGraphics. Container class for pdf save options.
+    private var _cacheBackgroundGraphics : Bool? = nil;
 
-    public var cacheHeaderFooterShapes : Bool? {
+    public var cacheBackgroundGraphics : Bool? {
         get {
-            return self._cacheHeaderFooterShapes;
+            return self._cacheBackgroundGraphics;
         }
         set {
-            self._cacheHeaderFooterShapes = newValue;
+            self._cacheBackgroundGraphics = newValue;
         }
     }
 
@@ -244,6 +244,18 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
         set {
             self._downsampleOptions = newValue;
+        }
+    }
+
+    // Field of embedAttachments. Container class for pdf save options.
+    private var _embedAttachments : Bool? = nil;
+
+    public var embedAttachments : Bool? {
+        get {
+            return self._embedAttachments;
+        }
+        set {
+            self._embedAttachments = newValue;
         }
     }
 
@@ -485,13 +497,14 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case cacheHeaderFooterShapes = "CacheHeaderFooterShapes";
+        case cacheBackgroundGraphics = "CacheBackgroundGraphics";
         case compliance = "Compliance";
         case createNoteHyperlinks = "CreateNoteHyperlinks";
         case customPropertiesExport = "CustomPropertiesExport";
         case digitalSignatureDetails = "DigitalSignatureDetails";
         case displayDocTitle = "DisplayDocTitle";
         case downsampleOptions = "DownsampleOptions";
+        case embedAttachments = "EmbedAttachments";
         case embedFullFonts = "EmbedFullFonts";
         case encryptionDetails = "EncryptionDetails";
         case exportDocumentStructure = "ExportDocumentStructure";
@@ -521,13 +534,14 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.cacheHeaderFooterShapes = try container.decodeIfPresent(Bool.self, forKey: .cacheHeaderFooterShapes);
+        self.cacheBackgroundGraphics = try container.decodeIfPresent(Bool.self, forKey: .cacheBackgroundGraphics);
         self.compliance = try container.decodeIfPresent(Compliance.self, forKey: .compliance);
         self.createNoteHyperlinks = try container.decodeIfPresent(Bool.self, forKey: .createNoteHyperlinks);
         self.customPropertiesExport = try container.decodeIfPresent(CustomPropertiesExport.self, forKey: .customPropertiesExport);
         self.digitalSignatureDetails = try container.decodeIfPresent(PdfDigitalSignatureDetailsData.self, forKey: .digitalSignatureDetails);
         self.displayDocTitle = try container.decodeIfPresent(Bool.self, forKey: .displayDocTitle);
         self.downsampleOptions = try container.decodeIfPresent(DownsampleOptionsData.self, forKey: .downsampleOptions);
+        self.embedAttachments = try container.decodeIfPresent(Bool.self, forKey: .embedAttachments);
         self.embedFullFonts = try container.decodeIfPresent(Bool.self, forKey: .embedFullFonts);
         self.encryptionDetails = try container.decodeIfPresent(PdfEncryptionDetailsData.self, forKey: .encryptionDetails);
         self.exportDocumentStructure = try container.decodeIfPresent(Bool.self, forKey: .exportDocumentStructure);
@@ -552,8 +566,8 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.cacheHeaderFooterShapes != nil) {
-            try container.encode(self.cacheHeaderFooterShapes, forKey: .cacheHeaderFooterShapes);
+        if (self.cacheBackgroundGraphics != nil) {
+            try container.encode(self.cacheBackgroundGraphics, forKey: .cacheBackgroundGraphics);
         }
         if (self.compliance != nil) {
             try container.encode(self.compliance, forKey: .compliance);
@@ -572,6 +586,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
         if (self.downsampleOptions != nil) {
             try container.encode(self.downsampleOptions, forKey: .downsampleOptions);
+        }
+        if (self.embedAttachments != nil) {
+            try container.encode(self.embedAttachments, forKey: .embedAttachments);
         }
         if (self.embedFullFonts != nil) {
             try container.encode(self.embedFullFonts, forKey: .embedFullFonts);
@@ -635,15 +652,15 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets cacheHeaderFooterShapes. Gets or sets a value indicating whether or not to cache shapes placed in header and footer of document.
-    public func setCacheHeaderFooterShapes(cacheHeaderFooterShapes : Bool?) -> PdfSaveOptionsData {
-        self.cacheHeaderFooterShapes = cacheHeaderFooterShapes;
+    // Sets cacheBackgroundGraphics. Gets or sets a value determining whether or not to cache graphics placed in document's background.
+    public func setCacheBackgroundGraphics(cacheBackgroundGraphics : Bool?) -> PdfSaveOptionsData {
+        self.cacheBackgroundGraphics = cacheBackgroundGraphics;
         return self;
     }
 
-    // Gets cacheHeaderFooterShapes. Gets or sets a value indicating whether or not to cache shapes placed in header and footer of document.
-    public func getCacheHeaderFooterShapes() -> Bool? {
-        return self.cacheHeaderFooterShapes;
+    // Gets cacheBackgroundGraphics. Gets or sets a value determining whether or not to cache graphics placed in document's background.
+    public func getCacheBackgroundGraphics() -> Bool? {
+        return self.cacheBackgroundGraphics;
     }
 
 
@@ -716,6 +733,18 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Gets downsampleOptions. Gets or sets the downsample options.
     public func getDownsampleOptions() -> DownsampleOptionsData? {
         return self.downsampleOptions;
+    }
+
+
+    // Sets embedAttachments. Gets or sets a value determining whether or not to embed attachments to the PDF document.
+    public func setEmbedAttachments(embedAttachments : Bool?) -> PdfSaveOptionsData {
+        self.embedAttachments = embedAttachments;
+        return self;
+    }
+
+    // Gets embedAttachments. Gets or sets a value determining whether or not to embed attachments to the PDF document.
+    public func getEmbedAttachments() -> Bool? {
+        return self.embedAttachments;
     }
 
 

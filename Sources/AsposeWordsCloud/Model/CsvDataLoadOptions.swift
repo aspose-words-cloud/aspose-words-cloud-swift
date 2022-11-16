@@ -28,9 +28,10 @@
 import Foundation
 
 // Represents options for parsing CSV data.
+// To learn more, visit the LINQ Reporting Engine documentation article.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CsvDataLoadOptions : Codable, WordsApiModel {
-    // Field of commentChar. Represents options for parsing CSV data.
+    // Field of commentChar. Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article.
     private var _commentChar : String? = nil;
 
     public var commentChar : String? {
@@ -42,7 +43,7 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
         }
     }
 
-    // Field of delimiter. Represents options for parsing CSV data.
+    // Field of delimiter. Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article.
     private var _delimiter : String? = nil;
 
     public var delimiter : String? {
@@ -54,7 +55,7 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
         }
     }
 
-    // Field of hasHeaders. Represents options for parsing CSV data.
+    // Field of hasHeaders. Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article.
     private var _hasHeaders : Bool? = nil;
 
     public var hasHeaders : Bool? {
@@ -66,7 +67,7 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
         }
     }
 
-    // Field of quoteChar. Represents options for parsing CSV data.
+    // Field of quoteChar. Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article.
     private var _quoteChar : String? = nil;
 
     public var quoteChar : String? {
