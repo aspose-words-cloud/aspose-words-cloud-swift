@@ -3794,6 +3794,101 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of deleteStructuredDocumentTag method
+    // Removes a StructuredDocumentTag (SDT) from the document node.
+    public func deleteStructuredDocumentTag(request : DeleteStructuredDocumentTagRequest, callback : @escaping (_ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    callback(error);
+                }
+            );
+        }
+        catch let error {
+            callback(error);
+        }
+    }
+
+    // Sync representation of deleteStructuredDocumentTag method
+    // Removes a StructuredDocumentTag (SDT) from the document node.
+    public func deleteStructuredDocumentTag(request : DeleteStructuredDocumentTagRequest) throws {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseError : Error? = nil;
+        self.deleteStructuredDocumentTag(request : request, callback: { error in
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+    }
+
+    // Async representation of deleteStructuredDocumentTagOnline method
+    // Removes a StructuredDocumentTag (SDT) from the document node.
+    public func deleteStructuredDocumentTagOnline(request : DeleteStructuredDocumentTagOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of deleteStructuredDocumentTagOnline method
+    // Removes a StructuredDocumentTag (SDT) from the document node.
+    public func deleteStructuredDocumentTagOnline(request : DeleteStructuredDocumentTagOnlineRequest) throws -> [String: Data] {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : [String: Data]? = nil;
+        var responseError : Error? = nil;
+        self.deleteStructuredDocumentTagOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of deleteTable method
     // Removes a table from the document node.
     public func deleteTable(request : DeleteTableRequest, callback : @escaping (_ error : Error?) -> ()) {
@@ -9425,6 +9520,222 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of getStructuredDocumentTag method
+    // Reads a StructuredDocumentTag (SDT) from the document node.
+    public func getStructuredDocumentTag(request : GetStructuredDocumentTagRequest, callback : @escaping (_ response : StructuredDocumentTagResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StructuredDocumentTagResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of getStructuredDocumentTag method
+    // Reads a StructuredDocumentTag (SDT) from the document node.
+    public func getStructuredDocumentTag(request : GetStructuredDocumentTagRequest) throws -> StructuredDocumentTagResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : StructuredDocumentTagResponse? = nil;
+        var responseError : Error? = nil;
+        self.getStructuredDocumentTag(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of getStructuredDocumentTagOnline method
+    // Reads a StructuredDocumentTag (SDT) from the document node.
+    public func getStructuredDocumentTagOnline(request : GetStructuredDocumentTagOnlineRequest, callback : @escaping (_ response : StructuredDocumentTagResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StructuredDocumentTagResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of getStructuredDocumentTagOnline method
+    // Reads a StructuredDocumentTag (SDT) from the document node.
+    public func getStructuredDocumentTagOnline(request : GetStructuredDocumentTagOnlineRequest) throws -> StructuredDocumentTagResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : StructuredDocumentTagResponse? = nil;
+        var responseError : Error? = nil;
+        self.getStructuredDocumentTagOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of getStructuredDocumentTags method
+    // Reads StructuredDocumentTags (SDT) from the document node.
+    public func getStructuredDocumentTags(request : GetStructuredDocumentTagsRequest, callback : @escaping (_ response : StructuredDocumentTagsResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StructuredDocumentTagsResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of getStructuredDocumentTags method
+    // Reads StructuredDocumentTags (SDT) from the document node.
+    public func getStructuredDocumentTags(request : GetStructuredDocumentTagsRequest) throws -> StructuredDocumentTagsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : StructuredDocumentTagsResponse? = nil;
+        var responseError : Error? = nil;
+        self.getStructuredDocumentTags(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of getStructuredDocumentTagsOnline method
+    // Reads StructuredDocumentTags (SDT) from the document node.
+    public func getStructuredDocumentTagsOnline(request : GetStructuredDocumentTagsOnlineRequest, callback : @escaping (_ response : StructuredDocumentTagsResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StructuredDocumentTagsResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of getStructuredDocumentTagsOnline method
+    // Reads StructuredDocumentTags (SDT) from the document node.
+    public func getStructuredDocumentTagsOnline(request : GetStructuredDocumentTagsOnlineRequest) throws -> StructuredDocumentTagsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : StructuredDocumentTagsResponse? = nil;
+        var responseError : Error? = nil;
+        self.getStructuredDocumentTagsOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of getStyle method
     // Reads a style from the document.
     public func getStyle(request : GetStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
@@ -11896,6 +12207,114 @@ public class WordsAPI : Encryptor {
         var responseObject : InsertRunOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertRunOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of insertStructuredDocumentTag method
+    // Inserts a new StructuredDocumentTag (SDT) to the document node.
+    public func insertStructuredDocumentTag(request : InsertStructuredDocumentTagRequest, callback : @escaping (_ response : StructuredDocumentTagResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StructuredDocumentTagResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of insertStructuredDocumentTag method
+    // Inserts a new StructuredDocumentTag (SDT) to the document node.
+    public func insertStructuredDocumentTag(request : InsertStructuredDocumentTagRequest) throws -> StructuredDocumentTagResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : StructuredDocumentTagResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertStructuredDocumentTag(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of insertStructuredDocumentTagOnline method
+    // Inserts a new StructuredDocumentTag (SDT) to the document node.
+    public func insertStructuredDocumentTagOnline(request : InsertStructuredDocumentTagOnlineRequest, callback : @escaping (_ response : InsertStructuredDocumentTagOnlineResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertStructuredDocumentTagOnlineResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of insertStructuredDocumentTagOnline method
+    // Inserts a new StructuredDocumentTag (SDT) to the document node.
+    public func insertStructuredDocumentTagOnline(request : InsertStructuredDocumentTagOnlineRequest) throws -> InsertStructuredDocumentTagOnlineResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : InsertStructuredDocumentTagOnlineResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertStructuredDocumentTagOnline(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();
@@ -16313,6 +16732,114 @@ public class WordsAPI : Encryptor {
         var responseObject : UpdateSectionPageSetupOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateSectionPageSetupOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of updateStructuredDocumentTag method
+    // Updates a StructuredDocumentTag (SDT) in the document node.
+    public func updateStructuredDocumentTag(request : UpdateStructuredDocumentTagRequest, callback : @escaping (_ response : StructuredDocumentTagResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StructuredDocumentTagResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of updateStructuredDocumentTag method
+    // Updates a StructuredDocumentTag (SDT) in the document node.
+    public func updateStructuredDocumentTag(request : UpdateStructuredDocumentTagRequest) throws -> StructuredDocumentTagResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : StructuredDocumentTagResponse? = nil;
+        var responseError : Error? = nil;
+        self.updateStructuredDocumentTag(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of updateStructuredDocumentTagOnline method
+    // Updates a StructuredDocumentTag (SDT) in the document node.
+    public func updateStructuredDocumentTagOnline(request : UpdateStructuredDocumentTagOnlineRequest, callback : @escaping (_ response : UpdateStructuredDocumentTagOnlineResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateStructuredDocumentTagOnlineResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of updateStructuredDocumentTagOnline method
+    // Updates a StructuredDocumentTag (SDT) in the document node.
+    public func updateStructuredDocumentTagOnline(request : UpdateStructuredDocumentTagOnlineRequest) throws -> UpdateStructuredDocumentTagOnlineResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : UpdateStructuredDocumentTagOnlineResponse? = nil;
+        var responseError : Error? = nil;
+        self.updateStructuredDocumentTagOnline(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();

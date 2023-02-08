@@ -72,6 +72,7 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(SectionTests.allTests),
         testCase(FileTests.allTests),
         testCase(FolderTests.allTests),
+        testCase(StructuredDocumentTagTests.allTests),
         testCase(StylesTests.allTests),
         testCase(TableTests.allTests),
         testCase(TableBorderTests.allTests),
