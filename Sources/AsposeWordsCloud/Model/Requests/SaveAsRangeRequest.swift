@@ -71,7 +71,7 @@ public class SaveAsRangeRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The range start identifier.
+    // The range start identifier. Identifier examples: id0.0.0, page0.
     public func getRangeStartIdentifier() -> String {
         return self.rangeStartIdentifier;
     }
@@ -81,7 +81,7 @@ public class SaveAsRangeRequest : WordsApiRequest {
         return self.documentParameters;
     }
 
-    // The range end identifier.
+    // The range end identifier. Identifier examples: id1.0.0, id0.0.0:end, page1, page1:end, document:end.
     public func getRangeEndIdentifier() -> String? {
         return self.rangeEndIdentifier;
     }
