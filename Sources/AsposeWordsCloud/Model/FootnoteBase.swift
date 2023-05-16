@@ -53,9 +53,9 @@ public class FootnoteBase : Codable, WordsApiModel {
     }
 
     // Field of position. Footnote base class.
-    private var _position : DocumentPosition? = nil;
+    private var _position : NewDocumentPosition? = nil;
 
-    public var position : DocumentPosition? {
+    public var position : NewDocumentPosition? {
         get {
             return self._position;
         }
@@ -102,7 +102,7 @@ public class FootnoteBase : Codable, WordsApiModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.footnoteType = try container.decodeIfPresent(FootnoteType.self, forKey: .footnoteType);
-        self.position = try container.decodeIfPresent(DocumentPosition.self, forKey: .position);
+        self.position = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .position);
         self.referenceMark = try container.decodeIfPresent(String.self, forKey: .referenceMark);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
     }
@@ -139,13 +139,13 @@ public class FootnoteBase : Codable, WordsApiModel {
 
 
     // Sets position. Gets or sets the link to comment range start node.
-    public func setPosition(position : DocumentPosition?) -> FootnoteBase {
+    public func setPosition(position : NewDocumentPosition?) -> FootnoteBase {
         self.position = position;
         return self;
     }
 
     // Gets position. Gets or sets the link to comment range start node.
-    public func getPosition() -> DocumentPosition? {
+    public func getPosition() -> NewDocumentPosition? {
         return self.position;
     }
 

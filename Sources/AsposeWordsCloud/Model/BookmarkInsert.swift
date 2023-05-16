@@ -31,9 +31,9 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BookmarkInsert : BookmarkData {
     // Field of endRange. Represents a bookmark to insert.
-    private var _endRange : DocumentPosition? = nil;
+    private var _endRange : NewDocumentPosition? = nil;
 
-    public var endRange : DocumentPosition? {
+    public var endRange : NewDocumentPosition? {
         get {
             return self._endRange;
         }
@@ -43,9 +43,9 @@ public class BookmarkInsert : BookmarkData {
     }
 
     // Field of startRange. Represents a bookmark to insert.
-    private var _startRange : DocumentPosition? = nil;
+    private var _startRange : NewDocumentPosition? = nil;
 
-    public var startRange : DocumentPosition? {
+    public var startRange : NewDocumentPosition? {
         get {
             return self._startRange;
         }
@@ -67,8 +67,8 @@ public class BookmarkInsert : BookmarkData {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.endRange = try container.decodeIfPresent(DocumentPosition.self, forKey: .endRange);
-        self.startRange = try container.decodeIfPresent(DocumentPosition.self, forKey: .startRange);
+        self.endRange = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .endRange);
+        self.startRange = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .startRange);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -86,25 +86,25 @@ public class BookmarkInsert : BookmarkData {
     }
 
     // Sets endRange. Gets or sets the link to end bookmark node.
-    public func setEndRange(endRange : DocumentPosition?) -> BookmarkInsert {
+    public func setEndRange(endRange : NewDocumentPosition?) -> BookmarkInsert {
         self.endRange = endRange;
         return self;
     }
 
     // Gets endRange. Gets or sets the link to end bookmark node.
-    public func getEndRange() -> DocumentPosition? {
+    public func getEndRange() -> NewDocumentPosition? {
         return self.endRange;
     }
 
 
     // Sets startRange. Gets or sets the link to start bookmark node.
-    public func setStartRange(startRange : DocumentPosition?) -> BookmarkInsert {
+    public func setStartRange(startRange : NewDocumentPosition?) -> BookmarkInsert {
         self.startRange = startRange;
         return self;
     }
 
     // Gets startRange. Gets or sets the link to start bookmark node.
-    public func getStartRange() -> DocumentPosition? {
+    public func getStartRange() -> NewDocumentPosition? {
         return self.startRange;
     }
 }

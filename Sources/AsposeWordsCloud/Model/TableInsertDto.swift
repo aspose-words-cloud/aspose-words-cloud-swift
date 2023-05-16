@@ -43,9 +43,9 @@ public class TableInsertDto : Codable, WordsApiModel {
     }
 
     // Field of position. DTO container with a table element.
-    private var _position : DocumentPosition? = nil;
+    private var _position : NewDocumentPosition? = nil;
 
-    public var position : DocumentPosition? {
+    public var position : NewDocumentPosition? {
         get {
             return self._position;
         }
@@ -79,7 +79,7 @@ public class TableInsertDto : Codable, WordsApiModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.columnsCount = try container.decodeIfPresent(Int.self, forKey: .columnsCount);
-        self.position = try container.decodeIfPresent(DocumentPosition.self, forKey: .position);
+        self.position = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .position);
         self.rowsCount = try container.decodeIfPresent(Int.self, forKey: .rowsCount);
     }
 
@@ -112,13 +112,13 @@ public class TableInsertDto : Codable, WordsApiModel {
 
 
     // Sets position. Gets or sets the position to insert the table. The table will be inserted before the specified position.
-    public func setPosition(position : DocumentPosition?) -> TableInsertDto {
+    public func setPosition(position : NewDocumentPosition?) -> TableInsertDto {
         self.position = position;
         return self;
     }
 
     // Gets position. Gets or sets the position to insert the table. The table will be inserted before the specified position.
-    public func getPosition() -> DocumentPosition? {
+    public func getPosition() -> NewDocumentPosition? {
         return self.position;
     }
 

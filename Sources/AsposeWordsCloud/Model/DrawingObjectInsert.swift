@@ -142,9 +142,9 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Field of position. Drawing object element for insert.
-    private var _position : DocumentPosition? = nil;
+    private var _position : NewDocumentPosition? = nil;
 
-    public var position : DocumentPosition? {
+    public var position : NewDocumentPosition? {
         get {
             return self._position;
         }
@@ -232,7 +232,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.height = try container.decodeIfPresent(Double.self, forKey: .height);
         self._left = try container.decodeIfPresent(Double.self, forKey: ._left);
-        self.position = try container.decodeIfPresent(DocumentPosition.self, forKey: .position);
+        self.position = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .position);
         self.relativeHorizontalPosition = try container.decodeIfPresent(RelativeHorizontalPosition.self, forKey: .relativeHorizontalPosition);
         self.relativeVerticalPosition = try container.decodeIfPresent(RelativeVerticalPosition.self, forKey: .relativeVerticalPosition);
         self.top = try container.decodeIfPresent(Double.self, forKey: .top);
@@ -296,13 +296,13 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
 
 
     // Sets position. Gets or sets the position, before which the DrawingObject will be inserted.
-    public func setPosition(position : DocumentPosition?) -> DrawingObjectInsert {
+    public func setPosition(position : NewDocumentPosition?) -> DrawingObjectInsert {
         self.position = position;
         return self;
     }
 
     // Gets position. Gets or sets the position, before which the DrawingObject will be inserted.
-    public func getPosition() -> DocumentPosition? {
+    public func getPosition() -> NewDocumentPosition? {
         return self.position;
     }
 

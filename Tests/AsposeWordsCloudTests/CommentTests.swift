@@ -95,15 +95,11 @@ class CommentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestCommentRangeStartNode = NodeLink()
-        .setNodeId(nodeId: "0.3.0.3");
-      let requestCommentRangeStart = DocumentPosition()
-        .setNode(node: requestCommentRangeStartNode)
+      let requestCommentRangeStart = NewDocumentPosition()
+        .setNodeId(nodeId: "0.3.0.3")
         .setOffset(offset: 0);
-      let requestCommentRangeEndNode = NodeLink()
-        .setNodeId(nodeId: "0.3.0.3");
-      let requestCommentRangeEnd = DocumentPosition()
-        .setNode(node: requestCommentRangeEndNode)
+      let requestCommentRangeEnd = NewDocumentPosition()
+        .setNodeId(nodeId: "0.3.0.3")
         .setOffset(offset: 0);
       let requestComment = CommentInsert()
         .setAuthor(author: "Imran Anwar")
@@ -123,15 +119,11 @@ class CommentTests: BaseTestContext {
     // Test for adding comment online.
     func testInsertCommentOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestCommentRangeStartNode = NodeLink()
-        .setNodeId(nodeId: "0.3.0.3");
-      let requestCommentRangeStart = DocumentPosition()
-        .setNode(node: requestCommentRangeStartNode)
+      let requestCommentRangeStart = NewDocumentPosition()
+        .setNodeId(nodeId: "0.3.0.3")
         .setOffset(offset: 0);
-      let requestCommentRangeEndNode = NodeLink()
-        .setNodeId(nodeId: "0.3.0.3");
-      let requestCommentRangeEnd = DocumentPosition()
-        .setNode(node: requestCommentRangeEndNode)
+      let requestCommentRangeEnd = NewDocumentPosition()
+        .setNodeId(nodeId: "0.3.0.3")
         .setOffset(offset: 0);
       let requestComment = CommentInsert()
         .setAuthor(author: "Imran Anwar")
@@ -149,15 +141,11 @@ class CommentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestCommentRangeStartNode = NodeLink()
-        .setNodeId(nodeId: "0.3.0");
-      let requestCommentRangeStart = DocumentPosition()
-        .setNode(node: requestCommentRangeStartNode)
+      let requestCommentRangeStart = NewDocumentPosition()
+        .setNodeId(nodeId: "0.3.0")
         .setOffset(offset: 0);
-      let requestCommentRangeEndNode = NodeLink()
-        .setNodeId(nodeId: "0.3.0");
-      let requestCommentRangeEnd = DocumentPosition()
-        .setNode(node: requestCommentRangeEndNode)
+      let requestCommentRangeEnd = NewDocumentPosition()
+        .setNodeId(nodeId: "0.3.0")
         .setOffset(offset: 0);
       let requestComment = CommentUpdate()
         .setAuthor(author: "Imran Anwar")
@@ -177,15 +165,11 @@ class CommentTests: BaseTestContext {
     // Test for updating comment online.
     func testUpdateCommentOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestCommentRangeStartNode = NodeLink()
-        .setNodeId(nodeId: "0.3.0");
-      let requestCommentRangeStart = DocumentPosition()
-        .setNode(node: requestCommentRangeStartNode)
+      let requestCommentRangeStart = NewDocumentPosition()
+        .setNodeId(nodeId: "0.3.0")
         .setOffset(offset: 0);
-      let requestCommentRangeEndNode = NodeLink()
-        .setNodeId(nodeId: "0.3.0");
-      let requestCommentRangeEnd = DocumentPosition()
-        .setNode(node: requestCommentRangeEndNode)
+      let requestCommentRangeEnd = NewDocumentPosition()
+        .setNodeId(nodeId: "0.3.0")
         .setOffset(offset: 0);
       let requestComment = CommentUpdate()
         .setAuthor(author: "Imran Anwar")
