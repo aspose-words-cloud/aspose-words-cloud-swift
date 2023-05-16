@@ -150,14 +150,12 @@ class BookmarkTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestBookmarkStartRangeNode = NodeLink()
-        .setNodeId(nodeId: "0.0.0.0");
-      let requestBookmarkStartRange = DocumentPosition()
-        .setNode(node: requestBookmarkStartRangeNode);
-      let requestBookmarkEndRangeNode = NodeLink()
-        .setNodeId(nodeId: "0.0.0.0");
-      let requestBookmarkEndRange = DocumentPosition()
-        .setNode(node: requestBookmarkEndRangeNode);
+      let requestBookmarkStartRange = NewDocumentPosition()
+        .setNodeId(nodeId: "0.0.0.0")
+        .setOffset(offset: 0);
+      let requestBookmarkEndRange = NewDocumentPosition()
+        .setNodeId(nodeId: "0.0.0.0")
+        .setOffset(offset: 0);
       let requestBookmark = BookmarkInsert()
         .setEndRange(endRange: requestBookmarkEndRange)
         .setStartRange(startRange: requestBookmarkStartRange)
@@ -170,14 +168,12 @@ class BookmarkTests: BaseTestContext {
     // Test for inserting new bookmark online.
     func testInsertBookmarkOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestBookmarkStartRangeNode = NodeLink()
-        .setNodeId(nodeId: "0.0.0.0");
-      let requestBookmarkStartRange = DocumentPosition()
-        .setNode(node: requestBookmarkStartRangeNode);
-      let requestBookmarkEndRangeNode = NodeLink()
-        .setNodeId(nodeId: "0.0.0.0");
-      let requestBookmarkEndRange = DocumentPosition()
-        .setNode(node: requestBookmarkEndRangeNode);
+      let requestBookmarkStartRange = NewDocumentPosition()
+        .setNodeId(nodeId: "0.0.0.0")
+        .setOffset(offset: 0);
+      let requestBookmarkEndRange = NewDocumentPosition()
+        .setNodeId(nodeId: "0.0.0.0")
+        .setOffset(offset: 0);
       let requestBookmark = BookmarkInsert()
         .setEndRange(endRange: requestBookmarkEndRange)
         .setStartRange(startRange: requestBookmarkStartRange)

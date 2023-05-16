@@ -67,9 +67,9 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Field of rangeEnd. Comment.
-    private var _rangeEnd : DocumentPosition? = nil;
+    private var _rangeEnd : NewDocumentPosition? = nil;
 
-    public var rangeEnd : DocumentPosition? {
+    public var rangeEnd : NewDocumentPosition? {
         get {
             return self._rangeEnd;
         }
@@ -79,9 +79,9 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Field of rangeStart. Comment.
-    private var _rangeStart : DocumentPosition? = nil;
+    private var _rangeStart : NewDocumentPosition? = nil;
 
-    public var rangeStart : DocumentPosition? {
+    public var rangeStart : NewDocumentPosition? {
         get {
             return self._rangeStart;
         }
@@ -125,8 +125,8 @@ public class CommentBase : Codable, WordsApiModel {
         }
 
         self.initial = try container.decodeIfPresent(String.self, forKey: .initial);
-        self.rangeEnd = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeEnd);
-        self.rangeStart = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeStart);
+        self.rangeEnd = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .rangeEnd);
+        self.rangeStart = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .rangeStart);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
     }
 
@@ -192,25 +192,25 @@ public class CommentBase : Codable, WordsApiModel {
 
 
     // Sets rangeEnd. Gets or sets the link to comment range end node.
-    public func setRangeEnd(rangeEnd : DocumentPosition?) -> CommentBase {
+    public func setRangeEnd(rangeEnd : NewDocumentPosition?) -> CommentBase {
         self.rangeEnd = rangeEnd;
         return self;
     }
 
     // Gets rangeEnd. Gets or sets the link to comment range end node.
-    public func getRangeEnd() -> DocumentPosition? {
+    public func getRangeEnd() -> NewDocumentPosition? {
         return self.rangeEnd;
     }
 
 
     // Sets rangeStart. Gets or sets the link to comment range start node.
-    public func setRangeStart(rangeStart : DocumentPosition?) -> CommentBase {
+    public func setRangeStart(rangeStart : NewDocumentPosition?) -> CommentBase {
         self.rangeStart = rangeStart;
         return self;
     }
 
     // Gets rangeStart. Gets or sets the link to comment range start node.
-    public func getRangeStart() -> DocumentPosition? {
+    public func getRangeStart() -> NewDocumentPosition? {
         return self.rangeStart;
     }
 
