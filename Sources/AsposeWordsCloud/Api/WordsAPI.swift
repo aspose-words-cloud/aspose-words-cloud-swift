@@ -12220,6 +12220,101 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of insertSection method
+    // Inserts a section to the document.
+    public func insertSection(request : InsertSectionRequest, callback : @escaping (_ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    callback(error);
+                }
+            );
+        }
+        catch let error {
+            callback(error);
+        }
+    }
+
+    // Sync representation of insertSection method
+    // Inserts a section to the document.
+    public func insertSection(request : InsertSectionRequest) throws {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseError : Error? = nil;
+        self.insertSection(request : request, callback: { error in
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+    }
+
+    // Async representation of insertSectionOnline method
+    // Inserts a section to the document.
+    public func insertSectionOnline(request : InsertSectionOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of insertSectionOnline method
+    // Inserts a section to the document.
+    public func insertSectionOnline(request : InsertSectionOnlineRequest) throws -> [String: Data] {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : [String: Data]? = nil;
+        var responseError : Error? = nil;
+        self.insertSectionOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of insertStructuredDocumentTag method
     // Inserts a new StructuredDocumentTag (SDT) to the document node.
     public func insertStructuredDocumentTag(request : InsertStructuredDocumentTagRequest, callback : @escaping (_ response : StructuredDocumentTagResponse?, _ error : Error?) -> ()) {
