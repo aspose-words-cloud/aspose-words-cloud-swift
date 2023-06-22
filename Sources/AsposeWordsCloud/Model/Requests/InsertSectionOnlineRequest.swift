@@ -196,7 +196,7 @@ public class InsertSectionOnlineRequest : WordsApiRequest {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
          }
 
-         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          if (formParams.count > 0) {
              result.setBody(formParams: formParams);
          }
