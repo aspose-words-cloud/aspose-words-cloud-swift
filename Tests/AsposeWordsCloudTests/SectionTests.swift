@@ -38,6 +38,8 @@ class SectionTests: BaseTestContext {
         ("testGetSectionsOnline", testGetSectionsOnline),
         ("testDeleteSection", testDeleteSection),
         ("testDeleteSectionOnline", testDeleteSectionOnline),
+        ("testInsertSection", testInsertSection),
+        ("testInsertSectionOnline", testInsertSectionOnline),
         ("testLinkHeaderFootersToPrevious", testLinkHeaderFootersToPrevious)
     ];
 
@@ -101,6 +103,23 @@ class SectionTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = DeleteSectionOnlineRequest(document: requestDocument, sectionIndex: 0);
       _ = try super.getApi().deleteSectionOnline(request: request);
+    }
+
+    // Test for insertion a section.
+    func testInsertSection() throws {
+      let remoteFileName = "TestInsertSection.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = InsertSectionRequest(name: remoteFileName, sectionIndex: 0, folder: remoteDataFolder);
+      try super.getApi().insertSection(request: request);
+    }
+
+    // Test for insertion a section online.
+    func testInsertSectionOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = InsertSectionOnlineRequest(document: requestDocument, sectionIndex: 0);
+      _ = try super.getApi().insertSectionOnline(request: request);
     }
 
     // Test for linking headers and footers to previous section.

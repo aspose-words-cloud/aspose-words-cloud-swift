@@ -30,7 +30,7 @@ import Foundation
 // Request model for createDocument operation.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CreateDocumentRequest : WordsApiRequest {
-    private let fileName : String?;
+    private let fileName : String;
     private let folder : String?;
     private let storage : String?;
 
@@ -42,14 +42,14 @@ public class CreateDocumentRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the CreateDocumentRequest class.
-    public init(fileName : String? = nil, folder : String? = nil, storage : String? = nil) {
+    public init(fileName : String, folder : String? = nil, storage : String? = nil) {
         self.fileName = fileName;
         self.folder = folder;
         self.storage = storage;
     }
 
     // The filename of the document.
-    public func getFileName() -> String? {
+    public func getFileName() -> String {
         return self.fileName;
     }
 
@@ -71,16 +71,11 @@ public class CreateDocumentRequest : WordsApiRequest {
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-             if (self.getFileName() != nil) {
-
          #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName()!)));
-
+             queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName())));
          #else
-                     queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName()!)));
-
-         #endif        
-             }
+                 queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName())));
+         #endif
 
 
              if (self.getFolder() != nil) {
