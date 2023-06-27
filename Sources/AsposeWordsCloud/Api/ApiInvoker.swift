@@ -248,7 +248,7 @@ public class ApiInvoker {
         }
 
         if (accessToken == nil) {
-            let urlPath = URL(string: self.configuration.getBaseUrl())!.appendingPathComponent("connect/token");
+            let urlPath = URL(string: self.configuration.getBaseUrl())!.appendingPathComponent("v4.0/words/connect/token");
             var request = URLRequest(url: urlPath);
             request.httpMethod = "POST";
             request.timeoutInterval = self.configuration.getTimeout();
