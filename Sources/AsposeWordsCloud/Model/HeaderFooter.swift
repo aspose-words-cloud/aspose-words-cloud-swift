@@ -42,18 +42,6 @@ public class HeaderFooter : HeaderFooterLink {
         }
     }
 
-    // Field of drawingObjects. DTO container with a section element.
-    private var _drawingObjects : LinkElement? = nil;
-
-    public var drawingObjects : LinkElement? {
-        get {
-            return self._drawingObjects;
-        }
-        set {
-            self._drawingObjects = newValue;
-        }
-    }
-
     // Field of paragraphs. DTO container with a section element.
     private var _paragraphs : LinkElement? = nil;
 
@@ -66,10 +54,22 @@ public class HeaderFooter : HeaderFooterLink {
         }
     }
 
+    // Field of drawingObjects. DTO container with a section element.
+    private var _drawingObjects : LinkElement? = nil;
+
+    public var drawingObjects : LinkElement? {
+        get {
+            return self._drawingObjects;
+        }
+        set {
+            self._drawingObjects = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case childNodes = "ChildNodes";
-        case drawingObjects = "DrawingObjects";
         case paragraphs = "Paragraphs";
+        case drawingObjects = "DrawingObjects";
         case invalidCodingKey;
     }
 
@@ -81,8 +81,8 @@ public class HeaderFooter : HeaderFooterLink {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.childNodes = try container.decodeIfPresent([NodeLink].self, forKey: .childNodes);
-        self.drawingObjects = try container.decodeIfPresent(LinkElement.self, forKey: .drawingObjects);
         self.paragraphs = try container.decodeIfPresent(LinkElement.self, forKey: .paragraphs);
+        self.drawingObjects = try container.decodeIfPresent(LinkElement.self, forKey: .drawingObjects);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -91,11 +91,11 @@ public class HeaderFooter : HeaderFooterLink {
         if (self.childNodes != nil) {
             try container.encode(self.childNodes, forKey: .childNodes);
         }
-        if (self.drawingObjects != nil) {
-            try container.encode(self.drawingObjects, forKey: .drawingObjects);
-        }
         if (self.paragraphs != nil) {
             try container.encode(self.paragraphs, forKey: .paragraphs);
+        }
+        if (self.drawingObjects != nil) {
+            try container.encode(self.drawingObjects, forKey: .drawingObjects);
         }
     }
 
@@ -114,18 +114,6 @@ public class HeaderFooter : HeaderFooterLink {
     }
 
 
-    // Sets drawingObjects. Gets or sets the link to DrawingObjects resource.
-    public func setDrawingObjects(drawingObjects : LinkElement?) -> HeaderFooter {
-        self.drawingObjects = drawingObjects;
-        return self;
-    }
-
-    // Gets drawingObjects. Gets or sets the link to DrawingObjects resource.
-    public func getDrawingObjects() -> LinkElement? {
-        return self.drawingObjects;
-    }
-
-
     // Sets paragraphs. Gets or sets the link to Paragraphs resource.
     public func setParagraphs(paragraphs : LinkElement?) -> HeaderFooter {
         self.paragraphs = paragraphs;
@@ -135,5 +123,17 @@ public class HeaderFooter : HeaderFooterLink {
     // Gets paragraphs. Gets or sets the link to Paragraphs resource.
     public func getParagraphs() -> LinkElement? {
         return self.paragraphs;
+    }
+
+
+    // Sets drawingObjects. Gets or sets the link to DrawingObjects resource.
+    public func setDrawingObjects(drawingObjects : LinkElement?) -> HeaderFooter {
+        self.drawingObjects = drawingObjects;
+        return self;
+    }
+
+    // Gets drawingObjects. Gets or sets the link to DrawingObjects resource.
+    public func getDrawingObjects() -> LinkElement? {
+        return self.drawingObjects;
     }
 }

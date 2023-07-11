@@ -30,15 +30,15 @@ import Foundation
 // DTO container with a paragraph list format element.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListFormat : LinkElement {
-    // Field of isListItem. DTO container with a paragraph list format element.
-    private var _isListItem : Bool? = nil;
+    // Field of listLevelNumber. DTO container with a paragraph list format element.
+    private var _listLevelNumber : Int? = nil;
 
-    public var isListItem : Bool? {
+    public var listLevelNumber : Int? {
         get {
-            return self._isListItem;
+            return self._listLevelNumber;
         }
         set {
-            self._isListItem = newValue;
+            self._listLevelNumber = newValue;
         }
     }
 
@@ -54,22 +54,22 @@ public class ListFormat : LinkElement {
         }
     }
 
-    // Field of listLevelNumber. DTO container with a paragraph list format element.
-    private var _listLevelNumber : Int? = nil;
+    // Field of isListItem. DTO container with a paragraph list format element.
+    private var _isListItem : Bool? = nil;
 
-    public var listLevelNumber : Int? {
+    public var isListItem : Bool? {
         get {
-            return self._listLevelNumber;
+            return self._isListItem;
         }
         set {
-            self._listLevelNumber = newValue;
+            self._isListItem = newValue;
         }
     }
 
     private enum CodingKeys: String, CodingKey {
-        case isListItem = "IsListItem";
-        case listId = "ListId";
         case listLevelNumber = "ListLevelNumber";
+        case listId = "ListId";
+        case isListItem = "IsListItem";
         case invalidCodingKey;
     }
 
@@ -80,37 +80,37 @@ public class ListFormat : LinkElement {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.isListItem = try container.decodeIfPresent(Bool.self, forKey: .isListItem);
-        self.listId = try container.decodeIfPresent(Int.self, forKey: .listId);
         self.listLevelNumber = try container.decodeIfPresent(Int.self, forKey: .listLevelNumber);
+        self.listId = try container.decodeIfPresent(Int.self, forKey: .listId);
+        self.isListItem = try container.decodeIfPresent(Bool.self, forKey: .isListItem);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.isListItem != nil) {
-            try container.encode(self.isListItem, forKey: .isListItem);
+        if (self.listLevelNumber != nil) {
+            try container.encode(self.listLevelNumber, forKey: .listLevelNumber);
         }
         if (self.listId != nil) {
             try container.encode(self.listId, forKey: .listId);
         }
-        if (self.listLevelNumber != nil) {
-            try container.encode(self.listLevelNumber, forKey: .listLevelNumber);
+        if (self.isListItem != nil) {
+            try container.encode(self.isListItem, forKey: .isListItem);
         }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets isListItem. Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
-    public func setIsListItem(isListItem : Bool?) -> ListFormat {
-        self.isListItem = isListItem;
+    // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
+    public func setListLevelNumber(listLevelNumber : Int?) -> ListFormat {
+        self.listLevelNumber = listLevelNumber;
         return self;
     }
 
-    // Gets isListItem. Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
-    public func getIsListItem() -> Bool? {
-        return self.isListItem;
+    // Gets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
+    public func getListLevelNumber() -> Int? {
+        return self.listLevelNumber;
     }
 
 
@@ -126,14 +126,14 @@ public class ListFormat : LinkElement {
     }
 
 
-    // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
-    public func setListLevelNumber(listLevelNumber : Int?) -> ListFormat {
-        self.listLevelNumber = listLevelNumber;
+    // Sets isListItem. Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
+    public func setIsListItem(isListItem : Bool?) -> ListFormat {
+        self.isListItem = isListItem;
         return self;
     }
 
-    // Gets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
-    public func getListLevelNumber() -> Int? {
-        return self.listLevelNumber;
+    // Gets isListItem. Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
+    public func getIsListItem() -> Bool? {
+        return self.isListItem;
     }
 }

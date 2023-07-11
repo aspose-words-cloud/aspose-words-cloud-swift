@@ -427,15 +427,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
-    // Field of saveFormat. Container class for pdf save options.
-    private final let _saveFormat : String? = "pdf";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
-
     // Field of textCompression. Container class for pdf save options.
     private var _textCompression : TextCompression? = nil;
 
@@ -493,6 +484,15 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
         set {
             self._zoomFactor = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for pdf save options.
+    private final let _saveFormat : String? = "pdf";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
         }
     }
 

@@ -30,6 +30,18 @@ import Foundation
 // FormField checkbox element.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FormFieldCheckbox : FormField {
+    // Field of isCheckBoxExactSize. FormField checkbox element.
+    private var _isCheckBoxExactSize : Bool? = nil;
+
+    public var isCheckBoxExactSize : Bool? {
+        get {
+            return self._isCheckBoxExactSize;
+        }
+        set {
+            self._isCheckBoxExactSize = newValue;
+        }
+    }
+
     // Field of checkBoxSize. FormField checkbox element.
     private var _checkBoxSize : Double? = nil;
 
@@ -54,22 +66,10 @@ public class FormFieldCheckbox : FormField {
         }
     }
 
-    // Field of isCheckBoxExactSize. FormField checkbox element.
-    private var _isCheckBoxExactSize : Bool? = nil;
-
-    public var isCheckBoxExactSize : Bool? {
-        get {
-            return self._isCheckBoxExactSize;
-        }
-        set {
-            self._isCheckBoxExactSize = newValue;
-        }
-    }
-
     private enum CodingKeys: String, CodingKey {
+        case isCheckBoxExactSize = "IsCheckBoxExactSize";
         case checkBoxSize = "CheckBoxSize";
         case checked = "Checked";
-        case isCheckBoxExactSize = "IsCheckBoxExactSize";
         case invalidCodingKey;
     }
 
@@ -80,27 +80,39 @@ public class FormFieldCheckbox : FormField {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.isCheckBoxExactSize = try container.decodeIfPresent(Bool.self, forKey: .isCheckBoxExactSize);
         self.checkBoxSize = try container.decodeIfPresent(Double.self, forKey: .checkBoxSize);
         self.checked = try container.decodeIfPresent(Bool.self, forKey: .checked);
-        self.isCheckBoxExactSize = try container.decodeIfPresent(Bool.self, forKey: .isCheckBoxExactSize);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.isCheckBoxExactSize != nil) {
+            try container.encode(self.isCheckBoxExactSize, forKey: .isCheckBoxExactSize);
+        }
         if (self.checkBoxSize != nil) {
             try container.encode(self.checkBoxSize, forKey: .checkBoxSize);
         }
         if (self.checked != nil) {
             try container.encode(self.checked, forKey: .checked);
         }
-        if (self.isCheckBoxExactSize != nil) {
-            try container.encode(self.isCheckBoxExactSize, forKey: .isCheckBoxExactSize);
-        }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
+
+    // Sets isCheckBoxExactSize. Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
+    public func setIsCheckBoxExactSize(isCheckBoxExactSize : Bool?) -> FormFieldCheckbox {
+        self.isCheckBoxExactSize = isCheckBoxExactSize;
+        return self;
+    }
+
+    // Gets isCheckBoxExactSize. Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
+    public func getIsCheckBoxExactSize() -> Bool? {
+        return self.isCheckBoxExactSize;
+    }
+
 
     // Sets checkBoxSize. Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.
     public func setCheckBoxSize(checkBoxSize : Double?) -> FormFieldCheckbox {
@@ -123,17 +135,5 @@ public class FormFieldCheckbox : FormField {
     // Gets checked. Gets or sets the checked status of the check box form field.
     public func getChecked() -> Bool? {
         return self.checked;
-    }
-
-
-    // Sets isCheckBoxExactSize. Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
-    public func setIsCheckBoxExactSize(isCheckBoxExactSize : Bool?) -> FormFieldCheckbox {
-        self.isCheckBoxExactSize = isCheckBoxExactSize;
-        return self;
-    }
-
-    // Gets isCheckBoxExactSize. Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
-    public func getIsCheckBoxExactSize() -> Bool? {
-        return self.isCheckBoxExactSize;
     }
 }

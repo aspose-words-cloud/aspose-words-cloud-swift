@@ -40,15 +40,15 @@ public class Footnote : FootnoteLink {
         case endnote = "Endnote"
     }
 
-    // Field of content. DTO container with a footnote.
-    private var _content : StoryChildNodes? = nil;
+    // Field of position. DTO container with a footnote.
+    private var _position : DocumentPosition? = nil;
 
-    public var content : StoryChildNodes? {
+    public var position : DocumentPosition? {
         get {
-            return self._content;
+            return self._position;
         }
         set {
-            self._content = newValue;
+            self._position = newValue;
         }
     }
 
@@ -61,18 +61,6 @@ public class Footnote : FootnoteLink {
         }
         set {
             self._footnoteType = newValue;
-        }
-    }
-
-    // Field of position. DTO container with a footnote.
-    private var _position : DocumentPosition? = nil;
-
-    public var position : DocumentPosition? {
-        get {
-            return self._position;
-        }
-        set {
-            self._position = newValue;
         }
     }
 
@@ -100,12 +88,24 @@ public class Footnote : FootnoteLink {
         }
     }
 
+    // Field of content. DTO container with a footnote.
+    private var _content : StoryChildNodes? = nil;
+
+    public var content : StoryChildNodes? {
+        get {
+            return self._content;
+        }
+        set {
+            self._content = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case content = "Content";
-        case footnoteType = "FootnoteType";
         case position = "Position";
+        case footnoteType = "FootnoteType";
         case referenceMark = "ReferenceMark";
         case text = "Text";
+        case content = "Content";
         case invalidCodingKey;
     }
 
@@ -116,24 +116,21 @@ public class Footnote : FootnoteLink {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content);
-        self.footnoteType = try container.decodeIfPresent(FootnoteType.self, forKey: .footnoteType);
         self.position = try container.decodeIfPresent(DocumentPosition.self, forKey: .position);
+        self.footnoteType = try container.decodeIfPresent(FootnoteType.self, forKey: .footnoteType);
         self.referenceMark = try container.decodeIfPresent(String.self, forKey: .referenceMark);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
+        self.content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.content != nil) {
-            try container.encode(self.content, forKey: .content);
+        if (self.position != nil) {
+            try container.encode(self.position, forKey: .position);
         }
         if (self.footnoteType != nil) {
             try container.encode(self.footnoteType, forKey: .footnoteType);
-        }
-        if (self.position != nil) {
-            try container.encode(self.position, forKey: .position);
         }
         if (self.referenceMark != nil) {
             try container.encode(self.referenceMark, forKey: .referenceMark);
@@ -141,20 +138,23 @@ public class Footnote : FootnoteLink {
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
         }
+        if (self.content != nil) {
+            try container.encode(self.content, forKey: .content);
+        }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets content. Gets or sets the content of the footnote.
-    public func setContent(content : StoryChildNodes?) -> Footnote {
-        self.content = content;
+    // Sets position. Gets or sets the link to comment range start node.
+    public func setPosition(position : DocumentPosition?) -> Footnote {
+        self.position = position;
         return self;
     }
 
-    // Gets content. Gets or sets the content of the footnote.
-    public func getContent() -> StoryChildNodes? {
-        return self.content;
+    // Gets position. Gets or sets the link to comment range start node.
+    public func getPosition() -> DocumentPosition? {
+        return self.position;
     }
 
 
@@ -167,18 +167,6 @@ public class Footnote : FootnoteLink {
     // Gets footnoteType. Gets or sets the value, that specifies whether this is a footnote or endnote.
     public func getFootnoteType() -> FootnoteType? {
         return self.footnoteType;
-    }
-
-
-    // Sets position. Gets or sets the link to comment range start node.
-    public func setPosition(position : DocumentPosition?) -> Footnote {
-        self.position = position;
-        return self;
-    }
-
-    // Gets position. Gets or sets the link to comment range start node.
-    public func getPosition() -> DocumentPosition? {
-        return self.position;
     }
 
 
@@ -203,5 +191,17 @@ public class Footnote : FootnoteLink {
     // Gets text. Gets or sets text of the footnote.
     public func getText() -> String? {
         return self.text;
+    }
+
+
+    // Sets content. Gets or sets the content of the footnote.
+    public func setContent(content : StoryChildNodes?) -> Footnote {
+        self.content = content;
+        return self;
+    }
+
+    // Gets content. Gets or sets the content of the footnote.
+    public func getContent() -> StoryChildNodes? {
+        return self.content;
     }
 }

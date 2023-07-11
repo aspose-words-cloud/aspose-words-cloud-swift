@@ -66,15 +66,6 @@ public class RtfSaveOptionsData : SaveOptionsData {
         }
     }
 
-    // Field of saveFormat. Container class for rtf save options.
-    private final let _saveFormat : String? = "rtf";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
-
     // Field of saveImagesAsWmf. Container class for rtf save options.
     private var _saveImagesAsWmf : Bool? = nil;
 
@@ -84,6 +75,15 @@ public class RtfSaveOptionsData : SaveOptionsData {
         }
         set {
             self._saveImagesAsWmf = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for rtf save options.
+    private final let _saveFormat : String? = "rtf";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
         }
     }
 

@@ -30,18 +30,6 @@ import Foundation
 // DTO container with a table row element.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableRow : NodeLink {
-    // Field of rowFormat. DTO container with a table row element.
-    private var _rowFormat : TableRowFormat? = nil;
-
-    public var rowFormat : TableRowFormat? {
-        get {
-            return self._rowFormat;
-        }
-        set {
-            self._rowFormat = newValue;
-        }
-    }
-
     // Field of tableCellList. DTO container with a table row element.
     private var _tableCellList : [TableCell]? = nil;
 
@@ -54,9 +42,21 @@ public class TableRow : NodeLink {
         }
     }
 
+    // Field of rowFormat. DTO container with a table row element.
+    private var _rowFormat : TableRowFormat? = nil;
+
+    public var rowFormat : TableRowFormat? {
+        get {
+            return self._rowFormat;
+        }
+        set {
+            self._rowFormat = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case rowFormat = "RowFormat";
         case tableCellList = "TableCellList";
+        case rowFormat = "RowFormat";
         case invalidCodingKey;
     }
 
@@ -67,35 +67,23 @@ public class TableRow : NodeLink {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.rowFormat = try container.decodeIfPresent(TableRowFormat.self, forKey: .rowFormat);
         self.tableCellList = try container.decodeIfPresent([TableCell].self, forKey: .tableCellList);
+        self.rowFormat = try container.decodeIfPresent(TableRowFormat.self, forKey: .rowFormat);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.rowFormat != nil) {
-            try container.encode(self.rowFormat, forKey: .rowFormat);
-        }
         if (self.tableCellList != nil) {
             try container.encode(self.tableCellList, forKey: .tableCellList);
+        }
+        if (self.rowFormat != nil) {
+            try container.encode(self.rowFormat, forKey: .rowFormat);
         }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets rowFormat. Gets or sets the formatting properties of a row.
-    public func setRowFormat(rowFormat : TableRowFormat?) -> TableRow {
-        self.rowFormat = rowFormat;
-        return self;
-    }
-
-    // Gets rowFormat. Gets or sets the formatting properties of a row.
-    public func getRowFormat() -> TableRowFormat? {
-        return self.rowFormat;
-    }
-
 
     // Sets tableCellList. Gets or sets the collection of rows.
     public func setTableCellList(tableCellList : [TableCell]?) -> TableRow {
@@ -106,5 +94,17 @@ public class TableRow : NodeLink {
     // Gets tableCellList. Gets or sets the collection of rows.
     public func getTableCellList() -> [TableCell]? {
         return self.tableCellList;
+    }
+
+
+    // Sets rowFormat. Gets or sets the formatting properties of a row.
+    public func setRowFormat(rowFormat : TableRowFormat?) -> TableRow {
+        self.rowFormat = rowFormat;
+        return self;
+    }
+
+    // Gets rowFormat. Gets or sets the formatting properties of a row.
+    public func getRowFormat() -> TableRowFormat? {
+        return self.rowFormat;
     }
 }

@@ -1454,18 +1454,6 @@ public class ParagraphFormatBase : LinkElement {
         }
     }
 
-    // Field of shading. Paragraph format element base class.
-    private var _shading : Shading? = nil;
-
-    public var shading : Shading? {
-        get {
-            return self._shading;
-        }
-        set {
-            self._shading = newValue;
-        }
-    }
-
     // Field of spaceAfter. Paragraph format element base class.
     private var _spaceAfter : Double? = nil;
 
@@ -1574,6 +1562,18 @@ public class ParagraphFormatBase : LinkElement {
         }
     }
 
+    // Field of shading. Paragraph format element base class.
+    private var _shading : Shading? = nil;
+
+    public var shading : Shading? {
+        get {
+            return self._shading;
+        }
+        set {
+            self._shading = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case addSpaceBetweenFarEastAndAlpha = "AddSpaceBetweenFarEastAndAlpha";
         case addSpaceBetweenFarEastAndDigit = "AddSpaceBetweenFarEastAndDigit";
@@ -1591,7 +1591,6 @@ public class ParagraphFormatBase : LinkElement {
         case outlineLevel = "OutlineLevel";
         case pageBreakBefore = "PageBreakBefore";
         case rightIndent = "RightIndent";
-        case shading = "Shading";
         case spaceAfter = "SpaceAfter";
         case spaceAfterAuto = "SpaceAfterAuto";
         case spaceBefore = "SpaceBefore";
@@ -1601,6 +1600,7 @@ public class ParagraphFormatBase : LinkElement {
         case suppressAutoHyphens = "SuppressAutoHyphens";
         case suppressLineNumbers = "SuppressLineNumbers";
         case widowControl = "WidowControl";
+        case shading = "Shading";
         case invalidCodingKey;
     }
 
@@ -1627,7 +1627,6 @@ public class ParagraphFormatBase : LinkElement {
         self.outlineLevel = try container.decodeIfPresent(OutlineLevel.self, forKey: .outlineLevel);
         self.pageBreakBefore = try container.decodeIfPresent(Bool.self, forKey: .pageBreakBefore);
         self.rightIndent = try container.decodeIfPresent(Double.self, forKey: .rightIndent);
-        self.shading = try container.decodeIfPresent(Shading.self, forKey: .shading);
         self.spaceAfter = try container.decodeIfPresent(Double.self, forKey: .spaceAfter);
         self.spaceAfterAuto = try container.decodeIfPresent(Bool.self, forKey: .spaceAfterAuto);
         self.spaceBefore = try container.decodeIfPresent(Double.self, forKey: .spaceBefore);
@@ -1637,6 +1636,7 @@ public class ParagraphFormatBase : LinkElement {
         self.suppressAutoHyphens = try container.decodeIfPresent(Bool.self, forKey: .suppressAutoHyphens);
         self.suppressLineNumbers = try container.decodeIfPresent(Bool.self, forKey: .suppressLineNumbers);
         self.widowControl = try container.decodeIfPresent(Bool.self, forKey: .widowControl);
+        self.shading = try container.decodeIfPresent(Shading.self, forKey: .shading);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -1690,9 +1690,6 @@ public class ParagraphFormatBase : LinkElement {
         if (self.rightIndent != nil) {
             try container.encode(self.rightIndent, forKey: .rightIndent);
         }
-        if (self.shading != nil) {
-            try container.encode(self.shading, forKey: .shading);
-        }
         if (self.spaceAfter != nil) {
             try container.encode(self.spaceAfter, forKey: .spaceAfter);
         }
@@ -1719,6 +1716,9 @@ public class ParagraphFormatBase : LinkElement {
         }
         if (self.widowControl != nil) {
             try container.encode(self.widowControl, forKey: .widowControl);
+        }
+        if (self.shading != nil) {
+            try container.encode(self.shading, forKey: .shading);
         }
     }
 
@@ -1917,18 +1917,6 @@ public class ParagraphFormatBase : LinkElement {
     }
 
 
-    // Sets shading. Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
-    public func setShading(shading : Shading?) -> ParagraphFormatBase {
-        self.shading = shading;
-        return self;
-    }
-
-    // Gets shading. Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
-    public func getShading() -> Shading? {
-        return self.shading;
-    }
-
-
     // Sets spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph.
     public func setSpaceAfter(spaceAfter : Double?) -> ParagraphFormatBase {
         self.spaceAfter = spaceAfter;
@@ -2034,5 +2022,17 @@ public class ParagraphFormatBase : LinkElement {
     // Gets widowControl. Gets or sets a value indicating whether the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.
     public func getWidowControl() -> Bool? {
         return self.widowControl;
+    }
+
+
+    // Sets shading. Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
+    public func setShading(shading : Shading?) -> ParagraphFormatBase {
+        self.shading = shading;
+        return self;
+    }
+
+    // Gets shading. Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
+    public func getShading() -> Shading? {
+        return self.shading;
     }
 }

@@ -30,18 +30,6 @@ import Foundation
 // Contains data for load web document.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class LoadWebDocumentData : Codable, WordsApiModel {
-    // Field of loadingDocumentUrl. Contains data for load web document.
-    private var _loadingDocumentUrl : String? = nil;
-
-    public var loadingDocumentUrl : String? {
-        get {
-            return self._loadingDocumentUrl;
-        }
-        set {
-            self._loadingDocumentUrl = newValue;
-        }
-    }
-
     // Field of saveOptions. Contains data for load web document.
     private var _saveOptions : SaveOptionsData? = nil;
 
@@ -54,9 +42,21 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
         }
     }
 
+    // Field of loadingDocumentUrl. Contains data for load web document.
+    private var _loadingDocumentUrl : String? = nil;
+
+    public var loadingDocumentUrl : String? {
+        get {
+            return self._loadingDocumentUrl;
+        }
+        set {
+            self._loadingDocumentUrl = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case loadingDocumentUrl = "LoadingDocumentUrl";
         case saveOptions = "SaveOptions";
+        case loadingDocumentUrl = "LoadingDocumentUrl";
         case invalidCodingKey;
     }
 
@@ -65,34 +65,22 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.loadingDocumentUrl = try container.decodeIfPresent(String.self, forKey: .loadingDocumentUrl);
         self.saveOptions = try container.decodeIfPresent(SaveOptionsData.self, forKey: .saveOptions);
+        self.loadingDocumentUrl = try container.decodeIfPresent(String.self, forKey: .loadingDocumentUrl);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.loadingDocumentUrl != nil) {
-            try container.encode(self.loadingDocumentUrl, forKey: .loadingDocumentUrl);
-        }
         if (self.saveOptions != nil) {
             try container.encode(self.saveOptions, forKey: .saveOptions);
+        }
+        if (self.loadingDocumentUrl != nil) {
+            try container.encode(self.loadingDocumentUrl, forKey: .loadingDocumentUrl);
         }
     }
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets loadingDocumentUrl. Gets or sets the web document URL.
-    public func setLoadingDocumentUrl(loadingDocumentUrl : String?) -> LoadWebDocumentData {
-        self.loadingDocumentUrl = loadingDocumentUrl;
-        return self;
-    }
-
-    // Gets loadingDocumentUrl. Gets or sets the web document URL.
-    public func getLoadingDocumentUrl() -> String? {
-        return self.loadingDocumentUrl;
-    }
-
 
     // Sets saveOptions. Gets or sets the save options.
     public func setSaveOptions(saveOptions : SaveOptionsData?) -> LoadWebDocumentData {
@@ -103,5 +91,17 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
     // Gets saveOptions. Gets or sets the save options.
     public func getSaveOptions() -> SaveOptionsData? {
         return self.saveOptions;
+    }
+
+
+    // Sets loadingDocumentUrl. Gets or sets the web document URL.
+    public func setLoadingDocumentUrl(loadingDocumentUrl : String?) -> LoadWebDocumentData {
+        self.loadingDocumentUrl = loadingDocumentUrl;
+        return self;
+    }
+
+    // Gets loadingDocumentUrl. Gets or sets the web document URL.
+    public func getLoadingDocumentUrl() -> String? {
+        return self.loadingDocumentUrl;
     }
 }

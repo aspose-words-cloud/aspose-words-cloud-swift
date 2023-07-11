@@ -188,18 +188,6 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
-    // Field of useGdiEmfRenderer. Container abstract class for image save options.
-    private var _useGdiEmfRenderer : Bool? = nil;
-
-    public var useGdiEmfRenderer : Bool? {
-        get {
-            return self._useGdiEmfRenderer;
-        }
-        set {
-            self._useGdiEmfRenderer = newValue;
-        }
-    }
-
     // Field of useHighQualityRendering. Container abstract class for image save options.
     private var _useHighQualityRendering : Bool? = nil;
 
@@ -224,6 +212,18 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
+    // Field of useGdiEmfRenderer. Container abstract class for image save options.
+    private var _useGdiEmfRenderer : Bool? = nil;
+
+    public var useGdiEmfRenderer : Bool? {
+        get {
+            return self._useGdiEmfRenderer;
+        }
+        set {
+            self._useGdiEmfRenderer = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case horizontalResolution = "HorizontalResolution";
         case imageBrightness = "ImageBrightness";
@@ -234,9 +234,9 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         case resolution = "Resolution";
         case scale = "Scale";
         case useAntiAliasing = "UseAntiAliasing";
-        case useGdiEmfRenderer = "UseGdiEmfRenderer";
         case useHighQualityRendering = "UseHighQualityRendering";
         case verticalResolution = "VerticalResolution";
+        case useGdiEmfRenderer = "UseGdiEmfRenderer";
         case invalidCodingKey;
     }
 
@@ -256,9 +256,9 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         self.resolution = try container.decodeIfPresent(Double.self, forKey: .resolution);
         self.scale = try container.decodeIfPresent(Double.self, forKey: .scale);
         self.useAntiAliasing = try container.decodeIfPresent(Bool.self, forKey: .useAntiAliasing);
-        self.useGdiEmfRenderer = try container.decodeIfPresent(Bool.self, forKey: .useGdiEmfRenderer);
         self.useHighQualityRendering = try container.decodeIfPresent(Bool.self, forKey: .useHighQualityRendering);
         self.verticalResolution = try container.decodeIfPresent(Double.self, forKey: .verticalResolution);
+        self.useGdiEmfRenderer = try container.decodeIfPresent(Bool.self, forKey: .useGdiEmfRenderer);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -291,14 +291,14 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         if (self.useAntiAliasing != nil) {
             try container.encode(self.useAntiAliasing, forKey: .useAntiAliasing);
         }
-        if (self.useGdiEmfRenderer != nil) {
-            try container.encode(self.useGdiEmfRenderer, forKey: .useGdiEmfRenderer);
-        }
         if (self.useHighQualityRendering != nil) {
             try container.encode(self.useHighQualityRendering, forKey: .useHighQualityRendering);
         }
         if (self.verticalResolution != nil) {
             try container.encode(self.verticalResolution, forKey: .verticalResolution);
+        }
+        if (self.useGdiEmfRenderer != nil) {
+            try container.encode(self.useGdiEmfRenderer, forKey: .useGdiEmfRenderer);
         }
     }
 
@@ -413,18 +413,6 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
 
-    // Sets useGdiEmfRenderer. Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
-    public func setUseGdiEmfRenderer(useGdiEmfRenderer : Bool?) -> ImageSaveOptionsData {
-        self.useGdiEmfRenderer = useGdiEmfRenderer;
-        return self;
-    }
-
-    // Gets useGdiEmfRenderer. Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
-    public func getUseGdiEmfRenderer() -> Bool? {
-        return self.useGdiEmfRenderer;
-    }
-
-
     // Sets useHighQualityRendering. Gets or sets a value indicating whether to use high quality (i.e. slow) rendering algorithms.
     public func setUseHighQualityRendering(useHighQualityRendering : Bool?) -> ImageSaveOptionsData {
         self.useHighQualityRendering = useHighQualityRendering;
@@ -446,5 +434,17 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Gets verticalResolution. Gets or sets the vertical resolution in dots per inch for the generated images. This property has effect only when saving to raster image formats. The default value is 96.
     public func getVerticalResolution() -> Double? {
         return self.verticalResolution;
+    }
+
+
+    // Sets useGdiEmfRenderer. Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
+    public func setUseGdiEmfRenderer(useGdiEmfRenderer : Bool?) -> ImageSaveOptionsData {
+        self.useGdiEmfRenderer = useGdiEmfRenderer;
+        return self;
+    }
+
+    // Gets useGdiEmfRenderer. Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
+    public func getUseGdiEmfRenderer() -> Bool? {
+        return self.useGdiEmfRenderer;
     }
 }

@@ -30,18 +30,6 @@ import Foundation
 // Paragraph format element.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphFormat : ParagraphFormatBase {
-    // Field of isHeading. Paragraph format element.
-    private var _isHeading : Bool? = nil;
-
-    public var isHeading : Bool? {
-        get {
-            return self._isHeading;
-        }
-        set {
-            self._isHeading = newValue;
-        }
-    }
-
     // Field of isListItem. Paragraph format element.
     private var _isListItem : Bool? = nil;
 
@@ -54,9 +42,21 @@ public class ParagraphFormat : ParagraphFormatBase {
         }
     }
 
+    // Field of isHeading. Paragraph format element.
+    private var _isHeading : Bool? = nil;
+
+    public var isHeading : Bool? {
+        get {
+            return self._isHeading;
+        }
+        set {
+            self._isHeading = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case isHeading = "IsHeading";
         case isListItem = "IsListItem";
+        case isHeading = "IsHeading";
         case invalidCodingKey;
     }
 
@@ -67,35 +67,23 @@ public class ParagraphFormat : ParagraphFormatBase {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.isHeading = try container.decodeIfPresent(Bool.self, forKey: .isHeading);
         self.isListItem = try container.decodeIfPresent(Bool.self, forKey: .isListItem);
+        self.isHeading = try container.decodeIfPresent(Bool.self, forKey: .isHeading);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.isHeading != nil) {
-            try container.encode(self.isHeading, forKey: .isHeading);
-        }
         if (self.isListItem != nil) {
             try container.encode(self.isListItem, forKey: .isListItem);
+        }
+        if (self.isHeading != nil) {
+            try container.encode(self.isHeading, forKey: .isHeading);
         }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets isHeading. Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
-    public func setIsHeading(isHeading : Bool?) -> ParagraphFormat {
-        self.isHeading = isHeading;
-        return self;
-    }
-
-    // Gets isHeading. Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
-    public func getIsHeading() -> Bool? {
-        return self.isHeading;
-    }
-
 
     // Sets isListItem. Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.
     public func setIsListItem(isListItem : Bool?) -> ParagraphFormat {
@@ -106,5 +94,17 @@ public class ParagraphFormat : ParagraphFormatBase {
     // Gets isListItem. Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.
     public func getIsListItem() -> Bool? {
         return self.isListItem;
+    }
+
+
+    // Sets isHeading. Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
+    public func setIsHeading(isHeading : Bool?) -> ParagraphFormat {
+        self.isHeading = isHeading;
+        return self;
+    }
+
+    // Gets isHeading. Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
+    public func getIsHeading() -> Bool? {
+        return self.isHeading;
     }
 }

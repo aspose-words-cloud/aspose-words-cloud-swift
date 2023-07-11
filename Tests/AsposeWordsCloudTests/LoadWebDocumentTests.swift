@@ -44,8 +44,8 @@ class LoadWebDocumentTests: BaseTestContext {
         .setUpdateSdtContent(updateSdtContent: false)
         .setZipOutput(zipOutput: false);
       let requestData = LoadWebDocumentData()
-        .setLoadingDocumentUrl(loadingDocumentUrl: "http://google.com")
-        .setSaveOptions(saveOptions: requestDataSaveOptions as! DocSaveOptionsData);
+        .setSaveOptions(saveOptions: requestDataSaveOptions as! DocSaveOptionsData)
+        .setLoadingDocumentUrl(loadingDocumentUrl: "http://google.com");
       let request = LoadWebDocumentRequest(data: requestData);
       let actual = try super.getApi().loadWebDocument(request: request);
       XCTAssertNotNil(actual.getSaveResult());

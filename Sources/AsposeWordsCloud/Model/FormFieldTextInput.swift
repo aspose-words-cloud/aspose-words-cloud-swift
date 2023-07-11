@@ -52,30 +52,6 @@ public class FormFieldTextInput : FormField {
         case calculated = "Calculated"
     }
 
-    // Field of maxLength. FormField text input element.
-    private var _maxLength : Int? = nil;
-
-    public var maxLength : Int? {
-        get {
-            return self._maxLength;
-        }
-        set {
-            self._maxLength = newValue;
-        }
-    }
-
-    // Field of textInputDefault. FormField text input element.
-    private var _textInputDefault : String? = nil;
-
-    public var textInputDefault : String? {
-        get {
-            return self._textInputDefault;
-        }
-        set {
-            self._textInputDefault = newValue;
-        }
-    }
-
     // Field of textInputFormat. FormField text input element.
     private var _textInputFormat : String? = nil;
 
@@ -100,11 +76,35 @@ public class FormFieldTextInput : FormField {
         }
     }
 
+    // Field of textInputDefault. FormField text input element.
+    private var _textInputDefault : String? = nil;
+
+    public var textInputDefault : String? {
+        get {
+            return self._textInputDefault;
+        }
+        set {
+            self._textInputDefault = newValue;
+        }
+    }
+
+    // Field of maxLength. FormField text input element.
+    private var _maxLength : Int? = nil;
+
+    public var maxLength : Int? {
+        get {
+            return self._maxLength;
+        }
+        set {
+            self._maxLength = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case maxLength = "MaxLength";
-        case textInputDefault = "TextInputDefault";
         case textInputFormat = "TextInputFormat";
         case textInputType = "TextInputType";
+        case textInputDefault = "TextInputDefault";
+        case maxLength = "MaxLength";
         case invalidCodingKey;
     }
 
@@ -115,55 +115,31 @@ public class FormFieldTextInput : FormField {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.maxLength = try container.decodeIfPresent(Int.self, forKey: .maxLength);
-        self.textInputDefault = try container.decodeIfPresent(String.self, forKey: .textInputDefault);
         self.textInputFormat = try container.decodeIfPresent(String.self, forKey: .textInputFormat);
         self.textInputType = try container.decodeIfPresent(TextInputType.self, forKey: .textInputType);
+        self.textInputDefault = try container.decodeIfPresent(String.self, forKey: .textInputDefault);
+        self.maxLength = try container.decodeIfPresent(Int.self, forKey: .maxLength);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.maxLength != nil) {
-            try container.encode(self.maxLength, forKey: .maxLength);
-        }
-        if (self.textInputDefault != nil) {
-            try container.encode(self.textInputDefault, forKey: .textInputDefault);
-        }
         if (self.textInputFormat != nil) {
             try container.encode(self.textInputFormat, forKey: .textInputFormat);
         }
         if (self.textInputType != nil) {
             try container.encode(self.textInputType, forKey: .textInputType);
         }
+        if (self.textInputDefault != nil) {
+            try container.encode(self.textInputDefault, forKey: .textInputDefault);
+        }
+        if (self.maxLength != nil) {
+            try container.encode(self.maxLength, forKey: .maxLength);
+        }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets maxLength. Gets or sets the maximum length for the text field. Zero when the length is not limited.
-    public func setMaxLength(maxLength : Int?) -> FormFieldTextInput {
-        self.maxLength = maxLength;
-        return self;
-    }
-
-    // Gets maxLength. Gets or sets the maximum length for the text field. Zero when the length is not limited.
-    public func getMaxLength() -> Int? {
-        return self.maxLength;
-    }
-
-
-    // Sets textInputDefault. Gets or sets the default string or a calculation expression of the text form field.
-    public func setTextInputDefault(textInputDefault : String?) -> FormFieldTextInput {
-        self.textInputDefault = textInputDefault;
-        return self;
-    }
-
-    // Gets textInputDefault. Gets or sets the default string or a calculation expression of the text form field.
-    public func getTextInputDefault() -> String? {
-        return self.textInputDefault;
-    }
-
 
     // Sets textInputFormat. Gets or sets text formatting for the text form field.
     public func setTextInputFormat(textInputFormat : String?) -> FormFieldTextInput {
@@ -186,5 +162,29 @@ public class FormFieldTextInput : FormField {
     // Gets textInputType. Gets or sets the type of the text form field.
     public func getTextInputType() -> TextInputType? {
         return self.textInputType;
+    }
+
+
+    // Sets textInputDefault. Gets or sets the default string or a calculation expression of the text form field.
+    public func setTextInputDefault(textInputDefault : String?) -> FormFieldTextInput {
+        self.textInputDefault = textInputDefault;
+        return self;
+    }
+
+    // Gets textInputDefault. Gets or sets the default string or a calculation expression of the text form field.
+    public func getTextInputDefault() -> String? {
+        return self.textInputDefault;
+    }
+
+
+    // Sets maxLength. Gets or sets the maximum length for the text field. Zero when the length is not limited.
+    public func setMaxLength(maxLength : Int?) -> FormFieldTextInput {
+        self.maxLength = maxLength;
+        return self;
+    }
+
+    // Gets maxLength. Gets or sets the maximum length for the text field. Zero when the length is not limited.
+    public func getMaxLength() -> Int? {
+        return self.maxLength;
     }
 }

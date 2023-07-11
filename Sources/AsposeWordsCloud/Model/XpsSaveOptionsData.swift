@@ -66,15 +66,6 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
-    // Field of saveFormat. Container class for xps save options.
-    private final let _saveFormat : String? = "xps";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
-
     // Field of useBookFoldPrintingSettings. Container class for xps save options.
     private var _useBookFoldPrintingSettings : Bool? = nil;
 
@@ -84,6 +75,15 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         }
         set {
             self._useBookFoldPrintingSettings = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for xps save options.
+    private final let _saveFormat : String? = "xps";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
         }
     }
 

@@ -117,6 +117,30 @@ public class DrawingObject : DrawingObjectLink {
         case through = "Through"
     }
 
+    // Field of renderLinks. DTO container with a DrawingObject.
+    private var _renderLinks : [WordsApiLink]? = nil;
+
+    public var renderLinks : [WordsApiLink]? {
+        get {
+            return self._renderLinks;
+        }
+        set {
+            self._renderLinks = newValue;
+        }
+    }
+
+    // Field of width. DTO container with a DrawingObject.
+    private var _width : Double? = nil;
+
+    public var width : Double? {
+        get {
+            return self._width;
+        }
+        set {
+            self._width = newValue;
+        }
+    }
+
     // Field of height. DTO container with a DrawingObject.
     private var _height : Double? = nil;
 
@@ -126,30 +150,6 @@ public class DrawingObject : DrawingObjectLink {
         }
         set {
             self._height = newValue;
-        }
-    }
-
-    // Field of imageDataLink. DTO container with a DrawingObject.
-    private var _imageDataLink : WordsApiLink? = nil;
-
-    public var imageDataLink : WordsApiLink? {
-        get {
-            return self._imageDataLink;
-        }
-        set {
-            self._imageDataLink = newValue;
-        }
-    }
-
-    // Field of _left. DTO container with a DrawingObject.
-    private var __left : Double? = nil;
-
-    public var _left : Double? {
-        get {
-            return self.__left;
-        }
-        set {
-            self.__left = newValue;
         }
     }
 
@@ -165,6 +165,18 @@ public class DrawingObject : DrawingObjectLink {
         }
     }
 
+    // Field of imageDataLink. DTO container with a DrawingObject.
+    private var _imageDataLink : WordsApiLink? = nil;
+
+    public var imageDataLink : WordsApiLink? {
+        get {
+            return self._imageDataLink;
+        }
+        set {
+            self._imageDataLink = newValue;
+        }
+    }
+
     // Field of relativeHorizontalPosition. DTO container with a DrawingObject.
     private var _relativeHorizontalPosition : RelativeHorizontalPosition? = nil;
 
@@ -174,6 +186,18 @@ public class DrawingObject : DrawingObjectLink {
         }
         set {
             self._relativeHorizontalPosition = newValue;
+        }
+    }
+
+    // Field of _left. DTO container with a DrawingObject.
+    private var __left : Double? = nil;
+
+    public var _left : Double? {
+        get {
+            return self.__left;
+        }
+        set {
+            self.__left = newValue;
         }
     }
 
@@ -189,18 +213,6 @@ public class DrawingObject : DrawingObjectLink {
         }
     }
 
-    // Field of renderLinks. DTO container with a DrawingObject.
-    private var _renderLinks : [WordsApiLink]? = nil;
-
-    public var renderLinks : [WordsApiLink]? {
-        get {
-            return self._renderLinks;
-        }
-        set {
-            self._renderLinks = newValue;
-        }
-    }
-
     // Field of top. DTO container with a DrawingObject.
     private var _top : Double? = nil;
 
@@ -210,18 +222,6 @@ public class DrawingObject : DrawingObjectLink {
         }
         set {
             self._top = newValue;
-        }
-    }
-
-    // Field of width. DTO container with a DrawingObject.
-    private var _width : Double? = nil;
-
-    public var width : Double? {
-        get {
-            return self._width;
-        }
-        set {
-            self._width = newValue;
         }
     }
 
@@ -238,15 +238,15 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case height = "Height";
-        case imageDataLink = "ImageDataLink";
-        case _left = "Left";
-        case oleDataLink = "OleDataLink";
-        case relativeHorizontalPosition = "RelativeHorizontalPosition";
-        case relativeVerticalPosition = "RelativeVerticalPosition";
         case renderLinks = "RenderLinks";
-        case top = "Top";
         case width = "Width";
+        case height = "Height";
+        case oleDataLink = "OleDataLink";
+        case imageDataLink = "ImageDataLink";
+        case relativeHorizontalPosition = "RelativeHorizontalPosition";
+        case _left = "Left";
+        case relativeVerticalPosition = "RelativeVerticalPosition";
+        case top = "Top";
         case wrapType = "WrapType";
         case invalidCodingKey;
     }
@@ -258,47 +258,47 @@ public class DrawingObject : DrawingObjectLink {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.height = try container.decodeIfPresent(Double.self, forKey: .height);
-        self.imageDataLink = try container.decodeIfPresent(WordsApiLink.self, forKey: .imageDataLink);
-        self._left = try container.decodeIfPresent(Double.self, forKey: ._left);
-        self.oleDataLink = try container.decodeIfPresent(WordsApiLink.self, forKey: .oleDataLink);
-        self.relativeHorizontalPosition = try container.decodeIfPresent(RelativeHorizontalPosition.self, forKey: .relativeHorizontalPosition);
-        self.relativeVerticalPosition = try container.decodeIfPresent(RelativeVerticalPosition.self, forKey: .relativeVerticalPosition);
         self.renderLinks = try container.decodeIfPresent([WordsApiLink].self, forKey: .renderLinks);
-        self.top = try container.decodeIfPresent(Double.self, forKey: .top);
         self.width = try container.decodeIfPresent(Double.self, forKey: .width);
+        self.height = try container.decodeIfPresent(Double.self, forKey: .height);
+        self.oleDataLink = try container.decodeIfPresent(WordsApiLink.self, forKey: .oleDataLink);
+        self.imageDataLink = try container.decodeIfPresent(WordsApiLink.self, forKey: .imageDataLink);
+        self.relativeHorizontalPosition = try container.decodeIfPresent(RelativeHorizontalPosition.self, forKey: .relativeHorizontalPosition);
+        self._left = try container.decodeIfPresent(Double.self, forKey: ._left);
+        self.relativeVerticalPosition = try container.decodeIfPresent(RelativeVerticalPosition.self, forKey: .relativeVerticalPosition);
+        self.top = try container.decodeIfPresent(Double.self, forKey: .top);
         self.wrapType = try container.decodeIfPresent(WrapType.self, forKey: .wrapType);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.renderLinks != nil) {
+            try container.encode(self.renderLinks, forKey: .renderLinks);
+        }
+        if (self.width != nil) {
+            try container.encode(self.width, forKey: .width);
+        }
         if (self.height != nil) {
             try container.encode(self.height, forKey: .height);
-        }
-        if (self.imageDataLink != nil) {
-            try container.encode(self.imageDataLink, forKey: .imageDataLink);
-        }
-        if (self._left != nil) {
-            try container.encode(self._left, forKey: ._left);
         }
         if (self.oleDataLink != nil) {
             try container.encode(self.oleDataLink, forKey: .oleDataLink);
         }
+        if (self.imageDataLink != nil) {
+            try container.encode(self.imageDataLink, forKey: .imageDataLink);
+        }
         if (self.relativeHorizontalPosition != nil) {
             try container.encode(self.relativeHorizontalPosition, forKey: .relativeHorizontalPosition);
+        }
+        if (self._left != nil) {
+            try container.encode(self._left, forKey: ._left);
         }
         if (self.relativeVerticalPosition != nil) {
             try container.encode(self.relativeVerticalPosition, forKey: .relativeVerticalPosition);
         }
-        if (self.renderLinks != nil) {
-            try container.encode(self.renderLinks, forKey: .renderLinks);
-        }
         if (self.top != nil) {
             try container.encode(self.top, forKey: .top);
-        }
-        if (self.width != nil) {
-            try container.encode(self.width, forKey: .width);
         }
         if (self.wrapType != nil) {
             try container.encode(self.wrapType, forKey: .wrapType);
@@ -307,6 +307,30 @@ public class DrawingObject : DrawingObjectLink {
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
+
+    // Sets renderLinks. Gets or sets the list of links that originate from this DrawingObjectDto.
+    public func setRenderLinks(renderLinks : [WordsApiLink]?) -> DrawingObject {
+        self.renderLinks = renderLinks;
+        return self;
+    }
+
+    // Gets renderLinks. Gets or sets the list of links that originate from this DrawingObjectDto.
+    public func getRenderLinks() -> [WordsApiLink]? {
+        return self.renderLinks;
+    }
+
+
+    // Sets width. Gets or sets the width of the DrawingObjects in points.
+    public func setWidth(width : Double?) -> DrawingObject {
+        self.width = width;
+        return self;
+    }
+
+    // Gets width. Gets or sets the width of the DrawingObjects in points.
+    public func getWidth() -> Double? {
+        return self.width;
+    }
+
 
     // Sets height. Gets or sets the height of the DrawingObject in points.
     public func setHeight(height : Double?) -> DrawingObject {
@@ -317,30 +341,6 @@ public class DrawingObject : DrawingObjectLink {
     // Gets height. Gets or sets the height of the DrawingObject in points.
     public func getHeight() -> Double? {
         return self.height;
-    }
-
-
-    // Sets imageDataLink. Gets or sets the link to image data. Can be null if shape does not have an image.
-    public func setImageDataLink(imageDataLink : WordsApiLink?) -> DrawingObject {
-        self.imageDataLink = imageDataLink;
-        return self;
-    }
-
-    // Gets imageDataLink. Gets or sets the link to image data. Can be null if shape does not have an image.
-    public func getImageDataLink() -> WordsApiLink? {
-        return self.imageDataLink;
-    }
-
-
-    // Sets _left. Gets or sets the distance in points from the origin to the left side of the image.
-    public func setLeft(_left : Double?) -> DrawingObject {
-        self._left = _left;
-        return self;
-    }
-
-    // Gets _left. Gets or sets the distance in points from the origin to the left side of the image.
-    public func getLeft() -> Double? {
-        return self._left;
     }
 
 
@@ -356,6 +356,18 @@ public class DrawingObject : DrawingObjectLink {
     }
 
 
+    // Sets imageDataLink. Gets or sets the link to image data. Can be null if shape does not have an image.
+    public func setImageDataLink(imageDataLink : WordsApiLink?) -> DrawingObject {
+        self.imageDataLink = imageDataLink;
+        return self;
+    }
+
+    // Gets imageDataLink. Gets or sets the link to image data. Can be null if shape does not have an image.
+    public func getImageDataLink() -> WordsApiLink? {
+        return self.imageDataLink;
+    }
+
+
     // Sets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
     public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) -> DrawingObject {
         self.relativeHorizontalPosition = relativeHorizontalPosition;
@@ -365,6 +377,18 @@ public class DrawingObject : DrawingObjectLink {
     // Gets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
     public func getRelativeHorizontalPosition() -> RelativeHorizontalPosition? {
         return self.relativeHorizontalPosition;
+    }
+
+
+    // Sets _left. Gets or sets the distance in points from the origin to the left side of the image.
+    public func setLeft(_left : Double?) -> DrawingObject {
+        self._left = _left;
+        return self;
+    }
+
+    // Gets _left. Gets or sets the distance in points from the origin to the left side of the image.
+    public func getLeft() -> Double? {
+        return self._left;
     }
 
 
@@ -380,18 +404,6 @@ public class DrawingObject : DrawingObjectLink {
     }
 
 
-    // Sets renderLinks. Gets or sets the list of links that originate from this DrawingObjectDto.
-    public func setRenderLinks(renderLinks : [WordsApiLink]?) -> DrawingObject {
-        self.renderLinks = renderLinks;
-        return self;
-    }
-
-    // Gets renderLinks. Gets or sets the list of links that originate from this DrawingObjectDto.
-    public func getRenderLinks() -> [WordsApiLink]? {
-        return self.renderLinks;
-    }
-
-
     // Sets top. Gets or sets the distance in points from the origin to the top side of the image.
     public func setTop(top : Double?) -> DrawingObject {
         self.top = top;
@@ -401,18 +413,6 @@ public class DrawingObject : DrawingObjectLink {
     // Gets top. Gets or sets the distance in points from the origin to the top side of the image.
     public func getTop() -> Double? {
         return self.top;
-    }
-
-
-    // Sets width. Gets or sets the width of the DrawingObjects in points.
-    public func setWidth(width : Double?) -> DrawingObject {
-        self.width = width;
-        return self;
-    }
-
-    // Gets width. Gets or sets the width of the DrawingObjects in points.
-    public func getWidth() -> Double? {
-        return self.width;
     }
 
 

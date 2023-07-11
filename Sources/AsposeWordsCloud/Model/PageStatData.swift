@@ -42,18 +42,6 @@ public class PageStatData : Codable, WordsApiModel {
         }
     }
 
-    // Field of pageNumber. Container for the page's statistical data.
-    private var _pageNumber : Int? = nil;
-
-    public var pageNumber : Int? {
-        get {
-            return self._pageNumber;
-        }
-        set {
-            self._pageNumber = newValue;
-        }
-    }
-
     // Field of paragraphCount. Container for the page's statistical data.
     private var _paragraphCount : Int? = nil;
 
@@ -78,11 +66,23 @@ public class PageStatData : Codable, WordsApiModel {
         }
     }
 
+    // Field of pageNumber. Container for the page's statistical data.
+    private var _pageNumber : Int? = nil;
+
+    public var pageNumber : Int? {
+        get {
+            return self._pageNumber;
+        }
+        set {
+            self._pageNumber = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case footnotesStatData = "FootnotesStatData";
-        case pageNumber = "PageNumber";
         case paragraphCount = "ParagraphCount";
         case wordCount = "WordCount";
+        case pageNumber = "PageNumber";
         case invalidCodingKey;
     }
 
@@ -92,9 +92,9 @@ public class PageStatData : Codable, WordsApiModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.footnotesStatData = try container.decodeIfPresent(FootnotesStatData.self, forKey: .footnotesStatData);
-        self.pageNumber = try container.decodeIfPresent(Int.self, forKey: .pageNumber);
         self.paragraphCount = try container.decodeIfPresent(Int.self, forKey: .paragraphCount);
         self.wordCount = try container.decodeIfPresent(Int.self, forKey: .wordCount);
+        self.pageNumber = try container.decodeIfPresent(Int.self, forKey: .pageNumber);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -102,14 +102,14 @@ public class PageStatData : Codable, WordsApiModel {
         if (self.footnotesStatData != nil) {
             try container.encode(self.footnotesStatData, forKey: .footnotesStatData);
         }
-        if (self.pageNumber != nil) {
-            try container.encode(self.pageNumber, forKey: .pageNumber);
-        }
         if (self.paragraphCount != nil) {
             try container.encode(self.paragraphCount, forKey: .paragraphCount);
         }
         if (self.wordCount != nil) {
             try container.encode(self.wordCount, forKey: .wordCount);
+        }
+        if (self.pageNumber != nil) {
+            try container.encode(self.pageNumber, forKey: .pageNumber);
         }
     }
 
@@ -125,18 +125,6 @@ public class PageStatData : Codable, WordsApiModel {
     // Gets footnotesStatData. Gets or sets the detailed statistics on the footnotes.
     public func getFootnotesStatData() -> FootnotesStatData? {
         return self.footnotesStatData;
-    }
-
-
-    // Sets pageNumber. Gets or sets the page number.
-    public func setPageNumber(pageNumber : Int?) -> PageStatData {
-        self.pageNumber = pageNumber;
-        return self;
-    }
-
-    // Gets pageNumber. Gets or sets the page number.
-    public func getPageNumber() -> Int? {
-        return self.pageNumber;
     }
 
 
@@ -161,5 +149,17 @@ public class PageStatData : Codable, WordsApiModel {
     // Gets wordCount. Gets or sets the total count of words in the page.
     public func getWordCount() -> Int? {
         return self.wordCount;
+    }
+
+
+    // Sets pageNumber. Gets or sets the page number.
+    public func setPageNumber(pageNumber : Int?) -> PageStatData {
+        self.pageNumber = pageNumber;
+        return self;
+    }
+
+    // Gets pageNumber. Gets or sets the page number.
+    public func getPageNumber() -> Int? {
+        return self.pageNumber;
     }
 }

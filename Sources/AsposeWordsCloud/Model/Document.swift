@@ -97,6 +97,18 @@ public class Document : Codable, WordsApiModel {
         case svg = "Svg"
     }
 
+    // Field of links. Represents Words document DTO.
+    private var _links : [Link]? = nil;
+
+    public var links : [Link]? {
+        get {
+            return self._links;
+        }
+        set {
+            self._links = newValue;
+        }
+    }
+
     // Field of documentProperties. Represents Words document DTO.
     private var _documentProperties : DocumentProperties? = nil;
 
@@ -145,18 +157,6 @@ public class Document : Codable, WordsApiModel {
         }
     }
 
-    // Field of links. Represents Words document DTO.
-    private var _links : [Link]? = nil;
-
-    public var links : [Link]? {
-        get {
-            return self._links;
-        }
-        set {
-            self._links = newValue;
-        }
-    }
-
     // Field of sourceFormat. Represents Words document DTO.
     private var _sourceFormat : SourceFormat? = nil;
 
@@ -170,11 +170,11 @@ public class Document : Codable, WordsApiModel {
     }
 
     private enum CodingKeys: String, CodingKey {
+        case links = "Links";
         case documentProperties = "DocumentProperties";
         case fileName = "FileName";
         case isEncrypted = "IsEncrypted";
         case isSigned = "IsSigned";
-        case links = "Links";
         case sourceFormat = "SourceFormat";
         case invalidCodingKey;
     }
@@ -184,16 +184,19 @@ public class Document : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.links = try container.decodeIfPresent([Link].self, forKey: .links);
         self.documentProperties = try container.decodeIfPresent(DocumentProperties.self, forKey: .documentProperties);
         self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
         self.isEncrypted = try container.decodeIfPresent(Bool.self, forKey: .isEncrypted);
         self.isSigned = try container.decodeIfPresent(Bool.self, forKey: .isSigned);
-        self.links = try container.decodeIfPresent([Link].self, forKey: .links);
         self.sourceFormat = try container.decodeIfPresent(SourceFormat.self, forKey: .sourceFormat);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.links != nil) {
+            try container.encode(self.links, forKey: .links);
+        }
         if (self.documentProperties != nil) {
             try container.encode(self.documentProperties, forKey: .documentProperties);
         }
@@ -206,9 +209,6 @@ public class Document : Codable, WordsApiModel {
         if (self.isSigned != nil) {
             try container.encode(self.isSigned, forKey: .isSigned);
         }
-        if (self.links != nil) {
-            try container.encode(self.links, forKey: .links);
-        }
         if (self.sourceFormat != nil) {
             try container.encode(self.sourceFormat, forKey: .sourceFormat);
         }
@@ -216,6 +216,18 @@ public class Document : Codable, WordsApiModel {
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
+
+    // Sets links. Gets or sets the list of links that originate from this document.
+    public func setLinks(links : [Link]?) -> Document {
+        self.links = links;
+        return self;
+    }
+
+    // Gets links. Gets or sets the list of links that originate from this document.
+    public func getLinks() -> [Link]? {
+        return self.links;
+    }
+
 
     // Sets documentProperties. Gets or sets the document properties.
     public func setDocumentProperties(documentProperties : DocumentProperties?) -> Document {
@@ -262,18 +274,6 @@ public class Document : Codable, WordsApiModel {
     // Gets isSigned. Gets or sets a value indicating whether the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
     public func getIsSigned() -> Bool? {
         return self.isSigned;
-    }
-
-
-    // Sets links. Gets or sets the list of links that originate from this document.
-    public func setLinks(links : [Link]?) -> Document {
-        self.links = links;
-        return self;
-    }
-
-    // Gets links. Gets or sets the list of links that originate from this document.
-    public func getLinks() -> [Link]? {
-        return self.links;
     }
 
 

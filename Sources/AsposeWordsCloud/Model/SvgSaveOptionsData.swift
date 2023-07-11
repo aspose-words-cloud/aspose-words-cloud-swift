@@ -91,15 +91,6 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
-    // Field of saveFormat. Container class for svg save options.
-    private final let _saveFormat : String? = "svg";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
-
     // Field of showPageBorder. Container class for svg save options.
     private var _showPageBorder : Bool? = nil;
 
@@ -121,6 +112,15 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         }
         set {
             self._textOutputMode = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for svg save options.
+    private final let _saveFormat : String? = "svg";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
         }
     }
 

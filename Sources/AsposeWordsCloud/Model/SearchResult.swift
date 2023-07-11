@@ -30,18 +30,6 @@ import Foundation
 // Result of search operation.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SearchResult : Codable, WordsApiModel {
-    // Field of rangeEnd. Result of search operation.
-    private var _rangeEnd : DocumentPosition? = nil;
-
-    public var rangeEnd : DocumentPosition? {
-        get {
-            return self._rangeEnd;
-        }
-        set {
-            self._rangeEnd = newValue;
-        }
-    }
-
     // Field of rangeStart. Result of search operation.
     private var _rangeStart : DocumentPosition? = nil;
 
@@ -54,9 +42,21 @@ public class SearchResult : Codable, WordsApiModel {
         }
     }
 
+    // Field of rangeEnd. Result of search operation.
+    private var _rangeEnd : DocumentPosition? = nil;
+
+    public var rangeEnd : DocumentPosition? {
+        get {
+            return self._rangeEnd;
+        }
+        set {
+            self._rangeEnd = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case rangeEnd = "RangeEnd";
         case rangeStart = "RangeStart";
+        case rangeEnd = "RangeEnd";
         case invalidCodingKey;
     }
 
@@ -65,34 +65,22 @@ public class SearchResult : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.rangeEnd = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeEnd);
         self.rangeStart = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeStart);
+        self.rangeEnd = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeEnd);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.rangeEnd != nil) {
-            try container.encode(self.rangeEnd, forKey: .rangeEnd);
-        }
         if (self.rangeStart != nil) {
             try container.encode(self.rangeStart, forKey: .rangeStart);
+        }
+        if (self.rangeEnd != nil) {
+            try container.encode(self.rangeEnd, forKey: .rangeEnd);
         }
     }
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets rangeEnd. Gets or sets the link to result range end node.
-    public func setRangeEnd(rangeEnd : DocumentPosition?) -> SearchResult {
-        self.rangeEnd = rangeEnd;
-        return self;
-    }
-
-    // Gets rangeEnd. Gets or sets the link to result range end node.
-    public func getRangeEnd() -> DocumentPosition? {
-        return self.rangeEnd;
-    }
-
 
     // Sets rangeStart. Gets or sets the link to result range start node.
     public func setRangeStart(rangeStart : DocumentPosition?) -> SearchResult {
@@ -103,5 +91,17 @@ public class SearchResult : Codable, WordsApiModel {
     // Gets rangeStart. Gets or sets the link to result range start node.
     public func getRangeStart() -> DocumentPosition? {
         return self.rangeStart;
+    }
+
+
+    // Sets rangeEnd. Gets or sets the link to result range end node.
+    public func setRangeEnd(rangeEnd : DocumentPosition?) -> SearchResult {
+        self.rangeEnd = rangeEnd;
+        return self;
+    }
+
+    // Gets rangeEnd. Gets or sets the link to result range end node.
+    public func getRangeEnd() -> DocumentPosition? {
+        return self.rangeEnd;
     }
 }

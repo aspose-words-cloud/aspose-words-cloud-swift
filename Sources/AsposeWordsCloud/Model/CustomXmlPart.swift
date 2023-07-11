@@ -30,18 +30,6 @@ import Foundation
 // DTO container with a CustomXmlPart.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CustomXmlPart : CustomXmlPartLink {
-    // Field of data. DTO container with a CustomXmlPart.
-    private var _data : String? = nil;
-
-    public var data : String? {
-        get {
-            return self._data;
-        }
-        set {
-            self._data = newValue;
-        }
-    }
-
     // Field of id. DTO container with a CustomXmlPart.
     private var _id : String? = nil;
 
@@ -54,9 +42,21 @@ public class CustomXmlPart : CustomXmlPartLink {
         }
     }
 
+    // Field of data. DTO container with a CustomXmlPart.
+    private var _data : String? = nil;
+
+    public var data : String? {
+        get {
+            return self._data;
+        }
+        set {
+            self._data = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case data = "Data";
         case id = "Id";
+        case data = "Data";
         case invalidCodingKey;
     }
 
@@ -67,35 +67,23 @@ public class CustomXmlPart : CustomXmlPartLink {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.data = try container.decodeIfPresent(String.self, forKey: .data);
         self.id = try container.decodeIfPresent(String.self, forKey: .id);
+        self.data = try container.decodeIfPresent(String.self, forKey: .data);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.data != nil) {
-            try container.encode(self.data, forKey: .data);
-        }
         if (self.id != nil) {
             try container.encode(self.id, forKey: .id);
+        }
+        if (self.data != nil) {
+            try container.encode(self.data, forKey: .data);
         }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets data. Gets or sets the custom xml part data.
-    public func setData(data : String?) -> CustomXmlPart {
-        self.data = data;
-        return self;
-    }
-
-    // Gets data. Gets or sets the custom xml part data.
-    public func getData() -> String? {
-        return self.data;
-    }
-
 
     // Sets id. Gets or sets the custom xml part id.
     public func setId(id : String?) -> CustomXmlPart {
@@ -106,5 +94,17 @@ public class CustomXmlPart : CustomXmlPartLink {
     // Gets id. Gets or sets the custom xml part id.
     public func getId() -> String? {
         return self.id;
+    }
+
+
+    // Sets data. Gets or sets the custom xml part data.
+    public func setData(data : String?) -> CustomXmlPart {
+        self.data = data;
+        return self;
+    }
+
+    // Gets data. Gets or sets the custom xml part data.
+    public func getData() -> String? {
+        return self.data;
     }
 }

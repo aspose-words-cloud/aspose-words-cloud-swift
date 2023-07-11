@@ -66,15 +66,6 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
         }
     }
 
-    // Field of saveFormat. Container class for text save options.
-    private final let _saveFormat : String? = "txt";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
-
     // Field of simplifyListLabels. Container class for text save options.
     private var _simplifyListLabels : Bool? = nil;
 
@@ -84,6 +75,15 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
         }
         set {
             self._simplifyListLabels = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for text save options.
+    private final let _saveFormat : String? = "txt";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
         }
     }
 

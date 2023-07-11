@@ -30,18 +30,6 @@ import Foundation
 // Result of splitting document.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SplitDocumentResult : Codable, WordsApiModel {
-    // Field of pages. Result of splitting document.
-    private var _pages : [FileLink]? = nil;
-
-    public var pages : [FileLink]? {
-        get {
-            return self._pages;
-        }
-        set {
-            self._pages = newValue;
-        }
-    }
-
     // Field of sourceDocument. Result of splitting document.
     private var _sourceDocument : FileLink? = nil;
 
@@ -66,10 +54,22 @@ public class SplitDocumentResult : Codable, WordsApiModel {
         }
     }
 
+    // Field of pages. Result of splitting document.
+    private var _pages : [FileLink]? = nil;
+
+    public var pages : [FileLink]? {
+        get {
+            return self._pages;
+        }
+        set {
+            self._pages = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case pages = "Pages";
         case sourceDocument = "SourceDocument";
         case zippedPages = "ZippedPages";
+        case pages = "Pages";
         case invalidCodingKey;
     }
 
@@ -78,38 +78,26 @@ public class SplitDocumentResult : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.pages = try container.decodeIfPresent([FileLink].self, forKey: .pages);
         self.sourceDocument = try container.decodeIfPresent(FileLink.self, forKey: .sourceDocument);
         self.zippedPages = try container.decodeIfPresent(FileLink.self, forKey: .zippedPages);
+        self.pages = try container.decodeIfPresent([FileLink].self, forKey: .pages);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.pages != nil) {
-            try container.encode(self.pages, forKey: .pages);
-        }
         if (self.sourceDocument != nil) {
             try container.encode(self.sourceDocument, forKey: .sourceDocument);
         }
         if (self.zippedPages != nil) {
             try container.encode(self.zippedPages, forKey: .zippedPages);
         }
+        if (self.pages != nil) {
+            try container.encode(self.pages, forKey: .pages);
+        }
     }
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets pages. Gets or sets the list of pages.
-    public func setPages(pages : [FileLink]?) -> SplitDocumentResult {
-        self.pages = pages;
-        return self;
-    }
-
-    // Gets pages. Gets or sets the list of pages.
-    public func getPages() -> [FileLink]? {
-        return self.pages;
-    }
-
 
     // Sets sourceDocument. Gets or sets the link to the source document.
     public func setSourceDocument(sourceDocument : FileLink?) -> SplitDocumentResult {
@@ -132,5 +120,17 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     // Gets zippedPages. Gets or sets the link to the file archive with pages.
     public func getZippedPages() -> FileLink? {
         return self.zippedPages;
+    }
+
+
+    // Sets pages. Gets or sets the list of pages.
+    public func setPages(pages : [FileLink]?) -> SplitDocumentResult {
+        self.pages = pages;
+        return self;
+    }
+
+    // Gets pages. Gets or sets the list of pages.
+    public func getPages() -> [FileLink]? {
+        return self.pages;
     }
 }
