@@ -15,6 +15,7 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 
 ## Enhancements in Version 23.6
 
+- Fix XMLHttpRequest in web applications.
 
 
 ## Enhancements in Version 23.5
