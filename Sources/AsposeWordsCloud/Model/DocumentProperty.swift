@@ -30,18 +30,6 @@ import Foundation
 // Words document property DTO.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentProperty : LinkElement {
-    // Field of builtIn. Words document property DTO.
-    private var _builtIn : Bool? = nil;
-
-    public var builtIn : Bool? {
-        get {
-            return self._builtIn;
-        }
-        set {
-            self._builtIn = newValue;
-        }
-    }
-
     // Field of name. Words document property DTO.
     private var _name : String? = nil;
 
@@ -66,10 +54,22 @@ public class DocumentProperty : LinkElement {
         }
     }
 
+    // Field of builtIn. Words document property DTO.
+    private var _builtIn : Bool? = nil;
+
+    public var builtIn : Bool? {
+        get {
+            return self._builtIn;
+        }
+        set {
+            self._builtIn = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case builtIn = "BuiltIn";
         case name = "Name";
         case value = "Value";
+        case builtIn = "BuiltIn";
         case invalidCodingKey;
     }
 
@@ -80,39 +80,27 @@ public class DocumentProperty : LinkElement {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.builtIn = try container.decodeIfPresent(Bool.self, forKey: .builtIn);
         self.name = try container.decodeIfPresent(String.self, forKey: .name);
         self.value = try container.decodeIfPresent(String.self, forKey: .value);
+        self.builtIn = try container.decodeIfPresent(Bool.self, forKey: .builtIn);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.builtIn != nil) {
-            try container.encode(self.builtIn, forKey: .builtIn);
-        }
         if (self.name != nil) {
             try container.encode(self.name, forKey: .name);
         }
         if (self.value != nil) {
             try container.encode(self.value, forKey: .value);
         }
+        if (self.builtIn != nil) {
+            try container.encode(self.builtIn, forKey: .builtIn);
+        }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets builtIn. Gets or sets a value indicating whether the property is built-in or not. If true the property is built-in, if false the property is custom.
-    public func setBuiltIn(builtIn : Bool?) -> DocumentProperty {
-        self.builtIn = builtIn;
-        return self;
-    }
-
-    // Gets builtIn. Gets or sets a value indicating whether the property is built-in or not. If true the property is built-in, if false the property is custom.
-    public func getBuiltIn() -> Bool? {
-        return self.builtIn;
-    }
-
 
     // Sets name. Gets or sets the name of the document property.
     public func setName(name : String?) -> DocumentProperty {
@@ -135,5 +123,17 @@ public class DocumentProperty : LinkElement {
     // Gets value. Gets or sets the value of the document property.
     public func getValue() -> String? {
         return self.value;
+    }
+
+
+    // Sets builtIn. Gets or sets a value indicating whether the property is built-in or not. If true the property is built-in, if false the property is custom.
+    public func setBuiltIn(builtIn : Bool?) -> DocumentProperty {
+        self.builtIn = builtIn;
+        return self;
+    }
+
+    // Gets builtIn. Gets or sets a value indicating whether the property is built-in or not. If true the property is built-in, if false the property is custom.
+    public func getBuiltIn() -> Bool? {
+        return self.builtIn;
     }
 }

@@ -30,18 +30,6 @@ import Foundation
 // Result of saving.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SaveResult : Codable, WordsApiModel {
-    // Field of additionalItems. Result of saving.
-    private var _additionalItems : [FileLink]? = nil;
-
-    public var additionalItems : [FileLink]? {
-        get {
-            return self._additionalItems;
-        }
-        set {
-            self._additionalItems = newValue;
-        }
-    }
-
     // Field of destDocument. Result of saving.
     private var _destDocument : FileLink? = nil;
 
@@ -66,10 +54,22 @@ public class SaveResult : Codable, WordsApiModel {
         }
     }
 
+    // Field of additionalItems. Result of saving.
+    private var _additionalItems : [FileLink]? = nil;
+
+    public var additionalItems : [FileLink]? {
+        get {
+            return self._additionalItems;
+        }
+        set {
+            self._additionalItems = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case additionalItems = "AdditionalItems";
         case destDocument = "DestDocument";
         case sourceDocument = "SourceDocument";
+        case additionalItems = "AdditionalItems";
         case invalidCodingKey;
     }
 
@@ -78,38 +78,26 @@ public class SaveResult : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.additionalItems = try container.decodeIfPresent([FileLink].self, forKey: .additionalItems);
         self.destDocument = try container.decodeIfPresent(FileLink.self, forKey: .destDocument);
         self.sourceDocument = try container.decodeIfPresent(FileLink.self, forKey: .sourceDocument);
+        self.additionalItems = try container.decodeIfPresent([FileLink].self, forKey: .additionalItems);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.additionalItems != nil) {
-            try container.encode(self.additionalItems, forKey: .additionalItems);
-        }
         if (self.destDocument != nil) {
             try container.encode(self.destDocument, forKey: .destDocument);
         }
         if (self.sourceDocument != nil) {
             try container.encode(self.sourceDocument, forKey: .sourceDocument);
         }
+        if (self.additionalItems != nil) {
+            try container.encode(self.additionalItems, forKey: .additionalItems);
+        }
     }
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets additionalItems. Gets or sets the list of links to additional items (css, images etc).
-    public func setAdditionalItems(additionalItems : [FileLink]?) -> SaveResult {
-        self.additionalItems = additionalItems;
-        return self;
-    }
-
-    // Gets additionalItems. Gets or sets the list of links to additional items (css, images etc).
-    public func getAdditionalItems() -> [FileLink]? {
-        return self.additionalItems;
-    }
-
 
     // Sets destDocument. Gets or sets the link to destination document.
     public func setDestDocument(destDocument : FileLink?) -> SaveResult {
@@ -132,5 +120,17 @@ public class SaveResult : Codable, WordsApiModel {
     // Gets sourceDocument. Gets or sets the link to source document.
     public func getSourceDocument() -> FileLink? {
         return self.sourceDocument;
+    }
+
+
+    // Sets additionalItems. Gets or sets the list of links to additional items (css, images etc).
+    public func setAdditionalItems(additionalItems : [FileLink]?) -> SaveResult {
+        self.additionalItems = additionalItems;
+        return self;
+    }
+
+    // Gets additionalItems. Gets or sets the list of links to additional items (css, images etc).
+    public func getAdditionalItems() -> [FileLink]? {
+        return self.additionalItems;
     }
 }

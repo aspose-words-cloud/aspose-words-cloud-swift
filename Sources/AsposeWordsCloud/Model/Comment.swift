@@ -30,51 +30,15 @@ import Foundation
 // DTO container with a comment.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Comment : CommentLink {
-    // Field of author. DTO container with a comment.
-    private var _author : String? = nil;
+    // Field of rangeStart. DTO container with a comment.
+    private var _rangeStart : DocumentPosition? = nil;
 
-    public var author : String? {
+    public var rangeStart : DocumentPosition? {
         get {
-            return self._author;
+            return self._rangeStart;
         }
         set {
-            self._author = newValue;
-        }
-    }
-
-    // Field of content. DTO container with a comment.
-    private var _content : StoryChildNodes? = nil;
-
-    public var content : StoryChildNodes? {
-        get {
-            return self._content;
-        }
-        set {
-            self._content = newValue;
-        }
-    }
-
-    // Field of dateTime. DTO container with a comment.
-    private var _dateTime : Date? = nil;
-
-    public var dateTime : Date? {
-        get {
-            return self._dateTime;
-        }
-        set {
-            self._dateTime = newValue;
-        }
-    }
-
-    // Field of initial. DTO container with a comment.
-    private var _initial : String? = nil;
-
-    public var initial : String? {
-        get {
-            return self._initial;
-        }
-        set {
-            self._initial = newValue;
+            self._rangeStart = newValue;
         }
     }
 
@@ -90,15 +54,39 @@ public class Comment : CommentLink {
         }
     }
 
-    // Field of rangeStart. DTO container with a comment.
-    private var _rangeStart : DocumentPosition? = nil;
+    // Field of author. DTO container with a comment.
+    private var _author : String? = nil;
 
-    public var rangeStart : DocumentPosition? {
+    public var author : String? {
         get {
-            return self._rangeStart;
+            return self._author;
         }
         set {
-            self._rangeStart = newValue;
+            self._author = newValue;
+        }
+    }
+
+    // Field of initial. DTO container with a comment.
+    private var _initial : String? = nil;
+
+    public var initial : String? {
+        get {
+            return self._initial;
+        }
+        set {
+            self._initial = newValue;
+        }
+    }
+
+    // Field of dateTime. DTO container with a comment.
+    private var _dateTime : Date? = nil;
+
+    public var dateTime : Date? {
+        get {
+            return self._dateTime;
+        }
+        set {
+            self._dateTime = newValue;
         }
     }
 
@@ -114,14 +102,26 @@ public class Comment : CommentLink {
         }
     }
 
+    // Field of content. DTO container with a comment.
+    private var _content : StoryChildNodes? = nil;
+
+    public var content : StoryChildNodes? {
+        get {
+            return self._content;
+        }
+        set {
+            self._content = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case author = "Author";
-        case content = "Content";
-        case dateTime = "DateTime";
-        case initial = "Initial";
-        case rangeEnd = "RangeEnd";
         case rangeStart = "RangeStart";
+        case rangeEnd = "RangeEnd";
+        case author = "Author";
+        case initial = "Initial";
+        case dateTime = "DateTime";
         case text = "Text";
+        case content = "Content";
         case invalidCodingKey;
     }
 
@@ -132,94 +132,58 @@ public class Comment : CommentLink {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.rangeStart = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeStart);
+        self.rangeEnd = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeEnd);
         self.author = try container.decodeIfPresent(String.self, forKey: .author);
-        self.content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content);
+        self.initial = try container.decodeIfPresent(String.self, forKey: .initial);
         var raw_dateTime = try container.decodeIfPresent(String.self, forKey: .dateTime);
         if (raw_dateTime != nil) {
             raw_dateTime = raw_dateTime!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression);
             self.dateTime = ObjectSerializer.customIso8601.date(from: raw_dateTime!)!;
         }
 
-        self.initial = try container.decodeIfPresent(String.self, forKey: .initial);
-        self.rangeEnd = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeEnd);
-        self.rangeStart = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeStart);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
+        self.content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.author != nil) {
-            try container.encode(self.author, forKey: .author);
-        }
-        if (self.content != nil) {
-            try container.encode(self.content, forKey: .content);
-        }
-        if (self.dateTime != nil) {
-            try container.encode(self.dateTime, forKey: .dateTime);
-        }
-        if (self.initial != nil) {
-            try container.encode(self.initial, forKey: .initial);
+        if (self.rangeStart != nil) {
+            try container.encode(self.rangeStart, forKey: .rangeStart);
         }
         if (self.rangeEnd != nil) {
             try container.encode(self.rangeEnd, forKey: .rangeEnd);
         }
-        if (self.rangeStart != nil) {
-            try container.encode(self.rangeStart, forKey: .rangeStart);
+        if (self.author != nil) {
+            try container.encode(self.author, forKey: .author);
+        }
+        if (self.initial != nil) {
+            try container.encode(self.initial, forKey: .initial);
+        }
+        if (self.dateTime != nil) {
+            try container.encode(self.dateTime, forKey: .dateTime);
         }
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
+        }
+        if (self.content != nil) {
+            try container.encode(self.content, forKey: .content);
         }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets author. Gets or sets the author name for a comment.
-    public func setAuthor(author : String?) -> Comment {
-        self.author = author;
+    // Sets rangeStart. Gets or sets the link to comment range start node.
+    public func setRangeStart(rangeStart : DocumentPosition?) -> Comment {
+        self.rangeStart = rangeStart;
         return self;
     }
 
-    // Gets author. Gets or sets the author name for a comment.
-    public func getAuthor() -> String? {
-        return self.author;
-    }
-
-
-    // Sets content. Gets or sets the content of the comment.
-    public func setContent(content : StoryChildNodes?) -> Comment {
-        self.content = content;
-        return self;
-    }
-
-    // Gets content. Gets or sets the content of the comment.
-    public func getContent() -> StoryChildNodes? {
-        return self.content;
-    }
-
-
-    // Sets dateTime. Gets or sets the date and time that the comment was made.
-    public func setDateTime(dateTime : Date?) -> Comment {
-        self.dateTime = dateTime;
-        return self;
-    }
-
-    // Gets dateTime. Gets or sets the date and time that the comment was made.
-    public func getDateTime() -> Date? {
-        return self.dateTime;
-    }
-
-
-    // Sets initial. Gets or sets the initials of the user associated with a specific comment.
-    public func setInitial(initial : String?) -> Comment {
-        self.initial = initial;
-        return self;
-    }
-
-    // Gets initial. Gets or sets the initials of the user associated with a specific comment.
-    public func getInitial() -> String? {
-        return self.initial;
+    // Gets rangeStart. Gets or sets the link to comment range start node.
+    public func getRangeStart() -> DocumentPosition? {
+        return self.rangeStart;
     }
 
 
@@ -235,15 +199,39 @@ public class Comment : CommentLink {
     }
 
 
-    // Sets rangeStart. Gets or sets the link to comment range start node.
-    public func setRangeStart(rangeStart : DocumentPosition?) -> Comment {
-        self.rangeStart = rangeStart;
+    // Sets author. Gets or sets the author name for a comment.
+    public func setAuthor(author : String?) -> Comment {
+        self.author = author;
         return self;
     }
 
-    // Gets rangeStart. Gets or sets the link to comment range start node.
-    public func getRangeStart() -> DocumentPosition? {
-        return self.rangeStart;
+    // Gets author. Gets or sets the author name for a comment.
+    public func getAuthor() -> String? {
+        return self.author;
+    }
+
+
+    // Sets initial. Gets or sets the initials of the user associated with a specific comment.
+    public func setInitial(initial : String?) -> Comment {
+        self.initial = initial;
+        return self;
+    }
+
+    // Gets initial. Gets or sets the initials of the user associated with a specific comment.
+    public func getInitial() -> String? {
+        return self.initial;
+    }
+
+
+    // Sets dateTime. Gets or sets the date and time that the comment was made.
+    public func setDateTime(dateTime : Date?) -> Comment {
+        self.dateTime = dateTime;
+        return self;
+    }
+
+    // Gets dateTime. Gets or sets the date and time that the comment was made.
+    public func getDateTime() -> Date? {
+        return self.dateTime;
     }
 
 
@@ -256,5 +244,17 @@ public class Comment : CommentLink {
     // Gets text. Gets or sets text of the comment.
     public func getText() -> String? {
         return self.text;
+    }
+
+
+    // Sets content. Gets or sets the content of the comment.
+    public func setContent(content : StoryChildNodes?) -> Comment {
+        self.content = content;
+        return self;
+    }
+
+    // Gets content. Gets or sets the content of the comment.
+    public func getContent() -> StoryChildNodes? {
+        return self.content;
     }
 }

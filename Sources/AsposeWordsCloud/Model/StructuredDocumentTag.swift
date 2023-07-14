@@ -46,6 +46,23 @@ public class StructuredDocumentTag : NodeLink {
         case hidden = "Hidden"
     }
 
+    // Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store.
+    // Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
+    public enum DateStorageFormat : String, Codable
+    {
+        // Enum value "date"
+        case date = "Date"
+
+        // Enum value "dateTime"
+        case dateTime = "DateTime"
+
+        // Enum value "_default"
+        case _default = "Default"
+
+        // Enum value "text"
+        case text = "Text"
+    }
+
     // Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
     public enum CalendarType : String, Codable
     {
@@ -93,23 +110,6 @@ public class StructuredDocumentTag : NodeLink {
 
         // Enum value "thai"
         case thai = "Thai"
-    }
-
-    // Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store.
-    // Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
-    public enum DateStorageFormat : String, Codable
-    {
-        // Enum value "date"
-        case date = "Date"
-
-        // Enum value "dateTime"
-        case dateTime = "DateTime"
-
-        // Enum value "_default"
-        case _default = "Default"
-
-        // Enum value "text"
-        case text = "Text"
     }
 
     // Gets or sets the level at which this SDT occurs in the document tree.
@@ -186,51 +186,15 @@ public class StructuredDocumentTag : NodeLink {
         case entityPicker = "EntityPicker"
     }
 
-    // Field of appearance. DTO container with a StructuredDocumentTag.
-    private var _appearance : Appearance? = nil;
+    // Field of listItems. DTO container with a StructuredDocumentTag.
+    private var _listItems : [StructuredDocumentTagListItem]? = nil;
 
-    public var appearance : Appearance? {
+    public var listItems : [StructuredDocumentTagListItem]? {
         get {
-            return self._appearance;
+            return self._listItems;
         }
         set {
-            self._appearance = newValue;
-        }
-    }
-
-    // Field of buildingBlockCategory. DTO container with a StructuredDocumentTag.
-    private var _buildingBlockCategory : String? = nil;
-
-    public var buildingBlockCategory : String? {
-        get {
-            return self._buildingBlockCategory;
-        }
-        set {
-            self._buildingBlockCategory = newValue;
-        }
-    }
-
-    // Field of buildingBlockGallery. DTO container with a StructuredDocumentTag.
-    private var _buildingBlockGallery : String? = nil;
-
-    public var buildingBlockGallery : String? {
-        get {
-            return self._buildingBlockGallery;
-        }
-        set {
-            self._buildingBlockGallery = newValue;
-        }
-    }
-
-    // Field of calendarType. DTO container with a StructuredDocumentTag.
-    private var _calendarType : CalendarType? = nil;
-
-    public var calendarType : CalendarType? {
-        get {
-            return self._calendarType;
-        }
-        set {
-            self._calendarType = newValue;
+            self._listItems = newValue;
         }
     }
 
@@ -246,27 +210,15 @@ public class StructuredDocumentTag : NodeLink {
         }
     }
 
-    // Field of color. DTO container with a StructuredDocumentTag.
-    private var _color : String? = nil;
+    // Field of appearance. DTO container with a StructuredDocumentTag.
+    private var _appearance : Appearance? = nil;
 
-    public var color : String? {
+    public var appearance : Appearance? {
         get {
-            return self._color;
+            return self._appearance;
         }
         set {
-            self._color = newValue;
-        }
-    }
-
-    // Field of dateDisplayFormat. DTO container with a StructuredDocumentTag.
-    private var _dateDisplayFormat : String? = nil;
-
-    public var dateDisplayFormat : String? {
-        get {
-            return self._dateDisplayFormat;
-        }
-        set {
-            self._dateDisplayFormat = newValue;
+            self._appearance = newValue;
         }
     }
 
@@ -282,15 +234,15 @@ public class StructuredDocumentTag : NodeLink {
         }
     }
 
-    // Field of dateStorageFormat. DTO container with a StructuredDocumentTag.
-    private var _dateStorageFormat : DateStorageFormat? = nil;
+    // Field of dateDisplayFormat. DTO container with a StructuredDocumentTag.
+    private var _dateDisplayFormat : String? = nil;
 
-    public var dateStorageFormat : DateStorageFormat? {
+    public var dateDisplayFormat : String? {
         get {
-            return self._dateStorageFormat;
+            return self._dateDisplayFormat;
         }
         set {
-            self._dateStorageFormat = newValue;
+            self._dateDisplayFormat = newValue;
         }
     }
 
@@ -306,27 +258,99 @@ public class StructuredDocumentTag : NodeLink {
         }
     }
 
-    // Field of id. DTO container with a StructuredDocumentTag.
-    private var _id : Int? = nil;
+    // Field of title. DTO container with a StructuredDocumentTag.
+    private var _title : String? = nil;
 
-    public var id : Int? {
+    public var title : String? {
         get {
-            return self._id;
+            return self._title;
         }
         set {
-            self._id = newValue;
+            self._title = newValue;
         }
     }
 
-    // Field of isShowingPlaceholderText. DTO container with a StructuredDocumentTag.
-    private var _isShowingPlaceholderText : Bool? = nil;
+    // Field of dateStorageFormat. DTO container with a StructuredDocumentTag.
+    private var _dateStorageFormat : DateStorageFormat? = nil;
 
-    public var isShowingPlaceholderText : Bool? {
+    public var dateStorageFormat : DateStorageFormat? {
         get {
-            return self._isShowingPlaceholderText;
+            return self._dateStorageFormat;
         }
         set {
-            self._isShowingPlaceholderText = newValue;
+            self._dateStorageFormat = newValue;
+        }
+    }
+
+    // Field of buildingBlockGallery. DTO container with a StructuredDocumentTag.
+    private var _buildingBlockGallery : String? = nil;
+
+    public var buildingBlockGallery : String? {
+        get {
+            return self._buildingBlockGallery;
+        }
+        set {
+            self._buildingBlockGallery = newValue;
+        }
+    }
+
+    // Field of buildingBlockCategory. DTO container with a StructuredDocumentTag.
+    private var _buildingBlockCategory : String? = nil;
+
+    public var buildingBlockCategory : String? {
+        get {
+            return self._buildingBlockCategory;
+        }
+        set {
+            self._buildingBlockCategory = newValue;
+        }
+    }
+
+    // Field of multiline. DTO container with a StructuredDocumentTag.
+    private var _multiline : Bool? = nil;
+
+    public var multiline : Bool? {
+        get {
+            return self._multiline;
+        }
+        set {
+            self._multiline = newValue;
+        }
+    }
+
+    // Field of color. DTO container with a StructuredDocumentTag.
+    private var _color : String? = nil;
+
+    public var color : String? {
+        get {
+            return self._color;
+        }
+        set {
+            self._color = newValue;
+        }
+    }
+
+    // Field of styleName. DTO container with a StructuredDocumentTag.
+    private var _styleName : String? = nil;
+
+    public var styleName : String? {
+        get {
+            return self._styleName;
+        }
+        set {
+            self._styleName = newValue;
+        }
+    }
+
+    // Field of calendarType. DTO container with a StructuredDocumentTag.
+    private var _calendarType : CalendarType? = nil;
+
+    public var calendarType : CalendarType? {
+        get {
+            return self._calendarType;
+        }
+        set {
+            self._calendarType = newValue;
         }
     }
 
@@ -354,15 +378,27 @@ public class StructuredDocumentTag : NodeLink {
         }
     }
 
-    // Field of listItems. DTO container with a StructuredDocumentTag.
-    private var _listItems : [StructuredDocumentTagListItem]? = nil;
+    // Field of sdtType. DTO container with a StructuredDocumentTag.
+    private var _sdtType : SdtType? = nil;
 
-    public var listItems : [StructuredDocumentTagListItem]? {
+    public var sdtType : SdtType? {
         get {
-            return self._listItems;
+            return self._sdtType;
         }
         set {
-            self._listItems = newValue;
+            self._sdtType = newValue;
+        }
+    }
+
+    // Field of placeholderName. DTO container with a StructuredDocumentTag.
+    private var _placeholderName : String? = nil;
+
+    public var placeholderName : String? {
+        get {
+            return self._placeholderName;
+        }
+        set {
+            self._placeholderName = newValue;
         }
     }
 
@@ -390,51 +426,15 @@ public class StructuredDocumentTag : NodeLink {
         }
     }
 
-    // Field of multiline. DTO container with a StructuredDocumentTag.
-    private var _multiline : Bool? = nil;
+    // Field of isShowingPlaceholderText. DTO container with a StructuredDocumentTag.
+    private var _isShowingPlaceholderText : Bool? = nil;
 
-    public var multiline : Bool? {
+    public var isShowingPlaceholderText : Bool? {
         get {
-            return self._multiline;
+            return self._isShowingPlaceholderText;
         }
         set {
-            self._multiline = newValue;
-        }
-    }
-
-    // Field of placeholderName. DTO container with a StructuredDocumentTag.
-    private var _placeholderName : String? = nil;
-
-    public var placeholderName : String? {
-        get {
-            return self._placeholderName;
-        }
-        set {
-            self._placeholderName = newValue;
-        }
-    }
-
-    // Field of sdtType. DTO container with a StructuredDocumentTag.
-    private var _sdtType : SdtType? = nil;
-
-    public var sdtType : SdtType? {
-        get {
-            return self._sdtType;
-        }
-        set {
-            self._sdtType = newValue;
-        }
-    }
-
-    // Field of styleName. DTO container with a StructuredDocumentTag.
-    private var _styleName : String? = nil;
-
-    public var styleName : String? {
-        get {
-            return self._styleName;
-        }
-        set {
-            self._styleName = newValue;
+            self._isShowingPlaceholderText = newValue;
         }
     }
 
@@ -450,15 +450,15 @@ public class StructuredDocumentTag : NodeLink {
         }
     }
 
-    // Field of title. DTO container with a StructuredDocumentTag.
-    private var _title : String? = nil;
+    // Field of id. DTO container with a StructuredDocumentTag.
+    private var _id : Int? = nil;
 
-    public var title : String? {
+    public var id : Int? {
         get {
-            return self._title;
+            return self._id;
         }
         set {
-            self._title = newValue;
+            self._id = newValue;
         }
     }
 
@@ -475,29 +475,29 @@ public class StructuredDocumentTag : NodeLink {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case appearance = "Appearance";
-        case buildingBlockCategory = "BuildingBlockCategory";
-        case buildingBlockGallery = "BuildingBlockGallery";
-        case calendarType = "CalendarType";
+        case listItems = "ListItems";
         case checked = "Checked";
-        case color = "Color";
-        case dateDisplayFormat = "DateDisplayFormat";
+        case appearance = "Appearance";
         case dateDisplayLocale = "DateDisplayLocale";
-        case dateStorageFormat = "DateStorageFormat";
+        case dateDisplayFormat = "DateDisplayFormat";
         case fullDate = "FullDate";
-        case id = "Id";
-        case isShowingPlaceholderText = "IsShowingPlaceholderText";
+        case title = "Title";
+        case dateStorageFormat = "DateStorageFormat";
+        case buildingBlockGallery = "BuildingBlockGallery";
+        case buildingBlockCategory = "BuildingBlockCategory";
+        case multiline = "Multiline";
+        case color = "Color";
+        case styleName = "StyleName";
+        case calendarType = "CalendarType";
         case isTemporary = "IsTemporary";
         case level = "Level";
-        case listItems = "ListItems";
+        case sdtType = "SdtType";
+        case placeholderName = "PlaceholderName";
         case lockContentControl = "LockContentControl";
         case lockContents = "LockContents";
-        case multiline = "Multiline";
-        case placeholderName = "PlaceholderName";
-        case sdtType = "SdtType";
-        case styleName = "StyleName";
+        case isShowingPlaceholderText = "IsShowingPlaceholderText";
         case tag = "Tag";
-        case title = "Title";
+        case id = "Id";
         case wordOpenXML = "WordOpenXML";
         case invalidCodingKey;
     }
@@ -509,75 +509,81 @@ public class StructuredDocumentTag : NodeLink {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.appearance = try container.decodeIfPresent(Appearance.self, forKey: .appearance);
-        self.buildingBlockCategory = try container.decodeIfPresent(String.self, forKey: .buildingBlockCategory);
-        self.buildingBlockGallery = try container.decodeIfPresent(String.self, forKey: .buildingBlockGallery);
-        self.calendarType = try container.decodeIfPresent(CalendarType.self, forKey: .calendarType);
+        self.listItems = try container.decodeIfPresent([StructuredDocumentTagListItem].self, forKey: .listItems);
         self.checked = try container.decodeIfPresent(Bool.self, forKey: .checked);
-        self.color = try container.decodeIfPresent(String.self, forKey: .color);
-        self.dateDisplayFormat = try container.decodeIfPresent(String.self, forKey: .dateDisplayFormat);
+        self.appearance = try container.decodeIfPresent(Appearance.self, forKey: .appearance);
         self.dateDisplayLocale = try container.decodeIfPresent(Int.self, forKey: .dateDisplayLocale);
-        self.dateStorageFormat = try container.decodeIfPresent(DateStorageFormat.self, forKey: .dateStorageFormat);
+        self.dateDisplayFormat = try container.decodeIfPresent(String.self, forKey: .dateDisplayFormat);
         var raw_fullDate = try container.decodeIfPresent(String.self, forKey: .fullDate);
         if (raw_fullDate != nil) {
             raw_fullDate = raw_fullDate!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression);
             self.fullDate = ObjectSerializer.customIso8601.date(from: raw_fullDate!)!;
         }
 
-        self.id = try container.decodeIfPresent(Int.self, forKey: .id);
-        self.isShowingPlaceholderText = try container.decodeIfPresent(Bool.self, forKey: .isShowingPlaceholderText);
+        self.title = try container.decodeIfPresent(String.self, forKey: .title);
+        self.dateStorageFormat = try container.decodeIfPresent(DateStorageFormat.self, forKey: .dateStorageFormat);
+        self.buildingBlockGallery = try container.decodeIfPresent(String.self, forKey: .buildingBlockGallery);
+        self.buildingBlockCategory = try container.decodeIfPresent(String.self, forKey: .buildingBlockCategory);
+        self.multiline = try container.decodeIfPresent(Bool.self, forKey: .multiline);
+        self.color = try container.decodeIfPresent(String.self, forKey: .color);
+        self.styleName = try container.decodeIfPresent(String.self, forKey: .styleName);
+        self.calendarType = try container.decodeIfPresent(CalendarType.self, forKey: .calendarType);
         self.isTemporary = try container.decodeIfPresent(Bool.self, forKey: .isTemporary);
         self.level = try container.decodeIfPresent(Level.self, forKey: .level);
-        self.listItems = try container.decodeIfPresent([StructuredDocumentTagListItem].self, forKey: .listItems);
+        self.sdtType = try container.decodeIfPresent(SdtType.self, forKey: .sdtType);
+        self.placeholderName = try container.decodeIfPresent(String.self, forKey: .placeholderName);
         self.lockContentControl = try container.decodeIfPresent(Bool.self, forKey: .lockContentControl);
         self.lockContents = try container.decodeIfPresent(Bool.self, forKey: .lockContents);
-        self.multiline = try container.decodeIfPresent(Bool.self, forKey: .multiline);
-        self.placeholderName = try container.decodeIfPresent(String.self, forKey: .placeholderName);
-        self.sdtType = try container.decodeIfPresent(SdtType.self, forKey: .sdtType);
-        self.styleName = try container.decodeIfPresent(String.self, forKey: .styleName);
+        self.isShowingPlaceholderText = try container.decodeIfPresent(Bool.self, forKey: .isShowingPlaceholderText);
         self.tag = try container.decodeIfPresent(String.self, forKey: .tag);
-        self.title = try container.decodeIfPresent(String.self, forKey: .title);
+        self.id = try container.decodeIfPresent(Int.self, forKey: .id);
         self.wordOpenXML = try container.decodeIfPresent(String.self, forKey: .wordOpenXML);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.appearance != nil) {
-            try container.encode(self.appearance, forKey: .appearance);
-        }
-        if (self.buildingBlockCategory != nil) {
-            try container.encode(self.buildingBlockCategory, forKey: .buildingBlockCategory);
-        }
-        if (self.buildingBlockGallery != nil) {
-            try container.encode(self.buildingBlockGallery, forKey: .buildingBlockGallery);
-        }
-        if (self.calendarType != nil) {
-            try container.encode(self.calendarType, forKey: .calendarType);
+        if (self.listItems != nil) {
+            try container.encode(self.listItems, forKey: .listItems);
         }
         if (self.checked != nil) {
             try container.encode(self.checked, forKey: .checked);
         }
-        if (self.color != nil) {
-            try container.encode(self.color, forKey: .color);
-        }
-        if (self.dateDisplayFormat != nil) {
-            try container.encode(self.dateDisplayFormat, forKey: .dateDisplayFormat);
+        if (self.appearance != nil) {
+            try container.encode(self.appearance, forKey: .appearance);
         }
         if (self.dateDisplayLocale != nil) {
             try container.encode(self.dateDisplayLocale, forKey: .dateDisplayLocale);
         }
-        if (self.dateStorageFormat != nil) {
-            try container.encode(self.dateStorageFormat, forKey: .dateStorageFormat);
+        if (self.dateDisplayFormat != nil) {
+            try container.encode(self.dateDisplayFormat, forKey: .dateDisplayFormat);
         }
         if (self.fullDate != nil) {
             try container.encode(self.fullDate, forKey: .fullDate);
         }
-        if (self.id != nil) {
-            try container.encode(self.id, forKey: .id);
+        if (self.title != nil) {
+            try container.encode(self.title, forKey: .title);
         }
-        if (self.isShowingPlaceholderText != nil) {
-            try container.encode(self.isShowingPlaceholderText, forKey: .isShowingPlaceholderText);
+        if (self.dateStorageFormat != nil) {
+            try container.encode(self.dateStorageFormat, forKey: .dateStorageFormat);
+        }
+        if (self.buildingBlockGallery != nil) {
+            try container.encode(self.buildingBlockGallery, forKey: .buildingBlockGallery);
+        }
+        if (self.buildingBlockCategory != nil) {
+            try container.encode(self.buildingBlockCategory, forKey: .buildingBlockCategory);
+        }
+        if (self.multiline != nil) {
+            try container.encode(self.multiline, forKey: .multiline);
+        }
+        if (self.color != nil) {
+            try container.encode(self.color, forKey: .color);
+        }
+        if (self.styleName != nil) {
+            try container.encode(self.styleName, forKey: .styleName);
+        }
+        if (self.calendarType != nil) {
+            try container.encode(self.calendarType, forKey: .calendarType);
         }
         if (self.isTemporary != nil) {
             try container.encode(self.isTemporary, forKey: .isTemporary);
@@ -585,8 +591,11 @@ public class StructuredDocumentTag : NodeLink {
         if (self.level != nil) {
             try container.encode(self.level, forKey: .level);
         }
-        if (self.listItems != nil) {
-            try container.encode(self.listItems, forKey: .listItems);
+        if (self.sdtType != nil) {
+            try container.encode(self.sdtType, forKey: .sdtType);
+        }
+        if (self.placeholderName != nil) {
+            try container.encode(self.placeholderName, forKey: .placeholderName);
         }
         if (self.lockContentControl != nil) {
             try container.encode(self.lockContentControl, forKey: .lockContentControl);
@@ -594,23 +603,14 @@ public class StructuredDocumentTag : NodeLink {
         if (self.lockContents != nil) {
             try container.encode(self.lockContents, forKey: .lockContents);
         }
-        if (self.multiline != nil) {
-            try container.encode(self.multiline, forKey: .multiline);
-        }
-        if (self.placeholderName != nil) {
-            try container.encode(self.placeholderName, forKey: .placeholderName);
-        }
-        if (self.sdtType != nil) {
-            try container.encode(self.sdtType, forKey: .sdtType);
-        }
-        if (self.styleName != nil) {
-            try container.encode(self.styleName, forKey: .styleName);
+        if (self.isShowingPlaceholderText != nil) {
+            try container.encode(self.isShowingPlaceholderText, forKey: .isShowingPlaceholderText);
         }
         if (self.tag != nil) {
             try container.encode(self.tag, forKey: .tag);
         }
-        if (self.title != nil) {
-            try container.encode(self.title, forKey: .title);
+        if (self.id != nil) {
+            try container.encode(self.id, forKey: .id);
         }
         if (self.wordOpenXML != nil) {
             try container.encode(self.wordOpenXML, forKey: .wordOpenXML);
@@ -620,51 +620,15 @@ public class StructuredDocumentTag : NodeLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets appearance. Gets or sets the appearance of a structured document tag.
-    public func setAppearance(appearance : Appearance?) -> StructuredDocumentTag {
-        self.appearance = appearance;
+    // Sets listItems. Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT.
+    public func setListItems(listItems : [StructuredDocumentTagListItem]?) -> StructuredDocumentTag {
+        self.listItems = listItems;
         return self;
     }
 
-    // Gets appearance. Gets or sets the appearance of a structured document tag.
-    public func getAppearance() -> Appearance? {
-        return self.appearance;
-    }
-
-
-    // Sets buildingBlockCategory. Gets or sets category of building block for this SDT node. Can not be null.
-    public func setBuildingBlockCategory(buildingBlockCategory : String?) -> StructuredDocumentTag {
-        self.buildingBlockCategory = buildingBlockCategory;
-        return self;
-    }
-
-    // Gets buildingBlockCategory. Gets or sets category of building block for this SDT node. Can not be null.
-    public func getBuildingBlockCategory() -> String? {
-        return self.buildingBlockCategory;
-    }
-
-
-    // Sets buildingBlockGallery. Gets or sets type of building block for this SDT. Can not be null.
-    public func setBuildingBlockGallery(buildingBlockGallery : String?) -> StructuredDocumentTag {
-        self.buildingBlockGallery = buildingBlockGallery;
-        return self;
-    }
-
-    // Gets buildingBlockGallery. Gets or sets type of building block for this SDT. Can not be null.
-    public func getBuildingBlockGallery() -> String? {
-        return self.buildingBlockGallery;
-    }
-
-
-    // Sets calendarType. Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
-    public func setCalendarType(calendarType : CalendarType?) -> StructuredDocumentTag {
-        self.calendarType = calendarType;
-        return self;
-    }
-
-    // Gets calendarType. Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
-    public func getCalendarType() -> CalendarType? {
-        return self.calendarType;
+    // Gets listItems. Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT.
+    public func getListItems() -> [StructuredDocumentTagListItem]? {
+        return self.listItems;
     }
 
 
@@ -680,27 +644,15 @@ public class StructuredDocumentTag : NodeLink {
     }
 
 
-    // Sets color. Gets or sets the color of the structured document tag.
-    public func setColor(color : String?) -> StructuredDocumentTag {
-        self.color = color;
+    // Sets appearance. Gets or sets the appearance of a structured document tag.
+    public func setAppearance(appearance : Appearance?) -> StructuredDocumentTag {
+        self.appearance = appearance;
         return self;
     }
 
-    // Gets color. Gets or sets the color of the structured document tag.
-    public func getColor() -> String? {
-        return self.color;
-    }
-
-
-    // Sets dateDisplayFormat. Gets or sets String that represents the format in which dates are displayed. Can not be null. The dates for English (U.S.) is "mm/dd/yyyy".
-    public func setDateDisplayFormat(dateDisplayFormat : String?) -> StructuredDocumentTag {
-        self.dateDisplayFormat = dateDisplayFormat;
-        return self;
-    }
-
-    // Gets dateDisplayFormat. Gets or sets String that represents the format in which dates are displayed. Can not be null. The dates for English (U.S.) is "mm/dd/yyyy".
-    public func getDateDisplayFormat() -> String? {
-        return self.dateDisplayFormat;
+    // Gets appearance. Gets or sets the appearance of a structured document tag.
+    public func getAppearance() -> Appearance? {
+        return self.appearance;
     }
 
 
@@ -716,15 +668,15 @@ public class StructuredDocumentTag : NodeLink {
     }
 
 
-    // Sets dateStorageFormat. Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store. Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
-    public func setDateStorageFormat(dateStorageFormat : DateStorageFormat?) -> StructuredDocumentTag {
-        self.dateStorageFormat = dateStorageFormat;
+    // Sets dateDisplayFormat. Gets or sets String that represents the format in which dates are displayed. Can not be null. The dates for English (U.S.) is "mm/dd/yyyy".
+    public func setDateDisplayFormat(dateDisplayFormat : String?) -> StructuredDocumentTag {
+        self.dateDisplayFormat = dateDisplayFormat;
         return self;
     }
 
-    // Gets dateStorageFormat. Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store. Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
-    public func getDateStorageFormat() -> DateStorageFormat? {
-        return self.dateStorageFormat;
+    // Gets dateDisplayFormat. Gets or sets String that represents the format in which dates are displayed. Can not be null. The dates for English (U.S.) is "mm/dd/yyyy".
+    public func getDateDisplayFormat() -> String? {
+        return self.dateDisplayFormat;
     }
 
 
@@ -740,27 +692,99 @@ public class StructuredDocumentTag : NodeLink {
     }
 
 
-    // Sets id. Gets or sets a unique read-only persistent numerical Id for this SDT.
-    public func setId(id : Int?) -> StructuredDocumentTag {
-        self.id = id;
+    // Sets title. Gets or sets the friendly name associated with this SDT. Can not be null.
+    public func setTitle(title : String?) -> StructuredDocumentTag {
+        self.title = title;
         return self;
     }
 
-    // Gets id. Gets or sets a unique read-only persistent numerical Id for this SDT.
-    public func getId() -> Int? {
-        return self.id;
+    // Gets title. Gets or sets the friendly name associated with this SDT. Can not be null.
+    public func getTitle() -> String? {
+        return self.title;
     }
 
 
-    // Sets isShowingPlaceholderText. Gets or sets a value indicating whether the content of this SDT shall be interpreted to contain placeholder text (as opposed to regular text contents within the SDT). If set to true, this state shall be resumed (showing placeholder text) upon opening his document.
-    public func setIsShowingPlaceholderText(isShowingPlaceholderText : Bool?) -> StructuredDocumentTag {
-        self.isShowingPlaceholderText = isShowingPlaceholderText;
+    // Sets dateStorageFormat. Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store. Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
+    public func setDateStorageFormat(dateStorageFormat : DateStorageFormat?) -> StructuredDocumentTag {
+        self.dateStorageFormat = dateStorageFormat;
         return self;
     }
 
-    // Gets isShowingPlaceholderText. Gets or sets a value indicating whether the content of this SDT shall be interpreted to contain placeholder text (as opposed to regular text contents within the SDT). If set to true, this state shall be resumed (showing placeholder text) upon opening his document.
-    public func getIsShowingPlaceholderText() -> Bool? {
-        return self.isShowingPlaceholderText;
+    // Gets dateStorageFormat. Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store. Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
+    public func getDateStorageFormat() -> DateStorageFormat? {
+        return self.dateStorageFormat;
+    }
+
+
+    // Sets buildingBlockGallery. Gets or sets type of building block for this SDT. Can not be null.
+    public func setBuildingBlockGallery(buildingBlockGallery : String?) -> StructuredDocumentTag {
+        self.buildingBlockGallery = buildingBlockGallery;
+        return self;
+    }
+
+    // Gets buildingBlockGallery. Gets or sets type of building block for this SDT. Can not be null.
+    public func getBuildingBlockGallery() -> String? {
+        return self.buildingBlockGallery;
+    }
+
+
+    // Sets buildingBlockCategory. Gets or sets category of building block for this SDT node. Can not be null.
+    public func setBuildingBlockCategory(buildingBlockCategory : String?) -> StructuredDocumentTag {
+        self.buildingBlockCategory = buildingBlockCategory;
+        return self;
+    }
+
+    // Gets buildingBlockCategory. Gets or sets category of building block for this SDT node. Can not be null.
+    public func getBuildingBlockCategory() -> String? {
+        return self.buildingBlockCategory;
+    }
+
+
+    // Sets multiline. Gets or sets a value indicating whether this SDT allows multiple lines of text.
+    public func setMultiline(multiline : Bool?) -> StructuredDocumentTag {
+        self.multiline = multiline;
+        return self;
+    }
+
+    // Gets multiline. Gets or sets a value indicating whether this SDT allows multiple lines of text.
+    public func getMultiline() -> Bool? {
+        return self.multiline;
+    }
+
+
+    // Sets color. Gets or sets the color of the structured document tag.
+    public func setColor(color : String?) -> StructuredDocumentTag {
+        self.color = color;
+        return self;
+    }
+
+    // Gets color. Gets or sets the color of the structured document tag.
+    public func getColor() -> String? {
+        return self.color;
+    }
+
+
+    // Sets styleName. Gets or sets the name of the style applied to the structured document tag.
+    public func setStyleName(styleName : String?) -> StructuredDocumentTag {
+        self.styleName = styleName;
+        return self;
+    }
+
+    // Gets styleName. Gets or sets the name of the style applied to the structured document tag.
+    public func getStyleName() -> String? {
+        return self.styleName;
+    }
+
+
+    // Sets calendarType. Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
+    public func setCalendarType(calendarType : CalendarType?) -> StructuredDocumentTag {
+        self.calendarType = calendarType;
+        return self;
+    }
+
+    // Gets calendarType. Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
+    public func getCalendarType() -> CalendarType? {
+        return self.calendarType;
     }
 
 
@@ -788,15 +812,27 @@ public class StructuredDocumentTag : NodeLink {
     }
 
 
-    // Sets listItems. Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT.
-    public func setListItems(listItems : [StructuredDocumentTagListItem]?) -> StructuredDocumentTag {
-        self.listItems = listItems;
+    // Sets sdtType. Gets or sets type of this Structured document tag.
+    public func setSdtType(sdtType : SdtType?) -> StructuredDocumentTag {
+        self.sdtType = sdtType;
         return self;
     }
 
-    // Gets listItems. Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT.
-    public func getListItems() -> [StructuredDocumentTagListItem]? {
-        return self.listItems;
+    // Gets sdtType. Gets or sets type of this Structured document tag.
+    public func getSdtType() -> SdtType? {
+        return self.sdtType;
+    }
+
+
+    // Sets placeholderName. Gets or sets Name of the Aspose.Words.BuildingBlocks.BuildingBlock containing placeholder text. Aspose.Words.BuildingBlocks.BuildingBlock with this name Aspose.Words.BuildingBlocks.BuildingBlock.Name has to be present in the Aspose.Words.Document.GlossaryDocument otherwise System.InvalidOperationException will occur.
+    public func setPlaceholderName(placeholderName : String?) -> StructuredDocumentTag {
+        self.placeholderName = placeholderName;
+        return self;
+    }
+
+    // Gets placeholderName. Gets or sets Name of the Aspose.Words.BuildingBlocks.BuildingBlock containing placeholder text. Aspose.Words.BuildingBlocks.BuildingBlock with this name Aspose.Words.BuildingBlocks.BuildingBlock.Name has to be present in the Aspose.Words.Document.GlossaryDocument otherwise System.InvalidOperationException will occur.
+    public func getPlaceholderName() -> String? {
+        return self.placeholderName;
     }
 
 
@@ -824,51 +860,15 @@ public class StructuredDocumentTag : NodeLink {
     }
 
 
-    // Sets multiline. Gets or sets a value indicating whether this SDT allows multiple lines of text.
-    public func setMultiline(multiline : Bool?) -> StructuredDocumentTag {
-        self.multiline = multiline;
+    // Sets isShowingPlaceholderText. Gets or sets a value indicating whether the content of this SDT shall be interpreted to contain placeholder text (as opposed to regular text contents within the SDT). If set to true, this state shall be resumed (showing placeholder text) upon opening his document.
+    public func setIsShowingPlaceholderText(isShowingPlaceholderText : Bool?) -> StructuredDocumentTag {
+        self.isShowingPlaceholderText = isShowingPlaceholderText;
         return self;
     }
 
-    // Gets multiline. Gets or sets a value indicating whether this SDT allows multiple lines of text.
-    public func getMultiline() -> Bool? {
-        return self.multiline;
-    }
-
-
-    // Sets placeholderName. Gets or sets Name of the Aspose.Words.BuildingBlocks.BuildingBlock containing placeholder text. Aspose.Words.BuildingBlocks.BuildingBlock with this name Aspose.Words.BuildingBlocks.BuildingBlock.Name has to be present in the Aspose.Words.Document.GlossaryDocument otherwise System.InvalidOperationException will occur.
-    public func setPlaceholderName(placeholderName : String?) -> StructuredDocumentTag {
-        self.placeholderName = placeholderName;
-        return self;
-    }
-
-    // Gets placeholderName. Gets or sets Name of the Aspose.Words.BuildingBlocks.BuildingBlock containing placeholder text. Aspose.Words.BuildingBlocks.BuildingBlock with this name Aspose.Words.BuildingBlocks.BuildingBlock.Name has to be present in the Aspose.Words.Document.GlossaryDocument otherwise System.InvalidOperationException will occur.
-    public func getPlaceholderName() -> String? {
-        return self.placeholderName;
-    }
-
-
-    // Sets sdtType. Gets or sets type of this Structured document tag.
-    public func setSdtType(sdtType : SdtType?) -> StructuredDocumentTag {
-        self.sdtType = sdtType;
-        return self;
-    }
-
-    // Gets sdtType. Gets or sets type of this Structured document tag.
-    public func getSdtType() -> SdtType? {
-        return self.sdtType;
-    }
-
-
-    // Sets styleName. Gets or sets the name of the style applied to the structured document tag.
-    public func setStyleName(styleName : String?) -> StructuredDocumentTag {
-        self.styleName = styleName;
-        return self;
-    }
-
-    // Gets styleName. Gets or sets the name of the style applied to the structured document tag.
-    public func getStyleName() -> String? {
-        return self.styleName;
+    // Gets isShowingPlaceholderText. Gets or sets a value indicating whether the content of this SDT shall be interpreted to contain placeholder text (as opposed to regular text contents within the SDT). If set to true, this state shall be resumed (showing placeholder text) upon opening his document.
+    public func getIsShowingPlaceholderText() -> Bool? {
+        return self.isShowingPlaceholderText;
     }
 
 
@@ -884,15 +884,15 @@ public class StructuredDocumentTag : NodeLink {
     }
 
 
-    // Sets title. Gets or sets the friendly name associated with this SDT. Can not be null.
-    public func setTitle(title : String?) -> StructuredDocumentTag {
-        self.title = title;
+    // Sets id. Gets or sets a unique read-only persistent numerical Id for this SDT.
+    public func setId(id : Int?) -> StructuredDocumentTag {
+        self.id = id;
         return self;
     }
 
-    // Gets title. Gets or sets the friendly name associated with this SDT. Can not be null.
-    public func getTitle() -> String? {
-        return self.title;
+    // Gets id. Gets or sets a unique read-only persistent numerical Id for this SDT.
+    public func getId() -> Int? {
+        return self.id;
     }
 
 

@@ -158,15 +158,6 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
     }
 
-    // Field of saveFormat. base container class for save options data.
-    private final let _saveFormat : String? = nil;
-
-    public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
-
     // Field of updateCreatedTimeProperty. base container class for save options data.
     private var _updateCreatedTimeProperty : Bool? = nil;
 
@@ -239,6 +230,15 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
     }
 
+    // Field of saveFormat. base container class for save options data.
+    private final let _saveFormat : String? = nil;
+
+    public var saveFormat : String? {
+        get {
+            return self._saveFormat;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case allowEmbeddingPostScriptFonts = "AllowEmbeddingPostScriptFonts";
         case customTimeZoneInfoData = "CustomTimeZoneInfoData";
@@ -247,13 +247,13 @@ public class SaveOptionsData : Codable, WordsApiModel {
         case dmlRenderingMode = "DmlRenderingMode";
         case fileName = "FileName";
         case imlRenderingMode = "ImlRenderingMode";
-        case saveFormat = "SaveFormat";
         case updateCreatedTimeProperty = "UpdateCreatedTimeProperty";
         case updateFields = "UpdateFields";
         case updateLastPrintedProperty = "UpdateLastPrintedProperty";
         case updateLastSavedTimeProperty = "UpdateLastSavedTimeProperty";
         case updateSdtContent = "UpdateSdtContent";
         case zipOutput = "ZipOutput";
+        case saveFormat = "SaveFormat";
         case invalidCodingKey;
     }
 
@@ -269,13 +269,13 @@ public class SaveOptionsData : Codable, WordsApiModel {
         self.dmlRenderingMode = try container.decodeIfPresent(DmlRenderingMode.self, forKey: .dmlRenderingMode);
         self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
         self.imlRenderingMode = try container.decodeIfPresent(ImlRenderingMode.self, forKey: .imlRenderingMode);
-
         self.updateCreatedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateCreatedTimeProperty);
         self.updateFields = try container.decodeIfPresent(Bool.self, forKey: .updateFields);
         self.updateLastPrintedProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastPrintedProperty);
         self.updateLastSavedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastSavedTimeProperty);
         self.updateSdtContent = try container.decodeIfPresent(Bool.self, forKey: .updateSdtContent);
         self.zipOutput = try container.decodeIfPresent(Bool.self, forKey: .zipOutput);
+
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -301,9 +301,6 @@ public class SaveOptionsData : Codable, WordsApiModel {
         if (self.imlRenderingMode != nil) {
             try container.encode(self.imlRenderingMode, forKey: .imlRenderingMode);
         }
-        if (self.saveFormat != nil) {
-            try container.encode(self.saveFormat, forKey: .saveFormat);
-        }
         if (self.updateCreatedTimeProperty != nil) {
             try container.encode(self.updateCreatedTimeProperty, forKey: .updateCreatedTimeProperty);
         }
@@ -321,6 +318,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
         if (self.zipOutput != nil) {
             try container.encode(self.zipOutput, forKey: .zipOutput);
+        }
+        if (self.saveFormat != nil) {
+            try container.encode(self.saveFormat, forKey: .saveFormat);
         }
     }
 
@@ -411,12 +411,6 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
 
-    // Gets saveFormat. Gets the format of save.
-    public func getSaveFormat() -> String? {
-        return self.saveFormat;
-    }
-
-
     // Sets updateCreatedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving. Default value is false.
     public func setUpdateCreatedTimeProperty(updateCreatedTimeProperty : Bool?) -> SaveOptionsData {
         self.updateCreatedTimeProperty = updateCreatedTimeProperty;
@@ -486,5 +480,11 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Gets zipOutput. Gets or sets a value indicating whether to zip output or not. The default value is false.
     public func getZipOutput() -> Bool? {
         return self.zipOutput;
+    }
+
+
+    // Gets saveFormat. Gets the format of save.
+    public func getSaveFormat() -> String? {
+        return self.saveFormat;
     }
 }

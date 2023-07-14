@@ -42,15 +42,15 @@ public class Section : LinkElement {
         }
     }
 
-    // Field of headerFooters. DTO container with a section element.
-    private var _headerFooters : LinkElement? = nil;
+    // Field of paragraphs. DTO container with a section element.
+    private var _paragraphs : LinkElement? = nil;
 
-    public var headerFooters : LinkElement? {
+    public var paragraphs : LinkElement? {
         get {
-            return self._headerFooters;
+            return self._paragraphs;
         }
         set {
-            self._headerFooters = newValue;
+            self._paragraphs = newValue;
         }
     }
 
@@ -66,15 +66,15 @@ public class Section : LinkElement {
         }
     }
 
-    // Field of paragraphs. DTO container with a section element.
-    private var _paragraphs : LinkElement? = nil;
+    // Field of headerFooters. DTO container with a section element.
+    private var _headerFooters : LinkElement? = nil;
 
-    public var paragraphs : LinkElement? {
+    public var headerFooters : LinkElement? {
         get {
-            return self._paragraphs;
+            return self._headerFooters;
         }
         set {
-            self._paragraphs = newValue;
+            self._headerFooters = newValue;
         }
     }
 
@@ -92,9 +92,9 @@ public class Section : LinkElement {
 
     private enum CodingKeys: String, CodingKey {
         case childNodes = "ChildNodes";
-        case headerFooters = "HeaderFooters";
-        case pageSetup = "PageSetup";
         case paragraphs = "Paragraphs";
+        case pageSetup = "PageSetup";
+        case headerFooters = "HeaderFooters";
         case tables = "Tables";
         case invalidCodingKey;
     }
@@ -107,9 +107,9 @@ public class Section : LinkElement {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.childNodes = try container.decodeIfPresent([NodeLink].self, forKey: .childNodes);
-        self.headerFooters = try container.decodeIfPresent(LinkElement.self, forKey: .headerFooters);
-        self.pageSetup = try container.decodeIfPresent(LinkElement.self, forKey: .pageSetup);
         self.paragraphs = try container.decodeIfPresent(LinkElement.self, forKey: .paragraphs);
+        self.pageSetup = try container.decodeIfPresent(LinkElement.self, forKey: .pageSetup);
+        self.headerFooters = try container.decodeIfPresent(LinkElement.self, forKey: .headerFooters);
         self.tables = try container.decodeIfPresent(LinkElement.self, forKey: .tables);
     }
 
@@ -119,14 +119,14 @@ public class Section : LinkElement {
         if (self.childNodes != nil) {
             try container.encode(self.childNodes, forKey: .childNodes);
         }
-        if (self.headerFooters != nil) {
-            try container.encode(self.headerFooters, forKey: .headerFooters);
+        if (self.paragraphs != nil) {
+            try container.encode(self.paragraphs, forKey: .paragraphs);
         }
         if (self.pageSetup != nil) {
             try container.encode(self.pageSetup, forKey: .pageSetup);
         }
-        if (self.paragraphs != nil) {
-            try container.encode(self.paragraphs, forKey: .paragraphs);
+        if (self.headerFooters != nil) {
+            try container.encode(self.headerFooters, forKey: .headerFooters);
         }
         if (self.tables != nil) {
             try container.encode(self.tables, forKey: .tables);
@@ -148,15 +148,15 @@ public class Section : LinkElement {
     }
 
 
-    // Sets headerFooters. Gets or sets the link to HeaderFooters resource.
-    public func setHeaderFooters(headerFooters : LinkElement?) -> Section {
-        self.headerFooters = headerFooters;
+    // Sets paragraphs. Gets or sets the link to Paragraphs resource.
+    public func setParagraphs(paragraphs : LinkElement?) -> Section {
+        self.paragraphs = paragraphs;
         return self;
     }
 
-    // Gets headerFooters. Gets or sets the link to HeaderFooters resource.
-    public func getHeaderFooters() -> LinkElement? {
-        return self.headerFooters;
+    // Gets paragraphs. Gets or sets the link to Paragraphs resource.
+    public func getParagraphs() -> LinkElement? {
+        return self.paragraphs;
     }
 
 
@@ -172,15 +172,15 @@ public class Section : LinkElement {
     }
 
 
-    // Sets paragraphs. Gets or sets the link to Paragraphs resource.
-    public func setParagraphs(paragraphs : LinkElement?) -> Section {
-        self.paragraphs = paragraphs;
+    // Sets headerFooters. Gets or sets the link to HeaderFooters resource.
+    public func setHeaderFooters(headerFooters : LinkElement?) -> Section {
+        self.headerFooters = headerFooters;
         return self;
     }
 
-    // Gets paragraphs. Gets or sets the link to Paragraphs resource.
-    public func getParagraphs() -> LinkElement? {
-        return self.paragraphs;
+    // Gets headerFooters. Gets or sets the link to HeaderFooters resource.
+    public func getHeaderFooters() -> LinkElement? {
+        return self.headerFooters;
     }
 
 

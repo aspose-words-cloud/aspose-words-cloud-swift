@@ -198,15 +198,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
-    // Field of saveFormat. Container class for fixed html save options.
-    private final let _saveFormat : String? = "htmlfixed";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
-
     // Field of showPageBorder. Container class for fixed html save options.
     private var _showPageBorder : Bool? = nil;
 
@@ -228,6 +219,15 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         }
         set {
             self._useTargetMachineFonts = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for fixed html save options.
+    private final let _saveFormat : String? = "htmlfixed";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
         }
     }
 

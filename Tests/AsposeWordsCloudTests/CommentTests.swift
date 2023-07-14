@@ -102,10 +102,10 @@ class CommentTests: BaseTestContext {
         .setNodeId(nodeId: "0.3.0.3")
         .setOffset(offset: 0);
       let requestComment = CommentInsert()
+        .setRangeStart(rangeStart: requestCommentRangeStart)
+        .setRangeEnd(rangeEnd: requestCommentRangeEnd)
         .setAuthor(author: "Imran Anwar")
         .setInitial(initial: "IA")
-        .setRangeEnd(rangeEnd: requestCommentRangeEnd)
-        .setRangeStart(rangeStart: requestCommentRangeStart)
         .setText(text: "A new Comment");
       let request = InsertCommentRequest(name: remoteFileName, comment: requestComment as! CommentInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertComment(request: request);
@@ -126,10 +126,10 @@ class CommentTests: BaseTestContext {
         .setNodeId(nodeId: "0.3.0.3")
         .setOffset(offset: 0);
       let requestComment = CommentInsert()
+        .setRangeStart(rangeStart: requestCommentRangeStart)
+        .setRangeEnd(rangeEnd: requestCommentRangeEnd)
         .setAuthor(author: "Imran Anwar")
         .setInitial(initial: "IA")
-        .setRangeEnd(rangeEnd: requestCommentRangeEnd)
-        .setRangeStart(rangeStart: requestCommentRangeStart)
         .setText(text: "A new Comment");
       let request = InsertCommentOnlineRequest(document: requestDocument, comment: requestComment as! CommentInsert);
       _ = try super.getApi().insertCommentOnline(request: request);
@@ -148,10 +148,10 @@ class CommentTests: BaseTestContext {
         .setNodeId(nodeId: "0.3.0")
         .setOffset(offset: 0);
       let requestComment = CommentUpdate()
+        .setRangeStart(rangeStart: requestCommentRangeStart)
+        .setRangeEnd(rangeEnd: requestCommentRangeEnd)
         .setAuthor(author: "Imran Anwar")
         .setInitial(initial: "IA")
-        .setRangeEnd(rangeEnd: requestCommentRangeEnd)
-        .setRangeStart(rangeStart: requestCommentRangeStart)
         .setText(text: "A new Comment");
       let request = UpdateCommentRequest(name: remoteFileName, commentIndex: 0, comment: requestComment as! CommentUpdate, folder: remoteDataFolder);
       let actual = try super.getApi().updateComment(request: request);
@@ -172,10 +172,10 @@ class CommentTests: BaseTestContext {
         .setNodeId(nodeId: "0.3.0")
         .setOffset(offset: 0);
       let requestComment = CommentUpdate()
+        .setRangeStart(rangeStart: requestCommentRangeStart)
+        .setRangeEnd(rangeEnd: requestCommentRangeEnd)
         .setAuthor(author: "Imran Anwar")
         .setInitial(initial: "IA")
-        .setRangeEnd(rangeEnd: requestCommentRangeEnd)
-        .setRangeStart(rangeStart: requestCommentRangeStart)
         .setText(text: "A new Comment");
       let request = UpdateCommentOnlineRequest(document: requestDocument, commentIndex: 0, comment: requestComment as! CommentUpdate);
       _ = try super.getApi().updateCommentOnline(request: request);

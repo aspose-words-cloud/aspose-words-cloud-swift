@@ -47,7 +47,7 @@ class AppendDocumentTests: BaseTestContext {
 
       let requestDocumentListDocumentEntries0FileReference = FileReference(remoteFilePath: remoteDataFolder + "/" + remoteFileName);
       let requestDocumentListDocumentEntries0 = DocumentEntry()
-        .setImportFormatMode(importFormatMode: "KeepSourceFormatting")
+        .setImportFormatMode(importFormatMode: DocumentEntry.ImportFormatMode.keepSourceFormatting)
         .setFileReference(fileReference: requestDocumentListDocumentEntries0FileReference);
       let requestDocumentListDocumentEntries = [
         requestDocumentListDocumentEntries0 as! DocumentEntry
@@ -66,7 +66,7 @@ class AppendDocumentTests: BaseTestContext {
       let requestDocumentListDocumentEntries0FileReferenceStream = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestDocumentListDocumentEntries0FileReference = FileReference(localFileContent: requestDocumentListDocumentEntries0FileReferenceStream);
       let requestDocumentListDocumentEntries0 = DocumentEntry()
-        .setImportFormatMode(importFormatMode: "KeepSourceFormatting")
+        .setImportFormatMode(importFormatMode: DocumentEntry.ImportFormatMode.keepSourceFormatting)
         .setFileReference(fileReference: requestDocumentListDocumentEntries0FileReference);
       let requestDocumentListDocumentEntries = [
         requestDocumentListDocumentEntries0 as! DocumentEntry

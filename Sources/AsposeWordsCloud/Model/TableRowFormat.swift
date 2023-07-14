@@ -43,30 +43,6 @@ public class TableRowFormat : LinkElement {
         case auto = "Auto"
     }
 
-    // Field of allowBreakAcrossPages. DTO container with formatting for a table row.
-    private var _allowBreakAcrossPages : Bool? = nil;
-
-    public var allowBreakAcrossPages : Bool? {
-        get {
-            return self._allowBreakAcrossPages;
-        }
-        set {
-            self._allowBreakAcrossPages = newValue;
-        }
-    }
-
-    // Field of headingFormat. DTO container with formatting for a table row.
-    private var _headingFormat : Bool? = nil;
-
-    public var headingFormat : Bool? {
-        get {
-            return self._headingFormat;
-        }
-        set {
-            self._headingFormat = newValue;
-        }
-    }
-
     // Field of height. DTO container with formatting for a table row.
     private var _height : Double? = nil;
 
@@ -91,11 +67,35 @@ public class TableRowFormat : LinkElement {
         }
     }
 
+    // Field of allowBreakAcrossPages. DTO container with formatting for a table row.
+    private var _allowBreakAcrossPages : Bool? = nil;
+
+    public var allowBreakAcrossPages : Bool? {
+        get {
+            return self._allowBreakAcrossPages;
+        }
+        set {
+            self._allowBreakAcrossPages = newValue;
+        }
+    }
+
+    // Field of headingFormat. DTO container with formatting for a table row.
+    private var _headingFormat : Bool? = nil;
+
+    public var headingFormat : Bool? {
+        get {
+            return self._headingFormat;
+        }
+        set {
+            self._headingFormat = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case allowBreakAcrossPages = "AllowBreakAcrossPages";
-        case headingFormat = "HeadingFormat";
         case height = "Height";
         case heightRule = "HeightRule";
+        case allowBreakAcrossPages = "AllowBreakAcrossPages";
+        case headingFormat = "HeadingFormat";
         case invalidCodingKey;
     }
 
@@ -106,55 +106,31 @@ public class TableRowFormat : LinkElement {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.allowBreakAcrossPages = try container.decodeIfPresent(Bool.self, forKey: .allowBreakAcrossPages);
-        self.headingFormat = try container.decodeIfPresent(Bool.self, forKey: .headingFormat);
         self.height = try container.decodeIfPresent(Double.self, forKey: .height);
         self.heightRule = try container.decodeIfPresent(HeightRule.self, forKey: .heightRule);
+        self.allowBreakAcrossPages = try container.decodeIfPresent(Bool.self, forKey: .allowBreakAcrossPages);
+        self.headingFormat = try container.decodeIfPresent(Bool.self, forKey: .headingFormat);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.allowBreakAcrossPages != nil) {
-            try container.encode(self.allowBreakAcrossPages, forKey: .allowBreakAcrossPages);
-        }
-        if (self.headingFormat != nil) {
-            try container.encode(self.headingFormat, forKey: .headingFormat);
-        }
         if (self.height != nil) {
             try container.encode(self.height, forKey: .height);
         }
         if (self.heightRule != nil) {
             try container.encode(self.heightRule, forKey: .heightRule);
         }
+        if (self.allowBreakAcrossPages != nil) {
+            try container.encode(self.allowBreakAcrossPages, forKey: .allowBreakAcrossPages);
+        }
+        if (self.headingFormat != nil) {
+            try container.encode(self.headingFormat, forKey: .headingFormat);
+        }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets allowBreakAcrossPages. Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.
-    public func setAllowBreakAcrossPages(allowBreakAcrossPages : Bool?) -> TableRowFormat {
-        self.allowBreakAcrossPages = allowBreakAcrossPages;
-        return self;
-    }
-
-    // Gets allowBreakAcrossPages. Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.
-    public func getAllowBreakAcrossPages() -> Bool? {
-        return self.allowBreakAcrossPages;
-    }
-
-
-    // Sets headingFormat. Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
-    public func setHeadingFormat(headingFormat : Bool?) -> TableRowFormat {
-        self.headingFormat = headingFormat;
-        return self;
-    }
-
-    // Gets headingFormat. Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
-    public func getHeadingFormat() -> Bool? {
-        return self.headingFormat;
-    }
-
 
     // Sets height. Gets or sets the height of the table row in points.
     public func setHeight(height : Double?) -> TableRowFormat {
@@ -177,5 +153,29 @@ public class TableRowFormat : LinkElement {
     // Gets heightRule. Gets or sets the rule for determining the height of the table row.
     public func getHeightRule() -> HeightRule? {
         return self.heightRule;
+    }
+
+
+    // Sets allowBreakAcrossPages. Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.
+    public func setAllowBreakAcrossPages(allowBreakAcrossPages : Bool?) -> TableRowFormat {
+        self.allowBreakAcrossPages = allowBreakAcrossPages;
+        return self;
+    }
+
+    // Gets allowBreakAcrossPages. Gets or sets a value indicating whether the text in a table row is allowed to split across a page break.
+    public func getAllowBreakAcrossPages() -> Bool? {
+        return self.allowBreakAcrossPages;
+    }
+
+
+    // Sets headingFormat. Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
+    public func setHeadingFormat(headingFormat : Bool?) -> TableRowFormat {
+        self.headingFormat = headingFormat;
+        return self;
+    }
+
+    // Gets headingFormat. Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
+    public func getHeadingFormat() -> Bool? {
+        return self.headingFormat;
     }
 }

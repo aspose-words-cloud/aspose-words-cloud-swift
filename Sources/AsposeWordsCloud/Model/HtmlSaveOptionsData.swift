@@ -576,15 +576,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         }
     }
 
-    // Field of saveFormat. Container class for html save options.
-    private final let _saveFormat : String? = "html";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
-
     // Field of scaleImageToShapeSize. Container class for html save options.
     private var _scaleImageToShapeSize : Bool? = nil;
 
@@ -606,6 +597,15 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         }
         set {
             self._tableWidthOutputMode = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for html save options.
+    private final let _saveFormat : String? = "html";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
         }
     }
 

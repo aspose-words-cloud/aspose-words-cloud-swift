@@ -54,18 +54,6 @@ public class DocumentStatData : Codable, WordsApiModel {
         }
     }
 
-    // Field of pageStatData. Container for the document's statistical data.
-    private var _pageStatData : [PageStatData]? = nil;
-
-    public var pageStatData : [PageStatData]? {
-        get {
-            return self._pageStatData;
-        }
-        set {
-            self._pageStatData = newValue;
-        }
-    }
-
     // Field of paragraphCount. Container for the document's statistical data.
     private var _paragraphCount : Int? = nil;
 
@@ -90,12 +78,24 @@ public class DocumentStatData : Codable, WordsApiModel {
         }
     }
 
+    // Field of pageStatData. Container for the document's statistical data.
+    private var _pageStatData : [PageStatData]? = nil;
+
+    public var pageStatData : [PageStatData]? {
+        get {
+            return self._pageStatData;
+        }
+        set {
+            self._pageStatData = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case footnotesStatData = "FootnotesStatData";
         case pageCount = "PageCount";
-        case pageStatData = "PageStatData";
         case paragraphCount = "ParagraphCount";
         case wordCount = "WordCount";
+        case pageStatData = "PageStatData";
         case invalidCodingKey;
     }
 
@@ -106,9 +106,9 @@ public class DocumentStatData : Codable, WordsApiModel {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.footnotesStatData = try container.decodeIfPresent(FootnotesStatData.self, forKey: .footnotesStatData);
         self.pageCount = try container.decodeIfPresent(Int.self, forKey: .pageCount);
-        self.pageStatData = try container.decodeIfPresent([PageStatData].self, forKey: .pageStatData);
         self.paragraphCount = try container.decodeIfPresent(Int.self, forKey: .paragraphCount);
         self.wordCount = try container.decodeIfPresent(Int.self, forKey: .wordCount);
+        self.pageStatData = try container.decodeIfPresent([PageStatData].self, forKey: .pageStatData);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -119,14 +119,14 @@ public class DocumentStatData : Codable, WordsApiModel {
         if (self.pageCount != nil) {
             try container.encode(self.pageCount, forKey: .pageCount);
         }
-        if (self.pageStatData != nil) {
-            try container.encode(self.pageStatData, forKey: .pageStatData);
-        }
         if (self.paragraphCount != nil) {
             try container.encode(self.paragraphCount, forKey: .paragraphCount);
         }
         if (self.wordCount != nil) {
             try container.encode(self.wordCount, forKey: .wordCount);
+        }
+        if (self.pageStatData != nil) {
+            try container.encode(self.pageStatData, forKey: .pageStatData);
         }
     }
 
@@ -157,18 +157,6 @@ public class DocumentStatData : Codable, WordsApiModel {
     }
 
 
-    // Sets pageStatData. Gets or sets the detailed statistics on all pages.
-    public func setPageStatData(pageStatData : [PageStatData]?) -> DocumentStatData {
-        self.pageStatData = pageStatData;
-        return self;
-    }
-
-    // Gets pageStatData. Gets or sets the detailed statistics on all pages.
-    public func getPageStatData() -> [PageStatData]? {
-        return self.pageStatData;
-    }
-
-
     // Sets paragraphCount. Gets or sets the total count of paragraphs in the document.
     public func setParagraphCount(paragraphCount : Int?) -> DocumentStatData {
         self.paragraphCount = paragraphCount;
@@ -190,5 +178,17 @@ public class DocumentStatData : Codable, WordsApiModel {
     // Gets wordCount. Gets or sets the total count of words in the document.
     public func getWordCount() -> Int? {
         return self.wordCount;
+    }
+
+
+    // Sets pageStatData. Gets or sets the detailed statistics on all pages.
+    public func setPageStatData(pageStatData : [PageStatData]?) -> DocumentStatData {
+        self.pageStatData = pageStatData;
+        return self;
+    }
+
+    // Gets pageStatData. Gets or sets the detailed statistics on all pages.
+    public func getPageStatData() -> [PageStatData]? {
+        return self.pageStatData;
     }
 }

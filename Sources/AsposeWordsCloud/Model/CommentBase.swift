@@ -30,6 +30,30 @@ import Foundation
 // Comment.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CommentBase : Codable, WordsApiModel {
+    // Field of rangeStart. Comment.
+    private var _rangeStart : NewDocumentPosition? = nil;
+
+    public var rangeStart : NewDocumentPosition? {
+        get {
+            return self._rangeStart;
+        }
+        set {
+            self._rangeStart = newValue;
+        }
+    }
+
+    // Field of rangeEnd. Comment.
+    private var _rangeEnd : NewDocumentPosition? = nil;
+
+    public var rangeEnd : NewDocumentPosition? {
+        get {
+            return self._rangeEnd;
+        }
+        set {
+            self._rangeEnd = newValue;
+        }
+    }
+
     // Field of author. Comment.
     private var _author : String? = nil;
 
@@ -66,30 +90,6 @@ public class CommentBase : Codable, WordsApiModel {
         }
     }
 
-    // Field of rangeEnd. Comment.
-    private var _rangeEnd : NewDocumentPosition? = nil;
-
-    public var rangeEnd : NewDocumentPosition? {
-        get {
-            return self._rangeEnd;
-        }
-        set {
-            self._rangeEnd = newValue;
-        }
-    }
-
-    // Field of rangeStart. Comment.
-    private var _rangeStart : NewDocumentPosition? = nil;
-
-    public var rangeStart : NewDocumentPosition? {
-        get {
-            return self._rangeStart;
-        }
-        set {
-            self._rangeStart = newValue;
-        }
-    }
-
     // Field of text. Comment.
     private var _text : String? = nil;
 
@@ -103,11 +103,11 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     private enum CodingKeys: String, CodingKey {
+        case rangeStart = "RangeStart";
+        case rangeEnd = "RangeEnd";
         case author = "Author";
         case dateTime = "DateTime";
         case initial = "Initial";
-        case rangeEnd = "RangeEnd";
-        case rangeStart = "RangeStart";
         case text = "Text";
         case invalidCodingKey;
     }
@@ -117,6 +117,8 @@ public class CommentBase : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.rangeStart = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .rangeStart);
+        self.rangeEnd = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .rangeEnd);
         self.author = try container.decodeIfPresent(String.self, forKey: .author);
         var raw_dateTime = try container.decodeIfPresent(String.self, forKey: .dateTime);
         if (raw_dateTime != nil) {
@@ -125,13 +127,17 @@ public class CommentBase : Codable, WordsApiModel {
         }
 
         self.initial = try container.decodeIfPresent(String.self, forKey: .initial);
-        self.rangeEnd = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .rangeEnd);
-        self.rangeStart = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .rangeStart);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.rangeStart != nil) {
+            try container.encode(self.rangeStart, forKey: .rangeStart);
+        }
+        if (self.rangeEnd != nil) {
+            try container.encode(self.rangeEnd, forKey: .rangeEnd);
+        }
         if (self.author != nil) {
             try container.encode(self.author, forKey: .author);
         }
@@ -141,12 +147,6 @@ public class CommentBase : Codable, WordsApiModel {
         if (self.initial != nil) {
             try container.encode(self.initial, forKey: .initial);
         }
-        if (self.rangeEnd != nil) {
-            try container.encode(self.rangeEnd, forKey: .rangeEnd);
-        }
-        if (self.rangeStart != nil) {
-            try container.encode(self.rangeStart, forKey: .rangeStart);
-        }
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
         }
@@ -154,6 +154,30 @@ public class CommentBase : Codable, WordsApiModel {
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
+
+    // Sets rangeStart. Gets or sets the link to comment range start node.
+    public func setRangeStart(rangeStart : NewDocumentPosition?) -> CommentBase {
+        self.rangeStart = rangeStart;
+        return self;
+    }
+
+    // Gets rangeStart. Gets or sets the link to comment range start node.
+    public func getRangeStart() -> NewDocumentPosition? {
+        return self.rangeStart;
+    }
+
+
+    // Sets rangeEnd. Gets or sets the link to comment range end node.
+    public func setRangeEnd(rangeEnd : NewDocumentPosition?) -> CommentBase {
+        self.rangeEnd = rangeEnd;
+        return self;
+    }
+
+    // Gets rangeEnd. Gets or sets the link to comment range end node.
+    public func getRangeEnd() -> NewDocumentPosition? {
+        return self.rangeEnd;
+    }
+
 
     // Sets author. Gets or sets the author name for a comment.
     public func setAuthor(author : String?) -> CommentBase {
@@ -188,30 +212,6 @@ public class CommentBase : Codable, WordsApiModel {
     // Gets initial. Gets or sets the initials of the user associated with a specific comment.
     public func getInitial() -> String? {
         return self.initial;
-    }
-
-
-    // Sets rangeEnd. Gets or sets the link to comment range end node.
-    public func setRangeEnd(rangeEnd : NewDocumentPosition?) -> CommentBase {
-        self.rangeEnd = rangeEnd;
-        return self;
-    }
-
-    // Gets rangeEnd. Gets or sets the link to comment range end node.
-    public func getRangeEnd() -> NewDocumentPosition? {
-        return self.rangeEnd;
-    }
-
-
-    // Sets rangeStart. Gets or sets the link to comment range start node.
-    public func setRangeStart(rangeStart : NewDocumentPosition?) -> CommentBase {
-        self.rangeStart = rangeStart;
-        return self;
-    }
-
-    // Gets rangeStart. Gets or sets the link to comment range start node.
-    public func getRangeStart() -> NewDocumentPosition? {
-        return self.rangeStart;
     }
 
 

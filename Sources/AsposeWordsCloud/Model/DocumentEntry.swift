@@ -30,6 +30,19 @@ import Foundation
 // Represents a document which will be appended to the original resource document.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentEntry : BaseEntry {
+    // Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
+    public enum ImportFormatMode : String, Codable
+    {
+        // Enum value "useDestinationStyles"
+        case useDestinationStyles = "UseDestinationStyles"
+
+        // Enum value "keepSourceFormatting"
+        case keepSourceFormatting = "KeepSourceFormatting"
+
+        // Enum value "keepDifferentStyles"
+        case keepDifferentStyles = "KeepDifferentStyles"
+    }
+
     // Field of encryptedPassword. Represents a document which will be appended to the original resource document.
     private var _encryptedPassword : String? = nil;
 
@@ -43,9 +56,9 @@ public class DocumentEntry : BaseEntry {
     }
 
     // Field of importFormatMode. Represents a document which will be appended to the original resource document.
-    private var _importFormatMode : String? = nil;
+    private var _importFormatMode : ImportFormatMode? = nil;
 
-    public var importFormatMode : String? {
+    public var importFormatMode : ImportFormatMode? {
         get {
             return self._importFormatMode;
         }
@@ -68,7 +81,7 @@ public class DocumentEntry : BaseEntry {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.encryptedPassword = try container.decodeIfPresent(String.self, forKey: .encryptedPassword);
-        self.importFormatMode = try container.decodeIfPresent(String.self, forKey: .importFormatMode);
+        self.importFormatMode = try container.decodeIfPresent(ImportFormatMode.self, forKey: .importFormatMode);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -99,13 +112,13 @@ public class DocumentEntry : BaseEntry {
 
 
     // Sets importFormatMode. Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
-    public func setImportFormatMode(importFormatMode : String?) -> DocumentEntry {
+    public func setImportFormatMode(importFormatMode : ImportFormatMode?) -> DocumentEntry {
         self.importFormatMode = importFormatMode;
         return self;
     }
 
     // Gets importFormatMode. Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
-    public func getImportFormatMode() -> String? {
+    public func getImportFormatMode() -> ImportFormatMode? {
         return self.importFormatMode;
     }
 }

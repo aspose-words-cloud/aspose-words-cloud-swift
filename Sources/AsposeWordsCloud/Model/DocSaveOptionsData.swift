@@ -54,15 +54,6 @@ public class DocSaveOptionsData : SaveOptionsData {
         }
     }
 
-    // Field of saveFormat. Container class for doc/dot save options.
-    private final let _saveFormat : String? = "doc";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
-
     // Field of savePictureBullet. Container class for doc/dot save options.
     private var _savePictureBullet : Bool? = nil;
 
@@ -84,6 +75,15 @@ public class DocSaveOptionsData : SaveOptionsData {
         }
         set {
             self._saveRoutingSlip = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for doc/dot save options.
+    private final let _saveFormat : String? = "doc";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
         }
     }
 

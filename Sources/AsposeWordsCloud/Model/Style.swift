@@ -30,6 +30,22 @@ import Foundation
 // DTO container with a single document style.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Style : LinkElement {
+    // Gets or sets the style type (paragraph or character).
+    public enum ModelType : String, Codable
+    {
+        // Enum value "paragraph"
+        case paragraph = "Paragraph"
+
+        // Enum value "character"
+        case character = "Character"
+
+        // Enum value "table"
+        case table = "Table"
+
+        // Enum value "list"
+        case list = "List"
+    }
+
     // Gets or sets the locale independent style identifier for a built-in style.
     public enum StyleIdentifier : String, Codable
     {
@@ -1168,43 +1184,15 @@ public class Style : LinkElement {
         case _nil = "Nil"
     }
 
-    // Gets or sets the style type (paragraph or character).
-    public enum ModelType : String, Codable
-    {
-        // Enum value "paragraph"
-        case paragraph = "Paragraph"
+    // Field of font. DTO container with a single document style.
+    private var _font : Font? = nil;
 
-        // Enum value "character"
-        case character = "Character"
-
-        // Enum value "table"
-        case table = "Table"
-
-        // Enum value "list"
-        case list = "List"
-    }
-
-    // Field of aliases. DTO container with a single document style.
-    private var _aliases : [String]? = nil;
-
-    public var aliases : [String]? {
+    public var font : Font? {
         get {
-            return self._aliases;
+            return self._font;
         }
         set {
-            self._aliases = newValue;
-        }
-    }
-
-    // Field of baseStyleName. DTO container with a single document style.
-    private var _baseStyleName : String? = nil;
-
-    public var baseStyleName : String? {
-        get {
-            return self._baseStyleName;
-        }
-        set {
-            self._baseStyleName = newValue;
+            self._font = newValue;
         }
     }
 
@@ -1220,27 +1208,27 @@ public class Style : LinkElement {
         }
     }
 
-    // Field of font. DTO container with a single document style.
-    private var _font : Font? = nil;
+    // Field of nextParagraphStyleName. DTO container with a single document style.
+    private var _nextParagraphStyleName : String? = nil;
 
-    public var font : Font? {
+    public var nextParagraphStyleName : String? {
         get {
-            return self._font;
+            return self._nextParagraphStyleName;
         }
         set {
-            self._font = newValue;
+            self._nextParagraphStyleName = newValue;
         }
     }
 
-    // Field of isHeading. DTO container with a single document style.
-    private var _isHeading : Bool? = nil;
+    // Field of baseStyleName. DTO container with a single document style.
+    private var _baseStyleName : String? = nil;
 
-    public var isHeading : Bool? {
+    public var baseStyleName : String? {
         get {
-            return self._isHeading;
+            return self._baseStyleName;
         }
         set {
-            self._isHeading = newValue;
+            self._baseStyleName = newValue;
         }
     }
 
@@ -1268,27 +1256,39 @@ public class Style : LinkElement {
         }
     }
 
-    // Field of name. DTO container with a single document style.
-    private var _name : String? = nil;
+    // Field of type. DTO container with a single document style.
+    private var _type : ModelType? = nil;
 
-    public var name : String? {
+    public var type : ModelType? {
         get {
-            return self._name;
+            return self._type;
         }
         set {
-            self._name = newValue;
+            self._type = newValue;
         }
     }
 
-    // Field of nextParagraphStyleName. DTO container with a single document style.
-    private var _nextParagraphStyleName : String? = nil;
+    // Field of isHeading. DTO container with a single document style.
+    private var _isHeading : Bool? = nil;
 
-    public var nextParagraphStyleName : String? {
+    public var isHeading : Bool? {
         get {
-            return self._nextParagraphStyleName;
+            return self._isHeading;
         }
         set {
-            self._nextParagraphStyleName = newValue;
+            self._isHeading = newValue;
+        }
+    }
+
+    // Field of aliases. DTO container with a single document style.
+    private var _aliases : [String]? = nil;
+
+    public var aliases : [String]? {
+        get {
+            return self._aliases;
+        }
+        set {
+            self._aliases = newValue;
         }
     }
 
@@ -1304,30 +1304,30 @@ public class Style : LinkElement {
         }
     }
 
-    // Field of type. DTO container with a single document style.
-    private var _type : ModelType? = nil;
+    // Field of name. DTO container with a single document style.
+    private var _name : String? = nil;
 
-    public var type : ModelType? {
+    public var name : String? {
         get {
-            return self._type;
+            return self._name;
         }
         set {
-            self._type = newValue;
+            self._name = newValue;
         }
     }
 
     private enum CodingKeys: String, CodingKey {
-        case aliases = "Aliases";
-        case baseStyleName = "BaseStyleName";
-        case builtIn = "BuiltIn";
         case font = "Font";
-        case isHeading = "IsHeading";
+        case builtIn = "BuiltIn";
+        case nextParagraphStyleName = "NextParagraphStyleName";
+        case baseStyleName = "BaseStyleName";
         case isQuickStyle = "IsQuickStyle";
         case linkedStyleName = "LinkedStyleName";
-        case name = "Name";
-        case nextParagraphStyleName = "NextParagraphStyleName";
-        case styleIdentifier = "StyleIdentifier";
         case type = "Type";
+        case isHeading = "IsHeading";
+        case aliases = "Aliases";
+        case styleIdentifier = "StyleIdentifier";
+        case name = "Name";
         case invalidCodingKey;
     }
 
@@ -1338,36 +1338,33 @@ public class Style : LinkElement {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.aliases = try container.decodeIfPresent([String].self, forKey: .aliases);
-        self.baseStyleName = try container.decodeIfPresent(String.self, forKey: .baseStyleName);
-        self.builtIn = try container.decodeIfPresent(Bool.self, forKey: .builtIn);
         self.font = try container.decodeIfPresent(Font.self, forKey: .font);
-        self.isHeading = try container.decodeIfPresent(Bool.self, forKey: .isHeading);
+        self.builtIn = try container.decodeIfPresent(Bool.self, forKey: .builtIn);
+        self.nextParagraphStyleName = try container.decodeIfPresent(String.self, forKey: .nextParagraphStyleName);
+        self.baseStyleName = try container.decodeIfPresent(String.self, forKey: .baseStyleName);
         self.isQuickStyle = try container.decodeIfPresent(Bool.self, forKey: .isQuickStyle);
         self.linkedStyleName = try container.decodeIfPresent(String.self, forKey: .linkedStyleName);
-        self.name = try container.decodeIfPresent(String.self, forKey: .name);
-        self.nextParagraphStyleName = try container.decodeIfPresent(String.self, forKey: .nextParagraphStyleName);
-        self.styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier);
         self.type = try container.decodeIfPresent(ModelType.self, forKey: .type);
+        self.isHeading = try container.decodeIfPresent(Bool.self, forKey: .isHeading);
+        self.aliases = try container.decodeIfPresent([String].self, forKey: .aliases);
+        self.styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier);
+        self.name = try container.decodeIfPresent(String.self, forKey: .name);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.aliases != nil) {
-            try container.encode(self.aliases, forKey: .aliases);
-        }
-        if (self.baseStyleName != nil) {
-            try container.encode(self.baseStyleName, forKey: .baseStyleName);
+        if (self.font != nil) {
+            try container.encode(self.font, forKey: .font);
         }
         if (self.builtIn != nil) {
             try container.encode(self.builtIn, forKey: .builtIn);
         }
-        if (self.font != nil) {
-            try container.encode(self.font, forKey: .font);
+        if (self.nextParagraphStyleName != nil) {
+            try container.encode(self.nextParagraphStyleName, forKey: .nextParagraphStyleName);
         }
-        if (self.isHeading != nil) {
-            try container.encode(self.isHeading, forKey: .isHeading);
+        if (self.baseStyleName != nil) {
+            try container.encode(self.baseStyleName, forKey: .baseStyleName);
         }
         if (self.isQuickStyle != nil) {
             try container.encode(self.isQuickStyle, forKey: .isQuickStyle);
@@ -1375,44 +1372,35 @@ public class Style : LinkElement {
         if (self.linkedStyleName != nil) {
             try container.encode(self.linkedStyleName, forKey: .linkedStyleName);
         }
-        if (self.name != nil) {
-            try container.encode(self.name, forKey: .name);
+        if (self.type != nil) {
+            try container.encode(self.type, forKey: .type);
         }
-        if (self.nextParagraphStyleName != nil) {
-            try container.encode(self.nextParagraphStyleName, forKey: .nextParagraphStyleName);
+        if (self.isHeading != nil) {
+            try container.encode(self.isHeading, forKey: .isHeading);
+        }
+        if (self.aliases != nil) {
+            try container.encode(self.aliases, forKey: .aliases);
         }
         if (self.styleIdentifier != nil) {
             try container.encode(self.styleIdentifier, forKey: .styleIdentifier);
         }
-        if (self.type != nil) {
-            try container.encode(self.type, forKey: .type);
+        if (self.name != nil) {
+            try container.encode(self.name, forKey: .name);
         }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
-    public func setAliases(aliases : [String]?) -> Style {
-        self.aliases = aliases;
+    // Sets font. Gets or sets the character formatting of the style.
+    public func setFont(font : Font?) -> Style {
+        self.font = font;
         return self;
     }
 
-    // Gets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
-    public func getAliases() -> [String]? {
-        return self.aliases;
-    }
-
-
-    // Sets baseStyleName. Gets or sets the name of the style this style is based on.
-    public func setBaseStyleName(baseStyleName : String?) -> Style {
-        self.baseStyleName = baseStyleName;
-        return self;
-    }
-
-    // Gets baseStyleName. Gets or sets the name of the style this style is based on.
-    public func getBaseStyleName() -> String? {
-        return self.baseStyleName;
+    // Gets font. Gets or sets the character formatting of the style.
+    public func getFont() -> Font? {
+        return self.font;
     }
 
 
@@ -1428,27 +1416,27 @@ public class Style : LinkElement {
     }
 
 
-    // Sets font. Gets or sets the character formatting of the style.
-    public func setFont(font : Font?) -> Style {
-        self.font = font;
+    // Sets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+    public func setNextParagraphStyleName(nextParagraphStyleName : String?) -> Style {
+        self.nextParagraphStyleName = nextParagraphStyleName;
         return self;
     }
 
-    // Gets font. Gets or sets the character formatting of the style.
-    public func getFont() -> Font? {
-        return self.font;
+    // Gets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+    public func getNextParagraphStyleName() -> String? {
+        return self.nextParagraphStyleName;
     }
 
 
-    // Sets isHeading. Gets or sets a value indicating whether the style is one of the built-in Heading styles.
-    public func setIsHeading(isHeading : Bool?) -> Style {
-        self.isHeading = isHeading;
+    // Sets baseStyleName. Gets or sets the name of the style this style is based on.
+    public func setBaseStyleName(baseStyleName : String?) -> Style {
+        self.baseStyleName = baseStyleName;
         return self;
     }
 
-    // Gets isHeading. Gets or sets a value indicating whether the style is one of the built-in Heading styles.
-    public func getIsHeading() -> Bool? {
-        return self.isHeading;
+    // Gets baseStyleName. Gets or sets the name of the style this style is based on.
+    public func getBaseStyleName() -> String? {
+        return self.baseStyleName;
     }
 
 
@@ -1476,27 +1464,39 @@ public class Style : LinkElement {
     }
 
 
-    // Sets name. Gets or sets the name of the style.
-    public func setName(name : String?) -> Style {
-        self.name = name;
+    // Sets type. Gets or sets the style type (paragraph or character).
+    public func setType(type : ModelType?) -> Style {
+        self.type = type;
         return self;
     }
 
-    // Gets name. Gets or sets the name of the style.
-    public func getName() -> String? {
-        return self.name;
+    // Gets type. Gets or sets the style type (paragraph or character).
+    public func getType() -> ModelType? {
+        return self.type;
     }
 
 
-    // Sets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
-    public func setNextParagraphStyleName(nextParagraphStyleName : String?) -> Style {
-        self.nextParagraphStyleName = nextParagraphStyleName;
+    // Sets isHeading. Gets or sets a value indicating whether the style is one of the built-in Heading styles.
+    public func setIsHeading(isHeading : Bool?) -> Style {
+        self.isHeading = isHeading;
         return self;
     }
 
-    // Gets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
-    public func getNextParagraphStyleName() -> String? {
-        return self.nextParagraphStyleName;
+    // Gets isHeading. Gets or sets a value indicating whether the style is one of the built-in Heading styles.
+    public func getIsHeading() -> Bool? {
+        return self.isHeading;
+    }
+
+
+    // Sets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
+    public func setAliases(aliases : [String]?) -> Style {
+        self.aliases = aliases;
+        return self;
+    }
+
+    // Gets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
+    public func getAliases() -> [String]? {
+        return self.aliases;
     }
 
 
@@ -1512,14 +1512,14 @@ public class Style : LinkElement {
     }
 
 
-    // Sets type. Gets or sets the style type (paragraph or character).
-    public func setType(type : ModelType?) -> Style {
-        self.type = type;
+    // Sets name. Gets or sets the name of the style.
+    public func setName(name : String?) -> Style {
+        self.name = name;
         return self;
     }
 
-    // Gets type. Gets or sets the style type (paragraph or character).
-    public func getType() -> ModelType? {
-        return self.type;
+    // Gets name. Gets or sets the name of the style.
+    public func getName() -> String? {
+        return self.name;
     }
 }

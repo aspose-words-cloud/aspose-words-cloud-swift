@@ -59,15 +59,6 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
         case ccitt4 = "Ccitt4"
     }
 
-    // Field of saveFormat. Container class for tiff save options.
-    private final let _saveFormat : String? = "tiff";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
-
     // Field of thresholdForFloydSteinbergDithering. Container class for tiff save options.
     private var _thresholdForFloydSteinbergDithering : Int? = nil;
 
@@ -101,6 +92,15 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
         }
         set {
             self._tiffCompression = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for tiff save options.
+    private final let _saveFormat : String? = "tiff";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
         }
     }
 

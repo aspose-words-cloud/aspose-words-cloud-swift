@@ -30,27 +30,15 @@ import Foundation
 // DTO container with a single document list.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListInfo : LinkElement {
-    // Field of isListStyleDefinition. DTO container with a single document list.
-    private var _isListStyleDefinition : Bool? = nil;
+    // Field of listId. DTO container with a single document list.
+    private var _listId : Int? = nil;
 
-    public var isListStyleDefinition : Bool? {
+    public var listId : Int? {
         get {
-            return self._isListStyleDefinition;
+            return self._listId;
         }
         set {
-            self._isListStyleDefinition = newValue;
-        }
-    }
-
-    // Field of isListStyleReference. DTO container with a single document list.
-    private var _isListStyleReference : Bool? = nil;
-
-    public var isListStyleReference : Bool? {
-        get {
-            return self._isListStyleReference;
-        }
-        set {
-            self._isListStyleReference = newValue;
+            self._listId = newValue;
         }
     }
 
@@ -78,27 +66,27 @@ public class ListInfo : LinkElement {
         }
     }
 
-    // Field of listId. DTO container with a single document list.
-    private var _listId : Int? = nil;
+    // Field of isListStyleDefinition. DTO container with a single document list.
+    private var _isListStyleDefinition : Bool? = nil;
 
-    public var listId : Int? {
+    public var isListStyleDefinition : Bool? {
         get {
-            return self._listId;
+            return self._isListStyleDefinition;
         }
         set {
-            self._listId = newValue;
+            self._isListStyleDefinition = newValue;
         }
     }
 
-    // Field of listLevels. DTO container with a single document list.
-    private var _listLevels : ListLevels? = nil;
+    // Field of isListStyleReference. DTO container with a single document list.
+    private var _isListStyleReference : Bool? = nil;
 
-    public var listLevels : ListLevels? {
+    public var isListStyleReference : Bool? {
         get {
-            return self._listLevels;
+            return self._isListStyleReference;
         }
         set {
-            self._listLevels = newValue;
+            self._isListStyleReference = newValue;
         }
     }
 
@@ -114,14 +102,26 @@ public class ListInfo : LinkElement {
         }
     }
 
+    // Field of listLevels. DTO container with a single document list.
+    private var _listLevels : ListLevels? = nil;
+
+    public var listLevels : ListLevels? {
+        get {
+            return self._listLevels;
+        }
+        set {
+            self._listLevels = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case isListStyleDefinition = "IsListStyleDefinition";
-        case isListStyleReference = "IsListStyleReference";
+        case listId = "ListId";
         case isMultiLevel = "IsMultiLevel";
         case isRestartAtEachSection = "IsRestartAtEachSection";
-        case listId = "ListId";
-        case listLevels = "ListLevels";
+        case isListStyleDefinition = "IsListStyleDefinition";
+        case isListStyleReference = "IsListStyleReference";
         case style = "Style";
+        case listLevels = "ListLevels";
         case invalidCodingKey;
     }
 
@@ -132,23 +132,20 @@ public class ListInfo : LinkElement {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.isListStyleDefinition = try container.decodeIfPresent(Bool.self, forKey: .isListStyleDefinition);
-        self.isListStyleReference = try container.decodeIfPresent(Bool.self, forKey: .isListStyleReference);
+        self.listId = try container.decodeIfPresent(Int.self, forKey: .listId);
         self.isMultiLevel = try container.decodeIfPresent(Bool.self, forKey: .isMultiLevel);
         self.isRestartAtEachSection = try container.decodeIfPresent(Bool.self, forKey: .isRestartAtEachSection);
-        self.listId = try container.decodeIfPresent(Int.self, forKey: .listId);
-        self.listLevels = try container.decodeIfPresent(ListLevels.self, forKey: .listLevels);
+        self.isListStyleDefinition = try container.decodeIfPresent(Bool.self, forKey: .isListStyleDefinition);
+        self.isListStyleReference = try container.decodeIfPresent(Bool.self, forKey: .isListStyleReference);
         self.style = try container.decodeIfPresent(Style.self, forKey: .style);
+        self.listLevels = try container.decodeIfPresent(ListLevels.self, forKey: .listLevels);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.isListStyleDefinition != nil) {
-            try container.encode(self.isListStyleDefinition, forKey: .isListStyleDefinition);
-        }
-        if (self.isListStyleReference != nil) {
-            try container.encode(self.isListStyleReference, forKey: .isListStyleReference);
+        if (self.listId != nil) {
+            try container.encode(self.listId, forKey: .listId);
         }
         if (self.isMultiLevel != nil) {
             try container.encode(self.isMultiLevel, forKey: .isMultiLevel);
@@ -156,41 +153,32 @@ public class ListInfo : LinkElement {
         if (self.isRestartAtEachSection != nil) {
             try container.encode(self.isRestartAtEachSection, forKey: .isRestartAtEachSection);
         }
-        if (self.listId != nil) {
-            try container.encode(self.listId, forKey: .listId);
+        if (self.isListStyleDefinition != nil) {
+            try container.encode(self.isListStyleDefinition, forKey: .isListStyleDefinition);
         }
-        if (self.listLevels != nil) {
-            try container.encode(self.listLevels, forKey: .listLevels);
+        if (self.isListStyleReference != nil) {
+            try container.encode(self.isListStyleReference, forKey: .isListStyleReference);
         }
         if (self.style != nil) {
             try container.encode(self.style, forKey: .style);
+        }
+        if (self.listLevels != nil) {
+            try container.encode(self.listLevels, forKey: .listLevels);
         }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style.
-    public func setIsListStyleDefinition(isListStyleDefinition : Bool?) -> ListInfo {
-        self.isListStyleDefinition = isListStyleDefinition;
+    // Sets listId. Gets or sets the unique identifier of the list.
+    public func setListId(listId : Int?) -> ListInfo {
+        self.listId = listId;
         return self;
     }
 
-    // Gets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style.
-    public func getIsListStyleDefinition() -> Bool? {
-        return self.isListStyleDefinition;
-    }
-
-
-    // Sets isListStyleReference. Gets or sets a value indicating whether this list is a reference to a list style.
-    public func setIsListStyleReference(isListStyleReference : Bool?) -> ListInfo {
-        self.isListStyleReference = isListStyleReference;
-        return self;
-    }
-
-    // Gets isListStyleReference. Gets or sets a value indicating whether this list is a reference to a list style.
-    public func getIsListStyleReference() -> Bool? {
-        return self.isListStyleReference;
+    // Gets listId. Gets or sets the unique identifier of the list.
+    public func getListId() -> Int? {
+        return self.listId;
     }
 
 
@@ -218,27 +206,27 @@ public class ListInfo : LinkElement {
     }
 
 
-    // Sets listId. Gets or sets the unique identifier of the list.
-    public func setListId(listId : Int?) -> ListInfo {
-        self.listId = listId;
+    // Sets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style.
+    public func setIsListStyleDefinition(isListStyleDefinition : Bool?) -> ListInfo {
+        self.isListStyleDefinition = isListStyleDefinition;
         return self;
     }
 
-    // Gets listId. Gets or sets the unique identifier of the list.
-    public func getListId() -> Int? {
-        return self.listId;
+    // Gets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style.
+    public func getIsListStyleDefinition() -> Bool? {
+        return self.isListStyleDefinition;
     }
 
 
-    // Sets listLevels. Gets or sets the collection of list levels for this list.
-    public func setListLevels(listLevels : ListLevels?) -> ListInfo {
-        self.listLevels = listLevels;
+    // Sets isListStyleReference. Gets or sets a value indicating whether this list is a reference to a list style.
+    public func setIsListStyleReference(isListStyleReference : Bool?) -> ListInfo {
+        self.isListStyleReference = isListStyleReference;
         return self;
     }
 
-    // Gets listLevels. Gets or sets the collection of list levels for this list.
-    public func getListLevels() -> ListLevels? {
-        return self.listLevels;
+    // Gets isListStyleReference. Gets or sets a value indicating whether this list is a reference to a list style.
+    public func getIsListStyleReference() -> Bool? {
+        return self.isListStyleReference;
     }
 
 
@@ -251,5 +239,17 @@ public class ListInfo : LinkElement {
     // Gets style. Gets or sets the list style that this list references or defines.
     public func getStyle() -> Style? {
         return self.style;
+    }
+
+
+    // Sets listLevels. Gets or sets the collection of list levels for this list.
+    public func setListLevels(listLevels : ListLevels?) -> ListInfo {
+        self.listLevels = listLevels;
+        return self;
+    }
+
+    // Gets listLevels. Gets or sets the collection of list levels for this list.
+    public func getListLevels() -> ListLevels? {
+        return self.listLevels;
     }
 }

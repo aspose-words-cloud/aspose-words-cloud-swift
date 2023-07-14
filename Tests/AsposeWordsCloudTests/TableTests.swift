@@ -399,10 +399,10 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestFormat = TableRowFormat()
-        .setAllowBreakAcrossPages(allowBreakAcrossPages: true)
-        .setHeadingFormat(headingFormat: true)
         .setHeight(height: 10.0)
-        .setHeightRule(heightRule: TableRowFormat.HeightRule.exactly);
+        .setHeightRule(heightRule: TableRowFormat.HeightRule.exactly)
+        .setAllowBreakAcrossPages(allowBreakAcrossPages: true)
+        .setHeadingFormat(headingFormat: true);
       let request = UpdateTableRowFormatRequest(name: remoteFileName, tablePath: "sections/0/tables/2", index: 0, format: requestFormat, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableRowFormat(request: request);
       XCTAssertNotNil(actual.getRowFormat());
@@ -415,10 +415,10 @@ class TableTests: BaseTestContext {
     func testUpdateTableRowFormatOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestFormat = TableRowFormat()
-        .setAllowBreakAcrossPages(allowBreakAcrossPages: true)
-        .setHeadingFormat(headingFormat: true)
         .setHeight(height: 10)
-        .setHeightRule(heightRule: TableRowFormat.HeightRule.auto);
+        .setHeightRule(heightRule: TableRowFormat.HeightRule.auto)
+        .setAllowBreakAcrossPages(allowBreakAcrossPages: true)
+        .setHeadingFormat(headingFormat: true);
       let request = UpdateTableRowFormatOnlineRequest(document: requestDocument, tablePath: "sections/0/tables/2", format: requestFormat, index: 0);
       _ = try super.getApi().updateTableRowFormatOnline(request: request);
     }
