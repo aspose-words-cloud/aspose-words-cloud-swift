@@ -110,7 +110,7 @@ class ObjectSerializer {
         "DrawingObjectUpdate, _": DrawingObjectUpdate.self,
         "EmfSaveOptionsData, _": EmfSaveOptionsData.self,
         "EpubSaveOptionsData, _": EpubSaveOptionsData.self,
-        "Error, _": Error.self,
+        "InternalError, _": InternalError.self,
         "ErrorDetails, _": ErrorDetails.self,
         "Field, _": Field.self,
         "FieldCollection, _": FieldCollection.self,
@@ -412,7 +412,7 @@ class ObjectSerializer {
             return try classtype.init(from: json) as! T;
         }
 
-        throw WordsApiError.invalidTypeDeserialization(String(describing: type));
+        throw WordsApiError.invalidTypeDeserialization(typeName: String(describing: type));
     }
 
     // Create an instance of T, from JSON decoder
