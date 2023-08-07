@@ -80,8 +80,8 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
         self.ownerPassword = json["OwnerPassword"] as? String;
         if let raw_permissions = json["Permissions"] as? [Any] {
             self.permissions = try raw_permissions.map {
-                if let element_permissions = $0 as? String {
-                    return PdfPermissions(rawValue: element_permissions);
+                if let element_permissions = PdfPermissions(rawValue: ($0 as? String) ?? "") {
+                    return element_permissions;
                 }
                 else {
                     throw WordsApiError.invalidTypeDeserialization(typeName: "PdfPermissions");

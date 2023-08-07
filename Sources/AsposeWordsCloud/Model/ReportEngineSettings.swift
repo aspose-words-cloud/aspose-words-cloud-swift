@@ -144,8 +144,8 @@ public class ReportEngineSettings : Codable, WordsApiModel {
 
         if let raw_reportBuildOptions = json["ReportBuildOptions"] as? [Any] {
             self.reportBuildOptions = try raw_reportBuildOptions.map {
-                if let element_reportBuildOptions = $0 as? String {
-                    return ReportBuildOptions(rawValue: element_reportBuildOptions);
+                if let element_reportBuildOptions = ReportBuildOptions(rawValue: ($0 as? String) ?? "") {
+                    return element_reportBuildOptions;
                 }
                 else {
                     throw WordsApiError.invalidTypeDeserialization(typeName: "ReportBuildOptions");
