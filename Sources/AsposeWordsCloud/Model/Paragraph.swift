@@ -51,6 +51,21 @@ public class Paragraph : NodeLink {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_childNodes = json["ChildNodes"] as? [Any] {
+            self.childNodes = try raw_childNodes.map {
+                if let element_childNodes = $0 as? [String: Any] {
+            return try ObjectSerializer.deserialize(type: NodeLink.self, from: element_childNodes);
+        }
+        else {
+            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+        }
+            };
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

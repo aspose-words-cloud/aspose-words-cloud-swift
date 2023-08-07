@@ -112,6 +112,17 @@ public class FormFieldTextInput : FormField {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.textInputFormat = json["TextInputFormat"] as? String;
+        if let raw_textInputType = json["TextInputType"] as? String {
+            self.textInputType = TextInputType(rawValue: raw_textInputType);
+        }
+
+        self.textInputDefault = json["TextInputDefault"] as? String;
+        self.maxLength = json["MaxLength"] as? Int;
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

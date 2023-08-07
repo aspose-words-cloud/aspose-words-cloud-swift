@@ -51,6 +51,14 @@ public class TableRowFormatResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_rowFormat = json["RowFormat"] as? [String: Any] {
+            self.rowFormat = try ObjectSerializer.deserialize(type: TableRowFormat.self, from: raw_rowFormat);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

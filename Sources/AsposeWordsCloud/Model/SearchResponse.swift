@@ -64,6 +64,15 @@ public class SearchResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.searchingPattern = json["SearchingPattern"] as? String;
+        if let raw_searchResults = json["SearchResults"] as? [String: Any] {
+            self.searchResults = try ObjectSerializer.deserialize(type: SearchResultsCollection.self, from: raw_searchResults);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

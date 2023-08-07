@@ -1415,6 +1415,39 @@ public class TableProperties : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_alignment = json["Alignment"] as? String {
+            self.alignment = Alignment(rawValue: raw_alignment);
+        }
+
+        self.allowAutoFit = json["AllowAutoFit"] as? Bool;
+        self.bidi = json["Bidi"] as? Bool;
+        self.bottomPadding = json["BottomPadding"] as? Double;
+        self.cellSpacing = json["CellSpacing"] as? Double;
+        self.leftIndent = json["LeftIndent"] as? Double;
+        self.leftPadding = json["LeftPadding"] as? Double;
+        if let raw_preferredWidth = json["PreferredWidth"] as? [String: Any] {
+            self.preferredWidth = try ObjectSerializer.deserialize(type: PreferredWidth.self, from: raw_preferredWidth);
+        }
+
+        self.rightPadding = json["RightPadding"] as? Double;
+        if let raw_styleIdentifier = json["StyleIdentifier"] as? String {
+            self.styleIdentifier = StyleIdentifier(rawValue: raw_styleIdentifier);
+        }
+
+        self.styleName = json["StyleName"] as? String;
+        if let raw_styleOptions = json["StyleOptions"] as? String {
+            self.styleOptions = StyleOptions(rawValue: raw_styleOptions);
+        }
+
+        if let raw_textWrapping = json["TextWrapping"] as? String {
+            self.textWrapping = TextWrapping(rawValue: raw_textWrapping);
+        }
+
+        self.topPadding = json["TopPadding"] as? Double;
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

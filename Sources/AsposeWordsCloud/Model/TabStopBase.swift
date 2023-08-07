@@ -120,7 +120,19 @@ public class TabStopBase : Codable, WordsApiModel {
         case invalidCodingKey;
     }
 
-    public init() {
+    internal init() {
+    }
+
+    public required init(from json: [String: Any]) throws {
+        if let raw_alignment = json["Alignment"] as? String {
+            self.alignment = Alignment(rawValue: raw_alignment);
+        }
+
+        if let raw_leader = json["Leader"] as? String {
+            self.leader = Leader(rawValue: raw_leader);
+        }
+
+        self.position = json["Position"] as? Double;
     }
 
     public required init(from decoder: Decoder) throws {

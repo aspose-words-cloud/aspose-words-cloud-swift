@@ -51,6 +51,21 @@ public class Bookmarks : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_bookmarkList = json["BookmarkList"] as? [Any] {
+            self.bookmarkList = try raw_bookmarkList.map {
+                if let element_bookmarkList = $0 as? [String: Any] {
+            return try ObjectSerializer.deserialize(type: Bookmark.self, from: element_bookmarkList);
+        }
+        else {
+            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+        }
+            };
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

@@ -1779,6 +1779,71 @@ public class Font : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.allCaps = json["AllCaps"] as? Bool;
+        self.bidi = json["Bidi"] as? Bool;
+        self.bold = json["Bold"] as? Bool;
+        self.boldBi = json["BoldBi"] as? Bool;
+        if let raw_border = json["Border"] as? [String: Any] {
+            self.border = try ObjectSerializer.deserialize(type: Border.self, from: raw_border);
+        }
+
+        if let raw_color = json["Color"] as? [String: Any] {
+            self.color = try ObjectSerializer.deserialize(type: XmlColor.self, from: raw_color);
+        }
+
+        self.complexScript = json["ComplexScript"] as? Bool;
+        self.doubleStrikeThrough = json["DoubleStrikeThrough"] as? Bool;
+        self.emboss = json["Emboss"] as? Bool;
+        self.engrave = json["Engrave"] as? Bool;
+        self.hidden = json["Hidden"] as? Bool;
+        if let raw_highlightColor = json["HighlightColor"] as? [String: Any] {
+            self.highlightColor = try ObjectSerializer.deserialize(type: XmlColor.self, from: raw_highlightColor);
+        }
+
+        self.italic = json["Italic"] as? Bool;
+        self.italicBi = json["ItalicBi"] as? Bool;
+        self.kerning = json["Kerning"] as? Double;
+        self.localeId = json["LocaleId"] as? Int;
+        self.localeIdBi = json["LocaleIdBi"] as? Int;
+        self.localeIdFarEast = json["LocaleIdFarEast"] as? Int;
+        self.name = json["Name"] as? String;
+        self.nameAscii = json["NameAscii"] as? String;
+        self.nameBi = json["NameBi"] as? String;
+        self.nameFarEast = json["NameFarEast"] as? String;
+        self.nameOther = json["NameOther"] as? String;
+        self.noProofing = json["NoProofing"] as? Bool;
+        self.outline = json["Outline"] as? Bool;
+        self.position = json["Position"] as? Double;
+        self.scaling = json["Scaling"] as? Int;
+        self.shadow = json["Shadow"] as? Bool;
+        self.size = json["Size"] as? Double;
+        self.sizeBi = json["SizeBi"] as? Double;
+        self.smallCaps = json["SmallCaps"] as? Bool;
+        self.spacing = json["Spacing"] as? Double;
+        self.strikeThrough = json["StrikeThrough"] as? Bool;
+        if let raw_styleIdentifier = json["StyleIdentifier"] as? String {
+            self.styleIdentifier = StyleIdentifier(rawValue: raw_styleIdentifier);
+        }
+
+        self.styleName = json["StyleName"] as? String;
+        self._subscript = json["Subscript"] as? Bool;
+        self.superscript = json["Superscript"] as? Bool;
+        if let raw_textEffect = json["TextEffect"] as? String {
+            self.textEffect = TextEffect(rawValue: raw_textEffect);
+        }
+
+        if let raw_underline = json["Underline"] as? String {
+            self.underline = Underline(rawValue: raw_underline);
+        }
+
+        if let raw_underlineColor = json["UnderlineColor"] as? [String: Any] {
+            self.underlineColor = try ObjectSerializer.deserialize(type: XmlColor.self, from: raw_underlineColor);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

@@ -51,6 +51,21 @@ public class StylesResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_styles = json["Styles"] as? [Any] {
+            self.styles = try raw_styles.map {
+                if let element_styles = $0 as? [String: Any] {
+            return try ObjectSerializer.deserialize(type: Style.self, from: element_styles);
+        }
+        else {
+            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+        }
+            };
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

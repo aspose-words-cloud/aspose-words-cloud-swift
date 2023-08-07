@@ -63,6 +63,11 @@ public class XmlColor : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.alpha = json["Alpha"] as? Int;
+        self.web = json["Web"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.alpha = try container.decodeIfPresent(Int.self, forKey: .alpha);

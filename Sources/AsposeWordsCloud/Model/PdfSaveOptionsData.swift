@@ -531,6 +531,73 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.cacheBackgroundGraphics = json["CacheBackgroundGraphics"] as? Bool;
+        if let raw_compliance = json["Compliance"] as? String {
+            self.compliance = Compliance(rawValue: raw_compliance);
+        }
+
+        self.createNoteHyperlinks = json["CreateNoteHyperlinks"] as? Bool;
+        if let raw_customPropertiesExport = json["CustomPropertiesExport"] as? String {
+            self.customPropertiesExport = CustomPropertiesExport(rawValue: raw_customPropertiesExport);
+        }
+
+        if let raw_digitalSignatureDetails = json["DigitalSignatureDetails"] as? [String: Any] {
+            self.digitalSignatureDetails = try ObjectSerializer.deserialize(type: PdfDigitalSignatureDetailsData.self, from: raw_digitalSignatureDetails);
+        }
+
+        self.displayDocTitle = json["DisplayDocTitle"] as? Bool;
+        if let raw_downsampleOptions = json["DownsampleOptions"] as? [String: Any] {
+            self.downsampleOptions = try ObjectSerializer.deserialize(type: DownsampleOptionsData.self, from: raw_downsampleOptions);
+        }
+
+        self.embedAttachments = json["EmbedAttachments"] as? Bool;
+        self.embedFullFonts = json["EmbedFullFonts"] as? Bool;
+        if let raw_encryptionDetails = json["EncryptionDetails"] as? [String: Any] {
+            self.encryptionDetails = try ObjectSerializer.deserialize(type: PdfEncryptionDetailsData.self, from: raw_encryptionDetails);
+        }
+
+        self.exportDocumentStructure = json["ExportDocumentStructure"] as? Bool;
+        self.exportLanguageToSpanTag = json["ExportLanguageToSpanTag"] as? Bool;
+        if let raw_fontEmbeddingMode = json["FontEmbeddingMode"] as? String {
+            self.fontEmbeddingMode = FontEmbeddingMode(rawValue: raw_fontEmbeddingMode);
+        }
+
+        if let raw_headerFooterBookmarksExportMode = json["HeaderFooterBookmarksExportMode"] as? String {
+            self.headerFooterBookmarksExportMode = HeaderFooterBookmarksExportMode(rawValue: raw_headerFooterBookmarksExportMode);
+        }
+
+        if let raw_imageColorSpaceExportMode = json["ImageColorSpaceExportMode"] as? String {
+            self.imageColorSpaceExportMode = ImageColorSpaceExportMode(rawValue: raw_imageColorSpaceExportMode);
+        }
+
+        self.imageCompression = json["ImageCompression"] as? String;
+        self.interpolateImages = json["InterpolateImages"] as? Bool;
+        self.openHyperlinksInNewWindow = json["OpenHyperlinksInNewWindow"] as? Bool;
+        if let raw_outlineOptions = json["OutlineOptions"] as? [String: Any] {
+            self.outlineOptions = try ObjectSerializer.deserialize(type: OutlineOptionsData.self, from: raw_outlineOptions);
+        }
+
+        if let raw_pageMode = json["PageMode"] as? String {
+            self.pageMode = PageMode(rawValue: raw_pageMode);
+        }
+
+        self.preblendImages = json["PreblendImages"] as? Bool;
+        self.preserveFormFields = json["PreserveFormFields"] as? Bool;
+        if let raw_textCompression = json["TextCompression"] as? String {
+            self.textCompression = TextCompression(rawValue: raw_textCompression);
+        }
+
+        self.useBookFoldPrintingSettings = json["UseBookFoldPrintingSettings"] as? Bool;
+        self.useCoreFonts = json["UseCoreFonts"] as? Bool;
+        if let raw_zoomBehavior = json["ZoomBehavior"] as? String {
+            self.zoomBehavior = ZoomBehavior(rawValue: raw_zoomBehavior);
+        }
+
+        self.zoomFactor = json["ZoomFactor"] as? Int;
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

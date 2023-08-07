@@ -64,6 +64,22 @@ public class ImageEntryList : BaseEntryList {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.appendEachImageOnNewPage = json["AppendEachImageOnNewPage"] as? Bool;
+        if let raw_imageEntries = json["ImageEntries"] as? [Any] {
+            self.imageEntries = try raw_imageEntries.map {
+                if let element_imageEntries = $0 as? [String: Any] {
+            return try ObjectSerializer.deserialize(type: ImageEntry.self, from: element_imageEntries);
+        }
+        else {
+            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+        }
+            };
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

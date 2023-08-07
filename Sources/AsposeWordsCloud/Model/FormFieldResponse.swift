@@ -51,6 +51,14 @@ public class FormFieldResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_formField = json["FormField"] as? [String: Any] {
+            self.formField = try ObjectSerializer.deserialize(type: FormField.self, from: raw_formField);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

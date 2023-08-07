@@ -118,6 +118,20 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.certificateFilename = json["CertificateFilename"] as? String;
+        if let raw_hashAlgorithm = json["HashAlgorithm"] as? String {
+            self.hashAlgorithm = HashAlgorithm(rawValue: raw_hashAlgorithm);
+        }
+
+        self.location = json["Location"] as? String;
+        self.reason = json["Reason"] as? String;
+        if let raw_signatureDate = json["SignatureDate"] as? String {
+            self.signatureDate = ObjectSerializer.customIso8601.date(from: raw_signatureDate);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.certificateFilename = try container.decodeIfPresent(String.self, forKey: .certificateFilename);

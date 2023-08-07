@@ -99,6 +99,14 @@ public class RtfSaveOptionsData : SaveOptionsData {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.exportCompactSize = json["ExportCompactSize"] as? Bool;
+        self.exportImagesForOldReaders = json["ExportImagesForOldReaders"] as? Bool;
+        self.prettyFormat = json["PrettyFormat"] as? Bool;
+        self.saveImagesAsWmf = json["SaveImagesAsWmf"] as? Bool;
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

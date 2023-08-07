@@ -51,6 +51,14 @@ public class OfficeMathObjectResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_officeMathObject = json["OfficeMathObject"] as? [String: Any] {
+            self.officeMathObject = try ObjectSerializer.deserialize(type: OfficeMathObject.self, from: raw_officeMathObject);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

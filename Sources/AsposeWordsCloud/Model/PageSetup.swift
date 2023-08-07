@@ -744,6 +744,63 @@ public class PageSetup : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.bidi = json["Bidi"] as? Bool;
+        self.borderAlwaysInFront = json["BorderAlwaysInFront"] as? Bool;
+        if let raw_borderAppliesTo = json["BorderAppliesTo"] as? String {
+            self.borderAppliesTo = BorderAppliesTo(rawValue: raw_borderAppliesTo);
+        }
+
+        if let raw_borderDistanceFrom = json["BorderDistanceFrom"] as? String {
+            self.borderDistanceFrom = BorderDistanceFrom(rawValue: raw_borderDistanceFrom);
+        }
+
+        self.bottomMargin = json["BottomMargin"] as? Double;
+        self.differentFirstPageHeaderFooter = json["DifferentFirstPageHeaderFooter"] as? Bool;
+        self.firstPageTray = json["FirstPageTray"] as? Int;
+        self.footerDistance = json["FooterDistance"] as? Double;
+        self.gutter = json["Gutter"] as? Double;
+        self.headerDistance = json["HeaderDistance"] as? Double;
+        self.leftMargin = json["LeftMargin"] as? Double;
+        self.lineNumberCountBy = json["LineNumberCountBy"] as? Int;
+        self.lineNumberDistanceFromText = json["LineNumberDistanceFromText"] as? Double;
+        if let raw_lineNumberRestartMode = json["LineNumberRestartMode"] as? String {
+            self.lineNumberRestartMode = LineNumberRestartMode(rawValue: raw_lineNumberRestartMode);
+        }
+
+        self.lineStartingNumber = json["LineStartingNumber"] as? Int;
+        if let raw_orientation = json["Orientation"] as? String {
+            self.orientation = Orientation(rawValue: raw_orientation);
+        }
+
+        self.otherPagesTray = json["OtherPagesTray"] as? Int;
+        self.pageHeight = json["PageHeight"] as? Double;
+        if let raw_pageNumberStyle = json["PageNumberStyle"] as? String {
+            self.pageNumberStyle = PageNumberStyle(rawValue: raw_pageNumberStyle);
+        }
+
+        self.pageStartingNumber = json["PageStartingNumber"] as? Int;
+        self.pageWidth = json["PageWidth"] as? Double;
+        if let raw_paperSize = json["PaperSize"] as? String {
+            self.paperSize = PaperSize(rawValue: raw_paperSize);
+        }
+
+        self.restartPageNumbering = json["RestartPageNumbering"] as? Bool;
+        self.rightMargin = json["RightMargin"] as? Double;
+        self.rtlGutter = json["RtlGutter"] as? Bool;
+        if let raw_sectionStart = json["SectionStart"] as? String {
+            self.sectionStart = SectionStart(rawValue: raw_sectionStart);
+        }
+
+        self.suppressEndnotes = json["SuppressEndnotes"] as? Bool;
+        self.topMargin = json["TopMargin"] as? Double;
+        if let raw_verticalAlignment = json["VerticalAlignment"] as? String {
+            self.verticalAlignment = VerticalAlignment(rawValue: raw_verticalAlignment);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

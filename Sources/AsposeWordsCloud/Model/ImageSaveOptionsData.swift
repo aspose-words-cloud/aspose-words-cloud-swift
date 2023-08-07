@@ -244,6 +244,28 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.horizontalResolution = json["HorizontalResolution"] as? Double;
+        self.imageBrightness = json["ImageBrightness"] as? Double;
+        if let raw_imageColorMode = json["ImageColorMode"] as? String {
+            self.imageColorMode = ImageColorMode(rawValue: raw_imageColorMode);
+        }
+
+        self.imageContrast = json["ImageContrast"] as? Double;
+        self.paperColor = json["PaperColor"] as? String;
+        if let raw_pixelFormat = json["PixelFormat"] as? String {
+            self.pixelFormat = PixelFormat(rawValue: raw_pixelFormat);
+        }
+
+        self.resolution = json["Resolution"] as? Double;
+        self.scale = json["Scale"] as? Double;
+        self.useAntiAliasing = json["UseAntiAliasing"] as? Bool;
+        self.useHighQualityRendering = json["UseHighQualityRendering"] as? Bool;
+        self.verticalResolution = json["VerticalResolution"] as? Double;
+        self.useGdiEmfRenderer = json["UseGdiEmfRenderer"] as? Bool;
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

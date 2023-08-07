@@ -242,6 +242,21 @@ public class Shading : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_backgroundPatternColor = json["BackgroundPatternColor"] as? [String: Any] {
+            self.backgroundPatternColor = try ObjectSerializer.deserialize(type: XmlColor.self, from: raw_backgroundPatternColor);
+        }
+
+        if let raw_foregroundPatternColor = json["ForegroundPatternColor"] as? [String: Any] {
+            self.foregroundPatternColor = try ObjectSerializer.deserialize(type: XmlColor.self, from: raw_foregroundPatternColor);
+        }
+
+        if let raw_texture = json["Texture"] as? String {
+            self.texture = Texture(rawValue: raw_texture);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.backgroundPatternColor = try container.decodeIfPresent(XmlColor.self, forKey: .backgroundPatternColor);

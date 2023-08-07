@@ -129,6 +129,23 @@ public class ListInfo : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.listId = json["ListId"] as? Int;
+        self.isMultiLevel = json["IsMultiLevel"] as? Bool;
+        self.isRestartAtEachSection = json["IsRestartAtEachSection"] as? Bool;
+        self.isListStyleDefinition = json["IsListStyleDefinition"] as? Bool;
+        self.isListStyleReference = json["IsListStyleReference"] as? Bool;
+        if let raw_style = json["Style"] as? [String: Any] {
+            self.style = try ObjectSerializer.deserialize(type: Style.self, from: raw_style);
+        }
+
+        if let raw_listLevels = json["ListLevels"] as? [String: Any] {
+            self.listLevels = try ObjectSerializer.deserialize(type: ListLevels.self, from: raw_listLevels);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

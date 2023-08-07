@@ -51,6 +51,14 @@ public class HyperlinkResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_hyperlink = json["Hyperlink"] as? [String: Any] {
+            self.hyperlink = try ObjectSerializer.deserialize(type: Hyperlink.self, from: raw_hyperlink);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

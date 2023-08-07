@@ -99,6 +99,14 @@ public class DocSaveOptionsData : SaveOptionsData {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.alwaysCompressMetafiles = json["AlwaysCompressMetafiles"] as? Bool;
+        self.password = json["Password"] as? String;
+        self.savePictureBullet = json["SavePictureBullet"] as? Bool;
+        self.saveRoutingSlip = json["SaveRoutingSlip"] as? Bool;
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

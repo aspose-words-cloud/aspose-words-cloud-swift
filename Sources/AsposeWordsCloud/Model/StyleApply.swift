@@ -50,6 +50,10 @@ public class StyleApply : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.styleName = json["StyleName"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.styleName = try container.decodeIfPresent(String.self, forKey: .styleName);

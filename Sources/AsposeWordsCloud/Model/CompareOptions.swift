@@ -177,6 +177,22 @@ public class CompareOptions : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.acceptAllRevisionsBeforeComparison = json["AcceptAllRevisionsBeforeComparison"] as? Bool;
+        self.ignoreCaseChanges = json["IgnoreCaseChanges"] as? Bool;
+        self.ignoreComments = json["IgnoreComments"] as? Bool;
+        self.ignoreFields = json["IgnoreFields"] as? Bool;
+        self.ignoreFootnotes = json["IgnoreFootnotes"] as? Bool;
+        self.ignoreFormatting = json["IgnoreFormatting"] as? Bool;
+        self.ignoreHeadersAndFooters = json["IgnoreHeadersAndFooters"] as? Bool;
+        self.ignoreTables = json["IgnoreTables"] as? Bool;
+        self.ignoreTextboxes = json["IgnoreTextboxes"] as? Bool;
+        if let raw_target = json["Target"] as? String {
+            self.target = Target(rawValue: raw_target);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.acceptAllRevisionsBeforeComparison = try container.decodeIfPresent(Bool.self, forKey: .acceptAllRevisionsBeforeComparison);

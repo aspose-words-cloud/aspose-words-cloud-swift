@@ -51,6 +51,21 @@ public class ListLevels : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_listLevel = json["ListLevel"] as? [Any] {
+            self.listLevel = try raw_listLevel.map {
+                if let element_listLevel = $0 as? [String: Any] {
+            return try ObjectSerializer.deserialize(type: ListLevel.self, from: element_listLevel);
+        }
+        else {
+            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+        }
+            };
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

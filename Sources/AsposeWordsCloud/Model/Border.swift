@@ -232,6 +232,25 @@ public class Border : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_borderType = json["BorderType"] as? String {
+            self.borderType = BorderType(rawValue: raw_borderType);
+        }
+
+        if let raw_color = json["Color"] as? [String: Any] {
+            self.color = try ObjectSerializer.deserialize(type: XmlColor.self, from: raw_color);
+        }
+
+        self.distanceFromText = json["DistanceFromText"] as? Double;
+        if let raw_lineStyle = json["LineStyle"] as? String {
+            self.lineStyle = LineStyle(rawValue: raw_lineStyle);
+        }
+
+        self.lineWidth = json["LineWidth"] as? Double;
+        self.shadow = json["Shadow"] as? Bool;
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

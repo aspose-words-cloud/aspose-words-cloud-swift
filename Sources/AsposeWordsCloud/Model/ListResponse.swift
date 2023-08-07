@@ -51,6 +51,14 @@ public class ListResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_list = json["List"] as? [String: Any] {
+            self.list = try ObjectSerializer.deserialize(type: ListInfo.self, from: raw_list);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

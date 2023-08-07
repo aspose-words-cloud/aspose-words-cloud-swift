@@ -64,6 +64,18 @@ public class StatDataResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_documentLink = json["DocumentLink"] as? [String: Any] {
+            self.documentLink = try ObjectSerializer.deserialize(type: FileLink.self, from: raw_documentLink);
+        }
+
+        if let raw_statData = json["StatData"] as? [String: Any] {
+            self.statData = try ObjectSerializer.deserialize(type: DocumentStatData.self, from: raw_statData);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

@@ -102,6 +102,20 @@ public class ApiError : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.code = json["Code"] as? String;
+        if let raw_dateTime = json["DateTime"] as? String {
+            self.dateTime = ObjectSerializer.customIso8601.date(from: raw_dateTime);
+        }
+
+        self.description = json["Description"] as? String;
+        if let raw_innerError = json["InnerError"] as? [String: Any] {
+            self.innerError = try ObjectSerializer.deserialize(type: ApiError.self, from: raw_innerError);
+        }
+
+        self.message = json["Message"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.code = try container.decodeIfPresent(String.self, forKey: .code);

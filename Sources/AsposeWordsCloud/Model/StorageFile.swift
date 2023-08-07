@@ -102,6 +102,17 @@ public class StorageFile : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.isFolder = json["IsFolder"] as? Bool;
+        if let raw_modifiedDate = json["ModifiedDate"] as? String {
+            self.modifiedDate = ObjectSerializer.customIso8601.date(from: raw_modifiedDate);
+        }
+
+        self.name = json["Name"] as? String;
+        self.path = json["Path"] as? String;
+        self.size = json["Size"] as? Int;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.isFolder = try container.decodeIfPresent(Bool.self, forKey: .isFolder);

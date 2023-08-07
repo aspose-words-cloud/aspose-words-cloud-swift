@@ -506,6 +506,62 @@ public class StructuredDocumentTag : NodeLink {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_listItems = json["ListItems"] as? [Any] {
+            self.listItems = try raw_listItems.map {
+                if let element_listItems = $0 as? [String: Any] {
+            return try ObjectSerializer.deserialize(type: StructuredDocumentTagListItem.self, from: element_listItems);
+        }
+        else {
+            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+        }
+            };
+        }
+
+        self.checked = json["Checked"] as? Bool;
+        if let raw_appearance = json["Appearance"] as? String {
+            self.appearance = Appearance(rawValue: raw_appearance);
+        }
+
+        self.dateDisplayLocale = json["DateDisplayLocale"] as? Int;
+        self.dateDisplayFormat = json["DateDisplayFormat"] as? String;
+        if let raw_fullDate = json["FullDate"] as? String {
+            self.fullDate = ObjectSerializer.customIso8601.date(from: raw_fullDate);
+        }
+
+        self.title = json["Title"] as? String;
+        if let raw_dateStorageFormat = json["DateStorageFormat"] as? String {
+            self.dateStorageFormat = DateStorageFormat(rawValue: raw_dateStorageFormat);
+        }
+
+        self.buildingBlockGallery = json["BuildingBlockGallery"] as? String;
+        self.buildingBlockCategory = json["BuildingBlockCategory"] as? String;
+        self.multiline = json["Multiline"] as? Bool;
+        self.color = json["Color"] as? String;
+        self.styleName = json["StyleName"] as? String;
+        if let raw_calendarType = json["CalendarType"] as? String {
+            self.calendarType = CalendarType(rawValue: raw_calendarType);
+        }
+
+        self.isTemporary = json["IsTemporary"] as? Bool;
+        if let raw_level = json["Level"] as? String {
+            self.level = Level(rawValue: raw_level);
+        }
+
+        if let raw_sdtType = json["SdtType"] as? String {
+            self.sdtType = SdtType(rawValue: raw_sdtType);
+        }
+
+        self.placeholderName = json["PlaceholderName"] as? String;
+        self.lockContentControl = json["LockContentControl"] as? Bool;
+        self.lockContents = json["LockContents"] as? Bool;
+        self.isShowingPlaceholderText = json["IsShowingPlaceholderText"] as? Bool;
+        self.tag = json["Tag"] as? String;
+        self.id = json["Id"] as? Int;
+        self.wordOpenXML = json["WordOpenXML"] as? String;
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

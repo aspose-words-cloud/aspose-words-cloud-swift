@@ -63,6 +63,14 @@ public class ErrorDetails : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_errorDateTime = json["ErrorDateTime"] as? String {
+            self.errorDateTime = ObjectSerializer.customIso8601.date(from: raw_errorDateTime);
+        }
+
+        self.requestId = json["RequestId"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         var raw_errorDateTime = try container.decodeIfPresent(String.self, forKey: .errorDateTime);

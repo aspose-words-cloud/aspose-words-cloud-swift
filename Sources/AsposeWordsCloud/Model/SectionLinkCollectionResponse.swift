@@ -51,6 +51,14 @@ public class SectionLinkCollectionResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_sections = json["Sections"] as? [String: Any] {
+            self.sections = try ObjectSerializer.deserialize(type: SectionLinkCollection.self, from: raw_sections);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

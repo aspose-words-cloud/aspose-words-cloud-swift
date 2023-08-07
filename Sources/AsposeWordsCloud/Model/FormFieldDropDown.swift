@@ -64,6 +64,22 @@ public class FormFieldDropDown : FormField {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_dropDownItems = json["DropDownItems"] as? [Any] {
+            self.dropDownItems = try raw_dropDownItems.map {
+                if let element_dropDownItems = $0 as? String {
+            return element_dropDownItems;
+        }
+        else {
+            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+        }
+            };
+        }
+
+        self.dropDownSelectedIndex = json["DropDownSelectedIndex"] as? Int;
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

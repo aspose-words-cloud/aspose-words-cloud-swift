@@ -216,6 +216,26 @@ public class OfficeMathObject : OfficeMathLink {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_content = json["Content"] as? [String: Any] {
+            self.content = try ObjectSerializer.deserialize(type: StoryChildNodes.self, from: raw_content);
+        }
+
+        if let raw_displayType = json["DisplayType"] as? String {
+            self.displayType = DisplayType(rawValue: raw_displayType);
+        }
+
+        if let raw_justification = json["Justification"] as? String {
+            self.justification = Justification(rawValue: raw_justification);
+        }
+
+        if let raw_mathObjectType = json["MathObjectType"] as? String {
+            self.mathObjectType = MathObjectType(rawValue: raw_mathObjectType);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

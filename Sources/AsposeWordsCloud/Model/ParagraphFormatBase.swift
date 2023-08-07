@@ -1604,8 +1604,56 @@ public class ParagraphFormatBase : LinkElement {
         case invalidCodingKey;
     }
 
-    public override init() {
+    internal override init() {
         super.init();
+    }
+
+    public required init(from json: [String: Any]) throws {
+        self.addSpaceBetweenFarEastAndAlpha = json["AddSpaceBetweenFarEastAndAlpha"] as? Bool;
+        self.addSpaceBetweenFarEastAndDigit = json["AddSpaceBetweenFarEastAndDigit"] as? Bool;
+        if let raw_alignment = json["Alignment"] as? String {
+            self.alignment = Alignment(rawValue: raw_alignment);
+        }
+
+        self.bidi = json["Bidi"] as? Bool;
+        if let raw_dropCapPosition = json["DropCapPosition"] as? String {
+            self.dropCapPosition = DropCapPosition(rawValue: raw_dropCapPosition);
+        }
+
+        self.firstLineIndent = json["FirstLineIndent"] as? Double;
+        self.keepTogether = json["KeepTogether"] as? Bool;
+        self.keepWithNext = json["KeepWithNext"] as? Bool;
+        self.leftIndent = json["LeftIndent"] as? Double;
+        self.lineSpacing = json["LineSpacing"] as? Double;
+        if let raw_lineSpacingRule = json["LineSpacingRule"] as? String {
+            self.lineSpacingRule = LineSpacingRule(rawValue: raw_lineSpacingRule);
+        }
+
+        self.linesToDrop = json["LinesToDrop"] as? Int;
+        self.noSpaceBetweenParagraphsOfSameStyle = json["NoSpaceBetweenParagraphsOfSameStyle"] as? Bool;
+        if let raw_outlineLevel = json["OutlineLevel"] as? String {
+            self.outlineLevel = OutlineLevel(rawValue: raw_outlineLevel);
+        }
+
+        self.pageBreakBefore = json["PageBreakBefore"] as? Bool;
+        self.rightIndent = json["RightIndent"] as? Double;
+        self.spaceAfter = json["SpaceAfter"] as? Double;
+        self.spaceAfterAuto = json["SpaceAfterAuto"] as? Bool;
+        self.spaceBefore = json["SpaceBefore"] as? Double;
+        self.spaceBeforeAuto = json["SpaceBeforeAuto"] as? Bool;
+        if let raw_styleIdentifier = json["StyleIdentifier"] as? String {
+            self.styleIdentifier = StyleIdentifier(rawValue: raw_styleIdentifier);
+        }
+
+        self.styleName = json["StyleName"] as? String;
+        self.suppressAutoHyphens = json["SuppressAutoHyphens"] as? Bool;
+        self.suppressLineNumbers = json["SuppressLineNumbers"] as? Bool;
+        self.widowControl = json["WidowControl"] as? Bool;
+        if let raw_shading = json["Shading"] as? [String: Any] {
+            self.shading = try ObjectSerializer.deserialize(type: Shading.self, from: raw_shading);
+        }
+
+        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

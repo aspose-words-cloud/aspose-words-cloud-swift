@@ -76,6 +76,28 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_sourceDocument = json["SourceDocument"] as? [String: Any] {
+            self.sourceDocument = try ObjectSerializer.deserialize(type: FileLink.self, from: raw_sourceDocument);
+        }
+
+        if let raw_zippedPages = json["ZippedPages"] as? [String: Any] {
+            self.zippedPages = try ObjectSerializer.deserialize(type: FileLink.self, from: raw_zippedPages);
+        }
+
+        if let raw_pages = json["Pages"] as? [Any] {
+            self.pages = try raw_pages.map {
+                if let element_pages = $0 as? [String: Any] {
+            return try ObjectSerializer.deserialize(type: FileLink.self, from: element_pages);
+        }
+        else {
+            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+        }
+            };
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.sourceDocument = try container.decodeIfPresent(FileLink.self, forKey: .sourceDocument);

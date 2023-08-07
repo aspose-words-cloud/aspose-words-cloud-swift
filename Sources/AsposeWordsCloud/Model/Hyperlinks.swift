@@ -51,6 +51,21 @@ public class Hyperlinks : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_hyperlinkList = json["HyperlinkList"] as? [Any] {
+            self.hyperlinkList = try raw_hyperlinkList.map {
+                if let element_hyperlinkList = $0 as? [String: Any] {
+            return try ObjectSerializer.deserialize(type: Hyperlink.self, from: element_hyperlinkList);
+        }
+        else {
+            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+        }
+            };
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

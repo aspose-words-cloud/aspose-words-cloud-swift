@@ -138,6 +138,19 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.exportEmbeddedImages = json["ExportEmbeddedImages"] as? Bool;
+        self.fitToViewPort = json["FitToViewPort"] as? Bool;
+        self.resourcesFolder = json["ResourcesFolder"] as? String;
+        self.resourcesFolderAlias = json["ResourcesFolderAlias"] as? String;
+        self.showPageBorder = json["ShowPageBorder"] as? Bool;
+        if let raw_textOutputMode = json["TextOutputMode"] as? String {
+            self.textOutputMode = TextOutputMode(rawValue: raw_textOutputMode);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

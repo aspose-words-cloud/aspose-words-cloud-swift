@@ -159,6 +159,26 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_colorMode = json["ColorMode"] as? String {
+            self.colorMode = ColorMode(rawValue: raw_colorMode);
+        }
+
+        self.jpegQuality = json["JpegQuality"] as? Int;
+        if let raw_metafileRenderingOptions = json["MetafileRenderingOptions"] as? [String: Any] {
+            self.metafileRenderingOptions = try ObjectSerializer.deserialize(type: MetafileRenderingOptionsData.self, from: raw_metafileRenderingOptions);
+        }
+
+        if let raw_numeralFormat = json["NumeralFormat"] as? String {
+            self.numeralFormat = NumeralFormat(rawValue: raw_numeralFormat);
+        }
+
+        self.optimizeOutput = json["OptimizeOutput"] as? Bool;
+        self.pageCount = json["PageCount"] as? Int;
+        self.pageIndex = json["PageIndex"] as? Int;
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

@@ -260,6 +260,38 @@ public class SaveOptionsData : Codable, WordsApiModel {
     internal init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.allowEmbeddingPostScriptFonts = json["AllowEmbeddingPostScriptFonts"] as? Bool;
+        if let raw_customTimeZoneInfoData = json["CustomTimeZoneInfoData"] as? [String: Any] {
+            self.customTimeZoneInfoData = try ObjectSerializer.deserialize(type: TimeZoneInfoData.self, from: raw_customTimeZoneInfoData);
+        }
+
+        if let raw_dml3DEffectsRenderingMode = json["Dml3DEffectsRenderingMode"] as? String {
+            self.dml3DEffectsRenderingMode = Dml3DEffectsRenderingMode(rawValue: raw_dml3DEffectsRenderingMode);
+        }
+
+        if let raw_dmlEffectsRenderingMode = json["DmlEffectsRenderingMode"] as? String {
+            self.dmlEffectsRenderingMode = DmlEffectsRenderingMode(rawValue: raw_dmlEffectsRenderingMode);
+        }
+
+        if let raw_dmlRenderingMode = json["DmlRenderingMode"] as? String {
+            self.dmlRenderingMode = DmlRenderingMode(rawValue: raw_dmlRenderingMode);
+        }
+
+        self.fileName = json["FileName"] as? String;
+        if let raw_imlRenderingMode = json["ImlRenderingMode"] as? String {
+            self.imlRenderingMode = ImlRenderingMode(rawValue: raw_imlRenderingMode);
+        }
+
+        self.updateCreatedTimeProperty = json["UpdateCreatedTimeProperty"] as? Bool;
+        self.updateFields = json["UpdateFields"] as? Bool;
+        self.updateLastPrintedProperty = json["UpdateLastPrintedProperty"] as? Bool;
+        self.updateLastSavedTimeProperty = json["UpdateLastSavedTimeProperty"] as? Bool;
+        self.updateSdtContent = json["UpdateSdtContent"] as? Bool;
+        self.zipOutput = json["ZipOutput"] as? Bool;
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.allowEmbeddingPostScriptFonts = try container.decodeIfPresent(Bool.self, forKey: .allowEmbeddingPostScriptFonts);

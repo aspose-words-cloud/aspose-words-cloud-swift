@@ -90,6 +90,13 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.commentChar = json["CommentChar"] as? String;
+        self.delimiter = json["Delimiter"] as? String;
+        self.hasHeaders = json["HasHeaders"] as? Bool;
+        self.quoteChar = json["QuoteChar"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.commentChar = try container.decodeIfPresent(String.self, forKey: .commentChar);

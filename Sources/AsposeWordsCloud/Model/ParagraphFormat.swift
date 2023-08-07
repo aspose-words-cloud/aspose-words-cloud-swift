@@ -64,6 +64,12 @@ public class ParagraphFormat : ParagraphFormatBase {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.isListItem = json["IsListItem"] as? Bool;
+        self.isHeading = json["IsHeading"] as? Bool;
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

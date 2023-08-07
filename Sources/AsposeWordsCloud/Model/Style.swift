@@ -1335,6 +1335,40 @@ public class Style : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_font = json["Font"] as? [String: Any] {
+            self.font = try ObjectSerializer.deserialize(type: Font.self, from: raw_font);
+        }
+
+        self.builtIn = json["BuiltIn"] as? Bool;
+        self.nextParagraphStyleName = json["NextParagraphStyleName"] as? String;
+        self.baseStyleName = json["BaseStyleName"] as? String;
+        self.isQuickStyle = json["IsQuickStyle"] as? Bool;
+        self.linkedStyleName = json["LinkedStyleName"] as? String;
+        if let raw_type = json["Type"] as? String {
+            self.type = ModelType(rawValue: raw_type);
+        }
+
+        self.isHeading = json["IsHeading"] as? Bool;
+        if let raw_aliases = json["Aliases"] as? [Any] {
+            self.aliases = try raw_aliases.map {
+                if let element_aliases = $0 as? String {
+            return element_aliases;
+        }
+        else {
+            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+        }
+            };
+        }
+
+        if let raw_styleIdentifier = json["StyleIdentifier"] as? String {
+            self.styleIdentifier = StyleIdentifier(rawValue: raw_styleIdentifier);
+        }
+
+        self.name = json["Name"] as? String;
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

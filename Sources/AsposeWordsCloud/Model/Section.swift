@@ -103,6 +103,37 @@ public class Section : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_childNodes = json["ChildNodes"] as? [Any] {
+            self.childNodes = try raw_childNodes.map {
+                if let element_childNodes = $0 as? [String: Any] {
+            return try ObjectSerializer.deserialize(type: NodeLink.self, from: element_childNodes);
+        }
+        else {
+            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+        }
+            };
+        }
+
+        if let raw_paragraphs = json["Paragraphs"] as? [String: Any] {
+            self.paragraphs = try ObjectSerializer.deserialize(type: LinkElement.self, from: raw_paragraphs);
+        }
+
+        if let raw_pageSetup = json["PageSetup"] as? [String: Any] {
+            self.pageSetup = try ObjectSerializer.deserialize(type: LinkElement.self, from: raw_pageSetup);
+        }
+
+        if let raw_headerFooters = json["HeaderFooters"] as? [String: Any] {
+            self.headerFooters = try ObjectSerializer.deserialize(type: LinkElement.self, from: raw_headerFooters);
+        }
+
+        if let raw_tables = json["Tables"] as? [String: Any] {
+            self.tables = try ObjectSerializer.deserialize(type: LinkElement.self, from: raw_tables);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

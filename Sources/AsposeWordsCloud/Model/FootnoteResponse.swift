@@ -51,6 +51,14 @@ public class FootnoteResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_footnote = json["Footnote"] as? [String: Any] {
+            self.footnote = try ObjectSerializer.deserialize(type: Footnote.self, from: raw_footnote);
+        }
+
+        try super.init(from: json);
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

@@ -76,6 +76,15 @@ public class TableInsert : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.columnsCount = json["ColumnsCount"] as? Int;
+        if let raw_position = json["Position"] as? [String: Any] {
+            self.position = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_position);
+        }
+
+        self.rowsCount = json["RowsCount"] as? Int;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.columnsCount = try container.decodeIfPresent(Int.self, forKey: .columnsCount);

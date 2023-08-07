@@ -89,6 +89,16 @@ public class PageStatData : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_footnotesStatData = json["FootnotesStatData"] as? [String: Any] {
+            self.footnotesStatData = try ObjectSerializer.deserialize(type: FootnotesStatData.self, from: raw_footnotesStatData);
+        }
+
+        self.paragraphCount = json["ParagraphCount"] as? Int;
+        self.wordCount = json["WordCount"] as? Int;
+        self.pageNumber = json["PageNumber"] as? Int;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.footnotesStatData = try container.decodeIfPresent(FootnotesStatData.self, forKey: .footnotesStatData);
