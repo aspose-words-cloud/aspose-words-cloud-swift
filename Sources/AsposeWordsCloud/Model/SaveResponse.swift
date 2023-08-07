@@ -52,11 +52,11 @@ public class SaveResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_saveResult = json["SaveResult"] as? [String: Any] {
             self.saveResult = try ObjectSerializer.deserialize(type: SaveResult.self, from: raw_saveResult);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

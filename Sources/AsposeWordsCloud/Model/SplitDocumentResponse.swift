@@ -52,11 +52,11 @@ public class SplitDocumentResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_splitResult = json["SplitResult"] as? [String: Any] {
             self.splitResult = try ObjectSerializer.deserialize(type: SplitDocumentResult.self, from: raw_splitResult);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

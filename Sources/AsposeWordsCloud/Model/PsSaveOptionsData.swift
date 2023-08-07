@@ -61,8 +61,8 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
-        self.useBookFoldPrintingSettings = json["UseBookFoldPrintingSettings"] as? Bool;
         try super.init(from: json);
+        self.useBookFoldPrintingSettings = json["UseBookFoldPrintingSettings"] as? Bool;
     }
 
     public required init(from decoder: Decoder) throws {

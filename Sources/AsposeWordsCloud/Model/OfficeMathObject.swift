@@ -217,6 +217,7 @@ public class OfficeMathObject : OfficeMathLink {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_content = json["Content"] as? [String: Any] {
             self.content = try ObjectSerializer.deserialize(type: StoryChildNodes.self, from: raw_content);
         }
@@ -233,7 +234,6 @@ public class OfficeMathObject : OfficeMathLink {
             self.mathObjectType = MathObjectType(rawValue: raw_mathObjectType);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

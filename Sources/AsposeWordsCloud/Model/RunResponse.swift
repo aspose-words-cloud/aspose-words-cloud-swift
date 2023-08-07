@@ -52,11 +52,11 @@ public class RunResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_run = json["Run"] as? [String: Any] {
             self.run = try ObjectSerializer.deserialize(type: Run.self, from: raw_run);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

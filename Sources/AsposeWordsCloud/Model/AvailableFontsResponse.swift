@@ -78,6 +78,7 @@ public class AvailableFontsResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_additionalFonts = json["AdditionalFonts"] as? [Any] {
             self.additionalFonts = try raw_additionalFonts.map {
                 if let element_additionalFonts = $0 as? [String: Any] {
@@ -111,7 +112,6 @@ public class AvailableFontsResponse : WordsResponse {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

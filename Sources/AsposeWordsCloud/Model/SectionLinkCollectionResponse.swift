@@ -52,11 +52,11 @@ public class SectionLinkCollectionResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_sections = json["Sections"] as? [String: Any] {
             self.sections = try ObjectSerializer.deserialize(type: SectionLinkCollection.self, from: raw_sections);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

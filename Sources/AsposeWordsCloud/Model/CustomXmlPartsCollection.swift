@@ -52,6 +52,7 @@ public class CustomXmlPartsCollection : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_customXmlPartsList = json["CustomXmlPartsList"] as? [Any] {
             self.customXmlPartsList = try raw_customXmlPartsList.map {
                 if let element_customXmlPartsList = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class CustomXmlPartsCollection : LinkElement {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

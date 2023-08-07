@@ -78,6 +78,7 @@ public class ClassificationResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.bestClassName = json["BestClassName"] as? String;
         self.bestClassProbability = json["BestClassProbability"] as? Double;
         if let raw_bestResults = json["BestResults"] as? [Any] {
@@ -91,7 +92,6 @@ public class ClassificationResponse : WordsResponse {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

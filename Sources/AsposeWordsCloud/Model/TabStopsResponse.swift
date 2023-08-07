@@ -52,6 +52,7 @@ public class TabStopsResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_tabStops = json["TabStops"] as? [Any] {
             self.tabStops = try raw_tabStops.map {
                 if let element_tabStops = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class TabStopsResponse : WordsResponse {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

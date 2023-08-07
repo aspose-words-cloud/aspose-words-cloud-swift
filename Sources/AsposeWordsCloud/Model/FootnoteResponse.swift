@@ -52,11 +52,11 @@ public class FootnoteResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_footnote = json["Footnote"] as? [String: Any] {
             self.footnote = try ObjectSerializer.deserialize(type: Footnote.self, from: raw_footnote);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

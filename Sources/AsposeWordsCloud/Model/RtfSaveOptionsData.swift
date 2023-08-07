@@ -100,11 +100,11 @@ public class RtfSaveOptionsData : SaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.exportCompactSize = json["ExportCompactSize"] as? Bool;
         self.exportImagesForOldReaders = json["ExportImagesForOldReaders"] as? Bool;
         self.prettyFormat = json["PrettyFormat"] as? Bool;
         self.saveImagesAsWmf = json["SaveImagesAsWmf"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

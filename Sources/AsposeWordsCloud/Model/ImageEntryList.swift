@@ -65,6 +65,7 @@ public class ImageEntryList : BaseEntryList {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.appendEachImageOnNewPage = json["AppendEachImageOnNewPage"] as? Bool;
         if let raw_imageEntries = json["ImageEntries"] as? [Any] {
             self.imageEntries = try raw_imageEntries.map {
@@ -77,7 +78,6 @@ public class ImageEntryList : BaseEntryList {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

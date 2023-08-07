@@ -52,8 +52,8 @@ public class TabStop : TabStopBase {
     }
 
     public required init(from json: [String: Any]) throws {
-        self.isClear = json["IsClear"] as? Bool;
         try super.init(from: json);
+        self.isClear = json["IsClear"] as? Bool;
     }
 
     public required init(from decoder: Decoder) throws {

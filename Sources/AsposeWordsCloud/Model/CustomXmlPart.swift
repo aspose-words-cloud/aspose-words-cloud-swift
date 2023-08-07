@@ -65,9 +65,9 @@ public class CustomXmlPart : CustomXmlPartLink {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.id = json["Id"] as? String;
         self.data = json["Data"] as? String;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

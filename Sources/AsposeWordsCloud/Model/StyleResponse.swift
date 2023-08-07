@@ -52,11 +52,11 @@ public class StyleResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_style = json["Style"] as? [String: Any] {
             self.style = try ObjectSerializer.deserialize(type: Style.self, from: raw_style);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

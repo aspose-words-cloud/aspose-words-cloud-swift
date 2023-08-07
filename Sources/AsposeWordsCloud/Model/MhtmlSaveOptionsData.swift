@@ -61,8 +61,8 @@ public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
-        self.exportCidUrlsForMhtmlResources = json["ExportCidUrlsForMhtmlResources"] as? Bool;
         try super.init(from: json);
+        self.exportCidUrlsForMhtmlResources = json["ExportCidUrlsForMhtmlResources"] as? Bool;
     }
 
     public required init(from decoder: Decoder) throws {

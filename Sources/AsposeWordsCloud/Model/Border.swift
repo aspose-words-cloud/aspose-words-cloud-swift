@@ -233,6 +233,7 @@ public class Border : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_borderType = json["BorderType"] as? String {
             self.borderType = BorderType(rawValue: raw_borderType);
         }
@@ -248,7 +249,6 @@ public class Border : LinkElement {
 
         self.lineWidth = json["LineWidth"] as? Double;
         self.shadow = json["Shadow"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

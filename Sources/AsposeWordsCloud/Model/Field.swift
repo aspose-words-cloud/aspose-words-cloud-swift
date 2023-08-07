@@ -65,9 +65,9 @@ public class Field : FieldLink {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.localeId = json["LocaleId"] as? String;
         self.result = json["Result"] as? String;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

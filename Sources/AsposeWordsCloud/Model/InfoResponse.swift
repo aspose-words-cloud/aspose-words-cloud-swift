@@ -78,6 +78,7 @@ public class InfoResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_additionalInfo = json["AdditionalInfo"] as? [Any] {
             self.additionalInfo = try raw_additionalInfo.map {
                 if let element_additionalInfo = $0 as? [String: Any] {
@@ -91,7 +92,6 @@ public class InfoResponse : WordsResponse {
 
         self.name = json["Name"] as? String;
         self.version = json["Version"] as? String;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -74,9 +74,9 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.resourcesFolder = json["ResourcesFolder"] as? String;
         self.resourcesFolderAlias = json["ResourcesFolderAlias"] as? String;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

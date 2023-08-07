@@ -52,11 +52,11 @@ public class HyperlinkResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_hyperlink = json["Hyperlink"] as? [String: Any] {
             self.hyperlink = try ObjectSerializer.deserialize(type: Hyperlink.self, from: raw_hyperlink);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -65,6 +65,7 @@ public class Table : NodeLink {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_tableRowList = json["TableRowList"] as? [Any] {
             self.tableRowList = try raw_tableRowList.map {
                 if let element_tableRowList = $0 as? [String: Any] {
@@ -80,7 +81,6 @@ public class Table : NodeLink {
             self.tableProperties = try ObjectSerializer.deserialize(type: TableProperties.self, from: raw_tableProperties);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

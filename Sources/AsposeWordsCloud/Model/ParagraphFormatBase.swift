@@ -1609,6 +1609,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.addSpaceBetweenFarEastAndAlpha = json["AddSpaceBetweenFarEastAndAlpha"] as? Bool;
         self.addSpaceBetweenFarEastAndDigit = json["AddSpaceBetweenFarEastAndDigit"] as? Bool;
         if let raw_alignment = json["Alignment"] as? String {
@@ -1653,7 +1654,6 @@ public class ParagraphFormatBase : LinkElement {
             self.shading = try ObjectSerializer.deserialize(type: Shading.self, from: raw_shading);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -52,11 +52,11 @@ public class ParagraphResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_paragraph = json["Paragraph"] as? [String: Any] {
             self.paragraph = try ObjectSerializer.deserialize(type: Paragraph.self, from: raw_paragraph);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

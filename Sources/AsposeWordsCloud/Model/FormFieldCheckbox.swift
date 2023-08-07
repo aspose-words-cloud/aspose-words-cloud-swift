@@ -78,10 +78,10 @@ public class FormFieldCheckbox : FormField {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.isCheckBoxExactSize = json["IsCheckBoxExactSize"] as? Bool;
         self.checkBoxSize = json["CheckBoxSize"] as? Double;
         self.checked = json["Checked"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

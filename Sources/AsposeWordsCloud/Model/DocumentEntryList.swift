@@ -65,6 +65,7 @@ public class DocumentEntryList : BaseEntryList {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.applyBaseDocumentHeadersAndFootersToAppendingDocuments = json["ApplyBaseDocumentHeadersAndFootersToAppendingDocuments"] as? Bool;
         if let raw_documentEntries = json["DocumentEntries"] as? [Any] {
             self.documentEntries = try raw_documentEntries.map {
@@ -77,7 +78,6 @@ public class DocumentEntryList : BaseEntryList {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

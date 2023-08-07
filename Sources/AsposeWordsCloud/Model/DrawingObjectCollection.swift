@@ -52,6 +52,7 @@ public class DrawingObjectCollection : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_list = json["List"] as? [Any] {
             self.list = try raw_list.map {
                 if let element_list = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class DrawingObjectCollection : LinkElement {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

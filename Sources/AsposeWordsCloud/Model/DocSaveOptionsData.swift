@@ -100,11 +100,11 @@ public class DocSaveOptionsData : SaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.alwaysCompressMetafiles = json["AlwaysCompressMetafiles"] as? Bool;
         self.password = json["Password"] as? String;
         self.savePictureBullet = json["SavePictureBullet"] as? Bool;
         self.saveRoutingSlip = json["SaveRoutingSlip"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

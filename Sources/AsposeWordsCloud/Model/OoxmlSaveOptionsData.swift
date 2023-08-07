@@ -120,6 +120,7 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_compliance = json["Compliance"] as? String {
             self.compliance = Compliance(rawValue: raw_compliance);
         }
@@ -130,7 +131,6 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
 
         self.password = json["Password"] as? String;
         self.prettyFormat = json["PrettyFormat"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

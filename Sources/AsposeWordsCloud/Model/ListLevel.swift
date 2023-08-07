@@ -411,6 +411,7 @@ public class ListLevel : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.startAt = json["StartAt"] as? Int;
         if let raw_numberStyle = json["NumberStyle"] as? String {
             self.numberStyle = NumberStyle(rawValue: raw_numberStyle);
@@ -438,7 +439,6 @@ public class ListLevel : LinkElement {
             self.linkedStyle = try ObjectSerializer.deserialize(type: Style.self, from: raw_linkedStyle);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

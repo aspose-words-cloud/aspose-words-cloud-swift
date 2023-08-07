@@ -52,6 +52,7 @@ public class ListLevels : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_listLevel = json["ListLevel"] as? [Any] {
             self.listLevel = try raw_listLevel.map {
                 if let element_listLevel = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class ListLevels : LinkElement {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

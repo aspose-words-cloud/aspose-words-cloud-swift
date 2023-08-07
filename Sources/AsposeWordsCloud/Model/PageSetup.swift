@@ -745,6 +745,7 @@ public class PageSetup : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.bidi = json["Bidi"] as? Bool;
         self.borderAlwaysInFront = json["BorderAlwaysInFront"] as? Bool;
         if let raw_borderAppliesTo = json["BorderAppliesTo"] as? String {
@@ -798,7 +799,6 @@ public class PageSetup : LinkElement {
             self.verticalAlignment = VerticalAlignment(rawValue: raw_verticalAlignment);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

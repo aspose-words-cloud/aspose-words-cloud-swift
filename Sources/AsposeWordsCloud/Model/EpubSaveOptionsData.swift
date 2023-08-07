@@ -61,8 +61,8 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
-        self.epubNavigationMapLevel = json["EpubNavigationMapLevel"] as? Int;
         try super.init(from: json);
+        self.epubNavigationMapLevel = json["EpubNavigationMapLevel"] as? Int;
     }
 
     public required init(from decoder: Decoder) throws {

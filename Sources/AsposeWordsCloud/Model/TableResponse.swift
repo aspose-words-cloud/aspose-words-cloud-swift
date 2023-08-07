@@ -52,11 +52,11 @@ public class TableResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_table = json["Table"] as? [String: Any] {
             self.table = try ObjectSerializer.deserialize(type: Table.self, from: raw_table);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -74,11 +74,11 @@ public class HeaderFooterLink : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_type = json["Type"] as? String {
             self.type = ModelType(rawValue: raw_type);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

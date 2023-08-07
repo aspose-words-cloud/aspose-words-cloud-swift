@@ -65,9 +65,9 @@ public class Hyperlink : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.displayText = json["DisplayText"] as? String;
         self.value = json["Value"] as? String;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

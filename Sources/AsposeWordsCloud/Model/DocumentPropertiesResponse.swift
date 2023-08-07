@@ -52,11 +52,11 @@ public class DocumentPropertiesResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_documentProperties = json["DocumentProperties"] as? [String: Any] {
             self.documentProperties = try ObjectSerializer.deserialize(type: DocumentProperties.self, from: raw_documentProperties);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

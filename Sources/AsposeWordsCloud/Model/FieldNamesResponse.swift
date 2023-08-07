@@ -52,11 +52,11 @@ public class FieldNamesResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_fieldNames = json["FieldNames"] as? [String: Any] {
             self.fieldNames = try ObjectSerializer.deserialize(type: FieldNames.self, from: raw_fieldNames);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -52,6 +52,7 @@ public class Hyperlinks : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_hyperlinkList = json["HyperlinkList"] as? [Any] {
             self.hyperlinkList = try raw_hyperlinkList.map {
                 if let element_hyperlinkList = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class Hyperlinks : LinkElement {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -111,6 +111,7 @@ public class OdtSaveOptionsData : SaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.isStrictSchema11 = json["IsStrictSchema11"] as? Bool;
         if let raw_measureUnit = json["MeasureUnit"] as? String {
             self.measureUnit = MeasureUnit(rawValue: raw_measureUnit);
@@ -118,7 +119,6 @@ public class OdtSaveOptionsData : SaveOptionsData {
 
         self.password = json["Password"] as? String;
         self.prettyFormat = json["PrettyFormat"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

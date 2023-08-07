@@ -78,11 +78,11 @@ public class MarkdownSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_tableContentAlignment = json["TableContentAlignment"] as? String {
             self.tableContentAlignment = TableContentAlignment(rawValue: raw_tableContentAlignment);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -507,6 +507,7 @@ public class StructuredDocumentTag : NodeLink {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_listItems = json["ListItems"] as? [Any] {
             self.listItems = try raw_listItems.map {
                 if let element_listItems = $0 as? [String: Any] {
@@ -559,7 +560,6 @@ public class StructuredDocumentTag : NodeLink {
         self.tag = json["Tag"] as? String;
         self.id = json["Id"] as? Int;
         self.wordOpenXML = json["WordOpenXML"] as? String;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -74,9 +74,9 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.falllbackFontName = json["FalllbackFontName"] as? String;
         self.rasterizeTransformedElements = json["RasterizeTransformedElements"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

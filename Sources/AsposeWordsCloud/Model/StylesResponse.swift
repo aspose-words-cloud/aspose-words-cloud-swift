@@ -52,6 +52,7 @@ public class StylesResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_styles = json["Styles"] as? [Any] {
             self.styles = try raw_styles.map {
                 if let element_styles = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class StylesResponse : WordsResponse {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

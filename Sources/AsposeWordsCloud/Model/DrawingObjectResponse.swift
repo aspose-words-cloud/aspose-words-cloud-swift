@@ -52,11 +52,11 @@ public class DrawingObjectResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_drawingObject = json["DrawingObject"] as? [String: Any] {
             self.drawingObject = try ObjectSerializer.deserialize(type: DrawingObject.self, from: raw_drawingObject);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

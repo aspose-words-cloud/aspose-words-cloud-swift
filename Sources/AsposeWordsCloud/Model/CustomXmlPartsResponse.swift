@@ -52,11 +52,11 @@ public class CustomXmlPartsResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_customXmlParts = json["CustomXmlParts"] as? [String: Any] {
             self.customXmlParts = try ObjectSerializer.deserialize(type: CustomXmlPartsCollection.self, from: raw_customXmlParts);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

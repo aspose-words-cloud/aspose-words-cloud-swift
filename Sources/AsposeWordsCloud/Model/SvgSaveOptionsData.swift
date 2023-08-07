@@ -139,6 +139,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.exportEmbeddedImages = json["ExportEmbeddedImages"] as? Bool;
         self.fitToViewPort = json["FitToViewPort"] as? Bool;
         self.resourcesFolder = json["ResourcesFolder"] as? String;
@@ -148,7 +149,6 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
             self.textOutputMode = TextOutputMode(rawValue: raw_textOutputMode);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -52,6 +52,7 @@ public class Bookmarks : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_bookmarkList = json["BookmarkList"] as? [Any] {
             self.bookmarkList = try raw_bookmarkList.map {
                 if let element_bookmarkList = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class Bookmarks : LinkElement {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

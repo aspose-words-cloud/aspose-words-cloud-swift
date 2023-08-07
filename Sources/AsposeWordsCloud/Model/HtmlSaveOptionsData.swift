@@ -656,6 +656,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.allowNegativeIndent = json["AllowNegativeIndent"] as? Bool;
         self.cssClassNamePrefix = json["CssClassNamePrefix"] as? String;
         self.cssStyleSheetFileName = json["CssStyleSheetFileName"] as? String;
@@ -718,7 +719,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
             self.tableWidthOutputMode = TableWidthOutputMode(rawValue: raw_tableWidthOutputMode);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

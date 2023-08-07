@@ -116,6 +116,7 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.thresholdForFloydSteinbergDithering = json["ThresholdForFloydSteinbergDithering"] as? Int;
         if let raw_tiffBinarizationMethod = json["TiffBinarizationMethod"] as? String {
             self.tiffBinarizationMethod = TiffBinarizationMethod(rawValue: raw_tiffBinarizationMethod);
@@ -125,7 +126,6 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
             self.tiffCompression = TiffCompression(rawValue: raw_tiffCompression);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

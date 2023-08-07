@@ -52,6 +52,7 @@ public class FieldNames : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_names = json["Names"] as? [Any] {
             self.names = try raw_names.map {
                 if let element_names = $0 as? String {
@@ -63,7 +64,6 @@ public class FieldNames : LinkElement {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

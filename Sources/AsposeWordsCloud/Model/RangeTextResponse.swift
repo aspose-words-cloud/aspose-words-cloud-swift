@@ -52,8 +52,8 @@ public class RangeTextResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
-        self.text = json["Text"] as? String;
         try super.init(from: json);
+        self.text = json["Text"] as? String;
     }
 
     public required init(from decoder: Decoder) throws {

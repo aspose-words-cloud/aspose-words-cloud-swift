@@ -254,6 +254,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.cssClassNamesPrefix = json["CssClassNamesPrefix"] as? String;
         self.encoding = json["Encoding"] as? String;
         self.exportEmbeddedCss = json["ExportEmbeddedCss"] as? Bool;
@@ -274,7 +275,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         self.saveFontFaceCssSeparately = json["SaveFontFaceCssSeparately"] as? Bool;
         self.showPageBorder = json["ShowPageBorder"] as? Bool;
         self.useTargetMachineFonts = json["UseTargetMachineFonts"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

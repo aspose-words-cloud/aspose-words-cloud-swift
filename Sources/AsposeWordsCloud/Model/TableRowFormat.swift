@@ -104,6 +104,7 @@ public class TableRowFormat : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.height = json["Height"] as? Double;
         if let raw_heightRule = json["HeightRule"] as? String {
             self.heightRule = HeightRule(rawValue: raw_heightRule);
@@ -111,7 +112,6 @@ public class TableRowFormat : LinkElement {
 
         self.allowBreakAcrossPages = json["AllowBreakAcrossPages"] as? Bool;
         self.headingFormat = json["HeadingFormat"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

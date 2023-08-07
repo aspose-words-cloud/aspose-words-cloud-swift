@@ -130,6 +130,7 @@ public class Comment : CommentLink {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_rangeStart = json["RangeStart"] as? [String: Any] {
             self.rangeStart = try ObjectSerializer.deserialize(type: DocumentPosition.self, from: raw_rangeStart);
         }
@@ -149,7 +150,6 @@ public class Comment : CommentLink {
             self.content = try ObjectSerializer.deserialize(type: StoryChildNodes.self, from: raw_content);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

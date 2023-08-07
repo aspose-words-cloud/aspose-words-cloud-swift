@@ -160,6 +160,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_colorMode = json["ColorMode"] as? String {
             self.colorMode = ColorMode(rawValue: raw_colorMode);
         }
@@ -176,7 +177,6 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         self.optimizeOutput = json["OptimizeOutput"] as? Bool;
         self.pageCount = json["PageCount"] as? Int;
         self.pageIndex = json["PageIndex"] as? Int;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

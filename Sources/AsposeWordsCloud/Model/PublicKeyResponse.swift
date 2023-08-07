@@ -65,9 +65,9 @@ public class PublicKeyResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.exponent = json["Exponent"] as? String;
         self.modulus = json["Modulus"] as? String;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

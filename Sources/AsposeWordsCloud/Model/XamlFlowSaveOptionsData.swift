@@ -74,9 +74,9 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.imagesFolder = json["ImagesFolder"] as? String;
         self.imagesFolderAlias = json["ImagesFolderAlias"] as? String;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

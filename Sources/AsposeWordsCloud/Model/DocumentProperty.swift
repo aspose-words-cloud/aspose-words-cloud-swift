@@ -78,10 +78,10 @@ public class DocumentProperty : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.name = json["Name"] as? String;
         self.value = json["Value"] as? String;
         self.builtIn = json["BuiltIn"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -65,6 +65,7 @@ public class TableRow : NodeLink {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_tableCellList = json["TableCellList"] as? [Any] {
             self.tableCellList = try raw_tableCellList.map {
                 if let element_tableCellList = $0 as? [String: Any] {
@@ -80,7 +81,6 @@ public class TableRow : NodeLink {
             self.rowFormat = try ObjectSerializer.deserialize(type: TableRowFormat.self, from: raw_rowFormat);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

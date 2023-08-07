@@ -65,6 +65,7 @@ public class BookmarkInsert : BookmarkData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_endRange = json["EndRange"] as? [String: Any] {
             self.endRange = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_endRange);
         }
@@ -73,7 +74,6 @@ public class BookmarkInsert : BookmarkData {
             self.startRange = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_startRange);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

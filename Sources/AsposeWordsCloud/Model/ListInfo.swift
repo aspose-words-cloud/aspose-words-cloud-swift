@@ -130,6 +130,7 @@ public class ListInfo : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.listId = json["ListId"] as? Int;
         self.isMultiLevel = json["IsMultiLevel"] as? Bool;
         self.isRestartAtEachSection = json["IsRestartAtEachSection"] as? Bool;
@@ -143,7 +144,6 @@ public class ListInfo : LinkElement {
             self.listLevels = try ObjectSerializer.deserialize(type: ListLevels.self, from: raw_listLevels);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

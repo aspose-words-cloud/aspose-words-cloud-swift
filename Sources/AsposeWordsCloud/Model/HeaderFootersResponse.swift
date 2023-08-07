@@ -52,11 +52,11 @@ public class HeaderFootersResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_headerFooters = json["HeaderFooters"] as? [String: Any] {
             self.headerFooters = try ObjectSerializer.deserialize(type: HeaderFooterLinkCollection.self, from: raw_headerFooters);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

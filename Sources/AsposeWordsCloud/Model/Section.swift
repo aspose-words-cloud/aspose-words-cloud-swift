@@ -104,6 +104,7 @@ public class Section : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_childNodes = json["ChildNodes"] as? [Any] {
             self.childNodes = try raw_childNodes.map {
                 if let element_childNodes = $0 as? [String: Any] {
@@ -131,7 +132,6 @@ public class Section : LinkElement {
             self.tables = try ObjectSerializer.deserialize(type: LinkElement.self, from: raw_tables);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

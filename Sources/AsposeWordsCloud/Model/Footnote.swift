@@ -114,6 +114,7 @@ public class Footnote : FootnoteLink {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_position = json["Position"] as? [String: Any] {
             self.position = try ObjectSerializer.deserialize(type: DocumentPosition.self, from: raw_position);
         }
@@ -128,7 +129,6 @@ public class Footnote : FootnoteLink {
             self.content = try ObjectSerializer.deserialize(type: StoryChildNodes.self, from: raw_content);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

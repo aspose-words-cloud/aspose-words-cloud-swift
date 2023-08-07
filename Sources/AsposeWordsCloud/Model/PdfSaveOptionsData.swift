@@ -532,6 +532,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.cacheBackgroundGraphics = json["CacheBackgroundGraphics"] as? Bool;
         if let raw_compliance = json["Compliance"] as? String {
             self.compliance = Compliance(rawValue: raw_compliance);
@@ -595,7 +596,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
 
         self.zoomFactor = json["ZoomFactor"] as? Int;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

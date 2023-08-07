@@ -52,6 +52,7 @@ public class SearchResultsCollection : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_resultsList = json["ResultsList"] as? [Any] {
             self.resultsList = try raw_resultsList.map {
                 if let element_resultsList = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class SearchResultsCollection : LinkElement {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -78,10 +78,10 @@ public class ListFormat : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.listLevelNumber = json["ListLevelNumber"] as? Int;
         self.listId = json["ListId"] as? Int;
         self.isListItem = json["IsListItem"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

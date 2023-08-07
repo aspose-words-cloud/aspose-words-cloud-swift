@@ -245,6 +245,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.horizontalResolution = json["HorizontalResolution"] as? Double;
         self.imageBrightness = json["ImageBrightness"] as? Double;
         if let raw_imageColorMode = json["ImageColorMode"] as? String {
@@ -263,7 +264,6 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         self.useHighQualityRendering = json["UseHighQualityRendering"] as? Bool;
         self.verticalResolution = json["VerticalResolution"] as? Double;
         self.useGdiEmfRenderer = json["UseGdiEmfRenderer"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

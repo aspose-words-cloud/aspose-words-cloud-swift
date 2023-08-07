@@ -1780,6 +1780,7 @@ public class Font : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.allCaps = json["AllCaps"] as? Bool;
         self.bidi = json["Bidi"] as? Bool;
         self.bold = json["Bold"] as? Bool;
@@ -1841,7 +1842,6 @@ public class Font : LinkElement {
             self.underlineColor = try ObjectSerializer.deserialize(type: XmlColor.self, from: raw_underlineColor);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

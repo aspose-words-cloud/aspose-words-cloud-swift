@@ -52,6 +52,7 @@ public class TableLinkCollection : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_tableLinkList = json["TableLinkList"] as? [Any] {
             self.tableLinkList = try raw_tableLinkList.map {
                 if let element_tableLinkList = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class TableLinkCollection : LinkElement {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

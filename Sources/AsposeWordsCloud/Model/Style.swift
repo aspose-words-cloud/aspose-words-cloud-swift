@@ -1336,6 +1336,7 @@ public class Style : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_font = json["Font"] as? [String: Any] {
             self.font = try ObjectSerializer.deserialize(type: Font.self, from: raw_font);
         }
@@ -1366,7 +1367,6 @@ public class Style : LinkElement {
         }
 
         self.name = json["Name"] as? String;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

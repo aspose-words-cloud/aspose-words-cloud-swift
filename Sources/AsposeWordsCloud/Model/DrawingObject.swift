@@ -256,6 +256,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_renderLinks = json["RenderLinks"] as? [Any] {
             self.renderLinks = try raw_renderLinks.map {
                 if let element_renderLinks = $0 as? [String: Any] {
@@ -291,7 +292,6 @@ public class DrawingObject : DrawingObjectLink {
             self.wrapType = WrapType(rawValue: raw_wrapType);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

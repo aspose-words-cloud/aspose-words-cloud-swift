@@ -256,6 +256,7 @@ public class TableCellFormat : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.bottomPadding = json["BottomPadding"] as? Double;
         self.fitText = json["FitText"] as? Bool;
         if let raw_horizontalMerge = json["HorizontalMerge"] as? String {
@@ -283,7 +284,6 @@ public class TableCellFormat : LinkElement {
 
         self.width = json["Width"] as? Double;
         self.wrapText = json["WrapText"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

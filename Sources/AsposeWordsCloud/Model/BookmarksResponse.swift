@@ -52,11 +52,11 @@ public class BookmarksResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_bookmarks = json["Bookmarks"] as? [String: Any] {
             self.bookmarks = try ObjectSerializer.deserialize(type: Bookmarks.self, from: raw_bookmarks);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

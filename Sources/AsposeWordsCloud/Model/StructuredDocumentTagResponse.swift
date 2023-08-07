@@ -52,11 +52,11 @@ public class StructuredDocumentTagResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_structuredDocumentTag = json["StructuredDocumentTag"] as? [String: Any] {
             self.structuredDocumentTag = try ObjectSerializer.deserialize(type: StructuredDocumentTag.self, from: raw_structuredDocumentTag);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

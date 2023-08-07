@@ -156,6 +156,7 @@ public class FormField : NodeLink {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.name = json["Name"] as? String;
         self.enabled = json["Enabled"] as? Bool;
         self.statusText = json["StatusText"] as? String;
@@ -165,7 +166,6 @@ public class FormField : NodeLink {
         self.calculateOnExit = json["CalculateOnExit"] as? Bool;
         self.entryMacro = json["EntryMacro"] as? String;
         self.exitMacro = json["ExitMacro"] as? String;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -52,6 +52,7 @@ public class CommentsCollection : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_commentList = json["CommentList"] as? [Any] {
             self.commentList = try raw_commentList.map {
                 if let element_commentList = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class CommentsCollection : LinkElement {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

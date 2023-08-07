@@ -52,11 +52,11 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_paragraphs = json["Paragraphs"] as? [String: Any] {
             self.paragraphs = try ObjectSerializer.deserialize(type: ParagraphLinkCollection.self, from: raw_paragraphs);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

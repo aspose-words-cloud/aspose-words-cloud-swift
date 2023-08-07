@@ -52,8 +52,8 @@ public class FieldLink : NodeLink {
     }
 
     public required init(from json: [String: Any]) throws {
-        self.fieldCode = json["FieldCode"] as? String;
         try super.init(from: json);
+        self.fieldCode = json["FieldCode"] as? String;
     }
 
     public required init(from decoder: Decoder) throws {

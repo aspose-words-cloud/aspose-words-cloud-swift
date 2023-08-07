@@ -65,6 +65,7 @@ public class ProtectionDataResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_documentLink = json["DocumentLink"] as? [String: Any] {
             self.documentLink = try ObjectSerializer.deserialize(type: FileLink.self, from: raw_documentLink);
         }
@@ -73,7 +74,6 @@ public class ProtectionDataResponse : WordsResponse {
             self.protectionData = try ObjectSerializer.deserialize(type: ProtectionData.self, from: raw_protectionData);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

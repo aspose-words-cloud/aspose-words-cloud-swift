@@ -52,6 +52,7 @@ public class ParagraphLinkCollection : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_paragraphLinkList = json["ParagraphLinkList"] as? [Any] {
             self.paragraphLinkList = try raw_paragraphLinkList.map {
                 if let element_paragraphLinkList = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class ParagraphLinkCollection : LinkElement {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

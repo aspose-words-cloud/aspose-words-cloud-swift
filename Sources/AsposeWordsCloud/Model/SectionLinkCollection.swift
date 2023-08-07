@@ -52,6 +52,7 @@ public class SectionLinkCollection : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_sectionLinkList = json["SectionLinkList"] as? [Any] {
             self.sectionLinkList = try raw_sectionLinkList.map {
                 if let element_sectionLinkList = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class SectionLinkCollection : LinkElement {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

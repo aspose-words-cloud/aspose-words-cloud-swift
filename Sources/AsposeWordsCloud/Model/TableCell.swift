@@ -52,6 +52,7 @@ public class TableCell : NodeLink {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_childNodes = json["ChildNodes"] as? [Any] {
             self.childNodes = try raw_childNodes.map {
                 if let element_childNodes = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class TableCell : NodeLink {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

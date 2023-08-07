@@ -100,11 +100,11 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.addBidiMarks = json["AddBidiMarks"] as? Bool;
         self.maxCharactersPerLine = json["MaxCharactersPerLine"] as? Int;
         self.preserveTableLayout = json["PreserveTableLayout"] as? Bool;
         self.simplifyListLabels = json["SimplifyListLabels"] as? Bool;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -52,11 +52,11 @@ public class SectionPageSetupResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_pageSetup = json["PageSetup"] as? [String: Any] {
             self.pageSetup = try ObjectSerializer.deserialize(type: PageSetup.self, from: raw_pageSetup);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

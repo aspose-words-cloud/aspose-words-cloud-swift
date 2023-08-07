@@ -52,8 +52,8 @@ public class NodeLink : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
-        self.nodeId = json["NodeId"] as? String;
         try super.init(from: json);
+        self.nodeId = json["NodeId"] as? String;
     }
 
     public required init(from decoder: Decoder) throws {

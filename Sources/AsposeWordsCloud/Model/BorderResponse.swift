@@ -52,11 +52,11 @@ public class BorderResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_border = json["Border"] as? [String: Any] {
             self.border = try ObjectSerializer.deserialize(type: Border.self, from: raw_border);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

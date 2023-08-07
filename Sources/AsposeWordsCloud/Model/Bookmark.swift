@@ -65,9 +65,9 @@ public class Bookmark : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.name = json["Name"] as? String;
         self.text = json["Text"] as? String;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -52,11 +52,11 @@ public class TableCellFormatResponse : WordsResponse {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_cellFormat = json["CellFormat"] as? [String: Any] {
             self.cellFormat = try ObjectSerializer.deserialize(type: TableCellFormat.self, from: raw_cellFormat);
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

@@ -113,6 +113,7 @@ public class FormFieldTextInput : FormField {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.textInputFormat = json["TextInputFormat"] as? String;
         if let raw_textInputType = json["TextInputType"] as? String {
             self.textInputType = TextInputType(rawValue: raw_textInputType);
@@ -120,7 +121,6 @@ public class FormFieldTextInput : FormField {
 
         self.textInputDefault = json["TextInputDefault"] as? String;
         self.maxLength = json["MaxLength"] as? Int;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

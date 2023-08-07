@@ -61,8 +61,8 @@ public class WordMLSaveOptionsData : SaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
-        self.prettyFormat = json["PrettyFormat"] as? Bool;
         try super.init(from: json);
+        self.prettyFormat = json["PrettyFormat"] as? Bool;
     }
 
     public required init(from decoder: Decoder) throws {

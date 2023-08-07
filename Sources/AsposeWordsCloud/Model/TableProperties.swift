@@ -1416,6 +1416,7 @@ public class TableProperties : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_alignment = json["Alignment"] as? String {
             self.alignment = Alignment(rawValue: raw_alignment);
         }
@@ -1445,7 +1446,6 @@ public class TableProperties : LinkElement {
         }
 
         self.topPadding = json["TopPadding"] as? Double;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

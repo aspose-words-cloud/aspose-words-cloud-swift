@@ -52,6 +52,7 @@ public class Lists : LinkElement {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         if let raw_listInfo = json["ListInfo"] as? [Any] {
             self.listInfo = try raw_listInfo.map {
                 if let element_listInfo = $0 as? [String: Any] {
@@ -63,7 +64,6 @@ public class Lists : LinkElement {
             };
         }
 
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {

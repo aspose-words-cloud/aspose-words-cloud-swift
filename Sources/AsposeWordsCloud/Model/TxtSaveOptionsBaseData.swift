@@ -105,6 +105,7 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
         self.encoding = json["Encoding"] as? String;
         if let raw_exportHeadersFootersMode = json["ExportHeadersFootersMode"] as? String {
             self.exportHeadersFootersMode = ExportHeadersFootersMode(rawValue: raw_exportHeadersFootersMode);
@@ -112,7 +113,6 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
 
         self.forcePageBreaks = json["ForcePageBreaks"] as? Bool;
         self.paragraphBreak = json["ParagraphBreak"] as? String;
-        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {
