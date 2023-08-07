@@ -55,11 +55,11 @@ public class StylesResponse : WordsResponse {
         if let raw_styles = json["Styles"] as? [Any] {
             self.styles = try raw_styles.map {
                 if let element_styles = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: Style.self, from: element_styles);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: Style.self, from: element_styles);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

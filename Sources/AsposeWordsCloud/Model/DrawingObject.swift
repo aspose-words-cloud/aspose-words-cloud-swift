@@ -259,11 +259,11 @@ public class DrawingObject : DrawingObjectLink {
         if let raw_renderLinks = json["RenderLinks"] as? [Any] {
             self.renderLinks = try raw_renderLinks.map {
                 if let element_renderLinks = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: WordsApiLink.self, from: element_renderLinks);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: WordsApiLink.self, from: element_renderLinks);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

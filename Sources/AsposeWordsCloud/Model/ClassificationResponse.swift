@@ -83,11 +83,11 @@ public class ClassificationResponse : WordsResponse {
         if let raw_bestResults = json["BestResults"] as? [Any] {
             self.bestResults = try raw_bestResults.map {
                 if let element_bestResults = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: ClassificationResult.self, from: element_bestResults);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: ClassificationResult.self, from: element_bestResults);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

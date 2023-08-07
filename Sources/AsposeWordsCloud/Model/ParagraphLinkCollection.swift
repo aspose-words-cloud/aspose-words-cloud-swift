@@ -55,11 +55,11 @@ public class ParagraphLinkCollection : LinkElement {
         if let raw_paragraphLinkList = json["ParagraphLinkList"] as? [Any] {
             self.paragraphLinkList = try raw_paragraphLinkList.map {
                 if let element_paragraphLinkList = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: ParagraphLink.self, from: element_paragraphLinkList);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: ParagraphLink.self, from: element_paragraphLinkList);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

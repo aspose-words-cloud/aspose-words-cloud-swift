@@ -69,11 +69,11 @@ public class ImageEntryList : BaseEntryList {
         if let raw_imageEntries = json["ImageEntries"] as? [Any] {
             self.imageEntries = try raw_imageEntries.map {
                 if let element_imageEntries = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: ImageEntry.self, from: element_imageEntries);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: ImageEntry.self, from: element_imageEntries);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

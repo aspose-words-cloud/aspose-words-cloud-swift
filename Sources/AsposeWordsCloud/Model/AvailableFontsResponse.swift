@@ -81,33 +81,33 @@ public class AvailableFontsResponse : WordsResponse {
         if let raw_additionalFonts = json["AdditionalFonts"] as? [Any] {
             self.additionalFonts = try raw_additionalFonts.map {
                 if let element_additionalFonts = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: FontInfo.self, from: element_additionalFonts);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: FontInfo.self, from: element_additionalFonts);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 
         if let raw_customFonts = json["CustomFonts"] as? [Any] {
             self.customFonts = try raw_customFonts.map {
                 if let element_customFonts = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: FontInfo.self, from: element_customFonts);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: FontInfo.self, from: element_customFonts);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 
         if let raw_systemFonts = json["SystemFonts"] as? [Any] {
             self.systemFonts = try raw_systemFonts.map {
                 if let element_systemFonts = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: FontInfo.self, from: element_systemFonts);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: FontInfo.self, from: element_systemFonts);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

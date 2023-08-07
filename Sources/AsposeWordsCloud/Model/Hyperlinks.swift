@@ -55,11 +55,11 @@ public class Hyperlinks : LinkElement {
         if let raw_hyperlinkList = json["HyperlinkList"] as? [Any] {
             self.hyperlinkList = try raw_hyperlinkList.map {
                 if let element_hyperlinkList = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: Hyperlink.self, from: element_hyperlinkList);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: Hyperlink.self, from: element_hyperlinkList);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

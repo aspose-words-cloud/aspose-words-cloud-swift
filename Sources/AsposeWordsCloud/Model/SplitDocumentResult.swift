@@ -88,11 +88,11 @@ public class SplitDocumentResult : Codable, WordsApiModel {
         if let raw_pages = json["Pages"] as? [Any] {
             self.pages = try raw_pages.map {
                 if let element_pages = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: FileLink.self, from: element_pages);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: FileLink.self, from: element_pages);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

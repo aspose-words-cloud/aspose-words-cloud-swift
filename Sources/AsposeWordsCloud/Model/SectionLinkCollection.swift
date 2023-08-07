@@ -55,11 +55,11 @@ public class SectionLinkCollection : LinkElement {
         if let raw_sectionLinkList = json["SectionLinkList"] as? [Any] {
             self.sectionLinkList = try raw_sectionLinkList.map {
                 if let element_sectionLinkList = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: SectionLink.self, from: element_sectionLinkList);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: SectionLink.self, from: element_sectionLinkList);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

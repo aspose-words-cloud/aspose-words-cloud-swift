@@ -68,11 +68,11 @@ public class FormFieldDropDown : FormField {
         if let raw_dropDownItems = json["DropDownItems"] as? [Any] {
             self.dropDownItems = try raw_dropDownItems.map {
                 if let element_dropDownItems = $0 as? String {
-            return element_dropDownItems;
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return element_dropDownItems;
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

@@ -1353,11 +1353,11 @@ public class Style : LinkElement {
         if let raw_aliases = json["Aliases"] as? [Any] {
             self.aliases = try raw_aliases.map {
                 if let element_aliases = $0 as? String {
-            return element_aliases;
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return element_aliases;
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

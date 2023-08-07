@@ -55,11 +55,11 @@ public class Bookmarks : LinkElement {
         if let raw_bookmarkList = json["BookmarkList"] as? [Any] {
             self.bookmarkList = try raw_bookmarkList.map {
                 if let element_bookmarkList = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: Bookmark.self, from: element_bookmarkList);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: Bookmark.self, from: element_bookmarkList);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

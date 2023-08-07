@@ -119,11 +119,11 @@ public class OutlineOptionsData : Codable, WordsApiModel {
         if let raw_bookmarksOutlineLevels = json["BookmarksOutlineLevels"] as? [Any] {
             self.bookmarksOutlineLevels = try raw_bookmarksOutlineLevels.map {
                 if let element_bookmarksOutlineLevels = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: BookmarksOutlineLevelData.self, from: element_bookmarksOutlineLevels);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: BookmarksOutlineLevelData.self, from: element_bookmarksOutlineLevels);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

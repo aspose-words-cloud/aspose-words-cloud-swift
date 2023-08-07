@@ -81,11 +81,11 @@ public class InfoResponse : WordsResponse {
         if let raw_additionalInfo = json["AdditionalInfo"] as? [Any] {
             self.additionalInfo = try raw_additionalInfo.map {
                 if let element_additionalInfo = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: InfoAdditionalItem.self, from: element_additionalInfo);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: InfoAdditionalItem.self, from: element_additionalInfo);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

@@ -245,11 +245,11 @@ public class FieldOptions : Codable, WordsApiModel {
         if let raw_builtInTemplatesPaths = json["BuiltInTemplatesPaths"] as? [Any] {
             self.builtInTemplatesPaths = try raw_builtInTemplatesPaths.map {
                 if let element_builtInTemplatesPaths = $0 as? String {
-            return element_builtInTemplatesPaths;
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return element_builtInTemplatesPaths;
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

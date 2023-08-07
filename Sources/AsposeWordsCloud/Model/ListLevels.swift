@@ -55,11 +55,11 @@ public class ListLevels : LinkElement {
         if let raw_listLevel = json["ListLevel"] as? [Any] {
             self.listLevel = try raw_listLevel.map {
                 if let element_listLevel = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: ListLevel.self, from: element_listLevel);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: ListLevel.self, from: element_listLevel);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

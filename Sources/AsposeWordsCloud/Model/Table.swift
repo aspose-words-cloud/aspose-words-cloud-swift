@@ -68,11 +68,11 @@ public class Table : NodeLink {
         if let raw_tableRowList = json["TableRowList"] as? [Any] {
             self.tableRowList = try raw_tableRowList.map {
                 if let element_tableRowList = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: TableRow.self, from: element_tableRowList);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: TableRow.self, from: element_tableRowList);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

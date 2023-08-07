@@ -510,11 +510,11 @@ public class StructuredDocumentTag : NodeLink {
         if let raw_listItems = json["ListItems"] as? [Any] {
             self.listItems = try raw_listItems.map {
                 if let element_listItems = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: StructuredDocumentTagListItem.self, from: element_listItems);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: StructuredDocumentTagListItem.self, from: element_listItems);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

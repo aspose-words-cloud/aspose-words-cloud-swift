@@ -54,11 +54,11 @@ public class FilesList : Codable, WordsApiModel {
         if let raw_value = json["Value"] as? [Any] {
             self.value = try raw_value.map {
                 if let element_value = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: StorageFile.self, from: element_value);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: StorageFile.self, from: element_value);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

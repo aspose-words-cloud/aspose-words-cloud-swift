@@ -67,22 +67,22 @@ public class FilesUploadResult : Codable, WordsApiModel {
         if let raw_errors = json["Errors"] as? [Any] {
             self.errors = try raw_errors.map {
                 if let element_errors = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: InternalError.self, from: element_errors);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: InternalError.self, from: element_errors);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 
         if let raw_uploaded = json["Uploaded"] as? [Any] {
             self.uploaded = try raw_uploaded.map {
                 if let element_uploaded = $0 as? String {
-            return element_uploaded;
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return element_uploaded;
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

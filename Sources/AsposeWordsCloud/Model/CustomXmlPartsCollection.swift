@@ -55,11 +55,11 @@ public class CustomXmlPartsCollection : LinkElement {
         if let raw_customXmlPartsList = json["CustomXmlPartsList"] as? [Any] {
             self.customXmlPartsList = try raw_customXmlPartsList.map {
                 if let element_customXmlPartsList = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: CustomXmlPart.self, from: element_customXmlPartsList);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: CustomXmlPart.self, from: element_customXmlPartsList);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

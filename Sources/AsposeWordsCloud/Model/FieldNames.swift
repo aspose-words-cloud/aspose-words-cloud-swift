@@ -55,11 +55,11 @@ public class FieldNames : LinkElement {
         if let raw_names = json["Names"] as? [Any] {
             self.names = try raw_names.map {
                 if let element_names = $0 as? String {
-            return element_names;
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return element_names;
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

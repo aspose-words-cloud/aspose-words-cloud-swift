@@ -113,11 +113,11 @@ public class DocumentStatData : Codable, WordsApiModel {
         if let raw_pageStatData = json["PageStatData"] as? [Any] {
             self.pageStatData = try raw_pageStatData.map {
                 if let element_pageStatData = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: PageStatData.self, from: element_pageStatData);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: PageStatData.self, from: element_pageStatData);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

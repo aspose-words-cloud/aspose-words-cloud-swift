@@ -55,11 +55,11 @@ public class CommentsCollection : LinkElement {
         if let raw_commentList = json["CommentList"] as? [Any] {
             self.commentList = try raw_commentList.map {
                 if let element_commentList = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: Comment.self, from: element_commentList);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: Comment.self, from: element_commentList);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

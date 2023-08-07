@@ -186,11 +186,11 @@ public class Document : Codable, WordsApiModel {
         if let raw_links = json["Links"] as? [Any] {
             self.links = try raw_links.map {
                 if let element_links = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: Link.self, from: element_links);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: Link.self, from: element_links);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

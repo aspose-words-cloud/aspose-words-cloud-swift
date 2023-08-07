@@ -55,11 +55,11 @@ public class TabStopsResponse : WordsResponse {
         if let raw_tabStops = json["TabStops"] as? [Any] {
             self.tabStops = try raw_tabStops.map {
                 if let element_tabStops = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: TabStop.self, from: element_tabStops);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: TabStop.self, from: element_tabStops);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

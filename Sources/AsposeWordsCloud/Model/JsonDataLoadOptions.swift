@@ -93,11 +93,11 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
         if let raw_exactDateTimeParseFormats = json["ExactDateTimeParseFormats"] as? [Any] {
             self.exactDateTimeParseFormats = try raw_exactDateTimeParseFormats.map {
                 if let element_exactDateTimeParseFormats = $0 as? String {
-            return element_exactDateTimeParseFormats;
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return element_exactDateTimeParseFormats;
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

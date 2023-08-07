@@ -55,11 +55,11 @@ public class TableLinkCollection : LinkElement {
         if let raw_tableLinkList = json["TableLinkList"] as? [Any] {
             self.tableLinkList = try raw_tableLinkList.map {
                 if let element_tableLinkList = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: TableLink.self, from: element_tableLinkList);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: TableLink.self, from: element_tableLinkList);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

@@ -88,11 +88,11 @@ public class SaveResult : Codable, WordsApiModel {
         if let raw_additionalItems = json["AdditionalItems"] as? [Any] {
             self.additionalItems = try raw_additionalItems.map {
                 if let element_additionalItems = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: FileLink.self, from: element_additionalItems);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: FileLink.self, from: element_additionalItems);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

@@ -69,11 +69,11 @@ public class DocumentEntryList : BaseEntryList {
         if let raw_documentEntries = json["DocumentEntries"] as? [Any] {
             self.documentEntries = try raw_documentEntries.map {
                 if let element_documentEntries = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: DocumentEntry.self, from: element_documentEntries);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: DocumentEntry.self, from: element_documentEntries);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 

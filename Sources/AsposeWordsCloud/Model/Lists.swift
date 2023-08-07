@@ -55,11 +55,11 @@ public class Lists : LinkElement {
         if let raw_listInfo = json["ListInfo"] as? [Any] {
             self.listInfo = try raw_listInfo.map {
                 if let element_listInfo = $0 as? [String: Any] {
-            return try ObjectSerializer.deserialize(type: ListInfo.self, from: element_listInfo);
-        }
-        else {
-            throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
-        }
+                    return try ObjectSerializer.deserialize(type: ListInfo.self, from: element_listInfo);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                }
             };
         }
 
