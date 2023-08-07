@@ -91,7 +91,7 @@ public class SaveResult : Codable, WordsApiModel {
                     return try ObjectSerializer.deserialize(type: FileLink.self, from: element_additionalItems);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "FileLink");
                 }
             };
         }

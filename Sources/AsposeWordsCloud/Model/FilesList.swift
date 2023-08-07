@@ -57,7 +57,7 @@ public class FilesList : Codable, WordsApiModel {
                     return try ObjectSerializer.deserialize(type: StorageFile.self, from: element_value);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "StorageFile");
                 }
             };
         }

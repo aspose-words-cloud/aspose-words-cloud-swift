@@ -248,7 +248,7 @@ public class FieldOptions : Codable, WordsApiModel {
                     return element_builtInTemplatesPaths;
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "String");
                 }
             };
         }

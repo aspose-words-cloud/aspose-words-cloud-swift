@@ -1356,7 +1356,7 @@ public class Style : LinkElement {
                     return element_aliases;
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "String");
                 }
             };
         }

@@ -148,7 +148,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
                     return ReportBuildOptions(rawValue: element_reportBuildOptions);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "ReportBuildOptions");
                 }
             };
         }

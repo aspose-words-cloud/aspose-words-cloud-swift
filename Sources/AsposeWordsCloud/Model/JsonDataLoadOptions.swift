@@ -96,7 +96,7 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
                     return element_exactDateTimeParseFormats;
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "String");
                 }
             };
         }

@@ -58,7 +58,7 @@ public class DrawingObjectCollection : LinkElement {
                     return try ObjectSerializer.deserialize(type: LinkElement.self, from: element_list);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "LinkElement");
                 }
             };
         }

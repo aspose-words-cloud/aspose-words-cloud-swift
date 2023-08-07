@@ -513,7 +513,7 @@ public class StructuredDocumentTag : NodeLink {
                     return try ObjectSerializer.deserialize(type: StructuredDocumentTagListItem.self, from: element_listItems);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "StructuredDocumentTagListItem");
                 }
             };
         }

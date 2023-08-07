@@ -262,7 +262,7 @@ public class DrawingObject : DrawingObjectLink {
                     return try ObjectSerializer.deserialize(type: WordsApiLink.self, from: element_renderLinks);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "WordsApiLink");
                 }
             };
         }

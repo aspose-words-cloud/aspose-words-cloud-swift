@@ -58,7 +58,7 @@ public class CustomXmlPartsCollection : LinkElement {
                     return try ObjectSerializer.deserialize(type: CustomXmlPart.self, from: element_customXmlPartsList);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "CustomXmlPart");
                 }
             };
         }

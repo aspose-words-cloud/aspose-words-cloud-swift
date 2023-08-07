@@ -58,7 +58,7 @@ public class SectionLinkCollection : LinkElement {
                     return try ObjectSerializer.deserialize(type: SectionLink.self, from: element_sectionLinkList);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "SectionLink");
                 }
             };
         }

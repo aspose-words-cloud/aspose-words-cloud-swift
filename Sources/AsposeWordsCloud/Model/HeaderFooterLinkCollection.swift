@@ -58,7 +58,7 @@ public class HeaderFooterLinkCollection : LinkElement {
                     return try ObjectSerializer.deserialize(type: HeaderFooterLink.self, from: element_list);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "HeaderFooterLink");
                 }
             };
         }

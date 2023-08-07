@@ -72,7 +72,7 @@ public class ImageEntryList : BaseEntryList {
                     return try ObjectSerializer.deserialize(type: ImageEntry.self, from: element_imageEntries);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "ImageEntry");
                 }
             };
         }

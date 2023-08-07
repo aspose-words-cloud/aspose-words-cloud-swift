@@ -72,7 +72,7 @@ public class DocumentEntryList : BaseEntryList {
                     return try ObjectSerializer.deserialize(type: DocumentEntry.self, from: element_documentEntries);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "DocumentEntry");
                 }
             };
         }

@@ -58,7 +58,7 @@ public class TabStopsResponse : WordsResponse {
                     return try ObjectSerializer.deserialize(type: TabStop.self, from: element_tabStops);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "TabStop");
                 }
             };
         }

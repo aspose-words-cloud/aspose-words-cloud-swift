@@ -58,7 +58,7 @@ public class SearchResultsCollection : LinkElement {
                     return try ObjectSerializer.deserialize(type: SearchResult.self, from: element_resultsList);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "SearchResult");
                 }
             };
         }

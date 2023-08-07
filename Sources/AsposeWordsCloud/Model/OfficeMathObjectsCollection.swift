@@ -58,7 +58,7 @@ public class OfficeMathObjectsCollection : LinkElement {
                     return try ObjectSerializer.deserialize(type: OfficeMathObject.self, from: element_list);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "OfficeMathObject");
                 }
             };
         }

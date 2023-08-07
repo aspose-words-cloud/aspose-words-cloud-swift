@@ -58,7 +58,7 @@ public class BordersCollection : LinkElement {
                     return try ObjectSerializer.deserialize(type: Border.self, from: element_list);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "Border");
                 }
             };
         }

@@ -58,7 +58,7 @@ public class StylesResponse : WordsResponse {
                     return try ObjectSerializer.deserialize(type: Style.self, from: element_styles);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "Style");
                 }
             };
         }

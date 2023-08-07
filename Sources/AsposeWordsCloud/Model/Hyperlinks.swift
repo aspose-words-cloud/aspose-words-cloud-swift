@@ -58,7 +58,7 @@ public class Hyperlinks : LinkElement {
                     return try ObjectSerializer.deserialize(type: Hyperlink.self, from: element_hyperlinkList);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "Hyperlink");
                 }
             };
         }

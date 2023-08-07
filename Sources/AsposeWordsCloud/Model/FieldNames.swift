@@ -58,7 +58,7 @@ public class FieldNames : LinkElement {
                     return element_names;
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "String");
                 }
             };
         }

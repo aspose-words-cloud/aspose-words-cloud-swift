@@ -70,7 +70,7 @@ public class FilesUploadResult : Codable, WordsApiModel {
                     return try ObjectSerializer.deserialize(type: InternalError.self, from: element_errors);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "InternalError");
                 }
             };
         }
@@ -81,7 +81,7 @@ public class FilesUploadResult : Codable, WordsApiModel {
                     return element_uploaded;
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "String");
                 }
             };
         }

@@ -84,7 +84,7 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
                     return PdfPermissions(rawValue: element_permissions);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "PdfPermissions");
                 }
             };
         }

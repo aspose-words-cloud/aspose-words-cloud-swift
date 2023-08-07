@@ -58,7 +58,7 @@ public class FootnoteCollection : LinkElement {
                     return try ObjectSerializer.deserialize(type: Footnote.self, from: element_list);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "Footnote");
                 }
             };
         }

@@ -58,7 +58,7 @@ public class ListLevels : LinkElement {
                     return try ObjectSerializer.deserialize(type: ListLevel.self, from: element_listLevel);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "ListLevel");
                 }
             };
         }

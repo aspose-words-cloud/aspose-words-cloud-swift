@@ -84,7 +84,7 @@ public class InfoResponse : WordsResponse {
                     return try ObjectSerializer.deserialize(type: InfoAdditionalItem.self, from: element_additionalInfo);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "InfoAdditionalItem");
                 }
             };
         }

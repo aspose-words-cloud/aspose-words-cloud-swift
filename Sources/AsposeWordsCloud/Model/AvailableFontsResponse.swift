@@ -84,7 +84,7 @@ public class AvailableFontsResponse : WordsResponse {
                     return try ObjectSerializer.deserialize(type: FontInfo.self, from: element_additionalFonts);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "FontInfo");
                 }
             };
         }
@@ -95,7 +95,7 @@ public class AvailableFontsResponse : WordsResponse {
                     return try ObjectSerializer.deserialize(type: FontInfo.self, from: element_customFonts);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "FontInfo");
                 }
             };
         }
@@ -106,7 +106,7 @@ public class AvailableFontsResponse : WordsResponse {
                     return try ObjectSerializer.deserialize(type: FontInfo.self, from: element_systemFonts);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "FontInfo");
                 }
             };
         }

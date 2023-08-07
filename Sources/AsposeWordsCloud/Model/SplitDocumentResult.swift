@@ -91,7 +91,7 @@ public class SplitDocumentResult : Codable, WordsApiModel {
                     return try ObjectSerializer.deserialize(type: FileLink.self, from: element_pages);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "FileLink");
                 }
             };
         }

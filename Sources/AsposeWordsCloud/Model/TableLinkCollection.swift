@@ -58,7 +58,7 @@ public class TableLinkCollection : LinkElement {
                     return try ObjectSerializer.deserialize(type: TableLink.self, from: element_tableLinkList);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "TableLink");
                 }
             };
         }

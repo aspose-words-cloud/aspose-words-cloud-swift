@@ -71,7 +71,7 @@ public class Table : NodeLink {
                     return try ObjectSerializer.deserialize(type: TableRow.self, from: element_tableRowList);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "TableRow");
                 }
             };
         }

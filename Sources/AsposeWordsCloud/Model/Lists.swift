@@ -58,7 +58,7 @@ public class Lists : LinkElement {
                     return try ObjectSerializer.deserialize(type: ListInfo.self, from: element_listInfo);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "ListInfo");
                 }
             };
         }

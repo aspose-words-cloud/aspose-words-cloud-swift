@@ -189,7 +189,7 @@ public class Document : Codable, WordsApiModel {
                     return try ObjectSerializer.deserialize(type: Link.self, from: element_links);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "Link");
                 }
             };
         }

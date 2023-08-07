@@ -58,7 +58,7 @@ public class FieldCollection : LinkElement {
                     return try ObjectSerializer.deserialize(type: Field.self, from: element_list);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "Field");
                 }
             };
         }

@@ -86,7 +86,7 @@ public class ClassificationResponse : WordsResponse {
                     return try ObjectSerializer.deserialize(type: ClassificationResult.self, from: element_bestResults);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "ClassificationResult");
                 }
             };
         }

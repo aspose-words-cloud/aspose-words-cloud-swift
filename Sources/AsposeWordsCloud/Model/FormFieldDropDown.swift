@@ -71,7 +71,7 @@ public class FormFieldDropDown : FormField {
                     return element_dropDownItems;
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "String");
                 }
             };
         }

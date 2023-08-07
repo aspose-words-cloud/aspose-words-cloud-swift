@@ -58,7 +58,7 @@ public class ParagraphLinkCollection : LinkElement {
                     return try ObjectSerializer.deserialize(type: ParagraphLink.self, from: element_paragraphLinkList);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "ParagraphLink");
                 }
             };
         }

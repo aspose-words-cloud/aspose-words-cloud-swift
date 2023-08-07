@@ -122,7 +122,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
                     return try ObjectSerializer.deserialize(type: BookmarksOutlineLevelData.self, from: element_bookmarksOutlineLevels);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "BookmarksOutlineLevelData");
                 }
             };
         }

@@ -58,7 +58,7 @@ public class Bookmarks : LinkElement {
                     return try ObjectSerializer.deserialize(type: Bookmark.self, from: element_bookmarkList);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "Bookmark");
                 }
             };
         }

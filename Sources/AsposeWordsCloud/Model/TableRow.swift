@@ -71,7 +71,7 @@ public class TableRow : NodeLink {
                     return try ObjectSerializer.deserialize(type: TableCell.self, from: element_tableCellList);
                 }
                 else {
-                    throw WordsApiError.invalidTypeDeserialization(String(describing: $0));
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "TableCell");
                 }
             };
         }
