@@ -41,7 +41,6 @@ class LoadWebDocumentTests: BaseTestContext {
         .setDmlEffectsRenderingMode(dmlEffectsRenderingMode: DocSaveOptionsData.DmlEffectsRenderingMode._none)
         .setDmlRenderingMode(dmlRenderingMode: DocSaveOptionsData.DmlRenderingMode.drawingML)
         .setFileName(fileName: "google.doc")
-        .setUpdateSdtContent(updateSdtContent: false)
         .setZipOutput(zipOutput: false);
       let requestData = LoadWebDocumentData()
         .setSaveOptions(saveOptions: requestDataSaveOptions as! DocSaveOptionsData)

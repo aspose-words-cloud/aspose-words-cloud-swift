@@ -206,18 +206,6 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
     }
 
-    // Field of updateSdtContent. base container class for save options data.
-    private var _updateSdtContent : Bool? = nil;
-
-    public var updateSdtContent : Bool? {
-        get {
-            return self._updateSdtContent;
-        }
-        set {
-            self._updateSdtContent = newValue;
-        }
-    }
-
     // Field of zipOutput. base container class for save options data.
     private var _zipOutput : Bool? = nil;
 
@@ -251,7 +239,6 @@ public class SaveOptionsData : Codable, WordsApiModel {
         case updateFields = "UpdateFields";
         case updateLastPrintedProperty = "UpdateLastPrintedProperty";
         case updateLastSavedTimeProperty = "UpdateLastSavedTimeProperty";
-        case updateSdtContent = "UpdateSdtContent";
         case zipOutput = "ZipOutput";
         case saveFormat = "SaveFormat";
         case invalidCodingKey;
@@ -273,7 +260,6 @@ public class SaveOptionsData : Codable, WordsApiModel {
         self.updateFields = try container.decodeIfPresent(Bool.self, forKey: .updateFields);
         self.updateLastPrintedProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastPrintedProperty);
         self.updateLastSavedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastSavedTimeProperty);
-        self.updateSdtContent = try container.decodeIfPresent(Bool.self, forKey: .updateSdtContent);
         self.zipOutput = try container.decodeIfPresent(Bool.self, forKey: .zipOutput);
 
     }
@@ -312,9 +298,6 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
         if (self.updateLastSavedTimeProperty != nil) {
             try container.encode(self.updateLastSavedTimeProperty, forKey: .updateLastSavedTimeProperty);
-        }
-        if (self.updateSdtContent != nil) {
-            try container.encode(self.updateSdtContent, forKey: .updateSdtContent);
         }
         if (self.zipOutput != nil) {
             try container.encode(self.zipOutput, forKey: .zipOutput);
@@ -456,18 +439,6 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Gets updateLastSavedTimeProperty. Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
     public func getUpdateLastSavedTimeProperty() -> Bool? {
         return self.updateLastSavedTimeProperty;
-    }
-
-
-    // Sets updateSdtContent. Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.
-    public func setUpdateSdtContent(updateSdtContent : Bool?) -> SaveOptionsData {
-        self.updateSdtContent = updateSdtContent;
-        return self;
-    }
-
-    // Gets updateSdtContent. Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.
-    public func getUpdateSdtContent() -> Bool? {
-        return self.updateSdtContent;
     }
 
 
