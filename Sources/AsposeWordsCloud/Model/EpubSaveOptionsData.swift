@@ -30,15 +30,15 @@ import Foundation
 // Container class for epub save options.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class EpubSaveOptionsData : HtmlSaveOptionsData {
-    // Field of epubNavigationMapLevel. Container class for epub save options.
-    private var _epubNavigationMapLevel : Int? = nil;
+    // Field of navigationMapLevel. Container class for epub save options.
+    private var _navigationMapLevel : Int? = nil;
 
-    public var epubNavigationMapLevel : Int? {
+    public var navigationMapLevel : Int? {
         get {
-            return self._epubNavigationMapLevel;
+            return self._navigationMapLevel;
         }
         set {
-            self._epubNavigationMapLevel = newValue;
+            self._navigationMapLevel = newValue;
         }
     }
 
@@ -52,7 +52,7 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case epubNavigationMapLevel = "EpubNavigationMapLevel";
+        case navigationMapLevel = "NavigationMapLevel";
         case invalidCodingKey;
     }
 
@@ -63,28 +63,28 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.epubNavigationMapLevel = try container.decodeIfPresent(Int.self, forKey: .epubNavigationMapLevel);
+        self.navigationMapLevel = try container.decodeIfPresent(Int.self, forKey: .navigationMapLevel);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.epubNavigationMapLevel != nil) {
-            try container.encode(self.epubNavigationMapLevel, forKey: .epubNavigationMapLevel);
+        if (self.navigationMapLevel != nil) {
+            try container.encode(self.navigationMapLevel, forKey: .navigationMapLevel);
         }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets epubNavigationMapLevel. Gets or sets the maximum level of headings populated to the navigation map when exporting.
-    public func setEpubNavigationMapLevel(epubNavigationMapLevel : Int?) -> EpubSaveOptionsData {
-        self.epubNavigationMapLevel = epubNavigationMapLevel;
+    // Sets navigationMapLevel. Gets or sets the maximum level of headings populated to the navigation map when exporting.
+    public func setNavigationMapLevel(navigationMapLevel : Int?) -> EpubSaveOptionsData {
+        self.navigationMapLevel = navigationMapLevel;
         return self;
     }
 
-    // Gets epubNavigationMapLevel. Gets or sets the maximum level of headings populated to the navigation map when exporting.
-    public func getEpubNavigationMapLevel() -> Int? {
-        return self.epubNavigationMapLevel;
+    // Gets navigationMapLevel. Gets or sets the maximum level of headings populated to the navigation map when exporting.
+    public func getNavigationMapLevel() -> Int? {
+        return self.navigationMapLevel;
     }
 }
