@@ -120,7 +120,7 @@ public class TabStopBase : Codable, WordsApiModel {
         case invalidCodingKey;
     }
 
-    public init() {
+    internal init() {
     }
 
     public required init(from json: [String: Any]) throws {
