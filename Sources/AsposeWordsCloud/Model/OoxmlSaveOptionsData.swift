@@ -119,6 +119,20 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_compliance = json["Compliance"] as? String {
+            self.compliance = Compliance(rawValue: raw_compliance);
+        }
+
+        if let raw_compressionLevel = json["CompressionLevel"] as? String {
+            self.compressionLevel = CompressionLevel(rawValue: raw_compressionLevel);
+        }
+
+        self.password = json["Password"] as? String;
+        self.prettyFormat = json["PrettyFormat"] as? Bool;
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

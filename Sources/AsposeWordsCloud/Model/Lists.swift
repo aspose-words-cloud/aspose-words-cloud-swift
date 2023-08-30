@@ -51,6 +51,21 @@ public class Lists : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_listInfo = json["ListInfo"] as? [Any] {
+            self.listInfo = try raw_listInfo.map {
+                if let element_listInfo = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: ListInfo.self, from: element_listInfo);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "ListInfo");
+                }
+            };
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

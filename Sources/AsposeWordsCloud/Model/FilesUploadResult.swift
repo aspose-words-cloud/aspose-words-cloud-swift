@@ -63,6 +63,31 @@ public class FilesUploadResult : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_errors = json["Errors"] as? [Any] {
+            self.errors = try raw_errors.map {
+                if let element_errors = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: InternalError.self, from: element_errors);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "InternalError");
+                }
+            };
+        }
+
+        if let raw_uploaded = json["Uploaded"] as? [Any] {
+            self.uploaded = try raw_uploaded.map {
+                if let element_uploaded = $0 as? String {
+                    return element_uploaded;
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "String");
+                }
+            };
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.errors = try container.decodeIfPresent([InternalError].self, forKey: .errors);

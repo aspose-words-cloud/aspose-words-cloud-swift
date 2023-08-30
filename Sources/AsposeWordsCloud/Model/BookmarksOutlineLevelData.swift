@@ -63,6 +63,11 @@ public class BookmarksOutlineLevelData : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.bookmarksOutlineLevel = json["BookmarksOutlineLevel"] as? Int;
+        self.name = json["Name"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.bookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .bookmarksOutlineLevel);

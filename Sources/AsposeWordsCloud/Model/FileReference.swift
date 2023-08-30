@@ -73,7 +73,11 @@ public class FileReference : Codable, WordsApiModel {
     }
 
     public required init(from decoder: Decoder) throws {
-        throw WordsApiError.invalidTypeSerialization(typeName: "FileReference");
+        throw WordsApiError.invalidTypeDeserialization(typeName: "FileReference");
+    }
+
+    public required init(from json: [String: Any]) throws {
+        throw WordsApiError.invalidTypeDeserialization(typeName: "FileReference");
     }
 
     public func encode(to encoder: Encoder) throws {

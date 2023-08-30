@@ -90,6 +90,13 @@ public class Link : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.href = json["Href"] as? String;
+        self.rel = json["Rel"] as? String;
+        self.title = json["Title"] as? String;
+        self.type = json["Type"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.href = try container.decodeIfPresent(String.self, forKey: .href);

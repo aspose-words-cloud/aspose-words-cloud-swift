@@ -50,6 +50,10 @@ public class RunBase : Codable, WordsApiModel {
     internal init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.text = json["Text"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);

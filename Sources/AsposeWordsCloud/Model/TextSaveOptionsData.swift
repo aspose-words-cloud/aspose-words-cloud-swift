@@ -99,6 +99,14 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        self.addBidiMarks = json["AddBidiMarks"] as? Bool;
+        self.maxCharactersPerLine = json["MaxCharactersPerLine"] as? Int;
+        self.preserveTableLayout = json["PreserveTableLayout"] as? Bool;
+        self.simplifyListLabels = json["SimplifyListLabels"] as? Bool;
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

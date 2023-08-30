@@ -115,6 +115,24 @@ public class CommentBase : Codable, WordsApiModel {
     internal init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_rangeStart = json["RangeStart"] as? [String: Any] {
+            self.rangeStart = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_rangeStart);
+        }
+
+        if let raw_rangeEnd = json["RangeEnd"] as? [String: Any] {
+            self.rangeEnd = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_rangeEnd);
+        }
+
+        self.author = json["Author"] as? String;
+        if let raw_dateTime = json["DateTime"] as? String {
+            self.dateTime = ObjectSerializer.customIso8601.date(from: raw_dateTime);
+        }
+
+        self.initial = json["Initial"] as? String;
+        self.text = json["Text"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.rangeStart = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .rangeStart);

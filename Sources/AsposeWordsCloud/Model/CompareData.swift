@@ -102,6 +102,20 @@ public class CompareData : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.author = json["Author"] as? String;
+        if let raw_compareOptions = json["CompareOptions"] as? [String: Any] {
+            self.compareOptions = try ObjectSerializer.deserialize(type: CompareOptions.self, from: raw_compareOptions);
+        }
+
+        self.comparingWithDocument = json["ComparingWithDocument"] as? String;
+        if let raw_dateTime = json["DateTime"] as? String {
+            self.dateTime = ObjectSerializer.customIso8601.date(from: raw_dateTime);
+        }
+
+        self.resultDocumentFormat = json["ResultDocumentFormat"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.author = try container.decodeIfPresent(String.self, forKey: .author);

@@ -103,6 +103,17 @@ public class TableRowFormat : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        self.height = json["Height"] as? Double;
+        if let raw_heightRule = json["HeightRule"] as? String {
+            self.heightRule = HeightRule(rawValue: raw_heightRule);
+        }
+
+        self.allowBreakAcrossPages = json["AllowBreakAcrossPages"] as? Bool;
+        self.headingFormat = json["HeadingFormat"] as? Bool;
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

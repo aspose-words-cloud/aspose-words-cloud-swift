@@ -50,6 +50,10 @@ public class RangeDocument : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.documentName = json["DocumentName"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.documentName = try container.decodeIfPresent(String.self, forKey: .documentName);

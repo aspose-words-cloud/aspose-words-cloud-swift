@@ -63,6 +63,11 @@ public class CompressOptions : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.imagesQuality = json["ImagesQuality"] as? Int;
+        self.imagesReduceSizeFactor = json["ImagesReduceSizeFactor"] as? Int;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.imagesQuality = try container.decodeIfPresent(Int.self, forKey: .imagesQuality);

@@ -27,7 +27,7 @@ class ExamplesTests : XCTestCase
 
             do {
                 let credsData = try Data(contentsOf: credsUrl);
-                self.configuration = try ObjectSerializer.deserialize(type: Configuration.self, from: credsData);
+                self.configuration = try ObjectSerializer.deserializeInternal(type: Configuration.self, from: credsData);
             }
             catch {
                 XCTFail("File servercreds.json not found in Settings folder of project root.");

@@ -51,6 +51,14 @@ public class FontResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_font = json["Font"] as? [String: Any] {
+            self.font = try ObjectSerializer.deserialize(type: Font.self, from: raw_font);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

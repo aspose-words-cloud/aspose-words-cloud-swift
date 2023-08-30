@@ -51,6 +51,14 @@ public class SectionResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_section = json["Section"] as? [String: Any] {
+            self.section = try ObjectSerializer.deserialize(type: Section.self, from: raw_section);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

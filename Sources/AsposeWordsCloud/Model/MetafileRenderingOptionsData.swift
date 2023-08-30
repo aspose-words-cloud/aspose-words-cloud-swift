@@ -128,6 +128,20 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_emfPlusDualRenderingMode = json["EmfPlusDualRenderingMode"] as? String {
+            self.emfPlusDualRenderingMode = EmfPlusDualRenderingMode(rawValue: raw_emfPlusDualRenderingMode);
+        }
+
+        self.emulateRasterOperations = json["EmulateRasterOperations"] as? Bool;
+        if let raw_renderingMode = json["RenderingMode"] as? String {
+            self.renderingMode = RenderingMode(rawValue: raw_renderingMode);
+        }
+
+        self.scaleWmfFontsToMetafileSize = json["ScaleWmfFontsToMetafileSize"] as? Bool;
+        self.useEmfEmbeddedToWmf = json["UseEmfEmbeddedToWmf"] as? Bool;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.emfPlusDualRenderingMode = try container.decodeIfPresent(EmfPlusDualRenderingMode.self, forKey: .emfPlusDualRenderingMode);

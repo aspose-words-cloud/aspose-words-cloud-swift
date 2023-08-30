@@ -63,6 +63,11 @@ public class ClassificationResult : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.className = json["ClassName"] as? String;
+        self.classProbability = json["ClassProbability"] as? Double;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.className = try container.decodeIfPresent(String.self, forKey: .className);

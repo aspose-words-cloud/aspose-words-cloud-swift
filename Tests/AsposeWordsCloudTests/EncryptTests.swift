@@ -60,7 +60,7 @@ class EncryptTests: BaseTestContext {
     // Test for isEncrypted.
     func testIsEncryptionAllowed() throws {
 
-        let result = try super.getApi().isEncryptionAllowed();
+        let result = super.getApi().isEncryptionAllowed();
 
 #if os(Linux) 
         XCTAssertFalse(result);

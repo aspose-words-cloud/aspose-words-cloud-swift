@@ -63,6 +63,17 @@ public class ModificationOperationResult : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_dest = json["Dest"] as? [String: Any] {
+            self.dest = try ObjectSerializer.deserialize(type: FileLink.self, from: raw_dest);
+        }
+
+        if let raw_source = json["Source"] as? [String: Any] {
+            self.source = try ObjectSerializer.deserialize(type: FileLink.self, from: raw_source);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.dest = try container.decodeIfPresent(FileLink.self, forKey: .dest);

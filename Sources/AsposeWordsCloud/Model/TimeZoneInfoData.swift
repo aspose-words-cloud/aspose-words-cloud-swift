@@ -89,6 +89,13 @@ public class TimeZoneInfoData : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.baseUtcOffset = json["BaseUtcOffset"] as? String;
+        self.displayName = json["DisplayName"] as? String;
+        self.id = json["Id"] as? String;
+        self.standardDisplayName = json["StandardDisplayName"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.baseUtcOffset = try container.decodeIfPresent(String.self, forKey: .baseUtcOffset);

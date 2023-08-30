@@ -89,6 +89,13 @@ public class FontInfo : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.filePath = json["FilePath"] as? String;
+        self.fontFamilyName = json["FontFamilyName"] as? String;
+        self.fullFontName = json["FullFontName"] as? String;
+        self.version = json["Version"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.filePath = try container.decodeIfPresent(String.self, forKey: .filePath);

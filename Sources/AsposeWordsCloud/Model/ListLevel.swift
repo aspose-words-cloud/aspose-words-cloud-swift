@@ -410,6 +410,37 @@ public class ListLevel : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        self.startAt = json["StartAt"] as? Int;
+        if let raw_numberStyle = json["NumberStyle"] as? String {
+            self.numberStyle = NumberStyle(rawValue: raw_numberStyle);
+        }
+
+        self.numberFormat = json["NumberFormat"] as? String;
+        if let raw_alignment = json["Alignment"] as? String {
+            self.alignment = Alignment(rawValue: raw_alignment);
+        }
+
+        self.isLegal = json["IsLegal"] as? Bool;
+        self.restartAfterLevel = json["RestartAfterLevel"] as? Int;
+        if let raw_trailingCharacter = json["TrailingCharacter"] as? String {
+            self.trailingCharacter = TrailingCharacter(rawValue: raw_trailingCharacter);
+        }
+
+        if let raw_font = json["Font"] as? [String: Any] {
+            self.font = try ObjectSerializer.deserialize(type: Font.self, from: raw_font);
+        }
+
+        self.tabPosition = json["TabPosition"] as? Double;
+        self.numberPosition = json["NumberPosition"] as? Double;
+        self.textPosition = json["TextPosition"] as? Double;
+        if let raw_linkedStyle = json["LinkedStyle"] as? [String: Any] {
+            self.linkedStyle = try ObjectSerializer.deserialize(type: Style.self, from: raw_linkedStyle);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

@@ -51,6 +51,14 @@ public class TableCellFormatResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_cellFormat = json["CellFormat"] as? [String: Any] {
+            self.cellFormat = try ObjectSerializer.deserialize(type: TableCellFormat.self, from: raw_cellFormat);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

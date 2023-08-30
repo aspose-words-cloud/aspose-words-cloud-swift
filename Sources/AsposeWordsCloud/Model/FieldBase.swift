@@ -63,6 +63,11 @@ public class FieldBase : Codable, WordsApiModel {
     internal init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.fieldCode = json["FieldCode"] as? String;
+        self.localeId = json["LocaleId"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.fieldCode = try container.decodeIfPresent(String.self, forKey: .fieldCode);

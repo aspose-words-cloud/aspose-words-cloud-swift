@@ -383,6 +383,28 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_alignment = json["Alignment"] as? String {
+            self.alignment = Alignment(rawValue: raw_alignment);
+        }
+
+        self.isLegal = json["IsLegal"] as? Bool;
+        self.numberFormat = json["NumberFormat"] as? String;
+        self.numberPosition = json["NumberPosition"] as? Double;
+        if let raw_numberStyle = json["NumberStyle"] as? String {
+            self.numberStyle = NumberStyle(rawValue: raw_numberStyle);
+        }
+
+        self.restartAfterLevel = json["RestartAfterLevel"] as? Int;
+        self.startAt = json["StartAt"] as? Int;
+        self.tabPosition = json["TabPosition"] as? Double;
+        self.textPosition = json["TextPosition"] as? Double;
+        if let raw_trailingCharacter = json["TrailingCharacter"] as? String {
+            self.trailingCharacter = TrailingCharacter(rawValue: raw_trailingCharacter);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment);

@@ -51,6 +51,14 @@ public class TableResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_table = json["Table"] as? [String: Any] {
+            self.table = try ObjectSerializer.deserialize(type: Table.self, from: raw_table);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

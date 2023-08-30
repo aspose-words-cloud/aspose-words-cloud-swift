@@ -63,6 +63,17 @@ public class SearchResult : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_rangeStart = json["RangeStart"] as? [String: Any] {
+            self.rangeStart = try ObjectSerializer.deserialize(type: DocumentPosition.self, from: raw_rangeStart);
+        }
+
+        if let raw_rangeEnd = json["RangeEnd"] as? [String: Any] {
+            self.rangeEnd = try ObjectSerializer.deserialize(type: DocumentPosition.self, from: raw_rangeEnd);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.rangeStart = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeStart);

@@ -77,6 +77,23 @@ public class InfoResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_additionalInfo = json["AdditionalInfo"] as? [Any] {
+            self.additionalInfo = try raw_additionalInfo.map {
+                if let element_additionalInfo = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: InfoAdditionalItem.self, from: element_additionalInfo);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "InfoAdditionalItem");
+                }
+            };
+        }
+
+        self.name = json["Name"] as? String;
+        self.version = json["Version"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

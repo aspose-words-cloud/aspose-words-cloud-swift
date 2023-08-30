@@ -51,6 +51,14 @@ public class BookmarkResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_bookmark = json["Bookmark"] as? [String: Any] {
+            self.bookmark = try ObjectSerializer.deserialize(type: Bookmark.self, from: raw_bookmark);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

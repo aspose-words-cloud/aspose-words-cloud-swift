@@ -78,6 +78,13 @@ public class OptimizationOptions : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_msWordVersion = json["MsWordVersion"] as? String {
+            self.msWordVersion = MsWordVersion(rawValue: raw_msWordVersion);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.msWordVersion = try container.decodeIfPresent(MsWordVersion.self, forKey: .msWordVersion);

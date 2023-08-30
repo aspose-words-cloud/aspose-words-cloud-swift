@@ -115,6 +115,25 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_bookmarksOutlineLevels = json["BookmarksOutlineLevels"] as? [Any] {
+            self.bookmarksOutlineLevels = try raw_bookmarksOutlineLevels.map {
+                if let element_bookmarksOutlineLevels = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: BookmarksOutlineLevelData.self, from: element_bookmarksOutlineLevels);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "BookmarksOutlineLevelData");
+                }
+            };
+        }
+
+        self.createMissingOutlineLevels = json["CreateMissingOutlineLevels"] as? Bool;
+        self.createOutlinesForHeadingsInTables = json["CreateOutlinesForHeadingsInTables"] as? Bool;
+        self.defaultBookmarksOutlineLevel = json["DefaultBookmarksOutlineLevel"] as? Int;
+        self.expandedOutlineLevels = json["ExpandedOutlineLevels"] as? Int;
+        self.headingsOutlineLevels = json["HeadingsOutlineLevels"] as? Int;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.bookmarksOutlineLevels = try container.decodeIfPresent([BookmarksOutlineLevelData].self, forKey: .bookmarksOutlineLevels);

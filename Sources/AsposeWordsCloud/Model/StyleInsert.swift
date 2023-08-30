@@ -79,6 +79,14 @@ public class StyleInsert : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.styleName = json["StyleName"] as? String;
+        if let raw_styleType = json["StyleType"] as? String {
+            self.styleType = StyleType(rawValue: raw_styleType);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.styleName = try container.decodeIfPresent(String.self, forKey: .styleName);

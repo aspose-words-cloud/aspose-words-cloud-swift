@@ -63,6 +63,14 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_saveOptions = json["SaveOptions"] as? [String: Any] {
+            self.saveOptions = try ObjectSerializer.deserialize(type: SaveOptionsData.self, from: raw_saveOptions);
+        }
+
+        self.loadingDocumentUrl = json["LoadingDocumentUrl"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.saveOptions = try container.decodeIfPresent(SaveOptionsData.self, forKey: .saveOptions);

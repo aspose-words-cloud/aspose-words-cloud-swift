@@ -51,6 +51,21 @@ public class CommentsCollection : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_commentList = json["CommentList"] as? [Any] {
+            self.commentList = try raw_commentList.map {
+                if let element_commentList = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: Comment.self, from: element_commentList);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "Comment");
+                }
+            };
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

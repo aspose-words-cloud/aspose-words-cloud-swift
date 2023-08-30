@@ -76,6 +76,12 @@ public class ProtectionRequest : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.newPassword = json["NewPassword"] as? String;
+        self.password = json["Password"] as? String;
+        self.protectionType = json["ProtectionType"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.newPassword = try container.decodeIfPresent(String.self, forKey: .newPassword);

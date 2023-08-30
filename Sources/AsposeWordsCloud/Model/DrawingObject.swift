@@ -255,6 +255,45 @@ public class DrawingObject : DrawingObjectLink {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_renderLinks = json["RenderLinks"] as? [Any] {
+            self.renderLinks = try raw_renderLinks.map {
+                if let element_renderLinks = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: WordsApiLink.self, from: element_renderLinks);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "WordsApiLink");
+                }
+            };
+        }
+
+        self.width = json["Width"] as? Double;
+        self.height = json["Height"] as? Double;
+        if let raw_oleDataLink = json["OleDataLink"] as? [String: Any] {
+            self.oleDataLink = try ObjectSerializer.deserialize(type: WordsApiLink.self, from: raw_oleDataLink);
+        }
+
+        if let raw_imageDataLink = json["ImageDataLink"] as? [String: Any] {
+            self.imageDataLink = try ObjectSerializer.deserialize(type: WordsApiLink.self, from: raw_imageDataLink);
+        }
+
+        if let raw_relativeHorizontalPosition = json["RelativeHorizontalPosition"] as? String {
+            self.relativeHorizontalPosition = RelativeHorizontalPosition(rawValue: raw_relativeHorizontalPosition);
+        }
+
+        self._left = json["Left"] as? Double;
+        if let raw_relativeVerticalPosition = json["RelativeVerticalPosition"] as? String {
+            self.relativeVerticalPosition = RelativeVerticalPosition(rawValue: raw_relativeVerticalPosition);
+        }
+
+        self.top = json["Top"] as? Double;
+        if let raw_wrapType = json["WrapType"] as? String {
+            self.wrapType = WrapType(rawValue: raw_wrapType);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

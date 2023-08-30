@@ -102,6 +102,14 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.isMatchCase = json["IsMatchCase"] as? Bool;
+        self.isMatchWholeWord = json["IsMatchWholeWord"] as? Bool;
+        self.isOldValueRegex = json["IsOldValueRegex"] as? Bool;
+        self.newValue = json["NewValue"] as? String;
+        self.oldValue = json["OldValue"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.isMatchCase = try container.decodeIfPresent(Bool.self, forKey: .isMatchCase);

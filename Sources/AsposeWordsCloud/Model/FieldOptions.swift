@@ -241,6 +241,41 @@ public class FieldOptions : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_builtInTemplatesPaths = json["BuiltInTemplatesPaths"] as? [Any] {
+            self.builtInTemplatesPaths = try raw_builtInTemplatesPaths.map {
+                if let element_builtInTemplatesPaths = $0 as? String {
+                    return element_builtInTemplatesPaths;
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "String");
+                }
+            };
+        }
+
+        if let raw_currentUser = json["CurrentUser"] as? [String: Any] {
+            self.currentUser = try ObjectSerializer.deserialize(type: UserInformation.self, from: raw_currentUser);
+        }
+
+        self.customTocStyleSeparator = json["CustomTocStyleSeparator"] as? String;
+        self.defaultDocumentAuthor = json["DefaultDocumentAuthor"] as? String;
+        if let raw_fieldIndexFormat = json["FieldIndexFormat"] as? String {
+            self.fieldIndexFormat = FieldIndexFormat(rawValue: raw_fieldIndexFormat);
+        }
+
+        self.fieldUpdateCultureName = json["FieldUpdateCultureName"] as? String;
+        if let raw_fieldUpdateCultureSource = json["FieldUpdateCultureSource"] as? String {
+            self.fieldUpdateCultureSource = FieldUpdateCultureSource(rawValue: raw_fieldUpdateCultureSource);
+        }
+
+        self.fileName = json["FileName"] as? String;
+        self.isBidiTextSupportedOnUpdate = json["IsBidiTextSupportedOnUpdate"] as? Bool;
+        self.legacyNumberFormat = json["LegacyNumberFormat"] as? Bool;
+        self.preProcessCultureName = json["PreProcessCultureName"] as? String;
+        self.templateName = json["TemplateName"] as? String;
+        self.useInvariantCultureNumberFormat = json["UseInvariantCultureNumberFormat"] as? Bool;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.builtInTemplatesPaths = try container.decodeIfPresent([String].self, forKey: .builtInTemplatesPaths);

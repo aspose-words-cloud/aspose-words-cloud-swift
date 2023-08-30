@@ -51,6 +51,10 @@ public class XmlDataLoadOptions : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.alwaysGenerateRootObject = json["AlwaysGenerateRootObject"] as? Bool;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.alwaysGenerateRootObject = try container.decodeIfPresent(Bool.self, forKey: .alwaysGenerateRootObject);

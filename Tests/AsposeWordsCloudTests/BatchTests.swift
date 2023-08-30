@@ -63,7 +63,7 @@ class BatchTests: BaseTestContext {
         ));
 
         let request3Body = ParagraphInsert();
-        request3Body.setText(text: "This is a new paragraph for your document");
+        _ = request3Body.setText(text: "This is a new paragraph for your document");
 
         var request3 = BatchRequest(request: InsertParagraphRequest(
             name: remoteFileName,
@@ -81,8 +81,8 @@ class BatchTests: BaseTestContext {
 
         let localDataFile = try String(contentsOf: self.getLocalTestDataFolder().appendingPathComponent(reportingFolder + "/ReportData.json", isDirectory: false));
         let requestReportEngineSettings = ReportEngineSettings();
-        requestReportEngineSettings.setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json);
-        requestReportEngineSettings.setDataSourceName(dataSourceName: "persons");
+        _ = requestReportEngineSettings.setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json);
+        _ = requestReportEngineSettings.setDataSourceName(dataSourceName: "persons");
 
         var request5 = BatchRequest(request: BuildReportOnlineRequest(
             template: request4.resultOf(),
@@ -127,7 +127,7 @@ class BatchTests: BaseTestContext {
         ));
 
         let request3Body = ParagraphInsert();
-        request3Body.setText(text: "This is a new paragraph for your document");
+        _ = request3Body.setText(text: "This is a new paragraph for your document");
 
         var request3 = BatchRequest(request: InsertParagraphRequest(
             name: remoteFileName,
@@ -145,8 +145,8 @@ class BatchTests: BaseTestContext {
 
         let localDataFile = try String(contentsOf: self.getLocalTestDataFolder().appendingPathComponent(reportingFolder + "/ReportData.json", isDirectory: false));
         let requestReportEngineSettings = ReportEngineSettings();
-        requestReportEngineSettings.setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json);
-        requestReportEngineSettings.setDataSourceName(dataSourceName: "persons");
+        _ = requestReportEngineSettings.setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json);
+        _ = requestReportEngineSettings.setDataSourceName(dataSourceName: "persons");
 
         var request5 = BatchRequest(request: BuildReportOnlineRequest(
             template: request4.resultOf(),
