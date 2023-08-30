@@ -1604,7 +1604,7 @@ public class ParagraphFormatBase : LinkElement {
         case invalidCodingKey;
     }
 
-    internal override init() {
+    public override init() {
         super.init();
     }
 
