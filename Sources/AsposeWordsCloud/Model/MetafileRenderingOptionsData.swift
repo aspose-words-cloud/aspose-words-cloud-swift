@@ -80,6 +80,18 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
         }
     }
 
+    // Field of emulateRenderingToSizeOnPage. Container class for options of metafile rendering.
+    private var _emulateRenderingToSizeOnPage : Bool? = nil;
+
+    public var emulateRenderingToSizeOnPage : Bool? {
+        get {
+            return self._emulateRenderingToSizeOnPage;
+        }
+        set {
+            self._emulateRenderingToSizeOnPage = newValue;
+        }
+    }
+
     // Field of renderingMode. Container class for options of metafile rendering.
     private var _renderingMode : RenderingMode? = nil;
 
@@ -89,18 +101,6 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
         }
         set {
             self._renderingMode = newValue;
-        }
-    }
-
-    // Field of scaleWmfFontsToMetafileSize. Container class for options of metafile rendering.
-    private var _scaleWmfFontsToMetafileSize : Bool? = nil;
-
-    public var scaleWmfFontsToMetafileSize : Bool? {
-        get {
-            return self._scaleWmfFontsToMetafileSize;
-        }
-        set {
-            self._scaleWmfFontsToMetafileSize = newValue;
         }
     }
 
@@ -119,8 +119,8 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     private enum CodingKeys: String, CodingKey {
         case emfPlusDualRenderingMode = "EmfPlusDualRenderingMode";
         case emulateRasterOperations = "EmulateRasterOperations";
+        case emulateRenderingToSizeOnPage = "EmulateRenderingToSizeOnPage";
         case renderingMode = "RenderingMode";
-        case scaleWmfFontsToMetafileSize = "ScaleWmfFontsToMetafileSize";
         case useEmfEmbeddedToWmf = "UseEmfEmbeddedToWmf";
         case invalidCodingKey;
     }
@@ -134,11 +134,11 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
         }
 
         self.emulateRasterOperations = json["EmulateRasterOperations"] as? Bool;
+        self.emulateRenderingToSizeOnPage = json["EmulateRenderingToSizeOnPage"] as? Bool;
         if let raw_renderingMode = json["RenderingMode"] as? String {
             self.renderingMode = RenderingMode(rawValue: raw_renderingMode);
         }
 
-        self.scaleWmfFontsToMetafileSize = json["ScaleWmfFontsToMetafileSize"] as? Bool;
         self.useEmfEmbeddedToWmf = json["UseEmfEmbeddedToWmf"] as? Bool;
     }
 
@@ -146,8 +146,8 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.emfPlusDualRenderingMode = try container.decodeIfPresent(EmfPlusDualRenderingMode.self, forKey: .emfPlusDualRenderingMode);
         self.emulateRasterOperations = try container.decodeIfPresent(Bool.self, forKey: .emulateRasterOperations);
+        self.emulateRenderingToSizeOnPage = try container.decodeIfPresent(Bool.self, forKey: .emulateRenderingToSizeOnPage);
         self.renderingMode = try container.decodeIfPresent(RenderingMode.self, forKey: .renderingMode);
-        self.scaleWmfFontsToMetafileSize = try container.decodeIfPresent(Bool.self, forKey: .scaleWmfFontsToMetafileSize);
         self.useEmfEmbeddedToWmf = try container.decodeIfPresent(Bool.self, forKey: .useEmfEmbeddedToWmf);
     }
 
@@ -159,11 +159,11 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
         if (self.emulateRasterOperations != nil) {
             try container.encode(self.emulateRasterOperations, forKey: .emulateRasterOperations);
         }
+        if (self.emulateRenderingToSizeOnPage != nil) {
+            try container.encode(self.emulateRenderingToSizeOnPage, forKey: .emulateRenderingToSizeOnPage);
+        }
         if (self.renderingMode != nil) {
             try container.encode(self.renderingMode, forKey: .renderingMode);
-        }
-        if (self.scaleWmfFontsToMetafileSize != nil) {
-            try container.encode(self.scaleWmfFontsToMetafileSize, forKey: .scaleWmfFontsToMetafileSize);
         }
         if (self.useEmfEmbeddedToWmf != nil) {
             try container.encode(self.useEmfEmbeddedToWmf, forKey: .useEmfEmbeddedToWmf);
@@ -197,6 +197,18 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     }
 
 
+    // Sets emulateRenderingToSizeOnPage. Gets or sets a value determining whether metafile rendering emulates the display of the metafile according to the size on page or the display of the metafile in its default size.
+    public func setEmulateRenderingToSizeOnPage(emulateRenderingToSizeOnPage : Bool?) -> MetafileRenderingOptionsData {
+        self.emulateRenderingToSizeOnPage = emulateRenderingToSizeOnPage;
+        return self;
+    }
+
+    // Gets emulateRenderingToSizeOnPage. Gets or sets a value determining whether metafile rendering emulates the display of the metafile according to the size on page or the display of the metafile in its default size.
+    public func getEmulateRenderingToSizeOnPage() -> Bool? {
+        return self.emulateRenderingToSizeOnPage;
+    }
+
+
     // Sets renderingMode. Gets or sets the option that controls how metafile images should be rendered.
     public func setRenderingMode(renderingMode : RenderingMode?) -> MetafileRenderingOptionsData {
         self.renderingMode = renderingMode;
@@ -206,18 +218,6 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     // Gets renderingMode. Gets or sets the option that controls how metafile images should be rendered.
     public func getRenderingMode() -> RenderingMode? {
         return self.renderingMode;
-    }
-
-
-    // Sets scaleWmfFontsToMetafileSize. Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page. The default value is true.
-    public func setScaleWmfFontsToMetafileSize(scaleWmfFontsToMetafileSize : Bool?) -> MetafileRenderingOptionsData {
-        self.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
-        return self;
-    }
-
-    // Gets scaleWmfFontsToMetafileSize. Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page. The default value is true.
-    public func getScaleWmfFontsToMetafileSize() -> Bool? {
-        return self.scaleWmfFontsToMetafileSize;
     }
 
 
