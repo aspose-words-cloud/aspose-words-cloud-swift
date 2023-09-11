@@ -64,6 +64,22 @@ public class DocumentEntryList : BaseEntryList {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        self.applyBaseDocumentHeadersAndFootersToAppendingDocuments = json["ApplyBaseDocumentHeadersAndFootersToAppendingDocuments"] as? Bool;
+        if let raw_documentEntries = json["DocumentEntries"] as? [Any] {
+            self.documentEntries = try raw_documentEntries.map {
+                if let element_documentEntries = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: DocumentEntry.self, from: element_documentEntries);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "DocumentEntry");
+                }
+            };
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

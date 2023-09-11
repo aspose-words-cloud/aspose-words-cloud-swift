@@ -64,6 +64,25 @@ public class Table : NodeLink {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_tableRowList = json["TableRowList"] as? [Any] {
+            self.tableRowList = try raw_tableRowList.map {
+                if let element_tableRowList = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: TableRow.self, from: element_tableRowList);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "TableRow");
+                }
+            };
+        }
+
+        if let raw_tableProperties = json["TableProperties"] as? [String: Any] {
+            self.tableProperties = try ObjectSerializer.deserialize(type: TableProperties.self, from: raw_tableProperties);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

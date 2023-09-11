@@ -99,6 +99,17 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        self.bookmarksOutlineLevel = json["BookmarksOutlineLevel"] as? Int;
+        self.headingsOutlineLevels = json["HeadingsOutlineLevels"] as? Int;
+        if let raw_outlineOptions = json["OutlineOptions"] as? [String: Any] {
+            self.outlineOptions = try ObjectSerializer.deserialize(type: OutlineOptionsData.self, from: raw_outlineOptions);
+        }
+
+        self.useBookFoldPrintingSettings = json["UseBookFoldPrintingSettings"] as? Bool;
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

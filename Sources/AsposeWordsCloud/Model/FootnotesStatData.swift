@@ -63,6 +63,11 @@ public class FootnotesStatData : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.paragraphCount = json["ParagraphCount"] as? Int;
+        self.wordCount = json["WordCount"] as? Int;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.paragraphCount = try container.decodeIfPresent(Int.self, forKey: .paragraphCount);

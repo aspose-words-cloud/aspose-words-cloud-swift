@@ -88,6 +88,25 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.alwaysGenerateRootObject = json["AlwaysGenerateRootObject"] as? Bool;
+        if let raw_exactDateTimeParseFormats = json["ExactDateTimeParseFormats"] as? [Any] {
+            self.exactDateTimeParseFormats = try raw_exactDateTimeParseFormats.map {
+                if let element_exactDateTimeParseFormats = $0 as? String {
+                    return element_exactDateTimeParseFormats;
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "String");
+                }
+            };
+        }
+
+        if let raw_simpleValueParseMode = json["SimpleValueParseMode"] as? String {
+            self.simpleValueParseMode = SimpleValueParseMode(rawValue: raw_simpleValueParseMode);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.alwaysGenerateRootObject = try container.decodeIfPresent(Bool.self, forKey: .alwaysGenerateRootObject);

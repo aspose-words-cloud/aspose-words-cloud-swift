@@ -36,6 +36,9 @@ public class FontDto : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+    }
+
     public required init(from decoder: Decoder) throws {
     }
 

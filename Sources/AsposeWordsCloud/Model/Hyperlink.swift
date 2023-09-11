@@ -64,6 +64,12 @@ public class Hyperlink : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        self.displayText = json["DisplayText"] as? String;
+        self.value = json["Value"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

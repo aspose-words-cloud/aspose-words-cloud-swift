@@ -128,6 +128,37 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_csvDataLoadOptions = json["CsvDataLoadOptions"] as? [String: Any] {
+            self.csvDataLoadOptions = try ObjectSerializer.deserialize(type: CsvDataLoadOptions.self, from: raw_csvDataLoadOptions);
+        }
+
+        self.dataSourceName = json["DataSourceName"] as? String;
+        if let raw_dataSourceType = json["DataSourceType"] as? String {
+            self.dataSourceType = DataSourceType(rawValue: raw_dataSourceType);
+        }
+
+        if let raw_jsonDataLoadOptions = json["JsonDataLoadOptions"] as? [String: Any] {
+            self.jsonDataLoadOptions = try ObjectSerializer.deserialize(type: JsonDataLoadOptions.self, from: raw_jsonDataLoadOptions);
+        }
+
+        if let raw_reportBuildOptions = json["ReportBuildOptions"] as? [Any] {
+            self.reportBuildOptions = try raw_reportBuildOptions.map {
+                if let element_reportBuildOptions = ReportBuildOptions(rawValue: ($0 as? String) ?? "") {
+                    return element_reportBuildOptions;
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "ReportBuildOptions");
+                }
+            };
+        }
+
+        if let raw_xmlDataLoadOptions = json["XmlDataLoadOptions"] as? [String: Any] {
+            self.xmlDataLoadOptions = try ObjectSerializer.deserialize(type: XmlDataLoadOptions.self, from: raw_xmlDataLoadOptions);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.csvDataLoadOptions = try container.decodeIfPresent(CsvDataLoadOptions.self, forKey: .csvDataLoadOptions);

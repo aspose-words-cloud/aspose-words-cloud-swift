@@ -51,6 +51,14 @@ public class CommentResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_comment = json["Comment"] as? [String: Any] {
+            self.comment = try ObjectSerializer.deserialize(type: Comment.self, from: raw_comment);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

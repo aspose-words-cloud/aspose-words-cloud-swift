@@ -102,6 +102,14 @@ public class PageNumber : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.alignment = json["Alignment"] as? String;
+        self.format = json["Format"] as? String;
+        self.isTop = json["IsTop"] as? Bool;
+        self.pageStartingNumber = json["PageStartingNumber"] as? Int;
+        self.setPageNumberOnFirstPage = json["SetPageNumberOnFirstPage"] as? Bool;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.alignment = try container.decodeIfPresent(String.self, forKey: .alignment);

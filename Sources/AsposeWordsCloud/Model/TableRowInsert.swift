@@ -63,6 +63,11 @@ public class TableRowInsert : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.columnsCount = json["ColumnsCount"] as? Int;
+        self.insertAfter = json["InsertAfter"] as? Int;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.columnsCount = try container.decodeIfPresent(Int.self, forKey: .columnsCount);

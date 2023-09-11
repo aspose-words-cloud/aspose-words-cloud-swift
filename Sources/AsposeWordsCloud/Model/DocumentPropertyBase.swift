@@ -50,6 +50,10 @@ public class DocumentPropertyBase : Codable, WordsApiModel {
     internal init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.value = json["Value"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.value = try container.decodeIfPresent(String.self, forKey: .value);

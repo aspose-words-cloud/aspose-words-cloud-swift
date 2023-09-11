@@ -255,6 +255,37 @@ public class TableCellFormat : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        self.bottomPadding = json["BottomPadding"] as? Double;
+        self.fitText = json["FitText"] as? Bool;
+        if let raw_horizontalMerge = json["HorizontalMerge"] as? String {
+            self.horizontalMerge = HorizontalMerge(rawValue: raw_horizontalMerge);
+        }
+
+        self.leftPadding = json["LeftPadding"] as? Double;
+        if let raw_orientation = json["Orientation"] as? String {
+            self.orientation = Orientation(rawValue: raw_orientation);
+        }
+
+        if let raw_preferredWidth = json["PreferredWidth"] as? [String: Any] {
+            self.preferredWidth = try ObjectSerializer.deserialize(type: PreferredWidth.self, from: raw_preferredWidth);
+        }
+
+        self.rightPadding = json["RightPadding"] as? Double;
+        self.topPadding = json["TopPadding"] as? Double;
+        if let raw_verticalAlignment = json["VerticalAlignment"] as? String {
+            self.verticalAlignment = VerticalAlignment(rawValue: raw_verticalAlignment);
+        }
+
+        if let raw_verticalMerge = json["VerticalMerge"] as? String {
+            self.verticalMerge = VerticalMerge(rawValue: raw_verticalMerge);
+        }
+
+        self.width = json["Width"] as? Double;
+        self.wrapText = json["WrapText"] as? Bool;
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

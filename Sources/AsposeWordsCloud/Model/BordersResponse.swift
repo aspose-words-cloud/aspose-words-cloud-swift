@@ -51,6 +51,14 @@ public class BordersResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_borders = json["Borders"] as? [String: Any] {
+            self.borders = try ObjectSerializer.deserialize(type: BordersCollection.self, from: raw_borders);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

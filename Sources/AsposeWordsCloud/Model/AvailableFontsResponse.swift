@@ -77,6 +77,43 @@ public class AvailableFontsResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_additionalFonts = json["AdditionalFonts"] as? [Any] {
+            self.additionalFonts = try raw_additionalFonts.map {
+                if let element_additionalFonts = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: FontInfo.self, from: element_additionalFonts);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "FontInfo");
+                }
+            };
+        }
+
+        if let raw_customFonts = json["CustomFonts"] as? [Any] {
+            self.customFonts = try raw_customFonts.map {
+                if let element_customFonts = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: FontInfo.self, from: element_customFonts);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "FontInfo");
+                }
+            };
+        }
+
+        if let raw_systemFonts = json["SystemFonts"] as? [Any] {
+            self.systemFonts = try raw_systemFonts.map {
+                if let element_systemFonts = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: FontInfo.self, from: element_systemFonts);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "FontInfo");
+                }
+            };
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

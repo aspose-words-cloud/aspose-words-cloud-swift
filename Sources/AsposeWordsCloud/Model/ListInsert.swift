@@ -120,6 +120,13 @@ public class ListInsert : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_template = json["Template"] as? String {
+            self.template = Template(rawValue: raw_template);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.template = try container.decodeIfPresent(Template.self, forKey: .template);

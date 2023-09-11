@@ -51,6 +51,21 @@ public class ParagraphLinkCollection : LinkElement {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_paragraphLinkList = json["ParagraphLinkList"] as? [Any] {
+            self.paragraphLinkList = try raw_paragraphLinkList.map {
+                if let element_paragraphLinkList = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: ParagraphLink.self, from: element_paragraphLinkList);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "ParagraphLink");
+                }
+            };
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

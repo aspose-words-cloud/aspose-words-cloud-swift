@@ -77,6 +77,23 @@ public class ClassificationResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        self.bestClassName = json["BestClassName"] as? String;
+        self.bestClassProbability = json["BestClassProbability"] as? Double;
+        if let raw_bestResults = json["BestResults"] as? [Any] {
+            self.bestResults = try raw_bestResults.map {
+                if let element_bestResults = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: ClassificationResult.self, from: element_bestResults);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "ClassificationResult");
+                }
+            };
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

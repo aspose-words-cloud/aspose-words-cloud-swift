@@ -76,6 +76,14 @@ public class PreferredWidth : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_type = json["Type"] as? String {
+            self.type = ModelType(rawValue: raw_type);
+        }
+
+        self.value = json["Value"] as? Double;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.type = try container.decodeIfPresent(ModelType.self, forKey: .type);

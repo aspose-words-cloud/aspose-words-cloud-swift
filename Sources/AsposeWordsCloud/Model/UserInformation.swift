@@ -76,6 +76,12 @@ public class UserInformation : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.address = json["Address"] as? String;
+        self.initials = json["Initials"] as? String;
+        self.name = json["Name"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.address = try container.decodeIfPresent(String.self, forKey: .address);

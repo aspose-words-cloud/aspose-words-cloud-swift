@@ -77,6 +77,15 @@ public class DocumentEntry : BaseEntry {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        self.encryptedPassword = json["EncryptedPassword"] as? String;
+        if let raw_importFormatMode = json["ImportFormatMode"] as? String {
+            self.importFormatMode = ImportFormatMode(rawValue: raw_importFormatMode);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

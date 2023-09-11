@@ -50,6 +50,13 @@ public class BaseEntry : Codable, WordsApiModel {
     internal init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_fileReference = json["FileReference"] as? [String: Any] {
+            self.fileReference = try ObjectSerializer.deserialize(type: FileReference.self, from: raw_fileReference);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.fileReference = try container.decodeIfPresent(FileReference.self, forKey: .fileReference);

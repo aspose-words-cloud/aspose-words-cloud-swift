@@ -72,7 +72,7 @@ class BaseTestContext: XCTestCase {
 
             do {
                 let credsData = try Data(contentsOf: credsUrl);
-                let config = try ObjectSerializer.deserialize(type: Configuration.self, from: credsData);
+                let config = try ObjectSerializer.deserializeInternal(type: Configuration.self, from: credsData);
                 self.api = try WordsAPI(configuration: config);
             }
             catch {

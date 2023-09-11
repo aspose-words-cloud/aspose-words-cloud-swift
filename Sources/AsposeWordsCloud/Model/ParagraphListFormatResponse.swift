@@ -51,6 +51,14 @@ public class ParagraphListFormatResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_listFormat = json["ListFormat"] as? [String: Any] {
+            self.listFormat = try ObjectSerializer.deserialize(type: ListFormat.self, from: raw_listFormat);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

@@ -655,6 +655,72 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        self.allowNegativeIndent = json["AllowNegativeIndent"] as? Bool;
+        self.cssClassNamePrefix = json["CssClassNamePrefix"] as? String;
+        self.cssStyleSheetFileName = json["CssStyleSheetFileName"] as? String;
+        if let raw_cssStyleSheetType = json["CssStyleSheetType"] as? String {
+            self.cssStyleSheetType = CssStyleSheetType(rawValue: raw_cssStyleSheetType);
+        }
+
+        if let raw_documentSplitCriteria = json["DocumentSplitCriteria"] as? String {
+            self.documentSplitCriteria = DocumentSplitCriteria(rawValue: raw_documentSplitCriteria);
+        }
+
+        self.documentSplitHeadingLevel = json["DocumentSplitHeadingLevel"] as? Int;
+        self.encoding = json["Encoding"] as? String;
+        self.exportDocumentProperties = json["ExportDocumentProperties"] as? Bool;
+        self.exportDropDownFormFieldAsText = json["ExportDropDownFormFieldAsText"] as? Bool;
+        self.exportFontResources = json["ExportFontResources"] as? Bool;
+        self.exportFontsAsBase64 = json["ExportFontsAsBase64"] as? Bool;
+        if let raw_exportHeadersFootersMode = json["ExportHeadersFootersMode"] as? String {
+            self.exportHeadersFootersMode = ExportHeadersFootersMode(rawValue: raw_exportHeadersFootersMode);
+        }
+
+        self.exportImagesAsBase64 = json["ExportImagesAsBase64"] as? Bool;
+        self.exportLanguageInformation = json["ExportLanguageInformation"] as? Bool;
+        if let raw_exportListLabels = json["ExportListLabels"] as? String {
+            self.exportListLabels = ExportListLabels(rawValue: raw_exportListLabels);
+        }
+
+        self.exportOriginalUrlForLinkedImages = json["ExportOriginalUrlForLinkedImages"] as? Bool;
+        self.exportPageMargins = json["ExportPageMargins"] as? Bool;
+        self.exportPageSetup = json["ExportPageSetup"] as? Bool;
+        self.exportRelativeFontSize = json["ExportRelativeFontSize"] as? Bool;
+        self.exportRoundtripInformation = json["ExportRoundtripInformation"] as? Bool;
+        self.exportTextInputFormFieldAsText = json["ExportTextInputFormFieldAsText"] as? Bool;
+        self.exportTocPageNumbers = json["ExportTocPageNumbers"] as? Bool;
+        self.exportXhtmlTransitional = json["ExportXhtmlTransitional"] as? Bool;
+        self.fontResourcesSubsettingSizeThreshold = json["FontResourcesSubsettingSizeThreshold"] as? Int;
+        self.fontsFolder = json["FontsFolder"] as? String;
+        self.fontsFolderAlias = json["FontsFolderAlias"] as? String;
+        if let raw_htmlVersion = json["HtmlVersion"] as? String {
+            self.htmlVersion = HtmlVersion(rawValue: raw_htmlVersion);
+        }
+
+        self.imageResolution = json["ImageResolution"] as? Int;
+        self.imagesFolder = json["ImagesFolder"] as? String;
+        self.imagesFolderAlias = json["ImagesFolderAlias"] as? String;
+        if let raw_metafileFormat = json["MetafileFormat"] as? String {
+            self.metafileFormat = MetafileFormat(rawValue: raw_metafileFormat);
+        }
+
+        if let raw_officeMathOutputMode = json["OfficeMathOutputMode"] as? String {
+            self.officeMathOutputMode = OfficeMathOutputMode(rawValue: raw_officeMathOutputMode);
+        }
+
+        self.prettyFormat = json["PrettyFormat"] as? Bool;
+        self.resolveFontNames = json["ResolveFontNames"] as? Bool;
+        self.resourceFolder = json["ResourceFolder"] as? String;
+        self.resourceFolderAlias = json["ResourceFolderAlias"] as? String;
+        self.scaleImageToShapeSize = json["ScaleImageToShapeSize"] as? Bool;
+        if let raw_tableWidthOutputMode = json["TableWidthOutputMode"] as? String {
+            self.tableWidthOutputMode = TableWidthOutputMode(rawValue: raw_tableWidthOutputMode);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

@@ -50,6 +50,13 @@ public class LinkElement : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_link = json["Link"] as? [String: Any] {
+            self.link = try ObjectSerializer.deserialize(type: WordsApiLink.self, from: raw_link);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.link = try container.decodeIfPresent(WordsApiLink.self, forKey: .link);

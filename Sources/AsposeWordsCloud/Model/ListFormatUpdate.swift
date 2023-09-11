@@ -63,6 +63,11 @@ public class ListFormatUpdate : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.listId = json["ListId"] as? Int;
+        self.listLevelNumber = json["ListLevelNumber"] as? Int;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.listId = try container.decodeIfPresent(Int.self, forKey: .listId);

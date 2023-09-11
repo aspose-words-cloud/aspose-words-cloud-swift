@@ -51,6 +51,14 @@ public class WordsApiErrorResponse : WordsResponse {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_error = json["Error"] as? [String: Any] {
+            self.error = try ObjectSerializer.deserialize(type: ApiError.self, from: raw_error);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

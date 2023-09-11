@@ -63,6 +63,11 @@ public class StructuredDocumentTagListItem : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.displayText = json["DisplayText"] as? String;
+        self.value = json["Value"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.displayText = try container.decodeIfPresent(String.self, forKey: .displayText);

@@ -129,6 +129,29 @@ public class Comment : CommentLink {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        if let raw_rangeStart = json["RangeStart"] as? [String: Any] {
+            self.rangeStart = try ObjectSerializer.deserialize(type: DocumentPosition.self, from: raw_rangeStart);
+        }
+
+        if let raw_rangeEnd = json["RangeEnd"] as? [String: Any] {
+            self.rangeEnd = try ObjectSerializer.deserialize(type: DocumentPosition.self, from: raw_rangeEnd);
+        }
+
+        self.author = json["Author"] as? String;
+        self.initial = json["Initial"] as? String;
+        if let raw_dateTime = json["DateTime"] as? String {
+            self.dateTime = ObjectSerializer.customIso8601.date(from: raw_dateTime);
+        }
+
+        self.text = json["Text"] as? String;
+        if let raw_content = json["Content"] as? [String: Any] {
+            self.content = try ObjectSerializer.deserialize(type: StoryChildNodes.self, from: raw_content);
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

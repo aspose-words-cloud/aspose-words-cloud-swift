@@ -50,6 +50,10 @@ public class TableCellInsertDto : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.insertAfter = json["InsertAfter"] as? Int;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.insertAfter = try container.decodeIfPresent(Int.self, forKey: .insertAfter);

@@ -50,6 +50,10 @@ public class WordsResponse : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.requestId = json["RequestId"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.requestId = try container.decodeIfPresent(String.self, forKey: .requestId);

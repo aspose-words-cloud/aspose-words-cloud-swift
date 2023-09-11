@@ -76,6 +76,28 @@ public class SaveResult : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_destDocument = json["DestDocument"] as? [String: Any] {
+            self.destDocument = try ObjectSerializer.deserialize(type: FileLink.self, from: raw_destDocument);
+        }
+
+        if let raw_sourceDocument = json["SourceDocument"] as? [String: Any] {
+            self.sourceDocument = try ObjectSerializer.deserialize(type: FileLink.self, from: raw_sourceDocument);
+        }
+
+        if let raw_additionalItems = json["AdditionalItems"] as? [Any] {
+            self.additionalItems = try raw_additionalItems.map {
+                if let element_additionalItems = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: FileLink.self, from: element_additionalItems);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "FileLink");
+                }
+            };
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.destDocument = try container.decodeIfPresent(FileLink.self, forKey: .destDocument);

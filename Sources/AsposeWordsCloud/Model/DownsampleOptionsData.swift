@@ -76,6 +76,12 @@ public class DownsampleOptionsData : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.downsampleImages = json["DownsampleImages"] as? Bool;
+        self.resolution = json["Resolution"] as? Int;
+        self.resolutionThreshold = json["ResolutionThreshold"] as? Int;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.downsampleImages = try container.decodeIfPresent(Bool.self, forKey: .downsampleImages);

@@ -63,6 +63,11 @@ public class WatermarkText : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.rotationAngle = json["RotationAngle"] as? Double;
+        self.text = json["Text"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.rotationAngle = try container.decodeIfPresent(Double.self, forKey: .rotationAngle);

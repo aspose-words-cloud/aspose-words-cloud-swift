@@ -99,6 +99,19 @@ public class FootnoteBase : Codable, WordsApiModel {
     internal init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_footnoteType = json["FootnoteType"] as? String {
+            self.footnoteType = FootnoteType(rawValue: raw_footnoteType);
+        }
+
+        if let raw_position = json["Position"] as? [String: Any] {
+            self.position = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_position);
+        }
+
+        self.referenceMark = json["ReferenceMark"] as? String;
+        self.text = json["Text"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.footnoteType = try container.decodeIfPresent(FootnoteType.self, forKey: .footnoteType);

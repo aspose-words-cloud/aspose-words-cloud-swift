@@ -76,6 +76,22 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.ownerPassword = json["OwnerPassword"] as? String;
+        if let raw_permissions = json["Permissions"] as? [Any] {
+            self.permissions = try raw_permissions.map {
+                if let element_permissions = PdfPermissions(rawValue: ($0 as? String) ?? "") {
+                    return element_permissions;
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "PdfPermissions");
+                }
+            };
+        }
+
+        self.userPassword = json["UserPassword"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.ownerPassword = try container.decodeIfPresent(String.self, forKey: .ownerPassword);

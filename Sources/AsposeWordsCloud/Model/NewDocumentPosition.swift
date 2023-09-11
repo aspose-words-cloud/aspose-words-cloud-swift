@@ -63,6 +63,11 @@ public class NewDocumentPosition : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.nodeId = json["NodeId"] as? String;
+        self.offset = json["Offset"] as? Int;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.nodeId = try container.decodeIfPresent(String.self, forKey: .nodeId);

@@ -89,6 +89,13 @@ public class StyleUpdate : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        self.baseStyleName = json["BaseStyleName"] as? String;
+        self.isQuickStyle = json["IsQuickStyle"] as? Bool;
+        self.name = json["Name"] as? String;
+        self.nextParagraphStyleName = json["NextParagraphStyleName"] as? String;
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.baseStyleName = try container.decodeIfPresent(String.self, forKey: .baseStyleName);

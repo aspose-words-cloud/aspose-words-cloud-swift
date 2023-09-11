@@ -60,6 +60,11 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        self.navigationMapLevel = json["NavigationMapLevel"] as? Int;
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

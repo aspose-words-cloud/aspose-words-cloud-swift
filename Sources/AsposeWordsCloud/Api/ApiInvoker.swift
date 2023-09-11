@@ -258,7 +258,7 @@ public class ApiInvoker {
                 var newAccessToken : String? = nil;
                 if (response.errorCode == self.httpStatusCodeOK) {
                     do {
-                        let result = try ObjectSerializer.deserialize(type: AccessTokenResult.self, from: response.data!);
+                        let result = try ObjectSerializer.deserializeInternal(type: AccessTokenResult.self, from: response.data!);
                         if (result.access_token != nil) {
                             newAccessToken = "Bearer " + result.access_token!;
                         }

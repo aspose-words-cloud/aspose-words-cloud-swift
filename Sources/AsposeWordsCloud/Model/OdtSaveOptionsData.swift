@@ -110,6 +110,17 @@ public class OdtSaveOptionsData : SaveOptionsData {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        self.isStrictSchema11 = json["IsStrictSchema11"] as? Bool;
+        if let raw_measureUnit = json["MeasureUnit"] as? String {
+            self.measureUnit = MeasureUnit(rawValue: raw_measureUnit);
+        }
+
+        self.password = json["Password"] as? String;
+        self.prettyFormat = json["PrettyFormat"] as? Bool;
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

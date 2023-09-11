@@ -253,6 +253,30 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         super.init();
     }
 
+    public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
+        self.cssClassNamesPrefix = json["CssClassNamesPrefix"] as? String;
+        self.encoding = json["Encoding"] as? String;
+        self.exportEmbeddedCss = json["ExportEmbeddedCss"] as? Bool;
+        self.exportEmbeddedFonts = json["ExportEmbeddedFonts"] as? Bool;
+        self.exportEmbeddedImages = json["ExportEmbeddedImages"] as? Bool;
+        self.exportFormFields = json["ExportFormFields"] as? Bool;
+        if let raw_fontFormat = json["FontFormat"] as? String {
+            self.fontFormat = FontFormat(rawValue: raw_fontFormat);
+        }
+
+        if let raw_pageHorizontalAlignment = json["PageHorizontalAlignment"] as? String {
+            self.pageHorizontalAlignment = PageHorizontalAlignment(rawValue: raw_pageHorizontalAlignment);
+        }
+
+        self.pageMargins = json["PageMargins"] as? Double;
+        self.resourcesFolder = json["ResourcesFolder"] as? String;
+        self.resourcesFolderAlias = json["ResourcesFolderAlias"] as? String;
+        self.saveFontFaceCssSeparately = json["SaveFontFaceCssSeparately"] as? Bool;
+        self.showPageBorder = json["ShowPageBorder"] as? Bool;
+        self.useTargetMachineFonts = json["UseTargetMachineFonts"] as? Bool;
+    }
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);

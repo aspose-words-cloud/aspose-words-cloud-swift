@@ -50,6 +50,20 @@ public class StoryChildNodes : Codable, WordsApiModel {
     public init() {
     }
 
+    public required init(from json: [String: Any]) throws {
+        if let raw_childNodes = json["ChildNodes"] as? [Any] {
+            self.childNodes = try raw_childNodes.map {
+                if let element_childNodes = $0 as? [String: Any] {
+                    return try ObjectSerializer.deserialize(type: NodeLink.self, from: element_childNodes);
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "NodeLink");
+                }
+            };
+        }
+
+    }
+
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.childNodes = try container.decodeIfPresent([NodeLink].self, forKey: .childNodes);
