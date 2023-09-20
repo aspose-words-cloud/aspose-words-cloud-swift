@@ -109,6 +109,7 @@ class ObjectSerializer {
         "DrawingObjectsResponse, _": DrawingObjectsResponse.self,
         "DrawingObjectUpdate, _": DrawingObjectUpdate.self,
         "EmfSaveOptionsData, _": EmfSaveOptionsData.self,
+        "EpsSaveOptionsData, _": EpsSaveOptionsData.self,
         "EpubSaveOptionsData, _": EpubSaveOptionsData.self,
         "InternalError, _": InternalError.self,
         "ErrorDetails, _": ErrorDetails.self,

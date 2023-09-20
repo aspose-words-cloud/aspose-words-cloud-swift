@@ -212,6 +212,30 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
+    // Field of imageHeight. Container abstract class for image save options.
+    private var _imageHeight : Int? = nil;
+
+    public var imageHeight : Int? {
+        get {
+            return self._imageHeight;
+        }
+        set {
+            self._imageHeight = newValue;
+        }
+    }
+
+    // Field of imageWidth. Container abstract class for image save options.
+    private var _imageWidth : Int? = nil;
+
+    public var imageWidth : Int? {
+        get {
+            return self._imageWidth;
+        }
+        set {
+            self._imageWidth = newValue;
+        }
+    }
+
     // Field of useGdiEmfRenderer. Container abstract class for image save options.
     private var _useGdiEmfRenderer : Bool? = nil;
 
@@ -236,6 +260,8 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         case useAntiAliasing = "UseAntiAliasing";
         case useHighQualityRendering = "UseHighQualityRendering";
         case verticalResolution = "VerticalResolution";
+        case imageHeight = "ImageHeight";
+        case imageWidth = "ImageWidth";
         case useGdiEmfRenderer = "UseGdiEmfRenderer";
         case invalidCodingKey;
     }
@@ -263,6 +289,8 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         self.useAntiAliasing = json["UseAntiAliasing"] as? Bool;
         self.useHighQualityRendering = json["UseHighQualityRendering"] as? Bool;
         self.verticalResolution = json["VerticalResolution"] as? Double;
+        self.imageHeight = json["ImageHeight"] as? Int;
+        self.imageWidth = json["ImageWidth"] as? Int;
         self.useGdiEmfRenderer = json["UseGdiEmfRenderer"] as? Bool;
     }
 
@@ -280,6 +308,8 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         self.useAntiAliasing = try container.decodeIfPresent(Bool.self, forKey: .useAntiAliasing);
         self.useHighQualityRendering = try container.decodeIfPresent(Bool.self, forKey: .useHighQualityRendering);
         self.verticalResolution = try container.decodeIfPresent(Double.self, forKey: .verticalResolution);
+        self.imageHeight = try container.decodeIfPresent(Int.self, forKey: .imageHeight);
+        self.imageWidth = try container.decodeIfPresent(Int.self, forKey: .imageWidth);
         self.useGdiEmfRenderer = try container.decodeIfPresent(Bool.self, forKey: .useGdiEmfRenderer);
     }
 
@@ -318,6 +348,12 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         }
         if (self.verticalResolution != nil) {
             try container.encode(self.verticalResolution, forKey: .verticalResolution);
+        }
+        if (self.imageHeight != nil) {
+            try container.encode(self.imageHeight, forKey: .imageHeight);
+        }
+        if (self.imageWidth != nil) {
+            try container.encode(self.imageWidth, forKey: .imageWidth);
         }
         if (self.useGdiEmfRenderer != nil) {
             try container.encode(self.useGdiEmfRenderer, forKey: .useGdiEmfRenderer);
@@ -456,6 +492,30 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Gets verticalResolution. Gets or sets the vertical resolution in dots per inch for the generated images. This property has effect only when saving to raster image formats. The default value is 96.
     public func getVerticalResolution() -> Double? {
         return self.verticalResolution;
+    }
+
+
+    // Sets imageHeight. Gets or sets the height of a generated image in pixels.
+    public func setImageHeight(imageHeight : Int?) -> ImageSaveOptionsData {
+        self.imageHeight = imageHeight;
+        return self;
+    }
+
+    // Gets imageHeight. Gets or sets the height of a generated image in pixels.
+    public func getImageHeight() -> Int? {
+        return self.imageHeight;
+    }
+
+
+    // Sets imageWidth. Gets or sets the width of a generated image in pixels.
+    public func setImageWidth(imageWidth : Int?) -> ImageSaveOptionsData {
+        self.imageWidth = imageWidth;
+        return self;
+    }
+
+    // Gets imageWidth. Gets or sets the width of a generated image in pixels.
+    public func getImageWidth() -> Int? {
+        return self.imageWidth;
     }
 
 
