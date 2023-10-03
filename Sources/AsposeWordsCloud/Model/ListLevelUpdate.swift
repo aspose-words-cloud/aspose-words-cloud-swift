@@ -30,19 +30,6 @@ import Foundation
 // Represents a document list levels.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListLevelUpdate : Codable, WordsApiModel {
-    // Gets or sets the justification of the actual number of the list item.
-    public enum Alignment : String, Codable
-    {
-        // Enum value "_left"
-        case _left = "Left"
-
-        // Enum value "center"
-        case center = "Center"
-
-        // Enum value "_right"
-        case _right = "Right"
-    }
-
     // Gets or sets the number style for this list level.
     public enum NumberStyle : String, Codable
     {
@@ -233,6 +220,21 @@ public class ListLevelUpdate : Codable, WordsApiModel {
         case custom = "Custom"
     }
 
+    // Gets or sets the justification of the actual number of the list item.
+    // The list label is justified relative to the Aspose.Words.Lists.ListLevel.NumberPosition
+    // property.
+    public enum Alignment : String, Codable
+    {
+        // Enum value "_left"
+        case _left = "Left"
+
+        // Enum value "center"
+        case center = "Center"
+
+        // Enum value "_right"
+        case _right = "Right"
+    }
+
     // Gets or sets the character to be inserted after the number for the list level.
     public enum TrailingCharacter : String, Codable
     {
@@ -244,6 +246,42 @@ public class ListLevelUpdate : Codable, WordsApiModel {
 
         // Enum value "nothing"
         case nothing = "Nothing"
+    }
+
+    // Field of startAt. Represents a document list levels.
+    private var _startAt : Int? = nil;
+
+    public var startAt : Int? {
+        get {
+            return self._startAt;
+        }
+        set {
+            self._startAt = newValue;
+        }
+    }
+
+    // Field of numberStyle. Represents a document list levels.
+    private var _numberStyle : NumberStyle? = nil;
+
+    public var numberStyle : NumberStyle? {
+        get {
+            return self._numberStyle;
+        }
+        set {
+            self._numberStyle = newValue;
+        }
+    }
+
+    // Field of numberFormat. Represents a document list levels.
+    private var _numberFormat : String? = nil;
+
+    public var numberFormat : String? {
+        get {
+            return self._numberFormat;
+        }
+        set {
+            self._numberFormat = newValue;
+        }
     }
 
     // Field of alignment. Represents a document list levels.
@@ -270,42 +308,6 @@ public class ListLevelUpdate : Codable, WordsApiModel {
         }
     }
 
-    // Field of numberFormat. Represents a document list levels.
-    private var _numberFormat : String? = nil;
-
-    public var numberFormat : String? {
-        get {
-            return self._numberFormat;
-        }
-        set {
-            self._numberFormat = newValue;
-        }
-    }
-
-    // Field of numberPosition. Represents a document list levels.
-    private var _numberPosition : Double? = nil;
-
-    public var numberPosition : Double? {
-        get {
-            return self._numberPosition;
-        }
-        set {
-            self._numberPosition = newValue;
-        }
-    }
-
-    // Field of numberStyle. Represents a document list levels.
-    private var _numberStyle : NumberStyle? = nil;
-
-    public var numberStyle : NumberStyle? {
-        get {
-            return self._numberStyle;
-        }
-        set {
-            self._numberStyle = newValue;
-        }
-    }
-
     // Field of restartAfterLevel. Represents a document list levels.
     private var _restartAfterLevel : Int? = nil;
 
@@ -315,42 +317,6 @@ public class ListLevelUpdate : Codable, WordsApiModel {
         }
         set {
             self._restartAfterLevel = newValue;
-        }
-    }
-
-    // Field of startAt. Represents a document list levels.
-    private var _startAt : Int? = nil;
-
-    public var startAt : Int? {
-        get {
-            return self._startAt;
-        }
-        set {
-            self._startAt = newValue;
-        }
-    }
-
-    // Field of tabPosition. Represents a document list levels.
-    private var _tabPosition : Double? = nil;
-
-    public var tabPosition : Double? {
-        get {
-            return self._tabPosition;
-        }
-        set {
-            self._tabPosition = newValue;
-        }
-    }
-
-    // Field of textPosition. Represents a document list levels.
-    private var _textPosition : Double? = nil;
-
-    public var textPosition : Double? {
-        get {
-            return self._textPosition;
-        }
-        set {
-            self._textPosition = newValue;
         }
     }
 
@@ -366,17 +332,53 @@ public class ListLevelUpdate : Codable, WordsApiModel {
         }
     }
 
+    // Field of tabPosition. Represents a document list levels.
+    private var _tabPosition : Double? = nil;
+
+    public var tabPosition : Double? {
+        get {
+            return self._tabPosition;
+        }
+        set {
+            self._tabPosition = newValue;
+        }
+    }
+
+    // Field of numberPosition. Represents a document list levels.
+    private var _numberPosition : Double? = nil;
+
+    public var numberPosition : Double? {
+        get {
+            return self._numberPosition;
+        }
+        set {
+            self._numberPosition = newValue;
+        }
+    }
+
+    // Field of textPosition. Represents a document list levels.
+    private var _textPosition : Double? = nil;
+
+    public var textPosition : Double? {
+        get {
+            return self._textPosition;
+        }
+        set {
+            self._textPosition = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
+        case startAt = "StartAt";
+        case numberStyle = "NumberStyle";
+        case numberFormat = "NumberFormat";
         case alignment = "Alignment";
         case isLegal = "IsLegal";
-        case numberFormat = "NumberFormat";
-        case numberPosition = "NumberPosition";
-        case numberStyle = "NumberStyle";
         case restartAfterLevel = "RestartAfterLevel";
-        case startAt = "StartAt";
-        case tabPosition = "TabPosition";
-        case textPosition = "TextPosition";
         case trailingCharacter = "TrailingCharacter";
+        case tabPosition = "TabPosition";
+        case numberPosition = "NumberPosition";
+        case textPosition = "TextPosition";
         case invalidCodingKey;
     }
 
@@ -384,85 +386,121 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     }
 
     public required init(from json: [String: Any]) throws {
+        self.startAt = json["StartAt"] as? Int;
+        if let raw_numberStyle = json["NumberStyle"] as? String {
+            self.numberStyle = NumberStyle(rawValue: raw_numberStyle);
+        }
+
+        self.numberFormat = json["NumberFormat"] as? String;
         if let raw_alignment = json["Alignment"] as? String {
             self.alignment = Alignment(rawValue: raw_alignment);
         }
 
         self.isLegal = json["IsLegal"] as? Bool;
-        self.numberFormat = json["NumberFormat"] as? String;
-        self.numberPosition = json["NumberPosition"] as? Double;
-        if let raw_numberStyle = json["NumberStyle"] as? String {
-            self.numberStyle = NumberStyle(rawValue: raw_numberStyle);
-        }
-
         self.restartAfterLevel = json["RestartAfterLevel"] as? Int;
-        self.startAt = json["StartAt"] as? Int;
-        self.tabPosition = json["TabPosition"] as? Double;
-        self.textPosition = json["TextPosition"] as? Double;
         if let raw_trailingCharacter = json["TrailingCharacter"] as? String {
             self.trailingCharacter = TrailingCharacter(rawValue: raw_trailingCharacter);
         }
 
+        self.tabPosition = json["TabPosition"] as? Double;
+        self.numberPosition = json["NumberPosition"] as? Double;
+        self.textPosition = json["TextPosition"] as? Double;
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.startAt = try container.decodeIfPresent(Int.self, forKey: .startAt);
+        self.numberStyle = try container.decodeIfPresent(NumberStyle.self, forKey: .numberStyle);
+        self.numberFormat = try container.decodeIfPresent(String.self, forKey: .numberFormat);
         self.alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment);
         self.isLegal = try container.decodeIfPresent(Bool.self, forKey: .isLegal);
-        self.numberFormat = try container.decodeIfPresent(String.self, forKey: .numberFormat);
-        self.numberPosition = try container.decodeIfPresent(Double.self, forKey: .numberPosition);
-        self.numberStyle = try container.decodeIfPresent(NumberStyle.self, forKey: .numberStyle);
         self.restartAfterLevel = try container.decodeIfPresent(Int.self, forKey: .restartAfterLevel);
-        self.startAt = try container.decodeIfPresent(Int.self, forKey: .startAt);
-        self.tabPosition = try container.decodeIfPresent(Double.self, forKey: .tabPosition);
-        self.textPosition = try container.decodeIfPresent(Double.self, forKey: .textPosition);
         self.trailingCharacter = try container.decodeIfPresent(TrailingCharacter.self, forKey: .trailingCharacter);
+        self.tabPosition = try container.decodeIfPresent(Double.self, forKey: .tabPosition);
+        self.numberPosition = try container.decodeIfPresent(Double.self, forKey: .numberPosition);
+        self.textPosition = try container.decodeIfPresent(Double.self, forKey: .textPosition);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.startAt != nil) {
+            try container.encode(self.startAt, forKey: .startAt);
+        }
+        if (self.numberStyle != nil) {
+            try container.encode(self.numberStyle, forKey: .numberStyle);
+        }
+        if (self.numberFormat != nil) {
+            try container.encode(self.numberFormat, forKey: .numberFormat);
+        }
         if (self.alignment != nil) {
             try container.encode(self.alignment, forKey: .alignment);
         }
         if (self.isLegal != nil) {
             try container.encode(self.isLegal, forKey: .isLegal);
         }
-        if (self.numberFormat != nil) {
-            try container.encode(self.numberFormat, forKey: .numberFormat);
-        }
-        if (self.numberPosition != nil) {
-            try container.encode(self.numberPosition, forKey: .numberPosition);
-        }
-        if (self.numberStyle != nil) {
-            try container.encode(self.numberStyle, forKey: .numberStyle);
-        }
         if (self.restartAfterLevel != nil) {
             try container.encode(self.restartAfterLevel, forKey: .restartAfterLevel);
         }
-        if (self.startAt != nil) {
-            try container.encode(self.startAt, forKey: .startAt);
+        if (self.trailingCharacter != nil) {
+            try container.encode(self.trailingCharacter, forKey: .trailingCharacter);
         }
         if (self.tabPosition != nil) {
             try container.encode(self.tabPosition, forKey: .tabPosition);
         }
+        if (self.numberPosition != nil) {
+            try container.encode(self.numberPosition, forKey: .numberPosition);
+        }
         if (self.textPosition != nil) {
             try container.encode(self.textPosition, forKey: .textPosition);
-        }
-        if (self.trailingCharacter != nil) {
-            try container.encode(self.trailingCharacter, forKey: .trailingCharacter);
         }
     }
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets alignment. Gets or sets the justification of the actual number of the list item.
+    // Sets startAt. Gets or sets the starting number for this list level. Default value is 1.
+    public func setStartAt(startAt : Int?) -> ListLevelUpdate {
+        self.startAt = startAt;
+        return self;
+    }
+
+    // Gets startAt. Gets or sets the starting number for this list level. Default value is 1.
+    public func getStartAt() -> Int? {
+        return self.startAt;
+    }
+
+
+    // Sets numberStyle. Gets or sets the number style for this list level.
+    public func setNumberStyle(numberStyle : NumberStyle?) -> ListLevelUpdate {
+        self.numberStyle = numberStyle;
+        return self;
+    }
+
+    // Gets numberStyle. Gets or sets the number style for this list level.
+    public func getNumberStyle() -> NumberStyle? {
+        return self.numberStyle;
+    }
+
+
+    // Sets numberFormat. Gets or sets the number format for the list level. Among normal text characters, the string can contain placeholder characters \\x0000 to \\x0008 representing the numbers from the corresponding list levels. For example, the string "\\x0000.\\x0001)" will generate a list label that looks something like "1.5)". The number "1" is the current number from the 1st list level, the number "5" is the current number from the 2nd list level. Null is not allowed, but an empty string meaning no number is valid.
+    public func setNumberFormat(numberFormat : String?) -> ListLevelUpdate {
+        self.numberFormat = numberFormat;
+        return self;
+    }
+
+    // Gets numberFormat. Gets or sets the number format for the list level. Among normal text characters, the string can contain placeholder characters \\x0000 to \\x0008 representing the numbers from the corresponding list levels. For example, the string "\\x0000.\\x0001)" will generate a list label that looks something like "1.5)". The number "1" is the current number from the 1st list level, the number "5" is the current number from the 2nd list level. Null is not allowed, but an empty string meaning no number is valid.
+    public func getNumberFormat() -> String? {
+        return self.numberFormat;
+    }
+
+
+    // Sets alignment. Gets or sets the justification of the actual number of the list item. The list label is justified relative to the Aspose.Words.Lists.ListLevel.NumberPosition property.
     public func setAlignment(alignment : Alignment?) -> ListLevelUpdate {
         self.alignment = alignment;
         return self;
     }
 
-    // Gets alignment. Gets or sets the justification of the actual number of the list item.
+    // Gets alignment. Gets or sets the justification of the actual number of the list item. The list label is justified relative to the Aspose.Words.Lists.ListLevel.NumberPosition property.
     public func getAlignment() -> Alignment? {
         return self.alignment;
     }
@@ -480,87 +518,15 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     }
 
 
-    // Sets numberFormat. Gets or sets the number format for the list level.
-    public func setNumberFormat(numberFormat : String?) -> ListLevelUpdate {
-        self.numberFormat = numberFormat;
-        return self;
-    }
-
-    // Gets numberFormat. Gets or sets the number format for the list level.
-    public func getNumberFormat() -> String? {
-        return self.numberFormat;
-    }
-
-
-    // Sets numberPosition. Gets or sets the position (in points) of the number or bullet for the list level.
-    public func setNumberPosition(numberPosition : Double?) -> ListLevelUpdate {
-        self.numberPosition = numberPosition;
-        return self;
-    }
-
-    // Gets numberPosition. Gets or sets the position (in points) of the number or bullet for the list level.
-    public func getNumberPosition() -> Double? {
-        return self.numberPosition;
-    }
-
-
-    // Sets numberStyle. Gets or sets the number style for this list level.
-    public func setNumberStyle(numberStyle : NumberStyle?) -> ListLevelUpdate {
-        self.numberStyle = numberStyle;
-        return self;
-    }
-
-    // Gets numberStyle. Gets or sets the number style for this list level.
-    public func getNumberStyle() -> NumberStyle? {
-        return self.numberStyle;
-    }
-
-
-    // Sets restartAfterLevel. Gets or sets the list level that must appear before the specified list level restarts numbering.
+    // Sets restartAfterLevel. Gets or sets the list level that must appear before the specified list level restarts numbering. The value of -1 means the numbering will continue.
     public func setRestartAfterLevel(restartAfterLevel : Int?) -> ListLevelUpdate {
         self.restartAfterLevel = restartAfterLevel;
         return self;
     }
 
-    // Gets restartAfterLevel. Gets or sets the list level that must appear before the specified list level restarts numbering.
+    // Gets restartAfterLevel. Gets or sets the list level that must appear before the specified list level restarts numbering. The value of -1 means the numbering will continue.
     public func getRestartAfterLevel() -> Int? {
         return self.restartAfterLevel;
-    }
-
-
-    // Sets startAt. Gets or sets the starting number for this list level.
-    public func setStartAt(startAt : Int?) -> ListLevelUpdate {
-        self.startAt = startAt;
-        return self;
-    }
-
-    // Gets startAt. Gets or sets the starting number for this list level.
-    public func getStartAt() -> Int? {
-        return self.startAt;
-    }
-
-
-    // Sets tabPosition. Gets or sets the tab position (in points) for the list level.
-    public func setTabPosition(tabPosition : Double?) -> ListLevelUpdate {
-        self.tabPosition = tabPosition;
-        return self;
-    }
-
-    // Gets tabPosition. Gets or sets the tab position (in points) for the list level.
-    public func getTabPosition() -> Double? {
-        return self.tabPosition;
-    }
-
-
-    // Sets textPosition. Gets or sets the position (in points) for the second line of wrapping text for the list level.
-    public func setTextPosition(textPosition : Double?) -> ListLevelUpdate {
-        self.textPosition = textPosition;
-        return self;
-    }
-
-    // Gets textPosition. Gets or sets the position (in points) for the second line of wrapping text for the list level.
-    public func getTextPosition() -> Double? {
-        return self.textPosition;
     }
 
 
@@ -573,5 +539,41 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     // Gets trailingCharacter. Gets or sets the character to be inserted after the number for the list level.
     public func getTrailingCharacter() -> TrailingCharacter? {
         return self.trailingCharacter;
+    }
+
+
+    // Sets tabPosition. Gets or sets the tab position (in points) for the list level. Has effect only when Aspose.Words.Lists.ListLevel.TrailingCharacter is a tab. Aspose.Words.Lists.ListLevel.NumberPosition Aspose.Words.Lists.ListLevel.TextPosition.
+    public func setTabPosition(tabPosition : Double?) -> ListLevelUpdate {
+        self.tabPosition = tabPosition;
+        return self;
+    }
+
+    // Gets tabPosition. Gets or sets the tab position (in points) for the list level. Has effect only when Aspose.Words.Lists.ListLevel.TrailingCharacter is a tab. Aspose.Words.Lists.ListLevel.NumberPosition Aspose.Words.Lists.ListLevel.TextPosition.
+    public func getTabPosition() -> Double? {
+        return self.tabPosition;
+    }
+
+
+    // Sets numberPosition. Gets or sets the position (in points) of the number or bullet for the list level. Aspose.Words.Lists.ListLevel.NumberPosition corresponds to LeftIndent plus FirstLineIndent of the paragraph. Aspose.Words.Lists.ListLevel.TextPosition Aspose.Words.Lists.ListLevel.TabPosition.
+    public func setNumberPosition(numberPosition : Double?) -> ListLevelUpdate {
+        self.numberPosition = numberPosition;
+        return self;
+    }
+
+    // Gets numberPosition. Gets or sets the position (in points) of the number or bullet for the list level. Aspose.Words.Lists.ListLevel.NumberPosition corresponds to LeftIndent plus FirstLineIndent of the paragraph. Aspose.Words.Lists.ListLevel.TextPosition Aspose.Words.Lists.ListLevel.TabPosition.
+    public func getNumberPosition() -> Double? {
+        return self.numberPosition;
+    }
+
+
+    // Sets textPosition. Gets or sets the position (in points) for the second line of wrapping text for the list level. Aspose.Words.Lists.ListLevel.TextPosition corresponds to LeftIndent of the paragraph. Aspose.Words.Lists.ListLevel.NumberPosition Aspose.Words.Lists.ListLevel.TabPosition.
+    public func setTextPosition(textPosition : Double?) -> ListLevelUpdate {
+        self.textPosition = textPosition;
+        return self;
+    }
+
+    // Gets textPosition. Gets or sets the position (in points) for the second line of wrapping text for the list level. Aspose.Words.Lists.ListLevel.TextPosition corresponds to LeftIndent of the paragraph. Aspose.Words.Lists.ListLevel.NumberPosition Aspose.Words.Lists.ListLevel.TabPosition.
+    public func getTextPosition() -> Double? {
+        return self.textPosition;
     }
 }

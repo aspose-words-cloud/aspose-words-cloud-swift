@@ -32,6 +32,8 @@ import Foundation
 public class FixedPageSaveOptionsData : SaveOptionsData {
     // Gets or sets the value determining how colors are rendered.
     // { Normal | Grayscale}.
+    // The default value is Normal.
+    // This property is used when the document is exported to fixed page formats.
     public enum ColorMode : String, Codable
     {
         // Enum value "normal"
@@ -220,13 +222,13 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets colorMode. Gets or sets the value determining how colors are rendered. { Normal | Grayscale}.
+    // Sets colorMode. Gets or sets the value determining how colors are rendered. { Normal | Grayscale}. The default value is Normal. This property is used when the document is exported to fixed page formats.
     public func setColorMode(colorMode : ColorMode?) -> FixedPageSaveOptionsData {
         self.colorMode = colorMode;
         return self;
     }
 
-    // Gets colorMode. Gets or sets the value determining how colors are rendered. { Normal | Grayscale}.
+    // Gets colorMode. Gets or sets the value determining how colors are rendered. { Normal | Grayscale}. The default value is Normal. This property is used when the document is exported to fixed page formats.
     public func getColorMode() -> ColorMode? {
         return self.colorMode;
     }

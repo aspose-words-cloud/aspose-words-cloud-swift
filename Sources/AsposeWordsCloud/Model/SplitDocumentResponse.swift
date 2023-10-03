@@ -28,9 +28,10 @@
 import Foundation
 
 // The REST response with a result of document splitting.
+// This response should be returned by the service when handling: POST /{name}/split.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SplitDocumentResponse : WordsResponse {
-    // Field of splitResult. The REST response with a result of document splitting.
+    // Field of splitResult. The REST response with a result of document splitting. This response should be returned by the service when handling: POST /{name}/split.
     private var _splitResult : SplitDocumentResult? = nil;
 
     public var splitResult : SplitDocumentResult? {

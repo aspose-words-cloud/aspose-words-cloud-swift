@@ -54,9 +54,32 @@ public class XmlColor : Codable, WordsApiModel {
         }
     }
 
+    // Field of xmlAlpha. Utility class for Color serialization.
+    private var _xmlAlpha : Int? = nil;
+
+    public var xmlAlpha : Int? {
+        get {
+            return self._xmlAlpha;
+        }
+        set {
+            self._xmlAlpha = newValue;
+        }
+    }
+
+    // Field of xmlAlphaSpecified. Utility class for Color serialization.
+    private final let _xmlAlphaSpecified : Bool? = nil;
+
+    public var xmlAlphaSpecified : Bool? {
+        get {
+            return self._xmlAlphaSpecified;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case alpha = "Alpha";
         case web = "Web";
+        case xmlAlpha = "XmlAlpha";
+        case xmlAlphaSpecified = "XmlAlphaSpecified";
         case invalidCodingKey;
     }
 
@@ -66,12 +89,16 @@ public class XmlColor : Codable, WordsApiModel {
     public required init(from json: [String: Any]) throws {
         self.alpha = json["Alpha"] as? Int;
         self.web = json["Web"] as? String;
+        self.xmlAlpha = json["XmlAlpha"] as? Int;
+
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.alpha = try container.decodeIfPresent(Int.self, forKey: .alpha);
         self.web = try container.decodeIfPresent(String.self, forKey: .web);
+        self.xmlAlpha = try container.decodeIfPresent(Int.self, forKey: .xmlAlpha);
+
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -81,6 +108,12 @@ public class XmlColor : Codable, WordsApiModel {
         }
         if (self.web != nil) {
             try container.encode(self.web, forKey: .web);
+        }
+        if (self.xmlAlpha != nil) {
+            try container.encode(self.xmlAlpha, forKey: .xmlAlpha);
+        }
+        if (self.xmlAlphaSpecified != nil) {
+            try container.encode(self.xmlAlphaSpecified, forKey: .xmlAlphaSpecified);
         }
     }
 
@@ -108,5 +141,23 @@ public class XmlColor : Codable, WordsApiModel {
     // Gets web. Gets or sets the HTML string color representation.
     public func getWeb() -> String? {
         return self.web;
+    }
+
+
+    // Sets xmlAlpha. Gets or sets the Alpha wrapper for serialization.
+    public func setXmlAlpha(xmlAlpha : Int?) -> XmlColor {
+        self.xmlAlpha = xmlAlpha;
+        return self;
+    }
+
+    // Gets xmlAlpha. Gets or sets the Alpha wrapper for serialization.
+    public func getXmlAlpha() -> Int? {
+        return self.xmlAlpha;
+    }
+
+
+    // Gets xmlAlphaSpecified. Gets a value indicating whether Alpha is specified.
+    public func getXmlAlphaSpecified() -> Bool? {
+        return self.xmlAlphaSpecified;
     }
 }

@@ -28,9 +28,10 @@
 import Foundation
 
 // The REST response with a regular expression pattern and a collection of search results.
+// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/search" REST API requests.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SearchResponse : WordsResponse {
-    // Field of searchingPattern. The REST response with a regular expression pattern and a collection of search results.
+    // Field of searchingPattern. The REST response with a regular expression pattern and a collection of search results. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/search" REST API requests.
     private var _searchingPattern : String? = nil;
 
     public var searchingPattern : String? {
@@ -42,7 +43,7 @@ public class SearchResponse : WordsResponse {
         }
     }
 
-    // Field of searchResults. The REST response with a regular expression pattern and a collection of search results.
+    // Field of searchResults. The REST response with a regular expression pattern and a collection of search results. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/search" REST API requests.
     private var _searchResults : SearchResultsCollection? = nil;
 
     public var searchResults : SearchResultsCollection? {

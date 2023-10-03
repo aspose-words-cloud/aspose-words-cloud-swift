@@ -30,18 +30,6 @@ import Foundation
 // Represents a bookmark to insert.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BookmarkInsert : BookmarkData {
-    // Field of endRange. Represents a bookmark to insert.
-    private var _endRange : NewDocumentPosition? = nil;
-
-    public var endRange : NewDocumentPosition? {
-        get {
-            return self._endRange;
-        }
-        set {
-            self._endRange = newValue;
-        }
-    }
-
     // Field of startRange. Represents a bookmark to insert.
     private var _startRange : NewDocumentPosition? = nil;
 
@@ -54,9 +42,21 @@ public class BookmarkInsert : BookmarkData {
         }
     }
 
+    // Field of endRange. Represents a bookmark to insert.
+    private var _endRange : NewDocumentPosition? = nil;
+
+    public var endRange : NewDocumentPosition? {
+        get {
+            return self._endRange;
+        }
+        set {
+            self._endRange = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case endRange = "EndRange";
         case startRange = "StartRange";
+        case endRange = "EndRange";
         case invalidCodingKey;
     }
 
@@ -66,12 +66,12 @@ public class BookmarkInsert : BookmarkData {
 
     public required init(from json: [String: Any]) throws {
         try super.init(from: json);
-        if let raw_endRange = json["EndRange"] as? [String: Any] {
-            self.endRange = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_endRange);
-        }
-
         if let raw_startRange = json["StartRange"] as? [String: Any] {
             self.startRange = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_startRange);
+        }
+
+        if let raw_endRange = json["EndRange"] as? [String: Any] {
+            self.endRange = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_endRange);
         }
 
     }
@@ -79,35 +79,23 @@ public class BookmarkInsert : BookmarkData {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.endRange = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .endRange);
         self.startRange = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .startRange);
+        self.endRange = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .endRange);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.endRange != nil) {
-            try container.encode(self.endRange, forKey: .endRange);
-        }
         if (self.startRange != nil) {
             try container.encode(self.startRange, forKey: .startRange);
+        }
+        if (self.endRange != nil) {
+            try container.encode(self.endRange, forKey: .endRange);
         }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets endRange. Gets or sets the link to end bookmark node.
-    public func setEndRange(endRange : NewDocumentPosition?) -> BookmarkInsert {
-        self.endRange = endRange;
-        return self;
-    }
-
-    // Gets endRange. Gets or sets the link to end bookmark node.
-    public func getEndRange() -> NewDocumentPosition? {
-        return self.endRange;
-    }
-
 
     // Sets startRange. Gets or sets the link to start bookmark node.
     public func setStartRange(startRange : NewDocumentPosition?) -> BookmarkInsert {
@@ -118,5 +106,17 @@ public class BookmarkInsert : BookmarkData {
     // Gets startRange. Gets or sets the link to start bookmark node.
     public func getStartRange() -> NewDocumentPosition? {
         return self.startRange;
+    }
+
+
+    // Sets endRange. Gets or sets the link to end bookmark node.
+    public func setEndRange(endRange : NewDocumentPosition?) -> BookmarkInsert {
+        self.endRange = endRange;
+        return self;
+    }
+
+    // Gets endRange. Gets or sets the link to end bookmark node.
+    public func getEndRange() -> NewDocumentPosition? {
+        return self.endRange;
     }
 }

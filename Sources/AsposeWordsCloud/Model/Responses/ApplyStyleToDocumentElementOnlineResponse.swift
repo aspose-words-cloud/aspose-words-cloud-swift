@@ -45,7 +45,7 @@ public class ApplyStyleToDocumentElementOnlineResponse {
         self.document = document;
     }
 
-    // The response model.
+    // The base class for all responses.
     public func getModel() -> WordsResponse? {
         return self.model;
     }

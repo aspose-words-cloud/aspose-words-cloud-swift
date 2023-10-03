@@ -30,18 +30,6 @@ import Foundation
 // Container class for outline options.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class OutlineOptionsData : Codable, WordsApiModel {
-    // Field of bookmarksOutlineLevels. Container class for outline options.
-    private var _bookmarksOutlineLevels : [BookmarksOutlineLevelData]? = nil;
-
-    public var bookmarksOutlineLevels : [BookmarksOutlineLevelData]? {
-        get {
-            return self._bookmarksOutlineLevels;
-        }
-        set {
-            self._bookmarksOutlineLevels = newValue;
-        }
-    }
-
     // Field of createMissingOutlineLevels. Container class for outline options.
     private var _createMissingOutlineLevels : Bool? = nil;
 
@@ -102,13 +90,25 @@ public class OutlineOptionsData : Codable, WordsApiModel {
         }
     }
 
+    // Field of bookmarksOutlineLevels. Container class for outline options.
+    private var _bookmarksOutlineLevels : [BookmarksOutlineLevelData]? = nil;
+
+    public var bookmarksOutlineLevels : [BookmarksOutlineLevelData]? {
+        get {
+            return self._bookmarksOutlineLevels;
+        }
+        set {
+            self._bookmarksOutlineLevels = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case bookmarksOutlineLevels = "BookmarksOutlineLevels";
         case createMissingOutlineLevels = "CreateMissingOutlineLevels";
         case createOutlinesForHeadingsInTables = "CreateOutlinesForHeadingsInTables";
         case defaultBookmarksOutlineLevel = "DefaultBookmarksOutlineLevel";
         case expandedOutlineLevels = "ExpandedOutlineLevels";
         case headingsOutlineLevels = "HeadingsOutlineLevels";
+        case bookmarksOutlineLevels = "BookmarksOutlineLevels";
         case invalidCodingKey;
     }
 
@@ -116,6 +116,11 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     }
 
     public required init(from json: [String: Any]) throws {
+        self.createMissingOutlineLevels = json["CreateMissingOutlineLevels"] as? Bool;
+        self.createOutlinesForHeadingsInTables = json["CreateOutlinesForHeadingsInTables"] as? Bool;
+        self.defaultBookmarksOutlineLevel = json["DefaultBookmarksOutlineLevel"] as? Int;
+        self.expandedOutlineLevels = json["ExpandedOutlineLevels"] as? Int;
+        self.headingsOutlineLevels = json["HeadingsOutlineLevels"] as? Int;
         if let raw_bookmarksOutlineLevels = json["BookmarksOutlineLevels"] as? [Any] {
             self.bookmarksOutlineLevels = try raw_bookmarksOutlineLevels.map {
                 if let element_bookmarksOutlineLevels = $0 as? [String: Any] {
@@ -127,28 +132,20 @@ public class OutlineOptionsData : Codable, WordsApiModel {
             };
         }
 
-        self.createMissingOutlineLevels = json["CreateMissingOutlineLevels"] as? Bool;
-        self.createOutlinesForHeadingsInTables = json["CreateOutlinesForHeadingsInTables"] as? Bool;
-        self.defaultBookmarksOutlineLevel = json["DefaultBookmarksOutlineLevel"] as? Int;
-        self.expandedOutlineLevels = json["ExpandedOutlineLevels"] as? Int;
-        self.headingsOutlineLevels = json["HeadingsOutlineLevels"] as? Int;
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.bookmarksOutlineLevels = try container.decodeIfPresent([BookmarksOutlineLevelData].self, forKey: .bookmarksOutlineLevels);
         self.createMissingOutlineLevels = try container.decodeIfPresent(Bool.self, forKey: .createMissingOutlineLevels);
         self.createOutlinesForHeadingsInTables = try container.decodeIfPresent(Bool.self, forKey: .createOutlinesForHeadingsInTables);
         self.defaultBookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .defaultBookmarksOutlineLevel);
         self.expandedOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .expandedOutlineLevels);
         self.headingsOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .headingsOutlineLevels);
+        self.bookmarksOutlineLevels = try container.decodeIfPresent([BookmarksOutlineLevelData].self, forKey: .bookmarksOutlineLevels);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.bookmarksOutlineLevels != nil) {
-            try container.encode(self.bookmarksOutlineLevels, forKey: .bookmarksOutlineLevels);
-        }
         if (self.createMissingOutlineLevels != nil) {
             try container.encode(self.createMissingOutlineLevels, forKey: .createMissingOutlineLevels);
         }
@@ -164,22 +161,13 @@ public class OutlineOptionsData : Codable, WordsApiModel {
         if (self.headingsOutlineLevels != nil) {
             try container.encode(self.headingsOutlineLevels, forKey: .headingsOutlineLevels);
         }
+        if (self.bookmarksOutlineLevels != nil) {
+            try container.encode(self.bookmarksOutlineLevels, forKey: .bookmarksOutlineLevels);
+        }
     }
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets bookmarksOutlineLevels. Gets or sets the individual bookmarks outline level.
-    public func setBookmarksOutlineLevels(bookmarksOutlineLevels : [BookmarksOutlineLevelData]?) -> OutlineOptionsData {
-        self.bookmarksOutlineLevels = bookmarksOutlineLevels;
-        return self;
-    }
-
-    // Gets bookmarksOutlineLevels. Gets or sets the individual bookmarks outline level.
-    public func getBookmarksOutlineLevels() -> [BookmarksOutlineLevelData]? {
-        return self.bookmarksOutlineLevels;
-    }
-
 
     // Sets createMissingOutlineLevels. Gets or sets a value indicating whether to create missing outline levels when the document is exported. The default value is false.
     public func setCreateMissingOutlineLevels(createMissingOutlineLevels : Bool?) -> OutlineOptionsData {
@@ -193,13 +181,13 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     }
 
 
-    // Sets createOutlinesForHeadingsInTables. Gets or sets a value indicating whether to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.
+    // Sets createOutlinesForHeadingsInTables. Gets or sets a value indicating whether to create outlines for headings (paragraphs formatted with the Heading styles) inside tables. The default value is false.
     public func setCreateOutlinesForHeadingsInTables(createOutlinesForHeadingsInTables : Bool?) -> OutlineOptionsData {
         self.createOutlinesForHeadingsInTables = createOutlinesForHeadingsInTables;
         return self;
     }
 
-    // Gets createOutlinesForHeadingsInTables. Gets or sets a value indicating whether to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.
+    // Gets createOutlinesForHeadingsInTables. Gets or sets a value indicating whether to create outlines for headings (paragraphs formatted with the Heading styles) inside tables. The default value is false.
     public func getCreateOutlinesForHeadingsInTables() -> Bool? {
         return self.createOutlinesForHeadingsInTables;
     }
@@ -238,5 +226,17 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     // Gets headingsOutlineLevels. Gets or sets the number of levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
     public func getHeadingsOutlineLevels() -> Int? {
         return self.headingsOutlineLevels;
+    }
+
+
+    // Sets bookmarksOutlineLevels. Gets or sets the individual bookmarks outline level.
+    public func setBookmarksOutlineLevels(bookmarksOutlineLevels : [BookmarksOutlineLevelData]?) -> OutlineOptionsData {
+        self.bookmarksOutlineLevels = bookmarksOutlineLevels;
+        return self;
+    }
+
+    // Gets bookmarksOutlineLevels. Gets or sets the individual bookmarks outline level.
+    public func getBookmarksOutlineLevels() -> [BookmarksOutlineLevelData]? {
+        return self.bookmarksOutlineLevels;
     }
 }

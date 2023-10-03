@@ -45,7 +45,7 @@ public class ReplaceTextOnlineResponse {
         self.document = document;
     }
 
-    // The response model.
+    // The REST response with a number of occurrences of the captured text in the document.
     public func getModel() -> ReplaceTextResponse? {
         return self.model;
     }

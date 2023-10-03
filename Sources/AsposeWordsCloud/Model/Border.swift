@@ -28,6 +28,7 @@
 import Foundation
 
 // Represents a border of an object.
+// Borders can be applied to various document elements including paragraph, run of text inside a paragraph or a table cell.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Border : LinkElement {
     // Gets or sets the border type.
@@ -62,6 +63,7 @@ public class Border : LinkElement {
     }
 
     // Gets or sets the border style.
+    // If you set line style to none, then line width is automatically changed to zero.
     public enum LineStyle : String, Codable
     {
         // Enum value "_none"
@@ -146,7 +148,7 @@ public class Border : LinkElement {
         case inset = "Inset"
     }
 
-    // Field of borderType. Represents a border of an object.
+    // Field of borderType. Represents a border of an object. Borders can be applied to various document elements including paragraph, run of text inside a paragraph or a table cell.
     private var _borderType : BorderType? = nil;
 
     public var borderType : BorderType? {
@@ -158,7 +160,7 @@ public class Border : LinkElement {
         }
     }
 
-    // Field of color. Represents a border of an object.
+    // Field of color. Represents a border of an object. Borders can be applied to various document elements including paragraph, run of text inside a paragraph or a table cell.
     private var _color : XmlColor? = nil;
 
     public var color : XmlColor? {
@@ -170,7 +172,7 @@ public class Border : LinkElement {
         }
     }
 
-    // Field of distanceFromText. Represents a border of an object.
+    // Field of distanceFromText. Represents a border of an object. Borders can be applied to various document elements including paragraph, run of text inside a paragraph or a table cell.
     private var _distanceFromText : Double? = nil;
 
     public var distanceFromText : Double? {
@@ -182,7 +184,7 @@ public class Border : LinkElement {
         }
     }
 
-    // Field of lineStyle. Represents a border of an object.
+    // Field of lineStyle. Represents a border of an object. Borders can be applied to various document elements including paragraph, run of text inside a paragraph or a table cell.
     private var _lineStyle : LineStyle? = nil;
 
     public var lineStyle : LineStyle? {
@@ -194,7 +196,7 @@ public class Border : LinkElement {
         }
     }
 
-    // Field of lineWidth. Represents a border of an object.
+    // Field of lineWidth. Represents a border of an object. Borders can be applied to various document elements including paragraph, run of text inside a paragraph or a table cell.
     private var _lineWidth : Double? = nil;
 
     public var lineWidth : Double? {
@@ -206,7 +208,7 @@ public class Border : LinkElement {
         }
     }
 
-    // Field of shadow. Represents a border of an object.
+    // Field of shadow. Represents a border of an object. Borders can be applied to various document elements including paragraph, run of text inside a paragraph or a table cell.
     private var _shadow : Bool? = nil;
 
     public var shadow : Bool? {
@@ -312,49 +314,49 @@ public class Border : LinkElement {
     }
 
 
-    // Sets distanceFromText. Gets or sets the distance of the border from text or from the page edge in points.
+    // Sets distanceFromText. Gets or sets the distance of the border from text or from the page edge in points. Has no effect and will be automatically reset to zero for borders of table cells.
     public func setDistanceFromText(distanceFromText : Double?) -> Border {
         self.distanceFromText = distanceFromText;
         return self;
     }
 
-    // Gets distanceFromText. Gets or sets the distance of the border from text or from the page edge in points.
+    // Gets distanceFromText. Gets or sets the distance of the border from text or from the page edge in points. Has no effect and will be automatically reset to zero for borders of table cells.
     public func getDistanceFromText() -> Double? {
         return self.distanceFromText;
     }
 
 
-    // Sets lineStyle. Gets or sets the border style.
+    // Sets lineStyle. Gets or sets the border style. If you set line style to none, then line width is automatically changed to zero.
     public func setLineStyle(lineStyle : LineStyle?) -> Border {
         self.lineStyle = lineStyle;
         return self;
     }
 
-    // Gets lineStyle. Gets or sets the border style.
+    // Gets lineStyle. Gets or sets the border style. If you set line style to none, then line width is automatically changed to zero.
     public func getLineStyle() -> LineStyle? {
         return self.lineStyle;
     }
 
 
-    // Sets lineWidth. Gets or sets the border width in points.
+    // Sets lineWidth. Gets or sets the border width in points. If you set line width greater than zero when line style is none, the line style is automatically changed to single line.
     public func setLineWidth(lineWidth : Double?) -> Border {
         self.lineWidth = lineWidth;
         return self;
     }
 
-    // Gets lineWidth. Gets or sets the border width in points.
+    // Gets lineWidth. Gets or sets the border width in points. If you set line width greater than zero when line style is none, the line style is automatically changed to single line.
     public func getLineWidth() -> Double? {
         return self.lineWidth;
     }
 
 
-    // Sets shadow. Gets or sets a value indicating whether the border has a shadow.
+    // Sets shadow. Gets or sets a value indicating whether the border has a shadow. In Microsoft Word, for a border to have a shadow, the borders on all four sides (left, top, right and bottom) should be of the same type, width, color and all should have the Shadow property set to true.
     public func setShadow(shadow : Bool?) -> Border {
         self.shadow = shadow;
         return self;
     }
 
-    // Gets shadow. Gets or sets a value indicating whether the border has a shadow.
+    // Gets shadow. Gets or sets a value indicating whether the border has a shadow. In Microsoft Word, for a border to have a shadow, the borders on all four sides (left, top, right and bottom) should be of the same type, width, color and all should have the Shadow property set to true.
     public func getShadow() -> Bool? {
         return self.shadow;
     }

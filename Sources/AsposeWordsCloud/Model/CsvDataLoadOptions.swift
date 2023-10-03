@@ -29,9 +29,10 @@ import Foundation
 
 // Represents options for parsing CSV data.
 // To learn more, visit the LINQ Reporting Engine documentation article.
+// An instance of this class can be passed into constructors of CsvDataSource.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CsvDataLoadOptions : Codable, WordsApiModel {
-    // Field of commentChar. Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article.
+    // Field of commentChar. Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article. An instance of this class can be passed into constructors of CsvDataSource.
     private var _commentChar : String? = nil;
 
     public var commentChar : String? {
@@ -43,7 +44,7 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
         }
     }
 
-    // Field of delimiter. Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article.
+    // Field of delimiter. Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article. An instance of this class can be passed into constructors of CsvDataSource.
     private var _delimiter : String? = nil;
 
     public var delimiter : String? {
@@ -55,7 +56,7 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
         }
     }
 
-    // Field of hasHeaders. Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article.
+    // Field of hasHeaders. Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article. An instance of this class can be passed into constructors of CsvDataSource.
     private var _hasHeaders : Bool? = nil;
 
     public var hasHeaders : Bool? {
@@ -67,7 +68,7 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
         }
     }
 
-    // Field of quoteChar. Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article.
+    // Field of quoteChar. Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article. An instance of this class can be passed into constructors of CsvDataSource.
     private var _quoteChar : String? = nil;
 
     public var quoteChar : String? {
@@ -124,49 +125,49 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets commentChar. Gets or sets the character that is used to comment lines of CSV data.
+    // Sets commentChar. Gets or sets the character that is used to comment lines of CSV data. The default value is '#' (number sign).
     public func setCommentChar(commentChar : String?) -> CsvDataLoadOptions {
         self.commentChar = commentChar;
         return self;
     }
 
-    // Gets commentChar. Gets or sets the character that is used to comment lines of CSV data.
+    // Gets commentChar. Gets or sets the character that is used to comment lines of CSV data. The default value is '#' (number sign).
     public func getCommentChar() -> String? {
         return self.commentChar;
     }
 
 
-    // Sets delimiter. Gets or sets the character to be used as a column delimiter.
+    // Sets delimiter. Gets or sets the character to be used as a column delimiter. The default value is ',' (comma).
     public func setDelimiter(delimiter : String?) -> CsvDataLoadOptions {
         self.delimiter = delimiter;
         return self;
     }
 
-    // Gets delimiter. Gets or sets the character to be used as a column delimiter.
+    // Gets delimiter. Gets or sets the character to be used as a column delimiter. The default value is ',' (comma).
     public func getDelimiter() -> String? {
         return self.delimiter;
     }
 
 
-    // Sets hasHeaders. Gets or sets a value indicating whether the first record of CSV data contains column names.
+    // Sets hasHeaders. Gets or sets a value indicating whether the first record of CSV data contains column names. The default value is false.
     public func setHasHeaders(hasHeaders : Bool?) -> CsvDataLoadOptions {
         self.hasHeaders = hasHeaders;
         return self;
     }
 
-    // Gets hasHeaders. Gets or sets a value indicating whether the first record of CSV data contains column names.
+    // Gets hasHeaders. Gets or sets a value indicating whether the first record of CSV data contains column names. The default value is false.
     public func getHasHeaders() -> Bool? {
         return self.hasHeaders;
     }
 
 
-    // Sets quoteChar. Gets or sets the character that is used to quote field values.
+    // Sets quoteChar. Gets or sets the character that is used to quote field values. The default value is '"' (quotation mark).Double the character to place it into quoted text.
     public func setQuoteChar(quoteChar : String?) -> CsvDataLoadOptions {
         self.quoteChar = quoteChar;
         return self;
     }
 
-    // Gets quoteChar. Gets or sets the character that is used to quote field values.
+    // Gets quoteChar. Gets or sets the character that is used to quote field values. The default value is '"' (quotation mark).Double the character to place it into quoted text.
     public func getQuoteChar() -> String? {
         return self.quoteChar;
     }

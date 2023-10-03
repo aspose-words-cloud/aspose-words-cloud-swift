@@ -30,18 +30,6 @@ import Foundation
 // Paragraph list format element for update.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListFormatUpdate : Codable, WordsApiModel {
-    // Field of listId. Paragraph list format element for update.
-    private var _listId : Int? = nil;
-
-    public var listId : Int? {
-        get {
-            return self._listId;
-        }
-        set {
-            self._listId = newValue;
-        }
-    }
-
     // Field of listLevelNumber. Paragraph list format element for update.
     private var _listLevelNumber : Int? = nil;
 
@@ -54,9 +42,21 @@ public class ListFormatUpdate : Codable, WordsApiModel {
         }
     }
 
+    // Field of listId. Paragraph list format element for update.
+    private var _listId : Int? = nil;
+
+    public var listId : Int? {
+        get {
+            return self._listId;
+        }
+        set {
+            self._listId = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case listId = "ListId";
         case listLevelNumber = "ListLevelNumber";
+        case listId = "ListId";
         case invalidCodingKey;
     }
 
@@ -64,49 +64,49 @@ public class ListFormatUpdate : Codable, WordsApiModel {
     }
 
     public required init(from json: [String: Any]) throws {
-        self.listId = json["ListId"] as? Int;
         self.listLevelNumber = json["ListLevelNumber"] as? Int;
+        self.listId = json["ListId"] as? Int;
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.listId = try container.decodeIfPresent(Int.self, forKey: .listId);
         self.listLevelNumber = try container.decodeIfPresent(Int.self, forKey: .listLevelNumber);
+        self.listId = try container.decodeIfPresent(Int.self, forKey: .listId);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.listId != nil) {
-            try container.encode(self.listId, forKey: .listId);
-        }
         if (self.listLevelNumber != nil) {
             try container.encode(self.listLevelNumber, forKey: .listLevelNumber);
+        }
+        if (self.listId != nil) {
+            try container.encode(self.listId, forKey: .listId);
         }
     }
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets listId. Gets or sets the list id of this paragraph.
-    public func setListId(listId : Int?) -> ListFormatUpdate {
-        self.listId = listId;
-        return self;
-    }
-
-    // Gets listId. Gets or sets the list id of this paragraph.
-    public func getListId() -> Int? {
-        return self.listId;
-    }
-
-
-    // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
+    // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph. In Word documents, lists may consist of 1 or 9 levels, numbered 0 to 8. Has effect only when the Aspose.Words.ListFormat.List property is set to reference a valid list. Aspose.Words.ListFormat.List.
     public func setListLevelNumber(listLevelNumber : Int?) -> ListFormatUpdate {
         self.listLevelNumber = listLevelNumber;
         return self;
     }
 
-    // Gets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
+    // Gets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph. In Word documents, lists may consist of 1 or 9 levels, numbered 0 to 8. Has effect only when the Aspose.Words.ListFormat.List property is set to reference a valid list. Aspose.Words.ListFormat.List.
     public func getListLevelNumber() -> Int? {
         return self.listLevelNumber;
+    }
+
+
+    // Sets listId. Gets or sets the list id of this paragraph. The list that is being assigned to this property must belong to the current document. The list that is being assigned to this property must not be a list style definition.
+    public func setListId(listId : Int?) -> ListFormatUpdate {
+        self.listId = listId;
+        return self;
+    }
+
+    // Gets listId. Gets or sets the list id of this paragraph. The list that is being assigned to this property must belong to the current document. The list that is being assigned to this property must not be a list style definition.
+    public func getListId() -> Int? {
+        return self.listId;
     }
 }

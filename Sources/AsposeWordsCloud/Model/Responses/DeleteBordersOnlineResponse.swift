@@ -45,7 +45,8 @@ public class DeleteBordersOnlineResponse {
         self.document = document;
     }
 
-    // The response model.
+    // The REST response with a collection of borders.
+    // This response is returned by the Service when handling "GET {nodeWithBorders}/borders" REST API requests.
     public func getModel() -> BordersResponse? {
         return self.model;
     }

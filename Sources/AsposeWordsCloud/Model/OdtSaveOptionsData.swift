@@ -174,13 +174,13 @@ public class OdtSaveOptionsData : SaveOptionsData {
     }
 
 
-    // Sets password. Gets or sets the password to encrypt document.
+    // Sets password. Gets or sets the password to encrypt document. In order to save document without encryption this property should be null or empty string.
     public func setPassword(password : String?) -> OdtSaveOptionsData {
         self.password = password;
         return self;
     }
 
-    // Gets password. Gets or sets the password to encrypt document.
+    // Gets password. Gets or sets the password to encrypt document. In order to save document without encryption this property should be null or empty string.
     public func getPassword() -> String? {
         return self.password;
     }

@@ -48,6 +48,8 @@ public class StructuredDocumentTag : NodeLink {
 
     // Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store.
     // Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
+    // Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
+    // For all other SDT types exception will occur.
     public enum DateStorageFormat : String, Codable
     {
         // Enum value "date"
@@ -64,6 +66,8 @@ public class StructuredDocumentTag : NodeLink {
     }
 
     // Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
+    // Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type.
+    // For all other SDT types exception will occur.
     public enum CalendarType : String, Codable
     {
         // Enum value "_default"
@@ -463,14 +467,11 @@ public class StructuredDocumentTag : NodeLink {
     }
 
     // Field of wordOpenXML. DTO container with a StructuredDocumentTag.
-    private var _wordOpenXML : String? = nil;
+    private final let _wordOpenXML : String? = nil;
 
     public var wordOpenXML : String? {
         get {
             return self._wordOpenXML;
-        }
-        set {
-            self._wordOpenXML = newValue;
         }
     }
 
@@ -559,7 +560,7 @@ public class StructuredDocumentTag : NodeLink {
         self.isShowingPlaceholderText = json["IsShowingPlaceholderText"] as? Bool;
         self.tag = json["Tag"] as? String;
         self.id = json["Id"] as? Int;
-        self.wordOpenXML = json["WordOpenXML"] as? String;
+
     }
 
     public required init(from decoder: Decoder) throws {
@@ -593,7 +594,7 @@ public class StructuredDocumentTag : NodeLink {
         self.isShowingPlaceholderText = try container.decodeIfPresent(Bool.self, forKey: .isShowingPlaceholderText);
         self.tag = try container.decodeIfPresent(String.self, forKey: .tag);
         self.id = try container.decodeIfPresent(Int.self, forKey: .id);
-        self.wordOpenXML = try container.decodeIfPresent(String.self, forKey: .wordOpenXML);
+
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -676,25 +677,25 @@ public class StructuredDocumentTag : NodeLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets listItems. Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT.
+    // Sets listItems. Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT. Accessing this property will only work for Aspose.Words.Markup.SdtType.ComboBox or Aspose.Words.Markup.SdtType.DropDownList SDT types. For all other SDT types exception will occur.
     public func setListItems(listItems : [StructuredDocumentTagListItem]?) -> StructuredDocumentTag {
         self.listItems = listItems;
         return self;
     }
 
-    // Gets listItems. Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT.
+    // Gets listItems. Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT. Accessing this property will only work for Aspose.Words.Markup.SdtType.ComboBox or Aspose.Words.Markup.SdtType.DropDownList SDT types. For all other SDT types exception will occur.
     public func getListItems() -> [StructuredDocumentTagListItem]? {
         return self.listItems;
     }
 
 
-    // Sets checked. Gets or sets a value indicating whether current state of the Checkbox SDT. Default value for this property.
+    // Sets checked. Gets or sets a value indicating whether current state of the Checkbox SDT. Default value for this property. Accessing this property will only work for Aspose.Words.Markup.SdtType.Checkbox SDT types. For all other SDT types exception will occur.
     public func setChecked(checked : Bool?) -> StructuredDocumentTag {
         self.checked = checked;
         return self;
     }
 
-    // Gets checked. Gets or sets a value indicating whether current state of the Checkbox SDT. Default value for this property.
+    // Gets checked. Gets or sets a value indicating whether current state of the Checkbox SDT. Default value for this property. Accessing this property will only work for Aspose.Words.Markup.SdtType.Checkbox SDT types. For all other SDT types exception will occur.
     public func getChecked() -> Bool? {
         return self.checked;
     }
@@ -712,37 +713,37 @@ public class StructuredDocumentTag : NodeLink {
     }
 
 
-    // Sets dateDisplayLocale. Gets or sets the language format for the date displayed in this SDT.
+    // Sets dateDisplayLocale. Gets or sets the language format for the date displayed in this SDT. Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.
     public func setDateDisplayLocale(dateDisplayLocale : Int?) -> StructuredDocumentTag {
         self.dateDisplayLocale = dateDisplayLocale;
         return self;
     }
 
-    // Gets dateDisplayLocale. Gets or sets the language format for the date displayed in this SDT.
+    // Gets dateDisplayLocale. Gets or sets the language format for the date displayed in this SDT. Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.
     public func getDateDisplayLocale() -> Int? {
         return self.dateDisplayLocale;
     }
 
 
-    // Sets dateDisplayFormat. Gets or sets String that represents the format in which dates are displayed. Can not be null. The dates for English (U.S.) is "mm/dd/yyyy".
+    // Sets dateDisplayFormat. Gets or sets String that represents the format in which dates are displayed. Can not be null. The dates for English (U.S.) is "mm/dd/yyyy". Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.
     public func setDateDisplayFormat(dateDisplayFormat : String?) -> StructuredDocumentTag {
         self.dateDisplayFormat = dateDisplayFormat;
         return self;
     }
 
-    // Gets dateDisplayFormat. Gets or sets String that represents the format in which dates are displayed. Can not be null. The dates for English (U.S.) is "mm/dd/yyyy".
+    // Gets dateDisplayFormat. Gets or sets String that represents the format in which dates are displayed. Can not be null. The dates for English (U.S.) is "mm/dd/yyyy". Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.
     public func getDateDisplayFormat() -> String? {
         return self.dateDisplayFormat;
     }
 
 
-    // Sets fullDate. Gets or sets the full date and time last entered into this SDT.
+    // Sets fullDate. Gets or sets the full date and time last entered into this SDT. Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.
     public func setFullDate(fullDate : Date?) -> StructuredDocumentTag {
         self.fullDate = fullDate;
         return self;
     }
 
-    // Gets fullDate. Gets or sets the full date and time last entered into this SDT.
+    // Gets fullDate. Gets or sets the full date and time last entered into this SDT. Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.
     public func getFullDate() -> Date? {
         return self.fullDate;
     }
@@ -760,49 +761,49 @@ public class StructuredDocumentTag : NodeLink {
     }
 
 
-    // Sets dateStorageFormat. Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store. Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
+    // Sets dateStorageFormat. Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store. Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime. Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.
     public func setDateStorageFormat(dateStorageFormat : DateStorageFormat?) -> StructuredDocumentTag {
         self.dateStorageFormat = dateStorageFormat;
         return self;
     }
 
-    // Gets dateStorageFormat. Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store. Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime.
+    // Gets dateStorageFormat. Gets or sets format in which the date for a date SDT is stored when the SDT is bound to an XML node in the document's data store. Default value is Aspose.Words.Markup.SdtDateStorageFormat.DateTime. Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.
     public func getDateStorageFormat() -> DateStorageFormat? {
         return self.dateStorageFormat;
     }
 
 
-    // Sets buildingBlockGallery. Gets or sets type of building block for this SDT. Can not be null.
+    // Sets buildingBlockGallery. Gets or sets type of building block for this SDT. Can not be null. Accessing this property will only work for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types. It is read-only for SDT of the document part type. For all other SDT types exception will occur.
     public func setBuildingBlockGallery(buildingBlockGallery : String?) -> StructuredDocumentTag {
         self.buildingBlockGallery = buildingBlockGallery;
         return self;
     }
 
-    // Gets buildingBlockGallery. Gets or sets type of building block for this SDT. Can not be null.
+    // Gets buildingBlockGallery. Gets or sets type of building block for this SDT. Can not be null. Accessing this property will only work for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types. It is read-only for SDT of the document part type. For all other SDT types exception will occur.
     public func getBuildingBlockGallery() -> String? {
         return self.buildingBlockGallery;
     }
 
 
-    // Sets buildingBlockCategory. Gets or sets category of building block for this SDT node. Can not be null.
+    // Sets buildingBlockCategory. Gets or sets category of building block for this SDT node. Can not be null. Accessing this property will only work for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types. It is read-only for SDT of the document part type. For all other SDT types exception will occur.
     public func setBuildingBlockCategory(buildingBlockCategory : String?) -> StructuredDocumentTag {
         self.buildingBlockCategory = buildingBlockCategory;
         return self;
     }
 
-    // Gets buildingBlockCategory. Gets or sets category of building block for this SDT node. Can not be null.
+    // Gets buildingBlockCategory. Gets or sets category of building block for this SDT node. Can not be null. Accessing this property will only work for Aspose.Words.Markup.SdtType.BuildingBlockGallery and Aspose.Words.Markup.SdtType.DocPartObj SDT types. It is read-only for SDT of the document part type. For all other SDT types exception will occur.
     public func getBuildingBlockCategory() -> String? {
         return self.buildingBlockCategory;
     }
 
 
-    // Sets multiline. Gets or sets a value indicating whether this SDT allows multiple lines of text.
+    // Sets multiline. Gets or sets a value indicating whether this SDT allows multiple lines of text. Accessing this property will only work for Aspose.Words.Markup.SdtType.RichText and Aspose.Words.Markup.SdtType.PlainText SDT type. For all other SDT types exception will occur.
     public func setMultiline(multiline : Bool?) -> StructuredDocumentTag {
         self.multiline = multiline;
         return self;
     }
 
-    // Gets multiline. Gets or sets a value indicating whether this SDT allows multiple lines of text.
+    // Gets multiline. Gets or sets a value indicating whether this SDT allows multiple lines of text. Accessing this property will only work for Aspose.Words.Markup.SdtType.RichText and Aspose.Words.Markup.SdtType.PlainText SDT type. For all other SDT types exception will occur.
     public func getMultiline() -> Bool? {
         return self.multiline;
     }
@@ -832,13 +833,13 @@ public class StructuredDocumentTag : NodeLink {
     }
 
 
-    // Sets calendarType. Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
+    // Sets calendarType. Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default. Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.
     public func setCalendarType(calendarType : CalendarType?) -> StructuredDocumentTag {
         self.calendarType = calendarType;
         return self;
     }
 
-    // Gets calendarType. Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default.
+    // Gets calendarType. Gets or sets the type of calendar for this SDT. Default is Aspose.Words.Markup.SdtCalendarType.Default. Accessing this property will only work for Aspose.Words.Markup.SdtType.Date SDT type. For all other SDT types exception will occur.
     public func getCalendarType() -> CalendarType? {
         return self.calendarType;
     }
@@ -928,35 +929,29 @@ public class StructuredDocumentTag : NodeLink {
     }
 
 
-    // Sets tag. Gets or sets a tag associated with the current SDT node. Can not be null.
+    // Sets tag. Gets or sets a tag associated with the current SDT node. Can not be null. A tag is an arbitrary string which applications can associate with SDT in order to identify it without providing a visible friendly name.
     public func setTag(tag : String?) -> StructuredDocumentTag {
         self.tag = tag;
         return self;
     }
 
-    // Gets tag. Gets or sets a tag associated with the current SDT node. Can not be null.
+    // Gets tag. Gets or sets a tag associated with the current SDT node. Can not be null. A tag is an arbitrary string which applications can associate with SDT in order to identify it without providing a visible friendly name.
     public func getTag() -> String? {
         return self.tag;
     }
 
 
-    // Sets id. Gets or sets a unique read-only persistent numerical Id for this SDT.
+    // Sets id. Gets or sets a unique read-only persistent numerical Id for this SDT. Id attribute shall follow these rules: - The document shall retain SDT ids only if the whole document is cloned Aspose.Words.Document.Clone. - During Aspose.Words.DocumentBase.ImportNode(Aspose.Words.Node,System.Boolean) - Id shall be retained if import does not cause conflicts with other SDT Ids in the target document. - If multiple SDT nodes specify the same decimal number value for the Id attribute, then the first SDT in the document shall maintain this original Id, and all subsequent - SDT nodes shall have new identifiers assigned to them when the document is loaded. - During standalone SDT Aspose.Words.Markup.StructuredDocumentTag.Clone(System.Boolean,Aspose.Words.INodeCloningListener) operation new unique ID will be generated for the cloned SDT node. - If Id is not specified in the source document, then the SDT node shall have a new unique identifier assigned to it when the document is loaded.
     public func setId(id : Int?) -> StructuredDocumentTag {
         self.id = id;
         return self;
     }
 
-    // Gets id. Gets or sets a unique read-only persistent numerical Id for this SDT.
+    // Gets id. Gets or sets a unique read-only persistent numerical Id for this SDT. Id attribute shall follow these rules: - The document shall retain SDT ids only if the whole document is cloned Aspose.Words.Document.Clone. - During Aspose.Words.DocumentBase.ImportNode(Aspose.Words.Node,System.Boolean) - Id shall be retained if import does not cause conflicts with other SDT Ids in the target document. - If multiple SDT nodes specify the same decimal number value for the Id attribute, then the first SDT in the document shall maintain this original Id, and all subsequent - SDT nodes shall have new identifiers assigned to them when the document is loaded. - During standalone SDT Aspose.Words.Markup.StructuredDocumentTag.Clone(System.Boolean,Aspose.Words.INodeCloningListener) operation new unique ID will be generated for the cloned SDT node. - If Id is not specified in the source document, then the SDT node shall have a new unique identifier assigned to it when the document is loaded.
     public func getId() -> Int? {
         return self.id;
     }
 
-
-    // Sets wordOpenXML. Gets a string that represents the XML contained within the node in the Aspose.Words.SaveFormat.FlatOpc format.
-    public func setWordOpenXML(wordOpenXML : String?) -> StructuredDocumentTag {
-        self.wordOpenXML = wordOpenXML;
-        return self;
-    }
 
     // Gets wordOpenXML. Gets a string that represents the XML contained within the node in the Aspose.Words.SaveFormat.FlatOpc format.
     public func getWordOpenXML() -> String? {

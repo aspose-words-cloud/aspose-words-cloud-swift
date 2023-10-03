@@ -28,9 +28,10 @@
 import Foundation
 
 // The REST response with a collection of mail merge fields.
+// This response should be returned by the service when handling: GET /{name}/mailMergeFieldNames.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldNamesResponse : WordsResponse {
-    // Field of fieldNames. The REST response with a collection of mail merge fields.
+    // Field of fieldNames. The REST response with a collection of mail merge fields. This response should be returned by the service when handling: GET /{name}/mailMergeFieldNames.
     private var _fieldNames : FieldNames? = nil;
 
     public var fieldNames : FieldNames? {

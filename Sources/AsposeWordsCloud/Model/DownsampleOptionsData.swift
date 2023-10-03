@@ -105,37 +105,37 @@ public class DownsampleOptionsData : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets downsampleImages. Gets or sets a value indicating whether images should be downsampled.
+    // Sets downsampleImages. Gets or sets a value indicating whether images should be downsampled. The default value is true.
     public func setDownsampleImages(downsampleImages : Bool?) -> DownsampleOptionsData {
         self.downsampleImages = downsampleImages;
         return self;
     }
 
-    // Gets downsampleImages. Gets or sets a value indicating whether images should be downsampled.
+    // Gets downsampleImages. Gets or sets a value indicating whether images should be downsampled. The default value is true.
     public func getDownsampleImages() -> Bool? {
         return self.downsampleImages;
     }
 
 
-    // Sets resolution. Gets or sets the resolution in pixels per inch which the images should be downsampled to.
+    // Sets resolution. Gets or sets the resolution in pixels per inch which the images should be downsampled to. The default value is 220 ppi.
     public func setResolution(resolution : Int?) -> DownsampleOptionsData {
         self.resolution = resolution;
         return self;
     }
 
-    // Gets resolution. Gets or sets the resolution in pixels per inch which the images should be downsampled to.
+    // Gets resolution. Gets or sets the resolution in pixels per inch which the images should be downsampled to. The default value is 220 ppi.
     public func getResolution() -> Int? {
         return self.resolution;
     }
 
 
-    // Sets resolutionThreshold. Gets or sets the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
+    // Sets resolutionThreshold. Gets or sets the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled. The default value is 0.
     public func setResolutionThreshold(resolutionThreshold : Int?) -> DownsampleOptionsData {
         self.resolutionThreshold = resolutionThreshold;
         return self;
     }
 
-    // Gets resolutionThreshold. Gets or sets the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
+    // Gets resolutionThreshold. Gets or sets the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled. The default value is 0.
     public func getResolutionThreshold() -> Int? {
         return self.resolutionThreshold;
     }

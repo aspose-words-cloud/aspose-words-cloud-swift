@@ -45,7 +45,7 @@ public class CompressDocumentOnlineResponse {
         self.document = document;
     }
 
-    // The response model.
+    // The REST response of compressed document.
     public func getModel() -> CompressResponse? {
         return self.model;
     }

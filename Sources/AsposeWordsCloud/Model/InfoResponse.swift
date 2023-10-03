@@ -119,37 +119,37 @@ public class InfoResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets additionalInfo. Gets or sets additional info.
+    // Sets additionalInfo. Gets or sets AdditionalInfo.
     public func setAdditionalInfo(additionalInfo : [InfoAdditionalItem]?) -> InfoResponse {
         self.additionalInfo = additionalInfo;
         return self;
     }
 
-    // Gets additionalInfo. Gets or sets additional info.
+    // Gets additionalInfo. Gets or sets AdditionalInfo.
     public func getAdditionalInfo() -> [InfoAdditionalItem]? {
         return self.additionalInfo;
     }
 
 
-    // Sets name. Gets or sets application name.
+    // Sets name. Gets or sets Name.
     public func setName(name : String?) -> InfoResponse {
         self.name = name;
         return self;
     }
 
-    // Gets name. Gets or sets application name.
+    // Gets name. Gets or sets Name.
     public func getName() -> String? {
         return self.name;
     }
 
 
-    // Sets version. Gets or sets version.
+    // Sets version. Gets or sets Version.
     public func setVersion(version : String?) -> InfoResponse {
         self.version = version;
         return self;
     }
 
-    // Gets version. Gets or sets version.
+    // Gets version. Gets or sets Version.
     public func getVersion() -> String? {
         return self.version;
     }

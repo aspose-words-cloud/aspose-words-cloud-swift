@@ -30,18 +30,6 @@ import Foundation
 // Field.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldBase : Codable, WordsApiModel {
-    // Field of fieldCode. Field.
-    private var _fieldCode : String? = nil;
-
-    public var fieldCode : String? {
-        get {
-            return self._fieldCode;
-        }
-        set {
-            self._fieldCode = newValue;
-        }
-    }
-
     // Field of localeId. Field.
     private var _localeId : String? = nil;
 
@@ -54,9 +42,21 @@ public class FieldBase : Codable, WordsApiModel {
         }
     }
 
+    // Field of fieldCode. Field.
+    private var _fieldCode : String? = nil;
+
+    public var fieldCode : String? {
+        get {
+            return self._fieldCode;
+        }
+        set {
+            self._fieldCode = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case fieldCode = "FieldCode";
         case localeId = "LocaleId";
+        case fieldCode = "FieldCode";
         case invalidCodingKey;
     }
 
@@ -64,40 +64,28 @@ public class FieldBase : Codable, WordsApiModel {
     }
 
     public required init(from json: [String: Any]) throws {
-        self.fieldCode = json["FieldCode"] as? String;
         self.localeId = json["LocaleId"] as? String;
+        self.fieldCode = json["FieldCode"] as? String;
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.fieldCode = try container.decodeIfPresent(String.self, forKey: .fieldCode);
         self.localeId = try container.decodeIfPresent(String.self, forKey: .localeId);
+        self.fieldCode = try container.decodeIfPresent(String.self, forKey: .fieldCode);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.fieldCode != nil) {
-            try container.encode(self.fieldCode, forKey: .fieldCode);
-        }
         if (self.localeId != nil) {
             try container.encode(self.localeId, forKey: .localeId);
+        }
+        if (self.fieldCode != nil) {
+            try container.encode(self.fieldCode, forKey: .fieldCode);
         }
     }
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets fieldCode. Gets or sets the field code.
-    public func setFieldCode(fieldCode : String?) -> FieldBase {
-        self.fieldCode = fieldCode;
-        return self;
-    }
-
-    // Gets fieldCode. Gets or sets the field code.
-    public func getFieldCode() -> String? {
-        return self.fieldCode;
-    }
-
 
     // Sets localeId. Gets or sets the LCID of the field.
     public func setLocaleId(localeId : String?) -> FieldBase {
@@ -108,5 +96,17 @@ public class FieldBase : Codable, WordsApiModel {
     // Gets localeId. Gets or sets the LCID of the field.
     public func getLocaleId() -> String? {
         return self.localeId;
+    }
+
+
+    // Sets fieldCode. Gets or sets the field code.
+    public func setFieldCode(fieldCode : String?) -> FieldBase {
+        self.fieldCode = fieldCode;
+        return self;
+    }
+
+    // Gets fieldCode. Gets or sets the field code.
+    public func getFieldCode() -> String? {
+        return self.fieldCode;
     }
 }

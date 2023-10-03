@@ -95,25 +95,25 @@ public class ErrorDetails : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets errorDateTime. Error datetime.
+    // Sets errorDateTime. Gets or sets ErrorDateTime.
     public func setErrorDateTime(errorDateTime : Date?) -> ErrorDetails {
         self.errorDateTime = errorDateTime;
         return self;
     }
 
-    // Gets errorDateTime. Error datetime.
+    // Gets errorDateTime. Gets or sets ErrorDateTime.
     public func getErrorDateTime() -> Date? {
         return self.errorDateTime;
     }
 
 
-    // Sets requestId. The request id.
+    // Sets requestId. Gets or sets RequestId.
     public func setRequestId(requestId : String?) -> ErrorDetails {
         self.requestId = requestId;
         return self;
     }
 
-    // Gets requestId. The request id.
+    // Gets requestId. Gets or sets RequestId.
     public func getRequestId() -> String? {
         return self.requestId;
     }

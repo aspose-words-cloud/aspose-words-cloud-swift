@@ -45,7 +45,7 @@ public class SaveAsTiffOnlineResponse {
         self.document = document;
     }
 
-    // The response model.
+    // The REST response with a save result.
     public func getModel() -> SaveResponse? {
         return self.model;
     }

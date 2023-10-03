@@ -45,7 +45,8 @@ public class UpdateSectionPageSetupOnlineResponse {
         self.document = document;
     }
 
-    // The response model.
+    // The REST response with a page setup of a section.
+    // This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup" REST API requests.
     public func getModel() -> SectionPageSetupResponse? {
         return self.model;
     }

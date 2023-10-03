@@ -45,7 +45,7 @@ public class RejectAllRevisionsOnlineResponse {
         self.document = document;
     }
 
-    // The response model.
+    // The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
     public func getModel() -> RevisionsModificationResponse? {
         return self.model;
     }

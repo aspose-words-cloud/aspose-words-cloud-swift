@@ -28,9 +28,10 @@
 import Foundation
 
 // The REST response with a HeaderFooter.
+// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/headersfooters/{0}" REST API requests.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HeaderFooterResponse : WordsResponse {
-    // Field of headerFooter. The REST response with a HeaderFooter.
+    // Field of headerFooter. The REST response with a HeaderFooter. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/headersfooters/{0}" REST API requests.
     private var _headerFooter : HeaderFooter? = nil;
 
     public var headerFooter : HeaderFooter? {
