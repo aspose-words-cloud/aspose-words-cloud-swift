@@ -31,6 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class OfficeMathObject : OfficeMathLink {
     // Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line.
+    // Display format type has effect for top level Office Math only.Returned display format type is always Inline for nested Office Math.
     public enum DisplayType : String, Codable
     {
         // Enum value "display"
@@ -41,6 +42,7 @@ public class OfficeMathObject : OfficeMathLink {
     }
 
     // Gets or sets the justification of the OfficeMath object.
+    // Justification cannot be set to the Office Math with display format type Inline.Inline justification cannot be set to the Office Math with display format type Display.Corresponding DisplayType has to be set before setting Office Math justification.
     public enum Justification : String, Codable
     {
         // Enum value "centerGroup"
@@ -277,25 +279,25 @@ public class OfficeMathObject : OfficeMathLink {
     }
 
 
-    // Sets displayType. Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line.
+    // Sets displayType. Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line. Display format type has effect for top level Office Math only.Returned display format type is always Inline for nested Office Math.
     public func setDisplayType(displayType : DisplayType?) -> OfficeMathObject {
         self.displayType = displayType;
         return self;
     }
 
-    // Gets displayType. Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line.
+    // Gets displayType. Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line. Display format type has effect for top level Office Math only.Returned display format type is always Inline for nested Office Math.
     public func getDisplayType() -> DisplayType? {
         return self.displayType;
     }
 
 
-    // Sets justification. Gets or sets the justification of the OfficeMath object.
+    // Sets justification. Gets or sets the justification of the OfficeMath object. Justification cannot be set to the Office Math with display format type Inline.Inline justification cannot be set to the Office Math with display format type Display.Corresponding DisplayType has to be set before setting Office Math justification.
     public func setJustification(justification : Justification?) -> OfficeMathObject {
         self.justification = justification;
         return self;
     }
 
-    // Gets justification. Gets or sets the justification of the OfficeMath object.
+    // Gets justification. Gets or sets the justification of the OfficeMath object. Justification cannot be set to the Office Math with display format type Inline.Inline justification cannot be set to the Office Math with display format type Display.Corresponding DisplayType has to be set before setting Office Math justification.
     public func getJustification() -> Justification? {
         return self.justification;
     }

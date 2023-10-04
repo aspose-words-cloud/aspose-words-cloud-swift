@@ -188,25 +188,25 @@ public class Footnote : FootnoteLink {
     }
 
 
-    // Sets referenceMark. Gets or sets the custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.
+    // Sets referenceMark. Gets or sets the custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used. RTF-format can only store 1 symbol as custom reference mark, so upon export only the first symbol will be written others will be discard.
     public func setReferenceMark(referenceMark : String?) -> Footnote {
         self.referenceMark = referenceMark;
         return self;
     }
 
-    // Gets referenceMark. Gets or sets the custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.
+    // Gets referenceMark. Gets or sets the custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used. RTF-format can only store 1 symbol as custom reference mark, so upon export only the first symbol will be written others will be discard.
     public func getReferenceMark() -> String? {
         return self.referenceMark;
     }
 
 
-    // Sets text. Gets or sets text of the footnote.
+    // Sets text. Gets or sets text of the footnote. This method allows to quickly set text of a footnote from a string. The string can contain paragraph breaks, this will create paragraphs of text in the footnote accordingly.
     public func setText(text : String?) -> Footnote {
         self.text = text;
         return self;
     }
 
-    // Gets text. Gets or sets text of the footnote.
+    // Gets text. Gets or sets text of the footnote. This method allows to quickly set text of a footnote from a string. The string can contain paragraph breaks, this will create paragraphs of text in the footnote accordingly.
     public func getText() -> String? {
         return self.text;
     }

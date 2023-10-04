@@ -187,85 +187,85 @@ public class ListInfo : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets listId. Gets or sets the unique identifier of the list.
+    // Sets listId. Gets or sets the unique identifier of the list. You do not normally need to use this property. But if you use it, you normally do so in conjunction with the Aspose.Words.Lists.ListCollection.GetListByListId(System.Int32) method to find a list by its identifier.
     public func setListId(listId : Int?) -> ListInfo {
         self.listId = listId;
         return self;
     }
 
-    // Gets listId. Gets or sets the unique identifier of the list.
+    // Gets listId. Gets or sets the unique identifier of the list. You do not normally need to use this property. But if you use it, you normally do so in conjunction with the Aspose.Words.Lists.ListCollection.GetListByListId(System.Int32) method to find a list by its identifier.
     public func getListId() -> Int? {
         return self.listId;
     }
 
 
-    // Sets isMultiLevel. Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.
+    // Sets isMultiLevel. Gets or sets a value indicating whether the list contains 9 levels; false when 1 level. The lists that you create with Aspose.Words are always multi-level lists and contain 9 levels. Microsoft Word 2003 and later always create multi-level lists with 9 levels. But in some documents, created with earlier versions of Microsoft Word you might encounter lists that have 1 level only.
     public func setIsMultiLevel(isMultiLevel : Bool?) -> ListInfo {
         self.isMultiLevel = isMultiLevel;
         return self;
     }
 
-    // Gets isMultiLevel. Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.
+    // Gets isMultiLevel. Gets or sets a value indicating whether the list contains 9 levels; false when 1 level. The lists that you create with Aspose.Words are always multi-level lists and contain 9 levels. Microsoft Word 2003 and later always create multi-level lists with 9 levels. But in some documents, created with earlier versions of Microsoft Word you might encounter lists that have 1 level only.
     public func getIsMultiLevel() -> Bool? {
         return self.isMultiLevel;
     }
 
 
-    // Sets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
+    // Sets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false. This option is supported only in RTF, DOC and DOCX document formats. This option will be written to DOCX only if Aspose.Words.Saving.OoxmlCompliance is higher then Aspose.Words.Saving.OoxmlCompliance.Ecma376_2006.
     public func setIsRestartAtEachSection(isRestartAtEachSection : Bool?) -> ListInfo {
         self.isRestartAtEachSection = isRestartAtEachSection;
         return self;
     }
 
-    // Gets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
+    // Gets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false. This option is supported only in RTF, DOC and DOCX document formats. This option will be written to DOCX only if Aspose.Words.Saving.OoxmlCompliance is higher then Aspose.Words.Saving.OoxmlCompliance.Ecma376_2006.
     public func getIsRestartAtEachSection() -> Bool? {
         return self.isRestartAtEachSection;
     }
 
 
-    // Sets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style.
+    // Sets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style. When this property is true, the Aspose.Words.Lists.List.Style property returns the list style that this list defines. By modifying properties of a list that defines a list style, you modify The properties of the list style. A list that is a definition of a list style cannot be applied directly to paragraphs to make them numbered. Aspose.Words.Lists.List.Style Aspose.Words.Lists.List.IsListStyleReference.
     public func setIsListStyleDefinition(isListStyleDefinition : Bool?) -> ListInfo {
         self.isListStyleDefinition = isListStyleDefinition;
         return self;
     }
 
-    // Gets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style.
+    // Gets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style. When this property is true, the Aspose.Words.Lists.List.Style property returns the list style that this list defines. By modifying properties of a list that defines a list style, you modify The properties of the list style. A list that is a definition of a list style cannot be applied directly to paragraphs to make them numbered. Aspose.Words.Lists.List.Style Aspose.Words.Lists.List.IsListStyleReference.
     public func getIsListStyleDefinition() -> Bool? {
         return self.isListStyleDefinition;
     }
 
 
-    // Sets isListStyleReference. Gets or sets a value indicating whether this list is a reference to a list style.
+    // Sets isListStyleReference. Gets or sets a value indicating whether this list is a reference to a list style. Note, modifying properties of a list that is a reference to list style has no effect. The list formatting specified in the list style itself always takes precedence. Aspose.Words.Lists.List.Style Aspose.Words.Lists.List.IsListStyleDefinition.
     public func setIsListStyleReference(isListStyleReference : Bool?) -> ListInfo {
         self.isListStyleReference = isListStyleReference;
         return self;
     }
 
-    // Gets isListStyleReference. Gets or sets a value indicating whether this list is a reference to a list style.
+    // Gets isListStyleReference. Gets or sets a value indicating whether this list is a reference to a list style. Note, modifying properties of a list that is a reference to list style has no effect. The list formatting specified in the list style itself always takes precedence. Aspose.Words.Lists.List.Style Aspose.Words.Lists.List.IsListStyleDefinition.
     public func getIsListStyleReference() -> Bool? {
         return self.isListStyleReference;
     }
 
 
-    // Sets style. Gets or sets the list style that this list references or defines.
+    // Sets style. Gets or sets the list style that this list references or defines. If this list is not associated with a list style, the property will return null. A list could be a reference to a list style, in this case Aspose.Words.Lists.List.IsListStyleReference will be true. A list could be a definition of a list style, in this case Aspose.Words.Lists.List.IsListStyleDefinition will be true. Such a list cannot be applied to paragraphs in the document directly.
     public func setStyle(style : Style?) -> ListInfo {
         self.style = style;
         return self;
     }
 
-    // Gets style. Gets or sets the list style that this list references or defines.
+    // Gets style. Gets or sets the list style that this list references or defines. If this list is not associated with a list style, the property will return null. A list could be a reference to a list style, in this case Aspose.Words.Lists.List.IsListStyleReference will be true. A list could be a definition of a list style, in this case Aspose.Words.Lists.List.IsListStyleDefinition will be true. Such a list cannot be applied to paragraphs in the document directly.
     public func getStyle() -> Style? {
         return self.style;
     }
 
 
-    // Sets listLevels. Gets or sets the collection of list levels for this list.
+    // Sets listLevels. Gets or sets the collection of list levels for this list. Use this property to access and modify formatting individual to each level of the list.
     public func setListLevels(listLevels : ListLevels?) -> ListInfo {
         self.listLevels = listLevels;
         return self;
     }
 
-    // Gets listLevels. Gets or sets the collection of list levels for this list.
+    // Gets listLevels. Gets or sets the collection of list levels for this list. Use this property to access and modify formatting individual to each level of the list.
     public func getListLevels() -> ListLevels? {
         return self.listLevels;
     }

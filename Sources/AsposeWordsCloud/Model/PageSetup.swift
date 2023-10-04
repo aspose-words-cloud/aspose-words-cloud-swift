@@ -28,6 +28,7 @@
 import Foundation
 
 // Represents the page setup properties of a section.
+// PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PageSetup : LinkElement {
     // Gets or sets the option that controls which pages the page border is printed on.
@@ -67,6 +68,7 @@ public class PageSetup : LinkElement {
     }
 
     // Gets or sets the orientation of the page.
+    // Changing Orientation swaps PageWidth and PageHeight.
     public enum Orientation : String, Codable
     {
         // Enum value "portrait"
@@ -267,6 +269,7 @@ public class PageSetup : LinkElement {
     }
 
     // Gets or sets the paper size.
+    // Setting this property updates PageWidth and PageHeight values. Setting this value to Custom does not change existing values.
     public enum PaperSize : String, Codable
     {
         // Enum value "a3"
@@ -359,7 +362,7 @@ public class PageSetup : LinkElement {
         case bottom = "Bottom"
     }
 
-    // Field of bidi. Represents the page setup properties of a section.
+    // Field of bidi. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _bidi : Bool? = nil;
 
     public var bidi : Bool? {
@@ -371,7 +374,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of borderAlwaysInFront. Represents the page setup properties of a section.
+    // Field of borderAlwaysInFront. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _borderAlwaysInFront : Bool? = nil;
 
     public var borderAlwaysInFront : Bool? {
@@ -383,7 +386,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of borderAppliesTo. Represents the page setup properties of a section.
+    // Field of borderAppliesTo. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _borderAppliesTo : BorderAppliesTo? = nil;
 
     public var borderAppliesTo : BorderAppliesTo? {
@@ -395,7 +398,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of borderDistanceFrom. Represents the page setup properties of a section.
+    // Field of borderDistanceFrom. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _borderDistanceFrom : BorderDistanceFrom? = nil;
 
     public var borderDistanceFrom : BorderDistanceFrom? {
@@ -407,7 +410,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of bottomMargin. Represents the page setup properties of a section.
+    // Field of bottomMargin. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _bottomMargin : Double? = nil;
 
     public var bottomMargin : Double? {
@@ -419,7 +422,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of differentFirstPageHeaderFooter. Represents the page setup properties of a section.
+    // Field of differentFirstPageHeaderFooter. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _differentFirstPageHeaderFooter : Bool? = nil;
 
     public var differentFirstPageHeaderFooter : Bool? {
@@ -431,7 +434,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of firstPageTray. Represents the page setup properties of a section.
+    // Field of firstPageTray. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _firstPageTray : Int? = nil;
 
     public var firstPageTray : Int? {
@@ -443,7 +446,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of footerDistance. Represents the page setup properties of a section.
+    // Field of footerDistance. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _footerDistance : Double? = nil;
 
     public var footerDistance : Double? {
@@ -455,7 +458,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of gutter. Represents the page setup properties of a section.
+    // Field of gutter. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _gutter : Double? = nil;
 
     public var gutter : Double? {
@@ -467,7 +470,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of headerDistance. Represents the page setup properties of a section.
+    // Field of headerDistance. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _headerDistance : Double? = nil;
 
     public var headerDistance : Double? {
@@ -479,7 +482,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of leftMargin. Represents the page setup properties of a section.
+    // Field of leftMargin. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _leftMargin : Double? = nil;
 
     public var leftMargin : Double? {
@@ -491,7 +494,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of lineNumberCountBy. Represents the page setup properties of a section.
+    // Field of lineNumberCountBy. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _lineNumberCountBy : Int? = nil;
 
     public var lineNumberCountBy : Int? {
@@ -503,7 +506,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of lineNumberDistanceFromText. Represents the page setup properties of a section.
+    // Field of lineNumberDistanceFromText. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _lineNumberDistanceFromText : Double? = nil;
 
     public var lineNumberDistanceFromText : Double? {
@@ -515,7 +518,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of lineNumberRestartMode. Represents the page setup properties of a section.
+    // Field of lineNumberRestartMode. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _lineNumberRestartMode : LineNumberRestartMode? = nil;
 
     public var lineNumberRestartMode : LineNumberRestartMode? {
@@ -527,7 +530,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of lineStartingNumber. Represents the page setup properties of a section.
+    // Field of lineStartingNumber. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _lineStartingNumber : Int? = nil;
 
     public var lineStartingNumber : Int? {
@@ -539,7 +542,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of orientation. Represents the page setup properties of a section.
+    // Field of orientation. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _orientation : Orientation? = nil;
 
     public var orientation : Orientation? {
@@ -551,7 +554,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of otherPagesTray. Represents the page setup properties of a section.
+    // Field of otherPagesTray. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _otherPagesTray : Int? = nil;
 
     public var otherPagesTray : Int? {
@@ -563,7 +566,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of pageHeight. Represents the page setup properties of a section.
+    // Field of pageHeight. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _pageHeight : Double? = nil;
 
     public var pageHeight : Double? {
@@ -575,7 +578,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of pageNumberStyle. Represents the page setup properties of a section.
+    // Field of pageNumberStyle. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _pageNumberStyle : PageNumberStyle? = nil;
 
     public var pageNumberStyle : PageNumberStyle? {
@@ -587,7 +590,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of pageStartingNumber. Represents the page setup properties of a section.
+    // Field of pageStartingNumber. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _pageStartingNumber : Int? = nil;
 
     public var pageStartingNumber : Int? {
@@ -599,7 +602,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of pageWidth. Represents the page setup properties of a section.
+    // Field of pageWidth. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _pageWidth : Double? = nil;
 
     public var pageWidth : Double? {
@@ -611,7 +614,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of paperSize. Represents the page setup properties of a section.
+    // Field of paperSize. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _paperSize : PaperSize? = nil;
 
     public var paperSize : PaperSize? {
@@ -623,7 +626,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of restartPageNumbering. Represents the page setup properties of a section.
+    // Field of restartPageNumbering. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _restartPageNumbering : Bool? = nil;
 
     public var restartPageNumbering : Bool? {
@@ -635,7 +638,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of rightMargin. Represents the page setup properties of a section.
+    // Field of rightMargin. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _rightMargin : Double? = nil;
 
     public var rightMargin : Double? {
@@ -647,7 +650,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of rtlGutter. Represents the page setup properties of a section.
+    // Field of rtlGutter. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _rtlGutter : Bool? = nil;
 
     public var rtlGutter : Bool? {
@@ -659,7 +662,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of sectionStart. Represents the page setup properties of a section.
+    // Field of sectionStart. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _sectionStart : SectionStart? = nil;
 
     public var sectionStart : SectionStart? {
@@ -671,7 +674,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of suppressEndnotes. Represents the page setup properties of a section.
+    // Field of suppressEndnotes. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _suppressEndnotes : Bool? = nil;
 
     public var suppressEndnotes : Bool? {
@@ -683,7 +686,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of topMargin. Represents the page setup properties of a section.
+    // Field of topMargin. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _topMargin : Double? = nil;
 
     public var topMargin : Double? {
@@ -695,7 +698,7 @@ public class PageSetup : LinkElement {
         }
     }
 
-    // Field of verticalAlignment. Represents the page setup properties of a section.
+    // Field of verticalAlignment. Represents the page setup properties of a section. PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
     private var _verticalAlignment : VerticalAlignment? = nil;
 
     public var verticalAlignment : VerticalAlignment? {
@@ -930,13 +933,13 @@ public class PageSetup : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets bidi. Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text.
+    // Sets bidi. Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text. When true, the columns in this section are laid out from right to left.
     public func setBidi(bidi : Bool?) -> PageSetup {
         self.bidi = bidi;
         return self;
     }
 
-    // Gets bidi. Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text.
+    // Gets bidi. Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text. When true, the columns in this section are laid out from right to left.
     public func getBidi() -> Bool? {
         return self.bidi;
     }
@@ -1074,13 +1077,13 @@ public class PageSetup : LinkElement {
     }
 
 
-    // Sets lineNumberDistanceFromText. Gets or sets the distance between the right edge of line numbers and the left edge of the document.
+    // Sets lineNumberDistanceFromText. Gets or sets the distance between the right edge of line numbers and the left edge of the document. Set this property to zero for automatic distance between the line numbers and text of the document.
     public func setLineNumberDistanceFromText(lineNumberDistanceFromText : Double?) -> PageSetup {
         self.lineNumberDistanceFromText = lineNumberDistanceFromText;
         return self;
     }
 
-    // Gets lineNumberDistanceFromText. Gets or sets the distance between the right edge of line numbers and the left edge of the document.
+    // Gets lineNumberDistanceFromText. Gets or sets the distance between the right edge of line numbers and the left edge of the document. Set this property to zero for automatic distance between the line numbers and text of the document.
     public func getLineNumberDistanceFromText() -> Double? {
         return self.lineNumberDistanceFromText;
     }
@@ -1110,13 +1113,13 @@ public class PageSetup : LinkElement {
     }
 
 
-    // Sets orientation. Gets or sets the orientation of the page.
+    // Sets orientation. Gets or sets the orientation of the page. Changing Orientation swaps PageWidth and PageHeight.
     public func setOrientation(orientation : Orientation?) -> PageSetup {
         self.orientation = orientation;
         return self;
     }
 
-    // Gets orientation. Gets or sets the orientation of the page.
+    // Gets orientation. Gets or sets the orientation of the page. Changing Orientation swaps PageWidth and PageHeight.
     public func getOrientation() -> Orientation? {
         return self.orientation;
     }
@@ -1158,13 +1161,13 @@ public class PageSetup : LinkElement {
     }
 
 
-    // Sets pageStartingNumber. Gets or sets the starting page number of the section.
+    // Sets pageStartingNumber. Gets or sets the starting page number of the section. The RestartPageNumbering property, if set to false, will override the PageStartingNumber property so that page numbering can continue from the previous section.
     public func setPageStartingNumber(pageStartingNumber : Int?) -> PageSetup {
         self.pageStartingNumber = pageStartingNumber;
         return self;
     }
 
-    // Gets pageStartingNumber. Gets or sets the starting page number of the section.
+    // Gets pageStartingNumber. Gets or sets the starting page number of the section. The RestartPageNumbering property, if set to false, will override the PageStartingNumber property so that page numbering can continue from the previous section.
     public func getPageStartingNumber() -> Int? {
         return self.pageStartingNumber;
     }
@@ -1182,25 +1185,25 @@ public class PageSetup : LinkElement {
     }
 
 
-    // Sets paperSize. Gets or sets the paper size.
+    // Sets paperSize. Gets or sets the paper size. Setting this property updates PageWidth and PageHeight values. Setting this value to Custom does not change existing values.
     public func setPaperSize(paperSize : PaperSize?) -> PageSetup {
         self.paperSize = paperSize;
         return self;
     }
 
-    // Gets paperSize. Gets or sets the paper size.
+    // Gets paperSize. Gets or sets the paper size. Setting this property updates PageWidth and PageHeight values. Setting this value to Custom does not change existing values.
     public func getPaperSize() -> PaperSize? {
         return self.paperSize;
     }
 
 
-    // Sets restartPageNumbering. Gets or sets a value indicating whether page numbering restarts at the beginning of the section.
+    // Sets restartPageNumbering. Gets or sets a value indicating whether page numbering restarts at the beginning of the section. If set to false, the RestartPageNumbering property will override the PageStartingNumber property so that page numbering can continue from the previous section.
     public func setRestartPageNumbering(restartPageNumbering : Bool?) -> PageSetup {
         self.restartPageNumbering = restartPageNumbering;
         return self;
     }
 
-    // Gets restartPageNumbering. Gets or sets a value indicating whether page numbering restarts at the beginning of the section.
+    // Gets restartPageNumbering. Gets or sets a value indicating whether page numbering restarts at the beginning of the section. If set to false, the RestartPageNumbering property will override the PageStartingNumber property so that page numbering can continue from the previous section.
     public func getRestartPageNumbering() -> Bool? {
         return self.restartPageNumbering;
     }

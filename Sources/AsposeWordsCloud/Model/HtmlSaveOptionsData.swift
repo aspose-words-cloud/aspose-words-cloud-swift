@@ -982,13 +982,13 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
 
-    // Sets exportDropDownFormFieldAsText. Gets or sets the flag, that controls how drop-down form fields are saved to HTML. The default value is false.
+    // Sets exportDropDownFormFieldAsText. Gets or sets the flag, that controls how drop-down form fields are saved to HTML. The default value is false. When set to true, exports drop-down form fields as normal text. When false, exports drop-down form fields as SELECT element in HTML.
     public func setExportDropDownFormFieldAsText(exportDropDownFormFieldAsText : Bool?) -> HtmlSaveOptionsData {
         self.exportDropDownFormFieldAsText = exportDropDownFormFieldAsText;
         return self;
     }
 
-    // Gets exportDropDownFormFieldAsText. Gets or sets the flag, that controls how drop-down form fields are saved to HTML. The default value is false.
+    // Gets exportDropDownFormFieldAsText. Gets or sets the flag, that controls how drop-down form fields are saved to HTML. The default value is false. When set to true, exports drop-down form fields as normal text. When false, exports drop-down form fields as SELECT element in HTML.
     public func getExportDropDownFormFieldAsText() -> Bool? {
         return self.exportDropDownFormFieldAsText;
     }
@@ -1066,25 +1066,25 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
 
-    // Sets exportOriginalUrlForLinkedImages. Gets or sets a value indicating whether the original URL should be used as the URL of the linked images. The default value is false.
+    // Sets exportOriginalUrlForLinkedImages. Gets or sets a value indicating whether the original URL should be used as the URL of the linked images. The default value is false. If value is set to true - ResourceFolder value is used as the URL of linked images and linked images are not loaded into document's folder or ImagesFolder.If value is set to false - linked images are loaded into document's folder or ImagesFolder and URL of each linked image is constructed depending on document's folder, ImagesFolder and ImagesFolderAlias properties.
     public func setExportOriginalUrlForLinkedImages(exportOriginalUrlForLinkedImages : Bool?) -> HtmlSaveOptionsData {
         self.exportOriginalUrlForLinkedImages = exportOriginalUrlForLinkedImages;
         return self;
     }
 
-    // Gets exportOriginalUrlForLinkedImages. Gets or sets a value indicating whether the original URL should be used as the URL of the linked images. The default value is false.
+    // Gets exportOriginalUrlForLinkedImages. Gets or sets a value indicating whether the original URL should be used as the URL of the linked images. The default value is false. If value is set to true - ResourceFolder value is used as the URL of linked images and linked images are not loaded into document's folder or ImagesFolder.If value is set to false - linked images are loaded into document's folder or ImagesFolder and URL of each linked image is constructed depending on document's folder, ImagesFolder and ImagesFolderAlias properties.
     public func getExportOriginalUrlForLinkedImages() -> Bool? {
         return self.exportOriginalUrlForLinkedImages;
     }
 
 
-    // Sets exportPageMargins. Gets or sets a value indicating whether page margins are exported to HTML, MHTML or EPUB. The default value is false.
+    // Sets exportPageMargins. Gets or sets a value indicating whether page margins are exported to HTML, MHTML or EPUB. The default value is false. Aspose.Words does not show area of page margins by default. If any elements are completely or partially clipped by the document edge the displayed area can be extended with this option.
     public func setExportPageMargins(exportPageMargins : Bool?) -> HtmlSaveOptionsData {
         self.exportPageMargins = exportPageMargins;
         return self;
     }
 
-    // Gets exportPageMargins. Gets or sets a value indicating whether page margins are exported to HTML, MHTML or EPUB. The default value is false.
+    // Gets exportPageMargins. Gets or sets a value indicating whether page margins are exported to HTML, MHTML or EPUB. The default value is false. Aspose.Words does not show area of page margins by default. If any elements are completely or partially clipped by the document edge the displayed area can be extended with this option.
     public func getExportPageMargins() -> Bool? {
         return self.exportPageMargins;
     }
@@ -1114,13 +1114,13 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
 
-    // Sets exportRoundtripInformation. Gets or sets a value indicating whether to write the roundtrip information when saving to HTML. The default value is true.
+    // Sets exportRoundtripInformation. Gets or sets a value indicating whether to write the roundtrip information when saving to HTML. The default value is true. Saving of the roundtrip information allows to restore document properties such as tab stops, comments, headers and footers during the HTML documents loading back into a Document object.When true, the roundtrip information is exported as -aw-* CSS properties of the corresponding HTML elements.When false, causes no roundtrip information to be output into produced files.
     public func setExportRoundtripInformation(exportRoundtripInformation : Bool?) -> HtmlSaveOptionsData {
         self.exportRoundtripInformation = exportRoundtripInformation;
         return self;
     }
 
-    // Gets exportRoundtripInformation. Gets or sets a value indicating whether to write the roundtrip information when saving to HTML. The default value is true.
+    // Gets exportRoundtripInformation. Gets or sets a value indicating whether to write the roundtrip information when saving to HTML. The default value is true. Saving of the roundtrip information allows to restore document properties such as tab stops, comments, headers and footers during the HTML documents loading back into a Document object.When true, the roundtrip information is exported as -aw-* CSS properties of the corresponding HTML elements.When false, causes no roundtrip information to be output into produced files.
     public func getExportRoundtripInformation() -> Bool? {
         return self.exportRoundtripInformation;
     }

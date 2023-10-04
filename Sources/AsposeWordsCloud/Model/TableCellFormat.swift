@@ -79,6 +79,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Gets or sets the option that controls how the cell is merged with other cells vertically.
+    // Cells can only be merged vertically if their left and right boundaries are identical.When cells are vertically merged, the display areas of the merged cells are consolidated. The consolidated area is used to display the contents of the first vertically merged cell and all other vertically merged cells must be empty.
     public enum VerticalMerge : String, Codable
     {
         // Enum value "_none"
@@ -407,13 +408,13 @@ public class TableCellFormat : LinkElement {
     }
 
 
-    // Sets preferredWidth. Gets or sets the preferred width of the cell.
+    // Sets preferredWidth. Gets or sets the preferred width of the cell. The preferred width (along with the table's Auto Fit option) determines how the actual width of the cell is calculated by the table layout algorithm. Table layout can be performed by Aspose.Words when it saves the document or by Microsoft Word when it displays the document.The preferred width can be specified in points or in percent. The preferred width can also be specified as "auto", which means no preferred width is specified.The default value is Auto.
     public func setPreferredWidth(preferredWidth : PreferredWidth?) -> TableCellFormat {
         self.preferredWidth = preferredWidth;
         return self;
     }
 
-    // Gets preferredWidth. Gets or sets the preferred width of the cell.
+    // Gets preferredWidth. Gets or sets the preferred width of the cell. The preferred width (along with the table's Auto Fit option) determines how the actual width of the cell is calculated by the table layout algorithm. Table layout can be performed by Aspose.Words when it saves the document or by Microsoft Word when it displays the document.The preferred width can be specified in points or in percent. The preferred width can also be specified as "auto", which means no preferred width is specified.The default value is Auto.
     public func getPreferredWidth() -> PreferredWidth? {
         return self.preferredWidth;
     }
@@ -455,25 +456,25 @@ public class TableCellFormat : LinkElement {
     }
 
 
-    // Sets verticalMerge. Gets or sets the option that controls how the cell is merged with other cells vertically.
+    // Sets verticalMerge. Gets or sets the option that controls how the cell is merged with other cells vertically. Cells can only be merged vertically if their left and right boundaries are identical.When cells are vertically merged, the display areas of the merged cells are consolidated. The consolidated area is used to display the contents of the first vertically merged cell and all other vertically merged cells must be empty.
     public func setVerticalMerge(verticalMerge : VerticalMerge?) -> TableCellFormat {
         self.verticalMerge = verticalMerge;
         return self;
     }
 
-    // Gets verticalMerge. Gets or sets the option that controls how the cell is merged with other cells vertically.
+    // Gets verticalMerge. Gets or sets the option that controls how the cell is merged with other cells vertically. Cells can only be merged vertically if their left and right boundaries are identical.When cells are vertically merged, the display areas of the merged cells are consolidated. The consolidated area is used to display the contents of the first vertically merged cell and all other vertically merged cells must be empty.
     public func getVerticalMerge() -> VerticalMerge? {
         return self.verticalMerge;
     }
 
 
-    // Sets width. Gets or sets the width of the cell in points.
+    // Sets width. Gets or sets the width of the cell in points. The width is calculated by Aspose.Words on document loading and saving. Currently, not every combination of table, cell and document properties is supported. The returned value may not be accurate for some documents. It may not exactly match the cell width as calculated by MS Word when the document is opened in MS Word.Setting this property is not recommended. There is no guarantee that the cell will actually have the set width. The width may be adjusted to accommodate cell contents in an auto-fit table layout. Cells in other rows may have conflicting width settings. The table may be resized to fit into the container or to meet table width settings. Consider using PreferredWidth for setting the cell width. Setting this property sets PreferredWidth implicitly since version 15.8.
     public func setWidth(width : Double?) -> TableCellFormat {
         self.width = width;
         return self;
     }
 
-    // Gets width. Gets or sets the width of the cell in points.
+    // Gets width. Gets or sets the width of the cell in points. The width is calculated by Aspose.Words on document loading and saving. Currently, not every combination of table, cell and document properties is supported. The returned value may not be accurate for some documents. It may not exactly match the cell width as calculated by MS Word when the document is opened in MS Word.Setting this property is not recommended. There is no guarantee that the cell will actually have the set width. The width may be adjusted to accommodate cell contents in an auto-fit table layout. Cells in other rows may have conflicting width settings. The table may be resized to fit into the container or to meet table width settings. Consider using PreferredWidth for setting the cell width. Setting this property sets PreferredWidth implicitly since version 15.8.
     public func getWidth() -> Double? {
         return self.width;
     }

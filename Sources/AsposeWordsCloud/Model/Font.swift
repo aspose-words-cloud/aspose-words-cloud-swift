@@ -2029,13 +2029,13 @@ public class Font : LinkElement {
     }
 
 
-    // Sets bidi. Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics.
+    // Sets bidi. Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics. This property, when on, shall not be used with strongly left-to-right text. Any behavior under that condition is unspecified. This property, when off, shall not be used with strong right-to-left text. Any behavior under that condition is unspecified.When the contents of this run are displayed, all characters shall be treated as complex script characters for formatting purposes. This means that BoldBi, ItalicBi, SizeBi and a corresponding font name will be used when rendering this run.Also, when the contents of this run are displayed, this property acts as a right-to-left override for characters which are classified as "weak types" and "neutral types".
     public func setBidi(bidi : Bool?) -> Font {
         self.bidi = bidi;
         return self;
     }
 
-    // Gets bidi. Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics.
+    // Gets bidi. Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics. This property, when on, shall not be used with strongly left-to-right text. Any behavior under that condition is unspecified. This property, when off, shall not be used with strong right-to-left text. Any behavior under that condition is unspecified.When the contents of this run are displayed, all characters shall be treated as complex script characters for formatting purposes. This means that BoldBi, ItalicBi, SizeBi and a corresponding font name will be used when rendering this run.Also, when the contents of this run are displayed, this property acts as a right-to-left override for characters which are classified as "weak types" and "neutral types".
     public func getBidi() -> Bool? {
         return self.bidi;
     }
@@ -2197,37 +2197,37 @@ public class Font : LinkElement {
     }
 
 
-    // Sets localeId. Gets or sets the locale identifier (language) of the formatted characters.
+    // Sets localeId. Gets or sets the locale identifier (language) of the formatted characters. For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.
     public func setLocaleId(localeId : Int?) -> Font {
         self.localeId = localeId;
         return self;
     }
 
-    // Gets localeId. Gets or sets the locale identifier (language) of the formatted characters.
+    // Gets localeId. Gets or sets the locale identifier (language) of the formatted characters. For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.
     public func getLocaleId() -> Int? {
         return self.localeId;
     }
 
 
-    // Sets localeIdBi. Gets or sets the locale identifier (language) of the formatted right-to-left characters.
+    // Sets localeIdBi. Gets or sets the locale identifier (language) of the formatted right-to-left characters. For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.
     public func setLocaleIdBi(localeIdBi : Int?) -> Font {
         self.localeIdBi = localeIdBi;
         return self;
     }
 
-    // Gets localeIdBi. Gets or sets the locale identifier (language) of the formatted right-to-left characters.
+    // Gets localeIdBi. Gets or sets the locale identifier (language) of the formatted right-to-left characters. For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.
     public func getLocaleIdBi() -> Int? {
         return self.localeIdBi;
     }
 
 
-    // Sets localeIdFarEast. Gets or sets the locale identifier (language) of the formatted Asian characters.
+    // Sets localeIdFarEast. Gets or sets the locale identifier (language) of the formatted Asian characters. For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.
     public func setLocaleIdFarEast(localeIdFarEast : Int?) -> Font {
         self.localeIdFarEast = localeIdFarEast;
         return self;
     }
 
-    // Gets localeIdFarEast. Gets or sets the locale identifier (language) of the formatted Asian characters.
+    // Gets localeIdFarEast. Gets or sets the locale identifier (language) of the formatted Asian characters. For the list of locale identifiers see http://www.microsoft.com/globaldev/reference/lcid-all.mspx.
     public func getLocaleIdFarEast() -> Int? {
         return self.localeIdFarEast;
     }

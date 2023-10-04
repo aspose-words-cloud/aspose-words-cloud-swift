@@ -47,6 +47,8 @@ public class Style : LinkElement {
     }
 
     // Gets or sets the locale independent style identifier for a built-in style.
+    // For user defined (custom) styles, this property returns Aspose.Words.StyleIdentifier.User.
+    // Aspose.Words.Style.Name.
     public enum StyleIdentifier : String, Codable
     {
         // Enum value "normal"
@@ -1426,13 +1428,13 @@ public class Style : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets font. Gets or sets the character formatting of the style.
+    // Sets font. Gets or sets the character formatting of the style. For list styles this property returns null.
     public func setFont(font : Font?) -> Style {
         self.font = font;
         return self;
     }
 
-    // Gets font. Gets or sets the character formatting of the style.
+    // Gets font. Gets or sets the character formatting of the style. For list styles this property returns null.
     public func getFont() -> Font? {
         return self.font;
     }
@@ -1450,25 +1452,25 @@ public class Style : LinkElement {
     }
 
 
-    // Sets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+    // Sets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style. This property is not used by Aspose.Words. The next paragraph style will only be applied automatically when you edit the document in MS Word.
     public func setNextParagraphStyleName(nextParagraphStyleName : String?) -> Style {
         self.nextParagraphStyleName = nextParagraphStyleName;
         return self;
     }
 
-    // Gets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+    // Gets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style. This property is not used by Aspose.Words. The next paragraph style will only be applied automatically when you edit the document in MS Word.
     public func getNextParagraphStyleName() -> String? {
         return self.nextParagraphStyleName;
     }
 
 
-    // Sets baseStyleName. Gets or sets the name of the style this style is based on.
+    // Sets baseStyleName. Gets or sets the name of the style this style is based on. This will be an empty string if the style is not based on any other style and it can be set to an empty string.
     public func setBaseStyleName(baseStyleName : String?) -> Style {
         self.baseStyleName = baseStyleName;
         return self;
     }
 
-    // Gets baseStyleName. Gets or sets the name of the style this style is based on.
+    // Gets baseStyleName. Gets or sets the name of the style this style is based on. This will be an empty string if the style is not based on any other style and it can be set to an empty string.
     public func getBaseStyleName() -> String? {
         return self.baseStyleName;
     }
@@ -1534,25 +1536,25 @@ public class Style : LinkElement {
     }
 
 
-    // Sets styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.
+    // Sets styleIdentifier. Gets or sets the locale independent style identifier for a built-in style. For user defined (custom) styles, this property returns Aspose.Words.StyleIdentifier.User. Aspose.Words.Style.Name.
     public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) -> Style {
         self.styleIdentifier = styleIdentifier;
         return self;
     }
 
-    // Gets styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.
+    // Gets styleIdentifier. Gets or sets the locale independent style identifier for a built-in style. For user defined (custom) styles, this property returns Aspose.Words.StyleIdentifier.User. Aspose.Words.Style.Name.
     public func getStyleIdentifier() -> StyleIdentifier? {
         return self.styleIdentifier;
     }
 
 
-    // Sets name. Gets or sets the name of the style.
+    // Sets name. Gets or sets the name of the style. Can not be empty string. If there already is a style with such name in the collection, then this style will override it. All affected nodes will reference new style.
     public func setName(name : String?) -> Style {
         self.name = name;
         return self;
     }
 
-    // Gets name. Gets or sets the name of the style.
+    // Gets name. Gets or sets the name of the style. Can not be empty string. If there already is a style with such name in the collection, then this style will override it. All affected nodes will reference new style.
     public func getName() -> String? {
         return self.name;
     }

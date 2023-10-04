@@ -109,25 +109,25 @@ public class ListFormat : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
+    // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph. In Word documents, lists may consist of 1 or 9 levels, numbered 0 to 8. Has effect only when the Aspose.Words.ListFormat.List property is set to reference a valid list. Aspose.Words.ListFormat.List.
     public func setListLevelNumber(listLevelNumber : Int?) -> ListFormat {
         self.listLevelNumber = listLevelNumber;
         return self;
     }
 
-    // Gets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
+    // Gets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph. In Word documents, lists may consist of 1 or 9 levels, numbered 0 to 8. Has effect only when the Aspose.Words.ListFormat.List property is set to reference a valid list. Aspose.Words.ListFormat.List.
     public func getListLevelNumber() -> Int? {
         return self.listLevelNumber;
     }
 
 
-    // Sets listId. Gets or sets the list id of this paragraph.
+    // Sets listId. Gets or sets the list id of this paragraph. The list that is being assigned to this property must belong to the current document.The list that is being assigned to this property must not be a list style definition.
     public func setListId(listId : Int?) -> ListFormat {
         self.listId = listId;
         return self;
     }
 
-    // Gets listId. Gets or sets the list id of this paragraph.
+    // Gets listId. Gets or sets the list id of this paragraph. The list that is being assigned to this property must belong to the current document.The list that is being assigned to this property must not be a list style definition.
     public func getListId() -> Int? {
         return self.listId;
     }

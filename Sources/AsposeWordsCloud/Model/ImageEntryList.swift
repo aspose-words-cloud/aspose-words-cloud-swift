@@ -109,13 +109,13 @@ public class ImageEntryList : BaseEntryList {
 
     }
 
-    // Sets appendEachImageOnNewPage. Gets or sets a value indicating whether each image should be added to a new page in the document.
+    // Sets appendEachImageOnNewPage. Gets or sets a value indicating whether each image should be added to a new page in the document. This value only has an effect when adding images to a document that supports pagination.
     public func setAppendEachImageOnNewPage(appendEachImageOnNewPage : Bool?) -> ImageEntryList {
         self.appendEachImageOnNewPage = appendEachImageOnNewPage;
         return self;
     }
 
-    // Gets appendEachImageOnNewPage. Gets or sets a value indicating whether each image should be added to a new page in the document.
+    // Gets appendEachImageOnNewPage. Gets or sets a value indicating whether each image should be added to a new page in the document. This value only has an effect when adding images to a document that supports pagination.
     public func getAppendEachImageOnNewPage() -> Bool? {
         return self.appendEachImageOnNewPage;
     }

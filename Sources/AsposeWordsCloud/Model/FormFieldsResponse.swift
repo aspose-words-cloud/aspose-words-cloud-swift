@@ -28,9 +28,10 @@
 import Foundation
 
 // The REST response with a collection of form fields.
+// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/form fields" REST API requests.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FormFieldsResponse : WordsResponse {
-    // Field of formFields. The REST response with a collection of form fields.
+    // Field of formFields. The REST response with a collection of form fields. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/form fields" REST API requests.
     private var _formFields : FormFieldCollection? = nil;
 
     public var formFields : FormFieldCollection? {

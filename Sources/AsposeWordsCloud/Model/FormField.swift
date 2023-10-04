@@ -229,97 +229,97 @@ public class FormField : NodeLink {
     }
 
 
-    // Sets enabled. Gets or sets a value indicating whether a form field is enabled.
+    // Sets enabled. Gets or sets a value indicating whether a form field is enabled. If a form field is enabled, its contents can be changed as the form is filled in.
     public func setEnabled(enabled : Bool?) -> FormField {
         self.enabled = enabled;
         return self;
     }
 
-    // Gets enabled. Gets or sets a value indicating whether a form field is enabled.
+    // Gets enabled. Gets or sets a value indicating whether a form field is enabled. If a form field is enabled, its contents can be changed as the form is filled in.
     public func getEnabled() -> Bool? {
         return self.enabled;
     }
 
 
-    // Sets statusText. Gets or sets text, displayed in the status bar when a form field has the focus.
+    // Sets statusText. Gets or sets text, displayed in the status bar when a form field has the focus. If the OwnStatus property is set to true, the StatusText property specifies the status bar text. If the OwnStatus property is set to false, the StatusText property specifies the name of an AutoText entry that contains status bar text for the form field.
     public func setStatusText(statusText : String?) -> FormField {
         self.statusText = statusText;
         return self;
     }
 
-    // Gets statusText. Gets or sets text, displayed in the status bar when a form field has the focus.
+    // Gets statusText. Gets or sets text, displayed in the status bar when a form field has the focus. If the OwnStatus property is set to true, the StatusText property specifies the status bar text. If the OwnStatus property is set to false, the StatusText property specifies the name of an AutoText entry that contains status bar text for the form field.
     public func getStatusText() -> String? {
         return self.statusText;
     }
 
 
-    // Sets ownStatus. Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
+    // Sets ownStatus. Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus. If true, the text specified by the StatusText property is displayed. If false, the text of the AutoText entry specified by the StatusText property is displayed.
     public func setOwnStatus(ownStatus : Bool?) -> FormField {
         self.ownStatus = ownStatus;
         return self;
     }
 
-    // Gets ownStatus. Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
+    // Gets ownStatus. Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus. If true, the text specified by the StatusText property is displayed. If false, the text of the AutoText entry specified by the StatusText property is displayed.
     public func getOwnStatus() -> Bool? {
         return self.ownStatus;
     }
 
 
-    // Sets helpText. Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
+    // Sets helpText. Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1. If the OwnHelp property is set to True, HelpText specifies the text string value. If OwnHelp is set to False, HelpText specifies the name of an AutoText entry that contains help text for the form field.
     public func setHelpText(helpText : String?) -> FormField {
         self.helpText = helpText;
         return self;
     }
 
-    // Gets helpText. Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
+    // Gets helpText. Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1. If the OwnHelp property is set to True, HelpText specifies the text string value. If OwnHelp is set to False, HelpText specifies the name of an AutoText entry that contains help text for the form field.
     public func getHelpText() -> String? {
         return self.helpText;
     }
 
 
-    // Sets ownHelp. Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
+    // Sets ownHelp. Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1. If True, the text specified by the HelpText property is displayed. If False, the text in the AutoText entry specified by the HelpText property is displayed.
     public func setOwnHelp(ownHelp : Bool?) -> FormField {
         self.ownHelp = ownHelp;
         return self;
     }
 
-    // Gets ownHelp. Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
+    // Gets ownHelp. Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1. If True, the text specified by the HelpText property is displayed. If False, the text in the AutoText entry specified by the HelpText property is displayed.
     public func getOwnHelp() -> Bool? {
         return self.ownHelp;
     }
 
 
-    // Sets calculateOnExit. Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
+    // Sets calculateOnExit. Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited. Setting CalculateOnExit only affects the behavior of the form field when the document is opened in Microsoft Word. Aspose.Words never updates references to the form field.
     public func setCalculateOnExit(calculateOnExit : Bool?) -> FormField {
         self.calculateOnExit = calculateOnExit;
         return self;
     }
 
-    // Gets calculateOnExit. Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
+    // Gets calculateOnExit. Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited. Setting CalculateOnExit only affects the behavior of the form field when the document is opened in Microsoft Word. Aspose.Words never updates references to the form field.
     public func getCalculateOnExit() -> Bool? {
         return self.calculateOnExit;
     }
 
 
-    // Sets entryMacro. Gets or sets the entry macro name for the form field.
+    // Sets entryMacro. Gets or sets the entry macro name for the form field. The entry macro runs when the form field gets the focus in Microsoft Word.
     public func setEntryMacro(entryMacro : String?) -> FormField {
         self.entryMacro = entryMacro;
         return self;
     }
 
-    // Gets entryMacro. Gets or sets the entry macro name for the form field.
+    // Gets entryMacro. Gets or sets the entry macro name for the form field. The entry macro runs when the form field gets the focus in Microsoft Word.
     public func getEntryMacro() -> String? {
         return self.entryMacro;
     }
 
 
-    // Sets exitMacro. Gets or sets the exit macro name for the form field.
+    // Sets exitMacro. Gets or sets the exit macro name for the form field. The exit macro runs when the form field loses the focus in Microsoft Word.
     public func setExitMacro(exitMacro : String?) -> FormField {
         self.exitMacro = exitMacro;
         return self;
     }
 
-    // Gets exitMacro. Gets or sets the exit macro name for the form field.
+    // Gets exitMacro. Gets or sets the exit macro name for the form field. The exit macro runs when the form field loses the focus in Microsoft Word.
     public func getExitMacro() -> String? {
         return self.exitMacro;
     }

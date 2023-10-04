@@ -31,6 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListInsert : Codable, WordsApiModel {
     // Gets or sets the option that controls how list should be restarted at each section.
+    // This option is supported only in RTF, DOC and DOCX document formats. This option will be written to DOCX only if Aspose.Words.Saving.OoxmlCompliance is higher then Aspose.Words.Saving.OoxmlCompliance.Ecma376_2006.
     public enum Template : String, Codable
     {
         // Enum value "bulletDefault"
@@ -142,13 +143,13 @@ public class ListInsert : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets template. Gets or sets the option that controls how list should be restarted at each section.
+    // Sets template. Gets or sets the option that controls how list should be restarted at each section. This option is supported only in RTF, DOC and DOCX document formats. This option will be written to DOCX only if Aspose.Words.Saving.OoxmlCompliance is higher then Aspose.Words.Saving.OoxmlCompliance.Ecma376_2006.
     public func setTemplate(template : Template?) -> ListInsert {
         self.template = template;
         return self;
     }
 
-    // Gets template. Gets or sets the option that controls how list should be restarted at each section.
+    // Gets template. Gets or sets the option that controls how list should be restarted at each section. This option is supported only in RTF, DOC and DOCX document formats. This option will be written to DOCX only if Aspose.Words.Saving.OoxmlCompliance is higher then Aspose.Words.Saving.OoxmlCompliance.Ecma376_2006.
     public func getTemplate() -> Template? {
         return self.template;
     }

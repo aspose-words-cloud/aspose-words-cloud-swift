@@ -45,7 +45,7 @@ public class InsertDrawingObjectOnlineResponse {
         self.document = document;
     }
 
-    // The response model.
+    // The REST response with a DrawingObject.
     public func getModel() -> DrawingObjectResponse? {
         return self.model;
     }

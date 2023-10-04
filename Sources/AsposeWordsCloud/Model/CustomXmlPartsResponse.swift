@@ -28,9 +28,10 @@
 import Foundation
 
 // The REST response with a collection of custom xml parts.
+// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/customXmlParts" REST API requests.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CustomXmlPartsResponse : WordsResponse {
-    // Field of customXmlParts. The REST response with a collection of custom xml parts.
+    // Field of customXmlParts. The REST response with a collection of custom xml parts. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/customXmlParts" REST API requests.
     private var _customXmlParts : CustomXmlPartsCollection? = nil;
 
     public var customXmlParts : CustomXmlPartsCollection? {

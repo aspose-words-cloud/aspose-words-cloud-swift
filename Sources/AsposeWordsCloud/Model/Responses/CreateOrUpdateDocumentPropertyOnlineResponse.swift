@@ -45,7 +45,8 @@ public class CreateOrUpdateDocumentPropertyOnlineResponse {
         self.document = document;
     }
 
-    // The response model.
+    // The REST response with a document property.
+    // This response should be returned by the service when handling: GET documentProperties/{propertyName}.
     public func getModel() -> DocumentPropertyResponse? {
         return self.model;
     }

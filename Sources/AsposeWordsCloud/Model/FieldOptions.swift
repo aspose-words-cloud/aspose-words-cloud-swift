@@ -65,18 +65,6 @@ public class FieldOptions : Codable, WordsApiModel {
         case fieldCode = "FieldCode"
     }
 
-    // Field of builtInTemplatesPaths. DTO for field options.
-    private var _builtInTemplatesPaths : [String]? = nil;
-
-    public var builtInTemplatesPaths : [String]? {
-        get {
-            return self._builtInTemplatesPaths;
-        }
-        set {
-            self._builtInTemplatesPaths = newValue;
-        }
-    }
-
     // Field of currentUser. DTO for field options.
     private var _currentUser : UserInformation? = nil;
 
@@ -221,8 +209,19 @@ public class FieldOptions : Codable, WordsApiModel {
         }
     }
 
+    // Field of builtInTemplatesPaths. DTO for field options.
+    private var _builtInTemplatesPaths : [String]? = nil;
+
+    public var builtInTemplatesPaths : [String]? {
+        get {
+            return self._builtInTemplatesPaths;
+        }
+        set {
+            self._builtInTemplatesPaths = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
-        case builtInTemplatesPaths = "BuiltInTemplatesPaths";
         case currentUser = "CurrentUser";
         case customTocStyleSeparator = "CustomTocStyleSeparator";
         case defaultDocumentAuthor = "DefaultDocumentAuthor";
@@ -235,6 +234,7 @@ public class FieldOptions : Codable, WordsApiModel {
         case preProcessCultureName = "PreProcessCultureName";
         case templateName = "TemplateName";
         case useInvariantCultureNumberFormat = "UseInvariantCultureNumberFormat";
+        case builtInTemplatesPaths = "BuiltInTemplatesPaths";
         case invalidCodingKey;
     }
 
@@ -242,17 +242,6 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     public required init(from json: [String: Any]) throws {
-        if let raw_builtInTemplatesPaths = json["BuiltInTemplatesPaths"] as? [Any] {
-            self.builtInTemplatesPaths = try raw_builtInTemplatesPaths.map {
-                if let element_builtInTemplatesPaths = $0 as? String {
-                    return element_builtInTemplatesPaths;
-                }
-                else {
-                    throw WordsApiError.invalidTypeDeserialization(typeName: "String");
-                }
-            };
-        }
-
         if let raw_currentUser = json["CurrentUser"] as? [String: Any] {
             self.currentUser = try ObjectSerializer.deserialize(type: UserInformation.self, from: raw_currentUser);
         }
@@ -274,11 +263,21 @@ public class FieldOptions : Codable, WordsApiModel {
         self.preProcessCultureName = json["PreProcessCultureName"] as? String;
         self.templateName = json["TemplateName"] as? String;
         self.useInvariantCultureNumberFormat = json["UseInvariantCultureNumberFormat"] as? Bool;
+        if let raw_builtInTemplatesPaths = json["BuiltInTemplatesPaths"] as? [Any] {
+            self.builtInTemplatesPaths = try raw_builtInTemplatesPaths.map {
+                if let element_builtInTemplatesPaths = $0 as? String {
+                    return element_builtInTemplatesPaths;
+                }
+                else {
+                    throw WordsApiError.invalidTypeDeserialization(typeName: "String");
+                }
+            };
+        }
+
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.builtInTemplatesPaths = try container.decodeIfPresent([String].self, forKey: .builtInTemplatesPaths);
         self.currentUser = try container.decodeIfPresent(UserInformation.self, forKey: .currentUser);
         self.customTocStyleSeparator = try container.decodeIfPresent(String.self, forKey: .customTocStyleSeparator);
         self.defaultDocumentAuthor = try container.decodeIfPresent(String.self, forKey: .defaultDocumentAuthor);
@@ -291,13 +290,11 @@ public class FieldOptions : Codable, WordsApiModel {
         self.preProcessCultureName = try container.decodeIfPresent(String.self, forKey: .preProcessCultureName);
         self.templateName = try container.decodeIfPresent(String.self, forKey: .templateName);
         self.useInvariantCultureNumberFormat = try container.decodeIfPresent(Bool.self, forKey: .useInvariantCultureNumberFormat);
+        self.builtInTemplatesPaths = try container.decodeIfPresent([String].self, forKey: .builtInTemplatesPaths);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.builtInTemplatesPaths != nil) {
-            try container.encode(self.builtInTemplatesPaths, forKey: .builtInTemplatesPaths);
-        }
         if (self.currentUser != nil) {
             try container.encode(self.currentUser, forKey: .currentUser);
         }
@@ -334,22 +331,13 @@ public class FieldOptions : Codable, WordsApiModel {
         if (self.useInvariantCultureNumberFormat != nil) {
             try container.encode(self.useInvariantCultureNumberFormat, forKey: .useInvariantCultureNumberFormat);
         }
+        if (self.builtInTemplatesPaths != nil) {
+            try container.encode(self.builtInTemplatesPaths, forKey: .builtInTemplatesPaths);
+        }
     }
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
-
-    // Sets builtInTemplatesPaths. Gets or sets BuiltIn Templates Paths.
-    public func setBuiltInTemplatesPaths(builtInTemplatesPaths : [String]?) -> FieldOptions {
-        self.builtInTemplatesPaths = builtInTemplatesPaths;
-        return self;
-    }
-
-    // Gets builtInTemplatesPaths. Gets or sets BuiltIn Templates Paths.
-    public func getBuiltInTemplatesPaths() -> [String]? {
-        return self.builtInTemplatesPaths;
-    }
-
 
     // Sets currentUser. Gets or sets Curren tUser.
     public func setCurrentUser(currentUser : UserInformation?) -> FieldOptions {
@@ -492,5 +480,17 @@ public class FieldOptions : Codable, WordsApiModel {
     // Gets useInvariantCultureNumberFormat. Gets or sets if Use Invariant Culture Number Format.
     public func getUseInvariantCultureNumberFormat() -> Bool? {
         return self.useInvariantCultureNumberFormat;
+    }
+
+
+    // Sets builtInTemplatesPaths. Gets or sets BuiltIn Templates Paths.
+    public func setBuiltInTemplatesPaths(builtInTemplatesPaths : [String]?) -> FieldOptions {
+        self.builtInTemplatesPaths = builtInTemplatesPaths;
+        return self;
+    }
+
+    // Gets builtInTemplatesPaths. Gets or sets BuiltIn Templates Paths.
+    public func getBuiltInTemplatesPaths() -> [String]? {
+        return self.builtInTemplatesPaths;
     }
 }
