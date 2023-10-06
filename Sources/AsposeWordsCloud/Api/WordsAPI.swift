@@ -14700,6 +14700,7 @@ public class WordsAPI : Encryptor {
 
     // Async representation of saveAsTiff method
     // Converts a document in cloud storage to TIFF format using detailed conversion settings.
+    @available(*, deprecated, message: "This operation will be removed in the future.")
     public func saveAsTiff(request : SaveAsTiffRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -14754,6 +14755,7 @@ public class WordsAPI : Encryptor {
 
     // Async representation of saveAsTiffOnline method
     // Converts a document in cloud storage to TIFF format using detailed conversion settings.
+    @available(*, deprecated, message: "This operation will be removed in the future.")
     public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest, callback : @escaping (_ response : SaveAsTiffOnlineResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
