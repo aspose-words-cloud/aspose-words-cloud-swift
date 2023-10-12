@@ -157,8 +157,8 @@ class BookmarkTests: BaseTestContext {
         .setNodeId(nodeId: "0.0.0.0")
         .setOffset(offset: 0);
       let requestBookmark = BookmarkInsert()
-        .setEndRange(endRange: requestBookmarkEndRange)
         .setStartRange(startRange: requestBookmarkStartRange)
+        .setEndRange(endRange: requestBookmarkEndRange)
         .setName(name: "new_bookmark")
         .setText(text: "Some text");
       let request = InsertBookmarkRequest(name: remoteFileName, bookmark: requestBookmark as! BookmarkInsert, folder: remoteDataFolder);
@@ -175,8 +175,8 @@ class BookmarkTests: BaseTestContext {
         .setNodeId(nodeId: "0.0.0.0")
         .setOffset(offset: 0);
       let requestBookmark = BookmarkInsert()
-        .setEndRange(endRange: requestBookmarkEndRange)
         .setStartRange(startRange: requestBookmarkStartRange)
+        .setEndRange(endRange: requestBookmarkEndRange)
         .setName(name: "new_bookmark")
         .setText(text: "Some text");
       let request = InsertBookmarkOnlineRequest(document: requestDocument, bookmark: requestBookmark as! BookmarkInsert);

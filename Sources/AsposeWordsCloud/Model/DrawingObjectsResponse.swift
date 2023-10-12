@@ -28,9 +28,10 @@
 import Foundation
 
 // The REST response with a collection of DrawingObjects.
+// This response should be returned by the service when handling: GET /drawingObjects.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DrawingObjectsResponse : WordsResponse {
-    // Field of drawingObjects. The REST response with a collection of DrawingObjects.
+    // Field of drawingObjects. The REST response with a collection of DrawingObjects. This response should be returned by the service when handling: GET /drawingObjects.
     private var _drawingObjects : DrawingObjectCollection? = nil;
 
     public var drawingObjects : DrawingObjectCollection? {

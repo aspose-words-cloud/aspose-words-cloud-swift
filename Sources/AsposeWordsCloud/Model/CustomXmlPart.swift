@@ -91,25 +91,25 @@ public class CustomXmlPart : CustomXmlPartLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets id. Gets or sets the custom xml part id.
+    // Sets id. Gets or sets the custom xml part id. Cannot be null.
     public func setId(id : String?) -> CustomXmlPart {
         self.id = id;
         return self;
     }
 
-    // Gets id. Gets or sets the custom xml part id.
+    // Gets id. Gets or sets the custom xml part id. Cannot be null.
     public func getId() -> String? {
         return self.id;
     }
 
 
-    // Sets data. Gets or sets the custom xml part data.
+    // Sets data. Gets or sets the custom xml part data. Cannot be null.Default is empty string.
     public func setData(data : String?) -> CustomXmlPart {
         self.data = data;
         return self;
     }
 
-    // Gets data. Gets or sets the custom xml part data.
+    // Gets data. Gets or sets the custom xml part data. Cannot be null.Default is empty string.
     public func getData() -> String? {
         return self.data;
     }

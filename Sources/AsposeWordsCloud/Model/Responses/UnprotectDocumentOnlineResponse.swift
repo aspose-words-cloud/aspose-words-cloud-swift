@@ -45,7 +45,7 @@ public class UnprotectDocumentOnlineResponse {
         self.document = document;
     }
 
-    // The response model.
+    // The REST response with data on document's protection.
     public func getModel() -> ProtectionDataResponse? {
         return self.model;
     }

@@ -45,7 +45,7 @@ public class InsertPageNumbersOnlineResponse {
         self.document = document;
     }
 
-    // The response model.
+    // The REST response with a document description.
     public func getModel() -> DocumentResponse? {
         return self.model;
     }

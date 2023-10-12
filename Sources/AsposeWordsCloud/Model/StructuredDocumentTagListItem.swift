@@ -87,25 +87,25 @@ public class StructuredDocumentTagListItem : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets displayText. Gets or sets the text to display in the run content in place of the Aspose.Words.Markup.SdtListItem.Value attribute contents for this list item.
+    // Sets displayText. Gets or sets the text to display in the run content in place of the Aspose.Words.Markup.SdtListItem.Value attribute contents for this list item. Cannot be null and cannot be an empty string.
     public func setDisplayText(displayText : String?) -> StructuredDocumentTagListItem {
         self.displayText = displayText;
         return self;
     }
 
-    // Gets displayText. Gets or sets the text to display in the run content in place of the Aspose.Words.Markup.SdtListItem.Value attribute contents for this list item.
+    // Gets displayText. Gets or sets the text to display in the run content in place of the Aspose.Words.Markup.SdtListItem.Value attribute contents for this list item. Cannot be null and cannot be an empty string.
     public func getDisplayText() -> String? {
         return self.displayText;
     }
 
 
-    // Sets value. Gets or sets the value of this list item.
+    // Sets value. Gets or sets the value of this list item. Cannot be null and cannot be an empty string.
     public func setValue(value : String?) -> StructuredDocumentTagListItem {
         self.value = value;
         return self;
     }
 
-    // Gets value. Gets or sets the value of this list item.
+    // Gets value. Gets or sets the value of this list item. Cannot be null and cannot be an empty string.
     public func getValue() -> String? {
         return self.value;
     }

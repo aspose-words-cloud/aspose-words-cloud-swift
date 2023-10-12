@@ -31,6 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableProperties : LinkElement {
     // Gets or sets the option that controls how an inline table is aligned in the document.
+    // The default value is Left.
     public enum Alignment : String, Codable
     {
         // Enum value "_left"
@@ -1517,37 +1518,37 @@ public class TableProperties : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets alignment. Gets or sets the option that controls how an inline table is aligned in the document.
+    // Sets alignment. Gets or sets the option that controls how an inline table is aligned in the document. The default value is Left.
     public func setAlignment(alignment : Alignment?) -> TableProperties {
         self.alignment = alignment;
         return self;
     }
 
-    // Gets alignment. Gets or sets the option that controls how an inline table is aligned in the document.
+    // Gets alignment. Gets or sets the option that controls how an inline table is aligned in the document. The default value is Left.
     public func getAlignment() -> Alignment? {
         return self.alignment;
     }
 
 
-    // Sets allowAutoFit. Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.
+    // Sets allowAutoFit. Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents. The default value is true.
     public func setAllowAutoFit(allowAutoFit : Bool?) -> TableProperties {
         self.allowAutoFit = allowAutoFit;
         return self;
     }
 
-    // Gets allowAutoFit. Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.
+    // Gets allowAutoFit. Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents. The default value is true.
     public func getAllowAutoFit() -> Bool? {
         return self.allowAutoFit;
     }
 
 
-    // Sets bidi. Gets or sets a value indicating whether this is a right-to-left table.
+    // Sets bidi. Gets or sets a value indicating whether this is a right-to-left table. When true, the cells in this row are laid out right to left.The default value is false.
     public func setBidi(bidi : Bool?) -> TableProperties {
         self.bidi = bidi;
         return self;
     }
 
-    // Gets bidi. Gets or sets a value indicating whether this is a right-to-left table.
+    // Gets bidi. Gets or sets a value indicating whether this is a right-to-left table. When true, the cells in this row are laid out right to left.The default value is false.
     public func getBidi() -> Bool? {
         return self.bidi;
     }

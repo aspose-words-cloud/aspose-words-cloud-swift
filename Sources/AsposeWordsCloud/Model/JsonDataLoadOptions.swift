@@ -28,6 +28,7 @@
 import Foundation
 
 // Represents options for parsing JSON data.
+// An instance of this class can be passed into constructors of Aspose.Words.Reporting.JsonDataSource.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class JsonDataLoadOptions : Codable, WordsApiModel {
     // Gets or sets a mode for parsing JSON simple values (null, boolean, number, integer,
@@ -42,7 +43,7 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
         case strict = "Strict"
     }
 
-    // Field of alwaysGenerateRootObject. Represents options for parsing JSON data.
+    // Field of alwaysGenerateRootObject. Represents options for parsing JSON data. An instance of this class can be passed into constructors of Aspose.Words.Reporting.JsonDataSource.
     private var _alwaysGenerateRootObject : Bool? = nil;
 
     public var alwaysGenerateRootObject : Bool? {
@@ -54,7 +55,7 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
         }
     }
 
-    // Field of exactDateTimeParseFormats. Represents options for parsing JSON data.
+    // Field of exactDateTimeParseFormats. Represents options for parsing JSON data. An instance of this class can be passed into constructors of Aspose.Words.Reporting.JsonDataSource.
     private var _exactDateTimeParseFormats : [String]? = nil;
 
     public var exactDateTimeParseFormats : [String]? {
@@ -66,7 +67,7 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
         }
     }
 
-    // Field of simpleValueParseMode. Represents options for parsing JSON data.
+    // Field of simpleValueParseMode. Represents options for parsing JSON data. An instance of this class can be passed into constructors of Aspose.Words.Reporting.JsonDataSource.
     private var _simpleValueParseMode : SimpleValueParseMode? = nil;
 
     public var simpleValueParseMode : SimpleValueParseMode? {
@@ -130,25 +131,25 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets alwaysGenerateRootObject. Gets or sets a value indicating whether a generated data source will always contain an object for a JSON root element. If a JSON root element contains a single complex property, such an object is not created by default.
+    // Sets alwaysGenerateRootObject. Gets or sets a value indicating whether a generated data source will always contain an object for a JSON root element. If a JSON root element contains a single complex property, such an object is not created by default. The default value is false.
     public func setAlwaysGenerateRootObject(alwaysGenerateRootObject : Bool?) -> JsonDataLoadOptions {
         self.alwaysGenerateRootObject = alwaysGenerateRootObject;
         return self;
     }
 
-    // Gets alwaysGenerateRootObject. Gets or sets a value indicating whether a generated data source will always contain an object for a JSON root element. If a JSON root element contains a single complex property, such an object is not created by default.
+    // Gets alwaysGenerateRootObject. Gets or sets a value indicating whether a generated data source will always contain an object for a JSON root element. If a JSON root element contains a single complex property, such an object is not created by default. The default value is false.
     public func getAlwaysGenerateRootObject() -> Bool? {
         return self.alwaysGenerateRootObject;
     }
 
 
-    // Sets exactDateTimeParseFormats. Gets or sets exact formats for parsing JSON date-time values while loading JSON. The default is null.
+    // Sets exactDateTimeParseFormats. Gets or sets exact formats for parsing JSON date-time values while loading JSON. The default is null. Strings encoded using Microsoft® JSON date-time format (for example, "/Date(1224043200000)/") are always recognized as date-time values regardless of a value of this property. The property defines additional formats to be used while parsing date-time values from strings in the following way: • When Aspose.Words.Reporting.JsonDataLoadOptions.ExactDateTimeParseFormats is null, the ISO-8601 format and all date-time formats supported for the current, English USA, and English New Zealand cultures are used additionally in the mentioned order. • When Aspose.Words.Reporting.JsonDataLoadOptions.ExactDateTimeParseFormats contains strings, they are used as additional date-time formats utilizing the current culture. • When Aspose.Words.Reporting.JsonDataLoadOptions.ExactDateTimeParseFormats is empty, no additional date-time formats are used.
     public func setExactDateTimeParseFormats(exactDateTimeParseFormats : [String]?) -> JsonDataLoadOptions {
         self.exactDateTimeParseFormats = exactDateTimeParseFormats;
         return self;
     }
 
-    // Gets exactDateTimeParseFormats. Gets or sets exact formats for parsing JSON date-time values while loading JSON. The default is null.
+    // Gets exactDateTimeParseFormats. Gets or sets exact formats for parsing JSON date-time values while loading JSON. The default is null. Strings encoded using Microsoft® JSON date-time format (for example, "/Date(1224043200000)/") are always recognized as date-time values regardless of a value of this property. The property defines additional formats to be used while parsing date-time values from strings in the following way: • When Aspose.Words.Reporting.JsonDataLoadOptions.ExactDateTimeParseFormats is null, the ISO-8601 format and all date-time formats supported for the current, English USA, and English New Zealand cultures are used additionally in the mentioned order. • When Aspose.Words.Reporting.JsonDataLoadOptions.ExactDateTimeParseFormats contains strings, they are used as additional date-time formats utilizing the current culture. • When Aspose.Words.Reporting.JsonDataLoadOptions.ExactDateTimeParseFormats is empty, no additional date-time formats are used.
     public func getExactDateTimeParseFormats() -> [String]? {
         return self.exactDateTimeParseFormats;
     }

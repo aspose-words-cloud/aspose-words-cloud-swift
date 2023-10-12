@@ -31,6 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SaveOptionsData : Codable, WordsApiModel {
     // Gets or sets the value determining how 3D effects are rendered.
+    // The default value is Aspose.Words.Saving.Dml3DEffectsRenderingMode.Basic.
     public enum Dml3DEffectsRenderingMode : String, Codable
     {
         // Enum value "basic"
@@ -42,6 +43,8 @@ public class SaveOptionsData : Codable, WordsApiModel {
 
     // Gets or sets the value determining how DrawingML effects are rendered.
     // { Simplified | None | Fine }.
+    // The default value is Simplified.
+    // This property is used when the document is exported to fixed page formats.
     public enum DmlEffectsRenderingMode : String, Codable
     {
         // Enum value "simplified"
@@ -55,6 +58,8 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Gets or sets the option that controls how DrawingML shapes are rendered.
+    // { Fallback | DrawingML }. The default value is Fallback.
+    // This property is used when the document is exported to fixed page formats.
     public enum DmlRenderingMode : String, Codable
     {
         // Enum value "fallback"
@@ -65,6 +70,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Gets or sets the value determining how ink (InkML) objects are rendered.
+    // The default value is Aspose.Words.Saving.ImlRenderingMode.InkML.
     public enum ImlRenderingMode : String, Codable
     {
         // Enum value "fallback"
@@ -341,13 +347,13 @@ public class SaveOptionsData : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets allowEmbeddingPostScriptFonts. Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
+    // Sets allowEmbeddingPostScriptFonts. Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false.. Note, Word does not embed PostScript fonts, but can open documents with embedded fonts of this type. This option only works when Aspose.Words.Fonts.FontInfoCollection.EmbedTrueTypeFonts of the Aspose.Words.DocumentBase.FontInfos property is set to true. The default value is false.
     public func setAllowEmbeddingPostScriptFonts(allowEmbeddingPostScriptFonts : Bool?) -> SaveOptionsData {
         self.allowEmbeddingPostScriptFonts = allowEmbeddingPostScriptFonts;
         return self;
     }
 
-    // Gets allowEmbeddingPostScriptFonts. Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
+    // Gets allowEmbeddingPostScriptFonts. Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false.. Note, Word does not embed PostScript fonts, but can open documents with embedded fonts of this type. This option only works when Aspose.Words.Fonts.FontInfoCollection.EmbedTrueTypeFonts of the Aspose.Words.DocumentBase.FontInfos property is set to true. The default value is false.
     public func getAllowEmbeddingPostScriptFonts() -> Bool? {
         return self.allowEmbeddingPostScriptFonts;
     }
@@ -365,37 +371,37 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
 
-    // Sets dml3DEffectsRenderingMode. Gets or sets the value determining how 3D effects are rendered.
+    // Sets dml3DEffectsRenderingMode. Gets or sets the value determining how 3D effects are rendered. The default value is Aspose.Words.Saving.Dml3DEffectsRenderingMode.Basic.
     public func setDml3DEffectsRenderingMode(dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?) -> SaveOptionsData {
         self.dml3DEffectsRenderingMode = dml3DEffectsRenderingMode;
         return self;
     }
 
-    // Gets dml3DEffectsRenderingMode. Gets or sets the value determining how 3D effects are rendered.
+    // Gets dml3DEffectsRenderingMode. Gets or sets the value determining how 3D effects are rendered. The default value is Aspose.Words.Saving.Dml3DEffectsRenderingMode.Basic.
     public func getDml3DEffectsRenderingMode() -> Dml3DEffectsRenderingMode? {
         return self.dml3DEffectsRenderingMode;
     }
 
 
-    // Sets dmlEffectsRenderingMode. Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
+    // Sets dmlEffectsRenderingMode. Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }. The default value is Simplified. This property is used when the document is exported to fixed page formats.
     public func setDmlEffectsRenderingMode(dmlEffectsRenderingMode : DmlEffectsRenderingMode?) -> SaveOptionsData {
         self.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
         return self;
     }
 
-    // Gets dmlEffectsRenderingMode. Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
+    // Gets dmlEffectsRenderingMode. Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }. The default value is Simplified. This property is used when the document is exported to fixed page formats.
     public func getDmlEffectsRenderingMode() -> DmlEffectsRenderingMode? {
         return self.dmlEffectsRenderingMode;
     }
 
 
-    // Sets dmlRenderingMode. Gets or sets the option that controls how DrawingML shapes are rendered.
+    // Sets dmlRenderingMode. Gets or sets the option that controls how DrawingML shapes are rendered. { Fallback | DrawingML }. The default value is Fallback. This property is used when the document is exported to fixed page formats.
     public func setDmlRenderingMode(dmlRenderingMode : DmlRenderingMode?) -> SaveOptionsData {
         self.dmlRenderingMode = dmlRenderingMode;
         return self;
     }
 
-    // Gets dmlRenderingMode. Gets or sets the option that controls how DrawingML shapes are rendered.
+    // Gets dmlRenderingMode. Gets or sets the option that controls how DrawingML shapes are rendered. { Fallback | DrawingML }. The default value is Fallback. This property is used when the document is exported to fixed page formats.
     public func getDmlRenderingMode() -> DmlRenderingMode? {
         return self.dmlRenderingMode;
     }
@@ -413,13 +419,13 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
 
-    // Sets imlRenderingMode. Gets or sets the value determining how ink (InkML) objects are rendered.
+    // Sets imlRenderingMode. Gets or sets the value determining how ink (InkML) objects are rendered. The default value is Aspose.Words.Saving.ImlRenderingMode.InkML.
     public func setImlRenderingMode(imlRenderingMode : ImlRenderingMode?) -> SaveOptionsData {
         self.imlRenderingMode = imlRenderingMode;
         return self;
     }
 
-    // Gets imlRenderingMode. Gets or sets the value determining how ink (InkML) objects are rendered.
+    // Gets imlRenderingMode. Gets or sets the value determining how ink (InkML) objects are rendered. The default value is Aspose.Words.Saving.ImlRenderingMode.InkML.
     public func getImlRenderingMode() -> ImlRenderingMode? {
         return self.imlRenderingMode;
     }
@@ -461,25 +467,25 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
 
-    // Sets updateLastSavedTimeProperty. Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
+    // Sets updateLastSavedTimeProperty. Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving. The default value is false.
     public func setUpdateLastSavedTimeProperty(updateLastSavedTimeProperty : Bool?) -> SaveOptionsData {
         self.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
         return self;
     }
 
-    // Gets updateLastSavedTimeProperty. Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
+    // Gets updateLastSavedTimeProperty. Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving. The default value is false.
     public func getUpdateLastSavedTimeProperty() -> Bool? {
         return self.updateLastSavedTimeProperty;
     }
 
 
-    // Sets zipOutput. Gets or sets a value indicating whether to zip output or not. The default value is false.
+    // Sets zipOutput. Gets or sets a value indicating whether to zip output or not. The default value is false. When set to true, output files will be zipped.
     public func setZipOutput(zipOutput : Bool?) -> SaveOptionsData {
         self.zipOutput = zipOutput;
         return self;
     }
 
-    // Gets zipOutput. Gets or sets a value indicating whether to zip output or not. The default value is false.
+    // Gets zipOutput. Gets or sets a value indicating whether to zip output or not. The default value is false. When set to true, output files will be zipped.
     public func getZipOutput() -> Bool? {
         return self.zipOutput;
     }

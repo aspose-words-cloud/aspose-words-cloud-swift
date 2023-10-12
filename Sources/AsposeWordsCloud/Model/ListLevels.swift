@@ -83,13 +83,13 @@ public class ListLevels : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets listLevel. Gets or sets the collection of list levels for this list.
+    // Sets listLevel. Gets or sets the collection of list levels for this list. Use this property to access and modify formatting individual to each level of the list.
     public func setListLevel(listLevel : [ListLevel]?) -> ListLevels {
         self.listLevel = listLevel;
         return self;
     }
 
-    // Gets listLevel. Gets or sets the collection of list levels for this list.
+    // Gets listLevel. Gets or sets the collection of list levels for this list. Use this property to access and modify formatting individual to each level of the list.
     public func getListLevel() -> [ListLevel]? {
         return self.listLevel;
     }

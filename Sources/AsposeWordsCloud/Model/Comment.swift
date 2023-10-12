@@ -222,25 +222,25 @@ public class Comment : CommentLink {
     }
 
 
-    // Sets author. Gets or sets the author name for a comment.
+    // Sets author. Gets or sets the author name for a comment. Cannot be null.Default is empty string.
     public func setAuthor(author : String?) -> Comment {
         self.author = author;
         return self;
     }
 
-    // Gets author. Gets or sets the author name for a comment.
+    // Gets author. Gets or sets the author name for a comment. Cannot be null.Default is empty string.
     public func getAuthor() -> String? {
         return self.author;
     }
 
 
-    // Sets initial. Gets or sets the initials of the user associated with a specific comment.
+    // Sets initial. Gets or sets the initials of the user associated with a specific comment. Cannot be null.Default is empty string.
     public func setInitial(initial : String?) -> Comment {
         self.initial = initial;
         return self;
     }
 
-    // Gets initial. Gets or sets the initials of the user associated with a specific comment.
+    // Gets initial. Gets or sets the initials of the user associated with a specific comment. Cannot be null.Default is empty string.
     public func getInitial() -> String? {
         return self.initial;
     }
@@ -258,13 +258,13 @@ public class Comment : CommentLink {
     }
 
 
-    // Sets text. Gets or sets text of the comment.
+    // Sets text. Gets or sets text of the comment. This method allows to quickly set text of a comment from a string. The string can contain paragraph breaks, this will create paragraphs of text in the comment accordingly.
     public func setText(text : String?) -> Comment {
         self.text = text;
         return self;
     }
 
-    // Gets text. Gets or sets text of the comment.
+    // Gets text. Gets or sets text of the comment. This method allows to quickly set text of a comment from a string. The string can contain paragraph breaks, this will create paragraphs of text in the comment accordingly.
     public func getText() -> String? {
         return self.text;
     }

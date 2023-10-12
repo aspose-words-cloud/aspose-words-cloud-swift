@@ -28,9 +28,10 @@
 import Foundation
 
 // The REST response with a list format for a paragraph.
+// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/listFormat" REST API requests.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphListFormatResponse : WordsResponse {
-    // Field of listFormat. The REST response with a list format for a paragraph.
+    // Field of listFormat. The REST response with a list format for a paragraph. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/listFormat" REST API requests.
     private var _listFormat : ListFormat? = nil;
 
     public var listFormat : ListFormat? {

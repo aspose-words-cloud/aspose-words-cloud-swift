@@ -126,49 +126,49 @@ public class InternalError : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets code. Code.
+    // Sets code. Gets or sets Code.
     public func setCode(code : String?) -> InternalError {
         self.code = code;
         return self;
     }
 
-    // Gets code. Code.
+    // Gets code. Gets or sets Code.
     public func getCode() -> String? {
         return self.code;
     }
 
 
-    // Sets description. Description.
+    // Sets description. Gets or sets Description.
     public func setDescription(description : String?) -> InternalError {
         self.description = description;
         return self;
     }
 
-    // Gets description. Description.
+    // Gets description. Gets or sets Description.
     public func getDescription() -> String? {
         return self.description;
     }
 
 
-    // Sets innerError. Inner Error.
+    // Sets innerError. Gets or sets InnerError.
     public func setInnerError(innerError : ErrorDetails?) -> InternalError {
         self.innerError = innerError;
         return self;
     }
 
-    // Gets innerError. Inner Error.
+    // Gets innerError. Gets or sets InnerError.
     public func getInnerError() -> ErrorDetails? {
         return self.innerError;
     }
 
 
-    // Sets message. Message.
+    // Sets message. Gets or sets Message.
     public func setMessage(message : String?) -> InternalError {
         self.message = message;
         return self;
     }
 
-    // Gets message. Message.
+    // Gets message. Gets or sets Message.
     public func getMessage() -> String? {
         return self.message;
     }

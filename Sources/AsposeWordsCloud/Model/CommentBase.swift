@@ -66,18 +66,6 @@ public class CommentBase : Codable, WordsApiModel {
         }
     }
 
-    // Field of dateTime. Comment.
-    private var _dateTime : Date? = nil;
-
-    public var dateTime : Date? {
-        get {
-            return self._dateTime;
-        }
-        set {
-            self._dateTime = newValue;
-        }
-    }
-
     // Field of initial. Comment.
     private var _initial : String? = nil;
 
@@ -87,6 +75,18 @@ public class CommentBase : Codable, WordsApiModel {
         }
         set {
             self._initial = newValue;
+        }
+    }
+
+    // Field of dateTime. Comment.
+    private var _dateTime : Date? = nil;
+
+    public var dateTime : Date? {
+        get {
+            return self._dateTime;
+        }
+        set {
+            self._dateTime = newValue;
         }
     }
 
@@ -106,8 +106,8 @@ public class CommentBase : Codable, WordsApiModel {
         case rangeStart = "RangeStart";
         case rangeEnd = "RangeEnd";
         case author = "Author";
-        case dateTime = "DateTime";
         case initial = "Initial";
+        case dateTime = "DateTime";
         case text = "Text";
         case invalidCodingKey;
     }
@@ -125,11 +125,11 @@ public class CommentBase : Codable, WordsApiModel {
         }
 
         self.author = json["Author"] as? String;
+        self.initial = json["Initial"] as? String;
         if let raw_dateTime = json["DateTime"] as? String {
             self.dateTime = ObjectSerializer.customIso8601.date(from: raw_dateTime);
         }
 
-        self.initial = json["Initial"] as? String;
         self.text = json["Text"] as? String;
     }
 
@@ -138,13 +138,13 @@ public class CommentBase : Codable, WordsApiModel {
         self.rangeStart = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .rangeStart);
         self.rangeEnd = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .rangeEnd);
         self.author = try container.decodeIfPresent(String.self, forKey: .author);
+        self.initial = try container.decodeIfPresent(String.self, forKey: .initial);
         var raw_dateTime = try container.decodeIfPresent(String.self, forKey: .dateTime);
         if (raw_dateTime != nil) {
             raw_dateTime = raw_dateTime!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression);
             self.dateTime = ObjectSerializer.customIso8601.date(from: raw_dateTime!)!;
         }
 
-        self.initial = try container.decodeIfPresent(String.self, forKey: .initial);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
     }
 
@@ -159,11 +159,11 @@ public class CommentBase : Codable, WordsApiModel {
         if (self.author != nil) {
             try container.encode(self.author, forKey: .author);
         }
-        if (self.dateTime != nil) {
-            try container.encode(self.dateTime, forKey: .dateTime);
-        }
         if (self.initial != nil) {
             try container.encode(self.initial, forKey: .initial);
+        }
+        if (self.dateTime != nil) {
+            try container.encode(self.dateTime, forKey: .dateTime);
         }
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
@@ -197,49 +197,49 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
 
-    // Sets author. Gets or sets the author name for a comment.
+    // Sets author. Gets or sets the author name for a comment. Cannot be null.Default is empty string.
     public func setAuthor(author : String?) -> CommentBase {
         self.author = author;
         return self;
     }
 
-    // Gets author. Gets or sets the author name for a comment.
+    // Gets author. Gets or sets the author name for a comment. Cannot be null.Default is empty string.
     public func getAuthor() -> String? {
         return self.author;
     }
 
 
-    // Sets dateTime. Gets or sets the date and time that the comment was made.
-    public func setDateTime(dateTime : Date?) -> CommentBase {
-        self.dateTime = dateTime;
-        return self;
-    }
-
-    // Gets dateTime. Gets or sets the date and time that the comment was made.
-    public func getDateTime() -> Date? {
-        return self.dateTime;
-    }
-
-
-    // Sets initial. Gets or sets the initials of the user associated with a specific comment.
+    // Sets initial. Gets or sets the initials of the user associated with a specific comment. Cannot be null.Default is empty string.
     public func setInitial(initial : String?) -> CommentBase {
         self.initial = initial;
         return self;
     }
 
-    // Gets initial. Gets or sets the initials of the user associated with a specific comment.
+    // Gets initial. Gets or sets the initials of the user associated with a specific comment. Cannot be null.Default is empty string.
     public func getInitial() -> String? {
         return self.initial;
     }
 
 
-    // Sets text. Gets or sets text of the comment.
+    // Sets dateTime. Gets or sets the date and time that the comment was made. Default is MinValue03.01.0001.
+    public func setDateTime(dateTime : Date?) -> CommentBase {
+        self.dateTime = dateTime;
+        return self;
+    }
+
+    // Gets dateTime. Gets or sets the date and time that the comment was made. Default is MinValue03.01.0001.
+    public func getDateTime() -> Date? {
+        return self.dateTime;
+    }
+
+
+    // Sets text. Gets or sets text of the comment. This method allows to quickly set text of a comment from a string. The string can contain paragraph breaks, this will create paragraphs of text in the comment accordingly.
     public func setText(text : String?) -> CommentBase {
         self.text = text;
         return self;
     }
 
-    // Gets text. Gets or sets text of the comment.
+    // Gets text. Gets or sets text of the comment. This method allows to quickly set text of a comment from a string. The string can contain paragraph breaks, this will create paragraphs of text in the comment accordingly.
     public func getText() -> String? {
         return self.text;
     }

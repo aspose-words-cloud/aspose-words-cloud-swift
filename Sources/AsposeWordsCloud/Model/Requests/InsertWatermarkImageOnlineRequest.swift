@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InsertWatermarkImageOnlineRequest : WordsApiRequest {
     private let document : InputStream;
-    private let imageFile : InputStream;
+    private let imageFile : InputStream?;
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
@@ -56,7 +56,7 @@ public class InsertWatermarkImageOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the InsertWatermarkImageOnlineRequest class.
-    public init(document : InputStream, imageFile : InputStream, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, rotationAngle : Double? = nil, image : String? = nil) {
+    public init(document : InputStream, imageFile : InputStream? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, rotationAngle : Double? = nil, image : String? = nil) {
         self.document = document;
         self.imageFile = imageFile;
         self.loadEncoding = loadEncoding;
@@ -75,7 +75,7 @@ public class InsertWatermarkImageOnlineRequest : WordsApiRequest {
     }
 
     // File with image.
-    public func getImageFile() -> InputStream {
+    public func getImageFile() -> InputStream? {
         return self.imageFile;
     }
 
@@ -230,7 +230,9 @@ public class InsertWatermarkImageOnlineRequest : WordsApiRequest {
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
-         formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: self.getImageFile()), contentType: "application/octet-stream"));
+         if (self.getImageFile() != nil) {
+             formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: self.getImageFile()!), contentType: "application/octet-stream"));
+         }
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

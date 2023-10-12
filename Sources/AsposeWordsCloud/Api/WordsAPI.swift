@@ -759,6 +759,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Async representation of compressDocument method
+    // Compress and resize images inside the document.
     // The default settings allows to reduce the size of the document without any visible degradation of images quality.
     public func compressDocument(request : CompressDocumentRequest, callback : @escaping (_ response : CompressResponse?, _ error : Error?) -> ()) {
         do {
@@ -793,6 +794,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Sync representation of compressDocument method
+    // Compress and resize images inside the document.
     // The default settings allows to reduce the size of the document without any visible degradation of images quality.
     public func compressDocument(request : CompressDocumentRequest) throws -> CompressResponse {
         let semaphore = DispatchSemaphore(value: 0);
@@ -814,6 +816,7 @@ public class WordsAPI : Encryptor {
 
     // Async representation of compressDocumentOnline method
     // Compress and resize images inside the document.
+    // The default settings allows to reduce the size of the document without any visible degradation of images quality.
     public func compressDocumentOnline(request : CompressDocumentOnlineRequest, callback : @escaping (_ response : CompressDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -848,6 +851,7 @@ public class WordsAPI : Encryptor {
 
     // Sync representation of compressDocumentOnline method
     // Compress and resize images inside the document.
+    // The default settings allows to reduce the size of the document without any visible degradation of images quality.
     public func compressDocumentOnline(request : CompressDocumentOnlineRequest) throws -> CompressDocumentOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : CompressDocumentOnlineResponse? = nil;
@@ -1165,6 +1169,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Async representation of createDocument method
+    // Creates a new document in cloud storage in the format, determined by the file extension.
     // Supported all save format extensions.
     public func createDocument(request : CreateDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
@@ -1199,6 +1204,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Sync representation of createDocument method
+    // Creates a new document in cloud storage in the format, determined by the file extension.
     // Supported all save format extensions.
     public func createDocument(request : CreateDocumentRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
@@ -1666,6 +1672,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Async representation of deleteBorder method
+    // Removes a border from the document node.
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBorder(request : DeleteBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
@@ -1700,6 +1707,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Sync representation of deleteBorder method
+    // Removes a border from the document node.
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBorder(request : DeleteBorderRequest) throws -> BorderResponse {
         let semaphore = DispatchSemaphore(value: 0);
@@ -1721,6 +1729,7 @@ public class WordsAPI : Encryptor {
 
     // Async representation of deleteBorderOnline method
     // Removes a border from the document node.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBorderOnline(request : DeleteBorderOnlineRequest, callback : @escaping (_ response : DeleteBorderOnlineResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -1755,6 +1764,7 @@ public class WordsAPI : Encryptor {
 
     // Sync representation of deleteBorderOnline method
     // Removes a border from the document node.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBorderOnline(request : DeleteBorderOnlineRequest) throws -> DeleteBorderOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DeleteBorderOnlineResponse? = nil;
@@ -1774,6 +1784,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Async representation of deleteBorders method
+    // Removes borders from the document node.
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBorders(request : DeleteBordersRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
@@ -1808,6 +1819,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Sync representation of deleteBorders method
+    // Removes borders from the document node.
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBorders(request : DeleteBordersRequest) throws -> BordersResponse {
         let semaphore = DispatchSemaphore(value: 0);
@@ -1829,6 +1841,7 @@ public class WordsAPI : Encryptor {
 
     // Async representation of deleteBordersOnline method
     // Removes borders from the document node.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBordersOnline(request : DeleteBordersOnlineRequest, callback : @escaping (_ response : DeleteBordersOnlineResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -1863,6 +1876,7 @@ public class WordsAPI : Encryptor {
 
     // Sync representation of deleteBordersOnline method
     // Removes borders from the document node.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBordersOnline(request : DeleteBordersOnlineRequest) throws -> DeleteBordersOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DeleteBordersOnlineResponse? = nil;
@@ -4715,6 +4729,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Async representation of getBorder method
+    // Reads a border from the document node.
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func getBorder(request : GetBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
@@ -4749,6 +4764,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Sync representation of getBorder method
+    // Reads a border from the document node.
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func getBorder(request : GetBorderRequest) throws -> BorderResponse {
         let semaphore = DispatchSemaphore(value: 0);
@@ -4770,6 +4786,7 @@ public class WordsAPI : Encryptor {
 
     // Async representation of getBorderOnline method
     // Reads a border from the document node.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func getBorderOnline(request : GetBorderOnlineRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -4804,6 +4821,7 @@ public class WordsAPI : Encryptor {
 
     // Sync representation of getBorderOnline method
     // Reads a border from the document node.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func getBorderOnline(request : GetBorderOnlineRequest) throws -> BorderResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : BorderResponse? = nil;
@@ -14519,7 +14537,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Async representation of saveAsOnline method
-    // Converts a document to the specified format.
+    // Converts a document in cloud storage to the specified format.
     public func saveAsOnline(request : SaveAsOnlineRequest, callback : @escaping (_ response : SaveAsOnlineResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -14553,7 +14571,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Sync representation of saveAsOnline method
-    // Converts a document to the specified format.
+    // Converts a document in cloud storage to the specified format.
     public func saveAsOnline(request : SaveAsOnlineRequest) throws -> SaveAsOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SaveAsOnlineResponse? = nil;
@@ -14682,6 +14700,7 @@ public class WordsAPI : Encryptor {
 
     // Async representation of saveAsTiff method
     // Converts a document in cloud storage to TIFF format using detailed conversion settings.
+    @available(*, deprecated, message: "This operation will be removed in the future.")
     public func saveAsTiff(request : SaveAsTiffRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -14735,7 +14754,8 @@ public class WordsAPI : Encryptor {
     }
 
     // Async representation of saveAsTiffOnline method
-    // Converts a document to TIFF format using detailed conversion settings.
+    // Converts a document in cloud storage to TIFF format using detailed conversion settings.
+    @available(*, deprecated, message: "This operation will be removed in the future.")
     public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest, callback : @escaping (_ response : SaveAsTiffOnlineResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -14769,7 +14789,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Sync representation of saveAsTiffOnline method
-    // Converts a document to TIFF format using detailed conversion settings.
+    // Converts a document in cloud storage to TIFF format using detailed conversion settings.
     public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest) throws -> SaveAsTiffOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SaveAsTiffOnlineResponse? = nil;
@@ -15221,6 +15241,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Async representation of updateBorder method
+    // Updates a border in the document node.
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func updateBorder(request : UpdateBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
@@ -15255,6 +15276,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Sync representation of updateBorder method
+    // Updates a border in the document node.
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func updateBorder(request : UpdateBorderRequest) throws -> BorderResponse {
         let semaphore = DispatchSemaphore(value: 0);
@@ -15276,6 +15298,7 @@ public class WordsAPI : Encryptor {
 
     // Async representation of updateBorderOnline method
     // Updates a border in the document node.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func updateBorderOnline(request : UpdateBorderOnlineRequest, callback : @escaping (_ response : UpdateBorderOnlineResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -15310,6 +15333,7 @@ public class WordsAPI : Encryptor {
 
     // Sync representation of updateBorderOnline method
     // Updates a border in the document node.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func updateBorderOnline(request : UpdateBorderOnlineRequest) throws -> UpdateBorderOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : UpdateBorderOnlineResponse? = nil;

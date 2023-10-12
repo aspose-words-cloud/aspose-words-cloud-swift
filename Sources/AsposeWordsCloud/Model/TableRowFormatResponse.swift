@@ -28,9 +28,10 @@
 import Foundation
 
 // The REST response with the formatting properties of a table row.
+// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat" REST API requests.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableRowFormatResponse : WordsResponse {
-    // Field of rowFormat. The REST response with the formatting properties of a table row.
+    // Field of rowFormat. The REST response with the formatting properties of a table row. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat" REST API requests.
     private var _rowFormat : TableRowFormat? = nil;
 
     public var rowFormat : TableRowFormat? {

@@ -30,6 +30,18 @@ import Foundation
 // Represents a single document style properties to update.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StyleUpdate : Codable, WordsApiModel {
+    // Field of nextParagraphStyleName. Represents a single document style properties to update.
+    private var _nextParagraphStyleName : String? = nil;
+
+    public var nextParagraphStyleName : String? {
+        get {
+            return self._nextParagraphStyleName;
+        }
+        set {
+            self._nextParagraphStyleName = newValue;
+        }
+    }
+
     // Field of baseStyleName. Represents a single document style properties to update.
     private var _baseStyleName : String? = nil;
 
@@ -66,23 +78,11 @@ public class StyleUpdate : Codable, WordsApiModel {
         }
     }
 
-    // Field of nextParagraphStyleName. Represents a single document style properties to update.
-    private var _nextParagraphStyleName : String? = nil;
-
-    public var nextParagraphStyleName : String? {
-        get {
-            return self._nextParagraphStyleName;
-        }
-        set {
-            self._nextParagraphStyleName = newValue;
-        }
-    }
-
     private enum CodingKeys: String, CodingKey {
+        case nextParagraphStyleName = "NextParagraphStyleName";
         case baseStyleName = "BaseStyleName";
         case isQuickStyle = "IsQuickStyle";
         case name = "Name";
-        case nextParagraphStyleName = "NextParagraphStyleName";
         case invalidCodingKey;
     }
 
@@ -90,22 +90,25 @@ public class StyleUpdate : Codable, WordsApiModel {
     }
 
     public required init(from json: [String: Any]) throws {
+        self.nextParagraphStyleName = json["NextParagraphStyleName"] as? String;
         self.baseStyleName = json["BaseStyleName"] as? String;
         self.isQuickStyle = json["IsQuickStyle"] as? Bool;
         self.name = json["Name"] as? String;
-        self.nextParagraphStyleName = json["NextParagraphStyleName"] as? String;
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.nextParagraphStyleName = try container.decodeIfPresent(String.self, forKey: .nextParagraphStyleName);
         self.baseStyleName = try container.decodeIfPresent(String.self, forKey: .baseStyleName);
         self.isQuickStyle = try container.decodeIfPresent(Bool.self, forKey: .isQuickStyle);
         self.name = try container.decodeIfPresent(String.self, forKey: .name);
-        self.nextParagraphStyleName = try container.decodeIfPresent(String.self, forKey: .nextParagraphStyleName);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.nextParagraphStyleName != nil) {
+            try container.encode(self.nextParagraphStyleName, forKey: .nextParagraphStyleName);
+        }
         if (self.baseStyleName != nil) {
             try container.encode(self.baseStyleName, forKey: .baseStyleName);
         }
@@ -115,21 +118,30 @@ public class StyleUpdate : Codable, WordsApiModel {
         if (self.name != nil) {
             try container.encode(self.name, forKey: .name);
         }
-        if (self.nextParagraphStyleName != nil) {
-            try container.encode(self.nextParagraphStyleName, forKey: .nextParagraphStyleName);
-        }
     }
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets baseStyleName. Gets or sets the name of the style this style is based on.
+    // Sets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style. This property is not used by Aspose.Words. The next paragraph style will only be applied automatically when you edit the document in MS Word.
+    public func setNextParagraphStyleName(nextParagraphStyleName : String?) -> StyleUpdate {
+        self.nextParagraphStyleName = nextParagraphStyleName;
+        return self;
+    }
+
+    // Gets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style. This property is not used by Aspose.Words. The next paragraph style will only be applied automatically when you edit the document in MS Word.
+    public func getNextParagraphStyleName() -> String? {
+        return self.nextParagraphStyleName;
+    }
+
+
+    // Sets baseStyleName. Gets or sets the name of the style this style is based on. This will be an empty string if the style is not based on any other style and it can be set to an empty string.
     public func setBaseStyleName(baseStyleName : String?) -> StyleUpdate {
         self.baseStyleName = baseStyleName;
         return self;
     }
 
-    // Gets baseStyleName. Gets or sets the name of the style this style is based on.
+    // Gets baseStyleName. Gets or sets the name of the style this style is based on. This will be an empty string if the style is not based on any other style and it can be set to an empty string.
     public func getBaseStyleName() -> String? {
         return self.baseStyleName;
     }
@@ -147,26 +159,14 @@ public class StyleUpdate : Codable, WordsApiModel {
     }
 
 
-    // Sets name. Gets or sets the name of the style.
+    // Sets name. Gets or sets the name of the style. Can not be empty string. If there already is a style with such name in the collection, than this style will override it. All affected nodes will reference new style.
     public func setName(name : String?) -> StyleUpdate {
         self.name = name;
         return self;
     }
 
-    // Gets name. Gets or sets the name of the style.
+    // Gets name. Gets or sets the name of the style. Can not be empty string. If there already is a style with such name in the collection, than this style will override it. All affected nodes will reference new style.
     public func getName() -> String? {
         return self.name;
-    }
-
-
-    // Sets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
-    public func setNextParagraphStyleName(nextParagraphStyleName : String?) -> StyleUpdate {
-        self.nextParagraphStyleName = nextParagraphStyleName;
-        return self;
-    }
-
-    // Gets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
-    public func getNextParagraphStyleName() -> String? {
-        return self.nextParagraphStyleName;
     }
 }

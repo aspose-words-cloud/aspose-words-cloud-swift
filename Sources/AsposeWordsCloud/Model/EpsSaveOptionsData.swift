@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="TableRowFormatDto.swift">
+ * <copyright company="Aspose" file="EpsSaveOptionsData.swift">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,25 +27,39 @@
 
 import Foundation
 
+// Container class for eps save options.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class TableRowFormatDto : Codable, WordsApiModel {
+public class EpsSaveOptionsData : ImageSaveOptionsData {
+    // Field of saveFormat. Container class for eps save options.
+    private final let _saveFormat : String? = "eps";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
     }
 
-    public init() {
+    public override init() {
+        super.init();
     }
 
     public required init(from json: [String: Any]) throws {
+        try super.init(from: json);
     }
 
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
     }
 
-    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
 }

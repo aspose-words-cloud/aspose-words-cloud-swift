@@ -28,9 +28,10 @@
 import Foundation
 
 // The REST response with a table.
+// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/properties" REST API requests.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TablePropertiesResponse : WordsResponse {
-    // Field of properties. The REST response with a table.
+    // Field of properties. The REST response with a table. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/properties" REST API requests.
     private var _properties : TableProperties? = nil;
 
     public var properties : TableProperties? {

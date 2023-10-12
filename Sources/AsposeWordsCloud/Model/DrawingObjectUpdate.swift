@@ -117,15 +117,15 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
         case through = "Through"
     }
 
-    // Field of height. Drawing object element for update.
-    private var _height : Double? = nil;
+    // Field of relativeHorizontalPosition. Drawing object element for update.
+    private var _relativeHorizontalPosition : RelativeHorizontalPosition? = nil;
 
-    public var height : Double? {
+    public var relativeHorizontalPosition : RelativeHorizontalPosition? {
         get {
-            return self._height;
+            return self._relativeHorizontalPosition;
         }
         set {
-            self._height = newValue;
+            self._relativeHorizontalPosition = newValue;
         }
     }
 
@@ -138,18 +138,6 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
         }
         set {
             self.__left = newValue;
-        }
-    }
-
-    // Field of relativeHorizontalPosition. Drawing object element for update.
-    private var _relativeHorizontalPosition : RelativeHorizontalPosition? = nil;
-
-    public var relativeHorizontalPosition : RelativeHorizontalPosition? {
-        get {
-            return self._relativeHorizontalPosition;
-        }
-        set {
-            self._relativeHorizontalPosition = newValue;
         }
     }
 
@@ -189,6 +177,18 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
         }
     }
 
+    // Field of height. Drawing object element for update.
+    private var _height : Double? = nil;
+
+    public var height : Double? {
+        get {
+            return self._height;
+        }
+        set {
+            self._height = newValue;
+        }
+    }
+
     // Field of wrapType. Drawing object element for update.
     private var _wrapType : WrapType? = nil;
 
@@ -202,12 +202,12 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case height = "Height";
-        case _left = "Left";
         case relativeHorizontalPosition = "RelativeHorizontalPosition";
+        case _left = "Left";
         case relativeVerticalPosition = "RelativeVerticalPosition";
         case top = "Top";
         case width = "Width";
+        case height = "Height";
         case wrapType = "WrapType";
         case invalidCodingKey;
     }
@@ -216,18 +216,18 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     }
 
     public required init(from json: [String: Any]) throws {
-        self.height = json["Height"] as? Double;
-        self._left = json["Left"] as? Double;
         if let raw_relativeHorizontalPosition = json["RelativeHorizontalPosition"] as? String {
             self.relativeHorizontalPosition = RelativeHorizontalPosition(rawValue: raw_relativeHorizontalPosition);
         }
 
+        self._left = json["Left"] as? Double;
         if let raw_relativeVerticalPosition = json["RelativeVerticalPosition"] as? String {
             self.relativeVerticalPosition = RelativeVerticalPosition(rawValue: raw_relativeVerticalPosition);
         }
 
         self.top = json["Top"] as? Double;
         self.width = json["Width"] as? Double;
+        self.height = json["Height"] as? Double;
         if let raw_wrapType = json["WrapType"] as? String {
             self.wrapType = WrapType(rawValue: raw_wrapType);
         }
@@ -236,25 +236,22 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.height = try container.decodeIfPresent(Double.self, forKey: .height);
-        self._left = try container.decodeIfPresent(Double.self, forKey: ._left);
         self.relativeHorizontalPosition = try container.decodeIfPresent(RelativeHorizontalPosition.self, forKey: .relativeHorizontalPosition);
+        self._left = try container.decodeIfPresent(Double.self, forKey: ._left);
         self.relativeVerticalPosition = try container.decodeIfPresent(RelativeVerticalPosition.self, forKey: .relativeVerticalPosition);
         self.top = try container.decodeIfPresent(Double.self, forKey: .top);
         self.width = try container.decodeIfPresent(Double.self, forKey: .width);
+        self.height = try container.decodeIfPresent(Double.self, forKey: .height);
         self.wrapType = try container.decodeIfPresent(WrapType.self, forKey: .wrapType);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.height != nil) {
-            try container.encode(self.height, forKey: .height);
+        if (self.relativeHorizontalPosition != nil) {
+            try container.encode(self.relativeHorizontalPosition, forKey: .relativeHorizontalPosition);
         }
         if (self._left != nil) {
             try container.encode(self._left, forKey: ._left);
-        }
-        if (self.relativeHorizontalPosition != nil) {
-            try container.encode(self.relativeHorizontalPosition, forKey: .relativeHorizontalPosition);
         }
         if (self.relativeVerticalPosition != nil) {
             try container.encode(self.relativeVerticalPosition, forKey: .relativeVerticalPosition);
@@ -265,6 +262,9 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
         if (self.width != nil) {
             try container.encode(self.width, forKey: .width);
         }
+        if (self.height != nil) {
+            try container.encode(self.height, forKey: .height);
+        }
         if (self.wrapType != nil) {
             try container.encode(self.wrapType, forKey: .wrapType);
         }
@@ -273,15 +273,15 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets height. Gets or sets the height of the DrawingObject in points.
-    public func setHeight(height : Double?) -> DrawingObjectUpdate {
-        self.height = height;
+    // Sets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
+    public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) -> DrawingObjectUpdate {
+        self.relativeHorizontalPosition = relativeHorizontalPosition;
         return self;
     }
 
-    // Gets height. Gets or sets the height of the DrawingObject in points.
-    public func getHeight() -> Double? {
-        return self.height;
+    // Gets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
+    public func getRelativeHorizontalPosition() -> RelativeHorizontalPosition? {
+        return self.relativeHorizontalPosition;
     }
 
 
@@ -294,18 +294,6 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     // Gets _left. Gets or sets the distance in points from the origin to the left side of the image.
     public func getLeft() -> Double? {
         return self._left;
-    }
-
-
-    // Sets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
-    public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) -> DrawingObjectUpdate {
-        self.relativeHorizontalPosition = relativeHorizontalPosition;
-        return self;
-    }
-
-    // Gets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
-    public func getRelativeHorizontalPosition() -> RelativeHorizontalPosition? {
-        return self.relativeHorizontalPosition;
     }
 
 
@@ -342,6 +330,18 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     // Gets width. Gets or sets the width of the DrawingObjects in points.
     public func getWidth() -> Double? {
         return self.width;
+    }
+
+
+    // Sets height. Gets or sets the height of the DrawingObject in points.
+    public func setHeight(height : Double?) -> DrawingObjectUpdate {
+        self.height = height;
+        return self;
+    }
+
+    // Gets height. Gets or sets the height of the DrawingObject in points.
+    public func getHeight() -> Double? {
+        return self.height;
     }
 
 

@@ -28,9 +28,10 @@
 import Foundation
 
 // The REST response with the formatting properties of a table cell.
+// This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat" REST API requests.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableCellFormatResponse : WordsResponse {
-    // Field of cellFormat. The REST response with the formatting properties of a table cell.
+    // Field of cellFormat. The REST response with the formatting properties of a table cell. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat" REST API requests.
     private var _cellFormat : TableCellFormat? = nil;
 
     public var cellFormat : TableCellFormat? {

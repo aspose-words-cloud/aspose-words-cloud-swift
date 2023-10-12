@@ -1809,13 +1809,13 @@ public class ParagraphFormatBase : LinkElement {
     }
 
 
-    // Sets bidi. Gets or sets a value indicating whether this is a right-to-left paragraph.
+    // Sets bidi. Gets or sets a value indicating whether this is a right-to-left paragraph. When true, the runs and other inline objects in this paragraph are laid out right to left.
     public func setBidi(bidi : Bool?) -> ParagraphFormatBase {
         self.bidi = bidi;
         return self;
     }
 
-    // Gets bidi. Gets or sets a value indicating whether this is a right-to-left paragraph.
+    // Gets bidi. Gets or sets a value indicating whether this is a right-to-left paragraph. When true, the runs and other inline objects in this paragraph are laid out right to left.
     public func getBidi() -> Bool? {
         return self.bidi;
     }
@@ -1881,13 +1881,13 @@ public class ParagraphFormatBase : LinkElement {
     }
 
 
-    // Sets lineSpacing. Gets or sets the line spacing (in points) for the paragraph.
+    // Sets lineSpacing. Gets or sets the line spacing (in points) for the paragraph. When LineSpacingRule property is set to AtLeast, the line spacing can be greater than or equal to, but never less than the specified LineSpacing value.When LineSpacingRule property is set to Exactly, the line spacing never changes from the specified LineSpacing value, even if a larger font is used within the paragraph.
     public func setLineSpacing(lineSpacing : Double?) -> ParagraphFormatBase {
         self.lineSpacing = lineSpacing;
         return self;
     }
 
-    // Gets lineSpacing. Gets or sets the line spacing (in points) for the paragraph.
+    // Gets lineSpacing. Gets or sets the line spacing (in points) for the paragraph. When LineSpacingRule property is set to AtLeast, the line spacing can be greater than or equal to, but never less than the specified LineSpacing value.When LineSpacingRule property is set to Exactly, the line spacing never changes from the specified LineSpacing value, even if a larger font is used within the paragraph.
     public func getLineSpacing() -> Double? {
         return self.lineSpacing;
     }
@@ -1917,13 +1917,13 @@ public class ParagraphFormatBase : LinkElement {
     }
 
 
-    // Sets noSpaceBetweenParagraphsOfSameStyle. Gets or sets a value indicating whether SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.
+    // Sets noSpaceBetweenParagraphsOfSameStyle. Gets or sets a value indicating whether SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style. This setting only takes affect when applied to a paragraph style. If applied to a paragraph directly, it has no effect.
     public func setNoSpaceBetweenParagraphsOfSameStyle(noSpaceBetweenParagraphsOfSameStyle : Bool?) -> ParagraphFormatBase {
         self.noSpaceBetweenParagraphsOfSameStyle = noSpaceBetweenParagraphsOfSameStyle;
         return self;
     }
 
-    // Gets noSpaceBetweenParagraphsOfSameStyle. Gets or sets a value indicating whether SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.
+    // Gets noSpaceBetweenParagraphsOfSameStyle. Gets or sets a value indicating whether SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style. This setting only takes affect when applied to a paragraph style. If applied to a paragraph directly, it has no effect.
     public func getNoSpaceBetweenParagraphsOfSameStyle() -> Bool? {
         return self.noSpaceBetweenParagraphsOfSameStyle;
     }
@@ -1965,49 +1965,49 @@ public class ParagraphFormatBase : LinkElement {
     }
 
 
-    // Sets spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph.
+    // Sets spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph. Has no effect when SpaceAfterAuto is true.
     public func setSpaceAfter(spaceAfter : Double?) -> ParagraphFormatBase {
         self.spaceAfter = spaceAfter;
         return self;
     }
 
-    // Gets spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph.
+    // Gets spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph. Has no effect when SpaceAfterAuto is true.
     public func getSpaceAfter() -> Double? {
         return self.spaceAfter;
     }
 
 
-    // Sets spaceAfterAuto. Gets or sets a value indicating whether the amount of spacing after the paragraph is set automatically.
+    // Sets spaceAfterAuto. Gets or sets a value indicating whether the amount of spacing after the paragraph is set automatically. When set to true, overrides the effect of SpaceAfter.
     public func setSpaceAfterAuto(spaceAfterAuto : Bool?) -> ParagraphFormatBase {
         self.spaceAfterAuto = spaceAfterAuto;
         return self;
     }
 
-    // Gets spaceAfterAuto. Gets or sets a value indicating whether the amount of spacing after the paragraph is set automatically.
+    // Gets spaceAfterAuto. Gets or sets a value indicating whether the amount of spacing after the paragraph is set automatically. When set to true, overrides the effect of SpaceAfter.
     public func getSpaceAfterAuto() -> Bool? {
         return self.spaceAfterAuto;
     }
 
 
-    // Sets spaceBefore. Gets or sets the amount of spacing (in points) before the paragraph.
+    // Sets spaceBefore. Gets or sets the amount of spacing (in points) before the paragraph. Has no effect when SpaceBeforeAuto is true.
     public func setSpaceBefore(spaceBefore : Double?) -> ParagraphFormatBase {
         self.spaceBefore = spaceBefore;
         return self;
     }
 
-    // Gets spaceBefore. Gets or sets the amount of spacing (in points) before the paragraph.
+    // Gets spaceBefore. Gets or sets the amount of spacing (in points) before the paragraph. Has no effect when SpaceBeforeAuto is true.
     public func getSpaceBefore() -> Double? {
         return self.spaceBefore;
     }
 
 
-    // Sets spaceBeforeAuto. Gets or sets a value indicating whether the amount of spacing before the paragraph is set automatically.
+    // Sets spaceBeforeAuto. Gets or sets a value indicating whether the amount of spacing before the paragraph is set automatically. When set to true, overrides the effect of SpaceBefore.
     public func setSpaceBeforeAuto(spaceBeforeAuto : Bool?) -> ParagraphFormatBase {
         self.spaceBeforeAuto = spaceBeforeAuto;
         return self;
     }
 
-    // Gets spaceBeforeAuto. Gets or sets a value indicating whether the amount of spacing before the paragraph is set automatically.
+    // Gets spaceBeforeAuto. Gets or sets a value indicating whether the amount of spacing before the paragraph is set automatically. When set to true, overrides the effect of SpaceBefore.
     public func getSpaceBeforeAuto() -> Bool? {
         return self.spaceBeforeAuto;
     }

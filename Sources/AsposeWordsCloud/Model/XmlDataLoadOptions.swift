@@ -29,9 +29,10 @@ import Foundation
 
 // Represents options for XML data loading.
 // To learn more, visit the LINQ Reporting Engine documentation article.
+// An instance of this class can be passed into constructors of XmlDataSource.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XmlDataLoadOptions : Codable, WordsApiModel {
-    // Field of alwaysGenerateRootObject. Represents options for XML data loading. To learn more, visit the LINQ Reporting Engine documentation article.
+    // Field of alwaysGenerateRootObject. Represents options for XML data loading. To learn more, visit the LINQ Reporting Engine documentation article. An instance of this class can be passed into constructors of XmlDataSource.
     private var _alwaysGenerateRootObject : Bool? = nil;
 
     public var alwaysGenerateRootObject : Bool? {
@@ -70,13 +71,13 @@ public class XmlDataLoadOptions : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
-    // Sets alwaysGenerateRootObject. Gets or sets a flag indicating whether a generated data source will always contain an object for an XML root element. If an XML root element has no attributes and all its child elements have same names, such an object is not created by default.
+    // Sets alwaysGenerateRootObject. Gets or sets a flag indicating whether a generated data source will always contain an object for an XML root element. If an XML root element has no attributes and all its child elements have same names, such an object is not created by default. The default value is false.
     public func setAlwaysGenerateRootObject(alwaysGenerateRootObject : Bool?) -> XmlDataLoadOptions {
         self.alwaysGenerateRootObject = alwaysGenerateRootObject;
         return self;
     }
 
-    // Gets alwaysGenerateRootObject. Gets or sets a flag indicating whether a generated data source will always contain an object for an XML root element. If an XML root element has no attributes and all its child elements have same names, such an object is not created by default.
+    // Gets alwaysGenerateRootObject. Gets or sets a flag indicating whether a generated data source will always contain an object for an XML root element. If an XML root element has no attributes and all its child elements have same names, such an object is not created by default. The default value is false.
     public func getAlwaysGenerateRootObject() -> Bool? {
         return self.alwaysGenerateRootObject;
     }

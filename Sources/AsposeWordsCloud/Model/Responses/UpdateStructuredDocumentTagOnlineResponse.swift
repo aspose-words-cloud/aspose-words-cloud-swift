@@ -45,7 +45,7 @@ public class UpdateStructuredDocumentTagOnlineResponse {
         self.document = document;
     }
 
-    // The response model.
+    // The REST response with a StructuredDocumentTag.
     public func getModel() -> StructuredDocumentTagResponse? {
         return self.model;
     }
