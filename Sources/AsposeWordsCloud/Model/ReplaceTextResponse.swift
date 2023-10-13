@@ -94,6 +94,15 @@ public class ReplaceTextResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+        if (self.matches == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "matches");
+        }
+
+    }
+
     // Sets documentLink. Gets or sets the link to the document.
     public func setDocumentLink(documentLink : FileLink?) -> ReplaceTextResponse {
         self.documentLink = documentLink;

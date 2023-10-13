@@ -49,4 +49,7 @@ public class BaseEntryList : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+    }
+
 }

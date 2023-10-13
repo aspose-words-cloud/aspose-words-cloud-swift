@@ -152,6 +152,7 @@ public class SaveAsOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "saveOptionsData", body: try ObjectSerializer.serialize(value: self.getSaveOptionsData()), contentType: "application/json"));
          self.getSaveOptionsData().collectFilesContent(&requestFilesContent);
+         try self.getSaveOptionsData().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

@@ -53,4 +53,8 @@ public class CustomXmlPartInsert : CustomXmlPart {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
 }

@@ -100,6 +100,14 @@ public class OptimizationOptions : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.msWordVersion == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "msWordVersion");
+        }
+
+    }
+
     // Sets msWordVersion. Gets or sets the specific MSWord version.
     public func setMsWordVersion(msWordVersion : MsWordVersion?) -> OptimizationOptions {
         self.msWordVersion = msWordVersion;

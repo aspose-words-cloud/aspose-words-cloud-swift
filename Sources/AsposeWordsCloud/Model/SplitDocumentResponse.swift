@@ -77,6 +77,10 @@ public class SplitDocumentResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets splitResult. Gets or sets the result of document splitting.
     public func setSplitResult(splitResult : SplitDocumentResult?) -> SplitDocumentResponse {
         self.splitResult = splitResult;

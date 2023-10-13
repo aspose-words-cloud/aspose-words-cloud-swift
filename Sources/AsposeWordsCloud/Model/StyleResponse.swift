@@ -77,6 +77,10 @@ public class StyleResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets style. Gets or sets the style, containded in the document.
     public func setStyle(style : Style?) -> StyleResponse {
         self.style = style;

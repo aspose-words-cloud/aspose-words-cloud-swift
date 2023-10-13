@@ -150,6 +150,10 @@ public class OdtSaveOptionsData : SaveOptionsData {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets isStrictSchema11. Gets or sets a value indicating whether export should correspond to ODT specification 1.1 strictly.
     public func setIsStrictSchema11(isStrictSchema11 : Bool?) -> OdtSaveOptionsData {
         self.isStrictSchema11 = isStrictSchema11;

@@ -73,6 +73,10 @@ public class NodeLink : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets nodeId. Gets or sets the node id.
     public func setNodeId(nodeId : String?) -> NodeLink {
         self.nodeId = nodeId;

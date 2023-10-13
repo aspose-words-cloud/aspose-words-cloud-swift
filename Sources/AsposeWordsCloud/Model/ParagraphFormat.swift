@@ -91,6 +91,10 @@ public class ParagraphFormat : ParagraphFormatBase {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets isListItem. Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.
     public func setIsListItem(isListItem : Bool?) -> ParagraphFormat {
         self.isListItem = isListItem;

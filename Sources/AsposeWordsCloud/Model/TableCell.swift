@@ -83,6 +83,10 @@ public class TableCell : NodeLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets childNodes. Gets or sets the list of child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) -> TableCell {
         self.childNodes = childNodes;

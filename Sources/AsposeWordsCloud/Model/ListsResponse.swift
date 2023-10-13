@@ -77,6 +77,10 @@ public class ListsResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets lists. Gets or sets the collection of lists, contained in the document.
     public func setLists(lists : Lists?) -> ListsResponse {
         self.lists = lists;

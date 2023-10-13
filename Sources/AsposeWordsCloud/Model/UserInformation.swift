@@ -105,6 +105,9 @@ public class UserInformation : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+    }
+
     // Sets address. Gets or sets user address.
     public func setAddress(address : String?) -> UserInformation {
         self.address = address;

@@ -143,6 +143,10 @@ public class TableRowFormat : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets height. Gets or sets the height of the table row in points.
     public func setHeight(height : Double?) -> TableRowFormat {
         self.height = height;

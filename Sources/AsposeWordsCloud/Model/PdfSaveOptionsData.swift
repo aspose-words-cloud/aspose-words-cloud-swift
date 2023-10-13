@@ -720,6 +720,10 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets cacheBackgroundGraphics. Gets or sets a value determining whether or not to cache graphics placed in document's background. Default value is true and background graphics are written to the PDF document as an xObject. When the value is false background graphics are not cached. Some shapes are not supported for caching(shapes with fields, bookmarks, HRefs). Document background graphic is various shapes, charts, images placed in the footer or header, well as background and border of a page.
     public func setCacheBackgroundGraphics(cacheBackgroundGraphics : Bool?) -> PdfSaveOptionsData {
         self.cacheBackgroundGraphics = cacheBackgroundGraphics;

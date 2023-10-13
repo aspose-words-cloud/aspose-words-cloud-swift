@@ -101,6 +101,15 @@ public class FormFieldDropDown : FormField {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+        if (self.dropDownItems == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "dropDownItems");
+        }
+
+    }
+
     // Sets dropDownItems. Gets or sets the items array of a dropdown form field. Microsoft Word allows maximum 25 items in a dropdown form field.
     public func setDropDownItems(dropDownItems : [String]?) -> FormFieldDropDown {
         self.dropDownItems = dropDownItems;

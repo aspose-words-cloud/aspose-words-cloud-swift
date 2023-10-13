@@ -73,6 +73,10 @@ public class FieldLink : NodeLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets fieldCode. Gets or sets the field code.
     public func setFieldCode(fieldCode : String?) -> FieldLink {
         self.fieldCode = fieldCode;

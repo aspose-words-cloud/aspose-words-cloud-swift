@@ -77,6 +77,10 @@ public class RunsResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets runs. Gets or sets the collection of Run elements.
     public func setRuns(runs : Runs?) -> RunsResponse {
         self.runs = runs;

@@ -83,6 +83,10 @@ public class ParagraphLinkCollection : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets paragraphLinkList. Gets or sets the collection of paragraph's links.
     public func setParagraphLinkList(paragraphLinkList : [ParagraphLink]?) -> ParagraphLinkCollection {
         self.paragraphLinkList = paragraphLinkList;

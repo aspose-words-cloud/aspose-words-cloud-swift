@@ -139,6 +139,10 @@ public class AvailableFontsResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets additionalFonts. Gets or sets the list of additional fonts, provided by Aspose team.
     public func setAdditionalFonts(additionalFonts : [FontInfo]?) -> AvailableFontsResponse {
         self.additionalFonts = additionalFonts;

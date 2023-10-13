@@ -77,6 +77,16 @@ public class BaseEntry : Codable, WordsApiModel {
 
     }
 
+    public func validate() throws {
+        if (self.fileReference == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "fileReference");
+        }
+
+        try self.fileReference!.validate();
+
+    }
+
     // Sets fileReference. Gets or sets the file reference.
     public func setFileReference(fileReference : FileReference?) -> BaseEntry {
         self.fileReference = fileReference;

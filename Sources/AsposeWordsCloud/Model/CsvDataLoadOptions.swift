@@ -125,6 +125,29 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.commentChar == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "commentChar");
+        }
+
+        if (self.delimiter == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "delimiter");
+        }
+
+        if (self.hasHeaders == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "hasHeaders");
+        }
+
+        if (self.quoteChar == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "quoteChar");
+        }
+
+    }
+
     // Sets commentChar. Gets or sets the character that is used to comment lines of CSV data. The default value is '#' (number sign).
     public func setCommentChar(commentChar : String?) -> CsvDataLoadOptions {
         self.commentChar = commentChar;

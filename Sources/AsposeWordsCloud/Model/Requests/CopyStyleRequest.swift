@@ -232,6 +232,7 @@ public class CopyStyleRequest : WordsApiRequest {
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "styleCopy", body: try ObjectSerializer.serialize(value: self.getStyleCopy()), contentType: "application/json"));
          self.getStyleCopy().collectFilesContent(&requestFilesContent);
+         try self.getStyleCopy().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

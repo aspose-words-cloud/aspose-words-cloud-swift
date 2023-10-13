@@ -77,6 +77,10 @@ public class DocumentPropertyResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets documentProperty. Gets or sets the document property.
     public func setDocumentProperty(documentProperty : DocumentProperty?) -> DocumentPropertyResponse {
         self.documentProperty = documentProperty;

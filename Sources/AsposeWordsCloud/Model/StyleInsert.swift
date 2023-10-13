@@ -106,6 +106,14 @@ public class StyleInsert : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.styleType == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "styleType");
+        }
+
+    }
+
     // Sets styleName. Gets or sets the case sensitive name of the style to create.
     public func setStyleName(styleName : String?) -> StyleInsert {
         self.styleName = styleName;

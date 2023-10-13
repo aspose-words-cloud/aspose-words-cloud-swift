@@ -62,4 +62,8 @@ public class BmpSaveOptionsData : ImageSaveOptionsData {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
 }

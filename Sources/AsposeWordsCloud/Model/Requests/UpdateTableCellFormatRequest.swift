@@ -252,6 +252,7 @@ public class UpdateTableCellFormatRequest : WordsApiRequest {
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "format", body: try ObjectSerializer.serialize(value: self.getFormat()), contentType: "application/json"));
          self.getFormat().collectFilesContent(&requestFilesContent);
+         try self.getFormat().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

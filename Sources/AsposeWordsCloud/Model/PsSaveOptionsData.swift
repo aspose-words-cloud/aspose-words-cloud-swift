@@ -82,6 +82,10 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets useBookFoldPrintingSettings. Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
     public func setUseBookFoldPrintingSettings(useBookFoldPrintingSettings : Bool?) -> PsSaveOptionsData {
         self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;

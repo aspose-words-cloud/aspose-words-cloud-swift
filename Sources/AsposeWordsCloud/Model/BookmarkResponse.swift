@@ -77,6 +77,10 @@ public class BookmarkResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets bookmark. Gets or sets the bookmark.
     public func setBookmark(bookmark : Bookmark?) -> BookmarkResponse {
         self.bookmark = bookmark;

@@ -109,6 +109,21 @@ public class DocumentEntryList : BaseEntryList {
 
     }
 
+    public override func validate() throws {
+        super.validate();
+        if (self.documentEntries == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "documentEntries");
+        }
+
+        for elementDocumentEntries in self.documentEntries! {
+            if (elementDocumentEntries != null) {
+                try elementDocumentEntries!.validate();
+            }
+        }
+
+    }
+
     // Sets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
     public func setApplyBaseDocumentHeadersAndFootersToAppendingDocuments(applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool?) -> DocumentEntryList {
         self.applyBaseDocumentHeadersAndFootersToAppendingDocuments = applyBaseDocumentHeadersAndFootersToAppendingDocuments;

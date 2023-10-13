@@ -83,6 +83,10 @@ public class StructuredDocumentTagCollection : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets list. Gets or sets the collection of StructuredDocumentTags links.
     public func setList(list : [StructuredDocumentTag]?) -> StructuredDocumentTagCollection {
         self.list = list;

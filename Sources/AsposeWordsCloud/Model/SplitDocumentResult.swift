@@ -121,6 +121,9 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+    }
+
     // Sets sourceDocument. Gets or sets the link to the source document.
     public func setSourceDocument(sourceDocument : FileLink?) -> SplitDocumentResult {
         self.sourceDocument = sourceDocument;

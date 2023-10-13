@@ -73,6 +73,15 @@ public class TabStop : TabStopBase {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+        if (self.isClear == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isClear");
+        }
+
+    }
+
     // Sets isClear. Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.
     public func setIsClear(isClear : Bool?) -> TabStop {
         self.isClear = isClear;

@@ -83,6 +83,10 @@ public class Bookmarks : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets bookmarkList. Gets or sets the array of bookmarks.
     public func setBookmarkList(bookmarkList : [Bookmark]?) -> Bookmarks {
         self.bookmarkList = bookmarkList;

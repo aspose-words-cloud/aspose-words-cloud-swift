@@ -227,6 +227,7 @@ public class InsertFieldOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "field", body: try ObjectSerializer.serialize(value: self.getField()), contentType: "application/json"));
          self.getField().collectFilesContent(&requestFilesContent);
+         try self.getField().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

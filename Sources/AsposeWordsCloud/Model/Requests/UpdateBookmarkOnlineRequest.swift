@@ -202,6 +202,7 @@ public class UpdateBookmarkOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "bookmarkData", body: try ObjectSerializer.serialize(value: self.getBookmarkData()), contentType: "application/json"));
          self.getBookmarkData().collectFilesContent(&requestFilesContent);
+         try self.getBookmarkData().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

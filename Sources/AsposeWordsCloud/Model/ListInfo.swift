@@ -187,6 +187,35 @@ public class ListInfo : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+        if (self.listId == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "listId");
+        }
+
+        if (self.isMultiLevel == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isMultiLevel");
+        }
+
+        if (self.isRestartAtEachSection == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isRestartAtEachSection");
+        }
+
+        if (self.isListStyleDefinition == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isListStyleDefinition");
+        }
+
+        if (self.isListStyleReference == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isListStyleReference");
+        }
+
+    }
+
     // Sets listId. Gets or sets the unique identifier of the list. You do not normally need to use this property. But if you use it, you normally do so in conjunction with the Aspose.Words.Lists.ListCollection.GetListByListId(System.Int32) method to find a list by its identifier.
     public func setListId(listId : Int?) -> ListInfo {
         self.listId = listId;

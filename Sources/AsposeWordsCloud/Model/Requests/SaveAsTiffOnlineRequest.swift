@@ -492,6 +492,7 @@ public class SaveAsTiffOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "saveOptions", body: try ObjectSerializer.serialize(value: self.getSaveOptions()), contentType: "application/json"));
          self.getSaveOptions().collectFilesContent(&requestFilesContent);
+         try self.getSaveOptions().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

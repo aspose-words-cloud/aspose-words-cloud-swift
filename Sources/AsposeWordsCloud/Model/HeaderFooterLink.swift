@@ -98,6 +98,15 @@ public class HeaderFooterLink : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+        if (self.type == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "type");
+        }
+
+    }
+
     // Sets type. Gets or sets the paragraph's text.
     public func setType(type : ModelType?) -> HeaderFooterLink {
         self.type = type;

@@ -154,6 +154,24 @@ public class DocumentStatData : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.pageCount == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "pageCount");
+        }
+
+        if (self.paragraphCount == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "paragraphCount");
+        }
+
+        if (self.wordCount == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "wordCount");
+        }
+
+    }
+
     // Sets footnotesStatData. Gets or sets the detailed statistics on footnotes.
     public func setFootnotesStatData(footnotesStatData : FootnotesStatData?) -> DocumentStatData {
         self.footnotesStatData = footnotesStatData;

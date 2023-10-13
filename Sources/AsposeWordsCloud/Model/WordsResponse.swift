@@ -69,6 +69,9 @@ public class WordsResponse : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+    }
+
     // Sets requestId. Gets or sets the request Id.
     public func setRequestId(requestId : String?) -> WordsResponse {
         self.requestId = requestId;

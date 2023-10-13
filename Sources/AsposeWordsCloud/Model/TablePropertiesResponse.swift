@@ -77,6 +77,10 @@ public class TablePropertiesResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets properties. Gets or sets the table.
     public func setProperties(properties : TableProperties?) -> TablePropertiesResponse {
         self.properties = properties;

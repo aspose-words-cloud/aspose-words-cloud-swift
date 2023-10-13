@@ -144,6 +144,10 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets encoding. Gets or sets the character encoding to use when exporting in plain text format.
     public func setEncoding(encoding : String?) -> TxtSaveOptionsBaseData {
         self.encoding = encoding;

@@ -139,6 +139,9 @@ public class FootnoteBase : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+    }
+
     // Sets position. Gets or sets the link to comment range start node.
     public func setPosition(position : NewDocumentPosition?) -> FootnoteBase {
         self.position = position;

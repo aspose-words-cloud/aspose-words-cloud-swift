@@ -77,6 +77,10 @@ public class FormFieldResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets formField. Gets or sets the form field.
     public func setFormField(formField : FormField?) -> FormFieldResponse {
         self.formField = formField;

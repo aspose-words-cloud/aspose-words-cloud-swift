@@ -77,6 +77,10 @@ public class StructuredDocumentTagsResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets structuredDocumentTags. Gets or sets the collection of StructuredDocumentTags.
     public func setStructuredDocumentTags(structuredDocumentTags : StructuredDocumentTagCollection?) -> StructuredDocumentTagsResponse {
         self.structuredDocumentTags = structuredDocumentTags;

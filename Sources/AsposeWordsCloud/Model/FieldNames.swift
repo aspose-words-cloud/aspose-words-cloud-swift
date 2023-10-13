@@ -83,6 +83,10 @@ public class FieldNames : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets names. Gets or sets the collection of fields names.
     public func setNames(names : [String]?) -> FieldNames {
         self.names = names;

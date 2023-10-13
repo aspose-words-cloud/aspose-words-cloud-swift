@@ -143,6 +143,14 @@ public class ListInsert : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.template == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "template");
+        }
+
+    }
+
     // Sets template. Gets or sets the option that controls how list should be restarted at each section. This option is supported only in RTF, DOC and DOCX document formats. This option will be written to DOCX only if Aspose.Words.Saving.OoxmlCompliance is higher then Aspose.Words.Saving.OoxmlCompliance.Ecma376_2006.
     public func setTemplate(template : Template?) -> ListInsert {
         self.template = template;

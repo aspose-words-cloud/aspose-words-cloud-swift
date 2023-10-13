@@ -77,6 +77,10 @@ public class HyperlinkResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets hyperlink. Gets or sets the hyperlink.
     public func setHyperlink(hyperlink : Hyperlink?) -> HyperlinkResponse {
         self.hyperlink = hyperlink;

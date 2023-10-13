@@ -677,6 +677,10 @@ public class StructuredDocumentTag : NodeLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets listItems. Gets or sets Aspose.Words.Markup.SdtListItemCollection associated with this SDT. Accessing this property will only work for Aspose.Words.Markup.SdtType.ComboBox or Aspose.Words.Markup.SdtType.DropDownList SDT types. For all other SDT types exception will occur.
     public func setListItems(listItems : [StructuredDocumentTagListItem]?) -> StructuredDocumentTag {
         self.listItems = listItems;

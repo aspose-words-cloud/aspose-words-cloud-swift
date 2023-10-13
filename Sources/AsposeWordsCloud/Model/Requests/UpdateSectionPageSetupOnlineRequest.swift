@@ -202,6 +202,7 @@ public class UpdateSectionPageSetupOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "pageSetup", body: try ObjectSerializer.serialize(value: self.getPageSetup()), contentType: "application/json"));
          self.getPageSetup().collectFilesContent(&requestFilesContent);
+         try self.getPageSetup().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

@@ -217,6 +217,7 @@ public class UpdateFormFieldOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "formField", body: try ObjectSerializer.serialize(value: self.getFormField()), contentType: "application/json"));
          self.getFormField().collectFilesContent(&requestFilesContent);
+         try self.getFormField().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

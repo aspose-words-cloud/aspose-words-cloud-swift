@@ -141,6 +141,19 @@ public class PageNumber : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.isTop == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isTop");
+        }
+
+        if (self.setPageNumberOnFirstPage == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "setPageNumberOnFirstPage");
+        }
+
+    }
+
     // Sets alignment. Gets or sets text alignment, possible values are left, right, center or justify.
     public func setAlignment(alignment : String?) -> PageNumber {
         self.alignment = alignment;

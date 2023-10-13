@@ -120,6 +120,15 @@ public class ClassificationResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+        if (self.bestClassProbability == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "bestClassProbability");
+        }
+
+    }
+
     // Sets bestClassName. Gets or sets the best class name.
     public func setBestClassName(bestClassName : String?) -> ClassificationResponse {
         self.bestClassName = bestClassName;

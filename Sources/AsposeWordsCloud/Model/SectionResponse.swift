@@ -77,6 +77,10 @@ public class SectionResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets section. Gets or sets the section.
     public func setSection(section : Section?) -> SectionResponse {
         self.section = section;

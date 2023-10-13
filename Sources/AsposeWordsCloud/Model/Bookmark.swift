@@ -91,6 +91,10 @@ public class Bookmark : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets name. Gets or sets the name of the bookmark.
     public func setName(name : String?) -> Bookmark {
         self.name = name;

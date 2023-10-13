@@ -194,6 +194,14 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.dataSourceType == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "dataSourceType");
+        }
+
+    }
+
     // Sets csvDataLoadOptions. Gets or sets the options for parsing CSV data.
     public func setCsvDataLoadOptions(csvDataLoadOptions : CsvDataLoadOptions?) -> ReportEngineSettings {
         self.csvDataLoadOptions = csvDataLoadOptions;

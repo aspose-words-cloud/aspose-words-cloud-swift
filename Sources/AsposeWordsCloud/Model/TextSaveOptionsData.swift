@@ -136,6 +136,15 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+        if (self.maxCharactersPerLine == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "maxCharactersPerLine");
+        }
+
+    }
+
     // Sets addBidiMarks. Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
     public func setAddBidiMarks(addBidiMarks : Bool?) -> TextSaveOptionsData {
         self.addBidiMarks = addBidiMarks;

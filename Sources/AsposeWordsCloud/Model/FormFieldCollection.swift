@@ -83,6 +83,10 @@ public class FormFieldCollection : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets list. Gets or sets the collection of form fields.
     public func setList(list : [FormField]?) -> FormFieldCollection {
         self.list = list;

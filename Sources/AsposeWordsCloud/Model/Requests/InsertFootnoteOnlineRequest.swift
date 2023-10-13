@@ -207,6 +207,7 @@ public class InsertFootnoteOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "footnoteDto", body: try ObjectSerializer.serialize(value: self.getFootnoteDto()), contentType: "application/json"));
          self.getFootnoteDto().collectFilesContent(&requestFilesContent);
+         try self.getFootnoteDto().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

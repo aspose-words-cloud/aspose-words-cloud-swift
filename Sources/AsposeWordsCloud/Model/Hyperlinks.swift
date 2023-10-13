@@ -83,6 +83,10 @@ public class Hyperlinks : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets hyperlinkList. Gets or sets the array of Hyperlink.
     public func setHyperlinkList(hyperlinkList : [Hyperlink]?) -> Hyperlinks {
         self.hyperlinkList = hyperlinkList;

@@ -76,6 +76,10 @@ public class DrawingObjectResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets drawingObject. Gets or sets the DrawingObject.
     public func setDrawingObject(drawingObject : DrawingObject?) -> DrawingObjectResponse {
         self.drawingObject = drawingObject;

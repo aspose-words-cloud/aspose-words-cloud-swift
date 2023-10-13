@@ -76,6 +76,10 @@ public class DocumentResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets document. Gets or sets the document description.
     public func setDocument(document : Document?) -> DocumentResponse {
         self.document = document;

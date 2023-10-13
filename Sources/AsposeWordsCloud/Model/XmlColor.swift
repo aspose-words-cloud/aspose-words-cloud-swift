@@ -120,6 +120,19 @@ public class XmlColor : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.xmlAlpha == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "xmlAlpha");
+        }
+
+        if (self.xmlAlphaSpecified == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "xmlAlphaSpecified");
+        }
+
+    }
+
     // Sets alpha. Gets or sets the Alpha component of color structure.
     public func setAlpha(alpha : Int?) -> XmlColor {
         self.alpha = alpha;

@@ -458,6 +458,9 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+    }
+
     // Sets startAt. Gets or sets the starting number for this list level. Default value is 1.
     public func setStartAt(startAt : Int?) -> ListLevelUpdate {
         self.startAt = startAt;

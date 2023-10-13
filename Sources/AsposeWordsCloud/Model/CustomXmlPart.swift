@@ -91,6 +91,15 @@ public class CustomXmlPart : CustomXmlPartLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+        if (self.data == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "data");
+        }
+
+    }
+
     // Sets id. Gets or sets the custom xml part id. Cannot be null.
     public func setId(id : String?) -> CustomXmlPart {
         self.id = id;

@@ -83,6 +83,10 @@ public class ListLevels : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets listLevel. Gets or sets the collection of list levels for this list. Use this property to access and modify formatting individual to each level of the list.
     public func setListLevel(listLevel : [ListLevel]?) -> ListLevels {
         self.listLevel = listLevel;

@@ -87,6 +87,14 @@ public class FieldBase : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.fieldCode == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "fieldCode");
+        }
+
+    }
+
     // Sets localeId. Gets or sets the LCID of the field.
     public func setLocaleId(localeId : String?) -> FieldBase {
         self.localeId = localeId;

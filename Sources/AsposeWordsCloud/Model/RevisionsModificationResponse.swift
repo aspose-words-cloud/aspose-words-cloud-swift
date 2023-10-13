@@ -76,6 +76,10 @@ public class RevisionsModificationResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets result. Gets or sets the result of the modification operations for the revisions collection.
     public func setResult(result : ModificationOperationResult?) -> RevisionsModificationResponse {
         self.result = result;

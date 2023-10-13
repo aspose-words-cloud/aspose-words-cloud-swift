@@ -90,6 +90,14 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.loadingDocumentUrl == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "loadingDocumentUrl");
+        }
+
+    }
+
     // Sets saveOptions. Gets or sets the save options.
     public func setSaveOptions(saveOptions : SaveOptionsData?) -> LoadWebDocumentData {
         self.saveOptions = saveOptions;

@@ -158,6 +158,24 @@ public class TabStopBase : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.alignment == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "alignment");
+        }
+
+        if (self.leader == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "leader");
+        }
+
+        if (self.position == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "position");
+        }
+
+    }
+
     // Sets alignment. Gets or sets the alignment of text at this tab stop.
     public func setAlignment(alignment : Alignment?) -> TabStopBase {
         self.alignment = alignment;

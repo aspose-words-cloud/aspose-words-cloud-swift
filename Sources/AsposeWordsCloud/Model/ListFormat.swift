@@ -109,6 +109,20 @@ public class ListFormat : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+        if (self.listLevelNumber == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "listLevelNumber");
+        }
+
+        if (self.isListItem == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isListItem");
+        }
+
+    }
+
     // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph. In Word documents, lists may consist of 1 or 9 levels, numbered 0 to 8. Has effect only when the Aspose.Words.ListFormat.List property is set to reference a valid list. Aspose.Words.ListFormat.List.
     public func setListLevelNumber(listLevelNumber : Int?) -> ListFormat {
         self.listLevelNumber = listLevelNumber;

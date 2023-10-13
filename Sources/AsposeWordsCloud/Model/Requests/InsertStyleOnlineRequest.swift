@@ -192,6 +192,7 @@ public class InsertStyleOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "styleInsert", body: try ObjectSerializer.serialize(value: self.getStyleInsert()), contentType: "application/json"));
          self.getStyleInsert().collectFilesContent(&requestFilesContent);
+         try self.getStyleInsert().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

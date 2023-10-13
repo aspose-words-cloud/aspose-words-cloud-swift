@@ -294,6 +294,44 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.relativeHorizontalPosition == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "relativeHorizontalPosition");
+        }
+
+        if (self._left == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "_left");
+        }
+
+        if (self.relativeVerticalPosition == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "relativeVerticalPosition");
+        }
+
+        if (self.top == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "top");
+        }
+
+        if (self.width == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "width");
+        }
+
+        if (self.height == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "height");
+        }
+
+        if (self.wrapType == null)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "wrapType");
+        }
+
+    }
+
     // Sets position. Gets or sets the position, before which the DrawingObject will be inserted.
     public func setPosition(position : NewDocumentPosition?) -> DrawingObjectInsert {
         self.position = position;

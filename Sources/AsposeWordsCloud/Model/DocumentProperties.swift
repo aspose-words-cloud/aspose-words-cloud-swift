@@ -83,6 +83,10 @@ public class DocumentProperties : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets list. Gets or sets the collection of document properties.
     public func setList(list : [DocumentProperty]?) -> DocumentProperties {
         self.list = list;

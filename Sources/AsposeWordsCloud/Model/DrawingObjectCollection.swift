@@ -83,6 +83,10 @@ public class DrawingObjectCollection : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        super.validate();
+    }
+
     // Sets list. Gets or sets the collection of DrawingObjects links.
     public func setList(list : [LinkElement]?) -> DrawingObjectCollection {
         self.list = list;

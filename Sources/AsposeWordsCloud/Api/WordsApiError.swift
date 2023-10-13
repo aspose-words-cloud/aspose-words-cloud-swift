@@ -31,6 +31,7 @@ import Foundation
 public enum WordsApiError : LocalizedError {
     case requestError(errorCode: Int, message: String?)
     case requiredArgumentError(argumentName: String)
+    case requiredParameterError(paramName: String)
     case invalidTypeSerialization(typeName: String)
     case invalidTypeDeserialization(typeName: String)
     case invalidMultipartResponse(message: String)
@@ -43,6 +44,8 @@ public enum WordsApiError : LocalizedError {
                 return "Request error: \(errorCode); Description: \(message ?? "")";
             case let .requiredArgumentError(argumentName):
                 return "Required argument \(argumentName) not present.";
+            case let .requiredParameterError(paramName):
+                return "Required parameter \(paramName) is null.";
             case let .invalidTypeSerialization(typeName):
                 return "Failed to serialize type '\(typeName)'.";
             case let .invalidTypeDeserialization(typeName):

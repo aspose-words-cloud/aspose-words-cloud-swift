@@ -93,6 +93,9 @@ public class ModificationOperationResult : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+    }
+
     // Sets dest. Gets or sets the link to the dest document (result of the modification operation).
     public func setDest(dest : FileLink?) -> ModificationOperationResult {
         self.dest = dest;

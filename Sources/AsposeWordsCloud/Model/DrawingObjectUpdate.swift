@@ -273,6 +273,9 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+    }
+
     // Sets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
     public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) -> DrawingObjectUpdate {
         self.relativeHorizontalPosition = relativeHorizontalPosition;
