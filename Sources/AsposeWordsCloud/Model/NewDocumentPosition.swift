@@ -88,7 +88,7 @@ public class NewDocumentPosition : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.nodeId == null)
+        if (self.nodeId == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "nodeId");
         }

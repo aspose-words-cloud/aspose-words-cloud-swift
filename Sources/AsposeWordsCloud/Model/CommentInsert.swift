@@ -54,7 +54,7 @@ public class CommentInsert : CommentBase {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

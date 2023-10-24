@@ -92,7 +92,7 @@ public class Hyperlink : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets displayText. Gets or sets the hypelink's display text.

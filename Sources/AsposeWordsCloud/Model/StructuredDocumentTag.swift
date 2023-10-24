@@ -678,10 +678,10 @@ public class StructuredDocumentTag : NodeLink {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.listItems != null) {
+        try super.validate();
+        if (self.listItems != nil) {
             for elementListItems in self.listItems! {
-                if (elementListItems != null) {
+                if (elementListItems != nil) {
                     try elementListItems!.validate();
                 }
             }

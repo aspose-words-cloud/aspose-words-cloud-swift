@@ -92,7 +92,7 @@ public class PublicKeyResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets exponent. Gets or sets RSA key exponent as Base64 string.

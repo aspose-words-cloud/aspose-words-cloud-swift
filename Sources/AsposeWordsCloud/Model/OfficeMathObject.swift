@@ -268,7 +268,7 @@ public class OfficeMathObject : OfficeMathLink {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.content?.validate();
 
     }

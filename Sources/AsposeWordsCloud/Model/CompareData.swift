@@ -153,11 +153,11 @@ public class CompareData : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.author == null)
+        if (self.author == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "author");
         }
-        if (self.comparingWithDocument == null)
+        if (self.comparingWithDocument == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "comparingWithDocument");
         }

@@ -85,10 +85,10 @@ public class TabStopsResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.tabStops != null) {
+        try super.validate();
+        if (self.tabStops != nil) {
             for elementTabStops in self.tabStops! {
-                if (elementTabStops != null) {
+                if (elementTabStops != nil) {
                     try elementTabStops!.validate();
                 }
             }

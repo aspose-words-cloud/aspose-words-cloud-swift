@@ -54,7 +54,7 @@ public class FootnoteLink : NodeLink {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

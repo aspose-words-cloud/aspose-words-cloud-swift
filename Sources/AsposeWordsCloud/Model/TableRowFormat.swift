@@ -144,7 +144,7 @@ public class TableRowFormat : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets height. Gets or sets the height of the table row in points.

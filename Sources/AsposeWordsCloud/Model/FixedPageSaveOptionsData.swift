@@ -223,7 +223,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.metafileRenderingOptions?.validate();
 
     }

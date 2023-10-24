@@ -78,7 +78,7 @@ public class TableRowFormatResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.rowFormat?.validate();
 
     }

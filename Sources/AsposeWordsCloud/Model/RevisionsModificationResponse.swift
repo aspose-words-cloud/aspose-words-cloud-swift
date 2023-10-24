@@ -77,7 +77,7 @@ public class RevisionsModificationResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.result?.validate();
 
     }

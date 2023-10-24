@@ -295,31 +295,31 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.relativeHorizontalPosition == null)
+        if (self.relativeHorizontalPosition == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "relativeHorizontalPosition");
         }
-        if (self._left == null)
+        if (self._left == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "_left");
         }
-        if (self.relativeVerticalPosition == null)
+        if (self.relativeVerticalPosition == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "relativeVerticalPosition");
         }
-        if (self.top == null)
+        if (self.top == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "top");
         }
-        if (self.width == null)
+        if (self.width == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "width");
         }
-        if (self.height == null)
+        if (self.height == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "height");
         }
-        if (self.wrapType == null)
+        if (self.wrapType == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "wrapType");
         }

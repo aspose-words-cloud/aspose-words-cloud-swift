@@ -88,7 +88,7 @@ public class ClassificationResult : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.classProbability == null)
+        if (self.classProbability == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "classProbability");
         }

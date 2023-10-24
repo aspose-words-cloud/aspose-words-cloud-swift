@@ -78,7 +78,7 @@ public class HyperlinkResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.hyperlink?.validate();
 
     }

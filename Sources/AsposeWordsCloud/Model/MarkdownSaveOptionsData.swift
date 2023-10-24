@@ -103,7 +103,7 @@ public class MarkdownSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets tableContentAlignment. Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format. The default value is Auto.

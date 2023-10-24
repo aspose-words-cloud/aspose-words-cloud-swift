@@ -92,8 +92,8 @@ public class CustomXmlPart : CustomXmlPartLink {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.data == null)
+        try super.validate();
+        if (self.data == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "data");
         }

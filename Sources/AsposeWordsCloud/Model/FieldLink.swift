@@ -74,7 +74,7 @@ public class FieldLink : NodeLink {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets fieldCode. Gets or sets the field code.

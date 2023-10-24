@@ -127,15 +127,15 @@ public class PageStatData : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.paragraphCount == null)
+        if (self.paragraphCount == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "paragraphCount");
         }
-        if (self.wordCount == null)
+        if (self.wordCount == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "wordCount");
         }
-        if (self.pageNumber == null)
+        if (self.pageNumber == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "pageNumber");
         }

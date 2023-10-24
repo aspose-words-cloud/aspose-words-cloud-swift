@@ -145,7 +145,7 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets encoding. Gets or sets the character encoding to use when exporting in plain text format.

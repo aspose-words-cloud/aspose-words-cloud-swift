@@ -84,7 +84,7 @@ public class FieldNames : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets names. Gets or sets the collection of fields names.

@@ -70,7 +70,7 @@ public class RangeDocument : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.documentName == null)
+        if (self.documentName == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "documentName");
         }

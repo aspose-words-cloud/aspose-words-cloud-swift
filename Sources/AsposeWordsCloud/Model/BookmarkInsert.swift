@@ -98,7 +98,7 @@ public class BookmarkInsert : BookmarkData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.startRange?.validate();
         try self.endRange?.validate();
 

@@ -84,10 +84,10 @@ public class Paragraph : NodeLink {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.childNodes != null) {
+        try super.validate();
+        if (self.childNodes != nil) {
             for elementChildNodes in self.childNodes! {
-                if (elementChildNodes != null) {
+                if (elementChildNodes != nil) {
                     try elementChildNodes!.validate();
                 }
             }

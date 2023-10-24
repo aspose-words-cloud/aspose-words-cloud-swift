@@ -110,14 +110,14 @@ public class DocumentEntryList : BaseEntryList {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.documentEntries == null)
+        try super.validate();
+        if (self.documentEntries == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "documentEntries");
         }
-        if (self.documentEntries != null) {
+        if (self.documentEntries != nil) {
             for elementDocumentEntries in self.documentEntries! {
-                if (elementDocumentEntries != null) {
+                if (elementDocumentEntries != nil) {
                     try elementDocumentEntries!.validate();
                 }
             }

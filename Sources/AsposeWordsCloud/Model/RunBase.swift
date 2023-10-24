@@ -70,7 +70,7 @@ public class RunBase : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.text == null)
+        if (self.text == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "text");
         }

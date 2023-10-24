@@ -934,7 +934,7 @@ public class PageSetup : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets bidi. Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text. When true, the columns in this section are laid out from right to left.

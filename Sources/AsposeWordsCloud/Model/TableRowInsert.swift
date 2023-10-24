@@ -88,7 +88,7 @@ public class TableRowInsert : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.columnsCount == null)
+        if (self.columnsCount == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "columnsCount");
         }

@@ -63,7 +63,7 @@ public class DotSaveOptionsData : DocSaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

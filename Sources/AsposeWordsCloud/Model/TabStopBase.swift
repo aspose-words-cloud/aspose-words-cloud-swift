@@ -159,15 +159,15 @@ public class TabStopBase : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.alignment == null)
+        if (self.alignment == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "alignment");
         }
-        if (self.leader == null)
+        if (self.leader == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "leader");
         }
-        if (self.position == null)
+        if (self.position == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "position");
         }

@@ -174,15 +174,15 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.author == null)
+        if (self.author == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "author");
         }
-        if (self.initial == null)
+        if (self.initial == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "initial");
         }
-        if (self.text == null)
+        if (self.text == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "text");
         }

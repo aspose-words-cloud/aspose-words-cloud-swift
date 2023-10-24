@@ -63,7 +63,7 @@ public class DocmSaveOptionsData : OoxmlSaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

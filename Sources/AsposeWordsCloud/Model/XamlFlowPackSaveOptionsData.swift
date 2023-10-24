@@ -63,7 +63,7 @@ public class XamlFlowPackSaveOptionsData : XamlFlowSaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

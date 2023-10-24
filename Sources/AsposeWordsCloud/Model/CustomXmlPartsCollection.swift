@@ -84,10 +84,10 @@ public class CustomXmlPartsCollection : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.customXmlPartsList != null) {
+        try super.validate();
+        if (self.customXmlPartsList != nil) {
             for elementCustomXmlPartsList in self.customXmlPartsList! {
-                if (elementCustomXmlPartsList != null) {
+                if (elementCustomXmlPartsList != nil) {
                     try elementCustomXmlPartsList!.validate();
                 }
             }

@@ -84,10 +84,10 @@ public class Lists : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.listInfo != null) {
+        try super.validate();
+        if (self.listInfo != nil) {
             for elementListInfo in self.listInfo! {
-                if (elementListInfo != null) {
+                if (elementListInfo != nil) {
                     try elementListInfo!.validate();
                 }
             }

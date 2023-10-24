@@ -72,7 +72,7 @@ public class XmlDataLoadOptions : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.alwaysGenerateRootObject == null)
+        if (self.alwaysGenerateRootObject == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "alwaysGenerateRootObject");
         }

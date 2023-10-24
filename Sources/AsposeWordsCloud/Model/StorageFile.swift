@@ -150,11 +150,11 @@ public class StorageFile : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.isFolder == null)
+        if (self.isFolder == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isFolder");
         }
-        if (self.size == null)
+        if (self.size == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "size");
         }

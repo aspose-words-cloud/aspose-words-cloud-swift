@@ -348,7 +348,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.fileName == null)
+        if (self.fileName == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "fileName");
         }

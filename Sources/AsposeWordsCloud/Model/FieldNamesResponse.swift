@@ -78,7 +78,7 @@ public class FieldNamesResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.fieldNames?.validate();
 
     }

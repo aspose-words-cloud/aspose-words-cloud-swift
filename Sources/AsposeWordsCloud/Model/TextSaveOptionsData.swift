@@ -137,8 +137,8 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.maxCharactersPerLine == null)
+        try super.validate();
+        if (self.maxCharactersPerLine == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "maxCharactersPerLine");
         }

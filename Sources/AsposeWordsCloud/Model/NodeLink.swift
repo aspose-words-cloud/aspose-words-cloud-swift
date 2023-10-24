@@ -74,7 +74,7 @@ public class NodeLink : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets nodeId. Gets or sets the node id.

@@ -63,7 +63,7 @@ public class GifSaveOptionsData : ImageSaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

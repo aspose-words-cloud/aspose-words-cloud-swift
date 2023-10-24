@@ -78,7 +78,7 @@ public class BaseEntry : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.fileReference == null)
+        if (self.fileReference == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "fileReference");
         }

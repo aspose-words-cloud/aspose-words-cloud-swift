@@ -88,11 +88,11 @@ public class WatermarkText : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.rotationAngle == null)
+        if (self.rotationAngle == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "rotationAngle");
         }
-        if (self.text == null)
+        if (self.text == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "text");
         }

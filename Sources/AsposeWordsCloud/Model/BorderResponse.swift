@@ -78,7 +78,7 @@ public class BorderResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.border?.validate();
 
     }

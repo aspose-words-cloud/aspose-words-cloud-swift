@@ -195,7 +195,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.dataSourceType == null)
+        if (self.dataSourceType == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "dataSourceType");
         }

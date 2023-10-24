@@ -124,9 +124,9 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     public func validate() throws {
         try self.sourceDocument?.validate();
         try self.zippedPages?.validate();
-        if (self.pages != null) {
+        if (self.pages != nil) {
             for elementPages in self.pages! {
-                if (elementPages != null) {
+                if (elementPages != nil) {
                     try elementPages!.validate();
                 }
             }

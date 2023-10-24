@@ -92,7 +92,7 @@ public class Bookmark : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets name. Gets or sets the name of the bookmark.

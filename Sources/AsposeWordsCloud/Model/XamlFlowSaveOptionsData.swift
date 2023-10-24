@@ -101,7 +101,7 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets imagesFolder. Gets or sets the physical folder where images are saved when exporting.

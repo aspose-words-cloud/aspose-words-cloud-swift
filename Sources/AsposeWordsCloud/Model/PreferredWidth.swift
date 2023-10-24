@@ -104,7 +104,7 @@ public class PreferredWidth : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.type == null)
+        if (self.type == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "type");
         }

@@ -99,8 +99,8 @@ public class HeaderFooterLink : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.type == null)
+        try super.validate();
+        if (self.type == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "type");
         }

@@ -95,8 +95,8 @@ public class ReplaceTextResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.matches == null)
+        try super.validate();
+        if (self.matches == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "matches");
         }

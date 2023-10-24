@@ -218,8 +218,8 @@ public class FormField : NodeLink {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.name == null)
+        try super.validate();
+        if (self.name == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "name");
         }

@@ -74,8 +74,8 @@ public class TabStop : TabStopBase {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.isClear == null)
+        try super.validate();
+        if (self.isClear == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isClear");
         }

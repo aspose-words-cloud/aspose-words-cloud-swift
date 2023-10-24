@@ -78,7 +78,7 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.paragraphs?.validate();
 
     }

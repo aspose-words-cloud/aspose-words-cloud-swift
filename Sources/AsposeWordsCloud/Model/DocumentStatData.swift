@@ -155,22 +155,22 @@ public class DocumentStatData : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.pageCount == null)
+        if (self.pageCount == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "pageCount");
         }
-        if (self.paragraphCount == null)
+        if (self.paragraphCount == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "paragraphCount");
         }
-        if (self.wordCount == null)
+        if (self.wordCount == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "wordCount");
         }
         try self.footnotesStatData?.validate();
-        if (self.pageStatData != null) {
+        if (self.pageStatData != nil) {
             for elementPageStatData in self.pageStatData! {
-                if (elementPageStatData != null) {
+                if (elementPageStatData != nil) {
                     try elementPageStatData!.validate();
                 }
             }

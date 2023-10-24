@@ -243,21 +243,21 @@ public class Document : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.isEncrypted == null)
+        if (self.isEncrypted == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isEncrypted");
         }
-        if (self.isSigned == null)
+        if (self.isSigned == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isSigned");
         }
-        if (self.sourceFormat == null)
+        if (self.sourceFormat == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "sourceFormat");
         }
-        if (self.links != null) {
+        if (self.links != nil) {
             for elementLinks in self.links! {
-                if (elementLinks != null) {
+                if (elementLinks != nil) {
                     try elementLinks!.validate();
                 }
             }

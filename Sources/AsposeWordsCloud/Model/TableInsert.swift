@@ -109,11 +109,11 @@ public class TableInsert : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.columnsCount == null)
+        if (self.columnsCount == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "columnsCount");
         }
-        if (self.rowsCount == null)
+        if (self.rowsCount == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "rowsCount");
         }

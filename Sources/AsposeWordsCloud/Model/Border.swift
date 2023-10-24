@@ -291,7 +291,7 @@ public class Border : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.color?.validate();
 
     }

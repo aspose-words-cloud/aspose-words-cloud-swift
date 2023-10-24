@@ -84,10 +84,10 @@ public class ParagraphLinkCollection : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.paragraphLinkList != null) {
+        try super.validate();
+        if (self.paragraphLinkList != nil) {
             for elementParagraphLinkList in self.paragraphLinkList! {
-                if (elementParagraphLinkList != null) {
+                if (elementParagraphLinkList != nil) {
                     try elementParagraphLinkList!.validate();
                 }
             }

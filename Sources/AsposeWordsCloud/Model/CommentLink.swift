@@ -54,7 +54,7 @@ public class CommentLink : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

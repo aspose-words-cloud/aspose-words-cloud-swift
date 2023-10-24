@@ -142,19 +142,19 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.isMatchCase == null)
+        if (self.isMatchCase == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isMatchCase");
         }
-        if (self.isMatchWholeWord == null)
+        if (self.isMatchWholeWord == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isMatchWholeWord");
         }
-        if (self.isOldValueRegex == null)
+        if (self.isOldValueRegex == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isOldValueRegex");
         }
-        if (self.oldValue == null)
+        if (self.oldValue == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "oldValue");
         }

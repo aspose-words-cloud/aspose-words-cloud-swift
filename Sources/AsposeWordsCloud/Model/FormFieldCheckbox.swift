@@ -110,8 +110,8 @@ public class FormFieldCheckbox : FormField {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.checked == null)
+        try super.validate();
+        if (self.checked == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "checked");
         }

@@ -84,10 +84,10 @@ public class Bookmarks : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.bookmarkList != null) {
+        try super.validate();
+        if (self.bookmarkList != nil) {
             for elementBookmarkList in self.bookmarkList! {
-                if (elementBookmarkList != null) {
+                if (elementBookmarkList != nil) {
                     try elementBookmarkList!.validate();
                 }
             }

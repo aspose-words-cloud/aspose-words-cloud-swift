@@ -80,9 +80,9 @@ public class FilesList : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.value != null) {
+        if (self.value != nil) {
             for elementValue in self.value! {
-                if (elementValue != null) {
+                if (elementValue != nil) {
                     try elementValue!.validate();
                 }
             }

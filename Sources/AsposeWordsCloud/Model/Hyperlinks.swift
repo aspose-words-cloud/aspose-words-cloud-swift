@@ -84,10 +84,10 @@ public class Hyperlinks : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.hyperlinkList != null) {
+        try super.validate();
+        if (self.hyperlinkList != nil) {
             for elementHyperlinkList in self.hyperlinkList! {
-                if (elementHyperlinkList != null) {
+                if (elementHyperlinkList != nil) {
                     try elementHyperlinkList!.validate();
                 }
             }

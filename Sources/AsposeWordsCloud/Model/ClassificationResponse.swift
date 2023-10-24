@@ -121,14 +121,14 @@ public class ClassificationResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.bestClassProbability == null)
+        try super.validate();
+        if (self.bestClassProbability == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "bestClassProbability");
         }
-        if (self.bestResults != null) {
+        if (self.bestResults != nil) {
             for elementBestResults in self.bestResults! {
-                if (elementBestResults != null) {
+                if (elementBestResults != nil) {
                     try elementBestResults!.validate();
                 }
             }

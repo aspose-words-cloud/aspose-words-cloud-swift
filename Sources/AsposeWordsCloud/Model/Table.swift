@@ -105,10 +105,10 @@ public class Table : NodeLink {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.tableRowList != null) {
+        try super.validate();
+        if (self.tableRowList != nil) {
             for elementTableRowList in self.tableRowList! {
-                if (elementTableRowList != null) {
+                if (elementTableRowList != nil) {
                     try elementTableRowList!.validate();
                 }
             }

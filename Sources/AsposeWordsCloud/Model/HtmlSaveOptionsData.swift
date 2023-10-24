@@ -887,7 +887,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets allowNegativeIndent. Gets or sets a value indicating whether negative left and right indents of paragraphs are allowed (not normalized).

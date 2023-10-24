@@ -142,11 +142,11 @@ public class PageNumber : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.isTop == null)
+        if (self.isTop == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isTop");
         }
-        if (self.setPageNumberOnFirstPage == null)
+        if (self.setPageNumberOnFirstPage == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "setPageNumberOnFirstPage");
         }

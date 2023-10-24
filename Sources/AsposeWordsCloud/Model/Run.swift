@@ -54,7 +54,7 @@ public class Run : RunLink {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

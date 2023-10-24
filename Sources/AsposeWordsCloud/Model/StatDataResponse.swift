@@ -98,7 +98,7 @@ public class StatDataResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.documentLink?.validate();
         try self.statData?.validate();
 

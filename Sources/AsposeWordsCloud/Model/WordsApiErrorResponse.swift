@@ -77,7 +77,7 @@ public class WordsApiErrorResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.error?.validate();
 
     }

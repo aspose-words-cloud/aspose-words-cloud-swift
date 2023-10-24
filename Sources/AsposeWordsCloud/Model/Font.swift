@@ -2018,7 +2018,7 @@ public class Font : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.border?.validate();
         try self.color?.validate();
         try self.highlightColor?.validate();

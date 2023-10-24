@@ -75,7 +75,7 @@ public class RangeTextResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets text. Gets or sets the range's text.

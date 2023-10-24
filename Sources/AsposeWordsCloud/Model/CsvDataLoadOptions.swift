@@ -126,19 +126,19 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.commentChar == null)
+        if (self.commentChar == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "commentChar");
         }
-        if (self.delimiter == null)
+        if (self.delimiter == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "delimiter");
         }
-        if (self.hasHeaders == null)
+        if (self.hasHeaders == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "hasHeaders");
         }
-        if (self.quoteChar == null)
+        if (self.quoteChar == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "quoteChar");
         }

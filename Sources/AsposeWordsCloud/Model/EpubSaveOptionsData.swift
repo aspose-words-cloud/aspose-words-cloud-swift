@@ -83,7 +83,7 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets navigationMapLevel. Gets or sets the maximum level of headings populated to the navigation map when exporting.

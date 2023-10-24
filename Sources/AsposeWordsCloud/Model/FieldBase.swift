@@ -88,7 +88,7 @@ public class FieldBase : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.fieldCode == null)
+        if (self.fieldCode == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "fieldCode");
         }

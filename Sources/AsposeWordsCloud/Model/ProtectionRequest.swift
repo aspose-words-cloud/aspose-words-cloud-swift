@@ -106,7 +106,7 @@ public class ProtectionRequest : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.password == null)
+        if (self.password == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "password");
         }

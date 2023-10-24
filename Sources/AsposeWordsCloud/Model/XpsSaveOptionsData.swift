@@ -140,7 +140,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.outlineOptions?.validate();
 
     }

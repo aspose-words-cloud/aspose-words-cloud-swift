@@ -92,7 +92,7 @@ public class ParagraphFormat : ParagraphFormatBase {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets isListItem. Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.

@@ -102,8 +102,8 @@ public class FormFieldDropDown : FormField {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.dropDownItems == null)
+        try super.validate();
+        if (self.dropDownItems == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "dropDownItems");
         }

@@ -163,7 +163,7 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets compliance. Gets or sets the oOXML version for the output document.

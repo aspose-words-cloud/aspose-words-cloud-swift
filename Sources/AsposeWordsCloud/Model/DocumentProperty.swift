@@ -110,8 +110,8 @@ public class DocumentProperty : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.builtIn == null)
+        try super.validate();
+        if (self.builtIn == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "builtIn");
         }

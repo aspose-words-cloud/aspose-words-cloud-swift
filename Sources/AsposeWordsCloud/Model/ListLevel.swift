@@ -504,40 +504,40 @@ public class ListLevel : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.startAt == null)
+        try super.validate();
+        if (self.startAt == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "startAt");
         }
-        if (self.numberStyle == null)
+        if (self.numberStyle == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "numberStyle");
         }
-        if (self.alignment == null)
+        if (self.alignment == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "alignment");
         }
-        if (self.isLegal == null)
+        if (self.isLegal == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isLegal");
         }
-        if (self.restartAfterLevel == null)
+        if (self.restartAfterLevel == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "restartAfterLevel");
         }
-        if (self.trailingCharacter == null)
+        if (self.trailingCharacter == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "trailingCharacter");
         }
-        if (self.tabPosition == null)
+        if (self.tabPosition == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "tabPosition");
         }
-        if (self.numberPosition == null)
+        if (self.numberPosition == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "numberPosition");
         }
-        if (self.textPosition == null)
+        if (self.textPosition == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "textPosition");
         }

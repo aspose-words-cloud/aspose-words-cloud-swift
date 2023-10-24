@@ -92,7 +92,7 @@ public class Field : FieldLink {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets localeId. Gets or sets the LCID of the field.

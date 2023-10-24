@@ -85,10 +85,10 @@ public class StylesResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.styles != null) {
+        try super.validate();
+        if (self.styles != nil) {
             for elementStyles in self.styles! {
-                if (elementStyles != null) {
+                if (elementStyles != nil) {
                     try elementStyles!.validate();
                 }
             }

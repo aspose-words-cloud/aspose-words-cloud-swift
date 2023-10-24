@@ -101,7 +101,7 @@ public class OptimizationOptions : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.msWordVersion == null)
+        if (self.msWordVersion == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "msWordVersion");
         }

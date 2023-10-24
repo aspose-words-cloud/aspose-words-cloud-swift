@@ -84,10 +84,10 @@ public class TableLinkCollection : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.tableLinkList != null) {
+        try super.validate();
+        if (self.tableLinkList != nil) {
             for elementTableLinkList in self.tableLinkList! {
-                if (elementTableLinkList != null) {
+                if (elementTableLinkList != nil) {
                     try elementTableLinkList!.validate();
                 }
             }

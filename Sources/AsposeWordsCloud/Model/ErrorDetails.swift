@@ -96,7 +96,7 @@ public class ErrorDetails : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.errorDateTime == null)
+        if (self.errorDateTime == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "errorDateTime");
         }

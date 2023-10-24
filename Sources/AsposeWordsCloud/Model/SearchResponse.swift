@@ -96,7 +96,7 @@ public class SearchResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.searchResults?.validate();
 
     }

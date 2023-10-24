@@ -107,7 +107,7 @@ public class StyleInsert : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.styleType == null)
+        if (self.styleType == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "styleType");
         }

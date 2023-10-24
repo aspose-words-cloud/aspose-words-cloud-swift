@@ -349,7 +349,7 @@ public class TableCellFormat : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.preferredWidth?.validate();
 
     }

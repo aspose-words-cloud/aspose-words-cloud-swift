@@ -74,7 +74,7 @@ public class RunLink : NodeLink {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets text. Gets or sets the run's text.

@@ -74,7 +74,7 @@ public class ParagraphLink : NodeLink {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets text. Gets or sets the paragraph's text.

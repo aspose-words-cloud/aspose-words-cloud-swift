@@ -83,7 +83,7 @@ public class WordMLSaveOptionsData : SaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
     // Sets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.

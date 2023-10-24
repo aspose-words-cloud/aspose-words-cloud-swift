@@ -63,7 +63,7 @@ public class OttSaveOptionsData : OdtSaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

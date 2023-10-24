@@ -110,10 +110,10 @@ public class ImageEntryList : BaseEntryList {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.imageEntries != null) {
+        try super.validate();
+        if (self.imageEntries != nil) {
             for elementImageEntries in self.imageEntries! {
-                if (elementImageEntries != null) {
+                if (elementImageEntries != nil) {
                     try elementImageEntries!.validate();
                 }
             }

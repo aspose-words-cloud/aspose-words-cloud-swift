@@ -153,12 +153,12 @@ public class FormFieldTextInput : FormField {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.textInputFormat == null)
+        try super.validate();
+        if (self.textInputFormat == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "textInputFormat");
         }
-        if (self.textInputDefault == null)
+        if (self.textInputDefault == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "textInputDefault");
         }

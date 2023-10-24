@@ -84,10 +84,10 @@ public class CommentsCollection : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.commentList != null) {
+        try super.validate();
+        if (self.commentList != nil) {
             for elementCommentList in self.commentList! {
-                if (elementCommentList != null) {
+                if (elementCommentList != nil) {
                     try elementCommentList!.validate();
                 }
             }

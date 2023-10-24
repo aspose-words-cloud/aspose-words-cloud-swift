@@ -55,7 +55,7 @@ public class ImageEntry : BaseEntry {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

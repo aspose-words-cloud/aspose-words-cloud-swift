@@ -54,7 +54,7 @@ public class FieldUpdate : FieldBase {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

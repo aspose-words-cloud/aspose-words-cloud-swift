@@ -80,9 +80,9 @@ public class StoryChildNodes : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.childNodes != null) {
+        if (self.childNodes != nil) {
             for elementChildNodes in self.childNodes! {
-                if (elementChildNodes != null) {
+                if (elementChildNodes != nil) {
                     try elementChildNodes!.validate();
                 }
             }

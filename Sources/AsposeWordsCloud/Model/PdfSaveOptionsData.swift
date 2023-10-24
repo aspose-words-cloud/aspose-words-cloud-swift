@@ -721,7 +721,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.digitalSignatureDetails?.validate();
         try self.downsampleOptions?.validate();
         try self.encryptionDetails?.validate();

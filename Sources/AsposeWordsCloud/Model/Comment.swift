@@ -199,7 +199,7 @@ public class Comment : CommentLink {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.rangeStart?.validate();
         try self.rangeEnd?.validate();
         try self.content?.validate();

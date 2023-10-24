@@ -78,7 +78,7 @@ public class ListsResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.lists?.validate();
 
     }

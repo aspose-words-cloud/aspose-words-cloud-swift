@@ -54,7 +54,7 @@ public class WordsApiLink : Link {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

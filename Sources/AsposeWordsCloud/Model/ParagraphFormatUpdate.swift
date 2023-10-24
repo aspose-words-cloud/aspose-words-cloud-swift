@@ -54,7 +54,7 @@ public class ParagraphFormatUpdate : ParagraphFormatBase {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

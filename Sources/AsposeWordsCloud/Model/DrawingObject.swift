@@ -348,10 +348,10 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.renderLinks != null) {
+        try super.validate();
+        if (self.renderLinks != nil) {
             for elementRenderLinks in self.renderLinks! {
-                if (elementRenderLinks != null) {
+                if (elementRenderLinks != nil) {
                     try elementRenderLinks!.validate();
                 }
             }

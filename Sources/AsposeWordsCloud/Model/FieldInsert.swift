@@ -54,7 +54,7 @@ public class FieldInsert : FieldBase {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

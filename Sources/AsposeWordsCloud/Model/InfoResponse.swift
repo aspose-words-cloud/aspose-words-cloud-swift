@@ -120,10 +120,10 @@ public class InfoResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.additionalInfo != null) {
+        try super.validate();
+        if (self.additionalInfo != nil) {
             for elementAdditionalInfo in self.additionalInfo! {
-                if (elementAdditionalInfo != null) {
+                if (elementAdditionalInfo != nil) {
                     try elementAdditionalInfo!.validate();
                 }
             }

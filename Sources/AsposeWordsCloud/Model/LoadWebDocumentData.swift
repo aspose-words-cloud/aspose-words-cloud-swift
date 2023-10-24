@@ -91,7 +91,7 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.loadingDocumentUrl == null)
+        if (self.loadingDocumentUrl == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "loadingDocumentUrl");
         }

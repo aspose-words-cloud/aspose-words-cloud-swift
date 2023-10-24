@@ -78,7 +78,7 @@ public class TablePropertiesResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.properties?.validate();
 
     }

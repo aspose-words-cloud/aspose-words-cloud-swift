@@ -109,8 +109,8 @@ public class DocumentEntry : BaseEntry {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.importFormatMode == null)
+        try super.validate();
+        if (self.importFormatMode == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "importFormatMode");
         }

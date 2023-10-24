@@ -188,24 +188,24 @@ public class ListInfo : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.listId == null)
+        try super.validate();
+        if (self.listId == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "listId");
         }
-        if (self.isMultiLevel == null)
+        if (self.isMultiLevel == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isMultiLevel");
         }
-        if (self.isRestartAtEachSection == null)
+        if (self.isRestartAtEachSection == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isRestartAtEachSection");
         }
-        if (self.isListStyleDefinition == null)
+        if (self.isListStyleDefinition == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isListStyleDefinition");
         }
-        if (self.isListStyleReference == null)
+        if (self.isListStyleReference == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isListStyleReference");
         }

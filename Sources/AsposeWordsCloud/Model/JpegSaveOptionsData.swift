@@ -63,7 +63,7 @@ public class JpegSaveOptionsData : ImageSaveOptionsData {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
     }
 
 }

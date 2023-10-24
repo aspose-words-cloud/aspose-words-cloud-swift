@@ -110,12 +110,12 @@ public class ListFormat : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.listLevelNumber == null)
+        try super.validate();
+        if (self.listLevelNumber == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "listLevelNumber");
         }
-        if (self.isListItem == null)
+        if (self.isListItem == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isListItem");
         }

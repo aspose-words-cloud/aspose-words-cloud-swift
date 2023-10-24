@@ -78,7 +78,7 @@ public class TableCellFormatResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.cellFormat?.validate();
 
     }

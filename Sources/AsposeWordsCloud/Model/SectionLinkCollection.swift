@@ -84,10 +84,10 @@ public class SectionLinkCollection : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.sectionLinkList != null) {
+        try super.validate();
+        if (self.sectionLinkList != nil) {
             for elementSectionLinkList in self.sectionLinkList! {
-                if (elementSectionLinkList != null) {
+                if (elementSectionLinkList != nil) {
                     try elementSectionLinkList!.validate();
                 }
             }

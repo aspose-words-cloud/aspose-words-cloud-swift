@@ -88,7 +88,7 @@ public class BookmarksOutlineLevelData : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.bookmarksOutlineLevel == null)
+        if (self.bookmarksOutlineLevel == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "bookmarksOutlineLevel");
         }

@@ -77,7 +77,7 @@ public class DrawingObjectResponse : WordsResponse {
     }
 
     public override func validate() throws {
-        super.validate();
+        try super.validate();
         try self.drawingObject?.validate();
 
     }

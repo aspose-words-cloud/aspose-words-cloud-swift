@@ -132,11 +132,11 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
     }
 
     public func validate() throws {
-        if (self.alwaysGenerateRootObject == null)
+        if (self.alwaysGenerateRootObject == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "alwaysGenerateRootObject");
         }
-        if (self.simpleValueParseMode == null)
+        if (self.simpleValueParseMode == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "simpleValueParseMode");
         }

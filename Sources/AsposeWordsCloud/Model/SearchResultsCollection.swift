@@ -84,10 +84,10 @@ public class SearchResultsCollection : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.resultsList != null) {
+        try super.validate();
+        if (self.resultsList != nil) {
             for elementResultsList in self.resultsList! {
-                if (elementResultsList != null) {
+                if (elementResultsList != nil) {
                     try elementResultsList!.validate();
                 }
             }

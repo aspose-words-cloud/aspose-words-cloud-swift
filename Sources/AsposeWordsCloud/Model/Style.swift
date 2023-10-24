@@ -1429,24 +1429,24 @@ public class Style : LinkElement {
     }
 
     public override func validate() throws {
-        super.validate();
-        if (self.builtIn == null)
+        try super.validate();
+        if (self.builtIn == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "builtIn");
         }
-        if (self.isQuickStyle == null)
+        if (self.isQuickStyle == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isQuickStyle");
         }
-        if (self.type == null)
+        if (self.type == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "type");
         }
-        if (self.isHeading == null)
+        if (self.isHeading == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isHeading");
         }
-        if (self.styleIdentifier == null)
+        if (self.styleIdentifier == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "styleIdentifier");
         }
