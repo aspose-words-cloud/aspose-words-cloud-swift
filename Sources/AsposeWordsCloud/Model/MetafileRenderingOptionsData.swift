@@ -92,6 +92,18 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
         }
     }
 
+    // Field of emulateRenderingToSizeOnPageResolution. Container class for options of metafile rendering.
+    private var _emulateRenderingToSizeOnPageResolution : Int? = nil;
+
+    public var emulateRenderingToSizeOnPageResolution : Int? {
+        get {
+            return self._emulateRenderingToSizeOnPageResolution;
+        }
+        set {
+            self._emulateRenderingToSizeOnPageResolution = newValue;
+        }
+    }
+
     // Field of renderingMode. Container class for options of metafile rendering.
     private var _renderingMode : RenderingMode? = nil;
 
@@ -120,6 +132,7 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
         case emfPlusDualRenderingMode = "EmfPlusDualRenderingMode";
         case emulateRasterOperations = "EmulateRasterOperations";
         case emulateRenderingToSizeOnPage = "EmulateRenderingToSizeOnPage";
+        case emulateRenderingToSizeOnPageResolution = "EmulateRenderingToSizeOnPageResolution";
         case renderingMode = "RenderingMode";
         case useEmfEmbeddedToWmf = "UseEmfEmbeddedToWmf";
         case invalidCodingKey;
@@ -135,6 +148,7 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
 
         self.emulateRasterOperations = json["EmulateRasterOperations"] as? Bool;
         self.emulateRenderingToSizeOnPage = json["EmulateRenderingToSizeOnPage"] as? Bool;
+        self.emulateRenderingToSizeOnPageResolution = json["EmulateRenderingToSizeOnPageResolution"] as? Int;
         if let raw_renderingMode = json["RenderingMode"] as? String {
             self.renderingMode = RenderingMode(rawValue: raw_renderingMode);
         }
@@ -147,6 +161,7 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
         self.emfPlusDualRenderingMode = try container.decodeIfPresent(EmfPlusDualRenderingMode.self, forKey: .emfPlusDualRenderingMode);
         self.emulateRasterOperations = try container.decodeIfPresent(Bool.self, forKey: .emulateRasterOperations);
         self.emulateRenderingToSizeOnPage = try container.decodeIfPresent(Bool.self, forKey: .emulateRenderingToSizeOnPage);
+        self.emulateRenderingToSizeOnPageResolution = try container.decodeIfPresent(Int.self, forKey: .emulateRenderingToSizeOnPageResolution);
         self.renderingMode = try container.decodeIfPresent(RenderingMode.self, forKey: .renderingMode);
         self.useEmfEmbeddedToWmf = try container.decodeIfPresent(Bool.self, forKey: .useEmfEmbeddedToWmf);
     }
@@ -161,6 +176,9 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
         }
         if (self.emulateRenderingToSizeOnPage != nil) {
             try container.encode(self.emulateRenderingToSizeOnPage, forKey: .emulateRenderingToSizeOnPage);
+        }
+        if (self.emulateRenderingToSizeOnPageResolution != nil) {
+            try container.encode(self.emulateRenderingToSizeOnPageResolution, forKey: .emulateRenderingToSizeOnPageResolution);
         }
         if (self.renderingMode != nil) {
             try container.encode(self.renderingMode, forKey: .renderingMode);
@@ -206,6 +224,18 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     // Gets emulateRenderingToSizeOnPage. Gets or sets a value determining whether metafile rendering emulates the display of the metafile according to the size on page or the display of the metafile in its default size.
     public func getEmulateRenderingToSizeOnPage() -> Bool? {
         return self.emulateRenderingToSizeOnPage;
+    }
+
+
+    // Sets emulateRenderingToSizeOnPageResolution. Gets or sets the resolution in pixels per inch for the emulation of metafile rendering to the size on page. This option is used only when EmulateRenderingToSizeOnPage is set to true.The default value is 96. This is a default display resolution. I.e. metafile rendering will emulate the display of the metafile in MS Word with a 100% zoom factor.
+    public func setEmulateRenderingToSizeOnPageResolution(emulateRenderingToSizeOnPageResolution : Int?) -> MetafileRenderingOptionsData {
+        self.emulateRenderingToSizeOnPageResolution = emulateRenderingToSizeOnPageResolution;
+        return self;
+    }
+
+    // Gets emulateRenderingToSizeOnPageResolution. Gets or sets the resolution in pixels per inch for the emulation of metafile rendering to the size on page. This option is used only when EmulateRenderingToSizeOnPage is set to true.The default value is 96. This is a default display resolution. I.e. metafile rendering will emulate the display of the metafile in MS Word with a 100% zoom factor.
+    public func getEmulateRenderingToSizeOnPageResolution() -> Int? {
+        return self.emulateRenderingToSizeOnPageResolution;
     }
 
 
