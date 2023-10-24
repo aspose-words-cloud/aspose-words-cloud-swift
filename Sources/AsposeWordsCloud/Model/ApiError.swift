@@ -153,6 +153,8 @@ public class ApiError : Codable, WordsApiModel {
     }
 
     public func validate() throws {
+        try self.innerError?.validate();
+
     }
 
     // Sets code. Gets or sets the API error code.

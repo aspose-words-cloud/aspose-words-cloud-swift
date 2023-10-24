@@ -80,6 +80,14 @@ public class StoryChildNodes : Codable, WordsApiModel {
     }
 
     public func validate() throws {
+        if (self.childNodes != null) {
+            for elementChildNodes in self.childNodes! {
+                if (elementChildNodes != null) {
+                    try elementChildNodes!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets childNodes. Gets or sets the list of child nodes.

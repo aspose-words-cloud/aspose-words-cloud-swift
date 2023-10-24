@@ -86,6 +86,14 @@ public class StylesResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        if (self.styles != null) {
+            for elementStyles in self.styles! {
+                if (elementStyles != null) {
+                    try elementStyles!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets styles. Gets or sets the array of styles.

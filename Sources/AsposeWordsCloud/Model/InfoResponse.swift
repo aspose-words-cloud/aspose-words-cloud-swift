@@ -121,6 +121,14 @@ public class InfoResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        if (self.additionalInfo != null) {
+            for elementAdditionalInfo in self.additionalInfo! {
+                if (elementAdditionalInfo != null) {
+                    try elementAdditionalInfo!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets additionalInfo. Gets or sets AdditionalInfo.

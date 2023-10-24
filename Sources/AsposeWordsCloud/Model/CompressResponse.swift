@@ -78,6 +78,8 @@ public class CompressResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.document?.validate();
+
     }
 
     // Sets document. Gets or sets the destination document info.

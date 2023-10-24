@@ -157,11 +157,11 @@ public class CompareData : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "author");
         }
-
         if (self.comparingWithDocument == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "comparingWithDocument");
         }
+        try self.compareOptions?.validate();
 
     }
 

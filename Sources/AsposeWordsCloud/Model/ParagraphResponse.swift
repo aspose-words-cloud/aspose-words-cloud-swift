@@ -79,6 +79,8 @@ public class ParagraphResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.paragraph?.validate();
+
     }
 
     // Sets paragraph. Gets or sets the paragraph.

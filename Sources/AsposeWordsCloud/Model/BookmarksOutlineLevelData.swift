@@ -92,7 +92,6 @@ public class BookmarksOutlineLevelData : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "bookmarksOutlineLevel");
         }
-
     }
 
     // Sets bookmarksOutlineLevel. Gets or sets the bookmark's level.

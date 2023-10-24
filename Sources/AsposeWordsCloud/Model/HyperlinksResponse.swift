@@ -79,6 +79,8 @@ public class HyperlinksResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.hyperlinks?.validate();
+
     }
 
     // Sets hyperlinks. Gets or sets the collection of hyperlinks.

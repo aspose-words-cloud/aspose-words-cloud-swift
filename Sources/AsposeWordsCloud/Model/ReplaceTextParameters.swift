@@ -146,22 +146,18 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "isMatchCase");
         }
-
         if (self.isMatchWholeWord == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "isMatchWholeWord");
         }
-
         if (self.isOldValueRegex == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "isOldValueRegex");
         }
-
         if (self.oldValue == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "oldValue");
         }
-
     }
 
     // Sets isMatchCase. Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.

@@ -79,7 +79,6 @@ public class TabStop : TabStopBase {
         {
             throw WordsApiError.requiredParameterError(paramName: "isClear");
         }
-
     }
 
     // Sets isClear. Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.

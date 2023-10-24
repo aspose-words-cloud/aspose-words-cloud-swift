@@ -79,6 +79,8 @@ public class FontResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.font?.validate();
+
     }
 
     // Sets font. Gets or sets the font.

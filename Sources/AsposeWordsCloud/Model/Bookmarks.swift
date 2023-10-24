@@ -85,6 +85,14 @@ public class Bookmarks : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        if (self.bookmarkList != null) {
+            for elementBookmarkList in self.bookmarkList! {
+                if (elementBookmarkList != null) {
+                    try elementBookmarkList!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets bookmarkList. Gets or sets the array of bookmarks.

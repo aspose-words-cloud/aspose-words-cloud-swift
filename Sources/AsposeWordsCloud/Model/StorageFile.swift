@@ -154,12 +154,10 @@ public class StorageFile : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "isFolder");
         }
-
         if (self.size == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "size");
         }
-
     }
 
     // Sets isFolder. True if it is a folder.

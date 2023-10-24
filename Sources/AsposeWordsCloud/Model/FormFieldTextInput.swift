@@ -158,12 +158,10 @@ public class FormFieldTextInput : FormField {
         {
             throw WordsApiError.requiredParameterError(paramName: "textInputFormat");
         }
-
         if (self.textInputDefault == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "textInputDefault");
         }
-
     }
 
     // Sets textInputFormat. Gets or sets text formatting for the text form field. If the text form field contains regular text, then valid format strings are "", "UPPERCASE", "LOWERCASE", "FIRST CAPITAL" and "TITLE CASE". The strings are case-insensitive.If the text form field contains a number or a date/time value, then valid format strings are number or date and time format strings.

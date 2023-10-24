@@ -79,6 +79,8 @@ public class StructuredDocumentTagsResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.structuredDocumentTags?.validate();
+
     }
 
     // Sets structuredDocumentTags. Gets or sets the collection of StructuredDocumentTags.

@@ -85,6 +85,14 @@ public class SectionLinkCollection : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        if (self.sectionLinkList != null) {
+            for elementSectionLinkList in self.sectionLinkList! {
+                if (elementSectionLinkList != null) {
+                    try elementSectionLinkList!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets sectionLinkList. Gets or sets the collection of section's links.

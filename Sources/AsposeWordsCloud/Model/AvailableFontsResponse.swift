@@ -141,6 +141,28 @@ public class AvailableFontsResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        if (self.additionalFonts != null) {
+            for elementAdditionalFonts in self.additionalFonts! {
+                if (elementAdditionalFonts != null) {
+                    try elementAdditionalFonts!.validate();
+                }
+            }
+        }
+        if (self.customFonts != null) {
+            for elementCustomFonts in self.customFonts! {
+                if (elementCustomFonts != null) {
+                    try elementCustomFonts!.validate();
+                }
+            }
+        }
+        if (self.systemFonts != null) {
+            for elementSystemFonts in self.systemFonts! {
+                if (elementSystemFonts != null) {
+                    try elementSystemFonts!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets additionalFonts. Gets or sets the list of additional fonts, provided by Aspose team.

@@ -99,6 +99,9 @@ public class StatDataResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.documentLink?.validate();
+        try self.statData?.validate();
+
     }
 
     // Sets documentLink. Gets or sets the link to the document.

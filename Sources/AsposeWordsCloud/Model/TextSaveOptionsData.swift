@@ -142,7 +142,6 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
         {
             throw WordsApiError.requiredParameterError(paramName: "maxCharactersPerLine");
         }
-
     }
 
     // Sets addBidiMarks. Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.

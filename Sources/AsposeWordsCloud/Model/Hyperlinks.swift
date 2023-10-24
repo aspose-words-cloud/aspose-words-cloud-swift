@@ -85,6 +85,14 @@ public class Hyperlinks : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        if (self.hyperlinkList != null) {
+            for elementHyperlinkList in self.hyperlinkList! {
+                if (elementHyperlinkList != null) {
+                    try elementHyperlinkList!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets hyperlinkList. Gets or sets the array of Hyperlink.

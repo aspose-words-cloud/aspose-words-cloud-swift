@@ -1434,26 +1434,23 @@ public class Style : LinkElement {
         {
             throw WordsApiError.requiredParameterError(paramName: "builtIn");
         }
-
         if (self.isQuickStyle == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "isQuickStyle");
         }
-
         if (self.type == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "type");
         }
-
         if (self.isHeading == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "isHeading");
         }
-
         if (self.styleIdentifier == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "styleIdentifier");
         }
+        try self.font?.validate();
 
     }
 

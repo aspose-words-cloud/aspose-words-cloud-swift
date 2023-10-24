@@ -78,6 +78,8 @@ public class DrawingObjectResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.drawingObject?.validate();
+
     }
 
     // Sets drawingObject. Gets or sets the DrawingObject.

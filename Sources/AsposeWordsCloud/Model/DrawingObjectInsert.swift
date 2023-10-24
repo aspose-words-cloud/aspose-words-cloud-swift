@@ -299,36 +299,31 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "relativeHorizontalPosition");
         }
-
         if (self._left == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "_left");
         }
-
         if (self.relativeVerticalPosition == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "relativeVerticalPosition");
         }
-
         if (self.top == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "top");
         }
-
         if (self.width == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "width");
         }
-
         if (self.height == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "height");
         }
-
         if (self.wrapType == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "wrapType");
         }
+        try self.position?.validate();
 
     }
 

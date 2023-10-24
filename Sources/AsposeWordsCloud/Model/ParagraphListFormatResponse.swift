@@ -79,6 +79,8 @@ public class ParagraphListFormatResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.listFormat?.validate();
+
     }
 
     // Sets listFormat. Gets or sets the list format for a paragraph.

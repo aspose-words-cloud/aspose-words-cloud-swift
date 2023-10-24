@@ -85,6 +85,14 @@ public class CommentsCollection : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        if (self.commentList != null) {
+            for elementCommentList in self.commentList! {
+                if (elementCommentList != null) {
+                    try elementCommentList!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets commentList. Gets or sets the collection of comments.

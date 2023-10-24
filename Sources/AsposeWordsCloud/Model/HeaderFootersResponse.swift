@@ -79,6 +79,8 @@ public class HeaderFootersResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.headerFooters?.validate();
+
     }
 
     // Sets headerFooters. Gets or sets the collection of HeaderFooter elements.

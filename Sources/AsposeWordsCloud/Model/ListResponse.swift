@@ -79,6 +79,8 @@ public class ListResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.list?.validate();
+
     }
 
     // Sets list. Gets or sets the list information.

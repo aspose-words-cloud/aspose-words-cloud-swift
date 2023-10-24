@@ -107,7 +107,6 @@ public class FormFieldDropDown : FormField {
         {
             throw WordsApiError.requiredParameterError(paramName: "dropDownItems");
         }
-
     }
 
     // Sets dropDownItems. Gets or sets the items array of a dropdown form field. Microsoft Word allows maximum 25 items in a dropdown form field.

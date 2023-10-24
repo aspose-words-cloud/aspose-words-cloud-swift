@@ -79,6 +79,8 @@ public class BookmarksResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.bookmarks?.validate();
+
     }
 
     // Sets bookmarks. Gets or sets the collection of bookmarks.

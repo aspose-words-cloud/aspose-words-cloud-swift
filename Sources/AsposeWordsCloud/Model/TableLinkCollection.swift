@@ -85,6 +85,14 @@ public class TableLinkCollection : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        if (self.tableLinkList != null) {
+            for elementTableLinkList in self.tableLinkList! {
+                if (elementTableLinkList != null) {
+                    try elementTableLinkList!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets tableLinkList. Gets or sets the collection of table's links.

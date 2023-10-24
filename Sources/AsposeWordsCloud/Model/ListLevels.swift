@@ -85,6 +85,14 @@ public class ListLevels : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        if (self.listLevel != null) {
+            for elementListLevel in self.listLevel! {
+                if (elementListLevel != null) {
+                    try elementListLevel!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets listLevel. Gets or sets the collection of list levels for this list. Use this property to access and modify formatting individual to each level of the list.

@@ -269,6 +269,8 @@ public class OfficeMathObject : OfficeMathLink {
 
     public override func validate() throws {
         super.validate();
+        try self.content?.validate();
+
     }
 
     // Sets content. Gets or sets the content of a footnote.

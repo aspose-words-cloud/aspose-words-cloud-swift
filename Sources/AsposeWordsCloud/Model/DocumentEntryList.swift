@@ -115,10 +115,11 @@ public class DocumentEntryList : BaseEntryList {
         {
             throw WordsApiError.requiredParameterError(paramName: "documentEntries");
         }
-
-        for elementDocumentEntries in self.documentEntries! {
-            if (elementDocumentEntries != null) {
-                try elementDocumentEntries!.validate();
+        if (self.documentEntries != null) {
+            for elementDocumentEntries in self.documentEntries! {
+                if (elementDocumentEntries != null) {
+                    try elementDocumentEntries!.validate();
+                }
             }
         }
 

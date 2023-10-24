@@ -146,12 +146,10 @@ public class PageNumber : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "isTop");
         }
-
         if (self.setPageNumberOnFirstPage == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "setPageNumberOnFirstPage");
         }
-
     }
 
     // Sets alignment. Gets or sets text alignment, possible values are left, right, center or justify.

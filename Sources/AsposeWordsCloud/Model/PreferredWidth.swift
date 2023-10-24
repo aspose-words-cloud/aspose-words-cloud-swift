@@ -108,7 +108,6 @@ public class PreferredWidth : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "type");
         }
-
     }
 
     // Sets type. Gets or sets the unit of measure used for this preferred width value.

@@ -159,15 +159,21 @@ public class DocumentStatData : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "pageCount");
         }
-
         if (self.paragraphCount == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "paragraphCount");
         }
-
         if (self.wordCount == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "wordCount");
+        }
+        try self.footnotesStatData?.validate();
+        if (self.pageStatData != null) {
+            for elementPageStatData in self.pageStatData! {
+                if (elementPageStatData != null) {
+                    try elementPageStatData!.validate();
+                }
+            }
         }
 
     }

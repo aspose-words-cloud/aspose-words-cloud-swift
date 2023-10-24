@@ -79,6 +79,8 @@ public class TableRowFormatResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.rowFormat?.validate();
+
     }
 
     // Sets rowFormat. Gets or sets the formatting properties of a table row.

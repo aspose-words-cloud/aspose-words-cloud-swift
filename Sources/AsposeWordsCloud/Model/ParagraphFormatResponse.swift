@@ -79,6 +79,8 @@ public class ParagraphFormatResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.paragraphFormat?.validate();
+
     }
 
     // Sets paragraphFormat. Gets or sets the formatting properties of a paragraph.

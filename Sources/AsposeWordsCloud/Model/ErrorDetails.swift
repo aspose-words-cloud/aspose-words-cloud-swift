@@ -100,7 +100,6 @@ public class ErrorDetails : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "errorDateTime");
         }
-
     }
 
     // Sets errorDateTime. Gets or sets ErrorDateTime.

@@ -115,7 +115,6 @@ public class FormFieldCheckbox : FormField {
         {
             throw WordsApiError.requiredParameterError(paramName: "checked");
         }
-
     }
 
     // Sets isCheckBoxExactSize. Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.

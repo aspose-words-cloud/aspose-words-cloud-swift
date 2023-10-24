@@ -74,7 +74,6 @@ public class RunBase : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "text");
         }
-
     }
 
     // Sets text. Gets or sets the run's text.

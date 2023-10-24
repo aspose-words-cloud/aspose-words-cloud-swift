@@ -85,6 +85,14 @@ public class Lists : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        if (self.listInfo != null) {
+            for elementListInfo in self.listInfo! {
+                if (elementListInfo != null) {
+                    try elementListInfo!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets listInfo. Gets or sets the array of document lists.

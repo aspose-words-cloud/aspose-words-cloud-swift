@@ -2019,6 +2019,11 @@ public class Font : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        try self.border?.validate();
+        try self.color?.validate();
+        try self.highlightColor?.validate();
+        try self.underlineColor?.validate();
+
     }
 
     // Sets allCaps. Gets or sets a value indicating whether the font is formatted as all capital letters.

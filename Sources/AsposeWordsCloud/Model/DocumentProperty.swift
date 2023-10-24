@@ -115,7 +115,6 @@ public class DocumentProperty : LinkElement {
         {
             throw WordsApiError.requiredParameterError(paramName: "builtIn");
         }
-
     }
 
     // Sets name. Gets or sets the name of the document property.

@@ -79,6 +79,8 @@ public class FormFieldsResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.formFields?.validate();
+
     }
 
     // Sets formFields. Gets or sets the collection of form fields.

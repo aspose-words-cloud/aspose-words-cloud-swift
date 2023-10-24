@@ -224,6 +224,8 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
 
     public override func validate() throws {
         super.validate();
+        try self.metafileRenderingOptions?.validate();
+
     }
 
     // Sets colorMode. Gets or sets the value determining how colors are rendered. { Normal | Grayscale}. The default value is Normal. This property is used when the document is exported to fixed page formats.

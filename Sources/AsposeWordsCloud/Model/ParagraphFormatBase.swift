@@ -1775,6 +1775,8 @@ public class ParagraphFormatBase : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        try self.shading?.validate();
+
     }
 
     // Sets addSpaceBetweenFarEastAndAlpha. Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.

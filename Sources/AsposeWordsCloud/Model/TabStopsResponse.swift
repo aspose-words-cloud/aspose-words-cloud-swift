@@ -86,6 +86,14 @@ public class TabStopsResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        if (self.tabStops != null) {
+            for elementTabStops in self.tabStops! {
+                if (elementTabStops != null) {
+                    try elementTabStops!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets tabStops. Gets or sets the array of tab stops.

@@ -85,6 +85,14 @@ public class ParagraphLinkCollection : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        if (self.paragraphLinkList != null) {
+            for elementParagraphLinkList in self.paragraphLinkList! {
+                if (elementParagraphLinkList != null) {
+                    try elementParagraphLinkList!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets paragraphLinkList. Gets or sets the collection of paragraph's links.

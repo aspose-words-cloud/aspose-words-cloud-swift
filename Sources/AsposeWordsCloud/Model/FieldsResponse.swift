@@ -79,6 +79,8 @@ public class FieldsResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.fields?.validate();
+
     }
 
     // Sets fields. Gets or sets the collection of fields.

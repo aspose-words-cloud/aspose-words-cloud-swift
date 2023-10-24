@@ -79,6 +79,8 @@ public class SectionLinkCollectionResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.sections?.validate();
+
     }
 
     // Sets sections. Gets or sets the collection of sections.

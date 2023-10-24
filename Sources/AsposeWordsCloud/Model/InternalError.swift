@@ -127,6 +127,8 @@ public class InternalError : Codable, WordsApiModel {
     }
 
     public func validate() throws {
+        try self.innerError?.validate();
+
     }
 
     // Sets code. Gets or sets Code.

@@ -349,6 +349,16 @@ public class DrawingObject : DrawingObjectLink {
 
     public override func validate() throws {
         super.validate();
+        if (self.renderLinks != null) {
+            for elementRenderLinks in self.renderLinks! {
+                if (elementRenderLinks != null) {
+                    try elementRenderLinks!.validate();
+                }
+            }
+        }
+        try self.oleDataLink?.validate();
+        try self.imageDataLink?.validate();
+
     }
 
     // Sets renderLinks. Gets or sets the list of links that originate from this DrawingObjectDto.

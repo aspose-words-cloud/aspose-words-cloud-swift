@@ -200,6 +200,10 @@ public class Comment : CommentLink {
 
     public override func validate() throws {
         super.validate();
+        try self.rangeStart?.validate();
+        try self.rangeEnd?.validate();
+        try self.content?.validate();
+
     }
 
     // Sets rangeStart. Gets or sets the link to comment range start node.

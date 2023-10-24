@@ -352,6 +352,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "fileName");
         }
+        try self.customTimeZoneInfoData?.validate();
 
     }
 

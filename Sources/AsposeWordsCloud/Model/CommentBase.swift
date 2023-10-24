@@ -178,16 +178,16 @@ public class CommentBase : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "author");
         }
-
         if (self.initial == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "initial");
         }
-
         if (self.text == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "text");
         }
+        try self.rangeStart?.validate();
+        try self.rangeEnd?.validate();
 
     }
 

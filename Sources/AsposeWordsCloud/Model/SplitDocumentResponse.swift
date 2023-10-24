@@ -79,6 +79,8 @@ public class SplitDocumentResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.splitResult?.validate();
+
     }
 
     // Sets splitResult. Gets or sets the result of document splitting.

@@ -122,6 +122,16 @@ public class SaveResult : Codable, WordsApiModel {
     }
 
     public func validate() throws {
+        try self.destDocument?.validate();
+        try self.sourceDocument?.validate();
+        if (self.additionalItems != null) {
+            for elementAdditionalItems in self.additionalItems! {
+                if (elementAdditionalItems != null) {
+                    try elementAdditionalItems!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets destDocument. Gets or sets the link to destination document.

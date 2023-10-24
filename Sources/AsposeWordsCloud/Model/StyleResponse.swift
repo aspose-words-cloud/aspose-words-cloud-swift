@@ -79,6 +79,8 @@ public class StyleResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.style?.validate();
+
     }
 
     // Sets style. Gets or sets the style, containded in the document.

@@ -80,6 +80,14 @@ public class FilesList : Codable, WordsApiModel {
     }
 
     public func validate() throws {
+        if (self.value != null) {
+            for elementValue in self.value! {
+                if (elementValue != null) {
+                    try elementValue!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets value. Files and folders contained by folder StorageFile.

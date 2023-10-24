@@ -79,6 +79,8 @@ public class RunResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.run?.validate();
+
     }
 
     // Sets run. Gets or sets the Run element.

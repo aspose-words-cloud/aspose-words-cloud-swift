@@ -110,7 +110,6 @@ public class ProtectionRequest : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "password");
         }
-
     }
 
     // Sets newPassword. Gets or sets the new password.

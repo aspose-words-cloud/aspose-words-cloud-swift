@@ -193,26 +193,24 @@ public class ListInfo : LinkElement {
         {
             throw WordsApiError.requiredParameterError(paramName: "listId");
         }
-
         if (self.isMultiLevel == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "isMultiLevel");
         }
-
         if (self.isRestartAtEachSection == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "isRestartAtEachSection");
         }
-
         if (self.isListStyleDefinition == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "isListStyleDefinition");
         }
-
         if (self.isListStyleReference == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "isListStyleReference");
         }
+        try self.style?.validate();
+        try self.listLevels?.validate();
 
     }
 

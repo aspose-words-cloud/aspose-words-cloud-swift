@@ -92,7 +92,6 @@ public class NewDocumentPosition : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "nodeId");
         }
-
     }
 
     // Sets nodeId. Gets or sets the node id.

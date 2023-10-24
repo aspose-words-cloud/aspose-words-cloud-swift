@@ -79,6 +79,8 @@ public class BordersResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.borders?.validate();
+
     }
 
     // Sets borders. Gets or sets the collection of borders.

@@ -79,6 +79,8 @@ public class TablePropertiesResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.properties?.validate();
+
     }
 
     // Sets properties. Gets or sets the table.

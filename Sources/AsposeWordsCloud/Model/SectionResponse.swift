@@ -79,6 +79,8 @@ public class SectionResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.section?.validate();
+
     }
 
     // Sets section. Gets or sets the section.

@@ -1520,6 +1520,8 @@ public class TableProperties : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        try self.preferredWidth?.validate();
+
     }
 
     // Sets alignment. Gets or sets the option that controls how an inline table is aligned in the document. The default value is Left.

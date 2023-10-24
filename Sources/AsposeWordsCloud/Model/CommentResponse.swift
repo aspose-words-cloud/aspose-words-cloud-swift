@@ -79,6 +79,8 @@ public class CommentResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.comment?.validate();
+
     }
 
     // Sets comment. Gets or sets the comment.

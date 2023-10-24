@@ -106,6 +106,15 @@ public class TableRow : NodeLink {
 
     public override func validate() throws {
         super.validate();
+        if (self.tableCellList != null) {
+            for elementTableCellList in self.tableCellList! {
+                if (elementTableCellList != null) {
+                    try elementTableCellList!.validate();
+                }
+            }
+        }
+        try self.rowFormat?.validate();
+
     }
 
     // Sets tableCellList. Gets or sets the collection of rows.

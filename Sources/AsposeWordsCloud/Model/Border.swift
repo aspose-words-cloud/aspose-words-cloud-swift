@@ -292,6 +292,8 @@ public class Border : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        try self.color?.validate();
+
     }
 
     // Sets borderType. Gets or sets the border type.

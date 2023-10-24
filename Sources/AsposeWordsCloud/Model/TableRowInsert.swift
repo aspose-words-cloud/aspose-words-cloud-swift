@@ -92,7 +92,6 @@ public class TableRowInsert : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "columnsCount");
         }
-
     }
 
     // Sets columnsCount. Gets or sets the count of columns. The default value is 1.

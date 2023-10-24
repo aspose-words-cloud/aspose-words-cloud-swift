@@ -85,6 +85,14 @@ public class CustomXmlPartsCollection : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        if (self.customXmlPartsList != null) {
+            for elementCustomXmlPartsList in self.customXmlPartsList! {
+                if (elementCustomXmlPartsList != null) {
+                    try elementCustomXmlPartsList!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets customXmlPartsList. Gets or sets the collection of CustomXmlPart.

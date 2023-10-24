@@ -94,6 +94,9 @@ public class SearchResult : Codable, WordsApiModel {
     }
 
     public func validate() throws {
+        try self.rangeStart?.validate();
+        try self.rangeEnd?.validate();
+
     }
 
     // Sets rangeStart. Gets or sets the link to result range start node.

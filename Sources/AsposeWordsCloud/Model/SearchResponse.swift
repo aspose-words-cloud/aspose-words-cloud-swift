@@ -97,6 +97,8 @@ public class SearchResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.searchResults?.validate();
+
     }
 
     // Sets searchingPattern. Gets or sets the regular expression pattern used to find matches.

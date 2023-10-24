@@ -126,6 +126,13 @@ public class ClassificationResponse : WordsResponse {
         {
             throw WordsApiError.requiredParameterError(paramName: "bestClassProbability");
         }
+        if (self.bestResults != null) {
+            for elementBestResults in self.bestResults! {
+                if (elementBestResults != null) {
+                    try elementBestResults!.validate();
+                }
+            }
+        }
 
     }
 

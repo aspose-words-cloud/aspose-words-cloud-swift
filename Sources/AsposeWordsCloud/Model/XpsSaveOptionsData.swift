@@ -141,6 +141,8 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
 
     public override func validate() throws {
         super.validate();
+        try self.outlineOptions?.validate();
+
     }
 
     // Sets bookmarksOutlineLevel. Gets or sets the level in the XPS document outline at which to display Word bookmarks.

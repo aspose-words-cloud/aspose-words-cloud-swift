@@ -85,6 +85,14 @@ public class SearchResultsCollection : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        if (self.resultsList != null) {
+            for elementResultsList in self.resultsList! {
+                if (elementResultsList != null) {
+                    try elementResultsList!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets resultsList. Gets or sets the collection of comments.

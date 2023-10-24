@@ -166,6 +166,9 @@ public class Footnote : FootnoteLink {
 
     public override func validate() throws {
         super.validate();
+        try self.position?.validate();
+        try self.content?.validate();
+
     }
 
     // Sets position. Gets or sets the link to comment range start node.

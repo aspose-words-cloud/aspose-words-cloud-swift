@@ -127,6 +127,16 @@ public class HeaderFooter : HeaderFooterLink {
 
     public override func validate() throws {
         super.validate();
+        if (self.childNodes != null) {
+            for elementChildNodes in self.childNodes! {
+                if (elementChildNodes != null) {
+                    try elementChildNodes!.validate();
+                }
+            }
+        }
+        try self.paragraphs?.validate();
+        try self.drawingObjects?.validate();
+
     }
 
     // Sets childNodes. Gets or sets the child nodes.

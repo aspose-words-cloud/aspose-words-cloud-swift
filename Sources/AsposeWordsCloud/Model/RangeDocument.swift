@@ -74,7 +74,6 @@ public class RangeDocument : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "documentName");
         }
-
     }
 
     // Sets documentName. Gets or sets the name for a new document.

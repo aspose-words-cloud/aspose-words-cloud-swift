@@ -99,6 +99,9 @@ public class BookmarkInsert : BookmarkData {
 
     public override func validate() throws {
         super.validate();
+        try self.startRange?.validate();
+        try self.endRange?.validate();
+
     }
 
     // Sets startRange. Gets or sets the link to start bookmark node.

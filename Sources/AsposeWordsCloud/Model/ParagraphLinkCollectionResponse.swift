@@ -79,6 +79,8 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.paragraphs?.validate();
+
     }
 
     // Sets paragraphs. Gets or sets the collection of paragraphs.

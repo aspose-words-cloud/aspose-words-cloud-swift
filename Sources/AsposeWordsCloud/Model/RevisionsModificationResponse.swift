@@ -78,6 +78,8 @@ public class RevisionsModificationResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.result?.validate();
+
     }
 
     // Sets result. Gets or sets the result of the modification operations for the revisions collection.

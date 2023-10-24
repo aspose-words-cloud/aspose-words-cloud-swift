@@ -82,8 +82,7 @@ public class BaseEntry : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "fileReference");
         }
-
-        try self.fileReference!.validate();
+        try self.fileReference?.validate();
 
     }
 

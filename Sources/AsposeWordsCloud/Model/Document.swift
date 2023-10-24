@@ -247,16 +247,22 @@ public class Document : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "isEncrypted");
         }
-
         if (self.isSigned == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "isSigned");
         }
-
         if (self.sourceFormat == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "sourceFormat");
         }
+        if (self.links != null) {
+            for elementLinks in self.links! {
+                if (elementLinks != null) {
+                    try elementLinks!.validate();
+                }
+            }
+        }
+        try self.documentProperties?.validate();
 
     }
 

@@ -79,6 +79,8 @@ public class OfficeMathObjectResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.officeMathObject?.validate();
+
     }
 
     // Sets officeMathObject. Gets or sets the OfficeMath object.

@@ -78,6 +78,8 @@ public class WordsApiErrorResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.error?.validate();
+
     }
 
     // Sets error. Gets or sets the API error.

@@ -340,6 +340,8 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     public func validate() throws {
+        try self.currentUser?.validate();
+
     }
 
     // Sets currentUser. Gets or sets Curren tUser.

@@ -79,6 +79,8 @@ public class FootnoteResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.footnote?.validate();
+
     }
 
     // Sets footnote. Gets or sets the footnote.

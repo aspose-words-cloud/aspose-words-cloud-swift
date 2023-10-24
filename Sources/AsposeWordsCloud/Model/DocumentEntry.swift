@@ -114,7 +114,6 @@ public class DocumentEntry : BaseEntry {
         {
             throw WordsApiError.requiredParameterError(paramName: "importFormatMode");
         }
-
     }
 
     // Sets encryptedPassword. Gets or sets document password encrypted on API public key. The default value is null (the document has no password).

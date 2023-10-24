@@ -79,6 +79,8 @@ public class SectionPageSetupResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.pageSetup?.validate();
+
     }
 
     // Sets pageSetup. Gets or sets the page setup of a section.

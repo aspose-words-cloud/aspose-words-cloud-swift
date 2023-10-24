@@ -284,6 +284,7 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
 
          if (self.getOptions() != nil) {
              formParams.append(RequestFormParam(name: "options", body: try ObjectSerializer.serialize(value: self.getOptions()!), contentType: "application/json"));
+             try self.getOptions()!.validate();
          }
 
          for requestFileReference in requestFilesContent {

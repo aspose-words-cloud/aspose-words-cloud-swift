@@ -99,6 +99,9 @@ public class ProtectionDataResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.documentLink?.validate();
+        try self.protectionData?.validate();
+
     }
 
     // Sets documentLink. Gets or sets the link to the document.

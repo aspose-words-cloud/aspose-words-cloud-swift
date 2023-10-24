@@ -108,6 +108,14 @@ public class FilesUploadResult : Codable, WordsApiModel {
     }
 
     public func validate() throws {
+        if (self.errors != null) {
+            for elementErrors in self.errors! {
+                if (elementErrors != null) {
+                    try elementErrors!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets errors. List of errors.

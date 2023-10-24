@@ -73,6 +73,8 @@ public class LinkElement : Codable, WordsApiModel {
     }
 
     public func validate() throws {
+        try self.link?.validate();
+
     }
 
     // Sets link. Gets or sets the link to the document.

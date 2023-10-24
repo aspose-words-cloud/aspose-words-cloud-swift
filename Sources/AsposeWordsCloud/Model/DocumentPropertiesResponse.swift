@@ -79,6 +79,8 @@ public class DocumentPropertiesResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.documentProperties?.validate();
+
     }
 
     // Sets documentProperties. Gets or sets the collection of document properties.

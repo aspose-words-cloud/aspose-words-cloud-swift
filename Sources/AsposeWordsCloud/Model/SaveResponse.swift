@@ -78,6 +78,8 @@ public class SaveResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.saveResult?.validate();
+
     }
 
     // Sets saveResult. Gets or sets the save result.

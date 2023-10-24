@@ -79,6 +79,8 @@ public class TableLinkCollectionResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.tables?.validate();
+
     }
 
     // Sets tables. Gets or sets the collection of tables.

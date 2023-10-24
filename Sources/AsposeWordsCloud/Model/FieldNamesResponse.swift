@@ -79,6 +79,8 @@ public class FieldNamesResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.fieldNames?.validate();
+
     }
 
     // Sets fieldNames. Gets or sets the collection of mail merge fields.

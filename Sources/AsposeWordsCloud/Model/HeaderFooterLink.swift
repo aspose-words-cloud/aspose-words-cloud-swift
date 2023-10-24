@@ -104,7 +104,6 @@ public class HeaderFooterLink : LinkElement {
         {
             throw WordsApiError.requiredParameterError(paramName: "type");
         }
-
     }
 
     // Sets type. Gets or sets the paragraph's text.

@@ -91,6 +91,8 @@ public class DocumentPosition : Codable, WordsApiModel {
     }
 
     public func validate() throws {
+        try self.node?.validate();
+
     }
 
     // Sets node. Gets or sets the link to a node.

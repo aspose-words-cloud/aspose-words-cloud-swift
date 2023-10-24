@@ -111,7 +111,6 @@ public class StyleInsert : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "styleType");
         }
-
     }
 
     // Sets styleName. Gets or sets the case sensitive name of the style to create.

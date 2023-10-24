@@ -92,12 +92,10 @@ public class FootnotesStatData : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "paragraphCount");
         }
-
         if (self.wordCount == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "wordCount");
         }
-
     }
 
     // Sets paragraphCount. Gets or sets the total count of paragraphs in footnotes.

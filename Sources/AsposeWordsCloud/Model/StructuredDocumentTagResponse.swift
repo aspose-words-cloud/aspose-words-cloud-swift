@@ -78,6 +78,8 @@ public class StructuredDocumentTagResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.structuredDocumentTag?.validate();
+
     }
 
     // Sets structuredDocumentTag. Gets or sets the StructuredDocumentTag.

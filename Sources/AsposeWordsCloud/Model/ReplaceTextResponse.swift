@@ -100,6 +100,7 @@ public class ReplaceTextResponse : WordsResponse {
         {
             throw WordsApiError.requiredParameterError(paramName: "matches");
         }
+        try self.documentLink?.validate();
 
     }
 

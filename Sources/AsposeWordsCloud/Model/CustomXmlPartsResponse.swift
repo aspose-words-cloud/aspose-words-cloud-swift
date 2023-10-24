@@ -79,6 +79,8 @@ public class CustomXmlPartsResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.customXmlParts?.validate();
+
     }
 
     // Sets customXmlParts. Gets or sets the collection of comments.

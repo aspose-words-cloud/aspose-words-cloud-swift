@@ -111,6 +111,14 @@ public class ImageEntryList : BaseEntryList {
 
     public override func validate() throws {
         super.validate();
+        if (self.imageEntries != null) {
+            for elementImageEntries in self.imageEntries! {
+                if (elementImageEntries != null) {
+                    try elementImageEntries!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets appendEachImageOnNewPage. Gets or sets a value indicating whether each image should be added to a new page in the document. This value only has an effect when adding images to a document that supports pagination.

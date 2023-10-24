@@ -85,6 +85,14 @@ public class DocumentProperties : LinkElement {
 
     public override func validate() throws {
         super.validate();
+        if (self.list != null) {
+            for elementList in self.list! {
+                if (elementList != null) {
+                    try elementList!.validate();
+                }
+            }
+        }
+
     }
 
     // Sets list. Gets or sets the collection of document properties.

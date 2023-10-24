@@ -113,11 +113,11 @@ public class TableInsert : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "columnsCount");
         }
-
         if (self.rowsCount == null)
         {
             throw WordsApiError.requiredParameterError(paramName: "rowsCount");
         }
+        try self.position?.validate();
 
     }
 

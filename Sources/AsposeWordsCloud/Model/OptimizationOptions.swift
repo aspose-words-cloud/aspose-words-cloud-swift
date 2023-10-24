@@ -105,7 +105,6 @@ public class OptimizationOptions : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "msWordVersion");
         }
-
     }
 
     // Sets msWordVersion. Gets or sets the specific MSWord version.

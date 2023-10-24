@@ -199,6 +199,9 @@ public class ReportEngineSettings : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "dataSourceType");
         }
+        try self.csvDataLoadOptions?.validate();
+        try self.jsonDataLoadOptions?.validate();
+        try self.xmlDataLoadOptions?.validate();
 
     }
 

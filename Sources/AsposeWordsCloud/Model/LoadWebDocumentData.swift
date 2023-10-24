@@ -95,6 +95,7 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "loadingDocumentUrl");
         }
+        try self.saveOptions?.validate();
 
     }
 

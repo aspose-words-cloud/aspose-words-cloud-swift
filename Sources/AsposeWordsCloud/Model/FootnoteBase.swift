@@ -140,6 +140,8 @@ public class FootnoteBase : Codable, WordsApiModel {
     }
 
     public func validate() throws {
+        try self.position?.validate();
+
     }
 
     // Sets position. Gets or sets the link to comment range start node.

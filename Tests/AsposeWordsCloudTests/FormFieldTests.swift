@@ -59,6 +59,7 @@ class FormFieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestFormField = FormFieldTextInput()
+        .setTextInputFormat(textInputFormat: "")
         .setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular)
         .setTextInputDefault(textInputDefault: "No name")
         .setName(name: "FullName")
@@ -76,6 +77,7 @@ class FormFieldTests: BaseTestContext {
     func testUpdateFormFieldOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!;
       let requestFormField = FormFieldTextInput()
+        .setTextInputFormat(textInputFormat: "")
         .setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular)
         .setTextInputDefault(textInputDefault: "No name")
         .setName(name: "FullName")
@@ -93,6 +95,7 @@ class FormFieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestFormField = FormFieldTextInput()
+        .setTextInputFormat(textInputFormat: "")
         .setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular)
         .setTextInputDefault(textInputDefault: "No name")
         .setName(name: "FullName")

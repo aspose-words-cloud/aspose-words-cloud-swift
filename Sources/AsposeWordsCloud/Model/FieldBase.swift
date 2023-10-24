@@ -92,7 +92,6 @@ public class FieldBase : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "fieldCode");
         }
-
     }
 
     // Sets localeId. Gets or sets the LCID of the field.

@@ -79,6 +79,8 @@ public class ListsResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.lists?.validate();
+
     }
 
     // Sets lists. Gets or sets the collection of lists, contained in the document.

@@ -79,6 +79,8 @@ public class TableCellFormatResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.cellFormat?.validate();
+
     }
 
     // Sets cellFormat. Gets or sets the formatting properties of a table cell.

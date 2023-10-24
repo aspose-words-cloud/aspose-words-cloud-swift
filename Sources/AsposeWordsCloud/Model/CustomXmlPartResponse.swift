@@ -79,6 +79,8 @@ public class CustomXmlPartResponse : WordsResponse {
 
     public override func validate() throws {
         super.validate();
+        try self.customXmlPart?.validate();
+
     }
 
     // Sets customXmlPart. Gets or sets the custom xml part.

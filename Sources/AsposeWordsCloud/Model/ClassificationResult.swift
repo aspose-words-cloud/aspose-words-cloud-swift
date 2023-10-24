@@ -92,7 +92,6 @@ public class ClassificationResult : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "classProbability");
         }
-
     }
 
     // Sets className. Gets or sets the name of the class.
