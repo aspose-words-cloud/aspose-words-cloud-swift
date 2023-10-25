@@ -110,9 +110,7 @@ public class FilesUploadResult : Codable, WordsApiModel {
     public func validate() throws {
         if (self.errors != nil) {
             for elementErrors in self.errors! {
-                if (elementErrors != nil) {
-                    try elementErrors!.validate();
-                }
+                try elementErrors.validate();
             }
         }
 

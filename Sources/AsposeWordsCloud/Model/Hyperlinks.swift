@@ -87,9 +87,7 @@ public class Hyperlinks : LinkElement {
         try super.validate();
         if (self.hyperlinkList != nil) {
             for elementHyperlinkList in self.hyperlinkList! {
-                if (elementHyperlinkList != nil) {
-                    try elementHyperlinkList!.validate();
-                }
+                try elementHyperlinkList.validate();
             }
         }
 

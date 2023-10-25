@@ -87,9 +87,7 @@ public class CustomXmlPartsCollection : LinkElement {
         try super.validate();
         if (self.customXmlPartsList != nil) {
             for elementCustomXmlPartsList in self.customXmlPartsList! {
-                if (elementCustomXmlPartsList != nil) {
-                    try elementCustomXmlPartsList!.validate();
-                }
+                try elementCustomXmlPartsList.validate();
             }
         }
 

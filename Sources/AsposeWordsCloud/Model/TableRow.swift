@@ -108,9 +108,7 @@ public class TableRow : NodeLink {
         try super.validate();
         if (self.tableCellList != nil) {
             for elementTableCellList in self.tableCellList! {
-                if (elementTableCellList != nil) {
-                    try elementTableCellList!.validate();
-                }
+                try elementTableCellList.validate();
             }
         }
         try self.rowFormat?.validate();

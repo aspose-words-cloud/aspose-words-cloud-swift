@@ -87,9 +87,7 @@ public class Paragraph : NodeLink {
         try super.validate();
         if (self.childNodes != nil) {
             for elementChildNodes in self.childNodes! {
-                if (elementChildNodes != nil) {
-                    try elementChildNodes!.validate();
-                }
+                try elementChildNodes.validate();
             }
         }
 

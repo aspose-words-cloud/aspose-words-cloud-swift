@@ -87,9 +87,7 @@ public class CommentsCollection : LinkElement {
         try super.validate();
         if (self.commentList != nil) {
             for elementCommentList in self.commentList! {
-                if (elementCommentList != nil) {
-                    try elementCommentList!.validate();
-                }
+                try elementCommentList.validate();
             }
         }
 

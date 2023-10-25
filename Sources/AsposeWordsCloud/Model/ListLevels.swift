@@ -87,9 +87,7 @@ public class ListLevels : LinkElement {
         try super.validate();
         if (self.listLevel != nil) {
             for elementListLevel in self.listLevel! {
-                if (elementListLevel != nil) {
-                    try elementListLevel!.validate();
-                }
+                try elementListLevel.validate();
             }
         }
 

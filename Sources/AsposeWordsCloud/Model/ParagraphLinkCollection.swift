@@ -87,9 +87,7 @@ public class ParagraphLinkCollection : LinkElement {
         try super.validate();
         if (self.paragraphLinkList != nil) {
             for elementParagraphLinkList in self.paragraphLinkList! {
-                if (elementParagraphLinkList != nil) {
-                    try elementParagraphLinkList!.validate();
-                }
+                try elementParagraphLinkList.validate();
             }
         }
 

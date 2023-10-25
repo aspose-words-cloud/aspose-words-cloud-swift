@@ -87,9 +87,7 @@ public class FormFieldCollection : LinkElement {
         try super.validate();
         if (self.list != nil) {
             for elementList in self.list! {
-                if (elementList != nil) {
-                    try elementList!.validate();
-                }
+                try elementList.validate();
             }
         }
 

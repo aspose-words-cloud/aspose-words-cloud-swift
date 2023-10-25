@@ -257,9 +257,7 @@ public class Document : Codable, WordsApiModel {
         }
         if (self.links != nil) {
             for elementLinks in self.links! {
-                if (elementLinks != nil) {
-                    try elementLinks!.validate();
-                }
+                try elementLinks.validate();
             }
         }
         try self.documentProperties?.validate();

@@ -87,9 +87,7 @@ public class Lists : LinkElement {
         try super.validate();
         if (self.listInfo != nil) {
             for elementListInfo in self.listInfo! {
-                if (elementListInfo != nil) {
-                    try elementListInfo!.validate();
-                }
+                try elementListInfo.validate();
             }
         }
 

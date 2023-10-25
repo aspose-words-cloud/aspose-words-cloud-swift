@@ -117,9 +117,7 @@ public class DocumentEntryList : BaseEntryList {
         }
         if (self.documentEntries != nil) {
             for elementDocumentEntries in self.documentEntries! {
-                if (elementDocumentEntries != nil) {
-                    try elementDocumentEntries!.validate();
-                }
+                try elementDocumentEntries.validate();
             }
         }
 

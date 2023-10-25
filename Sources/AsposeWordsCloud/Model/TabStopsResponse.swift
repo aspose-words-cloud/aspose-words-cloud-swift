@@ -88,9 +88,7 @@ public class TabStopsResponse : WordsResponse {
         try super.validate();
         if (self.tabStops != nil) {
             for elementTabStops in self.tabStops! {
-                if (elementTabStops != nil) {
-                    try elementTabStops!.validate();
-                }
+                try elementTabStops.validate();
             }
         }
 

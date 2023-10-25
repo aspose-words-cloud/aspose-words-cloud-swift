@@ -172,9 +172,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     public func validate() throws {
         if (self.bookmarksOutlineLevels != nil) {
             for elementBookmarksOutlineLevels in self.bookmarksOutlineLevels! {
-                if (elementBookmarksOutlineLevels != nil) {
-                    try elementBookmarksOutlineLevels!.validate();
-                }
+                try elementBookmarksOutlineLevels.validate();
             }
         }
 

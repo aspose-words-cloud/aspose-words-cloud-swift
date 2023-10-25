@@ -87,9 +87,7 @@ public class SectionLinkCollection : LinkElement {
         try super.validate();
         if (self.sectionLinkList != nil) {
             for elementSectionLinkList in self.sectionLinkList! {
-                if (elementSectionLinkList != nil) {
-                    try elementSectionLinkList!.validate();
-                }
+                try elementSectionLinkList.validate();
             }
         }
 

@@ -123,9 +123,7 @@ public class InfoResponse : WordsResponse {
         try super.validate();
         if (self.additionalInfo != nil) {
             for elementAdditionalInfo in self.additionalInfo! {
-                if (elementAdditionalInfo != nil) {
-                    try elementAdditionalInfo!.validate();
-                }
+                try elementAdditionalInfo.validate();
             }
         }
 

@@ -108,9 +108,7 @@ public class Table : NodeLink {
         try super.validate();
         if (self.tableRowList != nil) {
             for elementTableRowList in self.tableRowList! {
-                if (elementTableRowList != nil) {
-                    try elementTableRowList!.validate();
-                }
+                try elementTableRowList.validate();
             }
         }
         try self.tableProperties?.validate();

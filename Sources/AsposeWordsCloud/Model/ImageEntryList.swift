@@ -113,9 +113,7 @@ public class ImageEntryList : BaseEntryList {
         try super.validate();
         if (self.imageEntries != nil) {
             for elementImageEntries in self.imageEntries! {
-                if (elementImageEntries != nil) {
-                    try elementImageEntries!.validate();
-                }
+                try elementImageEntries.validate();
             }
         }
 

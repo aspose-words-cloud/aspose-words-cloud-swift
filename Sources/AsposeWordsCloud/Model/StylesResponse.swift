@@ -88,9 +88,7 @@ public class StylesResponse : WordsResponse {
         try super.validate();
         if (self.styles != nil) {
             for elementStyles in self.styles! {
-                if (elementStyles != nil) {
-                    try elementStyles!.validate();
-                }
+                try elementStyles.validate();
             }
         }
 

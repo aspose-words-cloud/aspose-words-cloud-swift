@@ -143,23 +143,17 @@ public class AvailableFontsResponse : WordsResponse {
         try super.validate();
         if (self.additionalFonts != nil) {
             for elementAdditionalFonts in self.additionalFonts! {
-                if (elementAdditionalFonts != nil) {
-                    try elementAdditionalFonts!.validate();
-                }
+                try elementAdditionalFonts.validate();
             }
         }
         if (self.customFonts != nil) {
             for elementCustomFonts in self.customFonts! {
-                if (elementCustomFonts != nil) {
-                    try elementCustomFonts!.validate();
-                }
+                try elementCustomFonts.validate();
             }
         }
         if (self.systemFonts != nil) {
             for elementSystemFonts in self.systemFonts! {
-                if (elementSystemFonts != nil) {
-                    try elementSystemFonts!.validate();
-                }
+                try elementSystemFonts.validate();
             }
         }
 

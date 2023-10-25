@@ -126,9 +126,7 @@ public class SaveResult : Codable, WordsApiModel {
         try self.sourceDocument?.validate();
         if (self.additionalItems != nil) {
             for elementAdditionalItems in self.additionalItems! {
-                if (elementAdditionalItems != nil) {
-                    try elementAdditionalItems!.validate();
-                }
+                try elementAdditionalItems.validate();
             }
         }
 

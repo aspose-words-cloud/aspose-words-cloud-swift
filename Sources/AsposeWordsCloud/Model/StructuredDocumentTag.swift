@@ -681,9 +681,7 @@ public class StructuredDocumentTag : NodeLink {
         try super.validate();
         if (self.listItems != nil) {
             for elementListItems in self.listItems! {
-                if (elementListItems != nil) {
-                    try elementListItems!.validate();
-                }
+                try elementListItems.validate();
             }
         }
 

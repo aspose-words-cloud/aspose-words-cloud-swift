@@ -129,9 +129,7 @@ public class HeaderFooter : HeaderFooterLink {
         try super.validate();
         if (self.childNodes != nil) {
             for elementChildNodes in self.childNodes! {
-                if (elementChildNodes != nil) {
-                    try elementChildNodes!.validate();
-                }
+                try elementChildNodes.validate();
             }
         }
         try self.paragraphs?.validate();

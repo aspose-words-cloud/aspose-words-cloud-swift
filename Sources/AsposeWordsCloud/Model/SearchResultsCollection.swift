@@ -87,9 +87,7 @@ public class SearchResultsCollection : LinkElement {
         try super.validate();
         if (self.resultsList != nil) {
             for elementResultsList in self.resultsList! {
-                if (elementResultsList != nil) {
-                    try elementResultsList!.validate();
-                }
+                try elementResultsList.validate();
             }
         }
 

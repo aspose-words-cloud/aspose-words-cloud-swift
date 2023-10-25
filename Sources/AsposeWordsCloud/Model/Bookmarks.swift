@@ -87,9 +87,7 @@ public class Bookmarks : LinkElement {
         try super.validate();
         if (self.bookmarkList != nil) {
             for elementBookmarkList in self.bookmarkList! {
-                if (elementBookmarkList != nil) {
-                    try elementBookmarkList!.validate();
-                }
+                try elementBookmarkList.validate();
             }
         }
 

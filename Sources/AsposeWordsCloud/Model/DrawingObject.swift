@@ -351,9 +351,7 @@ public class DrawingObject : DrawingObjectLink {
         try super.validate();
         if (self.renderLinks != nil) {
             for elementRenderLinks in self.renderLinks! {
-                if (elementRenderLinks != nil) {
-                    try elementRenderLinks!.validate();
-                }
+                try elementRenderLinks.validate();
             }
         }
         try self.oleDataLink?.validate();

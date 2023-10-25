@@ -87,9 +87,7 @@ public class TableLinkCollection : LinkElement {
         try super.validate();
         if (self.tableLinkList != nil) {
             for elementTableLinkList in self.tableLinkList! {
-                if (elementTableLinkList != nil) {
-                    try elementTableLinkList!.validate();
-                }
+                try elementTableLinkList.validate();
             }
         }
 

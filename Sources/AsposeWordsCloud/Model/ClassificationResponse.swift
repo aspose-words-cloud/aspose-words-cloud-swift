@@ -128,9 +128,7 @@ public class ClassificationResponse : WordsResponse {
         }
         if (self.bestResults != nil) {
             for elementBestResults in self.bestResults! {
-                if (elementBestResults != nil) {
-                    try elementBestResults!.validate();
-                }
+                try elementBestResults.validate();
             }
         }
 

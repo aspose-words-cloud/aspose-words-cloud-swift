@@ -170,9 +170,7 @@ public class DocumentStatData : Codable, WordsApiModel {
         try self.footnotesStatData?.validate();
         if (self.pageStatData != nil) {
             for elementPageStatData in self.pageStatData! {
-                if (elementPageStatData != nil) {
-                    try elementPageStatData!.validate();
-                }
+                try elementPageStatData.validate();
             }
         }
 
