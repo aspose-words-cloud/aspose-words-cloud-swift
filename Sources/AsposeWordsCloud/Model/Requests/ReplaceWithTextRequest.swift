@@ -217,6 +217,7 @@ public class ReplaceWithTextRequest : WordsApiRequest {
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "rangeText", body: try ObjectSerializer.serialize(value: self.getRangeText()), contentType: "application/json"));
          self.getRangeText().collectFilesContent(&requestFilesContent);
+         try self.getRangeText().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

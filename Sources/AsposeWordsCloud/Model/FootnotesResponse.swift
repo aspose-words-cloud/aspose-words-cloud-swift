@@ -77,6 +77,12 @@ public class FootnotesResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.footnotes?.validate();
+
+    }
+
     // Sets footnotes. Gets or sets the collection of footnotes.
     public func setFootnotes(footnotes : FootnoteCollection?) -> FootnotesResponse {
         self.footnotes = footnotes;

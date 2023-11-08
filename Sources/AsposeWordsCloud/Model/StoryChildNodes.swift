@@ -79,6 +79,15 @@ public class StoryChildNodes : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.childNodes != nil) {
+            for elementChildNodes in self.childNodes! {
+                try elementChildNodes.validate();
+            }
+        }
+
+    }
+
     // Sets childNodes. Gets or sets the list of child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) -> StoryChildNodes {
         self.childNodes = childNodes;

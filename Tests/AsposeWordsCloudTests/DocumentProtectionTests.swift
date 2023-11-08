@@ -62,7 +62,8 @@ class DocumentProtectionTests: BaseTestContext {
     func testProtectDocumentOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestProtectionRequest = ProtectionRequest()
-        .setNewPassword(newPassword: "123");
+        .setPassword(password: "123")
+        .setProtectionType(protectionType: "ReadOnly");
       let request = ProtectDocumentOnlineRequest(document: requestDocument, protectionRequest: requestProtectionRequest);
       _ = try super.getApi().protectDocumentOnline(request: request);
     }

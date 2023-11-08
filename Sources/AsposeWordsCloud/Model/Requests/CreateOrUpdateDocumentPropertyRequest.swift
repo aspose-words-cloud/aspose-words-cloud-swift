@@ -242,6 +242,7 @@ public class CreateOrUpdateDocumentPropertyRequest : WordsApiRequest {
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "property", body: try ObjectSerializer.serialize(value: self.getProperty()), contentType: "application/json"));
          self.getProperty().collectFilesContent(&requestFilesContent);
+         try self.getProperty().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

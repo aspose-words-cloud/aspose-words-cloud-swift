@@ -91,4 +91,8 @@ public class FileReference : Codable, WordsApiModel {
             resultFilesContent.append(self);
         }
     }
+
+    public func validate() throws {
+        // Do nothing
+    }
 }

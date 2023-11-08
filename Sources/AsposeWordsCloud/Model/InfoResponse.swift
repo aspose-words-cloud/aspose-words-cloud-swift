@@ -119,6 +119,16 @@ public class InfoResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.additionalInfo != nil) {
+            for elementAdditionalInfo in self.additionalInfo! {
+                try elementAdditionalInfo.validate();
+            }
+        }
+
+    }
+
     // Sets additionalInfo. Gets or sets AdditionalInfo.
     public func setAdditionalInfo(additionalInfo : [InfoAdditionalItem]?) -> InfoResponse {
         self.additionalInfo = additionalInfo;

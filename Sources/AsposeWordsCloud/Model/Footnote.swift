@@ -164,6 +164,13 @@ public class Footnote : FootnoteLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.position?.validate();
+        try self.content?.validate();
+
+    }
+
     // Sets position. Gets or sets the link to comment range start node.
     public func setPosition(position : DocumentPosition?) -> Footnote {
         self.position = position;

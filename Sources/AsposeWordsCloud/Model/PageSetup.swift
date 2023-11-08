@@ -933,6 +933,10 @@ public class PageSetup : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+    }
+
     // Sets bidi. Gets or sets a value indicating whether this section contains bidirectional (complex scripts) text. When true, the columns in this section are laid out from right to left.
     public func setBidi(bidi : Bool?) -> PageSetup {
         self.bidi = bidi;

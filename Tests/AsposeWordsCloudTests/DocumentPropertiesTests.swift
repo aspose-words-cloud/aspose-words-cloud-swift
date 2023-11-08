@@ -113,7 +113,7 @@ class DocumentPropertiesTests: BaseTestContext {
 
       let requestProperty = DocumentPropertyCreateOrUpdate()
         .setValue(value: "Imran Anwar");
-      let request = CreateOrUpdateDocumentPropertyRequest(name: remoteFileName, propertyName: "AsposeAuthor", property: requestProperty as! DocumentPropertyCreateOrUpdate, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = CreateOrUpdateDocumentPropertyRequest(name: remoteFileName, propertyName: "AsposeAuthor", property: requestProperty, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().createOrUpdateDocumentProperty(request: request);
       XCTAssertNotNil(actual.getDocumentProperty());
       XCTAssertEqual(actual.getDocumentProperty()!.getName(), "AsposeAuthor");
@@ -125,7 +125,7 @@ class DocumentPropertiesTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestProperty = DocumentPropertyCreateOrUpdate()
         .setValue(value: "Imran Anwar");
-      let request = CreateOrUpdateDocumentPropertyOnlineRequest(document: requestDocument, propertyName: "AsposeAuthor", property: requestProperty as! DocumentPropertyCreateOrUpdate);
+      let request = CreateOrUpdateDocumentPropertyOnlineRequest(document: requestDocument, propertyName: "AsposeAuthor", property: requestProperty);
       _ = try super.getApi().createOrUpdateDocumentPropertyOnline(request: request);
     }
 }

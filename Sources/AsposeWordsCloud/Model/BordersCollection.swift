@@ -83,6 +83,16 @@ public class BordersCollection : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.list != nil) {
+            for elementList in self.list! {
+                try elementList.validate();
+            }
+        }
+
+    }
+
     // Sets list. Gets or sets the collection of comments.
     public func setList(list : [Border]?) -> BordersCollection {
         self.list = list;

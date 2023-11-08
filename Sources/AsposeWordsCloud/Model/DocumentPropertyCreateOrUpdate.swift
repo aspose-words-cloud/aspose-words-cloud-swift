@@ -29,28 +29,61 @@ import Foundation
 
 // Words document property DTO for create or update.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class DocumentPropertyCreateOrUpdate : DocumentPropertyBase {
+public class DocumentPropertyCreateOrUpdate : Codable, WordsApiModel {
+    // Field of value. Words document property DTO for create or update.
+    private var _value : String? = nil;
+
+    public var value : String? {
+        get {
+            return self._value;
+        }
+        set {
+            self._value = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
+        case value = "Value";
         case invalidCodingKey;
     }
 
-    public override init() {
-        super.init();
+    public init() {
     }
 
     public required init(from json: [String: Any]) throws {
-        try super.init(from: json);
+        self.value = json["Value"] as? String;
     }
 
     public required init(from decoder: Decoder) throws {
-        try super.init(from: decoder);
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.value = try container.decodeIfPresent(String.self, forKey: .value);
     }
 
-    public override func encode(to encoder: Encoder) throws {
-        try super.encode(to: encoder);
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.value != nil) {
+            try container.encode(self.value, forKey: .value);
+        }
     }
 
-    public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+    public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.value == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "value");
+        }
+    }
+
+    // Sets value. Gets or sets the value of the document property.
+    public func setValue(value : String?) -> DocumentPropertyCreateOrUpdate {
+        self.value = value;
+        return self;
+    }
+
+    // Gets value. Gets or sets the value of the document property.
+    public func getValue() -> String? {
+        return self.value;
+    }
 }

@@ -77,6 +77,12 @@ public class SectionPageSetupResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.pageSetup?.validate();
+
+    }
+
     // Sets pageSetup. Gets or sets the page setup of a section.
     public func setPageSetup(pageSetup : PageSetup?) -> SectionPageSetupResponse {
         self.pageSetup = pageSetup;

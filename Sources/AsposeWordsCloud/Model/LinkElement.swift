@@ -72,6 +72,11 @@ public class LinkElement : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        try self.link?.validate();
+
+    }
+
     // Sets link. Gets or sets the link to the document.
     public func setLink(link : WordsApiLink?) -> LinkElement {
         self.link = link;

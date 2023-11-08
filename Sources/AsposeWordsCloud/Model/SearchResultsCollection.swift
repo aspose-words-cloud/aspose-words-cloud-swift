@@ -83,6 +83,16 @@ public class SearchResultsCollection : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.resultsList != nil) {
+            for elementResultsList in self.resultsList! {
+                try elementResultsList.validate();
+            }
+        }
+
+    }
+
     // Sets resultsList. Gets or sets the collection of comments.
     public func setResultsList(resultsList : [SearchResult]?) -> SearchResultsCollection {
         self.resultsList = resultsList;

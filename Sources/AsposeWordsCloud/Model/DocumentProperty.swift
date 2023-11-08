@@ -109,6 +109,14 @@ public class DocumentProperty : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.builtIn == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "builtIn");
+        }
+    }
+
     // Sets name. Gets or sets the name of the document property.
     public func setName(name : String?) -> DocumentProperty {
         self.name = name;

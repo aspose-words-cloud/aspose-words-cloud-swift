@@ -87,6 +87,9 @@ public class StructuredDocumentTagListItem : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+    }
+
     // Sets displayText. Gets or sets the text to display in the run content in place of the Aspose.Words.Markup.SdtListItem.Value attribute contents for this list item. Cannot be null and cannot be an empty string.
     public func setDisplayText(displayText : String?) -> StructuredDocumentTagListItem {
         self.displayText = displayText;

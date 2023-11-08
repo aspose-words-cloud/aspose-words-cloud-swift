@@ -69,6 +69,13 @@ public class RangeDocument : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.documentName == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "documentName");
+        }
+    }
+
     // Sets documentName. Gets or sets the name for a new document.
     public func setDocumentName(documentName : String?) -> RangeDocument {
         self.documentName = documentName;

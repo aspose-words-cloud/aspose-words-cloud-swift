@@ -173,6 +173,32 @@ public class CommentBase : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.rangeStart == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "rangeStart");
+        }
+        if (self.rangeEnd == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "rangeEnd");
+        }
+        if (self.author == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "author");
+        }
+        if (self.initial == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "initial");
+        }
+        if (self.text == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "text");
+        }
+        try self.rangeStart?.validate();
+        try self.rangeEnd?.validate();
+
+    }
+
     // Sets rangeStart. Gets or sets the link to comment range start node.
     public func setRangeStart(rangeStart : NewDocumentPosition?) -> CommentBase {
         self.rangeStart = rangeStart;

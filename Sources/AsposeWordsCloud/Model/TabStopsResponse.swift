@@ -84,6 +84,16 @@ public class TabStopsResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.tabStops != nil) {
+            for elementTabStops in self.tabStops! {
+                try elementTabStops.validate();
+            }
+        }
+
+    }
+
     // Sets tabStops. Gets or sets the array of tab stops.
     public func setTabStops(tabStops : [TabStop]?) -> TabStopsResponse {
         self.tabStops = tabStops;

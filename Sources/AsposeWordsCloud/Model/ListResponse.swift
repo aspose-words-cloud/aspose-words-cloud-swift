@@ -77,6 +77,12 @@ public class ListResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.list?.validate();
+
+    }
+
     // Sets list. Gets or sets the list information.
     public func setList(list : ListInfo?) -> ListResponse {
         self.list = list;

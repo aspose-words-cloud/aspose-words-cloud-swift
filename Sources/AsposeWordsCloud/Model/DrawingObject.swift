@@ -347,6 +347,18 @@ public class DrawingObject : DrawingObjectLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.renderLinks != nil) {
+            for elementRenderLinks in self.renderLinks! {
+                try elementRenderLinks.validate();
+            }
+        }
+        try self.oleDataLink?.validate();
+        try self.imageDataLink?.validate();
+
+    }
+
     // Sets renderLinks. Gets or sets the list of links that originate from this DrawingObjectDto.
     public func setRenderLinks(renderLinks : [WordsApiLink]?) -> DrawingObject {
         self.renderLinks = renderLinks;

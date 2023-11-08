@@ -136,6 +136,10 @@ public class RtfSaveOptionsData : SaveOptionsData {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+    }
+
     // Sets exportCompactSize. Gets or sets a value indicating whether to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
     public func setExportCompactSize(exportCompactSize : Bool?) -> RtfSaveOptionsData {
         self.exportCompactSize = exportCompactSize;

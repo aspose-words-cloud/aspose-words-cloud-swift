@@ -180,6 +180,7 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "compareData", body: try ObjectSerializer.serialize(value: self.getCompareData()), contentType: "application/json"));
          self.getCompareData().collectFilesContent(&requestFilesContent);
+         try self.getCompareData().validate();
 
          if (self.getComparingDocument() != nil) {
              formParams.append(RequestFormParam(name: "comparingDocument", body: try ObjectSerializer.serializeFile(value: self.getComparingDocument()!), contentType: "application/octet-stream"));

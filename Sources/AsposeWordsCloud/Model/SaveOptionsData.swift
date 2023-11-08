@@ -347,6 +347,15 @@ public class SaveOptionsData : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.fileName == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "fileName");
+        }
+        try self.customTimeZoneInfoData?.validate();
+
+    }
+
     // Sets allowEmbeddingPostScriptFonts. Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false.. Note, Word does not embed PostScript fonts, but can open documents with embedded fonts of this type. This option only works when Aspose.Words.Fonts.FontInfoCollection.EmbedTrueTypeFonts of the Aspose.Words.DocumentBase.FontInfos property is set to true. The default value is false.
     public func setAllowEmbeddingPostScriptFonts(allowEmbeddingPostScriptFonts : Bool?) -> SaveOptionsData {
         self.allowEmbeddingPostScriptFonts = allowEmbeddingPostScriptFonts;

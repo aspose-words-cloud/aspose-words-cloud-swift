@@ -77,6 +77,12 @@ public class TableCellResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.cell?.validate();
+
+    }
+
     // Sets cell. Gets or sets the table cell.
     public func setCell(cell : TableCell?) -> TableCellResponse {
         self.cell = cell;

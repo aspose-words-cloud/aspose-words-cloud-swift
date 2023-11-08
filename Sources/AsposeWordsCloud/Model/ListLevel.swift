@@ -503,6 +503,49 @@ public class ListLevel : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.startAt == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "startAt");
+        }
+        if (self.numberStyle == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "numberStyle");
+        }
+        if (self.alignment == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "alignment");
+        }
+        if (self.isLegal == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isLegal");
+        }
+        if (self.restartAfterLevel == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "restartAfterLevel");
+        }
+        if (self.trailingCharacter == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "trailingCharacter");
+        }
+        if (self.tabPosition == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "tabPosition");
+        }
+        if (self.numberPosition == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "numberPosition");
+        }
+        if (self.textPosition == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "textPosition");
+        }
+        try self.font?.validate();
+        try self.linkedStyle?.validate();
+
+    }
+
     // Sets startAt. Gets or sets the starting number for this list level. Default value is 1.
     public func setStartAt(startAt : Int?) -> ListLevel {
         self.startAt = startAt;

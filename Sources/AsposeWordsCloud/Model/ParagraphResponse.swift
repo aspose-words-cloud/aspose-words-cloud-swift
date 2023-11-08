@@ -77,6 +77,12 @@ public class ParagraphResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.paragraph?.validate();
+
+    }
+
     // Sets paragraph. Gets or sets the paragraph.
     public func setParagraph(paragraph : Paragraph?) -> ParagraphResponse {
         self.paragraph = paragraph;

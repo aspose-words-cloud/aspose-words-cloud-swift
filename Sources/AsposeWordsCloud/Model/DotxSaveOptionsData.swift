@@ -62,4 +62,8 @@ public class DotxSaveOptionsData : OoxmlSaveOptionsData {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+    }
+
 }

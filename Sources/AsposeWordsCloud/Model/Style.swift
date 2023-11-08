@@ -1428,6 +1428,32 @@ public class Style : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.builtIn == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "builtIn");
+        }
+        if (self.isQuickStyle == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isQuickStyle");
+        }
+        if (self.type == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "type");
+        }
+        if (self.isHeading == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isHeading");
+        }
+        if (self.styleIdentifier == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "styleIdentifier");
+        }
+        try self.font?.validate();
+
+    }
+
     // Sets font. Gets or sets the character formatting of the style. For list styles this property returns null.
     public func setFont(font : Font?) -> Style {
         self.font = font;

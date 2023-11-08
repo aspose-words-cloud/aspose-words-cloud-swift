@@ -73,6 +73,10 @@ public class RunLink : NodeLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+    }
+
     // Sets text. Gets or sets the run's text.
     public func setText(text : String?) -> RunLink {
         self.text = text;

@@ -121,6 +121,17 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        try self.sourceDocument?.validate();
+        try self.zippedPages?.validate();
+        if (self.pages != nil) {
+            for elementPages in self.pages! {
+                try elementPages.validate();
+            }
+        }
+
+    }
+
     // Sets sourceDocument. Gets or sets the link to the source document.
     public func setSourceDocument(sourceDocument : FileLink?) -> SplitDocumentResult {
         self.sourceDocument = sourceDocument;

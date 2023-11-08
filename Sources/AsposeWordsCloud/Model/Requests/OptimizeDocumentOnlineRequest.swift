@@ -192,6 +192,7 @@ public class OptimizeDocumentOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "options", body: try ObjectSerializer.serialize(value: self.getOptions()), contentType: "application/json"));
          self.getOptions().collectFilesContent(&requestFilesContent);
+         try self.getOptions().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

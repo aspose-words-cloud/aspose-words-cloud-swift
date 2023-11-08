@@ -152,6 +152,19 @@ public class CompareData : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.author == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "author");
+        }
+        if (self.comparingWithDocument == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "comparingWithDocument");
+        }
+        try self.compareOptions?.validate();
+
+    }
+
     // Sets author. Gets or sets the initials of the author to use for revisions.
     public func setAuthor(author : String?) -> CompareData {
         self.author = author;

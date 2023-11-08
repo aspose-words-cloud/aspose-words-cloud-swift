@@ -83,6 +83,16 @@ public class FieldCollection : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.list != nil) {
+            for elementList in self.list! {
+                try elementList.validate();
+            }
+        }
+
+    }
+
     // Sets list. Gets or sets the collection of fields.
     public func setList(list : [Field]?) -> FieldCollection {
         self.list = list;

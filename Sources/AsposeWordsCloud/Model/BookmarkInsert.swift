@@ -97,6 +97,13 @@ public class BookmarkInsert : BookmarkData {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.startRange?.validate();
+        try self.endRange?.validate();
+
+    }
+
     // Sets startRange. Gets or sets the link to start bookmark node.
     public func setStartRange(startRange : NewDocumentPosition?) -> BookmarkInsert {
         self.startRange = startRange;

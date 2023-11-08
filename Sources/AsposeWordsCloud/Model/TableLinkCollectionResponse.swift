@@ -77,6 +77,12 @@ public class TableLinkCollectionResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.tables?.validate();
+
+    }
+
     // Sets tables. Gets or sets the collection of tables.
     public func setTables(tables : TableLinkCollection?) -> TableLinkCollectionResponse {
         self.tables = tables;

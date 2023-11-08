@@ -346,6 +346,10 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+    }
+
     // Sets cssClassNamesPrefix. Gets or sets the prefix which is added to all class names in style.css file. Default value is "aw".
     public func setCssClassNamesPrefix(cssClassNamesPrefix : String?) -> HtmlFixedSaveOptionsData {
         self.cssClassNamesPrefix = cssClassNamesPrefix;

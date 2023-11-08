@@ -192,6 +192,7 @@ public class InsertListOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "listInsert", body: try ObjectSerializer.serialize(value: self.getListInsert()), contentType: "application/json"));
          self.getListInsert().collectFilesContent(&requestFilesContent);
+         try self.getListInsert().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

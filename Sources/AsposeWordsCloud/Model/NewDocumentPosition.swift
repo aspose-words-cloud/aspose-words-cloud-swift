@@ -87,6 +87,13 @@ public class NewDocumentPosition : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.nodeId == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "nodeId");
+        }
+    }
+
     // Sets nodeId. Gets or sets the node id.
     public func setNodeId(nodeId : String?) -> NewDocumentPosition {
         self.nodeId = nodeId;

@@ -87,6 +87,13 @@ public class BookmarksOutlineLevelData : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.bookmarksOutlineLevel == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "bookmarksOutlineLevel");
+        }
+    }
+
     // Sets bookmarksOutlineLevel. Gets or sets the bookmark's level.
     public func setBookmarksOutlineLevel(bookmarksOutlineLevel : Int?) -> BookmarksOutlineLevelData {
         self.bookmarksOutlineLevel = bookmarksOutlineLevel;

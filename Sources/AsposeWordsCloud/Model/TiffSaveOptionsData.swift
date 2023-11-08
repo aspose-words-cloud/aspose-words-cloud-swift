@@ -153,6 +153,10 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+    }
+
     // Sets thresholdForFloydSteinbergDithering. Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering. Default value is 128.
     public func setThresholdForFloydSteinbergDithering(thresholdForFloydSteinbergDithering : Int?) -> TiffSaveOptionsData {
         self.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;

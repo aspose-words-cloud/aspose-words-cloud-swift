@@ -242,6 +242,28 @@ public class Document : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.isEncrypted == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isEncrypted");
+        }
+        if (self.isSigned == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isSigned");
+        }
+        if (self.sourceFormat == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "sourceFormat");
+        }
+        if (self.links != nil) {
+            for elementLinks in self.links! {
+                try elementLinks.validate();
+            }
+        }
+        try self.documentProperties?.validate();
+
+    }
+
     // Sets links. Gets or sets the list of links that originate from this document.
     public func setLinks(links : [Link]?) -> Document {
         self.links = links;

@@ -208,7 +208,9 @@ class FieldTests: BaseTestContext {
 
       let requestPageNumber = PageNumber()
         .setAlignment(alignment: "center")
-        .setFormat(format: "{PAGE} of {NUMPAGES}");
+        .setFormat(format: "{PAGE} of {NUMPAGES}")
+        .setIsTop(isTop: true)
+        .setSetPageNumberOnFirstPage(setPageNumberOnFirstPage: true);
       let request = InsertPageNumbersRequest(name: remoteFileName, pageNumber: requestPageNumber, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertPageNumbers(request: request);
       XCTAssertNotNil(actual.getDocument());
@@ -222,7 +224,9 @@ class FieldTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/" + localFileName, isDirectory: false))!;
       let requestPageNumber = PageNumber()
         .setAlignment(alignment: "center")
-        .setFormat(format: "{PAGE} of {NUMPAGES}");
+        .setFormat(format: "{PAGE} of {NUMPAGES}")
+        .setIsTop(isTop: true)
+        .setSetPageNumberOnFirstPage(setPageNumberOnFirstPage: true);
       let request = InsertPageNumbersOnlineRequest(document: requestDocument, pageNumber: requestPageNumber);
       _ = try super.getApi().insertPageNumbersOnline(request: request);
     }

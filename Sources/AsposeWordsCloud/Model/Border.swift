@@ -290,6 +290,12 @@ public class Border : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.color?.validate();
+
+    }
+
     // Sets borderType. Gets or sets the border type.
     public func setBorderType(borderType : BorderType?) -> Border {
         self.borderType = borderType;

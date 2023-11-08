@@ -232,6 +232,7 @@ public class InsertCustomXmlPartRequest : WordsApiRequest {
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "customXmlPart", body: try ObjectSerializer.serialize(value: self.getCustomXmlPart()), contentType: "application/json"));
          self.getCustomXmlPart().collectFilesContent(&requestFilesContent);
+         try self.getCustomXmlPart().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

@@ -77,6 +77,12 @@ public class SectionLinkCollectionResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.sections?.validate();
+
+    }
+
     // Sets sections. Gets or sets the collection of sections.
     public func setSections(sections : SectionLinkCollection?) -> SectionLinkCollectionResponse {
         self.sections = sections;

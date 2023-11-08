@@ -93,6 +93,12 @@ public class SearchResult : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        try self.rangeStart?.validate();
+        try self.rangeEnd?.validate();
+
+    }
+
     // Sets rangeStart. Gets or sets the link to result range start node.
     public func setRangeStart(rangeStart : DocumentPosition?) -> SearchResult {
         self.rangeStart = rangeStart;

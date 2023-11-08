@@ -29,8 +29,108 @@ import Foundation
 
 // DTO container with a StructuredDocumentTag.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class StructuredDocumentTagInsert : StructuredDocumentTag {
+public class StructuredDocumentTagInsert : StructuredDocumentTagBase {
+    // Gets or sets the level at which this SDT occurs in the document tree.
+    public enum Level : String, Codable
+    {
+        // Enum value "unknown"
+        case unknown = "Unknown"
+
+        // Enum value "inline"
+        case inline = "Inline"
+
+        // Enum value "block"
+        case block = "Block"
+
+        // Enum value "row"
+        case row = "Row"
+
+        // Enum value "cell"
+        case cell = "Cell"
+    }
+
+    // Gets or sets type of this Structured document tag.
+    public enum SdtType : String, Codable
+    {
+        // Enum value "_none"
+        case _none = "None"
+
+        // Enum value "bibliography"
+        case bibliography = "Bibliography"
+
+        // Enum value "citation"
+        case citation = "Citation"
+
+        // Enum value "equation"
+        case equation = "Equation"
+
+        // Enum value "dropDownList"
+        case dropDownList = "DropDownList"
+
+        // Enum value "comboBox"
+        case comboBox = "ComboBox"
+
+        // Enum value "date"
+        case date = "Date"
+
+        // Enum value "buildingBlockGallery"
+        case buildingBlockGallery = "BuildingBlockGallery"
+
+        // Enum value "docPartObj"
+        case docPartObj = "DocPartObj"
+
+        // Enum value "group"
+        case group = "Group"
+
+        // Enum value "picture"
+        case picture = "Picture"
+
+        // Enum value "richText"
+        case richText = "RichText"
+
+        // Enum value "plainText"
+        case plainText = "PlainText"
+
+        // Enum value "checkbox"
+        case checkbox = "Checkbox"
+
+        // Enum value "repeatingSection"
+        case repeatingSection = "RepeatingSection"
+
+        // Enum value "repeatingSectionItem"
+        case repeatingSectionItem = "RepeatingSectionItem"
+
+        // Enum value "entityPicker"
+        case entityPicker = "EntityPicker"
+    }
+
+    // Field of level. DTO container with a StructuredDocumentTag.
+    private var _level : Level? = nil;
+
+    public var level : Level? {
+        get {
+            return self._level;
+        }
+        set {
+            self._level = newValue;
+        }
+    }
+
+    // Field of sdtType. DTO container with a StructuredDocumentTag.
+    private var _sdtType : SdtType? = nil;
+
+    public var sdtType : SdtType? {
+        get {
+            return self._sdtType;
+        }
+        set {
+            self._sdtType = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
+        case level = "Level";
+        case sdtType = "SdtType";
         case invalidCodingKey;
     }
 
@@ -40,17 +140,69 @@ public class StructuredDocumentTagInsert : StructuredDocumentTag {
 
     public required init(from json: [String: Any]) throws {
         try super.init(from: json);
+        if let raw_level = json["Level"] as? String {
+            self.level = Level(rawValue: raw_level);
+        }
+
+        if let raw_sdtType = json["SdtType"] as? String {
+            self.sdtType = SdtType(rawValue: raw_sdtType);
+        }
+
     }
 
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.level = try container.decodeIfPresent(Level.self, forKey: .level);
+        self.sdtType = try container.decodeIfPresent(SdtType.self, forKey: .sdtType);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.level != nil) {
+            try container.encode(self.level, forKey: .level);
+        }
+        if (self.sdtType != nil) {
+            try container.encode(self.sdtType, forKey: .sdtType);
+        }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.level == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "level");
+        }
+        if (self.sdtType == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "sdtType");
+        }
+    }
+
+    // Sets level. Gets or sets the level at which this SDT occurs in the document tree.
+    public func setLevel(level : Level?) -> StructuredDocumentTagInsert {
+        self.level = level;
+        return self;
+    }
+
+    // Gets level. Gets or sets the level at which this SDT occurs in the document tree.
+    public func getLevel() -> Level? {
+        return self.level;
+    }
+
+
+    // Sets sdtType. Gets or sets type of this Structured document tag.
+    public func setSdtType(sdtType : SdtType?) -> StructuredDocumentTagInsert {
+        self.sdtType = sdtType;
+        return self;
+    }
+
+    // Gets sdtType. Gets or sets type of this Structured document tag.
+    public func getSdtType() -> SdtType? {
+        return self.sdtType;
+    }
 }
