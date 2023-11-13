@@ -247,6 +247,7 @@ public class InsertTableRequest : WordsApiRequest {
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "table", body: try ObjectSerializer.serialize(value: self.getTable()), contentType: "application/json"));
          self.getTable().collectFilesContent(&requestFilesContent);
+         try self.getTable().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

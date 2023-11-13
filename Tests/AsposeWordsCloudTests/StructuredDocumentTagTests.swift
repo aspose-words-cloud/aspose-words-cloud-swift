@@ -90,7 +90,7 @@ class StructuredDocumentTagTests: BaseTestContext {
       let requestStructuredDocumentTag = StructuredDocumentTagInsert()
         .setLevel(level: StructuredDocumentTagInsert.Level.inline)
         .setSdtType(sdtType: StructuredDocumentTagInsert.SdtType.comboBox);
-      let request = InsertStructuredDocumentTagRequest(name: remoteFileName, structuredDocumentTag: requestStructuredDocumentTag as! StructuredDocumentTagInsert, nodePath: "sections/0/body/paragraphs/0", folder: remoteDataFolder);
+      let request = InsertStructuredDocumentTagRequest(name: remoteFileName, structuredDocumentTag: requestStructuredDocumentTag, nodePath: "sections/0/body/paragraphs/0", folder: remoteDataFolder);
       _ = try super.getApi().insertStructuredDocumentTag(request: request);
     }
 
@@ -100,7 +100,7 @@ class StructuredDocumentTagTests: BaseTestContext {
       let requestStructuredDocumentTag = StructuredDocumentTagInsert()
         .setLevel(level: StructuredDocumentTagInsert.Level.inline)
         .setSdtType(sdtType: StructuredDocumentTagInsert.SdtType.comboBox);
-      let request = InsertStructuredDocumentTagOnlineRequest(document: requestDocument, structuredDocumentTag: requestStructuredDocumentTag as! StructuredDocumentTagInsert, nodePath: "sections/0/body/paragraphs/0");
+      let request = InsertStructuredDocumentTagOnlineRequest(document: requestDocument, structuredDocumentTag: requestStructuredDocumentTag, nodePath: "sections/0/body/paragraphs/0");
       _ = try super.getApi().insertStructuredDocumentTagOnline(request: request);
     }
 

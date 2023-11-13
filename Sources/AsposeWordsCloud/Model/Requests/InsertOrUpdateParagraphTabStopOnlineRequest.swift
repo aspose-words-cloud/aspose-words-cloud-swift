@@ -177,6 +177,7 @@ public class InsertOrUpdateParagraphTabStopOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "tabStopInsertDto", body: try ObjectSerializer.serialize(value: self.getTabStopInsertDto()), contentType: "application/json"));
          self.getTabStopInsertDto().collectFilesContent(&requestFilesContent);
+         try self.getTabStopInsertDto().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

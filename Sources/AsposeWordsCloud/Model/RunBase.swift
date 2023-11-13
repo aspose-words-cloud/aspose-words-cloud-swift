@@ -69,6 +69,13 @@ public class RunBase : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.text == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "text");
+        }
+    }
+
     // Sets text. Gets or sets the run's text.
     public func setText(text : String?) -> RunBase {
         self.text = text;

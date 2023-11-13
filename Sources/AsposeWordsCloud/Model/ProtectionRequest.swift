@@ -105,6 +105,13 @@ public class ProtectionRequest : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.password == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "password");
+        }
+    }
+
     // Sets newPassword. Gets or sets the new password.
     public func setNewPassword(newPassword : String?) -> ProtectionRequest {
         self.newPassword = newPassword;

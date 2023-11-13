@@ -252,6 +252,7 @@ public class UpdateRunRequest : WordsApiRequest {
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "run", body: try ObjectSerializer.serialize(value: self.getRun()), contentType: "application/json"));
          self.getRun().collectFilesContent(&requestFilesContent);
+         try self.getRun().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

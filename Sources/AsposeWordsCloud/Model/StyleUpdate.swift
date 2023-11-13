@@ -123,6 +123,9 @@ public class StyleUpdate : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+    }
+
     // Sets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style. This property is not used by Aspose.Words. The next paragraph style will only be applied automatically when you edit the document in MS Word.
     public func setNextParagraphStyleName(nextParagraphStyleName : String?) -> StyleUpdate {
         self.nextParagraphStyleName = nextParagraphStyleName;

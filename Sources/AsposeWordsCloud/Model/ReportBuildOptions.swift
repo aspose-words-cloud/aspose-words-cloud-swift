@@ -47,4 +47,7 @@ public enum ReportBuildOptions : String, Codable
 
     // Enum value "respectJpegExifOrientation"
     case respectJpegExifOrientation = "RespectJpegExifOrientation"
+
+    // Enum value "updateFieldsSyntaxAware"
+    case updateFieldsSyntaxAware = "UpdateFieldsSyntaxAware"
 }

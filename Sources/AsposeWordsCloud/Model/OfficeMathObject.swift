@@ -267,6 +267,12 @@ public class OfficeMathObject : OfficeMathLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.content?.validate();
+
+    }
+
     // Sets content. Gets or sets the content of a footnote.
     public func setContent(content : StoryChildNodes?) -> OfficeMathObject {
         self.content = content;

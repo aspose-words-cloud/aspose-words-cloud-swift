@@ -207,6 +207,7 @@ public class InsertStructuredDocumentTagOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "structuredDocumentTag", body: try ObjectSerializer.serialize(value: self.getStructuredDocumentTag()), contentType: "application/json"));
          self.getStructuredDocumentTag().collectFilesContent(&requestFilesContent);
+         try self.getStructuredDocumentTag().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

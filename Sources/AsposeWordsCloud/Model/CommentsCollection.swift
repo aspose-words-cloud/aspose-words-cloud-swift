@@ -83,6 +83,16 @@ public class CommentsCollection : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.commentList != nil) {
+            for elementCommentList in self.commentList! {
+                try elementCommentList.validate();
+            }
+        }
+
+    }
+
     // Sets commentList. Gets or sets the collection of comments.
     public func setCommentList(commentList : [Comment]?) -> CommentsCollection {
         self.commentList = commentList;

@@ -131,6 +131,17 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.alwaysGenerateRootObject == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "alwaysGenerateRootObject");
+        }
+        if (self.simpleValueParseMode == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "simpleValueParseMode");
+        }
+    }
+
     // Sets alwaysGenerateRootObject. Gets or sets a value indicating whether a generated data source will always contain an object for a JSON root element. If a JSON root element contains a single complex property, such an object is not created by default. The default value is false.
     public func setAlwaysGenerateRootObject(alwaysGenerateRootObject : Bool?) -> JsonDataLoadOptions {
         self.alwaysGenerateRootObject = alwaysGenerateRootObject;

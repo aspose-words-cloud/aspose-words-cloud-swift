@@ -192,6 +192,7 @@ public class InsertWatermarkTextOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "watermarkText", body: try ObjectSerializer.serialize(value: self.getWatermarkText()), contentType: "application/json"));
          self.getWatermarkText().collectFilesContent(&requestFilesContent);
+         try self.getWatermarkText().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

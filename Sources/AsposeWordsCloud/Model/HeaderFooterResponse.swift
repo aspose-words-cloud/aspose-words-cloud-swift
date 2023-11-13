@@ -77,6 +77,12 @@ public class HeaderFooterResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.headerFooter?.validate();
+
+    }
+
     // Sets headerFooter. Gets or sets the HeaderFooter.
     public func setHeaderFooter(headerFooter : HeaderFooter?) -> HeaderFooterResponse {
         self.headerFooter = headerFooter;

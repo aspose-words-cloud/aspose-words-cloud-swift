@@ -198,6 +198,14 @@ public class Comment : CommentLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.rangeStart?.validate();
+        try self.rangeEnd?.validate();
+        try self.content?.validate();
+
+    }
+
     // Sets rangeStart. Gets or sets the link to comment range start node.
     public func setRangeStart(rangeStart : DocumentPosition?) -> Comment {
         self.rangeStart = rangeStart;

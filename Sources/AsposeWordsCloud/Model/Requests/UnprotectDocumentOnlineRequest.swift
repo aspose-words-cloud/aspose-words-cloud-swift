@@ -152,6 +152,7 @@ public class UnprotectDocumentOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "protectionRequest", body: try ObjectSerializer.serialize(value: self.getProtectionRequest()), contentType: "application/json"));
          self.getProtectionRequest().collectFilesContent(&requestFilesContent);
+         try self.getProtectionRequest().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

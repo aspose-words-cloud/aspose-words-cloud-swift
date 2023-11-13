@@ -100,6 +100,13 @@ public class ReplaceRange : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.text == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "text");
+        }
+    }
+
     // Sets text. Gets or sets the range's text.
     public func setText(text : String?) -> ReplaceRange {
         self.text = text;

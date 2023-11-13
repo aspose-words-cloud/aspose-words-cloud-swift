@@ -97,6 +97,13 @@ public class ProtectionDataResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.documentLink?.validate();
+        try self.protectionData?.validate();
+
+    }
+
     // Sets documentLink. Gets or sets the link to the document.
     public func setDocumentLink(documentLink : FileLink?) -> ProtectionDataResponse {
         self.documentLink = documentLink;

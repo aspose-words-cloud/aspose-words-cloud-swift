@@ -242,6 +242,7 @@ public class UpdateStyleRequest : WordsApiRequest {
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "styleUpdate", body: try ObjectSerializer.serialize(value: self.getStyleUpdate()), contentType: "application/json"));
          self.getStyleUpdate().collectFilesContent(&requestFilesContent);
+         try self.getStyleUpdate().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

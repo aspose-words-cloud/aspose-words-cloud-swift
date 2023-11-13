@@ -169,6 +169,15 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.bookmarksOutlineLevels != nil) {
+            for elementBookmarksOutlineLevels in self.bookmarksOutlineLevels! {
+                try elementBookmarksOutlineLevels.validate();
+            }
+        }
+
+    }
+
     // Sets createMissingOutlineLevels. Gets or sets a value indicating whether to create missing outline levels when the document is exported. The default value is false.
     public func setCreateMissingOutlineLevels(createMissingOutlineLevels : Bool?) -> OutlineOptionsData {
         self.createMissingOutlineLevels = createMissingOutlineLevels;

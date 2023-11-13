@@ -167,6 +167,20 @@ public class Section : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.childNodes != nil) {
+            for elementChildNodes in self.childNodes! {
+                try elementChildNodes.validate();
+            }
+        }
+        try self.paragraphs?.validate();
+        try self.pageSetup?.validate();
+        try self.headerFooters?.validate();
+        try self.tables?.validate();
+
+    }
+
     // Sets childNodes. Gets or sets the list of child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) -> Section {
         self.childNodes = childNodes;

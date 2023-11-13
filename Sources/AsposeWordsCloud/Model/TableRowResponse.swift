@@ -77,6 +77,12 @@ public class TableRowResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.row?.validate();
+
+    }
+
     // Sets row. Gets or sets the table row.
     public func setRow(row : TableRow?) -> TableRowResponse {
         self.row = row;

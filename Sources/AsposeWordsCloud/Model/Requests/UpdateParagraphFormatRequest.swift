@@ -257,6 +257,7 @@ public class UpdateParagraphFormatRequest : WordsApiRequest {
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "paragraphFormatDto", body: try ObjectSerializer.serialize(value: self.getParagraphFormatDto()), contentType: "application/json"));
          self.getParagraphFormatDto().collectFilesContent(&requestFilesContent);
+         try self.getParagraphFormatDto().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

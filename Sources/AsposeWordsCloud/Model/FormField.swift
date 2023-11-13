@@ -217,6 +217,14 @@ public class FormField : NodeLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.name == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "name");
+        }
+    }
+
     // Sets name. Gets or sets the form field name.
     public func setName(name : String?) -> FormField {
         self.name = name;

@@ -192,6 +192,7 @@ public class InsertCommentOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "comment", body: try ObjectSerializer.serialize(value: self.getComment()), contentType: "application/json"));
          self.getComment().collectFilesContent(&requestFilesContent);
+         try self.getComment().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

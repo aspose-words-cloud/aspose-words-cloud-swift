@@ -108,6 +108,14 @@ public class DocumentEntry : BaseEntry {
         super.collectFilesContent(&resultFilesContent);
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.importFormatMode == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "importFormatMode");
+        }
+    }
+
     // Sets encryptedPassword. Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
     public func setEncryptedPassword(encryptedPassword : String?) -> DocumentEntry {
         self.encryptedPassword = encryptedPassword;

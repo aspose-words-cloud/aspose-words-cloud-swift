@@ -192,6 +192,7 @@ public class CompressDocumentRequest : WordsApiRequest {
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "compressOptions", body: try ObjectSerializer.serialize(value: self.getCompressOptions()), contentType: "application/json"));
          self.getCompressOptions().collectFilesContent(&requestFilesContent);
+         try self.getCompressOptions().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

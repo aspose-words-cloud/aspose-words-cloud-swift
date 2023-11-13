@@ -84,6 +84,16 @@ public class StylesResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.styles != nil) {
+            for elementStyles in self.styles! {
+                try elementStyles.validate();
+            }
+        }
+
+    }
+
     // Sets styles. Gets or sets the array of styles.
     public func setStyles(styles : [Style]?) -> StylesResponse {
         self.styles = styles;

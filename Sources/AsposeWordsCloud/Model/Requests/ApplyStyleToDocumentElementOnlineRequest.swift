@@ -202,6 +202,7 @@ public class ApplyStyleToDocumentElementOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "styleApply", body: try ObjectSerializer.serialize(value: self.getStyleApply()), contentType: "application/json"));
          self.getStyleApply().collectFilesContent(&requestFilesContent);
+         try self.getStyleApply().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

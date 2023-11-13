@@ -83,6 +83,16 @@ public class TableLinkCollection : LinkElement {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.tableLinkList != nil) {
+            for elementTableLinkList in self.tableLinkList! {
+                try elementTableLinkList.validate();
+            }
+        }
+
+    }
+
     // Sets tableLinkList. Gets or sets the collection of table's links.
     public func setTableLinkList(tableLinkList : [TableLink]?) -> TableLinkCollection {
         self.tableLinkList = tableLinkList;

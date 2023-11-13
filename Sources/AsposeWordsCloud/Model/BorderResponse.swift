@@ -77,6 +77,12 @@ public class BorderResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.border?.validate();
+
+    }
+
     // Sets border. Gets or sets the border.
     public func setBorder(border : Border?) -> BorderResponse {
         self.border = border;

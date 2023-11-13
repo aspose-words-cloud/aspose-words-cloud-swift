@@ -87,6 +87,17 @@ public class FootnotesStatData : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.paragraphCount == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "paragraphCount");
+        }
+        if (self.wordCount == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "wordCount");
+        }
+    }
+
     // Sets paragraphCount. Gets or sets the total count of paragraphs in footnotes.
     public func setParagraphCount(paragraphCount : Int?) -> FootnotesStatData {
         self.paragraphCount = paragraphCount;

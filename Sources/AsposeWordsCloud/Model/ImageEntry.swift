@@ -54,4 +54,8 @@ public class ImageEntry : BaseEntry {
         super.collectFilesContent(&resultFilesContent);
     }
 
+    public override func validate() throws {
+        try super.validate();
+    }
+
 }

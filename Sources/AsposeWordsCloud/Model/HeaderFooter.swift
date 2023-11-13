@@ -125,6 +125,18 @@ public class HeaderFooter : HeaderFooterLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.childNodes != nil) {
+            for elementChildNodes in self.childNodes! {
+                try elementChildNodes.validate();
+            }
+        }
+        try self.paragraphs?.validate();
+        try self.drawingObjects?.validate();
+
+    }
+
     // Sets childNodes. Gets or sets the child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) -> HeaderFooter {
         self.childNodes = childNodes;

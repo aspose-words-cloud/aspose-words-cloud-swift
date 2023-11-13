@@ -104,6 +104,17 @@ public class TableRow : NodeLink {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.tableCellList != nil) {
+            for elementTableCellList in self.tableCellList! {
+                try elementTableCellList.validate();
+            }
+        }
+        try self.rowFormat?.validate();
+
+    }
+
     // Sets tableCellList. Gets or sets the collection of rows.
     public func setTableCellList(tableCellList : [TableCell]?) -> TableRow {
         self.tableCellList = tableCellList;

@@ -76,6 +76,12 @@ public class WordsApiErrorResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.error?.validate();
+
+    }
+
     // Sets error. Gets or sets the API error.
     public func setError(error : ApiError?) -> WordsApiErrorResponse {
         self.error = error;

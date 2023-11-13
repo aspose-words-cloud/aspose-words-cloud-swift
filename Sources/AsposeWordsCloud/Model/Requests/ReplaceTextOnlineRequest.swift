@@ -192,6 +192,7 @@ public class ReplaceTextOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "replaceText", body: try ObjectSerializer.serialize(value: self.getReplaceText()), contentType: "application/json"));
          self.getReplaceText().collectFilesContent(&requestFilesContent);
+         try self.getReplaceText().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

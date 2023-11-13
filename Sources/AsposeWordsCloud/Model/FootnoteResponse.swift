@@ -77,6 +77,12 @@ public class FootnoteResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.footnote?.validate();
+
+    }
+
     // Sets footnote. Gets or sets the footnote.
     public func setFootnote(footnote : Footnote?) -> FootnoteResponse {
         self.footnote = footnote;

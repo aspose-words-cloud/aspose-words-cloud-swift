@@ -77,6 +77,12 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.paragraphs?.validate();
+
+    }
+
     // Sets paragraphs. Gets or sets the collection of paragraphs.
     public func setParagraphs(paragraphs : ParagraphLinkCollection?) -> ParagraphLinkCollectionResponse {
         self.paragraphs = paragraphs;

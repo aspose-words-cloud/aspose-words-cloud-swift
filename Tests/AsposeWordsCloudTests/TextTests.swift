@@ -48,6 +48,9 @@ class TextTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestReplaceText = ReplaceTextParameters()
+        .setIsMatchCase(isMatchCase: true)
+        .setIsMatchWholeWord(isMatchWholeWord: false)
+        .setIsOldValueRegex(isOldValueRegex: false)
         .setNewValue(newValue: "Aspose testing")
         .setOldValue(oldValue: "Testing");
       let request = ReplaceTextRequest(name: remoteFileName, replaceText: requestReplaceText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
@@ -61,6 +64,9 @@ class TextTests: BaseTestContext {
 
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestReplaceText = ReplaceTextParameters()
+        .setIsMatchCase(isMatchCase: true)
+        .setIsMatchWholeWord(isMatchWholeWord: false)
+        .setIsOldValueRegex(isOldValueRegex: false)
         .setNewValue(newValue: "aspose new")
         .setOldValue(oldValue: "aspose");
       let request = ReplaceTextOnlineRequest(document: requestDocument, replaceText: requestReplaceText);

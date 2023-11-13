@@ -95,6 +95,13 @@ public class ErrorDetails : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.errorDateTime == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "errorDateTime");
+        }
+    }
+
     // Sets errorDateTime. Gets or sets ErrorDateTime.
     public func setErrorDateTime(errorDateTime : Date?) -> ErrorDetails {
         self.errorDateTime = errorDateTime;

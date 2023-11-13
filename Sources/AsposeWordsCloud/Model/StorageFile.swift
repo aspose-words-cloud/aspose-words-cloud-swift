@@ -149,6 +149,17 @@ public class StorageFile : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.isFolder == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isFolder");
+        }
+        if (self.size == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "size");
+        }
+    }
+
     // Sets isFolder. True if it is a folder.
     public func setIsFolder(isFolder : Bool?) -> StorageFile {
         self.isFolder = isFolder;

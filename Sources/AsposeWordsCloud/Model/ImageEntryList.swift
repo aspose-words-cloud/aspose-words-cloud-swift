@@ -109,6 +109,20 @@ public class ImageEntryList : BaseEntryList {
 
     }
 
+    public override func validate() throws {
+        try super.validate();
+        if (self.imageEntries == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "imageEntries");
+        }
+        if (self.imageEntries != nil) {
+            for elementImageEntries in self.imageEntries! {
+                try elementImageEntries.validate();
+            }
+        }
+
+    }
+
     // Sets appendEachImageOnNewPage. Gets or sets a value indicating whether each image should be added to a new page in the document. This value only has an effect when adding images to a document that supports pagination.
     public func setAppendEachImageOnNewPage(appendEachImageOnNewPage : Bool?) -> ImageEntryList {
         self.appendEachImageOnNewPage = appendEachImageOnNewPage;

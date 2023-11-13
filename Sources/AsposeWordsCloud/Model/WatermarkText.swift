@@ -87,6 +87,17 @@ public class WatermarkText : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.rotationAngle == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "rotationAngle");
+        }
+        if (self.text == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "text");
+        }
+    }
+
     // Sets rotationAngle. Gets or sets the watermark rotation angle.
     public func setRotationAngle(rotationAngle : Double?) -> WatermarkText {
         self.rotationAngle = rotationAngle;

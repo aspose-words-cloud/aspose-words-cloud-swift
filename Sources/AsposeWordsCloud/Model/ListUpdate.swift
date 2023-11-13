@@ -69,6 +69,9 @@ public class ListUpdate : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+    }
+
     // Sets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false. This option is supported only in RTF, DOC and DOCX document formats. This option will be written to DOCX only if Aspose.Words.Saving.OoxmlCompliance is higher than Aspose.Words.Saving.OoxmlCompliance.Ecma376_2006.
     public func setIsRestartAtEachSection(isRestartAtEachSection : Bool?) -> ListUpdate {
         self.isRestartAtEachSection = isRestartAtEachSection;

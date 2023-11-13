@@ -257,6 +257,7 @@ public class UpdateTablePropertiesRequest : WordsApiRequest {
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "properties", body: try ObjectSerializer.serialize(value: self.getProperties()), contentType: "application/json"));
          self.getProperties().collectFilesContent(&requestFilesContent);
+         try self.getProperties().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

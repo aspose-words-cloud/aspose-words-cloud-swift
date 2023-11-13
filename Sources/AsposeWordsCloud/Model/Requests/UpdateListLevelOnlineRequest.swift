@@ -212,6 +212,7 @@ public class UpdateListLevelOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "listUpdate", body: try ObjectSerializer.serialize(value: self.getListUpdate()), contentType: "application/json"));
          self.getListUpdate().collectFilesContent(&requestFilesContent);
+         try self.getListUpdate().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

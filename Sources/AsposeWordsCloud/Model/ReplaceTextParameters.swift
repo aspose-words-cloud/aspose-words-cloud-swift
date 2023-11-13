@@ -141,6 +141,29 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.isMatchCase == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isMatchCase");
+        }
+        if (self.isMatchWholeWord == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isMatchWholeWord");
+        }
+        if (self.isOldValueRegex == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "isOldValueRegex");
+        }
+        if (self.newValue == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "newValue");
+        }
+        if (self.oldValue == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "oldValue");
+        }
+    }
+
     // Sets isMatchCase. Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
     public func setIsMatchCase(isMatchCase : Bool?) -> ReplaceTextParameters {
         self.isMatchCase = isMatchCase;

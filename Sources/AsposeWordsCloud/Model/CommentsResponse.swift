@@ -77,6 +77,12 @@ public class CommentsResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.comments?.validate();
+
+    }
+
     // Sets comments. Gets or sets the collection of comments.
     public func setComments(comments : CommentsCollection?) -> CommentsResponse {
         self.comments = comments;

@@ -121,6 +121,17 @@ public class SaveResult : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        try self.destDocument?.validate();
+        try self.sourceDocument?.validate();
+        if (self.additionalItems != nil) {
+            for elementAdditionalItems in self.additionalItems! {
+                try elementAdditionalItems.validate();
+            }
+        }
+
+    }
+
     // Sets destDocument. Gets or sets the link to destination document.
     public func setDestDocument(destDocument : FileLink?) -> SaveResult {
         self.destDocument = destDocument;

@@ -87,6 +87,13 @@ public class ClassificationResult : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        if (self.classProbability == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "classProbability");
+        }
+    }
+
     // Sets className. Gets or sets the name of the class.
     public func setClassName(className : String?) -> ClassificationResult {
         self.className = className;

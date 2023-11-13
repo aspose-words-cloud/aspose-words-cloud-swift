@@ -95,6 +95,12 @@ public class SearchResponse : WordsResponse {
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public override func validate() throws {
+        try super.validate();
+        try self.searchResults?.validate();
+
+    }
+
     // Sets searchingPattern. Gets or sets the regular expression pattern used to find matches.
     public func setSearchingPattern(searchingPattern : String?) -> SearchResponse {
         self.searchingPattern = searchingPattern;

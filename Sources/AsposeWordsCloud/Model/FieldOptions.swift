@@ -339,6 +339,11 @@ public class FieldOptions : Codable, WordsApiModel {
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
     }
 
+    public func validate() throws {
+        try self.currentUser?.validate();
+
+    }
+
     // Sets currentUser. Gets or sets Curren tUser.
     public func setCurrentUser(currentUser : UserInformation?) -> FieldOptions {
         self.currentUser = currentUser;

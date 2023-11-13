@@ -32,4 +32,5 @@ import Foundation
 public protocol WordsApiModel {
     init(from json: [String: Any]) throws;
     func collectFilesContent(_ resultFilesContent : inout [FileReference]);
+    func validate() throws;
 }
