@@ -43,7 +43,9 @@ class MathObjectTests: BaseTestContext {
         ("testRenderMathObjectWithoutNodePath", testRenderMathObjectWithoutNodePath),
         ("testDeleteOfficeMathObject", testDeleteOfficeMathObject),
         ("testDeleteOfficeMathObjectOnline", testDeleteOfficeMathObjectOnline),
-        ("testDeleteOfficeMathObjectWithoutNodePath", testDeleteOfficeMathObjectWithoutNodePath)
+        ("testDeleteOfficeMathObjectWithoutNodePath", testDeleteOfficeMathObjectWithoutNodePath),
+        ("testDeleteOfficeMathObjects", testDeleteOfficeMathObjects),
+        ("testDeleteOfficeMathObjectsOnline", testDeleteOfficeMathObjectsOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/MathObjects";
@@ -167,5 +169,22 @@ class MathObjectTests: BaseTestContext {
 
       let request = DeleteOfficeMathObjectRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       try super.getApi().deleteOfficeMathObject(request: request);
+    }
+
+    // Test for deleting math objects.
+    func testDeleteOfficeMathObjects() throws {
+      let remoteFileName = "TestDeleteOfficeMathObject.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = DeleteOfficeMathObjectsRequest(name: remoteFileName, folder: remoteDataFolder);
+      try super.getApi().deleteOfficeMathObjects(request: request);
+    }
+
+    // Test for deleting math objects online.
+    func testDeleteOfficeMathObjectsOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = DeleteOfficeMathObjectsOnlineRequest(document: requestDocument);
+      _ = try super.getApi().deleteOfficeMathObjectsOnline(request: request);
     }
 }
