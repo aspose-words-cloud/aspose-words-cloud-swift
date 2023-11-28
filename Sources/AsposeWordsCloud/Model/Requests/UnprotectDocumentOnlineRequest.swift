@@ -31,7 +31,6 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class UnprotectDocumentOnlineRequest : WordsApiRequest {
     private let document : InputStream;
-    private let protectionRequest : ProtectionRequest;
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
@@ -39,7 +38,6 @@ public class UnprotectDocumentOnlineRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case document;
-        case protectionRequest;
         case loadEncoding;
         case password;
         case encryptedPassword;
@@ -48,9 +46,8 @@ public class UnprotectDocumentOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UnprotectDocumentOnlineRequest class.
-    public init(document : InputStream, protectionRequest : ProtectionRequest, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil) {
+    public init(document : InputStream, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil) {
         self.document = document;
-        self.protectionRequest = protectionRequest;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
@@ -60,11 +57,6 @@ public class UnprotectDocumentOnlineRequest : WordsApiRequest {
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
-    }
-
-    // Protection request.
-    public func getProtectionRequest() -> ProtectionRequest {
-        return self.protectionRequest;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -149,10 +141,6 @@ public class UnprotectDocumentOnlineRequest : WordsApiRequest {
          var requestFilesContent = [FileReference]();
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
-
-         formParams.append(RequestFormParam(name: "protectionRequest", body: try ObjectSerializer.serialize(value: self.getProtectionRequest()), contentType: "application/json"));
-         self.getProtectionRequest().collectFilesContent(&requestFilesContent);
-         try self.getProtectionRequest().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

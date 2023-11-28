@@ -31,7 +31,6 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class UnprotectDocumentRequest : WordsApiRequest {
     private let name : String;
-    private let protectionRequest : ProtectionRequest;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -41,7 +40,6 @@ public class UnprotectDocumentRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case protectionRequest;
         case folder;
         case storage;
         case loadEncoding;
@@ -52,9 +50,8 @@ public class UnprotectDocumentRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UnprotectDocumentRequest class.
-    public init(name : String, protectionRequest : ProtectionRequest, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil) {
+    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil) {
         self.name = name;
-        self.protectionRequest = protectionRequest;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -66,11 +63,6 @@ public class UnprotectDocumentRequest : WordsApiRequest {
     // The filename of the input document.
     public func getName() -> String {
         return self.name;
-    }
-
-    // Protection request.
-    public func getProtectionRequest() -> ProtectionRequest {
-        return self.protectionRequest;
     }
 
     // Original document folder.
@@ -190,10 +182,6 @@ public class UnprotectDocumentRequest : WordsApiRequest {
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileReference]();
          apiInvoker.prepareFilesContent(&requestFilesContent);
-         formParams.append(RequestFormParam(name: "protectionRequest", body: try ObjectSerializer.serialize(value: self.getProtectionRequest()), contentType: "application/json"));
-         self.getProtectionRequest().collectFilesContent(&requestFilesContent);
-         try self.getProtectionRequest().validate();
-
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
          }

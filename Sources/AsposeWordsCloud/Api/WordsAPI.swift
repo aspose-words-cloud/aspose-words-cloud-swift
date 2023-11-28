@@ -13457,7 +13457,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Async representation of protectDocument method
-    // Adds protection to the document.
+    // Changes the document protection. The previous protection will be overwritten if it exist.
     public func protectDocument(request : ProtectDocumentRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -13491,7 +13491,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Sync representation of protectDocument method
-    // Adds protection to the document.
+    // Changes the document protection. The previous protection will be overwritten if it exist.
     public func protectDocument(request : ProtectDocumentRequest) throws -> ProtectionDataResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ProtectionDataResponse? = nil;
@@ -13511,7 +13511,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Async representation of protectDocumentOnline method
-    // Adds protection to the document.
+    // Changes the document protection. The previous protection will be overwritten if it exist.
     public func protectDocumentOnline(request : ProtectDocumentOnlineRequest, callback : @escaping (_ response : ProtectDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -13545,7 +13545,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Sync representation of protectDocumentOnline method
-    // Adds protection to the document.
+    // Changes the document protection. The previous protection will be overwritten if it exist.
     public func protectDocumentOnline(request : ProtectDocumentOnlineRequest) throws -> ProtectDocumentOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ProtectDocumentOnlineResponse? = nil;

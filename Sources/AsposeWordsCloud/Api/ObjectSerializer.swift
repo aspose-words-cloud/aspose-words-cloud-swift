@@ -218,6 +218,7 @@ class ObjectSerializer {
         "ProtectionData, _": ProtectionData.self,
         "ProtectionDataResponse, _": ProtectionDataResponse.self,
         "ProtectionRequest, _": ProtectionRequest.self,
+        "ProtectionRequestV2, _": ProtectionRequestV2.self,
         "PsSaveOptionsData, _": PsSaveOptionsData.self,
         "PublicKeyResponse, _": PublicKeyResponse.self,
         "RangeDocument, _": RangeDocument.self,
