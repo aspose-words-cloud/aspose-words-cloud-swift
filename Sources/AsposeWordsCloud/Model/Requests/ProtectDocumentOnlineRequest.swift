@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ProtectDocumentOnlineRequest : WordsApiRequest {
     private let document : InputStream;
-    private let protectionRequest : ProtectionRequest;
+    private let protectionRequest : ProtectionRequestBase;
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
@@ -48,7 +48,7 @@ public class ProtectDocumentOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the ProtectDocumentOnlineRequest class.
-    public init(document : InputStream, protectionRequest : ProtectionRequest, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil) {
+    public init(document : InputStream, protectionRequest : ProtectionRequestBase, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil) {
         self.document = document;
         self.protectionRequest = protectionRequest;
         self.loadEncoding = loadEncoding;
@@ -62,8 +62,8 @@ public class ProtectDocumentOnlineRequest : WordsApiRequest {
         return self.document;
     }
 
-    // Protection request.
-    public func getProtectionRequest() -> ProtectionRequest {
+    // Use ProtectionRequestV2 model to provide protection options.
+    public func getProtectionRequest() -> ProtectionRequestBase {
         return self.protectionRequest;
     }
 

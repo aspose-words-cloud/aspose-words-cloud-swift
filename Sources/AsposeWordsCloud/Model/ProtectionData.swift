@@ -30,10 +30,29 @@ import Foundation
 // Container for the data about protection of the document.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ProtectionData : Codable, WordsApiModel {
-    // Field of protectionType. Container for the data about protection of the document.
-    private var _protectionType : String? = nil;
+    // Gets or sets type of the protection.
+    public enum ProtectionType : String, Codable
+    {
+        // Enum value "allowOnlyRevisions"
+        case allowOnlyRevisions = "AllowOnlyRevisions"
 
-    public var protectionType : String? {
+        // Enum value "allowOnlyComments"
+        case allowOnlyComments = "AllowOnlyComments"
+
+        // Enum value "allowOnlyFormFields"
+        case allowOnlyFormFields = "AllowOnlyFormFields"
+
+        // Enum value "readOnly"
+        case readOnly = "ReadOnly"
+
+        // Enum value "noProtection"
+        case noProtection = "NoProtection"
+    }
+
+    // Field of protectionType. Container for the data about protection of the document.
+    private var _protectionType : ProtectionType? = nil;
+
+    public var protectionType : ProtectionType? {
         get {
             return self._protectionType;
         }
@@ -51,12 +70,15 @@ public class ProtectionData : Codable, WordsApiModel {
     }
 
     public required init(from json: [String: Any]) throws {
-        self.protectionType = json["ProtectionType"] as? String;
+        if let raw_protectionType = json["ProtectionType"] as? String {
+            self.protectionType = ProtectionType(rawValue: raw_protectionType);
+        }
+
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.protectionType = try container.decodeIfPresent(String.self, forKey: .protectionType);
+        self.protectionType = try container.decodeIfPresent(ProtectionType.self, forKey: .protectionType);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -70,16 +92,20 @@ public class ProtectionData : Codable, WordsApiModel {
     }
 
     public func validate() throws {
+        if (self.protectionType == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "protectionType");
+        }
     }
 
     // Sets protectionType. Gets or sets type of the protection.
-    public func setProtectionType(protectionType : String?) -> ProtectionData {
+    public func setProtectionType(protectionType : ProtectionType?) -> ProtectionData {
         self.protectionType = protectionType;
         return self;
     }
 
     // Gets protectionType. Gets or sets type of the protection.
-    public func getProtectionType() -> String? {
+    public func getProtectionType() -> ProtectionType? {
         return self.protectionType;
     }
 }
