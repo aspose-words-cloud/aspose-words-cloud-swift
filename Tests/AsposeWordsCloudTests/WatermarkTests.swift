@@ -77,7 +77,7 @@ class WatermarkTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false), path: remoteImagePath);
 
-      let requestWatermarkDataImage = FileReference(remoteFilePath: remoteDataFolder + "/" + remoteFileName);
+      let requestWatermarkDataImage = FileReference(remoteFilePath: remoteImagePath);
       let requestWatermarkData = WatermarkDataImage()
         .setImage(image: requestWatermarkDataImage);
       let request = InsertWatermarkRequest(name: remoteFileName, watermarkData: requestWatermarkData, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
@@ -88,7 +88,7 @@ class WatermarkTests: BaseTestContext {
     // Test for adding watermark text online.
     func testInsertWatermarkImageOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestWatermarkDataImageStream = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let requestWatermarkDataImageStream = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!;
       let requestWatermarkDataImage = FileReference(localFileContent: requestWatermarkDataImageStream);
       let requestWatermarkData = WatermarkDataImage()
         .setImage(image: requestWatermarkDataImage);
