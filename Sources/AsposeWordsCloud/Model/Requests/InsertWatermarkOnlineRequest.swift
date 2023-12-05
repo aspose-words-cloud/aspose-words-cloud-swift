@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="CompareDocumentOnlineRequest.swift">
+ * <copyright company="Aspose" file="InsertWatermarkOnlineRequest.swift">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,37 +27,40 @@
 
 import Foundation
 
-// Request model for compareDocumentOnline operation.
+// Request model for insertWatermarkOnline operation.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class CompareDocumentOnlineRequest : WordsApiRequest {
+public class InsertWatermarkOnlineRequest : WordsApiRequest {
     private let document : InputStream;
-    private let compareData : CompareData;
+    private let watermarkData : WatermarkDataBase;
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
     private let destFileName : String?;
-    private let encryptedPassword2 : String?;
+    private let revisionAuthor : String?;
+    private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
-        case compareData;
+        case watermarkData;
         case loadEncoding;
         case password;
         case encryptedPassword;
         case destFileName;
-        case encryptedPassword2;
+        case revisionAuthor;
+        case revisionDateTime;
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the CompareDocumentOnlineRequest class.
-    public init(document : InputStream, compareData : CompareData, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, encryptedPassword2 : String? = nil) {
+    // Initializes a new instance of the InsertWatermarkOnlineRequest class.
+    public init(document : InputStream, watermarkData : WatermarkDataBase, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
-        self.compareData = compareData;
+        self.watermarkData = watermarkData;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
         self.destFileName = destFileName;
-        self.encryptedPassword2 = encryptedPassword2;
+        self.revisionAuthor = revisionAuthor;
+        self.revisionDateTime = revisionDateTime;
     }
 
     // The document.
@@ -65,9 +68,9 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
         return self.document;
     }
 
-    // Compare data.
-    public func getCompareData() -> CompareData {
-        return self.compareData;
+    // The watermark data.
+    public func getWatermarkData() -> WatermarkDataBase {
+        return self.watermarkData;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -90,14 +93,19 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
         return self.destFileName;
     }
 
-    // encrypted password for the second document.
-    public func getEncryptedPassword2() -> String? {
-        return self.encryptedPassword2;
+    // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+    public func getRevisionAuthor() -> String? {
+        return self.revisionAuthor;
+    }
+
+    // The date and time to use for revisions.
+    public func getRevisionDateTime() -> String? {
+        return self.revisionDateTime;
     }
 
     // Creates the api request data
     public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/put/compareDocument";
+         var rawPath = "/words/online/post/watermarks/insert";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
@@ -151,13 +159,25 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
              }
 
 
-             if (self.getEncryptedPassword2() != nil) {
+             if (self.getRevisionAuthor() != nil) {
 
          #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "encryptedPassword2", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword2()!)));
+                     queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
 
          #else
-                     queryItems.append(URLQueryItem(name: "encryptedPassword2", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword2()!)));
+                     queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+
+         #endif        
+             }
+
+
+             if (self.getRevisionDateTime() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
 
          #endif        
              }
@@ -170,9 +190,9 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
          apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
-         formParams.append(RequestFormParam(name: "compareData", body: try ObjectSerializer.serialize(value: self.getCompareData()), contentType: "application/json"));
-         self.getCompareData().collectFilesContent(&requestFilesContent);
-         try self.getCompareData().validate();
+         formParams.append(RequestFormParam(name: "watermarkData", body: try ObjectSerializer.serialize(value: self.getWatermarkData()), contentType: "application/json"));
+         self.getWatermarkData().collectFilesContent(&requestFilesContent);
+         try self.getWatermarkData().validate();
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
@@ -188,7 +208,7 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
     // Deserialize response of this request
     public func deserializeResponse(data : Data, headers : [String: String]) throws -> Any? {
         let multipart = try ObjectSerializer.parseMultipart(data: data);
-        return CompareDocumentOnlineResponse(
+        return InsertWatermarkOnlineResponse(
             model: try ObjectSerializer.deserialize(
                 type: DocumentResponse.self,
                 from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()

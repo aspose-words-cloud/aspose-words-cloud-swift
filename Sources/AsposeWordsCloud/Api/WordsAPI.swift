@@ -12968,8 +12968,63 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of insertWatermark method
+    // Insert a watermark to the document.
+    public func insertWatermark(request : InsertWatermarkRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of insertWatermark method
+    // Insert a watermark to the document.
+    public func insertWatermark(request : InsertWatermarkRequest) throws -> DocumentResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : DocumentResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertWatermark(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of insertWatermarkImage method
     // Inserts a new watermark image to the document.
+    @available(*, deprecated, message: "This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
     public func insertWatermarkImage(request : InsertWatermarkImageRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -13024,6 +13079,7 @@ public class WordsAPI : Encryptor {
 
     // Async representation of insertWatermarkImageOnline method
     // Inserts a new watermark image to the document.
+    @available(*, deprecated, message: "This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
     public func insertWatermarkImageOnline(request : InsertWatermarkImageOnlineRequest, callback : @escaping (_ response : InsertWatermarkImageOnlineResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -13076,8 +13132,63 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of insertWatermarkOnline method
+    // Insert a watermark to the document.
+    public func insertWatermarkOnline(request : InsertWatermarkOnlineRequest, callback : @escaping (_ response : InsertWatermarkOnlineResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertWatermarkOnlineResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of insertWatermarkOnline method
+    // Insert a watermark to the document.
+    public func insertWatermarkOnline(request : InsertWatermarkOnlineRequest) throws -> InsertWatermarkOnlineResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : InsertWatermarkOnlineResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertWatermarkOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of insertWatermarkText method
     // Inserts a new watermark text to the document.
+    @available(*, deprecated, message: "This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
     public func insertWatermarkText(request : InsertWatermarkTextRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -13132,6 +13243,7 @@ public class WordsAPI : Encryptor {
 
     // Async representation of insertWatermarkTextOnline method
     // Inserts a new watermark text to the document.
+    @available(*, deprecated, message: "This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
     public func insertWatermarkTextOnline(request : InsertWatermarkTextOnlineRequest, callback : @escaping (_ response : InsertWatermarkTextOnlineResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {

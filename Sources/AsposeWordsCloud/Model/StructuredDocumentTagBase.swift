@@ -249,9 +249,9 @@ public class StructuredDocumentTagBase : NodeLink {
     }
 
     // Field of color. DTO container with a StructuredDocumentTagBaseDto.
-    private var _color : String? = nil;
+    private var _color : XmlColor? = nil;
 
-    public var color : String? {
+    public var color : XmlColor? {
         get {
             return self._color;
         }
@@ -439,7 +439,10 @@ public class StructuredDocumentTagBase : NodeLink {
         self.buildingBlockGallery = json["BuildingBlockGallery"] as? String;
         self.buildingBlockCategory = json["BuildingBlockCategory"] as? String;
         self.multiline = json["Multiline"] as? Bool;
-        self.color = json["Color"] as? String;
+        if let raw_color = json["Color"] as? [String: Any] {
+            self.color = try ObjectSerializer.deserialize(type: XmlColor.self, from: raw_color);
+        }
+
         self.styleName = json["StyleName"] as? String;
         if let raw_calendarType = json["CalendarType"] as? String {
             self.calendarType = CalendarType(rawValue: raw_calendarType);
@@ -474,7 +477,7 @@ public class StructuredDocumentTagBase : NodeLink {
         self.buildingBlockGallery = try container.decodeIfPresent(String.self, forKey: .buildingBlockGallery);
         self.buildingBlockCategory = try container.decodeIfPresent(String.self, forKey: .buildingBlockCategory);
         self.multiline = try container.decodeIfPresent(Bool.self, forKey: .multiline);
-        self.color = try container.decodeIfPresent(String.self, forKey: .color);
+        self.color = try container.decodeIfPresent(XmlColor.self, forKey: .color);
         self.styleName = try container.decodeIfPresent(String.self, forKey: .styleName);
         self.calendarType = try container.decodeIfPresent(CalendarType.self, forKey: .calendarType);
         self.isTemporary = try container.decodeIfPresent(Bool.self, forKey: .isTemporary);
@@ -568,6 +571,7 @@ public class StructuredDocumentTagBase : NodeLink {
                 try elementListItems.validate();
             }
         }
+        try self.color?.validate();
 
     }
 
@@ -704,13 +708,13 @@ public class StructuredDocumentTagBase : NodeLink {
 
 
     // Sets color. Gets or sets the color of the structured document tag.
-    public func setColor(color : String?) -> StructuredDocumentTagBase {
+    public func setColor(color : XmlColor?) -> StructuredDocumentTagBase {
         self.color = color;
         return self;
     }
 
     // Gets color. Gets or sets the color of the structured document tag.
-    public func getColor() -> String? {
+    public func getColor() -> XmlColor? {
         return self.color;
     }
 

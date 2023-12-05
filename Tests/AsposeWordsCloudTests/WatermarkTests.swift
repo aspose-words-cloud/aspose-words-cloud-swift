@@ -32,10 +32,14 @@ import XCTest
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 class WatermarkTests: BaseTestContext {
     static var allTests = [
-        ("testInsertWatermarkImage", testInsertWatermarkImage),
-        ("testInsertWatermarkImageOnline", testInsertWatermarkImageOnline),
         ("testInsertWatermarkText", testInsertWatermarkText),
         ("testInsertWatermarkTextOnline", testInsertWatermarkTextOnline),
+        ("testInsertWatermarkImage", testInsertWatermarkImage),
+        ("testInsertWatermarkImageOnline", testInsertWatermarkImageOnline),
+        ("testInsertWatermarkImageDeprecated", testInsertWatermarkImageDeprecated),
+        ("testInsertWatermarkImageDeprecatedOnline", testInsertWatermarkImageDeprecatedOnline),
+        ("testInsertWatermarkTextDeprecated", testInsertWatermarkTextDeprecated),
+        ("testInsertWatermarkTextDeprecatedOnline", testInsertWatermarkTextDeprecatedOnline),
         ("testDeleteWatermark", testDeleteWatermark),
         ("testDeleteWatermarkOnline", testDeleteWatermarkOnline)
     ];
@@ -43,8 +47,57 @@ class WatermarkTests: BaseTestContext {
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/Watermark";
     let localFile = "Common/test_multi_pages.docx";
 
-    // Test for adding watermark image.
+    // Test for adding watermark text.
+    func testInsertWatermarkText() throws {
+      let remoteFileName = "TestInsertWatermarkText.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestWatermarkData = WatermarkDataText()
+        .setText(text: "watermark text");
+      let request = InsertWatermarkRequest(name: remoteFileName, watermarkData: requestWatermarkData, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let actual = try super.getApi().insertWatermark(request: request);
+      XCTAssertNotNil(actual.getDocument());
+    }
+
+    // Test for adding watermark text online.
+    func testInsertWatermarkTextOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let requestWatermarkData = WatermarkDataText()
+        .setText(text: "watermark text");
+      let request = InsertWatermarkOnlineRequest(document: requestDocument, watermarkData: requestWatermarkData);
+      _ = try super.getApi().insertWatermarkOnline(request: request);
+    }
+
+    // Test for adding watermark text.
     func testInsertWatermarkImage() throws {
+      let remoteFileName = "TestInsertWatermarkImage.docx";
+      let remoteImagePath = remoteDataFolder + "/TestInsertWatermarkImage.png";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false), path: remoteImagePath);
+
+      let requestWatermarkDataImage = FileReference(remoteFilePath: remoteDataFolder + "/" + remoteFileName);
+      let requestWatermarkData = WatermarkDataImage()
+        .setImage(image: requestWatermarkDataImage);
+      let request = InsertWatermarkRequest(name: remoteFileName, watermarkData: requestWatermarkData, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let actual = try super.getApi().insertWatermark(request: request);
+      XCTAssertNotNil(actual.getDocument());
+    }
+
+    // Test for adding watermark text online.
+    func testInsertWatermarkImageOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let requestWatermarkDataImageStream = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let requestWatermarkDataImage = FileReference(localFileContent: requestWatermarkDataImageStream);
+      let requestWatermarkData = WatermarkDataImage()
+        .setImage(image: requestWatermarkDataImage);
+      let request = InsertWatermarkOnlineRequest(document: requestDocument, watermarkData: requestWatermarkData);
+      _ = try super.getApi().insertWatermarkOnline(request: request);
+    }
+
+    // Test for adding watermark image.
+    func testInsertWatermarkImageDeprecated() throws {
       let remoteFileName = "TestInsertWatermarkImage.docx";
       let remoteImagePath = remoteDataFolder + "/TestInsertWatermarkImage.png";
 
@@ -58,7 +111,7 @@ class WatermarkTests: BaseTestContext {
     }
 
     // Test for adding watermark image online.
-    func testInsertWatermarkImageOnline() throws {
+    func testInsertWatermarkImageDeprecatedOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestImageFile = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!;
       let request = InsertWatermarkImageOnlineRequest(document: requestDocument, imageFile: requestImageFile);
@@ -66,7 +119,7 @@ class WatermarkTests: BaseTestContext {
     }
 
     // Test for adding watermark text.
-    func testInsertWatermarkText() throws {
+    func testInsertWatermarkTextDeprecated() throws {
       let remoteFileName = "TestInsertWatermarkText.docx";
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
@@ -81,7 +134,7 @@ class WatermarkTests: BaseTestContext {
     }
 
     // Test for adding watermark text online.
-    func testInsertWatermarkTextOnline() throws {
+    func testInsertWatermarkTextDeprecatedOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestWatermarkText = WatermarkText()
         .setRotationAngle(rotationAngle: 90)
