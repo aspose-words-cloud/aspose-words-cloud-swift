@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ProtectionRequest.swift">
+ * <copyright company="Aspose" file="ProtectionRequestV2.swift">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,36 +29,42 @@ import Foundation
 
 // Request on changing of protection.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-@available(*, deprecated, message: "ProtectionRequest is deprecated and remains for backwards compatibility only.")
-public class ProtectionRequest : ProtectionRequestBase {
-    // Field of newPassword. Request on changing of protection.
-    private var _newPassword : String? = nil;
+public class ProtectionRequestV2 : ProtectionRequestBase {
+    // Gets or sets the new type of the document protection.
+    public enum ProtectionType : String, Codable
+    {
+        // Enum value "allowOnlyRevisions"
+        case allowOnlyRevisions = "AllowOnlyRevisions"
 
-    public var newPassword : String? {
-        get {
-            return self._newPassword;
-        }
-        set {
-            self._newPassword = newValue;
-        }
+        // Enum value "allowOnlyComments"
+        case allowOnlyComments = "AllowOnlyComments"
+
+        // Enum value "allowOnlyFormFields"
+        case allowOnlyFormFields = "AllowOnlyFormFields"
+
+        // Enum value "readOnly"
+        case readOnly = "ReadOnly"
+
+        // Enum value "noProtection"
+        case noProtection = "NoProtection"
     }
 
-    // Field of password. Request on changing of protection.
-    private var _password : String? = nil;
+    // Field of protectionPassword. Request on changing of protection.
+    private var _protectionPassword : String? = nil;
 
-    public var password : String? {
+    public var protectionPassword : String? {
         get {
-            return self._password;
+            return self._protectionPassword;
         }
         set {
-            self._password = newValue;
+            self._protectionPassword = newValue;
         }
     }
 
     // Field of protectionType. Request on changing of protection.
-    private var _protectionType : String? = nil;
+    private var _protectionType : ProtectionType? = nil;
 
-    public var protectionType : String? {
+    public var protectionType : ProtectionType? {
         get {
             return self._protectionType;
         }
@@ -68,8 +74,7 @@ public class ProtectionRequest : ProtectionRequestBase {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case newPassword = "NewPassword";
-        case password = "Password";
+        case protectionPassword = "ProtectionPassword";
         case protectionType = "ProtectionType";
         case invalidCodingKey;
     }
@@ -80,27 +85,25 @@ public class ProtectionRequest : ProtectionRequestBase {
 
     public required init(from json: [String: Any]) throws {
         try super.init(from: json);
-        self.newPassword = json["NewPassword"] as? String;
-        self.password = json["Password"] as? String;
-        self.protectionType = json["ProtectionType"] as? String;
+        self.protectionPassword = json["ProtectionPassword"] as? String;
+        if let raw_protectionType = json["ProtectionType"] as? String {
+            self.protectionType = ProtectionType(rawValue: raw_protectionType);
+        }
+
     }
 
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.newPassword = try container.decodeIfPresent(String.self, forKey: .newPassword);
-        self.password = try container.decodeIfPresent(String.self, forKey: .password);
-        self.protectionType = try container.decodeIfPresent(String.self, forKey: .protectionType);
+        self.protectionPassword = try container.decodeIfPresent(String.self, forKey: .protectionPassword);
+        self.protectionType = try container.decodeIfPresent(ProtectionType.self, forKey: .protectionType);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.newPassword != nil) {
-            try container.encode(self.newPassword, forKey: .newPassword);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
+        if (self.protectionPassword != nil) {
+            try container.encode(self.protectionPassword, forKey: .protectionPassword);
         }
         if (self.protectionType != nil) {
             try container.encode(self.protectionType, forKey: .protectionType);
@@ -112,44 +115,36 @@ public class ProtectionRequest : ProtectionRequestBase {
 
     public override func validate() throws {
         try super.validate();
-        if (self.password == nil)
+        if (self.protectionPassword == nil)
         {
-            throw WordsApiError.requiredParameterError(paramName: "password");
+            throw WordsApiError.requiredParameterError(paramName: "protectionPassword");
+        }
+        if (self.protectionType == nil)
+        {
+            throw WordsApiError.requiredParameterError(paramName: "protectionType");
         }
     }
 
-    // Sets newPassword. Gets or sets the new password.
-    public func setNewPassword(newPassword : String?) -> ProtectionRequest {
-        self.newPassword = newPassword;
+    // Sets protectionPassword. Gets or sets the new password for the document protection. This property is required, but empty value is allowed.
+    public func setProtectionPassword(protectionPassword : String?) -> ProtectionRequestV2 {
+        self.protectionPassword = protectionPassword;
         return self;
     }
 
-    // Gets newPassword. Gets or sets the new password.
-    public func getNewPassword() -> String? {
-        return self.newPassword;
+    // Gets protectionPassword. Gets or sets the new password for the document protection. This property is required, but empty value is allowed.
+    public func getProtectionPassword() -> String? {
+        return self.protectionPassword;
     }
 
 
-    // Sets password. Gets or sets the current password.
-    public func setPassword(password : String?) -> ProtectionRequest {
-        self.password = password;
-        return self;
-    }
-
-    // Gets password. Gets or sets the current password.
-    public func getPassword() -> String? {
-        return self.password;
-    }
-
-
-    // Sets protectionType. Gets or sets the new type of protection.
-    public func setProtectionType(protectionType : String?) -> ProtectionRequest {
+    // Sets protectionType. Gets or sets the new type of the document protection.
+    public func setProtectionType(protectionType : ProtectionType?) -> ProtectionRequestV2 {
         self.protectionType = protectionType;
         return self;
     }
 
-    // Gets protectionType. Gets or sets the new type of protection.
-    public func getProtectionType() -> String? {
+    // Gets protectionType. Gets or sets the new type of the document protection.
+    public func getProtectionType() -> ProtectionType? {
         return self.protectionType;
     }
 }

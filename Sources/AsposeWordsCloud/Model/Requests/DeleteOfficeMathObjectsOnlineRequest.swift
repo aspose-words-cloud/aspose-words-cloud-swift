@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="UnprotectDocumentRequest.swift">
+ * <copyright company="Aspose" file="DeleteOfficeMathObjectsOnlineRequest.swift">
  *   Copyright (c) 2023 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,52 +27,42 @@
 
 import Foundation
 
-// Request model for unprotectDocument operation.
+// Request model for deleteOfficeMathObjectsOnline operation.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class UnprotectDocumentRequest : WordsApiRequest {
-    private let name : String;
-    private let folder : String?;
-    private let storage : String?;
+public class DeleteOfficeMathObjectsOnlineRequest : WordsApiRequest {
+    private let document : InputStream;
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
     private let destFileName : String?;
+    private let revisionAuthor : String?;
+    private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case name;
-        case folder;
-        case storage;
+        case document;
         case loadEncoding;
         case password;
         case encryptedPassword;
         case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the UnprotectDocumentRequest class.
-    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil) {
-        self.name = name;
-        self.folder = folder;
-        self.storage = storage;
+    // Initializes a new instance of the DeleteOfficeMathObjectsOnlineRequest class.
+    public init(document : InputStream, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+        self.document = document;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
         self.destFileName = destFileName;
+        self.revisionAuthor = revisionAuthor;
+        self.revisionDateTime = revisionDateTime;
     }
 
-    // The filename of the input document.
-    public func getName() -> String {
-        return self.name;
-    }
-
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
+    // The document.
+    public func getDocument() -> InputStream {
+        return self.document;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -95,40 +85,24 @@ public class UnprotectDocumentRequest : WordsApiRequest {
         return self.destFileName;
     }
 
+    // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+    public func getRevisionAuthor() -> String? {
+        return self.revisionAuthor;
+    }
+
+    // The date and time to use for revisions.
+    public func getRevisionDateTime() -> String? {
+        return self.revisionDateTime;
+    }
+
     // Creates the api request data
     public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/{name}/protection";
-         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
-
+         var rawPath = "/words/online/delete/OfficeMathObjects";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-             if (self.getFolder() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
-
-         #endif        
-             }
-
-
-             if (self.getStorage() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
-
-         #endif        
-             }
-
-
              if (self.getLoadEncoding() != nil) {
 
          #if os(Linux) 
@@ -176,17 +150,43 @@ public class UnprotectDocumentRequest : WordsApiRequest {
          #endif        
              }
 
+
+             if (self.getRevisionAuthor() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+
+         #endif        
+             }
+
+
+             if (self.getRevisionDateTime() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+
+         #endif        
+             }
+
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileReference]();
          apiInvoker.prepareFilesContent(&requestFilesContent);
+         formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
+
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
          }
 
-         var result = WordsApiRequestData(url: urlBuilder.url!, method: "DELETE");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          if (formParams.count > 0) {
              result.setBody(formParams: formParams);
          }
@@ -195,6 +195,6 @@ public class UnprotectDocumentRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data, headers : [String: String]) throws -> Any? {
-        return try ObjectSerializer.deserialize(type: ProtectionDataResponse.self, from: data);
+        return try ObjectSerializer.parseFilesCollection(data: data, headers: headers);
     }
 }

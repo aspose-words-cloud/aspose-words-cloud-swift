@@ -3307,6 +3307,101 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of deleteOfficeMathObjects method
+    // Removes all office math objects from the document.
+    public func deleteOfficeMathObjects(request : DeleteOfficeMathObjectsRequest, callback : @escaping (_ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    callback(error);
+                }
+            );
+        }
+        catch let error {
+            callback(error);
+        }
+    }
+
+    // Sync representation of deleteOfficeMathObjects method
+    // Removes all office math objects from the document.
+    public func deleteOfficeMathObjects(request : DeleteOfficeMathObjectsRequest) throws {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseError : Error? = nil;
+        self.deleteOfficeMathObjects(request : request, callback: { error in
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+    }
+
+    // Async representation of deleteOfficeMathObjectsOnline method
+    // Removes all office math objects from the document.
+    public func deleteOfficeMathObjectsOnline(request : DeleteOfficeMathObjectsOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of deleteOfficeMathObjectsOnline method
+    // Removes all office math objects from the document.
+    public func deleteOfficeMathObjectsOnline(request : DeleteOfficeMathObjectsOnlineRequest) throws -> [String: Data] {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : [String: Data]? = nil;
+        var responseError : Error? = nil;
+        self.deleteOfficeMathObjectsOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of deleteParagraph method
     // Removes a paragraph from the document node.
     public func deleteParagraph(request : DeleteParagraphRequest, callback : @escaping (_ error : Error?) -> ()) {
@@ -12873,8 +12968,63 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of insertWatermark method
+    // Insert a watermark to the document.
+    public func insertWatermark(request : InsertWatermarkRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of insertWatermark method
+    // Insert a watermark to the document.
+    public func insertWatermark(request : InsertWatermarkRequest) throws -> DocumentResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : DocumentResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertWatermark(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of insertWatermarkImage method
     // Inserts a new watermark image to the document.
+    @available(*, deprecated, message: "This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
     public func insertWatermarkImage(request : InsertWatermarkImageRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -12929,6 +13079,7 @@ public class WordsAPI : Encryptor {
 
     // Async representation of insertWatermarkImageOnline method
     // Inserts a new watermark image to the document.
+    @available(*, deprecated, message: "This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
     public func insertWatermarkImageOnline(request : InsertWatermarkImageOnlineRequest, callback : @escaping (_ response : InsertWatermarkImageOnlineResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -12981,8 +13132,63 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of insertWatermarkOnline method
+    // Insert a watermark to the document.
+    public func insertWatermarkOnline(request : InsertWatermarkOnlineRequest, callback : @escaping (_ response : InsertWatermarkOnlineResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertWatermarkOnlineResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of insertWatermarkOnline method
+    // Insert a watermark to the document.
+    public func insertWatermarkOnline(request : InsertWatermarkOnlineRequest) throws -> InsertWatermarkOnlineResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : InsertWatermarkOnlineResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertWatermarkOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of insertWatermarkText method
     // Inserts a new watermark text to the document.
+    @available(*, deprecated, message: "This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
     public func insertWatermarkText(request : InsertWatermarkTextRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -13037,6 +13243,7 @@ public class WordsAPI : Encryptor {
 
     // Async representation of insertWatermarkTextOnline method
     // Inserts a new watermark text to the document.
+    @available(*, deprecated, message: "This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
     public func insertWatermarkTextOnline(request : InsertWatermarkTextOnlineRequest, callback : @escaping (_ response : InsertWatermarkTextOnlineResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -13362,7 +13569,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Async representation of protectDocument method
-    // Adds protection to the document.
+    // Changes the document protection. The previous protection will be overwritten if it exist.
     public func protectDocument(request : ProtectDocumentRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -13396,7 +13603,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Sync representation of protectDocument method
-    // Adds protection to the document.
+    // Changes the document protection. The previous protection will be overwritten if it exist.
     public func protectDocument(request : ProtectDocumentRequest) throws -> ProtectionDataResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ProtectionDataResponse? = nil;
@@ -13416,7 +13623,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Async representation of protectDocumentOnline method
-    // Adds protection to the document.
+    // Changes the document protection. The previous protection will be overwritten if it exist.
     public func protectDocumentOnline(request : ProtectDocumentOnlineRequest, callback : @escaping (_ response : ProtectDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             if (self.apiInvoker == nil) {
@@ -13450,7 +13657,7 @@ public class WordsAPI : Encryptor {
     }
 
     // Sync representation of protectDocumentOnline method
-    // Adds protection to the document.
+    // Changes the document protection. The previous protection will be overwritten if it exist.
     public func protectDocumentOnline(request : ProtectDocumentOnlineRequest) throws -> ProtectDocumentOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ProtectDocumentOnlineResponse? = nil;

@@ -32,7 +32,6 @@ import Foundation
 public class CompareDocumentOnlineRequest : WordsApiRequest {
     private let document : InputStream;
     private let compareData : CompareData;
-    private let comparingDocument : InputStream?;
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
@@ -42,7 +41,6 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
     private enum CodingKeys: String, CodingKey {
         case document;
         case compareData;
-        case comparingDocument;
         case loadEncoding;
         case password;
         case encryptedPassword;
@@ -52,10 +50,9 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the CompareDocumentOnlineRequest class.
-    public init(document : InputStream, compareData : CompareData, comparingDocument : InputStream? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, encryptedPassword2 : String? = nil) {
+    public init(document : InputStream, compareData : CompareData, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, encryptedPassword2 : String? = nil) {
         self.document = document;
         self.compareData = compareData;
-        self.comparingDocument = comparingDocument;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
@@ -71,11 +68,6 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
     // Compare data.
     public func getCompareData() -> CompareData {
         return self.compareData;
-    }
-
-    // The comparing document.
-    public func getComparingDocument() -> InputStream? {
-        return self.comparingDocument;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -181,10 +173,6 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "compareData", body: try ObjectSerializer.serialize(value: self.getCompareData()), contentType: "application/json"));
          self.getCompareData().collectFilesContent(&requestFilesContent);
          try self.getCompareData().validate();
-
-         if (self.getComparingDocument() != nil) {
-             formParams.append(RequestFormParam(name: "comparingDocument", body: try ObjectSerializer.serializeFile(value: self.getComparingDocument()!), contentType: "application/octet-stream"));
-         }
 
          for requestFileReference in requestFilesContent {
              formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

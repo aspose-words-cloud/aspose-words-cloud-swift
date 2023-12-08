@@ -78,6 +78,18 @@ public class CompareData : Codable, WordsApiModel {
         }
     }
 
+    // Field of fileReference. Container class for compare documents.
+    private var _fileReference : FileReference? = nil;
+
+    public var fileReference : FileReference? {
+        get {
+            return self._fileReference;
+        }
+        set {
+            self._fileReference = newValue;
+        }
+    }
+
     // Field of resultDocumentFormat. Container class for compare documents.
     private var _resultDocumentFormat : String? = nil;
 
@@ -95,6 +107,7 @@ public class CompareData : Codable, WordsApiModel {
         case compareOptions = "CompareOptions";
         case comparingWithDocument = "ComparingWithDocument";
         case dateTime = "DateTime";
+        case fileReference = "FileReference";
         case resultDocumentFormat = "ResultDocumentFormat";
         case invalidCodingKey;
     }
@@ -113,6 +126,10 @@ public class CompareData : Codable, WordsApiModel {
             self.dateTime = ObjectSerializer.customIso8601.date(from: raw_dateTime);
         }
 
+        if let raw_fileReference = json["FileReference"] as? [String: Any] {
+            self.fileReference = try ObjectSerializer.deserialize(type: FileReference.self, from: raw_fileReference);
+        }
+
         self.resultDocumentFormat = json["ResultDocumentFormat"] as? String;
     }
 
@@ -127,6 +144,7 @@ public class CompareData : Codable, WordsApiModel {
             self.dateTime = ObjectSerializer.customIso8601.date(from: raw_dateTime!)!;
         }
 
+        self.fileReference = try container.decodeIfPresent(FileReference.self, forKey: .fileReference);
         self.resultDocumentFormat = try container.decodeIfPresent(String.self, forKey: .resultDocumentFormat);
     }
 
@@ -144,12 +162,21 @@ public class CompareData : Codable, WordsApiModel {
         if (self.dateTime != nil) {
             try container.encode(self.dateTime, forKey: .dateTime);
         }
+        if (self.fileReference != nil) {
+            try container.encode(self.fileReference, forKey: .fileReference);
+        }
         if (self.resultDocumentFormat != nil) {
             try container.encode(self.resultDocumentFormat, forKey: .resultDocumentFormat);
         }
     }
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
+        if (self.fileReference != nil)
+        {
+            self.fileReference!.collectFilesContent(&resultFilesContent);
+        }
+
+
     }
 
     public func validate() throws {
@@ -157,11 +184,12 @@ public class CompareData : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "author");
         }
-        if (self.comparingWithDocument == nil)
+        if (self.fileReference == nil)
         {
-            throw WordsApiError.requiredParameterError(paramName: "comparingWithDocument");
+            throw WordsApiError.requiredParameterError(paramName: "fileReference");
         }
         try self.compareOptions?.validate();
+        try self.fileReference?.validate();
 
     }
 
@@ -190,12 +218,14 @@ public class CompareData : Codable, WordsApiModel {
 
 
     // Sets comparingWithDocument. Gets or sets the path to document to compare at the server.
+    @available(*, deprecated, message: "This field is deprecated and used only for backward compatibility. Please use FileReference instead.")
     public func setComparingWithDocument(comparingWithDocument : String?) -> CompareData {
         self.comparingWithDocument = comparingWithDocument;
         return self;
     }
 
     // Gets comparingWithDocument. Gets or sets the path to document to compare at the server.
+    @available(*, deprecated, message: "This field is deprecated and used only for backward compatibility. Please use FileReference instead.")
     public func getComparingWithDocument() -> String? {
         return self.comparingWithDocument;
     }
@@ -210,6 +240,18 @@ public class CompareData : Codable, WordsApiModel {
     // Gets dateTime. Gets or sets the date and time to use for revisions.
     public func getDateTime() -> Date? {
         return self.dateTime;
+    }
+
+
+    // Sets fileReference. Gets or sets the file reference.
+    public func setFileReference(fileReference : FileReference?) -> CompareData {
+        self.fileReference = fileReference;
+        return self;
+    }
+
+    // Gets fileReference. Gets or sets the file reference.
+    public func getFileReference() -> FileReference? {
+        return self.fileReference;
     }
 
 
