@@ -54,22 +54,44 @@ public class FileReference : Codable, WordsApiModel {
         }
     }
 
+    // Password.
+    private var _password : String?;
+    public var password : String? {
+        get {
+            return self._password;
+        }
+    }
+
+    // Encrypted password.
+    private var _encryptedPassword : String?;
+    public var encryptedPassword : String? {
+        get {
+            return self._encryptedPassword;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case source = "Source";
         case reference = "Reference";
+        case password = "Password";
+        case encryptedPassword = "EncryptedPassword";
         case invalidCodingKey;
     }
 
-    public init(remoteFilePath : String) {
+    public init(remoteFilePath : String, password : String? = nil) {
         self._source = "Storage";
         self._reference = remoteFilePath;
         self._content = nil;
+        self._password = password;
+        self._encryptedPassword = nil;
     }
 
-    public init(localFileContent : InputStream) {
+    public init(localFileContent : InputStream, password : String? = nil) {
         self._source = "Request";
         self._reference = UUID().uuidString;
         self._content = localFileContent;
+        self._password = password;
+        self._encryptedPassword = nil;
     }
 
     public required init(from decoder: Decoder) throws {
@@ -84,15 +106,20 @@ public class FileReference : Codable, WordsApiModel {
         var container = encoder.container(keyedBy: CodingKeys.self);
         try container.encode(self.source, forKey: .source);
         try container.encode(self.reference, forKey: .reference);
+        try container.encode(self.password, forKey: .password);
+        try container.encode(self.encryptedPassword, forKey: .encryptedPassword);
     }
 
     public func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
-        if (self._source == "Request") {
-            resultFilesContent.append(self);
-        }
+        resultFilesContent.append(self);
     }
 
     public func validate() throws {
         // Do nothing
+    }
+
+    public func encryptPassword(_ encryptedPassword : String?) {
+        self._password = nil;
+        self._encryptedPassword = encryptedPassword;
     }
 }
