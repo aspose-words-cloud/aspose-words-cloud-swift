@@ -117,12 +117,14 @@ public class DocumentEntry : BaseEntry {
     }
 
     // Sets encryptedPassword. Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+    @available(*, deprecated, message: "This field is deprecated and used only for backward compatibility. Please use 'Password' or 'EncryptedPassword' from 'FileReference' instead.")
     public func setEncryptedPassword(encryptedPassword : String?) -> DocumentEntry {
         self.encryptedPassword = encryptedPassword;
         return self;
     }
 
     // Gets encryptedPassword. Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+    @available(*, deprecated, message: "This field is deprecated and used only for backward compatibility. Please use 'Password' or 'EncryptedPassword' from 'FileReference' instead.")
     public func getEncryptedPassword() -> String? {
         return self.encryptedPassword;
     }

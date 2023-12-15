@@ -172,15 +172,17 @@ public class ReplaceWithTextOnlineRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileReference]();
-         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "rangeText", body: try ObjectSerializer.serialize(value: self.getRangeText()), contentType: "application/json"));
          self.getRangeText().collectFilesContent(&requestFilesContent);
          try self.getRangeText().validate();
 
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
-             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             if (requestFileReference.source == "Request") {
+                 formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             }
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");

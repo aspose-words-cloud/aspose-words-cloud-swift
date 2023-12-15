@@ -252,15 +252,17 @@ public class InsertDrawingObjectRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileReference]();
-         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "drawingObject", body: try ObjectSerializer.serialize(value: self.getDrawingObject()), contentType: "application/json"));
          self.getDrawingObject().collectFilesContent(&requestFilesContent);
          try self.getDrawingObject().validate();
 
          formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: self.getImageFile()), contentType: "application/octet-stream"));
 
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
-             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             if (requestFileReference.source == "Request") {
+                 formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             }
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");

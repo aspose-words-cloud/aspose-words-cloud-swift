@@ -229,13 +229,15 @@ public class InsertCustomXmlPartRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileReference]();
-         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "customXmlPart", body: try ObjectSerializer.serialize(value: self.getCustomXmlPart()), contentType: "application/json"));
          self.getCustomXmlPart().collectFilesContent(&requestFilesContent);
          try self.getCustomXmlPart().validate();
 
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
-             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             if (requestFileReference.source == "Request") {
+                 formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             }
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");

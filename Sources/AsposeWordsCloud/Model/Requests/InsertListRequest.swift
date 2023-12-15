@@ -229,13 +229,15 @@ public class InsertListRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileReference]();
-         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "listInsert", body: try ObjectSerializer.serialize(value: self.getListInsert()), contentType: "application/json"));
          self.getListInsert().collectFilesContent(&requestFilesContent);
          try self.getListInsert().validate();
 
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
-             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             if (requestFileReference.source == "Request") {
+                 formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             }
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");

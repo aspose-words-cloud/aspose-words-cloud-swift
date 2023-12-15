@@ -254,13 +254,15 @@ public class UpdateTablePropertiesRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileReference]();
-         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "properties", body: try ObjectSerializer.serialize(value: self.getProperties()), contentType: "application/json"));
          self.getProperties().collectFilesContent(&requestFilesContent);
          try self.getProperties().validate();
 
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
-             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             if (requestFileReference.source == "Request") {
+                 formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             }
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");

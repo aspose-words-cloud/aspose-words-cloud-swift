@@ -89,8 +89,16 @@ public class ApiInvoker {
     }
 
     // Internal function for prepare files content list
-    public func prepareFilesContent(_ : inout [FileReference]) {
-        // Do nothing...
+    public func prepareFilesContent(_ requestFilesContent : inout [FileReference]) {
+#if os(Linux)
+        // Encryption of passwords not supported on linux
+#else
+        for requestFileReference in requestFilesContent {
+            if (requestFileReference.password != nil) {
+                requestFileReference.encryptPassword(try encryptString(value: requestFileReference.password!));
+            }
+        }
+#endif
     }
 
     // Invoke request to the API with the specified set of arguments and execute callback after the request is completed
