@@ -34,7 +34,8 @@ class CompareDocumentTests: BaseTestContext {
     static var allTests = [
         ("testCompareDocument", testCompareDocument),
         ("testCompareDocumentOnline", testCompareDocumentOnline),
-        ("testCompareTwoDocumentOnline", testCompareTwoDocumentOnline)
+        ("testCompareTwoDocumentOnline", testCompareTwoDocumentOnline),
+        ("testCompareDocumentWithPassword", testCompareDocumentWithPassword)
     ];
 
     let remoteFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/CompareDocument";
@@ -96,5 +97,25 @@ class CompareDocumentTests: BaseTestContext {
         .setFileReference(fileReference: requestCompareDataFileReference);
       let request = CompareDocumentOnlineRequest(document: requestDocument, compareData: requestCompareData, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
       _ = try super.getApi().compareDocumentOnline(request: request);
+    }
+
+    // Test for document comparison with password protection.
+    func testCompareDocumentWithPassword() throws {
+      let localName = "DocWithPassword.docx";
+      let remoteName1 = "TestCompareDocument1.docx";
+      let remoteName2 = "TestCompareDocument2.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/" + localName, isDirectory: false), path: remoteFolder + "/" + remoteName1);
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/" + localName, isDirectory: false), path: remoteFolder + "/" + remoteName2);
+
+      let requestCompareDataFileReference = FileReference(remoteFilePath: remoteFolder + "/" + remoteName2, password: "12345");
+      let requestCompareData = CompareData()
+        .setAuthor(author: "author")
+        .setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!)
+        .setFileReference(fileReference: requestCompareDataFileReference);
+      let request = CompareDocumentRequest(name: remoteName1, compareData: requestCompareData, folder: remoteFolder, password: "12345", destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.docx");
+      let actual = try super.getApi().compareDocument(request: request);
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestCompareDocumentOut.docx");
     }
 }
