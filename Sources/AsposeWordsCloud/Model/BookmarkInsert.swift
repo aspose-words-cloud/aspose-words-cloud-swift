@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="BookmarkInsert.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -55,9 +55,9 @@ public class BookmarkInsert : Codable, WordsApiModel {
     }
 
     // Field of startRange. Represents a bookmark to insert.
-    private var _startRange : NewDocumentPosition? = nil;
+    private var _startRange : Position? = nil;
 
-    public var startRange : NewDocumentPosition? {
+    public var startRange : Position? {
         get {
             return self._startRange;
         }
@@ -67,9 +67,9 @@ public class BookmarkInsert : Codable, WordsApiModel {
     }
 
     // Field of endRange. Represents a bookmark to insert.
-    private var _endRange : NewDocumentPosition? = nil;
+    private var _endRange : Position? = nil;
 
-    public var endRange : NewDocumentPosition? {
+    public var endRange : Position? {
         get {
             return self._endRange;
         }
@@ -93,11 +93,11 @@ public class BookmarkInsert : Codable, WordsApiModel {
         self.name = json["Name"] as? String;
         self.text = json["Text"] as? String;
         if let raw_startRange = json["StartRange"] as? [String: Any] {
-            self.startRange = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_startRange);
+            self.startRange = try ObjectSerializer.deserialize(type: Position.self, from: raw_startRange);
         }
 
         if let raw_endRange = json["EndRange"] as? [String: Any] {
-            self.endRange = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_endRange);
+            self.endRange = try ObjectSerializer.deserialize(type: Position.self, from: raw_endRange);
         }
 
     }
@@ -106,8 +106,8 @@ public class BookmarkInsert : Codable, WordsApiModel {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.name = try container.decodeIfPresent(String.self, forKey: .name);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
-        self.startRange = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .startRange);
-        self.endRange = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .endRange);
+        self.startRange = try container.decodeIfPresent(Position.self, forKey: .startRange);
+        self.endRange = try container.decodeIfPresent(Position.self, forKey: .endRange);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -176,25 +176,25 @@ public class BookmarkInsert : Codable, WordsApiModel {
 
 
     // Sets startRange. Gets or sets the link to start bookmark node.
-    public func setStartRange(startRange : NewDocumentPosition?) -> BookmarkInsert {
+    public func setStartRange(startRange : Position?) -> BookmarkInsert {
         self.startRange = startRange;
         return self;
     }
 
     // Gets startRange. Gets or sets the link to start bookmark node.
-    public func getStartRange() -> NewDocumentPosition? {
+    public func getStartRange() -> Position? {
         return self.startRange;
     }
 
 
     // Sets endRange. Gets or sets the link to end bookmark node.
-    public func setEndRange(endRange : NewDocumentPosition?) -> BookmarkInsert {
+    public func setEndRange(endRange : Position?) -> BookmarkInsert {
         self.endRange = endRange;
         return self;
     }
 
     // Gets endRange. Gets or sets the link to end bookmark node.
-    public func getEndRange() -> NewDocumentPosition? {
+    public func getEndRange() -> Position? {
         return self.endRange;
     }
 }

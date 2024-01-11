@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ParagraphInsert.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,8 +42,21 @@ public class ParagraphInsert : Codable, WordsApiModel {
         }
     }
 
+    // Field of position. DTO container with a paragraph's text.
+    private var _position : Position? = nil;
+
+    public var position : Position? {
+        get {
+            return self._position;
+        }
+        set {
+            self._position = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case text = "Text";
+        case position = "Position";
         case invalidCodingKey;
     }
 
@@ -52,17 +65,25 @@ public class ParagraphInsert : Codable, WordsApiModel {
 
     public required init(from json: [String: Any]) throws {
         self.text = json["Text"] as? String;
+        if let raw_position = json["Position"] as? [String: Any] {
+            self.position = try ObjectSerializer.deserialize(type: Position.self, from: raw_position);
+        }
+
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
+        self.position = try container.decodeIfPresent(Position.self, forKey: .position);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
+        }
+        if (self.position != nil) {
+            try container.encode(self.position, forKey: .position);
         }
     }
 
@@ -74,6 +95,8 @@ public class ParagraphInsert : Codable, WordsApiModel {
         {
             throw WordsApiError.requiredParameterError(paramName: "text");
         }
+        try self.position?.validate();
+
     }
 
     // Sets text. Gets or sets the paragraph's text.
@@ -85,5 +108,17 @@ public class ParagraphInsert : Codable, WordsApiModel {
     // Gets text. Gets or sets the paragraph's text.
     public func getText() -> String? {
         return self.text;
+    }
+
+
+    // Sets position. Gets or sets the position of the node that will be used to determine the placement of a new paragraph.
+    public func setPosition(position : Position?) -> ParagraphInsert {
+        self.position = position;
+        return self;
+    }
+
+    // Gets position. Gets or sets the position of the node that will be used to determine the placement of a new paragraph.
+    public func getPosition() -> Position? {
+        return self.position;
     }
 }

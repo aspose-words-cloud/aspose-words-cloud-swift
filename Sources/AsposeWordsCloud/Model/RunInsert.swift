@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RunInsert.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,7 +30,20 @@ import Foundation
 // Run element for insert.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RunInsert : RunBase {
+    // Field of position. Run element for insert.
+    private var _position : Position? = nil;
+
+    public var position : Position? {
+        get {
+            return self._position;
+        }
+        set {
+            self._position = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
+        case position = "Position";
         case invalidCodingKey;
     }
 
@@ -40,14 +53,24 @@ public class RunInsert : RunBase {
 
     public required init(from json: [String: Any]) throws {
         try super.init(from: json);
+        if let raw_position = json["Position"] as? [String: Any] {
+            self.position = try ObjectSerializer.deserialize(type: Position.self, from: raw_position);
+        }
+
     }
 
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.position = try container.decodeIfPresent(Position.self, forKey: .position);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.position != nil) {
+            try container.encode(self.position, forKey: .position);
+        }
     }
 
     public override func collectFilesContent(_ resultFilesContent : inout [FileReference]) {
@@ -55,6 +78,18 @@ public class RunInsert : RunBase {
 
     public override func validate() throws {
         try super.validate();
+        try self.position?.validate();
+
     }
 
+    // Sets position. Gets or sets the position of the node that will be used to determine the placement of a new run.
+    public func setPosition(position : Position?) -> RunInsert {
+        self.position = position;
+        return self;
+    }
+
+    // Gets position. Gets or sets the position of the node that will be used to determine the placement of a new run.
+    public func getPosition() -> Position? {
+        return self.position;
+    }
 }

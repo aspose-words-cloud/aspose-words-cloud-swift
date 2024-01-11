@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ObjectSerializer.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -183,7 +183,6 @@ class ObjectSerializer {
         "MetafileRenderingOptionsData, _": MetafileRenderingOptionsData.self,
         "MhtmlSaveOptionsData, _": MhtmlSaveOptionsData.self,
         "ModificationOperationResult, _": ModificationOperationResult.self,
-        "NewDocumentPosition, _": NewDocumentPosition.self,
         "NodeLink, _": NodeLink.self,
         "OdtSaveOptionsData, _": OdtSaveOptionsData.self,
         "OfficeMathLink, _": OfficeMathLink.self,
@@ -214,6 +213,9 @@ class ObjectSerializer {
         "PdfPermissions, _": nil,
         "PdfSaveOptionsData, _": PdfSaveOptionsData.self,
         "PngSaveOptionsData, _": PngSaveOptionsData.self,
+        "PositionAfterNode, _": PositionAfterNode.self,
+        "PositionBeforeNode, _": PositionBeforeNode.self,
+        "PositionInsideNode, _": PositionInsideNode.self,
         "PreferredWidth, _": PreferredWidth.self,
         "ProtectionData, _": ProtectionData.self,
         "ProtectionDataResponse, _": ProtectionDataResponse.self,

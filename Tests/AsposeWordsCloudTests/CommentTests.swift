@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CommentTests.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -95,15 +95,15 @@ class CommentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestCommentRangeStart = NewDocumentPosition()
-        .setNodeId(nodeId: "0.3.0.3")
-        .setOffset(offset: 0);
-      let requestCommentRangeEnd = NewDocumentPosition()
-        .setNodeId(nodeId: "0.3.0.3")
-        .setOffset(offset: 0);
+      let requestCommentRangeStart = PositionInsideNode()
+        .setOffset(offset: 0)
+        .setNodeId(nodeId: "0.3.0.3");
+      let requestCommentRangeEnd = PositionInsideNode()
+        .setOffset(offset: 0)
+        .setNodeId(nodeId: "0.3.0.3");
       let requestComment = CommentInsert()
-        .setRangeStart(rangeStart: requestCommentRangeStart)
-        .setRangeEnd(rangeEnd: requestCommentRangeEnd)
+        .setRangeStart(rangeStart: requestCommentRangeStart as! PositionInsideNode)
+        .setRangeEnd(rangeEnd: requestCommentRangeEnd as! PositionInsideNode)
         .setAuthor(author: "Imran Anwar")
         .setInitial(initial: "IA")
         .setText(text: "A new Comment");
@@ -119,15 +119,15 @@ class CommentTests: BaseTestContext {
     // Test for adding comment online.
     func testInsertCommentOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestCommentRangeStart = NewDocumentPosition()
-        .setNodeId(nodeId: "0.3.0.3")
-        .setOffset(offset: 0);
-      let requestCommentRangeEnd = NewDocumentPosition()
-        .setNodeId(nodeId: "0.3.0.3")
-        .setOffset(offset: 0);
+      let requestCommentRangeStart = PositionInsideNode()
+        .setOffset(offset: 0)
+        .setNodeId(nodeId: "0.3.0.3");
+      let requestCommentRangeEnd = PositionInsideNode()
+        .setOffset(offset: 0)
+        .setNodeId(nodeId: "0.3.0.3");
       let requestComment = CommentInsert()
-        .setRangeStart(rangeStart: requestCommentRangeStart)
-        .setRangeEnd(rangeEnd: requestCommentRangeEnd)
+        .setRangeStart(rangeStart: requestCommentRangeStart as! PositionInsideNode)
+        .setRangeEnd(rangeEnd: requestCommentRangeEnd as! PositionInsideNode)
         .setAuthor(author: "Imran Anwar")
         .setInitial(initial: "IA")
         .setText(text: "A new Comment");
@@ -141,15 +141,15 @@ class CommentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestCommentRangeStart = NewDocumentPosition()
-        .setNodeId(nodeId: "0.3.0")
-        .setOffset(offset: 0);
-      let requestCommentRangeEnd = NewDocumentPosition()
-        .setNodeId(nodeId: "0.3.0")
-        .setOffset(offset: 0);
+      let requestCommentRangeStart = PositionInsideNode()
+        .setOffset(offset: 0)
+        .setNodeId(nodeId: "0.3.0");
+      let requestCommentRangeEnd = PositionInsideNode()
+        .setOffset(offset: 0)
+        .setNodeId(nodeId: "0.3.0");
       let requestComment = CommentUpdate()
-        .setRangeStart(rangeStart: requestCommentRangeStart)
-        .setRangeEnd(rangeEnd: requestCommentRangeEnd)
+        .setRangeStart(rangeStart: requestCommentRangeStart as! PositionInsideNode)
+        .setRangeEnd(rangeEnd: requestCommentRangeEnd as! PositionInsideNode)
         .setAuthor(author: "Imran Anwar")
         .setInitial(initial: "IA")
         .setText(text: "A new Comment");
@@ -165,15 +165,15 @@ class CommentTests: BaseTestContext {
     // Test for updating comment online.
     func testUpdateCommentOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestCommentRangeStart = NewDocumentPosition()
-        .setNodeId(nodeId: "0.3.0")
-        .setOffset(offset: 0);
-      let requestCommentRangeEnd = NewDocumentPosition()
-        .setNodeId(nodeId: "0.3.0")
-        .setOffset(offset: 0);
+      let requestCommentRangeStart = PositionInsideNode()
+        .setOffset(offset: 0)
+        .setNodeId(nodeId: "0.3.0");
+      let requestCommentRangeEnd = PositionInsideNode()
+        .setOffset(offset: 0)
+        .setNodeId(nodeId: "0.3.0");
       let requestComment = CommentUpdate()
-        .setRangeStart(rangeStart: requestCommentRangeStart)
-        .setRangeEnd(rangeEnd: requestCommentRangeEnd)
+        .setRangeStart(rangeStart: requestCommentRangeStart as! PositionInsideNode)
+        .setRangeEnd(rangeEnd: requestCommentRangeEnd as! PositionInsideNode)
         .setAuthor(author: "Imran Anwar")
         .setInitial(initial: "IA")
         .setText(text: "A new Comment");

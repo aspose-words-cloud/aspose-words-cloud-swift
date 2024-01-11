@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertParagraphOnlineRequest.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,7 +39,6 @@ public class InsertParagraphOnlineRequest : WordsApiRequest {
     private let destFileName : String?;
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
-    private let insertBeforeNode : String?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
@@ -51,12 +50,11 @@ public class InsertParagraphOnlineRequest : WordsApiRequest {
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
-        case insertBeforeNode;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the InsertParagraphOnlineRequest class.
-    public init(document : InputStream, paragraph : ParagraphInsert, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
+    public init(document : InputStream, paragraph : ParagraphInsert, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
         self.paragraph = paragraph;
         self.nodePath = nodePath;
@@ -66,7 +64,6 @@ public class InsertParagraphOnlineRequest : WordsApiRequest {
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
-        self.insertBeforeNode = insertBeforeNode;
     }
 
     // The document.
@@ -112,11 +109,6 @@ public class InsertParagraphOnlineRequest : WordsApiRequest {
     // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
-    }
-
-    // The index of the node. A new paragraph will be inserted before the node with the specified index.
-    public func getInsertBeforeNode() -> String? {
-        return self.insertBeforeNode;
     }
 
     // Creates the api request data
@@ -201,18 +193,6 @@ public class InsertParagraphOnlineRequest : WordsApiRequest {
 
          #else
                      queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
-
-         #endif        
-             }
-
-
-             if (self.getInsertBeforeNode() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: self.getInsertBeforeNode()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: self.getInsertBeforeNode()!)));
 
          #endif        
              }

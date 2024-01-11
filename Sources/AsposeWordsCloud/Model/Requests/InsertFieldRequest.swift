@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertFieldRequest.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -41,7 +41,6 @@ public class InsertFieldRequest : WordsApiRequest {
     private let destFileName : String?;
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
-    private let insertBeforeNode : String?;
 
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -55,12 +54,11 @@ public class InsertFieldRequest : WordsApiRequest {
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
-        case insertBeforeNode;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the InsertFieldRequest class.
-    public init(name : String, field : FieldInsert, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
+    public init(name : String, field : FieldInsert, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.field = field;
         self.nodePath = nodePath;
@@ -72,7 +70,6 @@ public class InsertFieldRequest : WordsApiRequest {
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
-        self.insertBeforeNode = insertBeforeNode;
     }
 
     // The filename of the input document.
@@ -128,11 +125,6 @@ public class InsertFieldRequest : WordsApiRequest {
     // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
-    }
-
-    // The index of the node. A new field will be inserted before the node with the specified node Id.
-    public func getInsertBeforeNode() -> String? {
-        return self.insertBeforeNode;
     }
 
     // Creates the api request data
@@ -243,18 +235,6 @@ public class InsertFieldRequest : WordsApiRequest {
 
          #else
                      queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
-
-         #endif        
-             }
-
-
-             if (self.getInsertBeforeNode() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: self.getInsertBeforeNode()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: self.getInsertBeforeNode()!)));
 
          #endif        
              }

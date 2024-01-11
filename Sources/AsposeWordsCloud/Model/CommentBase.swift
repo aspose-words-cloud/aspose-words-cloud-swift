@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CommentBase.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,9 +31,9 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CommentBase : Codable, WordsApiModel {
     // Field of rangeStart. Comment.
-    private var _rangeStart : NewDocumentPosition? = nil;
+    private var _rangeStart : PositionInsideNode? = nil;
 
-    public var rangeStart : NewDocumentPosition? {
+    public var rangeStart : PositionInsideNode? {
         get {
             return self._rangeStart;
         }
@@ -43,9 +43,9 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Field of rangeEnd. Comment.
-    private var _rangeEnd : NewDocumentPosition? = nil;
+    private var _rangeEnd : PositionInsideNode? = nil;
 
-    public var rangeEnd : NewDocumentPosition? {
+    public var rangeEnd : PositionInsideNode? {
         get {
             return self._rangeEnd;
         }
@@ -117,11 +117,11 @@ public class CommentBase : Codable, WordsApiModel {
 
     public required init(from json: [String: Any]) throws {
         if let raw_rangeStart = json["RangeStart"] as? [String: Any] {
-            self.rangeStart = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_rangeStart);
+            self.rangeStart = try ObjectSerializer.deserialize(type: PositionInsideNode.self, from: raw_rangeStart);
         }
 
         if let raw_rangeEnd = json["RangeEnd"] as? [String: Any] {
-            self.rangeEnd = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_rangeEnd);
+            self.rangeEnd = try ObjectSerializer.deserialize(type: PositionInsideNode.self, from: raw_rangeEnd);
         }
 
         self.author = json["Author"] as? String;
@@ -135,8 +135,8 @@ public class CommentBase : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.rangeStart = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .rangeStart);
-        self.rangeEnd = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .rangeEnd);
+        self.rangeStart = try container.decodeIfPresent(PositionInsideNode.self, forKey: .rangeStart);
+        self.rangeEnd = try container.decodeIfPresent(PositionInsideNode.self, forKey: .rangeEnd);
         self.author = try container.decodeIfPresent(String.self, forKey: .author);
         self.initial = try container.decodeIfPresent(String.self, forKey: .initial);
         var raw_dateTime = try container.decodeIfPresent(String.self, forKey: .dateTime);
@@ -200,25 +200,25 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Sets rangeStart. Gets or sets the link to comment range start node.
-    public func setRangeStart(rangeStart : NewDocumentPosition?) -> CommentBase {
+    public func setRangeStart(rangeStart : PositionInsideNode?) -> CommentBase {
         self.rangeStart = rangeStart;
         return self;
     }
 
     // Gets rangeStart. Gets or sets the link to comment range start node.
-    public func getRangeStart() -> NewDocumentPosition? {
+    public func getRangeStart() -> PositionInsideNode? {
         return self.rangeStart;
     }
 
 
     // Sets rangeEnd. Gets or sets the link to comment range end node.
-    public func setRangeEnd(rangeEnd : NewDocumentPosition?) -> CommentBase {
+    public func setRangeEnd(rangeEnd : PositionInsideNode?) -> CommentBase {
         self.rangeEnd = rangeEnd;
         return self;
     }
 
     // Gets rangeEnd. Gets or sets the link to comment range end node.
-    public func getRangeEnd() -> NewDocumentPosition? {
+    public func getRangeEnd() -> PositionInsideNode? {
         return self.rangeEnd;
     }
 

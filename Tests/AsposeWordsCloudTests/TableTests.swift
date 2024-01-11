@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TableTests.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -357,7 +357,7 @@ class TableTests: BaseTestContext {
 
       let requestRow = TableRowInsert()
         .setColumnsCount(columnsCount: 5);
-      let request = InsertTableRowRequest(name: remoteFileName, tablePath: "sections/0/tables/2", row: requestRow, folder: remoteDataFolder);
+      let request = InsertTableRowRequest(name: remoteFileName, row: requestRow, nodePath: "sections/0/tables/2", folder: remoteDataFolder);
       let actual = try super.getApi().insertTableRow(request: request);
       XCTAssertNotNil(actual.getRow());
       XCTAssertNotNil(actual.getRow()!.getTableCellList());
@@ -369,7 +369,7 @@ class TableTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestRow = TableRowInsert()
         .setColumnsCount(columnsCount: 5);
-      let request = InsertTableRowOnlineRequest(document: requestDocument, tablePath: "sections/0/tables/2", row: requestRow);
+      let request = InsertTableRowOnlineRequest(document: requestDocument, row: requestRow, nodePath: "sections/0/tables/2");
       _ = try super.getApi().insertTableRowOnline(request: request);
     }
 
@@ -466,7 +466,7 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestCell = TableCellInsert();
-      let request = InsertTableCellRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", cell: requestCell, folder: remoteDataFolder);
+      let request = InsertTableCellRequest(name: remoteFileName, cell: requestCell, tableRowPath: "sections/0/tables/2/rows/0", folder: remoteDataFolder);
       let actual = try super.getApi().insertTableCell(request: request);
       XCTAssertNotNil(actual.getCell());
       XCTAssertEqual(actual.getCell()!.getNodeId(), "0.0.5.0.3");
@@ -476,7 +476,7 @@ class TableTests: BaseTestContext {
     func testInsertTableCellOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestCell = TableCellInsert();
-      let request = InsertTableCellOnlineRequest(document: requestDocument, tableRowPath: "sections/0/tables/2/rows/0", cell: requestCell);
+      let request = InsertTableCellOnlineRequest(document: requestDocument, cell: requestCell, tableRowPath: "sections/0/tables/2/rows/0");
       _ = try super.getApi().insertTableCellOnline(request: request);
     }
 

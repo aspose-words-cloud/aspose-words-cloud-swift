@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableRowOnlineRequest.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,8 +31,8 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InsertTableRowOnlineRequest : WordsApiRequest {
     private let document : InputStream;
-    private let tablePath : String;
     private let row : TableRowInsert;
+    private let nodePath : String?;
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
@@ -42,8 +42,8 @@ public class InsertTableRowOnlineRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case document;
-        case tablePath;
         case row;
+        case nodePath;
         case loadEncoding;
         case password;
         case encryptedPassword;
@@ -54,10 +54,10 @@ public class InsertTableRowOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the InsertTableRowOnlineRequest class.
-    public init(document : InputStream, tablePath : String, row : TableRowInsert, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(document : InputStream, row : TableRowInsert, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
-        self.tablePath = tablePath;
         self.row = row;
+        self.nodePath = nodePath;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
@@ -71,14 +71,14 @@ public class InsertTableRowOnlineRequest : WordsApiRequest {
         return self.document;
     }
 
-    // The path to the table in the document tree.
-    public func getTablePath() -> String {
-        return self.tablePath;
-    }
-
     // Table row parameters.
     public func getRow() -> TableRowInsert {
         return self.row;
+    }
+
+    // The path to the table in the document tree.
+    public func getNodePath() -> String? {
+        return self.nodePath;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -113,8 +113,13 @@ public class InsertTableRowOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/post/{tablePath}/rows";
-         rawPath = rawPath.replacingOccurrences(of: "{tablePath}", with: try ObjectSerializer.serializeToString(value: self.getTablePath()));
+         var rawPath = "/words/online/post/{nodePath}/rows";
+         if (self.getNodePath() != nil) {
+             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: self.getNodePath()!));
+         }
+         else {
+             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
+         }
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 

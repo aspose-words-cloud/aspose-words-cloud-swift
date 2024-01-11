@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="StructuredDocumentTagInsert.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -128,9 +128,22 @@ public class StructuredDocumentTagInsert : StructuredDocumentTagBase {
         }
     }
 
+    // Field of position. DTO container with a StructuredDocumentTag.
+    private var _position : Position? = nil;
+
+    public var position : Position? {
+        get {
+            return self._position;
+        }
+        set {
+            self._position = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case level = "Level";
         case sdtType = "SdtType";
+        case position = "Position";
         case invalidCodingKey;
     }
 
@@ -148,6 +161,10 @@ public class StructuredDocumentTagInsert : StructuredDocumentTagBase {
             self.sdtType = SdtType(rawValue: raw_sdtType);
         }
 
+        if let raw_position = json["Position"] as? [String: Any] {
+            self.position = try ObjectSerializer.deserialize(type: Position.self, from: raw_position);
+        }
+
     }
 
     public required init(from decoder: Decoder) throws {
@@ -155,6 +172,7 @@ public class StructuredDocumentTagInsert : StructuredDocumentTagBase {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.level = try container.decodeIfPresent(Level.self, forKey: .level);
         self.sdtType = try container.decodeIfPresent(SdtType.self, forKey: .sdtType);
+        self.position = try container.decodeIfPresent(Position.self, forKey: .position);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -165,6 +183,9 @@ public class StructuredDocumentTagInsert : StructuredDocumentTagBase {
         }
         if (self.sdtType != nil) {
             try container.encode(self.sdtType, forKey: .sdtType);
+        }
+        if (self.position != nil) {
+            try container.encode(self.position, forKey: .position);
         }
     }
 
@@ -181,6 +202,8 @@ public class StructuredDocumentTagInsert : StructuredDocumentTagBase {
         {
             throw WordsApiError.requiredParameterError(paramName: "sdtType");
         }
+        try self.position?.validate();
+
     }
 
     // Sets level. Gets or sets the level at which this SDT occurs in the document tree.
@@ -204,5 +227,17 @@ public class StructuredDocumentTagInsert : StructuredDocumentTagBase {
     // Gets sdtType. Gets or sets type of this Structured document tag.
     public func getSdtType() -> SdtType? {
         return self.sdtType;
+    }
+
+
+    // Sets position. Gets or sets the position of the node that will be used to determine the placement of a new node.
+    public func setPosition(position : Position?) -> StructuredDocumentTagInsert {
+        self.position = position;
+        return self;
+    }
+
+    // Gets position. Gets or sets the position of the node that will be used to determine the placement of a new node.
+    public func getPosition() -> Position? {
+        return self.position;
     }
 }
