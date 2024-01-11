@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertRunOnlineRequest.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,42 +31,39 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InsertRunOnlineRequest : WordsApiRequest {
     private let document : InputStream;
-    private let paragraphPath : String;
     private let run : RunInsert;
+    private let paragraphPath : String?;
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
     private let destFileName : String?;
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
-    private let insertBeforeNode : String?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
-        case paragraphPath;
         case run;
+        case paragraphPath;
         case loadEncoding;
         case password;
         case encryptedPassword;
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
-        case insertBeforeNode;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the InsertRunOnlineRequest class.
-    public init(document : InputStream, paragraphPath : String, run : RunInsert, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
+    public init(document : InputStream, run : RunInsert, paragraphPath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
-        self.paragraphPath = paragraphPath;
         self.run = run;
+        self.paragraphPath = paragraphPath;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
-        self.insertBeforeNode = insertBeforeNode;
     }
 
     // The document.
@@ -74,14 +71,14 @@ public class InsertRunOnlineRequest : WordsApiRequest {
         return self.document;
     }
 
-    // The path to the paragraph in the document tree.
-    public func getParagraphPath() -> String {
-        return self.paragraphPath;
-    }
-
     // Run data.
     public func getRun() -> RunInsert {
         return self.run;
+    }
+
+    // The path to the paragraph in the document tree.
+    public func getParagraphPath() -> String? {
+        return self.paragraphPath;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -114,15 +111,15 @@ public class InsertRunOnlineRequest : WordsApiRequest {
         return self.revisionDateTime;
     }
 
-    // The index of the node. A new Run object will be inserted before the node with the specified node Id.
-    public func getInsertBeforeNode() -> String? {
-        return self.insertBeforeNode;
-    }
-
     // Creates the api request data
     public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/online/post/{paragraphPath}/runs";
-         rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: self.getParagraphPath()));
+         if (self.getParagraphPath() != nil) {
+             rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: self.getParagraphPath()!));
+         }
+         else {
+             rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: "");
+         }
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
@@ -200,32 +197,22 @@ public class InsertRunOnlineRequest : WordsApiRequest {
          #endif        
              }
 
-
-             if (self.getInsertBeforeNode() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: self.getInsertBeforeNode()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: self.getInsertBeforeNode()!)));
-
-         #endif        
-             }
-
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileReference]();
-         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "run", body: try ObjectSerializer.serialize(value: self.getRun()), contentType: "application/json"));
          self.getRun().collectFilesContent(&requestFilesContent);
          try self.getRun().validate();
 
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
-             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             if (requestFileReference.source == "Request") {
+                 formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             }
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");

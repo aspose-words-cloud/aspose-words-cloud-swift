@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="BookmarkTests.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -150,17 +150,17 @@ class BookmarkTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestBookmarkStartRange = NewDocumentPosition()
-        .setNodeId(nodeId: "0.0.0.0")
-        .setOffset(offset: 0);
-      let requestBookmarkEndRange = NewDocumentPosition()
-        .setNodeId(nodeId: "0.0.0.0")
-        .setOffset(offset: 0);
+      let requestBookmarkStartRange = PositionInsideNode()
+        .setOffset(offset: 0)
+        .setNodeId(nodeId: "0.0.0.0");
+      let requestBookmarkEndRange = PositionInsideNode()
+        .setOffset(offset: 0)
+        .setNodeId(nodeId: "0.0.0.0");
       let requestBookmark = BookmarkInsert()
         .setName(name: "new_bookmark")
         .setText(text: "Some text")
-        .setStartRange(startRange: requestBookmarkStartRange)
-        .setEndRange(endRange: requestBookmarkEndRange);
+        .setStartRange(startRange: requestBookmarkStartRange as! PositionInsideNode)
+        .setEndRange(endRange: requestBookmarkEndRange as! PositionInsideNode);
       let request = InsertBookmarkRequest(name: remoteFileName, bookmark: requestBookmark, folder: remoteDataFolder);
       _ = try super.getApi().insertBookmark(request: request);
     }
@@ -168,17 +168,17 @@ class BookmarkTests: BaseTestContext {
     // Test for inserting new bookmark online.
     func testInsertBookmarkOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestBookmarkStartRange = NewDocumentPosition()
-        .setNodeId(nodeId: "0.0.0.0")
-        .setOffset(offset: 0);
-      let requestBookmarkEndRange = NewDocumentPosition()
-        .setNodeId(nodeId: "0.0.0.0")
-        .setOffset(offset: 0);
+      let requestBookmarkStartRange = PositionInsideNode()
+        .setOffset(offset: 0)
+        .setNodeId(nodeId: "0.0.0.0");
+      let requestBookmarkEndRange = PositionInsideNode()
+        .setOffset(offset: 0)
+        .setNodeId(nodeId: "0.0.0.0");
       let requestBookmark = BookmarkInsert()
         .setName(name: "new_bookmark")
         .setText(text: "Some text")
-        .setStartRange(startRange: requestBookmarkStartRange)
-        .setEndRange(endRange: requestBookmarkEndRange);
+        .setStartRange(startRange: requestBookmarkStartRange as! PositionInsideNode)
+        .setEndRange(endRange: requestBookmarkEndRange as! PositionInsideNode);
       let request = InsertBookmarkOnlineRequest(document: requestDocument, bookmark: requestBookmark);
       _ = try super.getApi().insertBookmarkOnline(request: request);
     }

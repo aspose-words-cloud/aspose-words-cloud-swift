@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DocumentEntry.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -117,12 +117,14 @@ public class DocumentEntry : BaseEntry {
     }
 
     // Sets encryptedPassword. Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+    @available(*, deprecated, message: "This field is deprecated and used only for backward compatibility. Please use 'Password' or 'EncryptedPassword' from 'FileReference' instead.")
     public func setEncryptedPassword(encryptedPassword : String?) -> DocumentEntry {
         self.encryptedPassword = encryptedPassword;
         return self;
     }
 
     // Gets encryptedPassword. Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+    @available(*, deprecated, message: "This field is deprecated and used only for backward compatibility. Please use 'Password' or 'EncryptedPassword' from 'FileReference' instead.")
     public func getEncryptedPassword() -> String? {
         return self.encryptedPassword;
     }

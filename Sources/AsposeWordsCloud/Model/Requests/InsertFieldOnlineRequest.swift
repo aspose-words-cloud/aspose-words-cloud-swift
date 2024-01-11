@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertFieldOnlineRequest.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,7 +39,6 @@ public class InsertFieldOnlineRequest : WordsApiRequest {
     private let destFileName : String?;
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
-    private let insertBeforeNode : String?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
@@ -51,12 +50,11 @@ public class InsertFieldOnlineRequest : WordsApiRequest {
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
-        case insertBeforeNode;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the InsertFieldOnlineRequest class.
-    public init(document : InputStream, field : FieldInsert, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
+    public init(document : InputStream, field : FieldInsert, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
         self.field = field;
         self.nodePath = nodePath;
@@ -66,7 +64,6 @@ public class InsertFieldOnlineRequest : WordsApiRequest {
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
-        self.insertBeforeNode = insertBeforeNode;
     }
 
     // The document.
@@ -112,11 +109,6 @@ public class InsertFieldOnlineRequest : WordsApiRequest {
     // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
-    }
-
-    // The index of the node. A new field will be inserted before the node with the specified node Id.
-    public func getInsertBeforeNode() -> String? {
-        return self.insertBeforeNode;
     }
 
     // Creates the api request data
@@ -205,32 +197,22 @@ public class InsertFieldOnlineRequest : WordsApiRequest {
          #endif        
              }
 
-
-             if (self.getInsertBeforeNode() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: self.getInsertBeforeNode()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: self.getInsertBeforeNode()!)));
-
-         #endif        
-             }
-
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileReference]();
-         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "field", body: try ObjectSerializer.serialize(value: self.getField()), contentType: "application/json"));
          self.getField().collectFilesContent(&requestFilesContent);
          try self.getField().validate();
 
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
-             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             if (requestFileReference.source == "Request") {
+                 formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             }
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RunTests.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -74,7 +74,7 @@ class RunTests: BaseTestContext {
 
       let requestRun = RunInsert()
         .setText(text: "run with text");
-      let request = InsertRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", run: requestRun as! RunInsert, folder: remoteDataFolder);
+      let request = InsertRunRequest(name: remoteFileName, run: requestRun as! RunInsert, paragraphPath: "paragraphs/1", folder: remoteDataFolder);
       let actual = try super.getApi().insertRun(request: request);
       XCTAssertNotNil(actual.getRun());
       XCTAssertEqual(actual.getRun()!.getText(), "run with text");
@@ -86,7 +86,7 @@ class RunTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestRun = RunInsert()
         .setText(text: "run with text");
-      let request = InsertRunOnlineRequest(document: requestDocument, paragraphPath: "paragraphs/1", run: requestRun as! RunInsert);
+      let request = InsertRunOnlineRequest(document: requestDocument, run: requestRun as! RunInsert, paragraphPath: "paragraphs/1");
       _ = try super.getApi().insertRunOnline(request: request);
     }
 

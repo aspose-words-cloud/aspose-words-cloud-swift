@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CompareDocumentOnlineRequest.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -36,7 +36,6 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
     private let password : String?;
     private let encryptedPassword : String?;
     private let destFileName : String?;
-    private let encryptedPassword2 : String?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
@@ -45,19 +44,17 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
         case password;
         case encryptedPassword;
         case destFileName;
-        case encryptedPassword2;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the CompareDocumentOnlineRequest class.
-    public init(document : InputStream, compareData : CompareData, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, encryptedPassword2 : String? = nil) {
+    public init(document : InputStream, compareData : CompareData, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil) {
         self.document = document;
         self.compareData = compareData;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
         self.destFileName = destFileName;
-        self.encryptedPassword2 = encryptedPassword2;
     }
 
     // The document.
@@ -88,11 +85,6 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
     public func getDestFileName() -> String? {
         return self.destFileName;
-    }
-
-    // encrypted password for the second document.
-    public func getEncryptedPassword2() -> String? {
-        return self.encryptedPassword2;
     }
 
     // Creates the api request data
@@ -150,32 +142,22 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
          #endif        
              }
 
-
-             if (self.getEncryptedPassword2() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "encryptedPassword2", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword2()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "encryptedPassword2", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword2()!)));
-
-         #endif        
-             }
-
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileReference]();
-         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "compareData", body: try ObjectSerializer.serialize(value: self.getCompareData()), contentType: "application/json"));
          self.getCompareData().collectFilesContent(&requestFilesContent);
          try self.getCompareData().validate();
 
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
-             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             if (requestFileReference.source == "Request") {
+                 formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             }
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TableCellInsert.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,6 +30,18 @@ import Foundation
 // DTO container with a table cell.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableCellInsert : Codable, WordsApiModel {
+    // Field of existingCellPosition. DTO container with a table cell.
+    private var _existingCellPosition : Position? = nil;
+
+    public var existingCellPosition : Position? {
+        get {
+            return self._existingCellPosition;
+        }
+        set {
+            self._existingCellPosition = newValue;
+        }
+    }
+
     // Field of insertAfter. DTO container with a table cell.
     private var _insertAfter : Int? = nil;
 
@@ -43,6 +55,7 @@ public class TableCellInsert : Codable, WordsApiModel {
     }
 
     private enum CodingKeys: String, CodingKey {
+        case existingCellPosition = "ExistingCellPosition";
         case insertAfter = "InsertAfter";
         case invalidCodingKey;
     }
@@ -51,16 +64,24 @@ public class TableCellInsert : Codable, WordsApiModel {
     }
 
     public required init(from json: [String: Any]) throws {
+        if let raw_existingCellPosition = json["ExistingCellPosition"] as? [String: Any] {
+            self.existingCellPosition = try ObjectSerializer.deserialize(type: Position.self, from: raw_existingCellPosition);
+        }
+
         self.insertAfter = json["InsertAfter"] as? Int;
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.existingCellPosition = try container.decodeIfPresent(Position.self, forKey: .existingCellPosition);
         self.insertAfter = try container.decodeIfPresent(Int.self, forKey: .insertAfter);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.existingCellPosition != nil) {
+            try container.encode(self.existingCellPosition, forKey: .existingCellPosition);
+        }
         if (self.insertAfter != nil) {
             try container.encode(self.insertAfter, forKey: .insertAfter);
         }
@@ -70,15 +91,31 @@ public class TableCellInsert : Codable, WordsApiModel {
     }
 
     public func validate() throws {
+        try self.existingCellPosition?.validate();
+
     }
 
+    // Sets existingCellPosition. Gets or sets the position of the table cell that will be used to determine the placement of a new cell.
+    public func setExistingCellPosition(existingCellPosition : Position?) -> TableCellInsert {
+        self.existingCellPosition = existingCellPosition;
+        return self;
+    }
+
+    // Gets existingCellPosition. Gets or sets the position of the table cell that will be used to determine the placement of a new cell.
+    public func getExistingCellPosition() -> Position? {
+        return self.existingCellPosition;
+    }
+
+
     // Sets insertAfter. Gets or sets the 0-based index, the table cell will be inserted after.
+    @available(*, deprecated, message: "This property will be removed in the future.")
     public func setInsertAfter(insertAfter : Int?) -> TableCellInsert {
         self.insertAfter = insertAfter;
         return self;
     }
 
     // Gets insertAfter. Gets or sets the 0-based index, the table cell will be inserted after.
+    @available(*, deprecated, message: "This property will be removed in the future.")
     public func getInsertAfter() -> Int? {
         return self.insertAfter;
     }

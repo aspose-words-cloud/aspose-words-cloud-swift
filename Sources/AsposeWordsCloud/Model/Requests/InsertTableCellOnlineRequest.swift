@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableCellOnlineRequest.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,8 +31,8 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InsertTableCellOnlineRequest : WordsApiRequest {
     private let document : InputStream;
-    private let tableRowPath : String;
     private let cell : TableCellInsert;
+    private let tableRowPath : String?;
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
@@ -42,8 +42,8 @@ public class InsertTableCellOnlineRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case document;
-        case tableRowPath;
         case cell;
+        case tableRowPath;
         case loadEncoding;
         case password;
         case encryptedPassword;
@@ -54,10 +54,10 @@ public class InsertTableCellOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the InsertTableCellOnlineRequest class.
-    public init(document : InputStream, tableRowPath : String, cell : TableCellInsert, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(document : InputStream, cell : TableCellInsert, tableRowPath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
-        self.tableRowPath = tableRowPath;
         self.cell = cell;
+        self.tableRowPath = tableRowPath;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
@@ -71,14 +71,14 @@ public class InsertTableCellOnlineRequest : WordsApiRequest {
         return self.document;
     }
 
-    // The path to the table row in the document tree.
-    public func getTableRowPath() -> String {
-        return self.tableRowPath;
-    }
-
     // Table cell parameters.
     public func getCell() -> TableCellInsert {
         return self.cell;
+    }
+
+    // The path to the table row in the document tree.
+    public func getTableRowPath() -> String? {
+        return self.tableRowPath;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -114,7 +114,12 @@ public class InsertTableCellOnlineRequest : WordsApiRequest {
     // Creates the api request data
     public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/online/post/{tableRowPath}/cells";
-         rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: try ObjectSerializer.serializeToString(value: self.getTableRowPath()));
+         if (self.getTableRowPath() != nil) {
+             rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: try ObjectSerializer.serializeToString(value: self.getTableRowPath()!));
+         }
+         else {
+             rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: "");
+         }
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
@@ -197,15 +202,17 @@ public class InsertTableCellOnlineRequest : WordsApiRequest {
          }
          var formParams = [RequestFormParam]();
          var requestFilesContent = [FileReference]();
-         apiInvoker.prepareFilesContent(&requestFilesContent);
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "cell", body: try ObjectSerializer.serialize(value: self.getCell()), contentType: "application/json"));
          self.getCell().collectFilesContent(&requestFilesContent);
          try self.getCell().validate();
 
+         apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
-             formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             if (requestFileReference.source == "Request") {
+                 formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
+             }
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");

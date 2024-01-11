@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="NewDocumentPosition.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ * <copyright company="Aspose" file="Position.swift">
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,10 +27,10 @@
 
 import Foundation
 
-// DTO container with a new position in the document tree.
+// Describes the location of the node.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class NewDocumentPosition : Codable, WordsApiModel {
-    // Field of nodeId. DTO container with a new position in the document tree.
+public class Position : Codable, WordsApiModel {
+    // Field of nodeId. Describes the location of the node.
     private var _nodeId : String? = nil;
 
     public var nodeId : String? {
@@ -42,36 +42,33 @@ public class NewDocumentPosition : Codable, WordsApiModel {
         }
     }
 
-    // Field of offset. DTO container with a new position in the document tree.
-    private var _offset : Int? = nil;
+    // Field of type. Describes the location of the node.
+    private final let _type : String? = nil;
 
-    public var offset : Int? {
+    public var type : String? {
         get {
-            return self._offset;
-        }
-        set {
-            self._offset = newValue;
+            return self._type;
         }
     }
 
     private enum CodingKeys: String, CodingKey {
         case nodeId = "NodeId";
-        case offset = "Offset";
+        case type = "Type";
         case invalidCodingKey;
     }
 
-    public init() {
+    internal init() {
     }
 
     public required init(from json: [String: Any]) throws {
         self.nodeId = json["NodeId"] as? String;
-        self.offset = json["Offset"] as? Int;
+
     }
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.nodeId = try container.decodeIfPresent(String.self, forKey: .nodeId);
-        self.offset = try container.decodeIfPresent(Int.self, forKey: .offset);
+
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -79,8 +76,8 @@ public class NewDocumentPosition : Codable, WordsApiModel {
         if (self.nodeId != nil) {
             try container.encode(self.nodeId, forKey: .nodeId);
         }
-        if (self.offset != nil) {
-            try container.encode(self.offset, forKey: .offset);
+        if (self.type != nil) {
+            try container.encode(self.type, forKey: .type);
         }
     }
 
@@ -95,7 +92,7 @@ public class NewDocumentPosition : Codable, WordsApiModel {
     }
 
     // Sets nodeId. Gets or sets the node id.
-    public func setNodeId(nodeId : String?) -> NewDocumentPosition {
+    public func setNodeId(nodeId : String?) -> Position {
         self.nodeId = nodeId;
         return self;
     }
@@ -106,14 +103,8 @@ public class NewDocumentPosition : Codable, WordsApiModel {
     }
 
 
-    // Sets offset. Gets or sets the offset in the node.
-    public func setOffset(offset : Int?) -> NewDocumentPosition {
-        self.offset = offset;
-        return self;
-    }
-
-    // Gets offset. Gets or sets the offset in the node.
-    public func getOffset() -> Int? {
-        return self.offset;
+    // Gets type. Gets position type.
+    public func getType() -> String? {
+        return self.type;
     }
 }

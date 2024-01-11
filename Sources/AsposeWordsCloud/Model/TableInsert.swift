@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TableInsert.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,9 +43,9 @@ public class TableInsert : Codable, WordsApiModel {
     }
 
     // Field of position. DTO container with a table element.
-    private var _position : NewDocumentPosition? = nil;
+    private var _position : Position? = nil;
 
-    public var position : NewDocumentPosition? {
+    public var position : Position? {
         get {
             return self._position;
         }
@@ -79,7 +79,7 @@ public class TableInsert : Codable, WordsApiModel {
     public required init(from json: [String: Any]) throws {
         self.columnsCount = json["ColumnsCount"] as? Int;
         if let raw_position = json["Position"] as? [String: Any] {
-            self.position = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_position);
+            self.position = try ObjectSerializer.deserialize(type: Position.self, from: raw_position);
         }
 
         self.rowsCount = json["RowsCount"] as? Int;
@@ -88,7 +88,7 @@ public class TableInsert : Codable, WordsApiModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.columnsCount = try container.decodeIfPresent(Int.self, forKey: .columnsCount);
-        self.position = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .position);
+        self.position = try container.decodeIfPresent(Position.self, forKey: .position);
         self.rowsCount = try container.decodeIfPresent(Int.self, forKey: .rowsCount);
     }
 
@@ -133,14 +133,14 @@ public class TableInsert : Codable, WordsApiModel {
     }
 
 
-    // Sets position. Gets or sets the position to insert the table. The table will be inserted before the specified position.
-    public func setPosition(position : NewDocumentPosition?) -> TableInsert {
+    // Sets position. Gets or sets the position to insert the table. The table will be inserted using the specified position.
+    public func setPosition(position : Position?) -> TableInsert {
         self.position = position;
         return self;
     }
 
-    // Gets position. Gets or sets the position to insert the table. The table will be inserted before the specified position.
-    public func getPosition() -> NewDocumentPosition? {
+    // Gets position. Gets or sets the position to insert the table. The table will be inserted using the specified position.
+    public func getPosition() -> Position? {
         return self.position;
     }
 

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="FootnoteBase.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -41,9 +41,9 @@ public class FootnoteBase : Codable, WordsApiModel {
     }
 
     // Field of position. Footnote base class.
-    private var _position : NewDocumentPosition? = nil;
+    private var _position : Position? = nil;
 
-    public var position : NewDocumentPosition? {
+    public var position : Position? {
         get {
             return self._position;
         }
@@ -101,7 +101,7 @@ public class FootnoteBase : Codable, WordsApiModel {
 
     public required init(from json: [String: Any]) throws {
         if let raw_position = json["Position"] as? [String: Any] {
-            self.position = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_position);
+            self.position = try ObjectSerializer.deserialize(type: Position.self, from: raw_position);
         }
 
         if let raw_footnoteType = json["FootnoteType"] as? String {
@@ -114,7 +114,7 @@ public class FootnoteBase : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.position = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .position);
+        self.position = try container.decodeIfPresent(Position.self, forKey: .position);
         self.footnoteType = try container.decodeIfPresent(FootnoteType.self, forKey: .footnoteType);
         self.referenceMark = try container.decodeIfPresent(String.self, forKey: .referenceMark);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
@@ -144,14 +144,14 @@ public class FootnoteBase : Codable, WordsApiModel {
 
     }
 
-    // Sets position. Gets or sets the link to comment range start node.
-    public func setPosition(position : NewDocumentPosition?) -> FootnoteBase {
+    // Sets position. Gets or sets the link to range start node.
+    public func setPosition(position : Position?) -> FootnoteBase {
         self.position = position;
         return self;
     }
 
-    // Gets position. Gets or sets the link to comment range start node.
-    public func getPosition() -> NewDocumentPosition? {
+    // Gets position. Gets or sets the link to range start node.
+    public func getPosition() -> Position? {
         return self.position;
     }
 

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DrawingObjectInsert.swift">
- *   Copyright (c) 2023 Aspose.Words for Cloud
+ *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -118,9 +118,9 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Field of position. Drawing object element for insert.
-    private var _position : NewDocumentPosition? = nil;
+    private var _position : Position? = nil;
 
-    public var position : NewDocumentPosition? {
+    public var position : Position? {
         get {
             return self._position;
         }
@@ -230,7 +230,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
 
     public required init(from json: [String: Any]) throws {
         if let raw_position = json["Position"] as? [String: Any] {
-            self.position = try ObjectSerializer.deserialize(type: NewDocumentPosition.self, from: raw_position);
+            self.position = try ObjectSerializer.deserialize(type: Position.self, from: raw_position);
         }
 
         if let raw_relativeHorizontalPosition = json["RelativeHorizontalPosition"] as? String {
@@ -253,7 +253,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.position = try container.decodeIfPresent(NewDocumentPosition.self, forKey: .position);
+        self.position = try container.decodeIfPresent(Position.self, forKey: .position);
         self.relativeHorizontalPosition = try container.decodeIfPresent(RelativeHorizontalPosition.self, forKey: .relativeHorizontalPosition);
         self._left = try container.decodeIfPresent(Double.self, forKey: ._left);
         self.relativeVerticalPosition = try container.decodeIfPresent(RelativeVerticalPosition.self, forKey: .relativeVerticalPosition);
@@ -327,14 +327,14 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
 
     }
 
-    // Sets position. Gets or sets the position, before which the DrawingObject will be inserted.
-    public func setPosition(position : NewDocumentPosition?) -> DrawingObjectInsert {
+    // Sets position. Gets or sets the position, where the DrawingObject will be inserted.
+    public func setPosition(position : Position?) -> DrawingObjectInsert {
         self.position = position;
         return self;
     }
 
-    // Gets position. Gets or sets the position, before which the DrawingObject will be inserted.
-    public func getPosition() -> NewDocumentPosition? {
+    // Gets position. Gets or sets the position, where the DrawingObject will be inserted.
+    public func getPosition() -> Position? {
         return self.position;
     }
 
