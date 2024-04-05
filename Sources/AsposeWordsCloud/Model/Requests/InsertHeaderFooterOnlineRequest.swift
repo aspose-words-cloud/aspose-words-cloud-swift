@@ -201,7 +201,7 @@ public class InsertHeaderFooterOnlineRequest : WordsApiRequest {
 
          formParams.append(RequestFormParam(name: "headerFooterType", body: try ObjectSerializer.serialize(value: self.getHeaderFooterType()), contentType: "text/plain"));
 
-         apiInvoker.prepareFilesContent(&requestFilesContent);
+         try apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
              if (requestFileReference.source == "Request") {
                  formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

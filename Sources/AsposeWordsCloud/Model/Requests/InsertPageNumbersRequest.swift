@@ -233,7 +233,7 @@ public class InsertPageNumbersRequest : WordsApiRequest {
          self.getPageNumber().collectFilesContent(&requestFilesContent);
          try self.getPageNumber().validate();
 
-         apiInvoker.prepareFilesContent(&requestFilesContent);
+         try apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
              if (requestFileReference.source == "Request") {
                  formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

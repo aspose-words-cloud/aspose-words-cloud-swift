@@ -89,7 +89,7 @@ public class ApiInvoker {
     }
 
     // Internal function for prepare files content list
-    public func prepareFilesContent(_ requestFilesContent : inout [FileReference]) {
+    public func prepareFilesContent(_ requestFilesContent : inout [FileReference]) throws {
 #if os(Linux)
         // Encryption of passwords not supported on linux
 #else

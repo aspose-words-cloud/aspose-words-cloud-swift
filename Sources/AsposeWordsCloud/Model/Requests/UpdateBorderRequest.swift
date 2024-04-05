@@ -258,7 +258,7 @@ public class UpdateBorderRequest : WordsApiRequest {
          self.getBorderProperties().collectFilesContent(&requestFilesContent);
          try self.getBorderProperties().validate();
 
-         apiInvoker.prepareFilesContent(&requestFilesContent);
+         try apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
              if (requestFileReference.source == "Request") {
                  formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));
