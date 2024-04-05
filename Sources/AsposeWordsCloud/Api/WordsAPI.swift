@@ -13391,6 +13391,101 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of mergeWithNext method
+    // Merge the section with the next one.
+    public func mergeWithNext(request : MergeWithNextRequest, callback : @escaping (_ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    callback(error);
+                }
+            );
+        }
+        catch let error {
+            callback(error);
+        }
+    }
+
+    // Sync representation of mergeWithNext method
+    // Merge the section with the next one.
+    public func mergeWithNext(request : MergeWithNextRequest) throws {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseError : Error? = nil;
+        self.mergeWithNext(request : request, callback: { error in
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+    }
+
+    // Async representation of mergeWithNextOnline method
+    // Merge the section with the next one.
+    public func mergeWithNextOnline(request : MergeWithNextOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of mergeWithNextOnline method
+    // Merge the section with the next one.
+    public func mergeWithNextOnline(request : MergeWithNextOnlineRequest) throws -> [String: Data] {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : [String: Data]? = nil;
+        var responseError : Error? = nil;
+        self.mergeWithNextOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of moveFile method
     // Move file.
     public func moveFile(request : MoveFileRequest, callback : @escaping (_ error : Error?) -> ()) {

@@ -33,11 +33,11 @@ public class StructuredDocumentTagBase : NodeLink {
     // Gets or sets the appearance of a structured document tag.
     public enum Appearance : String, Codable
     {
-        // Enum value "_default"
-        case _default = "Default"
-
         // Enum value "boundingBox"
         case boundingBox = "BoundingBox"
+
+        // Enum value "_default"
+        case _default = "Default"
 
         // Enum value "tags"
         case tags = "Tags"

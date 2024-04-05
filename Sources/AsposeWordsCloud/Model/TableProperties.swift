@@ -1216,11 +1216,11 @@ public class TableProperties : LinkElement {
     // Gets or sets the option that controls text wrapping for the table.
     public enum TextWrapping : String, Codable
     {
-        // Enum value "_default"
-        case _default = "Default"
-
         // Enum value "_none"
         case _none = "None"
+
+        // Enum value "_default"
+        case _default = "Default"
 
         // Enum value "around"
         case around = "Around"

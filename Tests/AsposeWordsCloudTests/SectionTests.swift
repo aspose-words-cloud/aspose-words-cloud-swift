@@ -38,6 +38,8 @@ class SectionTests: BaseTestContext {
         ("testGetSectionsOnline", testGetSectionsOnline),
         ("testDeleteSection", testDeleteSection),
         ("testDeleteSectionOnline", testDeleteSectionOnline),
+        ("testMergeWithNext", testMergeWithNext),
+        ("testMergeWithNextOnline", testMergeWithNextOnline),
         ("testInsertSection", testInsertSection),
         ("testInsertSectionOnline", testInsertSectionOnline),
         ("testLinkHeaderFootersToPrevious", testLinkHeaderFootersToPrevious)
@@ -103,6 +105,23 @@ class SectionTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = DeleteSectionOnlineRequest(document: requestDocument, sectionIndex: 0);
       _ = try super.getApi().deleteSectionOnline(request: request);
+    }
+
+    // Test for merge a section with the next one.
+    func testMergeWithNext() throws {
+      let remoteFileName = "TestMergeWithNext.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("DocumentElements/Sections/Source.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = MergeWithNextRequest(name: remoteFileName, sectionIndex: 0, folder: remoteDataFolder);
+      try super.getApi().mergeWithNext(request: request);
+    }
+
+    // Test for merge a section with the next one online.
+    func testMergeWithNextOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("DocumentElements/Sections/Source.docx", isDirectory: false))!;
+      let request = MergeWithNextOnlineRequest(document: requestDocument, sectionIndex: 0);
+      _ = try super.getApi().mergeWithNextOnline(request: request);
     }
 
     // Test for insertion a section.
