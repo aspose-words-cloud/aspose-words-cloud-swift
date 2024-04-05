@@ -253,7 +253,7 @@ public class UpdateRunFontRequest : WordsApiRequest {
          self.getFontDto().collectFilesContent(&requestFilesContent);
          try self.getFontDto().validate();
 
-         apiInvoker.prepareFilesContent(&requestFilesContent);
+         try apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
              if (requestFileReference.source == "Request") {
                  formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

@@ -93,7 +93,7 @@ public class UploadFileRequest : WordsApiRequest {
          var requestFilesContent = [FileReference]();
          formParams.append(RequestFormParam(name: "fileContent", body: try ObjectSerializer.serializeFile(value: self.getFileContent()), contentType: "application/octet-stream"));
 
-         apiInvoker.prepareFilesContent(&requestFilesContent);
+         try apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
              if (requestFileReference.source == "Request") {
                  formParams.append(RequestFormParam(name: requestFileReference.reference, body: try ObjectSerializer.serializeFile(value: requestFileReference.content), contentType: "application/octet-stream"));

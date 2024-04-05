@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="GetStructuredDocumentTagsOnlineRequest.swift">
+ * <copyright company="Aspose" file="MergeWithNextOnlineRequest.swift">
  *   Copyright (c) 2024 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,31 +27,40 @@
 
 import Foundation
 
-// Request model for getStructuredDocumentTagsOnline operation.
+// Request model for mergeWithNextOnline operation.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class GetStructuredDocumentTagsOnlineRequest : WordsApiRequest {
+public class MergeWithNextOnlineRequest : WordsApiRequest {
     private let document : InputStream;
-    private let nodePath : String?;
+    private let sectionIndex : Int;
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
+    private let destFileName : String?;
+    private let revisionAuthor : String?;
+    private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
-        case nodePath;
+        case sectionIndex;
         case loadEncoding;
         case password;
         case encryptedPassword;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the GetStructuredDocumentTagsOnlineRequest class.
-    public init(document : InputStream, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil) {
+    // Initializes a new instance of the MergeWithNextOnlineRequest class.
+    public init(document : InputStream, sectionIndex : Int, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
-        self.nodePath = nodePath;
+        self.sectionIndex = sectionIndex;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
+        self.destFileName = destFileName;
+        self.revisionAuthor = revisionAuthor;
+        self.revisionDateTime = revisionDateTime;
     }
 
     // The document.
@@ -59,9 +68,9 @@ public class GetStructuredDocumentTagsOnlineRequest : WordsApiRequest {
         return self.document;
     }
 
-    // The path to the node in the document tree.
-    public func getNodePath() -> String? {
-        return self.nodePath;
+    // The index of the section.
+    public func getSectionIndex() -> Int {
+        return self.sectionIndex;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -79,15 +88,25 @@ public class GetStructuredDocumentTagsOnlineRequest : WordsApiRequest {
         return self.encryptedPassword;
     }
 
+    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+    public func getDestFileName() -> String? {
+        return self.destFileName;
+    }
+
+    // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+    public func getRevisionAuthor() -> String? {
+        return self.revisionAuthor;
+    }
+
+    // The date and time to use for revisions.
+    public func getRevisionDateTime() -> String? {
+        return self.revisionDateTime;
+    }
+
     // Creates the api request data
     public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/get/{nodePath}/sdt";
-         if (self.getNodePath() != nil) {
-             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: self.getNodePath()!));
-         }
-         else {
-             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-         }
+         var rawPath = "/words/online/put/merge/sections/{sectionIndex}";
+         rawPath = rawPath.replacingOccurrences(of: "{sectionIndex}", with: try ObjectSerializer.serializeToString(value: self.getSectionIndex()));
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
@@ -129,6 +148,42 @@ public class GetStructuredDocumentTagsOnlineRequest : WordsApiRequest {
          #endif        
              }
 
+
+             if (self.getDestFileName() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+
+         #endif        
+             }
+
+
+             if (self.getRevisionAuthor() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+
+         #endif        
+             }
+
+
+             if (self.getRevisionDateTime() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+
+         #endif        
+             }
+
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
@@ -152,6 +207,6 @@ public class GetStructuredDocumentTagsOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data, headers : [String: String]) throws -> Any? {
-        return try ObjectSerializer.deserialize(type: StructuredDocumentTagsResponse.self, from: data);
+        return try ObjectSerializer.parseFilesCollection(data: data, headers: headers);
     }
 }
