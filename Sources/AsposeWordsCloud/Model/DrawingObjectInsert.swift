@@ -213,6 +213,18 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
         }
     }
 
+    // Field of aspectRatioLocked. Drawing object element for insert.
+    private var _aspectRatioLocked : Bool? = nil;
+
+    public var aspectRatioLocked : Bool? {
+        get {
+            return self._aspectRatioLocked;
+        }
+        set {
+            self._aspectRatioLocked = newValue;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case position = "Position";
         case relativeHorizontalPosition = "RelativeHorizontalPosition";
@@ -222,6 +234,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
         case width = "Width";
         case height = "Height";
         case wrapType = "WrapType";
+        case aspectRatioLocked = "AspectRatioLocked";
         case invalidCodingKey;
     }
 
@@ -249,6 +262,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
             self.wrapType = WrapType(rawValue: raw_wrapType);
         }
 
+        self.aspectRatioLocked = json["AspectRatioLocked"] as? Bool;
     }
 
     public required init(from decoder: Decoder) throws {
@@ -261,6 +275,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
         self.width = try container.decodeIfPresent(Double.self, forKey: .width);
         self.height = try container.decodeIfPresent(Double.self, forKey: .height);
         self.wrapType = try container.decodeIfPresent(WrapType.self, forKey: .wrapType);
+        self.aspectRatioLocked = try container.decodeIfPresent(Bool.self, forKey: .aspectRatioLocked);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -288,6 +303,9 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
         }
         if (self.wrapType != nil) {
             try container.encode(self.wrapType, forKey: .wrapType);
+        }
+        if (self.aspectRatioLocked != nil) {
+            try container.encode(self.aspectRatioLocked, forKey: .aspectRatioLocked);
         }
     }
 
@@ -420,5 +438,17 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     // Gets wrapType. Gets or sets the option indicating how to wrap text around the image.
     public func getWrapType() -> WrapType? {
         return self.wrapType;
+    }
+
+
+    // Sets aspectRatioLocked. Gets or sets a value indicating whether AspectRatioLocked option on or off.
+    public func setAspectRatioLocked(aspectRatioLocked : Bool?) -> DrawingObjectInsert {
+        self.aspectRatioLocked = aspectRatioLocked;
+        return self;
+    }
+
+    // Gets aspectRatioLocked. Gets or sets a value indicating whether AspectRatioLocked option on or off.
+    public func getAspectRatioLocked() -> Bool? {
+        return self.aspectRatioLocked;
     }
 }
