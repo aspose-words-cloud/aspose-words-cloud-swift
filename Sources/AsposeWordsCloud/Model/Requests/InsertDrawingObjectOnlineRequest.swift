@@ -32,8 +32,9 @@ import Foundation
 public class InsertDrawingObjectOnlineRequest : WordsApiRequest {
     private let document : InputStream;
     private let drawingObject : DrawingObjectInsert;
-    private let imageFile : InputStream;
     private let nodePath : String?;
+    private let imageFile : InputStream?;
+    private let url : String?;
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
@@ -44,8 +45,9 @@ public class InsertDrawingObjectOnlineRequest : WordsApiRequest {
     private enum CodingKeys: String, CodingKey {
         case document;
         case drawingObject;
-        case imageFile;
         case nodePath;
+        case imageFile;
+        case url;
         case loadEncoding;
         case password;
         case encryptedPassword;
@@ -56,11 +58,12 @@ public class InsertDrawingObjectOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the InsertDrawingObjectOnlineRequest class.
-    public init(document : InputStream, drawingObject : DrawingObjectInsert, imageFile : InputStream, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(document : InputStream, drawingObject : DrawingObjectInsert, nodePath : String? = nil, imageFile : InputStream? = nil, url : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
         self.drawingObject = drawingObject;
-        self.imageFile = imageFile;
         self.nodePath = nodePath;
+        self.imageFile = imageFile;
+        self.url = url;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
@@ -79,14 +82,19 @@ public class InsertDrawingObjectOnlineRequest : WordsApiRequest {
         return self.drawingObject;
     }
 
-    // File with image.
-    public func getImageFile() -> InputStream {
-        return self.imageFile;
-    }
-
     // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
+    }
+
+    // File with image.
+    public func getImageFile() -> InputStream? {
+        return self.imageFile;
+    }
+
+    // The link to the image.
+    public func getUrl() -> String? {
+        return self.url;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -134,6 +142,18 @@ public class InsertDrawingObjectOnlineRequest : WordsApiRequest {
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
+             if (self.getUrl() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "url", value: try ObjectSerializer.serializeToString(value: self.getUrl()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "url", value: try ObjectSerializer.serializeToString(value: self.getUrl()!)));
+
+         #endif        
+             }
+
+
              if (self.getLoadEncoding() != nil) {
 
          #if os(Linux) 
@@ -216,7 +236,9 @@ public class InsertDrawingObjectOnlineRequest : WordsApiRequest {
          self.getDrawingObject().collectFilesContent(&requestFilesContent);
          try self.getDrawingObject().validate();
 
-         formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: self.getImageFile()), contentType: "application/octet-stream"));
+         if (self.getImageFile() != nil) {
+             formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: self.getImageFile()!), contentType: "application/octet-stream"));
+         }
 
          try apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
