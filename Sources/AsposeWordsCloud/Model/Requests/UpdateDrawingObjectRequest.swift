@@ -32,10 +32,9 @@ import Foundation
 public class UpdateDrawingObjectRequest : WordsApiRequest {
     private let name : String;
     private let drawingObject : DrawingObjectUpdate;
+    private let imageFile : InputStream;
     private let index : Int;
     private let nodePath : String?;
-    private let imageFile : InputStream?;
-    private let url : String?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -48,10 +47,9 @@ public class UpdateDrawingObjectRequest : WordsApiRequest {
     private enum CodingKeys: String, CodingKey {
         case name;
         case drawingObject;
+        case imageFile;
         case index;
         case nodePath;
-        case imageFile;
-        case url;
         case folder;
         case storage;
         case loadEncoding;
@@ -64,13 +62,12 @@ public class UpdateDrawingObjectRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateDrawingObjectRequest class.
-    public init(name : String, drawingObject : DrawingObjectUpdate, index : Int, nodePath : String? = nil, imageFile : InputStream? = nil, url : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, drawingObject : DrawingObjectUpdate, imageFile : InputStream, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.drawingObject = drawingObject;
+        self.imageFile = imageFile;
         self.index = index;
         self.nodePath = nodePath;
-        self.imageFile = imageFile;
-        self.url = url;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -91,6 +88,11 @@ public class UpdateDrawingObjectRequest : WordsApiRequest {
         return self.drawingObject;
     }
 
+    // File with image.
+    public func getImageFile() -> InputStream {
+        return self.imageFile;
+    }
+
     // Object index.
     public func getIndex() -> Int {
         return self.index;
@@ -99,16 +101,6 @@ public class UpdateDrawingObjectRequest : WordsApiRequest {
     // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
-    }
-
-    // File with image.
-    public func getImageFile() -> InputStream? {
-        return self.imageFile;
-    }
-
-    // The link to the image.
-    public func getUrl() -> String? {
-        return self.url;
     }
 
     // Original document folder.
@@ -170,18 +162,6 @@ public class UpdateDrawingObjectRequest : WordsApiRequest {
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-             if (self.getUrl() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "url", value: try ObjectSerializer.serializeToString(value: self.getUrl()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "url", value: try ObjectSerializer.serializeToString(value: self.getUrl()!)));
-
-         #endif        
-             }
-
-
              if (self.getFolder() != nil) {
 
          #if os(Linux) 
@@ -286,9 +266,7 @@ public class UpdateDrawingObjectRequest : WordsApiRequest {
          self.getDrawingObject().collectFilesContent(&requestFilesContent);
          try self.getDrawingObject().validate();
 
-         if (self.getImageFile() != nil) {
-             formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: self.getImageFile()!), contentType: "application/octet-stream"));
-         }
+         formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: self.getImageFile()), contentType: "application/octet-stream"));
 
          try apiInvoker.prepareFilesContent(&requestFilesContent);
          for requestFileReference in requestFilesContent {
