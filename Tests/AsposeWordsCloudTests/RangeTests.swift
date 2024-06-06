@@ -39,7 +39,9 @@ class RangeTests: BaseTestContext {
         ("testSaveAsRange", testSaveAsRange),
         ("testSaveAsRangeOnline", testSaveAsRangeOnline),
         ("testReplaceWithText", testReplaceWithText),
-        ("testReplaceWithTextOnline", testReplaceWithTextOnline)
+        ("testReplaceWithTextOnline", testReplaceWithTextOnline),
+        ("testTranslateNodeId", testTranslateNodeId),
+        ("testTranslateNodeIdOnline", testTranslateNodeIdOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Range";
@@ -124,5 +126,23 @@ class RangeTests: BaseTestContext {
         .setText(text: "Replaced header");
       let request = ReplaceWithTextOnlineRequest(document: requestDocument, rangeStartIdentifier: "id0.0.0", rangeText: requestRangeText, rangeEndIdentifier: "id0.0.1");
       _ = try super.getApi().replaceWithTextOnline(request: request);
+    }
+
+    // Test to translate node id to node path.
+    func testTranslateNodeId() throws {
+      let remoteFileName = "TestTranslateNodeId.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = TranslateNodeIdRequest(name: remoteFileName, nodeId: "id0.0.0");
+      let actual = try super.getApi().translateNodeId(request: request);
+      XCTAssertEqual(actual.getText(), "sections/0/body/paragraphs/0");
+    }
+
+    // Test to translate node id to node path online.
+    func testTranslateNodeIdOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = TranslateNodeIdOnlineRequest(document: requestDocument, nodeId: "id0.0.0");
+      _ = try super.getApi().translateNodeIdOnline(request: request);
     }
 }

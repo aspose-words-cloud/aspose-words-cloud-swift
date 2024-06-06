@@ -295,6 +295,7 @@ class ObjectSerializer {
         "TextSaveOptionsData, _": TextSaveOptionsData.self,
         "TiffSaveOptionsData, _": TiffSaveOptionsData.self,
         "TimeZoneInfoData, _": TimeZoneInfoData.self,
+        "TranslateNodeIdResponse, _": TranslateNodeIdResponse.self,
         "UserInformation, _": UserInformation.self,
         "WatermarkDataImage, _": WatermarkDataImage.self,
         "WatermarkDataText, _": WatermarkDataText.self,
