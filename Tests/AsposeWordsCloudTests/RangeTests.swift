@@ -136,7 +136,7 @@ class RangeTests: BaseTestContext {
 
       let request = TranslateNodeIdRequest(name: remoteFileName, nodeId: "id0.0.0");
       let actual = try super.getApi().translateNodeId(request: request);
-      XCTAssertEqual(actual.getText(), "sections/0/body/paragraphs/0");
+      XCTAssertEqual(actual.getPath(), "sections/0/body/paragraphs/0");
     }
 
     // Test to translate node id to node path online.
