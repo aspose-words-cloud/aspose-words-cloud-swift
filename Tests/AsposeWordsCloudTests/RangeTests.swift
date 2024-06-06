@@ -134,7 +134,7 @@ class RangeTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = TranslateNodeIdRequest(name: remoteFileName, nodeId: "id0.0.0");
+      let request = TranslateNodeIdRequest(name: remoteFileName, nodeId: "id0.0.0", folder: remoteDataFolder);
       let actual = try super.getApi().translateNodeId(request: request);
       XCTAssertEqual(actual.getPath(), "sections/0/body/paragraphs/0");
     }
