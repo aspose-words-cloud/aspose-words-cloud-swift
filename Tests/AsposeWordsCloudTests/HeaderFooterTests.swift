@@ -57,9 +57,9 @@ class HeaderFooterTests: BaseTestContext {
 
       let request = GetHeaderFootersRequest(name: remoteFileName, sectionPath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getHeaderFooters(request: request);
-      XCTAssertNotNil(actual.getHeaderFooters());
-      XCTAssertNotNil(actual.getHeaderFooters()!.getList());
-      XCTAssertEqual(actual.getHeaderFooters()!.getList()!.count, 6);
+      if (!(actual.getHeaderFooters() != nil)) { XCTFail("actual.getHeaderFooters() != nil"); return; }
+      if (!(actual.getHeaderFooters()!.getList() != nil)) { XCTFail("actual.getHeaderFooters()!.getList() != nil"); return; }
+      if (!(actual.getHeaderFooters()!.getList()?.count == 6)) { XCTFail("actual.getHeaderFooters()!.getList()?.count == 6"); return; }
     }
 
     // Test for getting headers and footers online.
@@ -77,10 +77,10 @@ class HeaderFooterTests: BaseTestContext {
 
       let request = GetHeaderFooterRequest(name: remoteFileName, headerFooterIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getHeaderFooter(request: request);
-      XCTAssertNotNil(actual.getHeaderFooter());
-      XCTAssertNotNil(actual.getHeaderFooter()!.getChildNodes());
-      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()!.count, 1);
-      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.0.0");
+      if (!(actual.getHeaderFooter() != nil)) { XCTFail("actual.getHeaderFooter() != nil"); return; }
+      if (!(actual.getHeaderFooter()!.getChildNodes() != nil)) { XCTFail("actual.getHeaderFooter()!.getChildNodes() != nil"); return; }
+      if (!(actual.getHeaderFooter()!.getChildNodes()?.count == 1)) { XCTFail("actual.getHeaderFooter()!.getChildNodes()?.count == 1"); return; }
+      if (!(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId() == "0.0.0")) { XCTFail("actual.getHeaderFooter()!.getChildNodes()![0].getNodeId() == " + "0.0.0"); return; }
     }
 
     // Test for getting headerfooter online.
@@ -98,10 +98,10 @@ class HeaderFooterTests: BaseTestContext {
 
       let request = GetHeaderFooterOfSectionRequest(name: remoteFileName, headerFooterIndex: 0, sectionIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getHeaderFooterOfSection(request: request);
-      XCTAssertNotNil(actual.getHeaderFooter());
-      XCTAssertNotNil(actual.getHeaderFooter()!.getChildNodes());
-      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()!.count, 1);
-      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.0.0");
+      if (!(actual.getHeaderFooter() != nil)) { XCTFail("actual.getHeaderFooter() != nil"); return; }
+      if (!(actual.getHeaderFooter()!.getChildNodes() != nil)) { XCTFail("actual.getHeaderFooter()!.getChildNodes() != nil"); return; }
+      if (!(actual.getHeaderFooter()!.getChildNodes()?.count == 1)) { XCTFail("actual.getHeaderFooter()!.getChildNodes()?.count == 1"); return; }
+      if (!(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId() == "0.0.0")) { XCTFail("actual.getHeaderFooter()!.getChildNodes()![0].getNodeId() == " + "0.0.0"); return; }
     }
 
     // Test for getting headerfooter of section online.
@@ -160,9 +160,9 @@ class HeaderFooterTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = InsertHeaderFooterOnlineRequest(document: requestDocument, sectionPath: "", headerFooterType: "FooterEven");
       let actual = try super.getApi().insertHeaderFooterOnline(request: request);
-      XCTAssertNotNil(actual.getModel()!.getHeaderFooter());
-      XCTAssertNotNil(actual.getModel()!.getHeaderFooter()!.getChildNodes());
-      XCTAssertEqual(actual.getModel()!.getHeaderFooter()!.getChildNodes()!.count, 1);
-      XCTAssertEqual(actual.getModel()!.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.2.0");
+      if (!(actual.getModel()!.getHeaderFooter() != nil)) { XCTFail("actual.getModel()!.getHeaderFooter() != nil"); return; }
+      if (!(actual.getModel()!.getHeaderFooter()!.getChildNodes() != nil)) { XCTFail("actual.getModel()!.getHeaderFooter()!.getChildNodes() != nil"); return; }
+      if (!(actual.getModel()!.getHeaderFooter()!.getChildNodes()?.count == 1)) { XCTFail("actual.getModel()!.getHeaderFooter()!.getChildNodes()?.count == 1"); return; }
+      if (!(actual.getModel()!.getHeaderFooter()!.getChildNodes()![0].getNodeId() == "0.2.0")) { XCTFail("actual.getModel()!.getHeaderFooter()!.getChildNodes()![0].getNodeId() == " + "0.2.0"); return; }
     }
 }

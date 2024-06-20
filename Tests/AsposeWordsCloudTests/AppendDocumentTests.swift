@@ -56,8 +56,8 @@ class AppendDocumentTests: BaseTestContext {
         .setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
       let request = AppendDocumentRequest(name: remoteFileName, documentList: requestDocumentList, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().appendDocument(request: request);
-      XCTAssertNotNil(actual.getDocument());
-      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestAppendDocument.docx");
+      if (!(actual.getDocument() != nil)) { XCTFail("actual.getDocument() != nil"); return; }
+      if (!(actual.getDocument()!.getFileName() == "TestAppendDocument.docx")) { XCTFail("actual.getDocument()!.getFileName() == " + "TestAppendDocument.docx"); return; }
     }
 
     // Test for appending document online.

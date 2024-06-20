@@ -58,8 +58,8 @@ class CompareDocumentTests: BaseTestContext {
         .setFileReference(fileReference: requestCompareDataFileReference);
       let request = CompareDocumentRequest(name: remoteName1, compareData: requestCompareData, folder: remoteFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
       let actual = try super.getApi().compareDocument(request: request);
-      XCTAssertNotNil(actual.getDocument());
-      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestCompareDocumentOut.doc");
+      if (!(actual.getDocument() != nil)) { XCTFail("actual.getDocument() != nil"); return; }
+      if (!(actual.getDocument()!.getFileName() == "TestCompareDocumentOut.doc")) { XCTFail("actual.getDocument()!.getFileName() == " + "TestCompareDocumentOut.doc"); return; }
     }
 
     // Test for document comparison online.
@@ -115,7 +115,7 @@ class CompareDocumentTests: BaseTestContext {
         .setFileReference(fileReference: requestCompareDataFileReference);
       let request = CompareDocumentRequest(name: remoteName1, compareData: requestCompareData, folder: remoteFolder, password: "12345", destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.docx");
       let actual = try super.getApi().compareDocument(request: request);
-      XCTAssertNotNil(actual.getDocument());
-      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestCompareDocumentOut.docx");
+      if (!(actual.getDocument() != nil)) { XCTFail("actual.getDocument() != nil"); return; }
+      if (!(actual.getDocument()!.getFileName() == "TestCompareDocumentOut.docx")) { XCTFail("actual.getDocument()!.getFileName() == " + "TestCompareDocumentOut.docx"); return; }
     }
 }

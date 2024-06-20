@@ -54,7 +54,7 @@ class DocumentProtectionTests: BaseTestContext {
         .setProtectionType(protectionType: ProtectionRequestV2.ProtectionType.readOnly);
       let request = ProtectDocumentRequest(name: remoteFileName, protectionRequest: requestProtectionRequest, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().protectDocument(request: request);
-      XCTAssertNotNil(actual.getProtectionData());
+      if (!(actual.getProtectionData() != nil)) { XCTFail("actual.getProtectionData() != nil"); return; }
 
     }
 
@@ -95,7 +95,7 @@ class DocumentProtectionTests: BaseTestContext {
 
       let request = UnprotectDocumentRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().unprotectDocument(request: request);
-      XCTAssertNotNil(actual.getProtectionData());
+      if (!(actual.getProtectionData() != nil)) { XCTFail("actual.getProtectionData() != nil"); return; }
 
     }
 

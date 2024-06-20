@@ -47,8 +47,8 @@ class DocumentStatisticsTests: BaseTestContext {
 
       let request = GetDocumentStatisticsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentStatistics(request: request);
-      XCTAssertNotNil(actual.getStatData());
-      XCTAssertEqual(actual.getStatData()!.getWordCount(), 10);
+      if (!(actual.getStatData() != nil)) { XCTFail("actual.getStatData() != nil"); return; }
+      if (!(actual.getStatData()!.getWordCount() == 10)) { XCTFail("actual.getStatData()!.getWordCount() == 10"); return; }
     }
 
     // Test for document classification online.

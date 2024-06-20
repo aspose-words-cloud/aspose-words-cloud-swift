@@ -86,10 +86,10 @@ class TableTests: BaseTestContext {
 
       let request = GetTablesRequest(name: remoteFileName, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getTables(request: request);
-      XCTAssertNotNil(actual.getTables());
-      XCTAssertNotNil(actual.getTables()!.getTableLinkList());
-      XCTAssertEqual(actual.getTables()!.getTableLinkList()!.count, 5);
-      XCTAssertEqual(actual.getTables()!.getTableLinkList()![0].getNodeId(), "0.0.1");
+      if (!(actual.getTables() != nil)) { XCTFail("actual.getTables() != nil"); return; }
+      if (!(actual.getTables()!.getTableLinkList() != nil)) { XCTFail("actual.getTables()!.getTableLinkList() != nil"); return; }
+      if (!(actual.getTables()!.getTableLinkList()?.count == 5)) { XCTFail("actual.getTables()!.getTableLinkList()?.count == 5"); return; }
+      if (!(actual.getTables()!.getTableLinkList()![0].getNodeId() == "0.0.1")) { XCTFail("actual.getTables()!.getTableLinkList()![0].getNodeId() == " + "0.0.1"); return; }
     }
 
     // Test for getting tables online.
@@ -107,10 +107,10 @@ class TableTests: BaseTestContext {
 
       let request = GetTablesRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getTables(request: request);
-      XCTAssertNotNil(actual.getTables());
-      XCTAssertNotNil(actual.getTables()!.getTableLinkList());
-      XCTAssertEqual(actual.getTables()!.getTableLinkList()!.count, 5);
-      XCTAssertEqual(actual.getTables()!.getTableLinkList()![0].getNodeId(), "0.0.1");
+      if (!(actual.getTables() != nil)) { XCTFail("actual.getTables() != nil"); return; }
+      if (!(actual.getTables()!.getTableLinkList() != nil)) { XCTFail("actual.getTables()!.getTableLinkList() != nil"); return; }
+      if (!(actual.getTables()!.getTableLinkList()?.count == 5)) { XCTFail("actual.getTables()!.getTableLinkList()?.count == 5"); return; }
+      if (!(actual.getTables()!.getTableLinkList()![0].getNodeId() == "0.0.1")) { XCTFail("actual.getTables()!.getTableLinkList()![0].getNodeId() == " + "0.0.1"); return; }
     }
 
     // Test for getting table.
@@ -121,11 +121,11 @@ class TableTests: BaseTestContext {
 
       let request = GetTableRequest(name: remoteFileName, index: 1, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getTable(request: request);
-      XCTAssertNotNil(actual.getTable());
-      XCTAssertNotNil(actual.getTable()!.getTableRowList());
-      XCTAssertEqual(actual.getTable()!.getTableRowList()!.count, 1);
-      XCTAssertNotNil(actual.getTable()!.getTableRowList()![0].getTableCellList());
-      XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 2);
+      if (!(actual.getTable() != nil)) { XCTFail("actual.getTable() != nil"); return; }
+      if (!(actual.getTable()!.getTableRowList() != nil)) { XCTFail("actual.getTable()!.getTableRowList() != nil"); return; }
+      if (!(actual.getTable()!.getTableRowList()?.count == 1)) { XCTFail("actual.getTable()!.getTableRowList()?.count == 1"); return; }
+      if (!(actual.getTable()!.getTableRowList()![0].getTableCellList() != nil)) { XCTFail("actual.getTable()!.getTableRowList()![0].getTableCellList() != nil"); return; }
+      if (!(actual.getTable()!.getTableRowList()![0].getTableCellList()?.count == 2)) { XCTFail("actual.getTable()!.getTableRowList()![0].getTableCellList()?.count == 2"); return; }
     }
 
     // Test for getting table online.
@@ -143,11 +143,11 @@ class TableTests: BaseTestContext {
 
       let request = GetTableRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
       let actual = try super.getApi().getTable(request: request);
-      XCTAssertNotNil(actual.getTable());
-      XCTAssertNotNil(actual.getTable()!.getTableRowList());
-      XCTAssertEqual(actual.getTable()!.getTableRowList()!.count, 1);
-      XCTAssertNotNil(actual.getTable()!.getTableRowList()![0].getTableCellList());
-      XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 2);
+      if (!(actual.getTable() != nil)) { XCTFail("actual.getTable() != nil"); return; }
+      if (!(actual.getTable()!.getTableRowList() != nil)) { XCTFail("actual.getTable()!.getTableRowList() != nil"); return; }
+      if (!(actual.getTable()!.getTableRowList()?.count == 1)) { XCTFail("actual.getTable()!.getTableRowList()?.count == 1"); return; }
+      if (!(actual.getTable()!.getTableRowList()![0].getTableCellList() != nil)) { XCTFail("actual.getTable()!.getTableRowList()![0].getTableCellList() != nil"); return; }
+      if (!(actual.getTable()!.getTableRowList()![0].getTableCellList()?.count == 2)) { XCTFail("actual.getTable()!.getTableRowList()![0].getTableCellList()?.count == 2"); return; }
     }
 
     // Test for deleting table.
@@ -188,11 +188,11 @@ class TableTests: BaseTestContext {
         .setRowsCount(rowsCount: 4);
       let request = InsertTableRequest(name: remoteFileName, table: requestTable, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().insertTable(request: request);
-      XCTAssertNotNil(actual.getTable());
-      XCTAssertNotNil(actual.getTable()!.getTableRowList());
-      XCTAssertEqual(actual.getTable()!.getTableRowList()!.count, 4);
-      XCTAssertNotNil(actual.getTable()!.getTableRowList()![0].getTableCellList());
-      XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 5);
+      if (!(actual.getTable() != nil)) { XCTFail("actual.getTable() != nil"); return; }
+      if (!(actual.getTable()!.getTableRowList() != nil)) { XCTFail("actual.getTable()!.getTableRowList() != nil"); return; }
+      if (!(actual.getTable()!.getTableRowList()?.count == 4)) { XCTFail("actual.getTable()!.getTableRowList()?.count == 4"); return; }
+      if (!(actual.getTable()!.getTableRowList()![0].getTableCellList() != nil)) { XCTFail("actual.getTable()!.getTableRowList()![0].getTableCellList() != nil"); return; }
+      if (!(actual.getTable()!.getTableRowList()![0].getTableCellList()?.count == 5)) { XCTFail("actual.getTable()!.getTableRowList()![0].getTableCellList()?.count == 5"); return; }
     }
 
     // Test for adding table online.
@@ -216,11 +216,11 @@ class TableTests: BaseTestContext {
         .setRowsCount(rowsCount: 4);
       let request = InsertTableRequest(name: remoteFileName, table: requestTable, folder: remoteDataFolder);
       let actual = try super.getApi().insertTable(request: request);
-      XCTAssertNotNil(actual.getTable());
-      XCTAssertNotNil(actual.getTable()!.getTableRowList());
-      XCTAssertEqual(actual.getTable()!.getTableRowList()!.count, 4);
-      XCTAssertNotNil(actual.getTable()!.getTableRowList()![0].getTableCellList());
-      XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 5);
+      if (!(actual.getTable() != nil)) { XCTFail("actual.getTable() != nil"); return; }
+      if (!(actual.getTable()!.getTableRowList() != nil)) { XCTFail("actual.getTable()!.getTableRowList() != nil"); return; }
+      if (!(actual.getTable()!.getTableRowList()?.count == 4)) { XCTFail("actual.getTable()!.getTableRowList()?.count == 4"); return; }
+      if (!(actual.getTable()!.getTableRowList()![0].getTableCellList() != nil)) { XCTFail("actual.getTable()!.getTableRowList()![0].getTableCellList() != nil"); return; }
+      if (!(actual.getTable()!.getTableRowList()![0].getTableCellList()?.count == 5)) { XCTFail("actual.getTable()!.getTableRowList()![0].getTableCellList()?.count == 5"); return; }
     }
 
     // Test for getting document properties.
@@ -231,8 +231,8 @@ class TableTests: BaseTestContext {
 
       let request = GetTablePropertiesRequest(name: remoteFileName, index: 1, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getTableProperties(request: request);
-      XCTAssertNotNil(actual.getProperties());
-      XCTAssertEqual(actual.getProperties()!.getStyleName(), "Table Grid");
+      if (!(actual.getProperties() != nil)) { XCTFail("actual.getProperties() != nil"); return; }
+      if (!(actual.getProperties()!.getStyleName() == "Table Grid")) { XCTFail("actual.getProperties()!.getStyleName() == " + "Table Grid"); return; }
     }
 
     // Test for getting document properties online.
@@ -250,8 +250,8 @@ class TableTests: BaseTestContext {
 
       let request = GetTablePropertiesRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
       let actual = try super.getApi().getTableProperties(request: request);
-      XCTAssertNotNil(actual.getProperties());
-      XCTAssertEqual(actual.getProperties()!.getStyleName(), "Table Grid");
+      if (!(actual.getProperties() != nil)) { XCTFail("actual.getProperties() != nil"); return; }
+      if (!(actual.getProperties()!.getStyleName() == "Table Grid")) { XCTFail("actual.getProperties()!.getStyleName() == " + "Table Grid"); return; }
     }
 
     // Test for updating table properties.
@@ -269,11 +269,11 @@ class TableTests: BaseTestContext {
         .setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
       let request = UpdateTablePropertiesRequest(name: remoteFileName, index: 1, properties: requestProperties, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateTableProperties(request: request);
-      XCTAssertNotNil(actual.getProperties());
-      XCTAssertEqual(actual.getProperties()!.getAllowAutoFit(), false);
-      XCTAssertEqual(actual.getProperties()!.getBidi(), true);
-      XCTAssertEqual(actual.getProperties()!.getBottomPadding(), 1.0);
-      XCTAssertEqual(actual.getProperties()!.getCellSpacing(), 2.0);
+      if (!(actual.getProperties() != nil)) { XCTFail("actual.getProperties() != nil"); return; }
+      if (!(actual.getProperties()!.getAllowAutoFit() == false)) { XCTFail("actual.getProperties()!.getAllowAutoFit() == false"); return; }
+      if (!(actual.getProperties()!.getBidi() == true)) { XCTFail("actual.getProperties()!.getBidi() == true"); return; }
+      if (!(actual.getProperties()!.getBottomPadding() == 1.0)) { XCTFail("actual.getProperties()!.getBottomPadding() == 1.0"); return; }
+      if (!(actual.getProperties()!.getCellSpacing() == 2.0)) { XCTFail("actual.getProperties()!.getCellSpacing() == 2.0"); return; }
     }
 
     // Test for updating table properties online.
@@ -305,11 +305,11 @@ class TableTests: BaseTestContext {
         .setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
       let request = UpdateTablePropertiesRequest(name: remoteFileName, index: 1, properties: requestProperties, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableProperties(request: request);
-      XCTAssertNotNil(actual.getProperties());
-      XCTAssertEqual(actual.getProperties()!.getAllowAutoFit(), false);
-      XCTAssertEqual(actual.getProperties()!.getBidi(), true);
-      XCTAssertEqual(actual.getProperties()!.getBottomPadding(), 1.0);
-      XCTAssertEqual(actual.getProperties()!.getCellSpacing(), 2.0);
+      if (!(actual.getProperties() != nil)) { XCTFail("actual.getProperties() != nil"); return; }
+      if (!(actual.getProperties()!.getAllowAutoFit() == false)) { XCTFail("actual.getProperties()!.getAllowAutoFit() == false"); return; }
+      if (!(actual.getProperties()!.getBidi() == true)) { XCTFail("actual.getProperties()!.getBidi() == true"); return; }
+      if (!(actual.getProperties()!.getBottomPadding() == 1.0)) { XCTFail("actual.getProperties()!.getBottomPadding() == 1.0"); return; }
+      if (!(actual.getProperties()!.getCellSpacing() == 2.0)) { XCTFail("actual.getProperties()!.getCellSpacing() == 2.0"); return; }
     }
 
     // Test for getting table row.
@@ -320,9 +320,9 @@ class TableTests: BaseTestContext {
 
       let request = GetTableRowRequest(name: remoteFileName, tablePath: "tables/1", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getTableRow(request: request);
-      XCTAssertNotNil(actual.getRow());
-      XCTAssertNotNil(actual.getRow()!.getTableCellList());
-      XCTAssertEqual(actual.getRow()!.getTableCellList()!.count, 2);
+      if (!(actual.getRow() != nil)) { XCTFail("actual.getRow() != nil"); return; }
+      if (!(actual.getRow()!.getTableCellList() != nil)) { XCTFail("actual.getRow()!.getTableCellList() != nil"); return; }
+      if (!(actual.getRow()!.getTableCellList()?.count == 2)) { XCTFail("actual.getRow()!.getTableCellList()?.count == 2"); return; }
     }
 
     // Test for getting table row online.
@@ -359,9 +359,9 @@ class TableTests: BaseTestContext {
         .setColumnsCount(columnsCount: 5);
       let request = InsertTableRowRequest(name: remoteFileName, row: requestRow, nodePath: "sections/0/tables/2", folder: remoteDataFolder);
       let actual = try super.getApi().insertTableRow(request: request);
-      XCTAssertNotNil(actual.getRow());
-      XCTAssertNotNil(actual.getRow()!.getTableCellList());
-      XCTAssertEqual(actual.getRow()!.getTableCellList()!.count, 5);
+      if (!(actual.getRow() != nil)) { XCTFail("actual.getRow() != nil"); return; }
+      if (!(actual.getRow()!.getTableCellList() != nil)) { XCTFail("actual.getRow()!.getTableCellList() != nil"); return; }
+      if (!(actual.getRow()!.getTableCellList()?.count == 5)) { XCTFail("actual.getRow()!.getTableCellList()?.count == 5"); return; }
     }
 
     // Test for adding row online.
@@ -381,8 +381,8 @@ class TableTests: BaseTestContext {
 
       let request = GetTableRowFormatRequest(name: remoteFileName, tablePath: "sections/0/tables/2", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getTableRowFormat(request: request);
-      XCTAssertNotNil(actual.getRowFormat());
-      XCTAssertEqual(actual.getRowFormat()!.getAllowBreakAcrossPages(), true);
+      if (!(actual.getRowFormat() != nil)) { XCTFail("actual.getRowFormat() != nil"); return; }
+      if (!(actual.getRowFormat()!.getAllowBreakAcrossPages() == true)) { XCTFail("actual.getRowFormat()!.getAllowBreakAcrossPages() == true"); return; }
     }
 
     // Test for getting row format online.
@@ -405,10 +405,10 @@ class TableTests: BaseTestContext {
         .setHeadingFormat(headingFormat: true);
       let request = UpdateTableRowFormatRequest(name: remoteFileName, tablePath: "sections/0/tables/2", index: 0, format: requestFormat, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableRowFormat(request: request);
-      XCTAssertNotNil(actual.getRowFormat());
-      XCTAssertEqual(actual.getRowFormat()!.getAllowBreakAcrossPages(), true);
-      XCTAssertEqual(actual.getRowFormat()!.getHeadingFormat(), true);
-      XCTAssertEqual(actual.getRowFormat()!.getHeight(), 10.0);
+      if (!(actual.getRowFormat() != nil)) { XCTFail("actual.getRowFormat() != nil"); return; }
+      if (!(actual.getRowFormat()!.getAllowBreakAcrossPages() == true)) { XCTFail("actual.getRowFormat()!.getAllowBreakAcrossPages() == true"); return; }
+      if (!(actual.getRowFormat()!.getHeadingFormat() == true)) { XCTFail("actual.getRowFormat()!.getHeadingFormat() == true"); return; }
+      if (!(actual.getRowFormat()!.getHeight() == 10.0)) { XCTFail("actual.getRowFormat()!.getHeight() == 10.0"); return; }
     }
 
     // Test updating row format online.
@@ -431,8 +431,8 @@ class TableTests: BaseTestContext {
 
       let request = GetTableCellRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getTableCell(request: request);
-      XCTAssertNotNil(actual.getCell());
-      XCTAssertEqual(actual.getCell()!.getNodeId(), "0.0.5.0.0");
+      if (!(actual.getCell() != nil)) { XCTFail("actual.getCell() != nil"); return; }
+      if (!(actual.getCell()!.getNodeId() == "0.0.5.0.0")) { XCTFail("actual.getCell()!.getNodeId() == " + "0.0.5.0.0"); return; }
     }
 
     // Test for getting table cell online.
@@ -468,8 +468,8 @@ class TableTests: BaseTestContext {
       let requestCell = TableCellInsert();
       let request = InsertTableCellRequest(name: remoteFileName, cell: requestCell, tableRowPath: "sections/0/tables/2/rows/0", folder: remoteDataFolder);
       let actual = try super.getApi().insertTableCell(request: request);
-      XCTAssertNotNil(actual.getCell());
-      XCTAssertEqual(actual.getCell()!.getNodeId(), "0.0.5.0.3");
+      if (!(actual.getCell() != nil)) { XCTFail("actual.getCell() != nil"); return; }
+      if (!(actual.getCell()!.getNodeId() == "0.0.5.0.3")) { XCTFail("actual.getCell()!.getNodeId() == " + "0.0.5.0.3"); return; }
     }
 
     // Test for adding cell online.
@@ -488,8 +488,8 @@ class TableTests: BaseTestContext {
 
       let request = GetTableCellFormatRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getTableCellFormat(request: request);
-      XCTAssertNotNil(actual.getCellFormat());
-      XCTAssertEqual(actual.getCellFormat()!.getWrapText(), true);
+      if (!(actual.getCellFormat() != nil)) { XCTFail("actual.getCellFormat() != nil"); return; }
+      if (!(actual.getCellFormat()!.getWrapText() == true)) { XCTFail("actual.getCellFormat()!.getWrapText() == true"); return; }
     }
 
     // Test for getting cell format online.
@@ -512,10 +512,10 @@ class TableTests: BaseTestContext {
         .setWrapText(wrapText: true);
       let request = UpdateTableCellFormatRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, format: requestFormat, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableCellFormat(request: request);
-      XCTAssertNotNil(actual.getCellFormat());
-      XCTAssertEqual(actual.getCellFormat()!.getBottomPadding(), 5.0);
-      XCTAssertEqual(actual.getCellFormat()!.getFitText(), true);
-      XCTAssertEqual(actual.getCellFormat()!.getWrapText(), true);
+      if (!(actual.getCellFormat() != nil)) { XCTFail("actual.getCellFormat() != nil"); return; }
+      if (!(actual.getCellFormat()!.getBottomPadding() == 5.0)) { XCTFail("actual.getCellFormat()!.getBottomPadding() == 5.0"); return; }
+      if (!(actual.getCellFormat()!.getFitText() == true)) { XCTFail("actual.getCellFormat()!.getFitText() == true"); return; }
+      if (!(actual.getCellFormat()!.getWrapText() == true)) { XCTFail("actual.getCellFormat()!.getWrapText() == true"); return; }
     }
 
     // Test for updating cell format online.

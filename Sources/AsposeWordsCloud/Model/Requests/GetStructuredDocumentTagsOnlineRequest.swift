@@ -35,6 +35,7 @@ public class GetStructuredDocumentTagsOnlineRequest : WordsApiRequest {
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
+    private let openTypeSupport : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
@@ -42,16 +43,18 @@ public class GetStructuredDocumentTagsOnlineRequest : WordsApiRequest {
         case loadEncoding;
         case password;
         case encryptedPassword;
+        case openTypeSupport;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetStructuredDocumentTagsOnlineRequest class.
-    public init(document : InputStream, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil) {
+    public init(document : InputStream, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, openTypeSupport : Bool? = nil) {
         self.document = document;
         self.nodePath = nodePath;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
+        self.openTypeSupport = openTypeSupport;
     }
 
     // The document.
@@ -77,6 +80,11 @@ public class GetStructuredDocumentTagsOnlineRequest : WordsApiRequest {
     // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
     public func getEncryptedPassword() -> String? {
         return self.encryptedPassword;
+    }
+
+    // The value indicates whether OpenType support is on.
+    public func getOpenTypeSupport() -> Bool? {
+        return self.openTypeSupport;
     }
 
     // Creates the api request data
@@ -125,6 +133,18 @@ public class GetStructuredDocumentTagsOnlineRequest : WordsApiRequest {
 
          #else
                      queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+
+         #endif        
+             }
+
+
+             if (self.getOpenTypeSupport() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
 
          #endif        
              }

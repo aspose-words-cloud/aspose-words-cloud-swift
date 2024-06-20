@@ -44,9 +44,9 @@ class ClassificationTests: BaseTestContext {
     func testClassify() throws {
       let request = ClassifyRequest(text: "Try text classification", bestClassesCount: "3");
       let actual = try super.getApi().classify(request: request);
-      XCTAssertEqual(actual.getBestClassName(), "Science");
-      XCTAssertNotNil(actual.getBestResults());
-      XCTAssertEqual(actual.getBestResults()!.count, 3);
+      if (!(actual.getBestClassName() == "Science")) { XCTFail("actual.getBestClassName() == " + "Science"); return; }
+      if (!(actual.getBestResults() != nil)) { XCTFail("actual.getBestResults() != nil"); return; }
+      if (!(actual.getBestResults()?.count == 3)) { XCTFail("actual.getBestResults()?.count == 3"); return; }
     }
 
     // Test for document classification.
@@ -57,9 +57,9 @@ class ClassificationTests: BaseTestContext {
 
       let request = ClassifyDocumentRequest(name: remoteFileName, folder: remoteDataFolder, bestClassesCount: "3");
       let actual = try super.getApi().classifyDocument(request: request);
-      XCTAssertEqual(actual.getBestClassName(), "Hobbies_&_Interests");
-      XCTAssertNotNil(actual.getBestResults());
-      XCTAssertEqual(actual.getBestResults()!.count, 3);
+      if (!(actual.getBestClassName() == "Hobbies_&_Interests")) { XCTFail("actual.getBestClassName() == " + "Hobbies_&_Interests"); return; }
+      if (!(actual.getBestResults() != nil)) { XCTFail("actual.getBestResults() != nil"); return; }
+      if (!(actual.getBestResults()?.count == 3)) { XCTFail("actual.getBestResults()?.count == 3"); return; }
     }
 
     // Test for document classification online.

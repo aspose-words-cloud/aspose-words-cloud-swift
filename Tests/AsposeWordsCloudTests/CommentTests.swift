@@ -57,8 +57,8 @@ class CommentTests: BaseTestContext {
 
       let request = GetCommentRequest(name: remoteFileName, commentIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getComment(request: request);
-      XCTAssertNotNil(actual.getComment());
-      XCTAssertEqual(actual.getComment()!.getText(), "Comment 1" + "\r\n\r\n");
+      if (!(actual.getComment() != nil)) { XCTFail("actual.getComment() != nil"); return; }
+      if (!(actual.getComment()!.getText() == "Comment 1" + "\r\n\r\n")) { XCTFail("actual.getComment()!.getText() == " + "Comment 1" + "\r\n\r\n"); return; }
     }
 
     // Test for getting comment by specified comment's index online.
@@ -76,10 +76,10 @@ class CommentTests: BaseTestContext {
 
       let request = GetCommentsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getComments(request: request);
-      XCTAssertNotNil(actual.getComments());
-      XCTAssertNotNil(actual.getComments()!.getCommentList());
-      XCTAssertEqual(actual.getComments()!.getCommentList()!.count, 1);
-      XCTAssertEqual(actual.getComments()!.getCommentList()![0].getText(), "Comment 1" + "\r\n\r\n");
+      if (!(actual.getComments() != nil)) { XCTFail("actual.getComments() != nil"); return; }
+      if (!(actual.getComments()!.getCommentList() != nil)) { XCTFail("actual.getComments()!.getCommentList() != nil"); return; }
+      if (!(actual.getComments()!.getCommentList()?.count == 1)) { XCTFail("actual.getComments()!.getCommentList()?.count == 1"); return; }
+      if (!(actual.getComments()!.getCommentList()![0].getText() == "Comment 1" + "\r\n\r\n")) { XCTFail("actual.getComments()!.getCommentList()![0].getText() == " + "Comment 1" + "\r\n\r\n"); return; }
     }
 
     // Test for getting all comments from document online.
@@ -109,11 +109,11 @@ class CommentTests: BaseTestContext {
         .setText(text: "A new Comment");
       let request = InsertCommentRequest(name: remoteFileName, comment: requestComment as! CommentInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertComment(request: request);
-      XCTAssertNotNil(actual.getComment());
-      XCTAssertEqual(actual.getComment()!.getText(), "A new Comment" + "\r\n");
-      XCTAssertNotNil(actual.getComment()!.getRangeStart());
-      XCTAssertNotNil(actual.getComment()!.getRangeStart()!.getNode());
-      XCTAssertEqual(actual.getComment()!.getRangeStart()!.getNode()!.getNodeId(), "0.3.0.4");
+      if (!(actual.getComment() != nil)) { XCTFail("actual.getComment() != nil"); return; }
+      if (!(actual.getComment()!.getText() == "A new Comment" + "\r\n")) { XCTFail("actual.getComment()!.getText() == " + "A new Comment" + "\r\n"); return; }
+      if (!(actual.getComment()!.getRangeStart() != nil)) { XCTFail("actual.getComment()!.getRangeStart() != nil"); return; }
+      if (!(actual.getComment()!.getRangeStart()!.getNode() != nil)) { XCTFail("actual.getComment()!.getRangeStart()!.getNode() != nil"); return; }
+      if (!(actual.getComment()!.getRangeStart()!.getNode()!.getNodeId() == "0.3.0.4")) { XCTFail("actual.getComment()!.getRangeStart()!.getNode()!.getNodeId() == " + "0.3.0.4"); return; }
     }
 
     // Test for adding comment online.
@@ -155,11 +155,11 @@ class CommentTests: BaseTestContext {
         .setText(text: "A new Comment");
       let request = UpdateCommentRequest(name: remoteFileName, commentIndex: 0, comment: requestComment as! CommentUpdate, folder: remoteDataFolder);
       let actual = try super.getApi().updateComment(request: request);
-      XCTAssertNotNil(actual.getComment());
-      XCTAssertEqual(actual.getComment()!.getText(), "A new Comment" + "\r\n");
-      XCTAssertNotNil(actual.getComment()!.getRangeStart());
-      XCTAssertNotNil(actual.getComment()!.getRangeStart()!.getNode());
-      XCTAssertEqual(actual.getComment()!.getRangeStart()!.getNode()!.getNodeId(), "0.3.0.1");
+      if (!(actual.getComment() != nil)) { XCTFail("actual.getComment() != nil"); return; }
+      if (!(actual.getComment()!.getText() == "A new Comment" + "\r\n")) { XCTFail("actual.getComment()!.getText() == " + "A new Comment" + "\r\n"); return; }
+      if (!(actual.getComment()!.getRangeStart() != nil)) { XCTFail("actual.getComment()!.getRangeStart() != nil"); return; }
+      if (!(actual.getComment()!.getRangeStart()!.getNode() != nil)) { XCTFail("actual.getComment()!.getRangeStart()!.getNode() != nil"); return; }
+      if (!(actual.getComment()!.getRangeStart()!.getNode()!.getNodeId() == "0.3.0.1")) { XCTFail("actual.getComment()!.getRangeStart()!.getNode()!.getNodeId() == " + "0.3.0.1"); return; }
     }
 
     // Test for updating comment online.

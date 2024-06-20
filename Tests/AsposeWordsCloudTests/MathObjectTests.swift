@@ -59,10 +59,10 @@ class MathObjectTests: BaseTestContext {
 
       let request = GetOfficeMathObjectsRequest(name: remoteFileName, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getOfficeMathObjects(request: request);
-      XCTAssertNotNil(actual.getOfficeMathObjects());
-      XCTAssertNotNil(actual.getOfficeMathObjects()!.getList());
-      XCTAssertEqual(actual.getOfficeMathObjects()!.getList()!.count, 16);
-      XCTAssertEqual(actual.getOfficeMathObjects()!.getList()![0].getNodeId(), "0.0.0.0");
+      if (!(actual.getOfficeMathObjects() != nil)) { XCTFail("actual.getOfficeMathObjects() != nil"); return; }
+      if (!(actual.getOfficeMathObjects()!.getList() != nil)) { XCTFail("actual.getOfficeMathObjects()!.getList() != nil"); return; }
+      if (!(actual.getOfficeMathObjects()!.getList()?.count == 16)) { XCTFail("actual.getOfficeMathObjects()!.getList()?.count == 16"); return; }
+      if (!(actual.getOfficeMathObjects()!.getList()![0].getNodeId() == "0.0.0.0")) { XCTFail("actual.getOfficeMathObjects()!.getList()![0].getNodeId() == " + "0.0.0.0"); return; }
     }
 
     // Test for getting mathObjects online.
@@ -80,10 +80,10 @@ class MathObjectTests: BaseTestContext {
 
       let request = GetOfficeMathObjectsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getOfficeMathObjects(request: request);
-      XCTAssertNotNil(actual.getOfficeMathObjects());
-      XCTAssertNotNil(actual.getOfficeMathObjects()!.getList());
-      XCTAssertEqual(actual.getOfficeMathObjects()!.getList()!.count, 16);
-      XCTAssertEqual(actual.getOfficeMathObjects()!.getList()![0].getNodeId(), "0.0.0.0");
+      if (!(actual.getOfficeMathObjects() != nil)) { XCTFail("actual.getOfficeMathObjects() != nil"); return; }
+      if (!(actual.getOfficeMathObjects()!.getList() != nil)) { XCTFail("actual.getOfficeMathObjects()!.getList() != nil"); return; }
+      if (!(actual.getOfficeMathObjects()!.getList()?.count == 16)) { XCTFail("actual.getOfficeMathObjects()!.getList()?.count == 16"); return; }
+      if (!(actual.getOfficeMathObjects()!.getList()![0].getNodeId() == "0.0.0.0")) { XCTFail("actual.getOfficeMathObjects()!.getList()![0].getNodeId() == " + "0.0.0.0"); return; }
     }
 
     // Test for getting mathObject.
@@ -94,8 +94,8 @@ class MathObjectTests: BaseTestContext {
 
       let request = GetOfficeMathObjectRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getOfficeMathObject(request: request);
-      XCTAssertNotNil(actual.getOfficeMathObject());
-      XCTAssertEqual(actual.getOfficeMathObject()!.getNodeId(), "0.0.0.0");
+      if (!(actual.getOfficeMathObject() != nil)) { XCTFail("actual.getOfficeMathObject() != nil"); return; }
+      if (!(actual.getOfficeMathObject()!.getNodeId() == "0.0.0.0")) { XCTFail("actual.getOfficeMathObject()!.getNodeId() == " + "0.0.0.0"); return; }
     }
 
     // Test for getting mathObject online.
@@ -113,8 +113,8 @@ class MathObjectTests: BaseTestContext {
 
       let request = GetOfficeMathObjectRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getOfficeMathObject(request: request);
-      XCTAssertNotNil(actual.getOfficeMathObject());
-      XCTAssertEqual(actual.getOfficeMathObject()!.getNodeId(), "0.0.0.0");
+      if (!(actual.getOfficeMathObject() != nil)) { XCTFail("actual.getOfficeMathObject() != nil"); return; }
+      if (!(actual.getOfficeMathObject()!.getNodeId() == "0.0.0.0")) { XCTFail("actual.getOfficeMathObject()!.getNodeId() == " + "0.0.0.0"); return; }
     }
 
     // Test for rendering mathObject.

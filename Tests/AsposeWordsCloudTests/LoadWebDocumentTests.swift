@@ -47,8 +47,8 @@ class LoadWebDocumentTests: BaseTestContext {
         .setLoadingDocumentUrl(loadingDocumentUrl: "http://google.com");
       let request = LoadWebDocumentRequest(data: requestData);
       let actual = try super.getApi().loadWebDocument(request: request);
-      XCTAssertNotNil(actual.getSaveResult());
-      XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
-      XCTAssertEqual(actual.getSaveResult()!.getDestDocument()!.getHref(), "google.doc");
+      if (!(actual.getSaveResult() != nil)) { XCTFail("actual.getSaveResult() != nil"); return; }
+      if (!(actual.getSaveResult()!.getDestDocument() != nil)) { XCTFail("actual.getSaveResult()!.getDestDocument() != nil"); return; }
+      if (!(actual.getSaveResult()!.getDestDocument()!.getHref() == "google.doc")) { XCTFail("actual.getSaveResult()!.getDestDocument()!.getHref() == " + "google.doc"); return; }
     }
 }

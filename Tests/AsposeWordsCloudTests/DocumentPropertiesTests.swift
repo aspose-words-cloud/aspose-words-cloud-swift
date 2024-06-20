@@ -53,12 +53,12 @@ class DocumentPropertiesTests: BaseTestContext {
 
       let request = GetDocumentPropertiesRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentProperties(request: request);
-      XCTAssertNotNil(actual.getDocumentProperties());
-      XCTAssertNotNil(actual.getDocumentProperties()!.getList());
-      XCTAssertEqual(actual.getDocumentProperties()!.getList()!.count, 24);
-      XCTAssertNotNil(actual.getDocumentProperties()!.getList()![0]);
-      XCTAssertEqual(actual.getDocumentProperties()!.getList()![0].getName(), "Author");
-      XCTAssertEqual(actual.getDocumentProperties()!.getList()![0].getValue(), "");
+      if (!(actual.getDocumentProperties() != nil)) { XCTFail("actual.getDocumentProperties() != nil"); return; }
+      if (!(actual.getDocumentProperties()!.getList() != nil)) { XCTFail("actual.getDocumentProperties()!.getList() != nil"); return; }
+      if (!(actual.getDocumentProperties()!.getList()?.count == 24)) { XCTFail("actual.getDocumentProperties()!.getList()?.count == 24"); return; }
+      if (!(actual.getDocumentProperties()!.getList()![0] != nil)) { XCTFail("actual.getDocumentProperties()!.getList()![0] != nil"); return; }
+      if (!(actual.getDocumentProperties()!.getList()![0].getName() == "Author")) { XCTFail("actual.getDocumentProperties()!.getList()![0].getName() == " + "Author"); return; }
+      if (!(actual.getDocumentProperties()!.getList()![0].getValue() == "")) { XCTFail("actual.getDocumentProperties()!.getList()![0].getValue() == " + ""); return; }
     }
 
     // Test for getting document properties online.
@@ -76,9 +76,9 @@ class DocumentPropertiesTests: BaseTestContext {
 
       let request = GetDocumentPropertyRequest(name: remoteFileName, propertyName: "Author", folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentProperty(request: request);
-      XCTAssertNotNil(actual.getDocumentProperty());
-      XCTAssertEqual(actual.getDocumentProperty()!.getName(), "Author");
-      XCTAssertEqual(actual.getDocumentProperty()!.getValue(), "");
+      if (!(actual.getDocumentProperty() != nil)) { XCTFail("actual.getDocumentProperty() != nil"); return; }
+      if (!(actual.getDocumentProperty()!.getName() == "Author")) { XCTFail("actual.getDocumentProperty()!.getName() == " + "Author"); return; }
+      if (!(actual.getDocumentProperty()!.getValue() == "")) { XCTFail("actual.getDocumentProperty()!.getValue() == " + ""); return; }
     }
 
     // A test for GetDocumentProperty online.
@@ -115,9 +115,9 @@ class DocumentPropertiesTests: BaseTestContext {
         .setValue(value: "Imran Anwar");
       let request = CreateOrUpdateDocumentPropertyRequest(name: remoteFileName, propertyName: "AsposeAuthor", property: requestProperty, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().createOrUpdateDocumentProperty(request: request);
-      XCTAssertNotNil(actual.getDocumentProperty());
-      XCTAssertEqual(actual.getDocumentProperty()!.getName(), "AsposeAuthor");
-      XCTAssertEqual(actual.getDocumentProperty()!.getValue(), "Imran Anwar");
+      if (!(actual.getDocumentProperty() != nil)) { XCTFail("actual.getDocumentProperty() != nil"); return; }
+      if (!(actual.getDocumentProperty()!.getName() == "AsposeAuthor")) { XCTFail("actual.getDocumentProperty()!.getName() == " + "AsposeAuthor"); return; }
+      if (!(actual.getDocumentProperty()!.getValue() == "Imran Anwar")) { XCTFail("actual.getDocumentProperty()!.getValue() == " + "Imran Anwar"); return; }
     }
 
     // Test for updating document property online.

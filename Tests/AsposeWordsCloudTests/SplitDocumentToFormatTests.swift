@@ -47,9 +47,9 @@ class SplitDocumentToFormatTests: BaseTestContext {
 
       let request = SplitDocumentRequest(name: remoteFileName, format: "text", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/TestSplitDocument.text", from: 1, to: 2);
       let actual = try super.getApi().splitDocument(request: request);
-      XCTAssertNotNil(actual.getSplitResult());
-      XCTAssertNotNil(actual.getSplitResult()!.getPages());
-      XCTAssertEqual(actual.getSplitResult()!.getPages()!.count, 2);
+      if (!(actual.getSplitResult() != nil)) { XCTFail("actual.getSplitResult() != nil"); return; }
+      if (!(actual.getSplitResult()!.getPages() != nil)) { XCTFail("actual.getSplitResult()!.getPages() != nil"); return; }
+      if (!(actual.getSplitResult()!.getPages()?.count == 2)) { XCTFail("actual.getSplitResult()!.getPages()?.count == 2"); return; }
     }
 
     // Test for document splitting online.

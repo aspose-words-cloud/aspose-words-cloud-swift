@@ -37,6 +37,7 @@ public class SaveAsTiffRequest : WordsApiRequest {
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
+    private let openTypeSupport : Bool?;
     private let useAntiAliasing : Bool?;
     private let useHighQualityRendering : Bool?;
     private let imageBrightness : Double?;
@@ -64,6 +65,7 @@ public class SaveAsTiffRequest : WordsApiRequest {
         case loadEncoding;
         case password;
         case encryptedPassword;
+        case openTypeSupport;
         case useAntiAliasing;
         case useHighQualityRendering;
         case imageBrightness;
@@ -86,7 +88,7 @@ public class SaveAsTiffRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the SaveAsTiffRequest class.
-    public init(name : String, saveOptions : TiffSaveOptionsData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, useAntiAliasing : Bool? = nil, useHighQualityRendering : Bool? = nil, imageBrightness : Double? = nil, imageColorMode : String? = nil, imageContrast : Double? = nil, numeralFormat : String? = nil, pageCount : Int? = nil, pageIndex : Int? = nil, paperColor : String? = nil, pixelFormat : String? = nil, resolution : Double? = nil, scale : Double? = nil, tiffCompression : String? = nil, dmlRenderingMode : String? = nil, dmlEffectsRenderingMode : String? = nil, tiffBinarizationMethod : String? = nil, zipOutput : Bool? = nil, fontsLocation : String? = nil) {
+    public init(name : String, saveOptions : TiffSaveOptionsData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, openTypeSupport : Bool? = nil, useAntiAliasing : Bool? = nil, useHighQualityRendering : Bool? = nil, imageBrightness : Double? = nil, imageColorMode : String? = nil, imageContrast : Double? = nil, numeralFormat : String? = nil, pageCount : Int? = nil, pageIndex : Int? = nil, paperColor : String? = nil, pixelFormat : String? = nil, resolution : Double? = nil, scale : Double? = nil, tiffCompression : String? = nil, dmlRenderingMode : String? = nil, dmlEffectsRenderingMode : String? = nil, tiffBinarizationMethod : String? = nil, zipOutput : Bool? = nil, fontsLocation : String? = nil) {
         self.name = name;
         self.saveOptions = saveOptions;
         self.folder = folder;
@@ -94,6 +96,7 @@ public class SaveAsTiffRequest : WordsApiRequest {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
+        self.openTypeSupport = openTypeSupport;
         self.useAntiAliasing = useAntiAliasing;
         self.useHighQualityRendering = useHighQualityRendering;
         self.imageBrightness = imageBrightness;
@@ -147,6 +150,11 @@ public class SaveAsTiffRequest : WordsApiRequest {
     // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
     public func getEncryptedPassword() -> String? {
         return self.encryptedPassword;
+    }
+
+    // The value indicates whether OpenType support is on.
+    public func getOpenTypeSupport() -> Bool? {
+        return self.openTypeSupport;
     }
 
     // The flag indicating whether to use antialiasing.
@@ -304,6 +312,18 @@ public class SaveAsTiffRequest : WordsApiRequest {
 
          #else
                      queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+
+         #endif        
+             }
+
+
+             if (self.getOpenTypeSupport() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
 
          #endif        
              }

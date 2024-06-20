@@ -63,9 +63,9 @@ class FootnoteTests: BaseTestContext {
         .setText(text: "test endnote");
       let request = InsertFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto as! FootnoteInsert, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().insertFootnote(request: request);
-      XCTAssertNotNil(actual.getFootnote());
-      XCTAssertEqual(actual.getFootnote()!.getNodeId(), "0.1.7.1");
-      XCTAssertEqual(actual.getFootnote()!.getText(), " test endnote" + "\r\n");
+      if (!(actual.getFootnote() != nil)) { XCTFail("actual.getFootnote() != nil"); return; }
+      if (!(actual.getFootnote()!.getNodeId() == "0.1.7.1")) { XCTFail("actual.getFootnote()!.getNodeId() == " + "0.1.7.1"); return; }
+      if (!(actual.getFootnote()!.getText() == " test endnote" + "\r\n")) { XCTFail("actual.getFootnote()!.getText() == " + " test endnote" + "\r\n"); return; }
     }
 
     // Test for adding footnote online.
@@ -89,9 +89,9 @@ class FootnoteTests: BaseTestContext {
         .setText(text: "test endnote");
       let request = InsertFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto as! FootnoteInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertFootnote(request: request);
-      XCTAssertNotNil(actual.getFootnote());
-      XCTAssertEqual(actual.getFootnote()!.getNodeId(), "0.1.7.1");
-      XCTAssertEqual(actual.getFootnote()!.getText(), " test endnote" + "\r\n");
+      if (!(actual.getFootnote() != nil)) { XCTFail("actual.getFootnote() != nil"); return; }
+      if (!(actual.getFootnote()!.getNodeId() == "0.1.7.1")) { XCTFail("actual.getFootnote()!.getNodeId() == " + "0.1.7.1"); return; }
+      if (!(actual.getFootnote()!.getText() == " test endnote" + "\r\n")) { XCTFail("actual.getFootnote()!.getText() == " + " test endnote" + "\r\n"); return; }
     }
 
     // Test for deleting footnote.
@@ -129,10 +129,10 @@ class FootnoteTests: BaseTestContext {
 
       let request = GetFootnotesRequest(name: remoteFileName, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getFootnotes(request: request);
-      XCTAssertNotNil(actual.getFootnotes());
-      XCTAssertNotNil(actual.getFootnotes()!.getList());
-      XCTAssertEqual(actual.getFootnotes()!.getList()!.count, 6);
-      XCTAssertEqual(actual.getFootnotes()!.getList()![0].getText(), " Footnote 1." + "\r\n");
+      if (!(actual.getFootnotes() != nil)) { XCTFail("actual.getFootnotes() != nil"); return; }
+      if (!(actual.getFootnotes()!.getList() != nil)) { XCTFail("actual.getFootnotes()!.getList() != nil"); return; }
+      if (!(actual.getFootnotes()!.getList()?.count == 6)) { XCTFail("actual.getFootnotes()!.getList()?.count == 6"); return; }
+      if (!(actual.getFootnotes()!.getList()![0].getText() == " Footnote 1." + "\r\n")) { XCTFail("actual.getFootnotes()!.getList()![0].getText() == " + " Footnote 1." + "\r\n"); return; }
     }
 
     // Test for getting footnotes online.
@@ -150,10 +150,10 @@ class FootnoteTests: BaseTestContext {
 
       let request = GetFootnotesRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getFootnotes(request: request);
-      XCTAssertNotNil(actual.getFootnotes());
-      XCTAssertNotNil(actual.getFootnotes()!.getList());
-      XCTAssertEqual(actual.getFootnotes()!.getList()!.count, 6);
-      XCTAssertEqual(actual.getFootnotes()!.getList()![0].getText(), " Footnote 1." + "\r\n");
+      if (!(actual.getFootnotes() != nil)) { XCTFail("actual.getFootnotes() != nil"); return; }
+      if (!(actual.getFootnotes()!.getList() != nil)) { XCTFail("actual.getFootnotes()!.getList() != nil"); return; }
+      if (!(actual.getFootnotes()!.getList()?.count == 6)) { XCTFail("actual.getFootnotes()!.getList()?.count == 6"); return; }
+      if (!(actual.getFootnotes()!.getList()![0].getText() == " Footnote 1." + "\r\n")) { XCTFail("actual.getFootnotes()!.getList()![0].getText() == " + " Footnote 1." + "\r\n"); return; }
     }
 
     // Test for getting footnote.
@@ -164,8 +164,8 @@ class FootnoteTests: BaseTestContext {
 
       let request = GetFootnoteRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getFootnote(request: request);
-      XCTAssertNotNil(actual.getFootnote());
-      XCTAssertEqual(actual.getFootnote()!.getText(), " Footnote 1." + "\r\n");
+      if (!(actual.getFootnote() != nil)) { XCTFail("actual.getFootnote() != nil"); return; }
+      if (!(actual.getFootnote()!.getText() == " Footnote 1." + "\r\n")) { XCTFail("actual.getFootnote()!.getText() == " + " Footnote 1." + "\r\n"); return; }
     }
 
     // Test for getting footnote online.
@@ -183,8 +183,8 @@ class FootnoteTests: BaseTestContext {
 
       let request = GetFootnoteRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getFootnote(request: request);
-      XCTAssertNotNil(actual.getFootnote());
-      XCTAssertEqual(actual.getFootnote()!.getText(), " Footnote 1." + "\r\n");
+      if (!(actual.getFootnote() != nil)) { XCTFail("actual.getFootnote() != nil"); return; }
+      if (!(actual.getFootnote()!.getText() == " Footnote 1." + "\r\n")) { XCTFail("actual.getFootnote()!.getText() == " + " Footnote 1." + "\r\n"); return; }
     }
 
     // Test for updating footnote.
@@ -197,8 +197,8 @@ class FootnoteTests: BaseTestContext {
         .setText(text: "new text is here");
       let request = UpdateFootnoteRequest(name: remoteFileName, index: 0, footnoteDto: requestFootnoteDto as! FootnoteUpdate, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateFootnote(request: request);
-      XCTAssertNotNil(actual.getFootnote());
-      XCTAssertEqual(actual.getFootnote()!.getText(), " new text is here" + "\r\n");
+      if (!(actual.getFootnote() != nil)) { XCTFail("actual.getFootnote() != nil"); return; }
+      if (!(actual.getFootnote()!.getText() == " new text is here" + "\r\n")) { XCTFail("actual.getFootnote()!.getText() == " + " new text is here" + "\r\n"); return; }
     }
 
     // Test for updating footnote online.
@@ -220,7 +220,7 @@ class FootnoteTests: BaseTestContext {
         .setText(text: "new text is here");
       let request = UpdateFootnoteRequest(name: remoteFileName, index: 0, footnoteDto: requestFootnoteDto as! FootnoteUpdate, folder: remoteDataFolder);
       let actual = try super.getApi().updateFootnote(request: request);
-      XCTAssertNotNil(actual.getFootnote());
-      XCTAssertEqual(actual.getFootnote()!.getText(), " new text is here" + "\r\n");
+      if (!(actual.getFootnote() != nil)) { XCTFail("actual.getFootnote() != nil"); return; }
+      if (!(actual.getFootnote()!.getText() == " new text is here" + "\r\n")) { XCTFail("actual.getFootnote()!.getText() == " + " new text is here" + "\r\n"); return; }
     }
 }

@@ -52,8 +52,8 @@ class PageSetupTests: BaseTestContext {
 
       let request = GetSectionPageSetupRequest(name: remoteFileName, sectionIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getSectionPageSetup(request: request);
-      XCTAssertNotNil(actual.getPageSetup());
-      XCTAssertEqual(actual.getPageSetup()!.getLineStartingNumber(), 1);
+      if (!(actual.getPageSetup() != nil)) { XCTFail("actual.getPageSetup() != nil"); return; }
+      if (!(actual.getPageSetup()!.getLineStartingNumber() == 1)) { XCTFail("actual.getPageSetup()!.getLineStartingNumber() == 1"); return; }
     }
 
     // Test for getting page settings online.
@@ -76,8 +76,8 @@ class PageSetupTests: BaseTestContext {
         .setRtlGutter(rtlGutter: true);
       let request = UpdateSectionPageSetupRequest(name: remoteFileName, sectionIndex: 0, pageSetup: requestPageSetup, folder: remoteDataFolder);
       let actual = try super.getApi().updateSectionPageSetup(request: request);
-      XCTAssertNotNil(actual.getPageSetup());
-      XCTAssertEqual(actual.getPageSetup()!.getRtlGutter(), true);
+      if (!(actual.getPageSetup() != nil)) { XCTFail("actual.getPageSetup() != nil"); return; }
+      if (!(actual.getPageSetup()!.getRtlGutter() == true)) { XCTFail("actual.getPageSetup()!.getRtlGutter() == true"); return; }
 
 
     }

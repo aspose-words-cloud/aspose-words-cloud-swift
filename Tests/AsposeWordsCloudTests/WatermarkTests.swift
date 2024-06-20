@@ -57,7 +57,7 @@ class WatermarkTests: BaseTestContext {
         .setText(text: "watermark text");
       let request = InsertWatermarkRequest(name: remoteFileName, watermarkData: requestWatermarkData, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertWatermark(request: request);
-      XCTAssertNotNil(actual.getDocument());
+      if (!(actual.getDocument() != nil)) { XCTFail("actual.getDocument() != nil"); return; }
     }
 
     // Test for adding watermark text online.
@@ -82,7 +82,7 @@ class WatermarkTests: BaseTestContext {
         .setImage(image: requestWatermarkDataImage);
       let request = InsertWatermarkRequest(name: remoteFileName, watermarkData: requestWatermarkData, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertWatermark(request: request);
-      XCTAssertNotNil(actual.getDocument());
+      if (!(actual.getDocument() != nil)) { XCTFail("actual.getDocument() != nil"); return; }
     }
 
     // Test for adding watermark text online.
@@ -106,8 +106,8 @@ class WatermarkTests: BaseTestContext {
 
       let request = InsertWatermarkImageRequest(name: remoteFileName, imageFile: nil, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName, image: remoteImagePath);
       let actual = try super.getApi().insertWatermarkImage(request: request);
-      XCTAssertNotNil(actual.getDocument());
-      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestInsertWatermarkImage.docx");
+      if (!(actual.getDocument() != nil)) { XCTFail("actual.getDocument() != nil"); return; }
+      if (!(actual.getDocument()!.getFileName() == "TestInsertWatermarkImage.docx")) { XCTFail("actual.getDocument()!.getFileName() == " + "TestInsertWatermarkImage.docx"); return; }
     }
 
     // Test for adding watermark image online.
@@ -129,8 +129,8 @@ class WatermarkTests: BaseTestContext {
         .setText(text: "This is the text");
       let request = InsertWatermarkTextRequest(name: remoteFileName, watermarkText: requestWatermarkText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertWatermarkText(request: request);
-      XCTAssertNotNil(actual.getDocument());
-      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestInsertWatermarkText.docx");
+      if (!(actual.getDocument() != nil)) { XCTFail("actual.getDocument() != nil"); return; }
+      if (!(actual.getDocument()!.getFileName() == "TestInsertWatermarkText.docx")) { XCTFail("actual.getDocument()!.getFileName() == " + "TestInsertWatermarkText.docx"); return; }
     }
 
     // Test for adding watermark text online.
@@ -151,8 +151,8 @@ class WatermarkTests: BaseTestContext {
 
       let request = DeleteWatermarkRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().deleteWatermark(request: request);
-      XCTAssertNotNil(actual.getDocument());
-      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestDeleteWatermark.docx");
+      if (!(actual.getDocument() != nil)) { XCTFail("actual.getDocument() != nil"); return; }
+      if (!(actual.getDocument()!.getFileName() == "TestDeleteWatermark.docx")) { XCTFail("actual.getDocument()!.getFileName() == " + "TestDeleteWatermark.docx"); return; }
     }
 
     // Test for deleting watermark online.

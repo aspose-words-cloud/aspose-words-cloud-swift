@@ -68,9 +68,9 @@ class FormFieldTests: BaseTestContext {
         .setCalculateOnExit(calculateOnExit: true);
       let request = UpdateFormFieldRequest(name: remoteFileName, index: 0, formField: requestFormField as! FormFieldTextInput, nodePath: "sections/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateFormField(request: request);
-      XCTAssertNotNil(actual.getFormField());
-      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
-      XCTAssertEqual(actual.getFormField()!.getStatusText(), "");
+      if (!(actual.getFormField() != nil)) { XCTFail("actual.getFormField() != nil"); return; }
+      if (!(actual.getFormField()!.getName() == "FullName")) { XCTFail("actual.getFormField()!.getName() == " + "FullName"); return; }
+      if (!(actual.getFormField()!.getStatusText() == "")) { XCTFail("actual.getFormField()!.getStatusText() == " + ""); return; }
     }
 
     // Test for posting form field online.
@@ -104,9 +104,9 @@ class FormFieldTests: BaseTestContext {
         .setCalculateOnExit(calculateOnExit: true);
       let request = UpdateFormFieldRequest(name: remoteFileName, index: 0, formField: requestFormField as! FormFieldTextInput, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateFormField(request: request);
-      XCTAssertNotNil(actual.getFormField());
-      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
-      XCTAssertEqual(actual.getFormField()!.getStatusText(), "");
+      if (!(actual.getFormField() != nil)) { XCTFail("actual.getFormField() != nil"); return; }
+      if (!(actual.getFormField()!.getName() == "FullName")) { XCTFail("actual.getFormField()!.getName() == " + "FullName"); return; }
+      if (!(actual.getFormField()!.getStatusText() == "")) { XCTFail("actual.getFormField()!.getStatusText() == " + ""); return; }
     }
 
     // Test for getting form field.
@@ -117,8 +117,8 @@ class FormFieldTests: BaseTestContext {
 
       let request = GetFormFieldRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().getFormField(request: request);
-      XCTAssertNotNil(actual.getFormField());
-      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
+      if (!(actual.getFormField() != nil)) { XCTFail("actual.getFormField() != nil"); return; }
+      if (!(actual.getFormField()!.getName() == "FullName")) { XCTFail("actual.getFormField()!.getName() == " + "FullName"); return; }
     }
 
     // Test for getting form field online.
@@ -136,8 +136,8 @@ class FormFieldTests: BaseTestContext {
 
       let request = GetFormFieldRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getFormField(request: request);
-      XCTAssertNotNil(actual.getFormField());
-      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
+      if (!(actual.getFormField() != nil)) { XCTFail("actual.getFormField() != nil"); return; }
+      if (!(actual.getFormField()!.getName() == "FullName")) { XCTFail("actual.getFormField()!.getName() == " + "FullName"); return; }
     }
 
     // Test for getting form fields.
@@ -148,10 +148,10 @@ class FormFieldTests: BaseTestContext {
 
       let request = GetFormFieldsRequest(name: remoteFileName, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().getFormFields(request: request);
-      XCTAssertNotNil(actual.getFormFields());
-      XCTAssertNotNil(actual.getFormFields()!.getList());
-      XCTAssertEqual(actual.getFormFields()!.getList()!.count, 5);
-      XCTAssertEqual(actual.getFormFields()!.getList()![0].getName(), "FullName");
+      if (!(actual.getFormFields() != nil)) { XCTFail("actual.getFormFields() != nil"); return; }
+      if (!(actual.getFormFields()!.getList() != nil)) { XCTFail("actual.getFormFields()!.getList() != nil"); return; }
+      if (!(actual.getFormFields()!.getList()?.count == 5)) { XCTFail("actual.getFormFields()!.getList()?.count == 5"); return; }
+      if (!(actual.getFormFields()!.getList()![0].getName() == "FullName")) { XCTFail("actual.getFormFields()!.getList()![0].getName() == " + "FullName"); return; }
     }
 
     // Test for getting form fields online.
@@ -169,10 +169,10 @@ class FormFieldTests: BaseTestContext {
 
       let request = GetFormFieldsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getFormFields(request: request);
-      XCTAssertNotNil(actual.getFormFields());
-      XCTAssertNotNil(actual.getFormFields()!.getList());
-      XCTAssertEqual(actual.getFormFields()!.getList()!.count, 5);
-      XCTAssertEqual(actual.getFormFields()!.getList()![0].getName(), "FullName");
+      if (!(actual.getFormFields() != nil)) { XCTFail("actual.getFormFields() != nil"); return; }
+      if (!(actual.getFormFields()!.getList() != nil)) { XCTFail("actual.getFormFields()!.getList() != nil"); return; }
+      if (!(actual.getFormFields()!.getList()?.count == 5)) { XCTFail("actual.getFormFields()!.getList()?.count == 5"); return; }
+      if (!(actual.getFormFields()!.getList()![0].getName() == "FullName")) { XCTFail("actual.getFormFields()!.getList()![0].getName() == " + "FullName"); return; }
     }
 
     // Test for insert form field without node path.
@@ -191,9 +191,9 @@ class FormFieldTests: BaseTestContext {
         .setCalculateOnExit(calculateOnExit: true);
       let request = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField as! FormFieldTextInput, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertFormField(request: request);
-      XCTAssertNotNil(actual.getFormField());
-      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
-      XCTAssertEqual(actual.getFormField()!.getStatusText(), "");
+      if (!(actual.getFormField() != nil)) { XCTFail("actual.getFormField() != nil"); return; }
+      if (!(actual.getFormField()!.getName() == "FullName")) { XCTFail("actual.getFormField()!.getName() == " + "FullName"); return; }
+      if (!(actual.getFormField()!.getStatusText() == "")) { XCTFail("actual.getFormField()!.getStatusText() == " + ""); return; }
     }
 
     // Test for insert form field without node path online.
@@ -227,9 +227,9 @@ class FormFieldTests: BaseTestContext {
         .setCalculateOnExit(calculateOnExit: true);
       let request = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField as! FormFieldTextInput, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertFormField(request: request);
-      XCTAssertNotNil(actual.getFormField());
-      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
-      XCTAssertEqual(actual.getFormField()!.getStatusText(), "");
+      if (!(actual.getFormField() != nil)) { XCTFail("actual.getFormField() != nil"); return; }
+      if (!(actual.getFormField()!.getName() == "FullName")) { XCTFail("actual.getFormField()!.getName() == " + "FullName"); return; }
+      if (!(actual.getFormField()!.getStatusText() == "")) { XCTFail("actual.getFormField()!.getStatusText() == " + ""); return; }
     }
 
     // Test for deleting form field.

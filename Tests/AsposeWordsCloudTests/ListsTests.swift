@@ -55,10 +55,10 @@ class ListsTests: BaseTestContext {
 
       let request = GetListsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getLists(request: request);
-      XCTAssertNotNil(actual.getLists());
-      XCTAssertNotNil(actual.getLists()!.getListInfo());
-      XCTAssertEqual(actual.getLists()!.getListInfo()!.count, 2);
-      XCTAssertEqual(actual.getLists()!.getListInfo()![0].getListId(), 1);
+      if (!(actual.getLists() != nil)) { XCTFail("actual.getLists() != nil"); return; }
+      if (!(actual.getLists()!.getListInfo() != nil)) { XCTFail("actual.getLists()!.getListInfo() != nil"); return; }
+      if (!(actual.getLists()!.getListInfo()?.count == 2)) { XCTFail("actual.getLists()!.getListInfo()?.count == 2"); return; }
+      if (!(actual.getLists()!.getListInfo()![0].getListId() == 1)) { XCTFail("actual.getLists()!.getListInfo()![0].getListId() == 1"); return; }
     }
 
     // Test for getting lists from document online.
@@ -76,8 +76,8 @@ class ListsTests: BaseTestContext {
 
       let request = GetListRequest(name: remoteFileName, listId: 1, folder: remoteDataFolder);
       let actual = try super.getApi().getList(request: request);
-      XCTAssertNotNil(actual.getList());
-      XCTAssertEqual(actual.getList()!.getListId(), 1);
+      if (!(actual.getList() != nil)) { XCTFail("actual.getList() != nil"); return; }
+      if (!(actual.getList()!.getListId() == 1)) { XCTFail("actual.getList()!.getListId() == 1"); return; }
     }
 
     // Test for getting list from document online.
@@ -106,9 +106,9 @@ class ListsTests: BaseTestContext {
         .setIsRestartAtEachSection(isRestartAtEachSection: true);
       let request = UpdateListOnlineRequest(document: requestDocument, listId: 1, listUpdate: requestListUpdate);
       let actual = try super.getApi().updateListOnline(request: request);
-      XCTAssertNotNil(actual.getModel()!.getList());
-      XCTAssertEqual(actual.getModel()!.getList()!.getListId(), 1);
-      XCTAssertEqual(actual.getModel()!.getList()!.getIsRestartAtEachSection(), true);
+      if (!(actual.getModel()!.getList() != nil)) { XCTFail("actual.getModel()!.getList() != nil"); return; }
+      if (!(actual.getModel()!.getList()!.getListId() == 1)) { XCTFail("actual.getModel()!.getList()!.getListId() == 1"); return; }
+      if (!(actual.getModel()!.getList()!.getIsRestartAtEachSection() == true)) { XCTFail("actual.getModel()!.getList()!.getIsRestartAtEachSection() == true"); return; }
     }
 
     // Test for updating list level from document.
@@ -130,10 +130,10 @@ class ListsTests: BaseTestContext {
         .setAlignment(alignment: ListLevelUpdate.Alignment._right);
       let request = UpdateListLevelOnlineRequest(document: requestDocument, listId: 1, listUpdate: requestListUpdate, listLevel: 1);
       let actual = try super.getApi().updateListLevelOnline(request: request);
-      XCTAssertNotNil(actual.getModel()!.getList());
-      XCTAssertNotNil(actual.getModel()!.getList()!.getListLevels());
-      XCTAssertNotNil(actual.getModel()!.getList()!.getListLevels()!.getListLevel());
-      XCTAssertEqual(actual.getModel()!.getList()!.getListLevels()!.getListLevel()!.count, 9);
+      if (!(actual.getModel()!.getList() != nil)) { XCTFail("actual.getModel()!.getList() != nil"); return; }
+      if (!(actual.getModel()!.getList()!.getListLevels() != nil)) { XCTFail("actual.getModel()!.getList()!.getListLevels() != nil"); return; }
+      if (!(actual.getModel()!.getList()!.getListLevels()!.getListLevel() != nil)) { XCTFail("actual.getModel()!.getList()!.getListLevels()!.getListLevel() != nil"); return; }
+      if (!(actual.getModel()!.getList()!.getListLevels()!.getListLevel()?.count == 9)) { XCTFail("actual.getModel()!.getList()!.getListLevels()!.getListLevel()?.count == 9"); return; }
 
     }
 
@@ -147,8 +147,8 @@ class ListsTests: BaseTestContext {
         .setTemplate(template: ListInsert.Template.outlineLegal);
       let request = InsertListRequest(name: remoteFileName, listInsert: requestListInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertList(request: request);
-      XCTAssertNotNil(actual.getList());
-      XCTAssertEqual(actual.getList()!.getListId(), 3);
+      if (!(actual.getList() != nil)) { XCTFail("actual.getList() != nil"); return; }
+      if (!(actual.getList()!.getListId() == 3)) { XCTFail("actual.getList()!.getListId() == 3"); return; }
     }
 
     // Test for inserting list from document online.

@@ -96,8 +96,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().getParagraph(request: request);
-      XCTAssertNotNil(actual.getParagraph());
-      XCTAssertEqual(actual.getParagraph()!.getNodeId(), "0.0.0");
+      if (!(actual.getParagraph() != nil)) { XCTFail("actual.getParagraph() != nil"); return; }
+      if (!(actual.getParagraph()!.getNodeId() == "0.0.0")) { XCTFail("actual.getParagraph()!.getNodeId() == " + "0.0.0"); return; }
     }
 
     // Test for getting paragraph online.
@@ -115,8 +115,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getParagraph(request: request);
-      XCTAssertNotNil(actual.getParagraph());
-      XCTAssertEqual(actual.getParagraph()!.getNodeId(), "0.0.0");
+      if (!(actual.getParagraph() != nil)) { XCTFail("actual.getParagraph() != nil"); return; }
+      if (!(actual.getParagraph()!.getNodeId() == "0.0.0")) { XCTFail("actual.getParagraph()!.getNodeId() == " + "0.0.0"); return; }
     }
 
     // Test for getting all paragraphs.
@@ -127,10 +127,10 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphsRequest(name: remoteFileName, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphs(request: request);
-      XCTAssertNotNil(actual.getParagraphs());
-      XCTAssertNotNil(actual.getParagraphs()!.getParagraphLinkList());
-      XCTAssertEqual(actual.getParagraphs()!.getParagraphLinkList()!.count, 15);
-      XCTAssertEqual(actual.getParagraphs()!.getParagraphLinkList()![0].getText(), "Page 1 of 3");
+      if (!(actual.getParagraphs() != nil)) { XCTFail("actual.getParagraphs() != nil"); return; }
+      if (!(actual.getParagraphs()!.getParagraphLinkList() != nil)) { XCTFail("actual.getParagraphs()!.getParagraphLinkList() != nil"); return; }
+      if (!(actual.getParagraphs()!.getParagraphLinkList()?.count == 15)) { XCTFail("actual.getParagraphs()!.getParagraphLinkList()?.count == 15"); return; }
+      if (!(actual.getParagraphs()!.getParagraphLinkList()![0].getText() == "Page 1 of 3")) { XCTFail("actual.getParagraphs()!.getParagraphLinkList()![0].getText() == " + "Page 1 of 3"); return; }
     }
 
     // Test for getting all paragraphs online.
@@ -148,10 +148,10 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphs(request: request);
-      XCTAssertNotNil(actual.getParagraphs());
-      XCTAssertNotNil(actual.getParagraphs()!.getParagraphLinkList());
-      XCTAssertEqual(actual.getParagraphs()!.getParagraphLinkList()!.count, 15);
-      XCTAssertEqual(actual.getParagraphs()!.getParagraphLinkList()![0].getText(), "Page 1 of 3");
+      if (!(actual.getParagraphs() != nil)) { XCTFail("actual.getParagraphs() != nil"); return; }
+      if (!(actual.getParagraphs()!.getParagraphLinkList() != nil)) { XCTFail("actual.getParagraphs()!.getParagraphLinkList() != nil"); return; }
+      if (!(actual.getParagraphs()!.getParagraphLinkList()?.count == 15)) { XCTFail("actual.getParagraphs()!.getParagraphLinkList()?.count == 15"); return; }
+      if (!(actual.getParagraphs()!.getParagraphLinkList()![0].getText() == "Page 1 of 3")) { XCTFail("actual.getParagraphs()!.getParagraphLinkList()![0].getText() == " + "Page 1 of 3"); return; }
     }
 
     // Test for getting paragraph run.
@@ -162,8 +162,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetRunRequest(name: remoteFileName, paragraphPath: "paragraphs/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getRun(request: request);
-      XCTAssertNotNil(actual.getRun());
-      XCTAssertEqual(actual.getRun()!.getText(), "Page ");
+      if (!(actual.getRun() != nil)) { XCTFail("actual.getRun() != nil"); return; }
+      if (!(actual.getRun()!.getText() == "Page ")) { XCTFail("actual.getRun()!.getText() == " + "Page "); return; }
     }
 
     // Test for getting paragraph run online.
@@ -181,8 +181,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetRunFontRequest(name: remoteFileName, paragraphPath: "paragraphs/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getRunFont(request: request);
-      XCTAssertNotNil(actual.getFont());
-      XCTAssertEqual(actual.getFont()!.getName(), "Times New Roman");
+      if (!(actual.getFont() != nil)) { XCTFail("actual.getFont() != nil"); return; }
+      if (!(actual.getFont()!.getName() == "Times New Roman")) { XCTFail("actual.getFont()!.getName() == " + "Times New Roman"); return; }
     }
 
     // Test for getting paragraph run font online.
@@ -200,10 +200,10 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetRunsRequest(name: remoteFileName, paragraphPath: "sections/0/paragraphs/0", folder: remoteDataFolder);
       let actual = try super.getApi().getRuns(request: request);
-      XCTAssertNotNil(actual.getRuns());
-      XCTAssertNotNil(actual.getRuns()!.getList());
-      XCTAssertEqual(actual.getRuns()!.getList()!.count, 6);
-      XCTAssertEqual(actual.getRuns()!.getList()![0].getText(), "Page ");
+      if (!(actual.getRuns() != nil)) { XCTFail("actual.getRuns() != nil"); return; }
+      if (!(actual.getRuns()!.getList() != nil)) { XCTFail("actual.getRuns()!.getList() != nil"); return; }
+      if (!(actual.getRuns()!.getList()?.count == 6)) { XCTFail("actual.getRuns()!.getList()?.count == 6"); return; }
+      if (!(actual.getRuns()!.getList()![0].getText() == "Page ")) { XCTFail("actual.getRuns()!.getList()![0].getText() == " + "Page "); return; }
     }
 
     // Test for getting paragraph runs online.
@@ -223,8 +223,8 @@ class ParagraphTests: BaseTestContext {
         .setBold(bold: true);
       let request = UpdateRunFontRequest(name: remoteFileName, paragraphPath: "paragraphs/0", index: 0, fontDto: requestFontDto, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateRunFont(request: request);
-      XCTAssertNotNil(actual.getFont());
-      XCTAssertEqual(actual.getFont()!.getBold(), true);
+      if (!(actual.getFont() != nil)) { XCTFail("actual.getFont() != nil"); return; }
+      if (!(actual.getFont()!.getBold() == true)) { XCTFail("actual.getFont()!.getBold() == true"); return; }
     }
 
     // Test for updating paragraph run font online.
@@ -246,8 +246,8 @@ class ParagraphTests: BaseTestContext {
         .setText(text: "This is a new paragraph for your document");
       let request = InsertParagraphRequest(name: remoteFileName, paragraph: requestParagraph, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().insertParagraph(request: request);
-      XCTAssertNotNil(actual.getParagraph());
-      XCTAssertEqual(actual.getParagraph()!.getNodeId(), "0.3.8");
+      if (!(actual.getParagraph() != nil)) { XCTFail("actual.getParagraph() != nil"); return; }
+      if (!(actual.getParagraph()!.getNodeId() == "0.3.8")) { XCTFail("actual.getParagraph()!.getNodeId() == " + "0.3.8"); return; }
     }
 
     // Test for adding paragraph online.
@@ -269,8 +269,8 @@ class ParagraphTests: BaseTestContext {
         .setText(text: "This is a new paragraph for your document");
       let request = InsertParagraphRequest(name: remoteFileName, paragraph: requestParagraph, folder: remoteDataFolder);
       let actual = try super.getApi().insertParagraph(request: request);
-      XCTAssertNotNil(actual.getParagraph());
-      XCTAssertEqual(actual.getParagraph()!.getNodeId(), "0.3.8");
+      if (!(actual.getParagraph() != nil)) { XCTFail("actual.getParagraph() != nil"); return; }
+      if (!(actual.getParagraph()!.getNodeId() == "0.3.8")) { XCTFail("actual.getParagraph()!.getNodeId() == " + "0.3.8"); return; }
     }
 
     // Test for paragraph rendering.
@@ -308,8 +308,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphFormatRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphFormat(request: request);
-      XCTAssertNotNil(actual.getParagraphFormat());
-      XCTAssertEqual(actual.getParagraphFormat()!.getStyleName(), "Normal");
+      if (!(actual.getParagraphFormat() != nil)) { XCTFail("actual.getParagraphFormat() != nil"); return; }
+      if (!(actual.getParagraphFormat()!.getStyleName() == "Normal")) { XCTFail("actual.getParagraphFormat()!.getStyleName() == " + "Normal"); return; }
     }
 
     // Test for getting paragraph format settings online.
@@ -327,8 +327,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphFormatRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphFormat(request: request);
-      XCTAssertNotNil(actual.getParagraphFormat());
-      XCTAssertEqual(actual.getParagraphFormat()!.getStyleName(), "Normal");
+      if (!(actual.getParagraphFormat() != nil)) { XCTFail("actual.getParagraphFormat() != nil"); return; }
+      if (!(actual.getParagraphFormat()!.getStyleName() == "Normal")) { XCTFail("actual.getParagraphFormat()!.getStyleName() == " + "Normal"); return; }
     }
 
     // Test for updating  paragraph format settings.
@@ -341,7 +341,7 @@ class ParagraphTests: BaseTestContext {
         .setAlignment(alignment: ParagraphFormatUpdate.Alignment._right);
       let request = UpdateParagraphFormatRequest(name: remoteFileName, index: 0, paragraphFormatDto: requestParagraphFormatDto as! ParagraphFormatUpdate, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateParagraphFormat(request: request);
-      XCTAssertNotNil(actual.getParagraphFormat());
+      if (!(actual.getParagraphFormat() != nil)) { XCTFail("actual.getParagraphFormat() != nil"); return; }
 
     }
 
@@ -389,8 +389,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphListFormatRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphListFormat(request: request);
-      XCTAssertNotNil(actual.getListFormat());
-      XCTAssertEqual(actual.getListFormat()!.getListId(), 1);
+      if (!(actual.getListFormat() != nil)) { XCTFail("actual.getListFormat() != nil"); return; }
+      if (!(actual.getListFormat()!.getListId() == 1)) { XCTFail("actual.getListFormat()!.getListId() == 1"); return; }
     }
 
     // Test for getting paragraph list format online.
@@ -408,8 +408,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphListFormatRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphListFormat(request: request);
-      XCTAssertNotNil(actual.getListFormat());
-      XCTAssertEqual(actual.getListFormat()!.getListId(), 1);
+      if (!(actual.getListFormat() != nil)) { XCTFail("actual.getListFormat() != nil"); return; }
+      if (!(actual.getListFormat()!.getListId() == 1)) { XCTFail("actual.getListFormat()!.getListId() == 1"); return; }
     }
 
     // Test for updating paragraph list format.
@@ -422,8 +422,8 @@ class ParagraphTests: BaseTestContext {
         .setListId(listId: 2);
       let request = UpdateParagraphListFormatRequest(name: remoteFileName, index: 0, listFormatDto: requestListFormatDto, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateParagraphListFormat(request: request);
-      XCTAssertNotNil(actual.getListFormat());
-      XCTAssertEqual(actual.getListFormat()!.getListId(), 2);
+      if (!(actual.getListFormat() != nil)) { XCTFail("actual.getListFormat() != nil"); return; }
+      if (!(actual.getListFormat()!.getListId() == 2)) { XCTFail("actual.getListFormat()!.getListId() == 2"); return; }
     }
 
     // Test for updating paragraph list format online.
@@ -445,8 +445,8 @@ class ParagraphTests: BaseTestContext {
         .setListId(listId: 2);
       let request = UpdateParagraphListFormatRequest(name: remoteFileName, index: 0, listFormatDto: requestListFormatDto, folder: remoteDataFolder);
       let actual = try super.getApi().updateParagraphListFormat(request: request);
-      XCTAssertNotNil(actual.getListFormat());
-      XCTAssertEqual(actual.getListFormat()!.getListId(), 2);
+      if (!(actual.getListFormat() != nil)) { XCTFail("actual.getListFormat() != nil"); return; }
+      if (!(actual.getListFormat()!.getListId() == 2)) { XCTFail("actual.getListFormat()!.getListId() == 2"); return; }
     }
 
     // Test for deleting paragraph list format.
@@ -484,9 +484,9 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphTabStopsRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphTabStops(request: request);
-      XCTAssertNotNil(actual.getTabStops());
-      XCTAssertEqual(actual.getTabStops()!.count, 2);
-      XCTAssertEqual(actual.getTabStops()![0].getPosition(), 72.0);
+      if (!(actual.getTabStops() != nil)) { XCTFail("actual.getTabStops() != nil"); return; }
+      if (!(actual.getTabStops()?.count == 2)) { XCTFail("actual.getTabStops()?.count == 2"); return; }
+      if (!(actual.getTabStops()![0].getPosition() == 72.0)) { XCTFail("actual.getTabStops()![0].getPosition() == 72.0"); return; }
     }
 
     // Test for getting paragraph tab stops online.
@@ -504,9 +504,9 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphTabStopsRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphTabStops(request: request);
-      XCTAssertNotNil(actual.getTabStops());
-      XCTAssertEqual(actual.getTabStops()!.count, 2);
-      XCTAssertEqual(actual.getTabStops()![0].getPosition(), 72.0);
+      if (!(actual.getTabStops() != nil)) { XCTFail("actual.getTabStops() != nil"); return; }
+      if (!(actual.getTabStops()?.count == 2)) { XCTFail("actual.getTabStops()?.count == 2"); return; }
+      if (!(actual.getTabStops()![0].getPosition() == 72.0)) { XCTFail("actual.getTabStops()![0].getPosition() == 72.0"); return; }
     }
 
     // Test for inserting paragraph tab stop.
@@ -521,9 +521,9 @@ class ParagraphTests: BaseTestContext {
         .setPosition(position: 100.0);
       let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, index: 0, tabStopInsertDto: requestTabStopInsertDto as! TabStopInsert, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
-      XCTAssertNotNil(actual.getTabStops());
-      XCTAssertEqual(actual.getTabStops()!.count, 3);
-      XCTAssertEqual(actual.getTabStops()![1].getPosition(), 100.0);
+      if (!(actual.getTabStops() != nil)) { XCTFail("actual.getTabStops() != nil"); return; }
+      if (!(actual.getTabStops()?.count == 3)) { XCTFail("actual.getTabStops()?.count == 3"); return; }
+      if (!(actual.getTabStops()![1].getPosition() == 100.0)) { XCTFail("actual.getTabStops()![1].getPosition() == 100.0"); return; }
 
 
     }
@@ -551,9 +551,9 @@ class ParagraphTests: BaseTestContext {
         .setPosition(position: 100.0);
       let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, index: 0, tabStopInsertDto: requestTabStopInsertDto as! TabStopInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
-      XCTAssertNotNil(actual.getTabStops());
-      XCTAssertEqual(actual.getTabStops()!.count, 3);
-      XCTAssertEqual(actual.getTabStops()![1].getPosition(), 100.0);
+      if (!(actual.getTabStops() != nil)) { XCTFail("actual.getTabStops() != nil"); return; }
+      if (!(actual.getTabStops()?.count == 3)) { XCTFail("actual.getTabStops()?.count == 3"); return; }
+      if (!(actual.getTabStops()![1].getPosition() == 100.0)) { XCTFail("actual.getTabStops()![1].getPosition() == 100.0"); return; }
 
 
     }
@@ -566,8 +566,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = DeleteAllParagraphTabStopsRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().deleteAllParagraphTabStops(request: request);
-      XCTAssertNotNil(actual.getTabStops());
-      XCTAssertEqual(actual.getTabStops()!.count, 0);
+      if (!(actual.getTabStops() != nil)) { XCTFail("actual.getTabStops() != nil"); return; }
+      if (!(actual.getTabStops()?.count == 0)) { XCTFail("actual.getTabStops()?.count == 0"); return; }
     }
 
     // Test for deleting all paragraph tab stops online.
@@ -585,8 +585,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = DeleteAllParagraphTabStopsRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().deleteAllParagraphTabStops(request: request);
-      XCTAssertNotNil(actual.getTabStops());
-      XCTAssertEqual(actual.getTabStops()!.count, 0);
+      if (!(actual.getTabStops() != nil)) { XCTFail("actual.getTabStops() != nil"); return; }
+      if (!(actual.getTabStops()?.count == 0)) { XCTFail("actual.getTabStops()?.count == 0"); return; }
     }
 
     // Test for deleting a tab stops.
@@ -597,8 +597,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = DeleteParagraphTabStopRequest(name: remoteFileName, position: 72.0, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().deleteParagraphTabStop(request: request);
-      XCTAssertNotNil(actual.getTabStops());
-      XCTAssertEqual(actual.getTabStops()!.count, 1);
+      if (!(actual.getTabStops() != nil)) { XCTFail("actual.getTabStops() != nil"); return; }
+      if (!(actual.getTabStops()?.count == 1)) { XCTFail("actual.getTabStops()?.count == 1"); return; }
     }
 
     // Test for deleting a tab stops online.
@@ -616,7 +616,7 @@ class ParagraphTests: BaseTestContext {
 
       let request = DeleteParagraphTabStopRequest(name: remoteFileName, position: 72.0, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().deleteParagraphTabStop(request: request);
-      XCTAssertNotNil(actual.getTabStops());
-      XCTAssertEqual(actual.getTabStops()!.count, 1);
+      if (!(actual.getTabStops() != nil)) { XCTFail("actual.getTabStops() != nil"); return; }
+      if (!(actual.getTabStops()?.count == 1)) { XCTFail("actual.getTabStops()?.count == 1"); return; }
     }
 }

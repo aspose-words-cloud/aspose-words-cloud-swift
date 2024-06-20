@@ -42,7 +42,7 @@ class PasswordEncryptionTests: BaseTestContext {
     func testGetPublicKey() throws {
       let request = GetPublicKeyRequest();
       let actual = try super.getApi().getPublicKey(request: request);
-      XCTAssertNotNil(actual.getExponent());
-      XCTAssertNotNil(actual.getModulus());
+      if (!(actual.getExponent() != nil)) { XCTFail("actual.getExponent() != nil"); return; }
+      if (!(actual.getModulus() != nil)) { XCTFail("actual.getModulus() != nil"); return; }
     }
 }

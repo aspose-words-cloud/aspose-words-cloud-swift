@@ -62,7 +62,7 @@ class FolderTests: BaseTestContext {
     func testGetFilesList() throws {
       let request = GetFilesListRequest(path: remoteDataFolder);
       let actual = try super.getApi().getFilesList(request: request);
-      XCTAssertNotNil(actual.getValue());
+      if (!(actual.getValue() != nil)) { XCTFail("actual.getValue() != nil"); return; }
     }
 
     // Test for copy folder.

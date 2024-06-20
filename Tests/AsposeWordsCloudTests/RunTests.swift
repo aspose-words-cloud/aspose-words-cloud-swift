@@ -53,8 +53,8 @@ class RunTests: BaseTestContext {
         .setText(text: "run with text");
       let request = UpdateRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", index: 0, run: requestRun as! RunUpdate, folder: remoteDataFolder);
       let actual = try super.getApi().updateRun(request: request);
-      XCTAssertNotNil(actual.getRun());
-      XCTAssertEqual(actual.getRun()!.getText(), "run with text");
+      if (!(actual.getRun() != nil)) { XCTFail("actual.getRun() != nil"); return; }
+      if (!(actual.getRun()!.getText() == "run with text")) { XCTFail("actual.getRun()!.getText() == " + "run with text"); return; }
     }
 
     // Test for updating run online.
@@ -76,9 +76,9 @@ class RunTests: BaseTestContext {
         .setText(text: "run with text");
       let request = InsertRunRequest(name: remoteFileName, run: requestRun as! RunInsert, paragraphPath: "paragraphs/1", folder: remoteDataFolder);
       let actual = try super.getApi().insertRun(request: request);
-      XCTAssertNotNil(actual.getRun());
-      XCTAssertEqual(actual.getRun()!.getText(), "run with text");
-      XCTAssertEqual(actual.getRun()!.getNodeId(), "0.0.1.3");
+      if (!(actual.getRun() != nil)) { XCTFail("actual.getRun() != nil"); return; }
+      if (!(actual.getRun()!.getText() == "run with text")) { XCTFail("actual.getRun()!.getText() == " + "run with text"); return; }
+      if (!(actual.getRun()!.getNodeId() == "0.0.1.3")) { XCTFail("actual.getRun()!.getNodeId() == " + "0.0.1.3"); return; }
     }
 
     // Test for adding run online.
