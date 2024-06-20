@@ -54,6 +54,10 @@ node('words-linux') {
                         } finally{
                             junit 'tests.xml'
                         }
+                        
+                        if (currentBuild.result == "UNSTABLE") {
+                            currentBuild.result = "FAILURE"
+                        }
                     }
                     
                     stage('clean-compiled'){
@@ -74,6 +78,10 @@ node('words-linux') {
                         } finally{
                             junit 'tests.xml'
                         }
+                        
+                        if (currentBuild.result == "UNSTABLE") {
+                            currentBuild.result = "FAILURE"
+                        }
                     }
                     
                     stage('clean-compiled'){
@@ -83,6 +91,7 @@ node('words-linux') {
             }
         } finally {
             deleteDir()
+            
         }
     }
 }
