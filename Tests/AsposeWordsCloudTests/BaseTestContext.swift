@@ -60,6 +60,7 @@ class BaseTestContext: XCTestCase {
     }
 
     override func setUp() {
+        continueAfterFailure = false;
         if (self.api == nil) {
             self.baseFolder = URL(fileURLWithPath: #file)
                 .deletingLastPathComponent()
