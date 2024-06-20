@@ -40,6 +40,11 @@ class BatchTests: BaseTestContext {
     let localFile = "Common/test_multi_pages.docx";
     let reportingFolder = "DocumentActions/Reporting";
 
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+    }
+
     // Test for simple batch request.
     func testBatch1() throws {
         let remoteFileName = "TestGetDocumentParagraphByIndex.docx";
