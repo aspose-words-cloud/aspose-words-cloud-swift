@@ -15,7 +15,6 @@ class ExamplesTests : XCTestCase
     private var currentDir : URL?;
 
     override func setUp() {
-        continueAfterFailure = false;
         if (self.configuration == nil) {
             let baseFolder = URL(fileURLWithPath: #file)
                 .deletingLastPathComponent()
