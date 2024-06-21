@@ -38,7 +38,6 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
-    private let openTypeSupport : Bool?;
     private let withRegions : Bool?;
     private let mailMergeDataFile : String?;
     private let cleanup : String?;
@@ -54,7 +53,6 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
         case loadEncoding;
         case password;
         case encryptedPassword;
-        case openTypeSupport;
         case withRegions;
         case mailMergeDataFile;
         case cleanup;
@@ -64,7 +62,7 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the ExecuteMailMergeRequest class.
-    public init(name : String, data : String? = nil, options : FieldOptions? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, openTypeSupport : Bool? = nil, withRegions : Bool? = nil, mailMergeDataFile : String? = nil, cleanup : String? = nil, useWholeParagraphAsRegion : Bool? = nil, destFileName : String? = nil) {
+    public init(name : String, data : String? = nil, options : FieldOptions? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, withRegions : Bool? = nil, mailMergeDataFile : String? = nil, cleanup : String? = nil, useWholeParagraphAsRegion : Bool? = nil, destFileName : String? = nil) {
         self.name = name;
         self.data = data;
         self.options = options;
@@ -73,7 +71,6 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
-        self.openTypeSupport = openTypeSupport;
         self.withRegions = withRegions;
         self.mailMergeDataFile = mailMergeDataFile;
         self.cleanup = cleanup;
@@ -119,11 +116,6 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
     // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
     public func getEncryptedPassword() -> String? {
         return self.encryptedPassword;
-    }
-
-    // The value indicates whether OpenType support is on.
-    public func getOpenTypeSupport() -> Bool? {
-        return self.openTypeSupport;
     }
 
     // The flag indicating whether to execute Mail Merge operation with regions.
@@ -216,18 +208,6 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
 
          #else
                      queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
-
-         #endif        
-             }
-
-
-             if (self.getOpenTypeSupport() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
 
          #endif        
              }

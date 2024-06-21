@@ -37,7 +37,6 @@ public class UpdateStructuredDocumentTagOnlineRequest : WordsApiRequest {
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
-    private let openTypeSupport : Bool?;
     private let destFileName : String?;
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
@@ -50,7 +49,6 @@ public class UpdateStructuredDocumentTagOnlineRequest : WordsApiRequest {
         case loadEncoding;
         case password;
         case encryptedPassword;
-        case openTypeSupport;
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
@@ -58,7 +56,7 @@ public class UpdateStructuredDocumentTagOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateStructuredDocumentTagOnlineRequest class.
-    public init(document : InputStream, structuredDocumentTag : StructuredDocumentTagUpdate, index : Int, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, openTypeSupport : Bool? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(document : InputStream, structuredDocumentTag : StructuredDocumentTagUpdate, index : Int, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
         self.structuredDocumentTag = structuredDocumentTag;
         self.index = index;
@@ -66,7 +64,6 @@ public class UpdateStructuredDocumentTagOnlineRequest : WordsApiRequest {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
-        self.openTypeSupport = openTypeSupport;
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
@@ -105,11 +102,6 @@ public class UpdateStructuredDocumentTagOnlineRequest : WordsApiRequest {
     // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
     public func getEncryptedPassword() -> String? {
         return self.encryptedPassword;
-    }
-
-    // The value indicates whether OpenType support is on.
-    public func getOpenTypeSupport() -> Bool? {
-        return self.openTypeSupport;
     }
 
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
@@ -175,18 +167,6 @@ public class UpdateStructuredDocumentTagOnlineRequest : WordsApiRequest {
 
          #else
                      queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
-
-         #endif        
-             }
-
-
-             if (self.getOpenTypeSupport() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
 
          #endif        
              }

@@ -39,7 +39,6 @@ public class SaveAsRangeRequest : WordsApiRequest {
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
-    private let openTypeSupport : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -51,12 +50,11 @@ public class SaveAsRangeRequest : WordsApiRequest {
         case loadEncoding;
         case password;
         case encryptedPassword;
-        case openTypeSupport;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the SaveAsRangeRequest class.
-    public init(name : String, rangeStartIdentifier : String, documentParameters : RangeDocument, rangeEndIdentifier : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, openTypeSupport : Bool? = nil) {
+    public init(name : String, rangeStartIdentifier : String, documentParameters : RangeDocument, rangeEndIdentifier : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil) {
         self.name = name;
         self.rangeStartIdentifier = rangeStartIdentifier;
         self.documentParameters = documentParameters;
@@ -66,7 +64,6 @@ public class SaveAsRangeRequest : WordsApiRequest {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
-        self.openTypeSupport = openTypeSupport;
     }
 
     // The filename of the input document.
@@ -112,11 +109,6 @@ public class SaveAsRangeRequest : WordsApiRequest {
     // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
     public func getEncryptedPassword() -> String? {
         return self.encryptedPassword;
-    }
-
-    // The value indicates whether OpenType support is on.
-    public func getOpenTypeSupport() -> Bool? {
-        return self.openTypeSupport;
     }
 
     // Creates the api request data
@@ -193,18 +185,6 @@ public class SaveAsRangeRequest : WordsApiRequest {
 
          #else
                      queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
-
-         #endif        
-             }
-
-
-             if (self.getOpenTypeSupport() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
 
          #endif        
              }

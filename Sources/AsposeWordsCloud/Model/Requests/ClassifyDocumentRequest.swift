@@ -36,7 +36,6 @@ public class ClassifyDocumentRequest : WordsApiRequest {
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
-    private let openTypeSupport : Bool?;
     private let bestClassesCount : String?;
     private let taxonomy : String?;
 
@@ -47,21 +46,19 @@ public class ClassifyDocumentRequest : WordsApiRequest {
         case loadEncoding;
         case password;
         case encryptedPassword;
-        case openTypeSupport;
         case bestClassesCount;
         case taxonomy;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the ClassifyDocumentRequest class.
-    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, openTypeSupport : Bool? = nil, bestClassesCount : String? = nil, taxonomy : String? = nil) {
+    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, bestClassesCount : String? = nil, taxonomy : String? = nil) {
         self.name = name;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
-        self.openTypeSupport = openTypeSupport;
         self.bestClassesCount = bestClassesCount;
         self.taxonomy = taxonomy;
     }
@@ -94,11 +91,6 @@ public class ClassifyDocumentRequest : WordsApiRequest {
     // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
     public func getEncryptedPassword() -> String? {
         return self.encryptedPassword;
-    }
-
-    // The value indicates whether OpenType support is on.
-    public func getOpenTypeSupport() -> Bool? {
-        return self.openTypeSupport;
     }
 
     // The number of the best classes to return.
@@ -176,18 +168,6 @@ public class ClassifyDocumentRequest : WordsApiRequest {
 
          #else
                      queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
-
-         #endif        
-             }
-
-
-             if (self.getOpenTypeSupport() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
 
          #endif        
              }

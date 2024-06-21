@@ -39,7 +39,6 @@ public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
-    private let openTypeSupport : Bool?;
     private let destFileName : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -52,13 +51,12 @@ public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
         case loadEncoding;
         case password;
         case encryptedPassword;
-        case openTypeSupport;
         case destFileName;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the InsertOrUpdateParagraphTabStopRequest class.
-    public init(name : String, index : Int, tabStopInsertDto : TabStopInsert, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, openTypeSupport : Bool? = nil, destFileName : String? = nil) {
+    public init(name : String, index : Int, tabStopInsertDto : TabStopInsert, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil) {
         self.name = name;
         self.index = index;
         self.tabStopInsertDto = tabStopInsertDto;
@@ -68,7 +66,6 @@ public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
-        self.openTypeSupport = openTypeSupport;
         self.destFileName = destFileName;
     }
 
@@ -115,11 +112,6 @@ public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
     // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
     public func getEncryptedPassword() -> String? {
         return self.encryptedPassword;
-    }
-
-    // The value indicates whether OpenType support is on.
-    public func getOpenTypeSupport() -> Bool? {
-        return self.openTypeSupport;
     }
 
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
@@ -201,18 +193,6 @@ public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
 
          #else
                      queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
-
-         #endif        
-             }
-
-
-             if (self.getOpenTypeSupport() != nil) {
-
-         #if os(Linux) 
-                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
-
-         #else
-                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
 
          #endif        
              }

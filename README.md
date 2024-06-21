@@ -16,7 +16,6 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 ## Enhancements in Version 24.6
 
 - Added the 'TranslateNodeId' method to transalate a node id to a node path.
-- Added the support of OpenType standard. It is usefull for languages required advanced typography.
 
 
 ## Enhancements in Version 24.5
