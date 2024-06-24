@@ -55,8 +55,8 @@ class ConvertDocumentTests: BaseTestContext {
         .setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/TestSaveAs.pdf");
       let request = SaveAsRequest(name: remoteName, saveOptionsData: requestSaveOptionsData as! PdfSaveOptionsData, folder: remoteFolder);
       let actual = try super.getApi().saveAs(request: request);
-      XCTAssertNotNil(actual.getSaveResult());
-      XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
+      if (!(actual.getSaveResult() != nil)) { XCTFail("actual.getSaveResult() != nil"); return; }
+      if (!(actual.getSaveResult()!.getDestDocument() != nil)) { XCTFail("actual.getSaveResult()!.getDestDocument() != nil"); return; }
     }
 
     // Test for converting document online to one of the available formats.
@@ -94,8 +94,8 @@ class ConvertDocumentTests: BaseTestContext {
         .setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/TestSaveAsFromPdfToDoc.docx");
       let request = SaveAsRequest(name: remoteName, saveOptionsData: requestSaveOptionsData as! DocxSaveOptionsData, folder: remoteFolder);
       let actual = try super.getApi().saveAs(request: request);
-      XCTAssertNotNil(actual.getSaveResult());
-      XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
+      if (!(actual.getSaveResult() != nil)) { XCTFail("actual.getSaveResult() != nil"); return; }
+      if (!(actual.getSaveResult()!.getDestDocument() != nil)) { XCTFail("actual.getSaveResult()!.getDestDocument() != nil"); return; }
     }
 
     // Test for converting document to one of the available formats.
@@ -109,8 +109,8 @@ class ConvertDocumentTests: BaseTestContext {
         .setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/abc.tiff");
       let request = SaveAsTiffRequest(name: remoteName, saveOptions: requestSaveOptions as! TiffSaveOptionsData, folder: remoteFolder);
       let actual = try super.getApi().saveAsTiff(request: request);
-      XCTAssertNotNil(actual.getSaveResult());
-      XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
+      if (!(actual.getSaveResult() != nil)) { XCTFail("actual.getSaveResult() != nil"); return; }
+      if (!(actual.getSaveResult()!.getDestDocument() != nil)) { XCTFail("actual.getSaveResult()!.getDestDocument() != nil"); return; }
     }
 
     // Test for converting document to one of the available formats.

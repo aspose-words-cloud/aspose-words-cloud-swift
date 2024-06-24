@@ -55,11 +55,11 @@ class TableBorderTests: BaseTestContext {
 
       let request = GetBordersRequest(name: remoteFileName, nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
       let actual = try super.getApi().getBorders(request: request);
-      XCTAssertNotNil(actual.getBorders());
-      XCTAssertNotNil(actual.getBorders()!.getList());
-      XCTAssertEqual(actual.getBorders()!.getList()!.count, 6);
-      XCTAssertNotNil(actual.getBorders()!.getList()![0].getColor());
-      XCTAssertEqual(actual.getBorders()!.getList()![0].getColor()!.getWeb(), "#000000");
+      if (!(actual.getBorders() != nil)) { XCTFail("actual.getBorders() != nil"); return; }
+      if (!(actual.getBorders()!.getList() != nil)) { XCTFail("actual.getBorders()!.getList() != nil"); return; }
+      if (!(actual.getBorders()!.getList()?.count == 6)) { XCTFail("actual.getBorders()!.getList()?.count == 6"); return; }
+      if (!(actual.getBorders()!.getList()![0].getColor() != nil)) { XCTFail("actual.getBorders()!.getList()![0].getColor() != nil"); return; }
+      if (!(actual.getBorders()!.getList()![0].getColor()!.getWeb() == "#000000")) { XCTFail("actual.getBorders()!.getList()![0].getColor()!.getWeb() == " + "#000000"); return; }
     }
 
     // Test for getting borders online.
@@ -77,9 +77,9 @@ class TableBorderTests: BaseTestContext {
 
       let request = GetBorderRequest(name: remoteFileName, borderType: "left", nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
       let actual = try super.getApi().getBorder(request: request);
-      XCTAssertNotNil(actual.getBorder());
-      XCTAssertNotNil(actual.getBorder()!.getColor());
-      XCTAssertEqual(actual.getBorder()!.getColor()!.getWeb(), "#000000");
+      if (!(actual.getBorder() != nil)) { XCTFail("actual.getBorder() != nil"); return; }
+      if (!(actual.getBorder()!.getColor() != nil)) { XCTFail("actual.getBorder()!.getColor() != nil"); return; }
+      if (!(actual.getBorder()!.getColor()!.getWeb() == "#000000")) { XCTFail("actual.getBorder()!.getColor()!.getWeb() == " + "#000000"); return; }
     }
 
     // Test for getting border online.
@@ -140,12 +140,12 @@ class TableBorderTests: BaseTestContext {
         .setShadow(shadow: true);
       let request = UpdateBorderRequest(name: remoteFileName, borderType: "left", borderProperties: requestBorderProperties, nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
       let actual = try super.getApi().updateBorder(request: request);
-      XCTAssertNotNil(actual.getBorder());
-      XCTAssertNotNil(actual.getBorder()!.getColor());
-      XCTAssertEqual(actual.getBorder()!.getColor()!.getWeb(), "#AABBCC");
-      XCTAssertEqual(actual.getBorder()!.getDistanceFromText(), 6.0);
-      XCTAssertEqual(actual.getBorder()!.getLineWidth(), 2.0);
-      XCTAssertEqual(actual.getBorder()!.getShadow(), true);
+      if (!(actual.getBorder() != nil)) { XCTFail("actual.getBorder() != nil"); return; }
+      if (!(actual.getBorder()!.getColor() != nil)) { XCTFail("actual.getBorder()!.getColor() != nil"); return; }
+      if (!(actual.getBorder()!.getColor()!.getWeb() == "#AABBCC")) { XCTFail("actual.getBorder()!.getColor()!.getWeb() == " + "#AABBCC"); return; }
+      if (!(actual.getBorder()!.getDistanceFromText() == 6.0)) { XCTFail("actual.getBorder()!.getDistanceFromText() == 6.0"); return; }
+      if (!(actual.getBorder()!.getLineWidth() == 2.0)) { XCTFail("actual.getBorder()!.getLineWidth() == 2.0"); return; }
+      if (!(actual.getBorder()!.getShadow() == true)) { XCTFail("actual.getBorder()!.getShadow() == true"); return; }
     }
 
     // Test for updating border online.

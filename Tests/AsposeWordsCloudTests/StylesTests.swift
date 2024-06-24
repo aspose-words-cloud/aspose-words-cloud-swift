@@ -60,9 +60,9 @@ class StylesTests: BaseTestContext {
 
       let request = GetStylesRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getStyles(request: request);
-      XCTAssertNotNil(actual.getStyles());
-      XCTAssertEqual(actual.getStyles()!.count, 22);
-      XCTAssertEqual(actual.getStyles()![0].getName(), "Default Paragraph Font");
+      if (!(actual.getStyles() != nil)) { XCTFail("actual.getStyles() != nil"); return; }
+      if (!(actual.getStyles()?.count == 22)) { XCTFail("actual.getStyles()?.count == 22"); return; }
+      if (!(actual.getStyles()![0].getName() == "Default Paragraph Font")) { XCTFail("actual.getStyles()![0].getName() == " + "Default Paragraph Font"); return; }
     }
 
     // Test for getting styles from document online.
@@ -80,8 +80,8 @@ class StylesTests: BaseTestContext {
 
       let request = GetStyleRequest(name: remoteFileName, styleName: "Heading 1", folder: remoteDataFolder);
       let actual = try super.getApi().getStyle(request: request);
-      XCTAssertNotNil(actual.getStyle());
-      XCTAssertEqual(actual.getStyle()!.getName(), "Heading 1");
+      if (!(actual.getStyle() != nil)) { XCTFail("actual.getStyle() != nil"); return; }
+      if (!(actual.getStyle()!.getName() == "Heading 1")) { XCTFail("actual.getStyle()!.getName() == " + "Heading 1"); return; }
     }
 
     // Test for getting style from document online.
@@ -101,8 +101,8 @@ class StylesTests: BaseTestContext {
         .setName(name: "My Style");
       let request = UpdateStyleRequest(name: remoteFileName, styleName: "Heading 1", styleUpdate: requestStyleUpdate, folder: remoteDataFolder);
       let actual = try super.getApi().updateStyle(request: request);
-      XCTAssertNotNil(actual.getStyle());
-      XCTAssertEqual(actual.getStyle()!.getName(), "My Style");
+      if (!(actual.getStyle() != nil)) { XCTFail("actual.getStyle() != nil"); return; }
+      if (!(actual.getStyle()!.getName() == "My Style")) { XCTFail("actual.getStyle()!.getName() == " + "My Style"); return; }
     }
 
     // Test for updating style from document online.
@@ -125,8 +125,8 @@ class StylesTests: BaseTestContext {
         .setStyleType(styleType: StyleInsert.StyleType.paragraph);
       let request = InsertStyleRequest(name: remoteFileName, styleInsert: requestStyleInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertStyle(request: request);
-      XCTAssertNotNil(actual.getStyle());
-      XCTAssertEqual(actual.getStyle()!.getName(), "My Style");
+      if (!(actual.getStyle() != nil)) { XCTFail("actual.getStyle() != nil"); return; }
+      if (!(actual.getStyle()!.getName() == "My Style")) { XCTFail("actual.getStyle()!.getName() == " + "My Style"); return; }
     }
 
     // Test for inserting style from document online.
@@ -149,8 +149,8 @@ class StylesTests: BaseTestContext {
         .setStyleName(styleName: "Heading 1");
       let request = CopyStyleRequest(name: remoteFileName, styleCopy: requestStyleCopy, folder: remoteDataFolder);
       let actual = try super.getApi().copyStyle(request: request);
-      XCTAssertNotNil(actual.getStyle());
-      XCTAssertEqual(actual.getStyle()!.getName(), "Heading 1_0");
+      if (!(actual.getStyle() != nil)) { XCTFail("actual.getStyle() != nil"); return; }
+      if (!(actual.getStyle()!.getName() == "Heading 1_0")) { XCTFail("actual.getStyle()!.getName() == " + "Heading 1_0"); return; }
     }
 
     // Test for coping style from document online.
@@ -170,8 +170,8 @@ class StylesTests: BaseTestContext {
 
       let request = GetStyleFromDocumentElementRequest(name: remoteFileName, styledNodePath: "paragraphs/1/paragraphFormat", folder: remoteDataFolder);
       let actual = try super.getApi().getStyleFromDocumentElement(request: request);
-      XCTAssertNotNil(actual.getStyle());
-      XCTAssertEqual(actual.getStyle()!.getName(), "TOC 1");
+      if (!(actual.getStyle() != nil)) { XCTFail("actual.getStyle() != nil"); return; }
+      if (!(actual.getStyle()!.getName() == "TOC 1")) { XCTFail("actual.getStyle()!.getName() == " + "TOC 1"); return; }
     }
 
     // Test for getting style from document element online.

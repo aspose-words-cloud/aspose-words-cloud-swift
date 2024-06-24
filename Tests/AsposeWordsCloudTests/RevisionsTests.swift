@@ -49,8 +49,8 @@ class RevisionsTests: BaseTestContext {
 
       let request = AcceptAllRevisionsRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().acceptAllRevisions(request: request);
-      XCTAssertNotNil(actual.getResult());
-      XCTAssertNotNil(actual.getResult()!.getDest());
+      if (!(actual.getResult() != nil)) { XCTFail("actual.getResult() != nil"); return; }
+      if (!(actual.getResult()!.getDest() != nil)) { XCTFail("actual.getResult()!.getDest() != nil"); return; }
     }
 
     // Test for accepting revisions in document online.
@@ -58,10 +58,10 @@ class RevisionsTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = AcceptAllRevisionsOnlineRequest(document: requestDocument);
       let actual = try super.getApi().acceptAllRevisionsOnline(request: request);
-      XCTAssertNotNil(actual.getDocument());
-      XCTAssertNotNil(actual.getModel());
-      XCTAssertNotNil(actual.getModel()!.getResult());
-      XCTAssertNotNil(actual.getModel()!.getResult()!.getDest());
+      if (!(actual.getDocument() != nil)) { XCTFail("actual.getDocument() != nil"); return; }
+      if (!(actual.getModel() != nil)) { XCTFail("actual.getModel() != nil"); return; }
+      if (!(actual.getModel()!.getResult() != nil)) { XCTFail("actual.getModel()!.getResult() != nil"); return; }
+      if (!(actual.getModel()!.getResult()!.getDest() != nil)) { XCTFail("actual.getModel()!.getResult()!.getDest() != nil"); return; }
     }
 
     // Test for rejecting revisions in document.
@@ -72,8 +72,8 @@ class RevisionsTests: BaseTestContext {
 
       let request = RejectAllRevisionsRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().rejectAllRevisions(request: request);
-      XCTAssertNotNil(actual.getResult());
-      XCTAssertNotNil(actual.getResult()!.getDest());
+      if (!(actual.getResult() != nil)) { XCTFail("actual.getResult() != nil"); return; }
+      if (!(actual.getResult()!.getDest() != nil)) { XCTFail("actual.getResult()!.getDest() != nil"); return; }
     }
 
     // Test for rejecting revisions in document online.
@@ -81,9 +81,9 @@ class RevisionsTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = RejectAllRevisionsOnlineRequest(document: requestDocument);
       let actual = try super.getApi().rejectAllRevisionsOnline(request: request);
-      XCTAssertNotNil(actual.getDocument());
-      XCTAssertNotNil(actual.getModel());
-      XCTAssertNotNil(actual.getModel()!.getResult());
-      XCTAssertNotNil(actual.getModel()!.getResult()!.getDest());
+      if (!(actual.getDocument() != nil)) { XCTFail("actual.getDocument() != nil"); return; }
+      if (!(actual.getModel() != nil)) { XCTFail("actual.getModel() != nil"); return; }
+      if (!(actual.getModel()!.getResult() != nil)) { XCTFail("actual.getModel()!.getResult() != nil"); return; }
+      if (!(actual.getModel()!.getResult()!.getDest() != nil)) { XCTFail("actual.getModel()!.getResult()!.getDest() != nil"); return; }
     }
 }

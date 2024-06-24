@@ -69,7 +69,7 @@ class BuildReportTests: BaseTestContext {
         .setReportBuildOptions(reportBuildOptions: requestReportEngineSettingsReportBuildOptions);
       let request = BuildReportRequest(name: remoteFileName, data: localDataFile, reportEngineSettings: requestReportEngineSettings, folder: remoteDataFolder);
       let actual = try super.getApi().buildReport(request: request);
-      XCTAssertNotNil(actual.getDocument());
-      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestBuildReport.docx");
+      if (!(actual.getDocument() != nil)) { XCTFail("actual.getDocument() != nil"); return; }
+      if (!(actual.getDocument()!.getFileName() == "TestBuildReport.docx")) { XCTFail("actual.getDocument()!.getFileName() == " + "TestBuildReport.docx"); return; }
     }
 }

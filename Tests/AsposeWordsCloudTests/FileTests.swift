@@ -49,9 +49,9 @@ class FileTests: BaseTestContext {
       let requestFileContent = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = UploadFileRequest(fileContent: requestFileContent, path: remoteDataFolder + "/" + remoteFileName);
       let actual = try super.getApi().uploadFile(request: request);
-      XCTAssertNotNil(actual.getUploaded());
-      XCTAssertEqual(actual.getUploaded()!.count, 1);
-      XCTAssertEqual(actual.getUploaded()![0], "TestUploadFile.docx");
+      if (!(actual.getUploaded() != nil)) { XCTFail("actual.getUploaded() != nil"); return; }
+      if (!(actual.getUploaded()?.count == 1)) { XCTFail("actual.getUploaded()?.count == 1"); return; }
+      if (!(actual.getUploaded()![0] == "TestUploadFile.docx")) { XCTFail("actual.getUploaded()![0] == " + "TestUploadFile.docx"); return; }
     }
 
     // Test for copy file.

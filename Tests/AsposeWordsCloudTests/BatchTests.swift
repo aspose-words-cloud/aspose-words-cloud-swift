@@ -96,12 +96,35 @@ class BatchTests: BaseTestContext {
         request2.setDependsOn(request: request1);
 
         let result = try super.getApi().batch(requests: [request1, request2, request3, request4, request5]);
-        XCTAssertEqual(result.count, 5);
-        XCTAssertTrue(result[0] is ParagraphLinkCollectionResponse);
-        XCTAssertTrue(result[1] is ParagraphResponse);
-        XCTAssertTrue(result[2] is ParagraphResponse);
-        XCTAssertTrue(result[3] == nil);
-        XCTAssertTrue(result[4] is Data);
+        if (!(result.count == 5)) {
+            XCTFail("result.count == 5");
+            return;
+        }
+
+        if (!(result[0] is ParagraphLinkCollectionResponse)) {
+            XCTFail("result[0] is ParagraphLinkCollectionResponse");
+            return;
+        }
+
+        if (!(result[1] is ParagraphResponse)) {
+            XCTFail("result[1] is ParagraphResponse");
+            return;
+        }
+
+        if (!(result[2] is ParagraphResponse)) {
+            XCTFail("result[2] is ParagraphResponse");
+            return;
+        }
+
+        if (!(result[3] == nil)) {
+            XCTFail("result[3] == nil");
+            return;
+        }
+
+        if (!(result[4] is Data)) {
+            XCTFail("result[4] is Data");
+            return;
+        }
     }
 
     // Test for simple batch request.
@@ -160,7 +183,14 @@ class BatchTests: BaseTestContext {
         request2.setDependsOn(request: request1);
 
         let result = try super.getApi().batch(requests: [request1, request2, request3, request4, request5], displayIntermediateResults: false);
-        XCTAssertEqual(result.count, 1);
-        XCTAssertTrue(result[0] is Data);
+        if (!(result.count == 1)) {
+            XCTFail("result.count == 1");
+            return;
+        }
+
+        if (!(result[0] is Data)) {
+            XCTFail("result[0] is Data");
+            return;
+        }
     }
 }

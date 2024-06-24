@@ -49,7 +49,7 @@ class CompressDocumentTests: BaseTestContext {
       let requestCompressOptions = CompressOptions();
       let request = CompressDocumentRequest(name: remoteName, compressOptions: requestCompressOptions, folder: remoteFolder);
       let actual = try super.getApi().compressDocument(request: request);
-      XCTAssertNotNil(actual.getDocument());
+      if (!(actual.getDocument() != nil)) { XCTFail("actual.getDocument() != nil"); return; }
     }
 
     // Test for compression document online.

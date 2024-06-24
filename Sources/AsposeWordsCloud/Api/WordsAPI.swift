@@ -15326,6 +15326,114 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of translateNodeId method
+    // Translate a node id to a node path.
+    public func translateNodeId(request : TranslateNodeIdRequest, callback : @escaping (_ response : TranslateNodeIdResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TranslateNodeIdResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of translateNodeId method
+    // Translate a node id to a node path.
+    public func translateNodeId(request : TranslateNodeIdRequest) throws -> TranslateNodeIdResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : TranslateNodeIdResponse? = nil;
+        var responseError : Error? = nil;
+        self.translateNodeId(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of translateNodeIdOnline method
+    // Translate a node id to a node path.
+    public func translateNodeIdOnline(request : TranslateNodeIdOnlineRequest, callback : @escaping (_ response : TranslateNodeIdResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TranslateNodeIdResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of translateNodeIdOnline method
+    // Translate a node id to a node path.
+    public func translateNodeIdOnline(request : TranslateNodeIdOnlineRequest) throws -> TranslateNodeIdResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : TranslateNodeIdResponse? = nil;
+        var responseError : Error? = nil;
+        self.translateNodeIdOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of unprotectDocument method
     // Removes protection from the document.
     public func unprotectDocument(request : UnprotectDocumentRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {

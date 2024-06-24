@@ -49,8 +49,8 @@ class HyperlinkTests: BaseTestContext {
 
       let request = GetDocumentHyperlinkByIndexRequest(name: remoteFileName, hyperlinkIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentHyperlinkByIndex(request: request);
-      XCTAssertNotNil(actual.getHyperlink());
-      XCTAssertEqual(actual.getHyperlink()!.getDisplayText(), "Aspose");
+      if (!(actual.getHyperlink() != nil)) { XCTFail("actual.getHyperlink() != nil"); return; }
+      if (!(actual.getHyperlink()!.getDisplayText() == "Aspose")) { XCTFail("actual.getHyperlink()!.getDisplayText() == " + "Aspose"); return; }
     }
 
     // Test for getting hyperlink by specified index online.
@@ -68,10 +68,10 @@ class HyperlinkTests: BaseTestContext {
 
       let request = GetDocumentHyperlinksRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentHyperlinks(request: request);
-      XCTAssertNotNil(actual.getHyperlinks());
-      XCTAssertNotNil(actual.getHyperlinks()!.getHyperlinkList());
-      XCTAssertEqual(actual.getHyperlinks()!.getHyperlinkList()!.count, 2);
-      XCTAssertEqual(actual.getHyperlinks()!.getHyperlinkList()![0].getDisplayText(), "Aspose");
+      if (!(actual.getHyperlinks() != nil)) { XCTFail("actual.getHyperlinks() != nil"); return; }
+      if (!(actual.getHyperlinks()!.getHyperlinkList() != nil)) { XCTFail("actual.getHyperlinks()!.getHyperlinkList() != nil"); return; }
+      if (!(actual.getHyperlinks()!.getHyperlinkList()?.count == 2)) { XCTFail("actual.getHyperlinks()!.getHyperlinkList()?.count == 2"); return; }
+      if (!(actual.getHyperlinks()!.getHyperlinkList()![0].getDisplayText() == "Aspose")) { XCTFail("actual.getHyperlinks()!.getHyperlinkList()![0].getDisplayText() == " + "Aspose"); return; }
     }
 
     // Test for getting hyperlinks online.

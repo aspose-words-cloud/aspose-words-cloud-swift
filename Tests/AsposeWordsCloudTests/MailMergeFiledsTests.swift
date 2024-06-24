@@ -46,10 +46,10 @@ class MailMergeFiledsTests: BaseTestContext {
       let requestTemplate = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(mailMergeFolder + "/" + localDocumentFile, isDirectory: false))!;
       let request = GetDocumentFieldNamesOnlineRequest(template: requestTemplate, useNonMergeFields: true);
       let actual = try super.getApi().getDocumentFieldNamesOnline(request: request);
-      XCTAssertNotNil(actual.getFieldNames());
-      XCTAssertNotNil(actual.getFieldNames()!.getNames());
-      XCTAssertEqual(actual.getFieldNames()!.getNames()!.count, 15);
-      XCTAssertEqual(actual.getFieldNames()!.getNames()![0], "TableStart:Order");
+      if (!(actual.getFieldNames() != nil)) { XCTFail("actual.getFieldNames() != nil"); return; }
+      if (!(actual.getFieldNames()!.getNames() != nil)) { XCTFail("actual.getFieldNames()!.getNames() != nil"); return; }
+      if (!(actual.getFieldNames()!.getNames()?.count == 15)) { XCTFail("actual.getFieldNames()!.getNames()?.count == 15"); return; }
+      if (!(actual.getFieldNames()!.getNames()![0] == "TableStart:Order")) { XCTFail("actual.getFieldNames()!.getNames()![0] == " + "TableStart:Order"); return; }
     }
 
     // Test for getting mailmerge fields.
@@ -60,8 +60,8 @@ class MailMergeFiledsTests: BaseTestContext {
 
       let request = GetDocumentFieldNamesRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentFieldNames(request: request);
-      XCTAssertNotNil(actual.getFieldNames());
-      XCTAssertNotNil(actual.getFieldNames()!.getNames());
-      XCTAssertEqual(actual.getFieldNames()!.getNames()!.count, 0);
+      if (!(actual.getFieldNames() != nil)) { XCTFail("actual.getFieldNames() != nil"); return; }
+      if (!(actual.getFieldNames()!.getNames() != nil)) { XCTFail("actual.getFieldNames()!.getNames() != nil"); return; }
+      if (!(actual.getFieldNames()!.getNames()?.count == 0)) { XCTFail("actual.getFieldNames()!.getNames()?.count == 0"); return; }
     }
 }

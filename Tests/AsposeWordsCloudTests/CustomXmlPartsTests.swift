@@ -57,9 +57,9 @@ class CustomXmlPartsTests: BaseTestContext {
 
       let request = GetCustomXmlPartRequest(name: remoteFileName, customXmlPartIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getCustomXmlPart(request: request);
-      XCTAssertNotNil(actual.getCustomXmlPart());
-      XCTAssertEqual(actual.getCustomXmlPart()!.getId(), "aspose");
-      XCTAssertEqual(actual.getCustomXmlPart()!.getData(), "<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>");
+      if (!(actual.getCustomXmlPart() != nil)) { XCTFail("actual.getCustomXmlPart() != nil"); return; }
+      if (!(actual.getCustomXmlPart()!.getId() == "aspose")) { XCTFail("actual.getCustomXmlPart()!.getId() == " + "aspose"); return; }
+      if (!(actual.getCustomXmlPart()!.getData() == "<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>")) { XCTFail("actual.getCustomXmlPart()!.getData() == " + "<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>"); return; }
     }
 
     // Test for getting custom xml part by specified index online.
@@ -67,9 +67,9 @@ class CustomXmlPartsTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = GetCustomXmlPartOnlineRequest(document: requestDocument, customXmlPartIndex: 0);
       let actual = try super.getApi().getCustomXmlPartOnline(request: request);
-      XCTAssertNotNil(actual.getCustomXmlPart());
-      XCTAssertEqual(actual.getCustomXmlPart()!.getId(), "aspose");
-      XCTAssertEqual(actual.getCustomXmlPart()!.getData(), "<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>");
+      if (!(actual.getCustomXmlPart() != nil)) { XCTFail("actual.getCustomXmlPart() != nil"); return; }
+      if (!(actual.getCustomXmlPart()!.getId() == "aspose")) { XCTFail("actual.getCustomXmlPart()!.getId() == " + "aspose"); return; }
+      if (!(actual.getCustomXmlPart()!.getData() == "<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>")) { XCTFail("actual.getCustomXmlPart()!.getData() == " + "<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>"); return; }
     }
 
     // Test for getting all custom xml parts from document.
@@ -80,11 +80,11 @@ class CustomXmlPartsTests: BaseTestContext {
 
       let request = GetCustomXmlPartsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getCustomXmlParts(request: request);
-      XCTAssertNotNil(actual.getCustomXmlParts());
-      XCTAssertNotNil(actual.getCustomXmlParts()!.getCustomXmlPartsList());
-      XCTAssertEqual(actual.getCustomXmlParts()!.getCustomXmlPartsList()!.count, 2);
-      XCTAssertEqual(actual.getCustomXmlParts()!.getCustomXmlPartsList()![0].getId(), "aspose");
-      XCTAssertEqual(actual.getCustomXmlParts()!.getCustomXmlPartsList()![0].getData(), "<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>");
+      if (!(actual.getCustomXmlParts() != nil)) { XCTFail("actual.getCustomXmlParts() != nil"); return; }
+      if (!(actual.getCustomXmlParts()!.getCustomXmlPartsList() != nil)) { XCTFail("actual.getCustomXmlParts()!.getCustomXmlPartsList() != nil"); return; }
+      if (!(actual.getCustomXmlParts()!.getCustomXmlPartsList()?.count == 2)) { XCTFail("actual.getCustomXmlParts()!.getCustomXmlPartsList()?.count == 2"); return; }
+      if (!(actual.getCustomXmlParts()!.getCustomXmlPartsList()![0].getId() == "aspose")) { XCTFail("actual.getCustomXmlParts()!.getCustomXmlPartsList()![0].getId() == " + "aspose"); return; }
+      if (!(actual.getCustomXmlParts()!.getCustomXmlPartsList()![0].getData() == "<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>")) { XCTFail("actual.getCustomXmlParts()!.getCustomXmlPartsList()![0].getData() == " + "<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>"); return; }
     }
 
     // Test for getting all custom xml parts from document online.
@@ -92,11 +92,11 @@ class CustomXmlPartsTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = GetCustomXmlPartsOnlineRequest(document: requestDocument);
       let actual = try super.getApi().getCustomXmlPartsOnline(request: request);
-      XCTAssertNotNil(actual.getCustomXmlParts());
-      XCTAssertNotNil(actual.getCustomXmlParts()!.getCustomXmlPartsList());
-      XCTAssertEqual(actual.getCustomXmlParts()!.getCustomXmlPartsList()!.count, 2);
-      XCTAssertEqual(actual.getCustomXmlParts()!.getCustomXmlPartsList()![0].getId(), "aspose");
-      XCTAssertEqual(actual.getCustomXmlParts()!.getCustomXmlPartsList()![0].getData(), "<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>");
+      if (!(actual.getCustomXmlParts() != nil)) { XCTFail("actual.getCustomXmlParts() != nil"); return; }
+      if (!(actual.getCustomXmlParts()!.getCustomXmlPartsList() != nil)) { XCTFail("actual.getCustomXmlParts()!.getCustomXmlPartsList() != nil"); return; }
+      if (!(actual.getCustomXmlParts()!.getCustomXmlPartsList()?.count == 2)) { XCTFail("actual.getCustomXmlParts()!.getCustomXmlPartsList()?.count == 2"); return; }
+      if (!(actual.getCustomXmlParts()!.getCustomXmlPartsList()![0].getId() == "aspose")) { XCTFail("actual.getCustomXmlParts()!.getCustomXmlPartsList()![0].getId() == " + "aspose"); return; }
+      if (!(actual.getCustomXmlParts()!.getCustomXmlPartsList()![0].getData() == "<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>")) { XCTFail("actual.getCustomXmlParts()!.getCustomXmlPartsList()![0].getData() == " + "<Metadata><Author>author1</Author><Initial>initial</Initial><DateTime>2015-01-22T00:00:00</DateTime><Text>text</Text></Metadata>"); return; }
     }
 
     // Test for adding custom xml part.
@@ -110,9 +110,9 @@ class CustomXmlPartsTests: BaseTestContext {
         .setData(data: "<data>Hello world</data>");
       let request = InsertCustomXmlPartRequest(name: remoteFileName, customXmlPart: requestCustomXmlPart as! CustomXmlPartInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertCustomXmlPart(request: request);
-      XCTAssertNotNil(actual.getCustomXmlPart());
-      XCTAssertEqual(actual.getCustomXmlPart()!.getId(), "hello");
-      XCTAssertEqual(actual.getCustomXmlPart()!.getData(), "<data>Hello world</data>");
+      if (!(actual.getCustomXmlPart() != nil)) { XCTFail("actual.getCustomXmlPart() != nil"); return; }
+      if (!(actual.getCustomXmlPart()!.getId() == "hello")) { XCTFail("actual.getCustomXmlPart()!.getId() == " + "hello"); return; }
+      if (!(actual.getCustomXmlPart()!.getData() == "<data>Hello world</data>")) { XCTFail("actual.getCustomXmlPart()!.getData() == " + "<data>Hello world</data>"); return; }
     }
 
     // Test for adding custom xml part online.
@@ -123,9 +123,9 @@ class CustomXmlPartsTests: BaseTestContext {
         .setData(data: "<data>Hello world</data>");
       let request = InsertCustomXmlPartOnlineRequest(document: requestDocument, customXmlPart: requestCustomXmlPart as! CustomXmlPartInsert);
       let actual = try super.getApi().insertCustomXmlPartOnline(request: request);
-      XCTAssertNotNil(actual.getModel()!.getCustomXmlPart());
-      XCTAssertEqual(actual.getModel()!.getCustomXmlPart()!.getId(), "hello");
-      XCTAssertEqual(actual.getModel()!.getCustomXmlPart()!.getData(), "<data>Hello world</data>");
+      if (!(actual.getModel()!.getCustomXmlPart() != nil)) { XCTFail("actual.getModel()!.getCustomXmlPart() != nil"); return; }
+      if (!(actual.getModel()!.getCustomXmlPart()!.getId() == "hello")) { XCTFail("actual.getModel()!.getCustomXmlPart()!.getId() == " + "hello"); return; }
+      if (!(actual.getModel()!.getCustomXmlPart()!.getData() == "<data>Hello world</data>")) { XCTFail("actual.getModel()!.getCustomXmlPart()!.getData() == " + "<data>Hello world</data>"); return; }
     }
 
     // Test for updating custom xml part.
@@ -138,9 +138,9 @@ class CustomXmlPartsTests: BaseTestContext {
         .setData(data: "<data>Hello world</data>");
       let request = UpdateCustomXmlPartRequest(name: remoteFileName, customXmlPartIndex: 0, customXmlPart: requestCustomXmlPart as! CustomXmlPartUpdate, folder: remoteDataFolder);
       let actual = try super.getApi().updateCustomXmlPart(request: request);
-      XCTAssertNotNil(actual.getCustomXmlPart());
-      XCTAssertEqual(actual.getCustomXmlPart()!.getId(), "aspose");
-      XCTAssertEqual(actual.getCustomXmlPart()!.getData(), "<data>Hello world</data>");
+      if (!(actual.getCustomXmlPart() != nil)) { XCTFail("actual.getCustomXmlPart() != nil"); return; }
+      if (!(actual.getCustomXmlPart()!.getId() == "aspose")) { XCTFail("actual.getCustomXmlPart()!.getId() == " + "aspose"); return; }
+      if (!(actual.getCustomXmlPart()!.getData() == "<data>Hello world</data>")) { XCTFail("actual.getCustomXmlPart()!.getData() == " + "<data>Hello world</data>"); return; }
     }
 
     // Test for updating custom xml part online.
@@ -150,9 +150,9 @@ class CustomXmlPartsTests: BaseTestContext {
         .setData(data: "<data>Hello world</data>");
       let request = UpdateCustomXmlPartOnlineRequest(document: requestDocument, customXmlPartIndex: 0, customXmlPart: requestCustomXmlPart as! CustomXmlPartUpdate);
       let actual = try super.getApi().updateCustomXmlPartOnline(request: request);
-      XCTAssertNotNil(actual.getModel()!.getCustomXmlPart());
-      XCTAssertEqual(actual.getModel()!.getCustomXmlPart()!.getId(), "aspose");
-      XCTAssertEqual(actual.getModel()!.getCustomXmlPart()!.getData(), "<data>Hello world</data>");
+      if (!(actual.getModel()!.getCustomXmlPart() != nil)) { XCTFail("actual.getModel()!.getCustomXmlPart() != nil"); return; }
+      if (!(actual.getModel()!.getCustomXmlPart()!.getId() == "aspose")) { XCTFail("actual.getModel()!.getCustomXmlPart()!.getId() == " + "aspose"); return; }
+      if (!(actual.getModel()!.getCustomXmlPart()!.getData() == "<data>Hello world</data>")) { XCTFail("actual.getModel()!.getCustomXmlPart()!.getData() == " + "<data>Hello world</data>"); return; }
     }
 
     // A test for DeleteCustomXmlPart.

@@ -55,7 +55,7 @@ class TextTests: BaseTestContext {
         .setOldValue(oldValue: "Testing");
       let request = ReplaceTextRequest(name: remoteFileName, replaceText: requestReplaceText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().replaceText(request: request);
-      XCTAssertEqual(actual.getMatches(), 3);
+      if (!(actual.getMatches() == 3)) { XCTFail("actual.getMatches() == 3"); return; }
     }
 
     // Test for replacing text online.
@@ -82,11 +82,11 @@ class TextTests: BaseTestContext {
 
       let request = SearchRequest(name: remoteFileName, pattern: "aspose", folder: remoteDataFolder);
       let actual = try super.getApi().search(request: request);
-      XCTAssertNotNil(actual.getSearchResults());
-      XCTAssertNotNil(actual.getSearchResults()!.getResultsList());
-      XCTAssertEqual(actual.getSearchResults()!.getResultsList()!.count, 23);
-      XCTAssertNotNil(actual.getSearchResults()!.getResultsList()![0].getRangeStart());
-      XCTAssertEqual(actual.getSearchResults()!.getResultsList()![0].getRangeStart()!.getOffset(), 65);
+      if (!(actual.getSearchResults() != nil)) { XCTFail("actual.getSearchResults() != nil"); return; }
+      if (!(actual.getSearchResults()!.getResultsList() != nil)) { XCTFail("actual.getSearchResults()!.getResultsList() != nil"); return; }
+      if (!(actual.getSearchResults()!.getResultsList()?.count == 23)) { XCTFail("actual.getSearchResults()!.getResultsList()?.count == 23"); return; }
+      if (!(actual.getSearchResults()!.getResultsList()![0].getRangeStart() != nil)) { XCTFail("actual.getSearchResults()!.getResultsList()![0].getRangeStart() != nil"); return; }
+      if (!(actual.getSearchResults()!.getResultsList()![0].getRangeStart()!.getOffset() == 65)) { XCTFail("actual.getSearchResults()!.getResultsList()![0].getRangeStart()!.getOffset() == 65"); return; }
     }
 
     // Test for searching online.

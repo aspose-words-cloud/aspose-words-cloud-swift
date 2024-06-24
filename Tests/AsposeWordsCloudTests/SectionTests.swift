@@ -56,10 +56,10 @@ class SectionTests: BaseTestContext {
 
       let request = GetSectionRequest(name: remoteFileName, sectionIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getSection(request: request);
-      XCTAssertNotNil(actual.getSection());
-      XCTAssertNotNil(actual.getSection()!.getChildNodes());
-      XCTAssertEqual(actual.getSection()!.getChildNodes()!.count, 13);
-      XCTAssertEqual(actual.getSection()!.getChildNodes()![0].getNodeId(), "0.3.0");
+      if (!(actual.getSection() != nil)) { XCTFail("actual.getSection() != nil"); return; }
+      if (!(actual.getSection()!.getChildNodes() != nil)) { XCTFail("actual.getSection()!.getChildNodes() != nil"); return; }
+      if (!(actual.getSection()!.getChildNodes()?.count == 13)) { XCTFail("actual.getSection()!.getChildNodes()?.count == 13"); return; }
+      if (!(actual.getSection()!.getChildNodes()![0].getNodeId() == "0.3.0")) { XCTFail("actual.getSection()!.getChildNodes()![0].getNodeId() == " + "0.3.0"); return; }
     }
 
     // Test for getting section by index online.
@@ -77,10 +77,10 @@ class SectionTests: BaseTestContext {
 
       let request = GetSectionsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getSections(request: request);
-      XCTAssertNotNil(actual.getSections());
-      XCTAssertNotNil(actual.getSections()!.getSectionLinkList());
-      XCTAssertEqual(actual.getSections()!.getSectionLinkList()!.count, 1);
-      XCTAssertEqual(actual.getSections()!.getSectionLinkList()![0].getNodeId(), "0");
+      if (!(actual.getSections() != nil)) { XCTFail("actual.getSections() != nil"); return; }
+      if (!(actual.getSections()!.getSectionLinkList() != nil)) { XCTFail("actual.getSections()!.getSectionLinkList() != nil"); return; }
+      if (!(actual.getSections()!.getSectionLinkList()?.count == 1)) { XCTFail("actual.getSections()!.getSectionLinkList()?.count == 1"); return; }
+      if (!(actual.getSections()!.getSectionLinkList()![0].getNodeId() == "0")) { XCTFail("actual.getSections()!.getSectionLinkList()![0].getNodeId() == " + "0"); return; }
     }
 
     // Test for getting sections online.
