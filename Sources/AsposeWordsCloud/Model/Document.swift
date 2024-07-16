@@ -95,6 +95,9 @@ public class Document : Codable, WordsApiModel {
 
         // Enum value "svg"
         case svg = "Svg"
+
+        // Enum value "azw3"
+        case azw3 = "Azw3"
     }
 
     // Field of links. Represents Words document DTO.
