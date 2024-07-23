@@ -6,8 +6,8 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'ivan.kishchenko' => 'ivankishchenko@aspose.com' }
   s.source           = { :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => s.version.to_s }
-  s.ios.deployment_target = "9.0"
-  s.osx.deployment_target = "10.10"
+  s.ios.deployment_target = "11.0"
+  s.osx.deployment_target = "10.13"
   s.swift_version = "4.0"
   s.source_files = 'Sources/**/*'
 end
