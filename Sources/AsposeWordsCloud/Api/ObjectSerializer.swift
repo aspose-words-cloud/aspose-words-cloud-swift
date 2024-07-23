@@ -50,6 +50,7 @@ class ObjectSerializer {
     private static let modelsFactory:[String: WordsApiModel.Type?] = [
         "ApiError, _": ApiError.self,
         "AvailableFontsResponse, _": AvailableFontsResponse.self,
+        "Azw3SaveOptionsData, _": Azw3SaveOptionsData.self,
         "BmpSaveOptionsData, _": BmpSaveOptionsData.self,
         "Bookmark, _": Bookmark.self,
         "BookmarkData, _": BookmarkData.self,

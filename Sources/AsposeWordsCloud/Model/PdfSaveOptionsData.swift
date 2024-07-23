@@ -54,8 +54,14 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         // Enum value "pdfA4"
         case pdfA4 = "PdfA4"
 
+        // Enum value "pdfA4Ua2"
+        case pdfA4Ua2 = "PdfA4Ua2"
+
         // Enum value "pdfUa1"
         case pdfUa1 = "PdfUa1"
+
+        // Enum value "pdfUa2"
+        case pdfUa2 = "PdfUa2"
     }
 
     // Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file.
