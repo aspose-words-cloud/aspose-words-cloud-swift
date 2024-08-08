@@ -67,6 +67,18 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
+    // Field of maxImageResolution. Container class for svg save options.
+    private var _maxImageResolution : Int? = nil;
+
+    public var maxImageResolution : Int? {
+        get {
+            return self._maxImageResolution;
+        }
+        set {
+            self._maxImageResolution = newValue;
+        }
+    }
+
     // Field of resourcesFolder. Container class for svg save options.
     private var _resourcesFolder : String? = nil;
 
@@ -127,6 +139,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     private enum CodingKeys: String, CodingKey {
         case exportEmbeddedImages = "ExportEmbeddedImages";
         case fitToViewPort = "FitToViewPort";
+        case maxImageResolution = "MaxImageResolution";
         case resourcesFolder = "ResourcesFolder";
         case resourcesFolderAlias = "ResourcesFolderAlias";
         case showPageBorder = "ShowPageBorder";
@@ -142,6 +155,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         try super.init(from: json);
         self.exportEmbeddedImages = json["ExportEmbeddedImages"] as? Bool;
         self.fitToViewPort = json["FitToViewPort"] as? Bool;
+        self.maxImageResolution = json["MaxImageResolution"] as? Int;
         self.resourcesFolder = json["ResourcesFolder"] as? String;
         self.resourcesFolderAlias = json["ResourcesFolderAlias"] as? String;
         self.showPageBorder = json["ShowPageBorder"] as? Bool;
@@ -156,6 +170,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.exportEmbeddedImages = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedImages);
         self.fitToViewPort = try container.decodeIfPresent(Bool.self, forKey: .fitToViewPort);
+        self.maxImageResolution = try container.decodeIfPresent(Int.self, forKey: .maxImageResolution);
         self.resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder);
         self.resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias);
         self.showPageBorder = try container.decodeIfPresent(Bool.self, forKey: .showPageBorder);
@@ -170,6 +185,9 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         }
         if (self.fitToViewPort != nil) {
             try container.encode(self.fitToViewPort, forKey: .fitToViewPort);
+        }
+        if (self.maxImageResolution != nil) {
+            try container.encode(self.maxImageResolution, forKey: .maxImageResolution);
         }
         if (self.resourcesFolder != nil) {
             try container.encode(self.resourcesFolder, forKey: .resourcesFolder);
@@ -213,6 +231,18 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     // Gets fitToViewPort. Gets or sets a value indicating whether the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
     public func getFitToViewPort() -> Bool? {
         return self.fitToViewPort;
+    }
+
+
+    // Sets maxImageResolution. Gets or sets a value in pixels per inch that limits resolution of exported raster images. If the value of this property is non-zero, it limits resolution of exported raster images. That is, higher-resolution images are resampled down to the limit and lower-resolution images are exported as is.
+    public func setMaxImageResolution(maxImageResolution : Int?) -> SvgSaveOptionsData {
+        self.maxImageResolution = maxImageResolution;
+        return self;
+    }
+
+    // Gets maxImageResolution. Gets or sets a value in pixels per inch that limits resolution of exported raster images. If the value of this property is non-zero, it limits resolution of exported raster images. That is, higher-resolution images are resampled down to the limit and lower-resolution images are exported as is.
+    public func getMaxImageResolution() -> Int? {
+        return self.maxImageResolution;
     }
 
 
