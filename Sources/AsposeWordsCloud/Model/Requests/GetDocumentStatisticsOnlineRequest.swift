@@ -34,6 +34,7 @@ public class GetDocumentStatisticsOnlineRequest : WordsApiRequest {
     private let loadEncoding : String?;
     private let password : String?;
     private let encryptedPassword : String?;
+    private let openTypeSupport : Bool?;
     private let includeComments : Bool?;
     private let includeFootnotes : Bool?;
     private let includeTextInShapes : Bool?;
@@ -43,6 +44,7 @@ public class GetDocumentStatisticsOnlineRequest : WordsApiRequest {
         case loadEncoding;
         case password;
         case encryptedPassword;
+        case openTypeSupport;
         case includeComments;
         case includeFootnotes;
         case includeTextInShapes;
@@ -50,11 +52,12 @@ public class GetDocumentStatisticsOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the GetDocumentStatisticsOnlineRequest class.
-    public init(document : InputStream, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, includeComments : Bool? = nil, includeFootnotes : Bool? = nil, includeTextInShapes : Bool? = nil) {
+    public init(document : InputStream, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, openTypeSupport : Bool? = nil, includeComments : Bool? = nil, includeFootnotes : Bool? = nil, includeTextInShapes : Bool? = nil) {
         self.document = document;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.encryptedPassword = encryptedPassword;
+        self.openTypeSupport = openTypeSupport;
         self.includeComments = includeComments;
         self.includeFootnotes = includeFootnotes;
         self.includeTextInShapes = includeTextInShapes;
@@ -78,6 +81,11 @@ public class GetDocumentStatisticsOnlineRequest : WordsApiRequest {
     // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
     public func getEncryptedPassword() -> String? {
         return self.encryptedPassword;
+    }
+
+    // The value indicates whether OpenType support is on.
+    public func getOpenTypeSupport() -> Bool? {
+        return self.openTypeSupport;
     }
 
     // The flag indicating whether to include comments from the WordCount. The default value is "false".
@@ -134,6 +142,18 @@ public class GetDocumentStatisticsOnlineRequest : WordsApiRequest {
 
          #else
                      queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+
+         #endif        
+             }
+
+
+             if (self.getOpenTypeSupport() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "openTypeSupport", value: try ObjectSerializer.serializeToString(value: self.getOpenTypeSupport()!)));
 
          #endif        
              }
