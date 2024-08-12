@@ -28,7 +28,6 @@
 import Foundation
 
 // Request on changing of protection.
-@available(*, deprecated, message: "ProtectionRequest is deprecated and remains for backwards compatibility only.")
 public class ProtectionRequest : ProtectionRequestBase {
     // Field of newPassword. Request on changing of protection.
     private var _newPassword : String? = nil;
