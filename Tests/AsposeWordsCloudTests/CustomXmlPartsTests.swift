@@ -29,7 +29,6 @@ import XCTest
 @testable import AsposeWordsCloud
 
 // Example of how to use custom xml parts in documents.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 class CustomXmlPartsTests: BaseTestContext {
     static var allTests = [
         ("testGetCustomXmlPart", testGetCustomXmlPart),

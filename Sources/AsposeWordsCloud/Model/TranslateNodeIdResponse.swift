@@ -29,7 +29,6 @@ import Foundation
 
 // The REST response with a node path.
 // This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/translate/{0}" REST API requests.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TranslateNodeIdResponse : WordsResponse {
     // Field of path. The REST response with a node path. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/translate/{0}" REST API requests.
     private var _path : String? = nil;

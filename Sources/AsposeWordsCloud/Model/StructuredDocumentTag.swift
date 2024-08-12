@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with a StructuredDocumentTag.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StructuredDocumentTag : StructuredDocumentTagBase {
     // Gets or sets the level at which this SDT occurs in the document tree.
     public enum Level : String, Codable

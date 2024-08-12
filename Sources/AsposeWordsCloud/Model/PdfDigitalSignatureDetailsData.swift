@@ -28,7 +28,6 @@
 import Foundation
 
 // Container class for details of digital signature.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     // Gets or sets the hash algorithm.
     public enum HashAlgorithm : String, Codable

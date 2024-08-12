@@ -29,7 +29,6 @@ import Foundation
 
 // The REST response with a collection of hyperlinks.
 // This response should be returned by the service when handling "GET /{name}/hyperlinks" REST API calls.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HyperlinksResponse : WordsResponse {
     // Field of hyperlinks. The REST response with a collection of hyperlinks. This response should be returned by the service when handling "GET /{name}/hyperlinks" REST API calls.
     private var _hyperlinks : Hyperlinks? = nil;

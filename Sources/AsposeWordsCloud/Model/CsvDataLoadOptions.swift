@@ -30,7 +30,6 @@ import Foundation
 // Represents options for parsing CSV data.
 // To learn more, visit the LINQ Reporting Engine documentation article.
 // An instance of this class can be passed into constructors of CsvDataSource.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CsvDataLoadOptions : Codable, WordsApiModel {
     // Field of commentChar. Represents options for parsing CSV data. To learn more, visit the LINQ Reporting Engine documentation article. An instance of this class can be passed into constructors of CsvDataSource.
     private var _commentChar : String? = nil;

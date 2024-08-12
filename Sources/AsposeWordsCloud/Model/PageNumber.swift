@@ -28,7 +28,6 @@
 import Foundation
 
 // Class is used for insert page number request building.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PageNumber : Codable, WordsApiModel {
     // Field of alignment. Class is used for insert page number request building.
     private var _alignment : String? = nil;

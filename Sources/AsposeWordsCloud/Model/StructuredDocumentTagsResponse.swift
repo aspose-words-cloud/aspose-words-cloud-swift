@@ -29,7 +29,6 @@ import Foundation
 
 // The REST response with a collection of StructuredDocumentTags.
 // This response should be returned by the service when handling: GET /structuredDocumentTags.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StructuredDocumentTagsResponse : WordsResponse {
     // Field of structuredDocumentTags. The REST response with a collection of StructuredDocumentTags. This response should be returned by the service when handling: GET /structuredDocumentTags.
     private var _structuredDocumentTags : StructuredDocumentTagCollection? = nil;

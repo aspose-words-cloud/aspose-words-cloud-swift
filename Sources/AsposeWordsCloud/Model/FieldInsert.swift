@@ -28,7 +28,6 @@
 import Foundation
 
 // Field for insert.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldInsert : FieldBase {
     // Field of position. Field for insert.
     private var _position : Position? = nil;

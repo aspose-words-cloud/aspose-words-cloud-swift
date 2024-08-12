@@ -28,7 +28,6 @@
 import Foundation
 
 // Response model for insertBookmarkOnline operation.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InsertBookmarkOnlineResponse {
     private let model : BookmarkResponse?;
     private let document : [String: Data]?;

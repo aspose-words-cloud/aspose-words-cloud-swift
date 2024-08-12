@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with a preferred width value.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PreferredWidth : Codable, WordsApiModel {
     // Gets or sets the unit of measure used for this preferred width value.
     public enum ModelType : String, Codable

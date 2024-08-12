@@ -28,7 +28,6 @@
 import Foundation
 
 // Container class for xamlflow_pack save options.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XamlFlowPackSaveOptionsData : XamlFlowSaveOptionsData {
     // Field of saveFormat. Container class for xamlflow_pack save options.
     private final let _saveFormat : String? = "xamlflow_pack";

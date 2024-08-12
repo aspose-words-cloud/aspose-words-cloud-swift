@@ -28,7 +28,6 @@
 import Foundation
 
 // The collection of borders.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BordersCollection : LinkElement {
     // Field of list. The collection of borders.
     private var _list : [Border]? = nil;

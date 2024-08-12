@@ -28,7 +28,6 @@
 import Foundation
 
 // Footnote base class.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FootnoteBase : Codable, WordsApiModel {
     // Gets or sets the option, that specifies whether this is a footnote or endnote.
     public enum FootnoteType : String, Codable

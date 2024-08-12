@@ -28,7 +28,6 @@
 import Foundation
 
 // Represents a single classification result.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ClassificationResult : Codable, WordsApiModel {
     // Field of className. Represents a single classification result.
     private var _className : String? = nil;

@@ -28,7 +28,6 @@
 import Foundation
 
 // Container class for outline options.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class OutlineOptionsData : Codable, WordsApiModel {
     // Field of createMissingOutlineLevels. Container class for outline options.
     private var _createMissingOutlineLevels : Bool? = nil;

@@ -29,7 +29,6 @@ import Foundation
 
 // The REST response with a range's text.
 // This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/range/{0}/{1}/" REST API requests.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RangeTextResponse : WordsResponse {
     // Field of text. The REST response with a range's text. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/range/{0}/{1}/" REST API requests.
     private var _text : String? = nil;

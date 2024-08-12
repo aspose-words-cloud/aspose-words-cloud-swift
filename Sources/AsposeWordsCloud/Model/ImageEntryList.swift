@@ -28,7 +28,6 @@
 import Foundation
 
 // Represents a list of images which will be appended to the original resource document or image.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ImageEntryList : BaseEntryList {
     // Field of appendEachImageOnNewPage. Represents a list of images which will be appended to the original resource document or image.
     private var _appendEachImageOnNewPage : Bool? = nil;

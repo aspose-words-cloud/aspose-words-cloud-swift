@@ -28,12 +28,10 @@
 import Foundation
 
 // Aspose.Words.Cloud API for Swift
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public protocol Encryptor {
     func encrypt(data: String) throws -> String
 }
 
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class WordsAPI : Encryptor {
 
     private let configuration : Configuration;
@@ -13059,6 +13057,7 @@ public class WordsAPI : Encryptor {
 
     // Sync representation of insertWatermarkImage method
     // Inserts a new watermark image to the document.
+    @available(*, deprecated, message: "This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
     public func insertWatermarkImage(request : InsertWatermarkImageRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -13114,6 +13113,7 @@ public class WordsAPI : Encryptor {
 
     // Sync representation of insertWatermarkImageOnline method
     // Inserts a new watermark image to the document.
+    @available(*, deprecated, message: "This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
     public func insertWatermarkImageOnline(request : InsertWatermarkImageOnlineRequest) throws -> InsertWatermarkImageOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : InsertWatermarkImageOnlineResponse? = nil;
@@ -13223,6 +13223,7 @@ public class WordsAPI : Encryptor {
 
     // Sync representation of insertWatermarkText method
     // Inserts a new watermark text to the document.
+    @available(*, deprecated, message: "This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
     public func insertWatermarkText(request : InsertWatermarkTextRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -13278,6 +13279,7 @@ public class WordsAPI : Encryptor {
 
     // Sync representation of insertWatermarkTextOnline method
     // Inserts a new watermark text to the document.
+    @available(*, deprecated, message: "This operation is deprecated and is used for backward compatibility only. Please use InsertWatermark instead.")
     public func insertWatermarkTextOnline(request : InsertWatermarkTextOnlineRequest) throws -> InsertWatermarkTextOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : InsertWatermarkTextOnlineResponse? = nil;
@@ -15037,6 +15039,7 @@ public class WordsAPI : Encryptor {
 
     // Sync representation of saveAsTiff method
     // Converts a document in cloud storage to TIFF format using detailed conversion settings.
+    @available(*, deprecated, message: "This operation will be removed in the future.")
     public func saveAsTiff(request : SaveAsTiffRequest) throws -> SaveResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SaveResponse? = nil;
@@ -15092,6 +15095,7 @@ public class WordsAPI : Encryptor {
 
     // Sync representation of saveAsTiffOnline method
     // Converts a document in cloud storage to TIFF format using detailed conversion settings.
+    @available(*, deprecated, message: "This operation will be removed in the future.")
     public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest) throws -> SaveAsTiffOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SaveAsTiffOnlineResponse? = nil;

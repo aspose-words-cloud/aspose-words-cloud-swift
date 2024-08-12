@@ -28,7 +28,6 @@
 import Foundation
 
 // Container for the data about protection of the document.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ProtectionData : Codable, WordsApiModel {
     // Gets or sets type of the protection.
     public enum ProtectionType : String, Codable

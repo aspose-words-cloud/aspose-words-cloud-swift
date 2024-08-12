@@ -28,7 +28,6 @@
 import Foundation
 
 // Response model for splitDocumentOnline operation.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SplitDocumentOnlineResponse {
     private let model : SplitDocumentResponse?;
     private let document : [String: Data]?;

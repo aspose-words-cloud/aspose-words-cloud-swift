@@ -28,7 +28,6 @@
 import Foundation
 
 // File upload result.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FilesUploadResult : Codable, WordsApiModel {
     // Field of errors. File upload result.
     private var _errors : [InternalError]? = nil;

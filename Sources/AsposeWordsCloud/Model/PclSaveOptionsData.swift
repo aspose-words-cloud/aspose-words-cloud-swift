@@ -28,7 +28,6 @@
 import Foundation
 
 // Container class for pcl save options.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PclSaveOptionsData : FixedPageSaveOptionsData {
     // Field of falllbackFontName. Container class for pcl save options.
     private var _falllbackFontName : String? = nil;

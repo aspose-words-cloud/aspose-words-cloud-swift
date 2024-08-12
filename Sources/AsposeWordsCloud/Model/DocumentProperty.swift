@@ -28,7 +28,6 @@
 import Foundation
 
 // Words document property DTO.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentProperty : LinkElement {
     // Field of name. Words document property DTO.
     private var _name : String? = nil;

@@ -28,7 +28,6 @@
 import Foundation
 
 // The REST response with data on system, additional and custom fonts, available for document processing.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class AvailableFontsResponse : WordsResponse {
     // Field of additionalFonts. The REST response with data on system, additional and custom fonts, available for document processing.
     private var _additionalFonts : [FontInfo]? = nil;

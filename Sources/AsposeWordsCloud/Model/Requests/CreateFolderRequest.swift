@@ -28,7 +28,6 @@
 import Foundation
 
 // Request model for createFolder operation.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CreateFolderRequest : WordsApiRequest {
     private let path : String;
     private let storageName : String?;

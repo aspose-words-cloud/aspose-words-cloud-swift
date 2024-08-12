@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with a paragraph element.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Paragraph : NodeLink {
     // Field of childNodes. DTO container with a paragraph element.
     private var _childNodes : [NodeLink]? = nil;

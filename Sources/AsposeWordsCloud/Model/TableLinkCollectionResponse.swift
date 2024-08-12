@@ -29,7 +29,6 @@ import Foundation
 
 // The REST response with a collection of tables.
 // This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables" REST API requests.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableLinkCollectionResponse : WordsResponse {
     // Field of tables. The REST response with a collection of tables. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/tables" REST API requests.
     private var _tables : TableLinkCollection? = nil;

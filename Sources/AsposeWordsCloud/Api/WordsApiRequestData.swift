@@ -28,7 +28,6 @@
 import Foundation
 
 // Common REST API request data
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public struct WordsApiRequestData {
     private let url : URL;
     private let method : String;

@@ -28,7 +28,6 @@
 import Foundation
 
 // Utility class for executing and processing requests to Cloud API
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ApiInvoker {
     // An object containing the configuration for executing API requests 
     private let configuration : Configuration;

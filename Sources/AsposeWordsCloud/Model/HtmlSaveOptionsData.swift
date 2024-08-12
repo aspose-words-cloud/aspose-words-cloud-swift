@@ -28,7 +28,6 @@
 import Foundation
 
 // Container class for html save options.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HtmlSaveOptionsData : SaveOptionsData {
     // Gets or sets the option that controls how the CSS styles are exported.
     public enum CssStyleSheetType : String, Codable

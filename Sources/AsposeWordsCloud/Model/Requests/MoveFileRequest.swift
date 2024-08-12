@@ -28,7 +28,6 @@
 import Foundation
 
 // Request model for moveFile operation.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class MoveFileRequest : WordsApiRequest {
     private let destPath : String;
     private let srcPath : String;

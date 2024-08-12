@@ -28,7 +28,6 @@
 import Foundation
 
 // Request model for deleteBorder operation.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DeleteBorderRequest : WordsApiRequest {
     private let name : String;
     private let borderType : String;

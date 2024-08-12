@@ -29,7 +29,6 @@ import Foundation
 
 // The REST response with a collection of bookmarks.
 // This response should be returned by the service when handling: GET bookmarks.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BookmarksResponse : WordsResponse {
     // Field of bookmarks. The REST response with a collection of bookmarks. This response should be returned by the service when handling: GET bookmarks.
     private var _bookmarks : Bookmarks? = nil;

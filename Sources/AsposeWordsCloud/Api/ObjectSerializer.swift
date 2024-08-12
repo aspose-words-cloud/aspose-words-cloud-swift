@@ -28,7 +28,6 @@
 import Foundation
 
 // Helper class for serialize or deserialize swift objects to string or binary format.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 class ObjectSerializer {
     private init() { }
 

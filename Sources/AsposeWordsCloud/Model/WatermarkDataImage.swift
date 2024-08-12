@@ -28,7 +28,6 @@
 import Foundation
 
 // Class for insert watermark image request building.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class WatermarkDataImage : WatermarkDataBase {
     // Field of image. Class for insert watermark image request building.
     private var _image : FileReference? = nil;

@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with paragraph format tab stop.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TabStop : TabStopBase {
     // Field of isClear. DTO container with paragraph format tab stop.
     private var _isClear : Bool? = nil;

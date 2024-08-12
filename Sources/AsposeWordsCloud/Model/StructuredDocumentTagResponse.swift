@@ -28,7 +28,6 @@
 import Foundation
 
 // The REST response with a StructuredDocumentTag.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StructuredDocumentTagResponse : WordsResponse {
     // Field of structuredDocumentTag. The REST response with a StructuredDocumentTag.
     private var _structuredDocumentTag : StructuredDocumentTag? = nil;

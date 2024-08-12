@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with a range element.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ReplaceRange : Codable, WordsApiModel {
     // Gets or sets the range's text type.
     public enum TextType : String, Codable

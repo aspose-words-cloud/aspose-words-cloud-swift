@@ -29,7 +29,6 @@ import XCTest
 @testable import AsposeWordsCloud
 
 // Example of how to work with ranges.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 class RangeTests: BaseTestContext {
     static var allTests = [
         ("testGetRangeText", testGetRangeText),

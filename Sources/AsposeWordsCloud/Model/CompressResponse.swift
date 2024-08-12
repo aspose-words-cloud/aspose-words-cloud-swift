@@ -28,7 +28,6 @@
 import Foundation
 
 // The REST response of compressed document.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CompressResponse : WordsResponse {
     // Field of document. The REST response of compressed document.
     private var _document : Document? = nil;

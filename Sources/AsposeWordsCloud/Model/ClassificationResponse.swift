@@ -29,7 +29,6 @@ import Foundation
 
 // The REST response with data on multi-class text classification.
 // This response is returned by the Service when handling "PUT https://api.aspose.cloud/v4.0/words/classify" REST API requests.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ClassificationResponse : WordsResponse {
     // Field of bestClassName. The REST response with data on multi-class text classification. This response is returned by the Service when handling "PUT https://api.aspose.cloud/v4.0/words/classify" REST API requests.
     private var _bestClassName : String? = nil;

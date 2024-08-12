@@ -29,7 +29,6 @@ import Foundation
 
 // The REST response with a hyperlink.
 // This response should be returned by the service when handling: GET /{name}/hyperlinks/{hyperlinkIndex}.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HyperlinkResponse : WordsResponse {
     // Field of hyperlink. The REST response with a hyperlink. This response should be returned by the service when handling: GET /{name}/hyperlinks/{hyperlinkIndex}.
     private var _hyperlink : Hyperlink? = nil;

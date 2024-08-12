@@ -28,7 +28,6 @@
 import Foundation
 
 // The REST response with a save result.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SaveResponse : WordsResponse {
     // Field of saveResult. The REST response with a save result.
     private var _saveResult : SaveResult? = nil;

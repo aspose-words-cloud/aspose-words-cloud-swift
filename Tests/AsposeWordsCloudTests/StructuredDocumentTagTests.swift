@@ -29,7 +29,6 @@ import XCTest
 @testable import AsposeWordsCloud
 
 // Example of how to use structured document tags.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 class StructuredDocumentTagTests: BaseTestContext {
     static var allTests = [
         ("testGetStructuredDocumentTags", testGetStructuredDocumentTags),

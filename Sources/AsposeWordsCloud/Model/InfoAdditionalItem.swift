@@ -28,7 +28,6 @@
 import Foundation
 
 // Info additional item.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InfoAdditionalItem : Codable, WordsApiModel {
     // Field of key. Info additional item.
     private var _key : String? = nil;

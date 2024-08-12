@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with a SdtListItem for StructuredDocumentTag.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StructuredDocumentTagListItem : Codable, WordsApiModel {
     // Field of displayText. DTO container with a SdtListItem for StructuredDocumentTag.
     private var _displayText : String? = nil;

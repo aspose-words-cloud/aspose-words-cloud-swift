@@ -28,7 +28,6 @@
 import Foundation
 
 // A DTO to Insert / replace a tab stop.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TabStopInsert : TabStopBase {
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;

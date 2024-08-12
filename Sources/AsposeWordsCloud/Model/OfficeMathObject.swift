@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with an OfficeMath object.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class OfficeMathObject : OfficeMathLink {
     // Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line.
     // Display format type has effect for top level Office Math only.Returned display format type is always Inline for nested Office Math.

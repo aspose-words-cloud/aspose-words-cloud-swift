@@ -28,7 +28,6 @@
 import Foundation
 
 // Represents a collection of merge fields within a document.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldNames : LinkElement {
     // Field of names. Represents a collection of merge fields within a document.
     private var _names : [String]? = nil;

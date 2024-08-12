@@ -28,7 +28,6 @@
 import Foundation
 
 // Represents a image which will be appended to the original resource image or document.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ImageEntry : BaseEntry {
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;

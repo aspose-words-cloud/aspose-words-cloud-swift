@@ -29,7 +29,6 @@ import XCTest
 @testable import AsposeWordsCloud
 
 // Example of how to perform mail merge.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 class ExecuteMailMergeTests: BaseTestContext {
     static var allTests = [
         ("testExecuteMailMergeOnline", testExecuteMailMergeOnline),

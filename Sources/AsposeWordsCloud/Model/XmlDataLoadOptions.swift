@@ -30,7 +30,6 @@ import Foundation
 // Represents options for XML data loading.
 // To learn more, visit the LINQ Reporting Engine documentation article.
 // An instance of this class can be passed into constructors of XmlDataSource.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XmlDataLoadOptions : Codable, WordsApiModel {
     // Field of alwaysGenerateRootObject. Represents options for XML data loading. To learn more, visit the LINQ Reporting Engine documentation article. An instance of this class can be passed into constructors of XmlDataSource.
     private var _alwaysGenerateRootObject : Bool? = nil;

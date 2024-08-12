@@ -28,7 +28,6 @@
 import Foundation
 
 // Table link element.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableLink : NodeLink {
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;

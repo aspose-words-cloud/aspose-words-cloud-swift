@@ -29,7 +29,6 @@ import Foundation
 
 // The REST response with a list information.
 // This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/lists/{n}" REST API requests.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListResponse : WordsResponse {
     // Field of list. The REST response with a list information. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/lists/{n}" REST API requests.
     private var _list : ListInfo? = nil;
