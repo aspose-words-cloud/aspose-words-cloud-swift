@@ -4,3 +4,4 @@ Settings/*
 /.build
 /tests.xml
 /Package.resolved
+/.swiftpm
