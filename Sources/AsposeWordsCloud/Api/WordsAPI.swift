@@ -102,7 +102,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -156,7 +156,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -210,7 +210,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -264,7 +264,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -318,7 +318,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -372,7 +372,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -426,7 +426,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -480,7 +480,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -534,7 +534,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -588,7 +588,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -642,7 +642,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -696,7 +696,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -750,7 +750,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -806,7 +806,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -862,7 +862,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -916,7 +916,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -958,7 +958,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -999,7 +999,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1052,7 +1052,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1106,7 +1106,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1160,7 +1160,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1216,7 +1216,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1258,7 +1258,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1311,7 +1311,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1365,7 +1365,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1419,7 +1419,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1473,7 +1473,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1515,7 +1515,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1568,7 +1568,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1610,7 +1610,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1663,7 +1663,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1719,7 +1719,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1775,7 +1775,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1831,7 +1831,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1887,7 +1887,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1929,7 +1929,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -1982,7 +1982,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2024,7 +2024,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2077,7 +2077,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2119,7 +2119,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2172,7 +2172,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2214,7 +2214,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2267,7 +2267,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2309,7 +2309,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2362,7 +2362,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2404,7 +2404,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2457,7 +2457,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2499,7 +2499,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2552,7 +2552,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2594,7 +2594,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2647,7 +2647,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2689,7 +2689,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2730,7 +2730,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2771,7 +2771,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2824,7 +2824,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2866,7 +2866,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2919,7 +2919,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -2961,7 +2961,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3014,7 +3014,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3056,7 +3056,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3109,7 +3109,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3151,7 +3151,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3204,7 +3204,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3246,7 +3246,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3299,7 +3299,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3341,7 +3341,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3394,7 +3394,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3436,7 +3436,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3489,7 +3489,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3543,7 +3543,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3597,7 +3597,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3651,7 +3651,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3705,7 +3705,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3747,7 +3747,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3800,7 +3800,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3842,7 +3842,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3895,7 +3895,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3937,7 +3937,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -3990,7 +3990,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4032,7 +4032,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4073,7 +4073,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4126,7 +4126,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4180,7 +4180,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4222,7 +4222,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4275,7 +4275,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4329,7 +4329,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4383,7 +4383,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4437,7 +4437,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4491,7 +4491,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4545,7 +4545,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4599,7 +4599,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4653,7 +4653,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4707,7 +4707,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4761,7 +4761,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4815,7 +4815,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4871,7 +4871,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4927,7 +4927,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -4981,7 +4981,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5035,7 +5035,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5089,7 +5089,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5143,7 +5143,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5197,7 +5197,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5251,7 +5251,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5305,7 +5305,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5359,7 +5359,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5413,7 +5413,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5467,7 +5467,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5521,7 +5521,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5575,7 +5575,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5629,7 +5629,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5683,7 +5683,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5737,7 +5737,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5791,7 +5791,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5845,7 +5845,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5899,7 +5899,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -5953,7 +5953,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6007,7 +6007,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6061,7 +6061,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6115,7 +6115,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6169,7 +6169,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6223,7 +6223,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6277,7 +6277,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6331,7 +6331,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6385,7 +6385,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6439,7 +6439,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6493,7 +6493,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6547,7 +6547,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6601,7 +6601,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6655,7 +6655,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6709,7 +6709,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6763,7 +6763,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6817,7 +6817,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6871,7 +6871,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6925,7 +6925,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -6979,7 +6979,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7033,7 +7033,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7087,7 +7087,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7141,7 +7141,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7195,7 +7195,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7249,7 +7249,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7303,7 +7303,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7357,7 +7357,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7411,7 +7411,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7465,7 +7465,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7519,7 +7519,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7573,7 +7573,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7627,7 +7627,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7681,7 +7681,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7735,7 +7735,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7789,7 +7789,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7843,7 +7843,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7897,7 +7897,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -7951,7 +7951,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8005,7 +8005,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8059,7 +8059,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8113,7 +8113,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8167,7 +8167,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8221,7 +8221,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8275,7 +8275,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8329,7 +8329,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8383,7 +8383,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8437,7 +8437,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8491,7 +8491,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8545,7 +8545,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8599,7 +8599,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8653,7 +8653,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8707,7 +8707,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8761,7 +8761,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8815,7 +8815,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8869,7 +8869,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8923,7 +8923,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -8977,7 +8977,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9031,7 +9031,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9085,7 +9085,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9139,7 +9139,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9193,7 +9193,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9247,7 +9247,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9301,7 +9301,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9355,7 +9355,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9409,7 +9409,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9463,7 +9463,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9517,7 +9517,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9571,7 +9571,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9625,7 +9625,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9679,7 +9679,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9733,7 +9733,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9787,7 +9787,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9841,7 +9841,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9895,7 +9895,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -9949,7 +9949,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10003,7 +10003,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10057,7 +10057,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10111,7 +10111,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10165,7 +10165,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10219,7 +10219,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10273,7 +10273,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10327,7 +10327,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10381,7 +10381,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10435,7 +10435,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10489,7 +10489,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10543,7 +10543,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10597,7 +10597,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10651,7 +10651,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10705,7 +10705,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10759,7 +10759,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10813,7 +10813,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10867,7 +10867,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10921,7 +10921,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -10975,7 +10975,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11029,7 +11029,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11083,7 +11083,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11137,7 +11137,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11191,7 +11191,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11245,7 +11245,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11299,7 +11299,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11353,7 +11353,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11407,7 +11407,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11461,7 +11461,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11515,7 +11515,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11569,7 +11569,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11623,7 +11623,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11677,7 +11677,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11731,7 +11731,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11785,7 +11785,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11839,7 +11839,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11893,7 +11893,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -11947,7 +11947,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12001,7 +12001,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12055,7 +12055,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12109,7 +12109,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12163,7 +12163,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12217,7 +12217,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12271,7 +12271,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12325,7 +12325,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12367,7 +12367,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12420,7 +12420,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12474,7 +12474,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12528,7 +12528,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12582,7 +12582,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12636,7 +12636,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12690,7 +12690,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12744,7 +12744,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12798,7 +12798,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12852,7 +12852,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12906,7 +12906,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -12960,7 +12960,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13014,7 +13014,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13069,7 +13069,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13124,7 +13124,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13178,7 +13178,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13233,7 +13233,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13288,7 +13288,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13330,7 +13330,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13383,7 +13383,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13425,7 +13425,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13478,7 +13478,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13520,7 +13520,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13561,7 +13561,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13602,7 +13602,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13655,7 +13655,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13709,7 +13709,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13763,7 +13763,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13817,7 +13817,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13871,7 +13871,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13925,7 +13925,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -13979,7 +13979,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14033,7 +14033,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14087,7 +14087,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14141,7 +14141,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14195,7 +14195,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14249,7 +14249,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14303,7 +14303,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14357,7 +14357,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14411,7 +14411,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14465,7 +14465,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14519,7 +14519,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14573,7 +14573,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14627,7 +14627,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14681,7 +14681,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14735,7 +14735,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14777,7 +14777,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14830,7 +14830,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14884,7 +14884,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14938,7 +14938,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -14992,7 +14992,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15047,7 +15047,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15102,7 +15102,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15156,7 +15156,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15210,7 +15210,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15264,7 +15264,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15318,7 +15318,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15372,7 +15372,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15426,7 +15426,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15480,7 +15480,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15534,7 +15534,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15588,7 +15588,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15642,7 +15642,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15698,7 +15698,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15754,7 +15754,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15808,7 +15808,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15862,7 +15862,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15916,7 +15916,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -15970,7 +15970,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16024,7 +16024,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16078,7 +16078,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16132,7 +16132,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16186,7 +16186,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16240,7 +16240,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16294,7 +16294,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16348,7 +16348,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16402,7 +16402,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16456,7 +16456,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16510,7 +16510,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16564,7 +16564,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16618,7 +16618,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16672,7 +16672,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16726,7 +16726,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16780,7 +16780,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16834,7 +16834,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16888,7 +16888,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16942,7 +16942,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -16996,7 +16996,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17050,7 +17050,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17104,7 +17104,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17158,7 +17158,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17212,7 +17212,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17266,7 +17266,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17320,7 +17320,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17374,7 +17374,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17428,7 +17428,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17482,7 +17482,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17536,7 +17536,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17590,7 +17590,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17644,7 +17644,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17698,7 +17698,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17752,7 +17752,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17806,7 +17806,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17860,7 +17860,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
@@ -17936,7 +17936,7 @@ public class WordsAPI : Encryptor {
             semaphore.signal();
         });
 
-        _ = semaphore.wait();
+        semaphore.wait();
 
         if (responseError != nil) {
             throw responseError!;
