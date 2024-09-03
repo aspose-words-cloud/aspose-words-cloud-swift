@@ -539,6 +539,18 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         }
     }
 
+    // Field of replaceBackslashWithYenSign. Container class for html save options.
+    private var _replaceBackslashWithYenSign : Bool? = nil;
+
+    public var replaceBackslashWithYenSign : Bool? {
+        get {
+            return self._replaceBackslashWithYenSign;
+        }
+        set {
+            self._replaceBackslashWithYenSign = newValue;
+        }
+    }
+
     // Field of resolveFontNames. Container class for html save options.
     private var _resolveFontNames : Bool? = nil;
 
@@ -642,6 +654,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         case metafileFormat = "MetafileFormat";
         case officeMathOutputMode = "OfficeMathOutputMode";
         case prettyFormat = "PrettyFormat";
+        case replaceBackslashWithYenSign = "ReplaceBackslashWithYenSign";
         case resolveFontNames = "ResolveFontNames";
         case resourceFolder = "ResourceFolder";
         case resourceFolderAlias = "ResourceFolderAlias";
@@ -710,6 +723,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         }
 
         self.prettyFormat = json["PrettyFormat"] as? Bool;
+        self.replaceBackslashWithYenSign = json["ReplaceBackslashWithYenSign"] as? Bool;
         self.resolveFontNames = json["ResolveFontNames"] as? Bool;
         self.resourceFolder = json["ResourceFolder"] as? String;
         self.resourceFolderAlias = json["ResourceFolderAlias"] as? String;
@@ -756,6 +770,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         self.metafileFormat = try container.decodeIfPresent(MetafileFormat.self, forKey: .metafileFormat);
         self.officeMathOutputMode = try container.decodeIfPresent(OfficeMathOutputMode.self, forKey: .officeMathOutputMode);
         self.prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat);
+        self.replaceBackslashWithYenSign = try container.decodeIfPresent(Bool.self, forKey: .replaceBackslashWithYenSign);
         self.resolveFontNames = try container.decodeIfPresent(Bool.self, forKey: .resolveFontNames);
         self.resourceFolder = try container.decodeIfPresent(String.self, forKey: .resourceFolder);
         self.resourceFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourceFolderAlias);
@@ -864,6 +879,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         }
         if (self.prettyFormat != nil) {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
+        }
+        if (self.replaceBackslashWithYenSign != nil) {
+            try container.encode(self.replaceBackslashWithYenSign, forKey: .replaceBackslashWithYenSign);
         }
         if (self.resolveFontNames != nil) {
             try container.encode(self.resolveFontNames, forKey: .resolveFontNames);
@@ -1282,6 +1300,18 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Gets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
+    }
+
+
+    // Sets replaceBackslashWithYenSign. Gets or sets the flag that indicates whether backslash characters should be replaced with yen signs. Default value is false. By default, Aspose.Words mimics MS Word's behavior and doesn't replace backslash characters with yen signs in generated HTML documents. However, previous versions of Aspose.Words performed such replacements in certain scenarios. This flag enables backward compatibility with previous versions of Aspose.Words.
+    public func setReplaceBackslashWithYenSign(replaceBackslashWithYenSign : Bool?) -> HtmlSaveOptionsData {
+        self.replaceBackslashWithYenSign = replaceBackslashWithYenSign;
+        return self;
+    }
+
+    // Gets replaceBackslashWithYenSign. Gets or sets the flag that indicates whether backslash characters should be replaced with yen signs. Default value is false. By default, Aspose.Words mimics MS Word's behavior and doesn't replace backslash characters with yen signs in generated HTML documents. However, previous versions of Aspose.Words performed such replacements in certain scenarios. This flag enables backward compatibility with previous versions of Aspose.Words.
+    public func getReplaceBackslashWithYenSign() -> Bool? {
+        return self.replaceBackslashWithYenSign;
     }
 
 

@@ -41,6 +41,18 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
+    // Field of digitalSignatureDetails. Container class for xps save options.
+    private var _digitalSignatureDetails : DigitalSignatureDetails? = nil;
+
+    public var digitalSignatureDetails : DigitalSignatureDetails? {
+        get {
+            return self._digitalSignatureDetails;
+        }
+        set {
+            self._digitalSignatureDetails = newValue;
+        }
+    }
+
     // Field of headingsOutlineLevels. Container class for xps save options.
     private var _headingsOutlineLevels : Int? = nil;
 
@@ -88,6 +100,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
 
     private enum CodingKeys: String, CodingKey {
         case bookmarksOutlineLevel = "BookmarksOutlineLevel";
+        case digitalSignatureDetails = "DigitalSignatureDetails";
         case headingsOutlineLevels = "HeadingsOutlineLevels";
         case outlineOptions = "OutlineOptions";
         case useBookFoldPrintingSettings = "UseBookFoldPrintingSettings";
@@ -101,6 +114,10 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     public required init(from json: [String: Any]) throws {
         try super.init(from: json);
         self.bookmarksOutlineLevel = json["BookmarksOutlineLevel"] as? Int;
+        if let raw_digitalSignatureDetails = json["DigitalSignatureDetails"] as? [String: Any] {
+            self.digitalSignatureDetails = try ObjectSerializer.deserialize(type: DigitalSignatureDetails.self, from: raw_digitalSignatureDetails);
+        }
+
         self.headingsOutlineLevels = json["HeadingsOutlineLevels"] as? Int;
         if let raw_outlineOptions = json["OutlineOptions"] as? [String: Any] {
             self.outlineOptions = try ObjectSerializer.deserialize(type: OutlineOptionsData.self, from: raw_outlineOptions);
@@ -113,6 +130,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.bookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .bookmarksOutlineLevel);
+        self.digitalSignatureDetails = try container.decodeIfPresent(DigitalSignatureDetails.self, forKey: .digitalSignatureDetails);
         self.headingsOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .headingsOutlineLevels);
         self.outlineOptions = try container.decodeIfPresent(OutlineOptionsData.self, forKey: .outlineOptions);
         self.useBookFoldPrintingSettings = try container.decodeIfPresent(Bool.self, forKey: .useBookFoldPrintingSettings);
@@ -123,6 +141,9 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.bookmarksOutlineLevel != nil) {
             try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);
+        }
+        if (self.digitalSignatureDetails != nil) {
+            try container.encode(self.digitalSignatureDetails, forKey: .digitalSignatureDetails);
         }
         if (self.headingsOutlineLevels != nil) {
             try container.encode(self.headingsOutlineLevels, forKey: .headingsOutlineLevels);
@@ -140,6 +161,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
 
     public override func validate() throws {
         try super.validate();
+        try self.digitalSignatureDetails?.validate();
         try self.outlineOptions?.validate();
 
     }
@@ -153,6 +175,18 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     // Gets bookmarksOutlineLevel. Gets or sets the level in the XPS document outline at which to display Word bookmarks.
     public func getBookmarksOutlineLevel() -> Int? {
         return self.bookmarksOutlineLevel;
+    }
+
+
+    // Sets digitalSignatureDetails. Gets or sets the details for signing the output document.
+    public func setDigitalSignatureDetails(digitalSignatureDetails : DigitalSignatureDetails?) -> XpsSaveOptionsData {
+        self.digitalSignatureDetails = digitalSignatureDetails;
+        return self;
+    }
+
+    // Gets digitalSignatureDetails. Gets or sets the details for signing the output document.
+    public func getDigitalSignatureDetails() -> DigitalSignatureDetails? {
+        return self.digitalSignatureDetails;
     }
 
 

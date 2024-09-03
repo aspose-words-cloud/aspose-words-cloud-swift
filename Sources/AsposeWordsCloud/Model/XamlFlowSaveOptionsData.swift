@@ -53,6 +53,18 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
         }
     }
 
+    // Field of replaceBackslashWithYenSign. Container class for xaml flow save options.
+    private var _replaceBackslashWithYenSign : Bool? = nil;
+
+    public var replaceBackslashWithYenSign : Bool? {
+        get {
+            return self._replaceBackslashWithYenSign;
+        }
+        set {
+            self._replaceBackslashWithYenSign = newValue;
+        }
+    }
+
     // Field of saveFormat. Container class for xaml flow save options.
     private final let _saveFormat : String? = "xamlflow";
 
@@ -65,6 +77,7 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     private enum CodingKeys: String, CodingKey {
         case imagesFolder = "ImagesFolder";
         case imagesFolderAlias = "ImagesFolderAlias";
+        case replaceBackslashWithYenSign = "ReplaceBackslashWithYenSign";
         case invalidCodingKey;
     }
 
@@ -76,6 +89,7 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
         try super.init(from: json);
         self.imagesFolder = json["ImagesFolder"] as? String;
         self.imagesFolderAlias = json["ImagesFolderAlias"] as? String;
+        self.replaceBackslashWithYenSign = json["ReplaceBackslashWithYenSign"] as? Bool;
     }
 
     public required init(from decoder: Decoder) throws {
@@ -83,6 +97,7 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.imagesFolder = try container.decodeIfPresent(String.self, forKey: .imagesFolder);
         self.imagesFolderAlias = try container.decodeIfPresent(String.self, forKey: .imagesFolderAlias);
+        self.replaceBackslashWithYenSign = try container.decodeIfPresent(Bool.self, forKey: .replaceBackslashWithYenSign);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -93,6 +108,9 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
         }
         if (self.imagesFolderAlias != nil) {
             try container.encode(self.imagesFolderAlias, forKey: .imagesFolderAlias);
+        }
+        if (self.replaceBackslashWithYenSign != nil) {
+            try container.encode(self.replaceBackslashWithYenSign, forKey: .replaceBackslashWithYenSign);
         }
     }
 
@@ -124,5 +142,17 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     // Gets imagesFolderAlias. Gets or sets the name of the folder used to construct image URIs.
     public func getImagesFolderAlias() -> String? {
         return self.imagesFolderAlias;
+    }
+
+
+    // Sets replaceBackslashWithYenSign. Gets or sets the flag that indicates whether backslash characters should be replaced with yen signs. Default value is false. By default, Aspose.Words mimics MS Word's behavior and doesn't replace backslash characters with yen signs in generated HTML documents. However, previous versions of Aspose.Words performed such replacements in certain scenarios. This flag enables backward compatibility with previous versions of Aspose.Words.
+    public func setReplaceBackslashWithYenSign(replaceBackslashWithYenSign : Bool?) -> XamlFlowSaveOptionsData {
+        self.replaceBackslashWithYenSign = replaceBackslashWithYenSign;
+        return self;
+    }
+
+    // Gets replaceBackslashWithYenSign. Gets or sets the flag that indicates whether backslash characters should be replaced with yen signs. Default value is false. By default, Aspose.Words mimics MS Word's behavior and doesn't replace backslash characters with yen signs in generated HTML documents. However, previous versions of Aspose.Words performed such replacements in certain scenarios. This flag enables backward compatibility with previous versions of Aspose.Words.
+    public func getReplaceBackslashWithYenSign() -> Bool? {
+        return self.replaceBackslashWithYenSign;
     }
 }
