@@ -252,6 +252,8 @@ class ObjectSerializer {
         "SectionPageSetupResponse, _": SectionPageSetupResponse.self,
         "SectionResponse, _": SectionResponse.self,
         "Shading, _": Shading.self,
+        "Signature, _": Signature.self,
+        "SignatureCollectionResponse, _": SignatureCollectionResponse.self,
         "SignOptions, _": SignOptions.self,
         "SplitDocumentResponse, _": SplitDocumentResponse.self,
         "SplitDocumentResult, _": SplitDocumentResult.self,
