@@ -92,9 +92,9 @@ public class Signature : Codable, WordsApiModel {
     }
 
     // Field of signatureValue. The REST response with a document signature collection. This response is returned by the Service when handling any "https://api.aspose.cloud/v4.0/words/Test.doc/signatures" REST API requests.
-    private var _signatureValue : InputStream? = nil;
+    private var _signatureValue : String? = nil;
 
-    public var signatureValue : InputStream? {
+    public var signatureValue : String? {
         get {
             return self._signatureValue;
         }
@@ -149,7 +149,7 @@ public class Signature : Codable, WordsApiModel {
             self.signatureType = SignatureType(rawValue: raw_signatureType);
         }
 
-        self.signatureValue = json["SignatureValue"] as? InputStream;
+        self.signatureValue = json["SignatureValue"] as? String;
         if let raw_signTime = json["SignTime"] as? String {
             self.signTime = ObjectSerializer.customIso8601.date(from: raw_signTime);
         }
@@ -163,7 +163,7 @@ public class Signature : Codable, WordsApiModel {
         self.issuerName = try container.decodeIfPresent(String.self, forKey: .issuerName);
         self.isValid = try container.decodeIfPresent(Bool.self, forKey: .isValid);
         self.signatureType = try container.decodeIfPresent(SignatureType.self, forKey: .signatureType);
-        self.signatureValue = try container.decodeIfPresent(InputStream.self, forKey: .signatureValue);
+        self.signatureValue = try container.decodeIfPresent(String.self, forKey: .signatureValue);
         var raw_signTime = try container.decodeIfPresent(String.self, forKey: .signTime);
         if (raw_signTime != nil) {
             raw_signTime = raw_signTime!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression);
@@ -264,14 +264,14 @@ public class Signature : Codable, WordsApiModel {
     }
 
 
-    // Sets signatureValue. Gets or sets an array of bytes representing a signature value.
-    public func setSignatureValue(signatureValue : InputStream?) -> Signature {
+    // Sets signatureValue. Gets or sets an array of bytes representing a signature value as base64 string.
+    public func setSignatureValue(signatureValue : String?) -> Signature {
         self.signatureValue = signatureValue;
         return self;
     }
 
-    // Gets signatureValue. Gets or sets an array of bytes representing a signature value.
-    public func getSignatureValue() -> InputStream? {
+    // Gets signatureValue. Gets or sets an array of bytes representing a signature value as base64 string.
+    public func getSignatureValue() -> String? {
         return self.signatureValue;
     }
 
