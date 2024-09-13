@@ -28,7 +28,6 @@
 import Foundation
 
 // Paragraph format element.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphFormat : ParagraphFormatBase {
     // Field of isListItem. Paragraph format element.
     private var _isListItem : Bool? = nil;

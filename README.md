@@ -13,6 +13,15 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 24.9
+
+- Added digital signature methds for DOC, DOCX, XPS, or ODT documents.
+- Added ReplaceBackslashWithYenSign property for XpsSaveOptions and HtmlSaveOptions.
+- Added DigitalSignature property for XpsSaveOptions.
+- Added UseSdtTagAsFormFieldName property for PdfSaveOptions.
+- Added MergeWholeDocument parameter to the MailMerge operations to update fields in whole document after executing of a mail merge with regions.
+
+
 ## Enhancements in Version 24.8
 
 - Added the support of OpenType standard. It is usefull for languages required advanced typography.
@@ -352,7 +361,7 @@ Add link to this repository as dependency to your Package.swift:
 
 dependencies: [
     // Dependencies declare other packages that this package depends on.
-    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "24.8"),
+    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "24.9"),
 ],
 targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -370,7 +379,7 @@ targets: [
 Add link to git repository as dependency to your Podfile:
 
 ```ruby
-pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '24.8'
+pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '24.9'
 ```
 
 ## Getting Started

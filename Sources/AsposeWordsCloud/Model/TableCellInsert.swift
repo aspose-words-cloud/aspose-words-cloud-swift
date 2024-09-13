@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with a table cell.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableCellInsert : Codable, WordsApiModel {
     // Field of existingCellPosition. DTO container with a table cell.
     private var _existingCellPosition : Position? = nil;

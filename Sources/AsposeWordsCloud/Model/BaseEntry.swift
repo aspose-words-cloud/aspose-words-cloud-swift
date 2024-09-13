@@ -28,7 +28,6 @@
 import Foundation
 
 // Represents a base class for document which will be appended to the original resource document.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BaseEntry : Codable, WordsApiModel {
     // Field of fileReference. Represents a base class for document which will be appended to the original resource document.
     private var _fileReference : FileReference? = nil;

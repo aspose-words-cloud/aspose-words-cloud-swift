@@ -28,7 +28,6 @@
 import Foundation
 
 // Helper class for serialize or deserialize swift objects to string or binary format.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 class ObjectSerializer {
     private init() { }
 
@@ -84,6 +83,7 @@ class ObjectSerializer {
         "CustomXmlPartsCollection, _": CustomXmlPartsCollection.self,
         "CustomXmlPartsResponse, _": CustomXmlPartsResponse.self,
         "CustomXmlPartUpdate, _": CustomXmlPartUpdate.self,
+        "DigitalSignatureDetails, _": DigitalSignatureDetails.self,
         "DocmSaveOptionsData, _": DocmSaveOptionsData.self,
         "DocSaveOptionsData, _": DocSaveOptionsData.self,
         "Document, _": Document.self,
@@ -252,6 +252,9 @@ class ObjectSerializer {
         "SectionPageSetupResponse, _": SectionPageSetupResponse.self,
         "SectionResponse, _": SectionResponse.self,
         "Shading, _": Shading.self,
+        "Signature, _": Signature.self,
+        "SignatureCollectionResponse, _": SignatureCollectionResponse.self,
+        "SignOptions, _": SignOptions.self,
         "SplitDocumentResponse, _": SplitDocumentResponse.self,
         "SplitDocumentResult, _": SplitDocumentResult.self,
         "StatDataResponse, _": StatDataResponse.self,

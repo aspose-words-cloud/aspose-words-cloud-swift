@@ -28,7 +28,6 @@
 import Foundation
 
 // Represents Words document DTO.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Document : Codable, WordsApiModel {
     // Gets or sets the original format of the document.
     public enum SourceFormat : String, Codable

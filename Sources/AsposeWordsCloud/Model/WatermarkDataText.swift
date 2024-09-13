@@ -28,7 +28,6 @@
 import Foundation
 
 // Class for insert watermark text request building.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class WatermarkDataText : WatermarkDataBase {
     // Gets or sets layout of the watermark. The default value is Aspose.Words.WatermarkLayout.Diagonal.
     public enum Layout : String, Codable

@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with font info.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FontInfo : Codable, WordsApiModel {
     // Field of filePath. DTO container with font info.
     private var _filePath : String? = nil;

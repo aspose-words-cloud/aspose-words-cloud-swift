@@ -28,7 +28,6 @@
 import Foundation
 
 // Container abstract class for image save options.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets the color mode of the image.
     public enum ImageColorMode : String, Codable

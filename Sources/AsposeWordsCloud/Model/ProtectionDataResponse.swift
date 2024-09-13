@@ -28,7 +28,6 @@
 import Foundation
 
 // The REST response with data on document's protection.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ProtectionDataResponse : WordsResponse {
     // Field of documentLink. The REST response with data on document's protection.
     private var _documentLink : FileLink? = nil;

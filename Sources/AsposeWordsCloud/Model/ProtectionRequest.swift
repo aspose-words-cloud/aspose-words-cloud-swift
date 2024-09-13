@@ -28,8 +28,6 @@
 import Foundation
 
 // Request on changing of protection.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-@available(*, deprecated, message: "ProtectionRequest is deprecated and remains for backwards compatibility only.")
 public class ProtectionRequest : ProtectionRequestBase {
     // Field of newPassword. Request on changing of protection.
     private var _newPassword : String? = nil;

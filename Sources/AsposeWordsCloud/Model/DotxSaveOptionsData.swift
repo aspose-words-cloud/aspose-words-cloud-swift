@@ -28,7 +28,6 @@
 import Foundation
 
 // Container class for dotx save options.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DotxSaveOptionsData : OoxmlSaveOptionsData {
     // Field of saveFormat. Container class for dotx save options.
     private final let _saveFormat : String? = "dotx";

@@ -28,7 +28,6 @@
 import Foundation
 
 // Container class for pdf save options.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets the PDF standards compliance level for output documents.
     public enum Compliance : String, Codable
@@ -470,6 +469,18 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
+    // Field of useSdtTagAsFormFieldName. Container class for pdf save options.
+    private var _useSdtTagAsFormFieldName : Bool? = nil;
+
+    public var useSdtTagAsFormFieldName : Bool? {
+        get {
+            return self._useSdtTagAsFormFieldName;
+        }
+        set {
+            self._useSdtTagAsFormFieldName = newValue;
+        }
+    }
+
     // Field of zoomBehavior. Container class for pdf save options.
     private var _zoomBehavior : ZoomBehavior? = nil;
 
@@ -529,6 +540,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         case textCompression = "TextCompression";
         case useBookFoldPrintingSettings = "UseBookFoldPrintingSettings";
         case useCoreFonts = "UseCoreFonts";
+        case useSdtTagAsFormFieldName = "UseSdtTagAsFormFieldName";
         case zoomBehavior = "ZoomBehavior";
         case zoomFactor = "ZoomFactor";
         case invalidCodingKey;
@@ -598,6 +610,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
         self.useBookFoldPrintingSettings = json["UseBookFoldPrintingSettings"] as? Bool;
         self.useCoreFonts = json["UseCoreFonts"] as? Bool;
+        self.useSdtTagAsFormFieldName = json["UseSdtTagAsFormFieldName"] as? Bool;
         if let raw_zoomBehavior = json["ZoomBehavior"] as? String {
             self.zoomBehavior = ZoomBehavior(rawValue: raw_zoomBehavior);
         }
@@ -633,6 +646,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         self.textCompression = try container.decodeIfPresent(TextCompression.self, forKey: .textCompression);
         self.useBookFoldPrintingSettings = try container.decodeIfPresent(Bool.self, forKey: .useBookFoldPrintingSettings);
         self.useCoreFonts = try container.decodeIfPresent(Bool.self, forKey: .useCoreFonts);
+        self.useSdtTagAsFormFieldName = try container.decodeIfPresent(Bool.self, forKey: .useSdtTagAsFormFieldName);
         self.zoomBehavior = try container.decodeIfPresent(ZoomBehavior.self, forKey: .zoomBehavior);
         self.zoomFactor = try container.decodeIfPresent(Int.self, forKey: .zoomFactor);
     }
@@ -714,6 +728,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
         if (self.useCoreFonts != nil) {
             try container.encode(self.useCoreFonts, forKey: .useCoreFonts);
+        }
+        if (self.useSdtTagAsFormFieldName != nil) {
+            try container.encode(self.useSdtTagAsFormFieldName, forKey: .useSdtTagAsFormFieldName);
         }
         if (self.zoomBehavior != nil) {
             try container.encode(self.zoomBehavior, forKey: .zoomBehavior);
@@ -1032,6 +1049,18 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Gets useCoreFonts. Gets or sets a value indicating whether to substitute TrueType fonts Arial, Times New Roman, Courier New and Symbol with core PDF Type 1 fonts.
     public func getUseCoreFonts() -> Bool? {
         return self.useCoreFonts;
+    }
+
+
+    // Sets useSdtTagAsFormFieldName. Gets or sets a value indicating whether to use SDT control Tag or Id property as a name of form field in PDF. The default value is false.When set to false, SDT control Id property is used as a name of form field in PDF.When set to true, SDT control Tag property is used as a name of form field in PDF.If set to true and Tag is empty, Id property will be used as a form field name.If set to true and Tag values are not unique, duplicate Tag values will be altered to build unique PDF form field names.
+    public func setUseSdtTagAsFormFieldName(useSdtTagAsFormFieldName : Bool?) -> PdfSaveOptionsData {
+        self.useSdtTagAsFormFieldName = useSdtTagAsFormFieldName;
+        return self;
+    }
+
+    // Gets useSdtTagAsFormFieldName. Gets or sets a value indicating whether to use SDT control Tag or Id property as a name of form field in PDF. The default value is false.When set to false, SDT control Id property is used as a name of form field in PDF.When set to true, SDT control Tag property is used as a name of form field in PDF.If set to true and Tag is empty, Id property will be used as a form field name.If set to true and Tag values are not unique, duplicate Tag values will be altered to build unique PDF form field names.
+    public func getUseSdtTagAsFormFieldName() -> Bool? {
+        return self.useSdtTagAsFormFieldName;
     }
 
 

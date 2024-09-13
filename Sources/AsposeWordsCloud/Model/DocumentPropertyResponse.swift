@@ -29,7 +29,6 @@ import Foundation
 
 // The REST response with a document property.
 // This response should be returned by the service when handling: GET documentProperties/{propertyName}.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentPropertyResponse : WordsResponse {
     // Field of documentProperty. The REST response with a document property. This response should be returned by the service when handling: GET documentProperties/{propertyName}.
     private var _documentProperty : DocumentProperty? = nil;

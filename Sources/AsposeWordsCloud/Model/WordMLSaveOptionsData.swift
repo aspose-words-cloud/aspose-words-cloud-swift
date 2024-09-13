@@ -28,7 +28,6 @@
 import Foundation
 
 // Container class for wml save options.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class WordMLSaveOptionsData : SaveOptionsData {
     // Field of prettyFormat. Container class for wml save options.
     private var _prettyFormat : Bool? = nil;

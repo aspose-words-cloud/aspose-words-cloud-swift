@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with a StructuredDocumentTagBaseDto.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StructuredDocumentTagBase : NodeLink {
     // Gets or sets the appearance of a structured document tag.
     public enum Appearance : String, Codable

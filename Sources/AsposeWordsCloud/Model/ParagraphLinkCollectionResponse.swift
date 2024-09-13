@@ -29,7 +29,6 @@ import Foundation
 
 // The REST response with a collection of paragraphs.
 // This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs" REST API requests.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphLinkCollectionResponse : WordsResponse {
     // Field of paragraphs. The REST response with a collection of paragraphs. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs" REST API requests.
     private var _paragraphs : ParagraphLinkCollection? = nil;

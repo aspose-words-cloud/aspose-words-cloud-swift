@@ -29,7 +29,6 @@ import Foundation
 
 // Represents a border of an object.
 // Borders can be applied to various document elements including paragraph, run of text inside a paragraph or a table cell.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Border : LinkElement {
     // Gets or sets the border type.
     public enum BorderType : String, Codable

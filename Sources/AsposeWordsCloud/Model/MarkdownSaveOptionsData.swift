@@ -28,7 +28,6 @@
 import Foundation
 
 // Container class for markdown save options.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class MarkdownSaveOptionsData : TxtSaveOptionsBaseData {
     // Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format.
     // The default value is Auto.

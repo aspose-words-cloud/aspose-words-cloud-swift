@@ -28,7 +28,6 @@
 import Foundation
 
 // Base class for paragraph format tab stop DTO.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TabStopBase : Codable, WordsApiModel {
     // Gets or sets the alignment of text at this tab stop.
     public enum Alignment : String, Codable

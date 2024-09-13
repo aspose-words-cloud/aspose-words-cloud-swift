@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with all formatting for a table row.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableCellFormat : LinkElement {
     // Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.
     public enum HorizontalMerge : String, Codable

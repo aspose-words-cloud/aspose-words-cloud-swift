@@ -29,7 +29,6 @@ import Foundation
 
 // Represents options for parsing JSON data.
 // An instance of this class can be passed into constructors of Aspose.Words.Reporting.JsonDataSource.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class JsonDataLoadOptions : Codable, WordsApiModel {
     // Gets or sets a mode for parsing JSON simple values (null, boolean, number, integer,
     // and string) while loading JSON. Such a mode does not affect parsing of date-time

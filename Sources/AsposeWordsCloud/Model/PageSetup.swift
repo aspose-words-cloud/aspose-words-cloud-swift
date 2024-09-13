@@ -29,7 +29,6 @@ import Foundation
 
 // Represents the page setup properties of a section.
 // PageSetup object contains all the page setup attributes of a section (left margin, bottom margin, paper size, and so on) as properties.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PageSetup : LinkElement {
     // Gets or sets the option that controls which pages the page border is printed on.
     public enum BorderAppliesTo : String, Codable

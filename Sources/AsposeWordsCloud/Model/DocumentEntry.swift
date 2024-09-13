@@ -28,7 +28,6 @@
 import Foundation
 
 // Represents a document which will be appended to the original resource document.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentEntry : BaseEntry {
     // Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
     public enum ImportFormatMode : String, Codable

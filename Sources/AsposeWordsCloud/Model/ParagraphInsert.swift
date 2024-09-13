@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with a paragraph's text.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphInsert : Codable, WordsApiModel {
     // Field of text. DTO container with a paragraph's text.
     private var _text : String? = nil;

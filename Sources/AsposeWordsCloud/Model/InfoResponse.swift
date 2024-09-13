@@ -28,7 +28,6 @@
 import Foundation
 
 // Response with API info.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InfoResponse : WordsResponse {
     // Field of additionalInfo. Response with API info.
     private var _additionalInfo : [InfoAdditionalItem]? = nil;

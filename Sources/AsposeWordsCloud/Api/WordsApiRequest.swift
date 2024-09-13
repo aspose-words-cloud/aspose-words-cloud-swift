@@ -28,7 +28,6 @@
 import Foundation
 
 // General protocol for all models.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public protocol WordsApiRequest {
     func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData;
     func deserializeResponse(data : Data, headers : [String: String]) throws -> Any?;

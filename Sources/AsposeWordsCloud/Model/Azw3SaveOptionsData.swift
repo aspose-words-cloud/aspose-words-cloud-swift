@@ -28,7 +28,6 @@
 import Foundation
 
 // Container class for azw3 save options.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Azw3SaveOptionsData : HtmlSaveOptionsData {
     // Field of navigationMapLevel. Container class for azw3 save options.
     private var _navigationMapLevel : Int? = nil;

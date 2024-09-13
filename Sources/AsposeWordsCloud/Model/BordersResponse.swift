@@ -29,7 +29,6 @@ import Foundation
 
 // The REST response with a collection of borders.
 // This response is returned by the Service when handling "GET {nodeWithBorders}/borders" REST API requests.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BordersResponse : WordsResponse {
     // Field of borders. The REST response with a collection of borders. This response is returned by the Service when handling "GET {nodeWithBorders}/borders" REST API requests.
     private var _borders : BordersCollection? = nil;

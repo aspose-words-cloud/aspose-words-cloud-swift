@@ -29,7 +29,6 @@ import Foundation
 
 // The REST response with a field.
 // This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/fields/{1}" REST API requests.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldResponse : WordsResponse {
     // Field of field. The REST response with a field. This response is returned by the Service when handling "GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/fields/{1}" REST API requests.
     private var _field : Field? = nil;

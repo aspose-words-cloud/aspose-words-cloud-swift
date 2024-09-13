@@ -28,7 +28,6 @@
 import Foundation
 
 // Describes the location of the node after specified node.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PositionAfterNode : Position {
     // Field of type. Describes the location of the node after specified node.
     private final let _type : String? = "After";

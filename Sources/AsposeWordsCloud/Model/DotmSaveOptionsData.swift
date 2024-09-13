@@ -28,7 +28,6 @@
 import Foundation
 
 // Container class for dotm save options.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DotmSaveOptionsData : OoxmlSaveOptionsData {
     // Field of saveFormat. Container class for dotm save options.
     private final let _saveFormat : String? = "dotm";

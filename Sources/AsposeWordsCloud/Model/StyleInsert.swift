@@ -28,7 +28,6 @@
 import Foundation
 
 // Represents a single document style to insert.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StyleInsert : Codable, WordsApiModel {
     // Gets or sets the StyleType value that specifies the type of the style to create.
     public enum StyleType : String, Codable

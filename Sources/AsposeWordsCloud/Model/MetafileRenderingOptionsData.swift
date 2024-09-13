@@ -28,7 +28,6 @@
 import Foundation
 
 // Container class for options of metafile rendering.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     // Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
     public enum EmfPlusDualRenderingMode : String, Codable

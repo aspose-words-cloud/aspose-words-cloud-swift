@@ -28,7 +28,6 @@
 import Foundation
 
 // Request on changing of protection.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ProtectionRequestV2 : ProtectionRequestBase {
     // Gets or sets the new type of the document protection.
     public enum ProtectionType : String, Codable

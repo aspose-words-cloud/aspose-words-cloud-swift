@@ -28,12 +28,12 @@
 import Foundation
 
 // Request model for executeMailMergeOnline operation.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
     private let template : InputStream;
     private let data : InputStream;
     private let options : FieldOptions?;
     private let withRegions : Bool?;
+    private let mergeWholeDocument : Bool?;
     private let cleanup : String?;
     private let documentFileName : String?;
 
@@ -42,17 +42,19 @@ public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
         case data;
         case options;
         case withRegions;
+        case mergeWholeDocument;
         case cleanup;
         case documentFileName;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the ExecuteMailMergeOnlineRequest class.
-    public init(template : InputStream, data : InputStream, options : FieldOptions? = nil, withRegions : Bool? = nil, cleanup : String? = nil, documentFileName : String? = nil) {
+    public init(template : InputStream, data : InputStream, options : FieldOptions? = nil, withRegions : Bool? = nil, mergeWholeDocument : Bool? = nil, cleanup : String? = nil, documentFileName : String? = nil) {
         self.template = template;
         self.data = data;
         self.options = options;
         self.withRegions = withRegions;
+        self.mergeWholeDocument = mergeWholeDocument;
         self.cleanup = cleanup;
         self.documentFileName = documentFileName;
     }
@@ -75,6 +77,11 @@ public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
     // The flag indicating whether to execute Mail Merge operation with regions.
     public func getWithRegions() -> Bool? {
         return self.withRegions;
+    }
+
+    // The flag indicating whether fields in whole document are updated while executing of a mail merge with regions.
+    public func getMergeWholeDocument() -> Bool? {
+        return self.mergeWholeDocument;
     }
 
     // The cleanup options.
@@ -102,6 +109,18 @@ public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
 
          #else
                      queryItems.append(URLQueryItem(name: "withRegions", value: try ObjectSerializer.serializeToString(value: self.getWithRegions()!)));
+
+         #endif        
+             }
+
+
+             if (self.getMergeWholeDocument() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "mergeWholeDocument", value: try ObjectSerializer.serializeToString(value: self.getMergeWholeDocument()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "mergeWholeDocument", value: try ObjectSerializer.serializeToString(value: self.getMergeWholeDocument()!)));
 
          #endif        
              }

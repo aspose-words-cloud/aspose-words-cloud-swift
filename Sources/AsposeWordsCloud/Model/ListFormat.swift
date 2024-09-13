@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with a paragraph list format element.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListFormat : LinkElement {
     // Field of listLevelNumber. DTO container with a paragraph list format element.
     private var _listLevelNumber : Int? = nil;

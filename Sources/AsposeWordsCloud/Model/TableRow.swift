@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with a table row element.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableRow : NodeLink {
     // Field of tableCellList. DTO container with a table row element.
     private var _tableCellList : [TableCell]? = nil;

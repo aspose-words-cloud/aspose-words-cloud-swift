@@ -28,7 +28,6 @@
 import Foundation
 
 // Container class for xaml fixed save options.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of resourcesFolder. Container class for xaml fixed save options.
     private var _resourcesFolder : String? = nil;

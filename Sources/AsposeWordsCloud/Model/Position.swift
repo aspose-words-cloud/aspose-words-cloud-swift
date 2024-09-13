@@ -28,7 +28,6 @@
 import Foundation
 
 // Describes the location of the node.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Position : Codable, WordsApiModel {
     // Field of nodeId. Describes the location of the node.
     private var _nodeId : String? = nil;

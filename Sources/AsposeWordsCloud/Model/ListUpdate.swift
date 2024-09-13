@@ -28,7 +28,6 @@
 import Foundation
 
 // Update document properties if document list.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListUpdate : Codable, WordsApiModel {
     // Field of isRestartAtEachSection. Update document properties if document list.
     private var _isRestartAtEachSection : Bool? = nil;

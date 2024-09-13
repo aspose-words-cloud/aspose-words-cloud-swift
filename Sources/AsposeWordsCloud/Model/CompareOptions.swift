@@ -28,7 +28,6 @@
 import Foundation
 
 // DTO container with compare documents options.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CompareOptions : Codable, WordsApiModel {
     // Gets or sets the option that controls which document shall be used as a target during comparison.
     public enum Target : String, Codable
