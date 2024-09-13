@@ -30,19 +30,6 @@ import Foundation
 // The REST response with a document signature collection.
 // This response is returned by the Service when handling any "https://api.aspose.cloud/v4.0/words/Test.doc/signatures" REST API requests.
 public class Signature : Codable, WordsApiModel {
-    // Gets or sets the type of the digital signature.
-    public enum SignatureType : String, Codable
-    {
-        // Enum value "unknown"
-        case unknown = "Unknown"
-
-        // Enum value "cryptoApi"
-        case cryptoApi = "CryptoApi"
-
-        // Enum value "xmlDsig"
-        case xmlDsig = "XmlDsig"
-    }
-
     // Field of comments. The REST response with a document signature collection. This response is returned by the Service when handling any "https://api.aspose.cloud/v4.0/words/Test.doc/signatures" REST API requests.
     private var _comments : String? = nil;
 
@@ -80,9 +67,9 @@ public class Signature : Codable, WordsApiModel {
     }
 
     // Field of signatureType. The REST response with a document signature collection. This response is returned by the Service when handling any "https://api.aspose.cloud/v4.0/words/Test.doc/signatures" REST API requests.
-    private var _signatureType : SignatureType? = nil;
+    private var _signatureType : String? = nil;
 
-    public var signatureType : SignatureType? {
+    public var signatureType : String? {
         get {
             return self._signatureType;
         }
@@ -145,10 +132,7 @@ public class Signature : Codable, WordsApiModel {
         self.comments = json["Comments"] as? String;
         self.issuerName = json["IssuerName"] as? String;
         self.isValid = json["IsValid"] as? Bool;
-        if let raw_signatureType = json["SignatureType"] as? String {
-            self.signatureType = SignatureType(rawValue: raw_signatureType);
-        }
-
+        self.signatureType = json["SignatureType"] as? String;
         self.signatureValue = json["SignatureValue"] as? String;
         if let raw_signTime = json["SignTime"] as? String {
             self.signTime = ObjectSerializer.customIso8601.date(from: raw_signTime);
@@ -162,7 +146,7 @@ public class Signature : Codable, WordsApiModel {
         self.comments = try container.decodeIfPresent(String.self, forKey: .comments);
         self.issuerName = try container.decodeIfPresent(String.self, forKey: .issuerName);
         self.isValid = try container.decodeIfPresent(Bool.self, forKey: .isValid);
-        self.signatureType = try container.decodeIfPresent(SignatureType.self, forKey: .signatureType);
+        self.signatureType = try container.decodeIfPresent(String.self, forKey: .signatureType);
         self.signatureValue = try container.decodeIfPresent(String.self, forKey: .signatureValue);
         var raw_signTime = try container.decodeIfPresent(String.self, forKey: .signTime);
         if (raw_signTime != nil) {
@@ -205,10 +189,6 @@ public class Signature : Codable, WordsApiModel {
         if (self.isValid == nil)
         {
             throw WordsApiError.requiredParameterError(paramName: "isValid");
-        }
-        if (self.signatureType == nil)
-        {
-            throw WordsApiError.requiredParameterError(paramName: "signatureType");
         }
         if (self.signTime == nil)
         {
@@ -253,13 +233,13 @@ public class Signature : Codable, WordsApiModel {
 
 
     // Sets signatureType. Gets or sets the type of the digital signature.
-    public func setSignatureType(signatureType : SignatureType?) -> Signature {
+    public func setSignatureType(signatureType : String?) -> Signature {
         self.signatureType = signatureType;
         return self;
     }
 
     // Gets signatureType. Gets or sets the type of the digital signature.
-    public func getSignatureType() -> SignatureType? {
+    public func getSignatureType() -> String? {
         return self.signatureType;
     }
 
