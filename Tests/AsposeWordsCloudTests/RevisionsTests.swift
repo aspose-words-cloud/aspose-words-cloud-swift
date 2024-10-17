@@ -34,11 +34,13 @@ class RevisionsTests: BaseTestContext {
         ("testAcceptAllRevisions", testAcceptAllRevisions),
         ("testAcceptAllRevisionsOnline", testAcceptAllRevisionsOnline),
         ("testRejectAllRevisions", testRejectAllRevisions),
-        ("testRejectAllRevisionsOnline", testRejectAllRevisionsOnline)
+        ("testRejectAllRevisionsOnline", testRejectAllRevisionsOnline),
+        ("testGetAllRevisions", testGetAllRevisions),
+        ("testGetAllRevisionsOnline", testGetAllRevisionsOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/Revisions";
-    let localFile = "Common/test_multi_pages.docx";
+    let localFile = "DocumentElements/Revisions/TestRevisions.doc";
 
     // Test for accepting revisions in document.
     func testAcceptAllRevisions() throws {
@@ -84,5 +86,26 @@ class RevisionsTests: BaseTestContext {
       if (!(actual.getModel() != nil)) { XCTFail("actual.getModel() != nil"); return; }
       if (!(actual.getModel()!.getResult() != nil)) { XCTFail("actual.getModel()!.getResult() != nil"); return; }
       if (!(actual.getModel()!.getResult()!.getDest() != nil)) { XCTFail("actual.getModel()!.getResult()!.getDest() != nil"); return; }
+    }
+
+    // Test for getting revisions from document.
+    func testGetAllRevisions() throws {
+      let remoteFileName = "TestAcceptAllRevisions.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetAllRevisionsRequest(name: remoteFileName, folder: remoteDataFolder);
+      let actual = try super.getApi().getAllRevisions(request: request);
+      if (!(actual.getRevisions() != nil)) { XCTFail("actual.getRevisions() != nil"); return; }
+      if (!(actual.getRevisions()!.getRevisions()?.count == 6)) { XCTFail("actual.getRevisions()!.getRevisions()?.count == 6"); return; }
+    }
+
+    // Test for getting revisions online from document.
+    func testGetAllRevisionsOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = GetAllRevisionsOnlineRequest(document: requestDocument);
+      let actual = try super.getApi().getAllRevisionsOnline(request: request);
+      if (!(actual.getRevisions() != nil)) { XCTFail("actual.getRevisions() != nil"); return; }
+      if (!(actual.getRevisions()!.getRevisions()?.count == 6)) { XCTFail("actual.getRevisions()!.getRevisions()?.count == 6"); return; }
     }
 }
