@@ -97,7 +97,7 @@ class RevisionsTests: BaseTestContext {
       let request = GetAllRevisionsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getAllRevisions(request: request);
       if (!(actual.getRevisions() != nil)) { XCTFail("actual.getRevisions() != nil"); return; }
-      if (!(actual.getRevisions()?.count == 6)) { XCTFail("actual.getRevisions()?.count == 6"); return; }
+      if (!(actual.getRevisions()!.getRevisions()?.count == 6)) { XCTFail("actual.getRevisions()!.getRevisions()?.count == 6"); return; }
     }
 
     // Test for getting revisions online from document.
@@ -105,8 +105,7 @@ class RevisionsTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = GetAllRevisionsOnlineRequest(document: requestDocument);
       let actual = try super.getApi().getAllRevisionsOnline(request: request);
-      if (!(actual.getDocument() != nil)) { XCTFail("actual.getDocument() != nil"); return; }
-      if (!(actual.getModel() != nil)) { XCTFail("actual.getModel() != nil"); return; }
-      if (!(actual.getModel()!.getRevisions() != nil)) { XCTFail("actual.getModel()!.getRevisions() != nil"); return; }
+      if (!(actual.getRevisions() != nil)) { XCTFail("actual.getRevisions() != nil"); return; }
+      if (!(actual.getRevisions()!.getRevisions()?.count == 6)) { XCTFail("actual.getRevisions()!.getRevisions()?.count == 6"); return; }
     }
 }
