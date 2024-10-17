@@ -40,7 +40,7 @@ class RevisionsTests: BaseTestContext {
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/Revisions";
-    let localFile = "Common/test_multi_pages.docx";
+    let localFile = "DocumentElements/Revisions/TestRevisions.doc";
 
     // Test for accepting revisions in document.
     func testAcceptAllRevisions() throws {
