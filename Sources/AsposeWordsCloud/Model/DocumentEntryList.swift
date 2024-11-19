@@ -29,6 +29,18 @@ import Foundation
 
 // Represents a list of documents which will be appended to the original resource document.
 public class DocumentEntryList : BaseEntryList {
+    // Field of appendAllEntriesToOneSection. Represents a list of documents which will be appended to the original resource document.
+    private var _appendAllEntriesToOneSection : Bool? = nil;
+
+    public var appendAllEntriesToOneSection : Bool? {
+        get {
+            return self._appendAllEntriesToOneSection;
+        }
+        set {
+            self._appendAllEntriesToOneSection = newValue;
+        }
+    }
+
     // Field of applyBaseDocumentHeadersAndFootersToAppendingDocuments. Represents a list of documents which will be appended to the original resource document.
     private var _applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool? = nil;
 
@@ -54,6 +66,7 @@ public class DocumentEntryList : BaseEntryList {
     }
 
     private enum CodingKeys: String, CodingKey {
+        case appendAllEntriesToOneSection = "AppendAllEntriesToOneSection";
         case applyBaseDocumentHeadersAndFootersToAppendingDocuments = "ApplyBaseDocumentHeadersAndFootersToAppendingDocuments";
         case documentEntries = "DocumentEntries";
         case invalidCodingKey;
@@ -65,6 +78,7 @@ public class DocumentEntryList : BaseEntryList {
 
     public required init(from json: [String: Any]) throws {
         try super.init(from: json);
+        self.appendAllEntriesToOneSection = json["AppendAllEntriesToOneSection"] as? Bool;
         self.applyBaseDocumentHeadersAndFootersToAppendingDocuments = json["ApplyBaseDocumentHeadersAndFootersToAppendingDocuments"] as? Bool;
         if let raw_documentEntries = json["DocumentEntries"] as? [Any] {
             self.documentEntries = try raw_documentEntries.map {
@@ -82,6 +96,7 @@ public class DocumentEntryList : BaseEntryList {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.appendAllEntriesToOneSection = try container.decodeIfPresent(Bool.self, forKey: .appendAllEntriesToOneSection);
         self.applyBaseDocumentHeadersAndFootersToAppendingDocuments = try container.decodeIfPresent(Bool.self, forKey: .applyBaseDocumentHeadersAndFootersToAppendingDocuments);
         self.documentEntries = try container.decodeIfPresent([DocumentEntry].self, forKey: .documentEntries);
     }
@@ -89,6 +104,9 @@ public class DocumentEntryList : BaseEntryList {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.appendAllEntriesToOneSection != nil) {
+            try container.encode(self.appendAllEntriesToOneSection, forKey: .appendAllEntriesToOneSection);
+        }
         if (self.applyBaseDocumentHeadersAndFootersToAppendingDocuments != nil) {
             try container.encode(self.applyBaseDocumentHeadersAndFootersToAppendingDocuments, forKey: .applyBaseDocumentHeadersAndFootersToAppendingDocuments);
         }
@@ -121,6 +139,18 @@ public class DocumentEntryList : BaseEntryList {
         }
 
     }
+
+    // Sets appendAllEntriesToOneSection. Gets or sets a value indicating whether to append all documents to the same section.
+    public func setAppendAllEntriesToOneSection(appendAllEntriesToOneSection : Bool?) -> DocumentEntryList {
+        self.appendAllEntriesToOneSection = appendAllEntriesToOneSection;
+        return self;
+    }
+
+    // Gets appendAllEntriesToOneSection. Gets or sets a value indicating whether to append all documents to the same section.
+    public func getAppendAllEntriesToOneSection() -> Bool? {
+        return self.appendAllEntriesToOneSection;
+    }
+
 
     // Sets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
     public func setApplyBaseDocumentHeadersAndFootersToAppendingDocuments(applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool?) -> DocumentEntryList {
