@@ -4551,6 +4551,114 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of getAllRevisions method
+    // Get all information about revisions.
+    public func getAllRevisions(request : GetAllRevisionsRequest, callback : @escaping (_ response : RevisionsResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RevisionsResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of getAllRevisions method
+    // Get all information about revisions.
+    public func getAllRevisions(request : GetAllRevisionsRequest) throws -> RevisionsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : RevisionsResponse? = nil;
+        var responseError : Error? = nil;
+        self.getAllRevisions(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of getAllRevisionsOnline method
+    // Get all information about revisions.
+    public func getAllRevisionsOnline(request : GetAllRevisionsOnlineRequest, callback : @escaping (_ response : RevisionsResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RevisionsResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of getAllRevisionsOnline method
+    // Get all information about revisions.
+    public func getAllRevisionsOnline(request : GetAllRevisionsOnlineRequest) throws -> RevisionsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : RevisionsResponse? = nil;
+        var responseError : Error? = nil;
+        self.getAllRevisionsOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of getAvailableFonts method
     // Reads available fonts from the document.
     public func getAvailableFonts(request : GetAvailableFontsRequest, callback : @escaping (_ response : AvailableFontsResponse?, _ error : Error?) -> ()) {

@@ -54,7 +54,7 @@ class DocumentPropertiesTests: BaseTestContext {
       let actual = try super.getApi().getDocumentProperties(request: request);
       if (!(actual.getDocumentProperties() != nil)) { XCTFail("actual.getDocumentProperties() != nil"); return; }
       if (!(actual.getDocumentProperties()!.getList() != nil)) { XCTFail("actual.getDocumentProperties()!.getList() != nil"); return; }
-      if (!(actual.getDocumentProperties()!.getList()?.count == 24)) { XCTFail("actual.getDocumentProperties()!.getList()?.count == 24"); return; }
+      if (!(actual.getDocumentProperties()!.getList()?.count == 27)) { XCTFail("actual.getDocumentProperties()!.getList()?.count == 27"); return; }
       if (!(actual.getDocumentProperties()!.getList()![0] != nil)) { XCTFail("actual.getDocumentProperties()!.getList()![0] != nil"); return; }
       if (!(actual.getDocumentProperties()!.getList()![0].getName() == "Author")) { XCTFail("actual.getDocumentProperties()!.getList()![0].getName() == " + "Author"); return; }
       if (!(actual.getDocumentProperties()!.getList()![0].getValue() == "")) { XCTFail("actual.getDocumentProperties()!.getList()![0].getValue() == " + ""); return; }
