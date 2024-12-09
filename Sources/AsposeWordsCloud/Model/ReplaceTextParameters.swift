@@ -29,6 +29,18 @@ import Foundation
 
 // Class for document replace text request building.
 public class ReplaceTextParameters : Codable, WordsApiModel {
+    // Field of applySuperscript. Class for document replace text request building.
+    private var _applySuperscript : Bool? = nil;
+
+    public var applySuperscript : Bool? {
+        get {
+            return self._applySuperscript;
+        }
+        set {
+            self._applySuperscript = newValue;
+        }
+    }
+
     // Field of isMatchCase. Class for document replace text request building.
     private var _isMatchCase : Bool? = nil;
 
@@ -90,6 +102,7 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     }
 
     private enum CodingKeys: String, CodingKey {
+        case applySuperscript = "ApplySuperscript";
         case isMatchCase = "IsMatchCase";
         case isMatchWholeWord = "IsMatchWholeWord";
         case isOldValueRegex = "IsOldValueRegex";
@@ -102,6 +115,7 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     }
 
     public required init(from json: [String: Any]) throws {
+        self.applySuperscript = json["ApplySuperscript"] as? Bool;
         self.isMatchCase = json["IsMatchCase"] as? Bool;
         self.isMatchWholeWord = json["IsMatchWholeWord"] as? Bool;
         self.isOldValueRegex = json["IsOldValueRegex"] as? Bool;
@@ -111,6 +125,7 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.applySuperscript = try container.decodeIfPresent(Bool.self, forKey: .applySuperscript);
         self.isMatchCase = try container.decodeIfPresent(Bool.self, forKey: .isMatchCase);
         self.isMatchWholeWord = try container.decodeIfPresent(Bool.self, forKey: .isMatchWholeWord);
         self.isOldValueRegex = try container.decodeIfPresent(Bool.self, forKey: .isOldValueRegex);
@@ -120,6 +135,9 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.applySuperscript != nil) {
+            try container.encode(self.applySuperscript, forKey: .applySuperscript);
+        }
         if (self.isMatchCase != nil) {
             try container.encode(self.isMatchCase, forKey: .isMatchCase);
         }
@@ -162,6 +180,18 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
             throw WordsApiError.requiredParameterError(paramName: "oldValue");
         }
     }
+
+    // Sets applySuperscript. Gets or sets a value indicating whether apply superscript to font or not.
+    public func setApplySuperscript(applySuperscript : Bool?) -> ReplaceTextParameters {
+        self.applySuperscript = applySuperscript;
+        return self;
+    }
+
+    // Gets applySuperscript. Gets or sets a value indicating whether apply superscript to font or not.
+    public func getApplySuperscript() -> Bool? {
+        return self.applySuperscript;
+    }
+
 
     // Sets isMatchCase. Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
     public func setIsMatchCase(isMatchCase : Bool?) -> ReplaceTextParameters {

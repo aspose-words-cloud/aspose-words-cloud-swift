@@ -433,6 +433,18 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
+    // Field of renderChoiceFormFieldBorder. Container class for pdf save options.
+    private var _renderChoiceFormFieldBorder : Bool? = nil;
+
+    public var renderChoiceFormFieldBorder : Bool? {
+        get {
+            return self._renderChoiceFormFieldBorder;
+        }
+        set {
+            self._renderChoiceFormFieldBorder = newValue;
+        }
+    }
+
     // Field of textCompression. Container class for pdf save options.
     private var _textCompression : TextCompression? = nil;
 
@@ -537,6 +549,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         case pageMode = "PageMode";
         case preblendImages = "PreblendImages";
         case preserveFormFields = "PreserveFormFields";
+        case renderChoiceFormFieldBorder = "RenderChoiceFormFieldBorder";
         case textCompression = "TextCompression";
         case useBookFoldPrintingSettings = "UseBookFoldPrintingSettings";
         case useCoreFonts = "UseCoreFonts";
@@ -604,6 +617,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
         self.preblendImages = json["PreblendImages"] as? Bool;
         self.preserveFormFields = json["PreserveFormFields"] as? Bool;
+        self.renderChoiceFormFieldBorder = json["RenderChoiceFormFieldBorder"] as? Bool;
         if let raw_textCompression = json["TextCompression"] as? String {
             self.textCompression = TextCompression(rawValue: raw_textCompression);
         }
@@ -643,6 +657,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         self.pageMode = try container.decodeIfPresent(PageMode.self, forKey: .pageMode);
         self.preblendImages = try container.decodeIfPresent(Bool.self, forKey: .preblendImages);
         self.preserveFormFields = try container.decodeIfPresent(Bool.self, forKey: .preserveFormFields);
+        self.renderChoiceFormFieldBorder = try container.decodeIfPresent(Bool.self, forKey: .renderChoiceFormFieldBorder);
         self.textCompression = try container.decodeIfPresent(TextCompression.self, forKey: .textCompression);
         self.useBookFoldPrintingSettings = try container.decodeIfPresent(Bool.self, forKey: .useBookFoldPrintingSettings);
         self.useCoreFonts = try container.decodeIfPresent(Bool.self, forKey: .useCoreFonts);
@@ -719,6 +734,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
         if (self.preserveFormFields != nil) {
             try container.encode(self.preserveFormFields, forKey: .preserveFormFields);
+        }
+        if (self.renderChoiceFormFieldBorder != nil) {
+            try container.encode(self.renderChoiceFormFieldBorder, forKey: .renderChoiceFormFieldBorder);
         }
         if (self.textCompression != nil) {
             try container.encode(self.textCompression, forKey: .textCompression);
@@ -1013,6 +1031,18 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Gets preserveFormFields. Gets or sets a value indicating whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text.
     public func getPreserveFormFields() -> Bool? {
         return self.preserveFormFields;
+    }
+
+
+    // Sets renderChoiceFormFieldBorder. Gets or sets a value indicating whether to render PDF choice form field border. PDF choice form fields are used for export of SDT Combo Box Content Control, SDT Drop-Down List Content Control and legacy Drop-Down Form Field when PreserveFormFields option is enabled.The default value is true.
+    public func setRenderChoiceFormFieldBorder(renderChoiceFormFieldBorder : Bool?) -> PdfSaveOptionsData {
+        self.renderChoiceFormFieldBorder = renderChoiceFormFieldBorder;
+        return self;
+    }
+
+    // Gets renderChoiceFormFieldBorder. Gets or sets a value indicating whether to render PDF choice form field border. PDF choice form fields are used for export of SDT Combo Box Content Control, SDT Drop-Down List Content Control and legacy Drop-Down Form Field when PreserveFormFields option is enabled.The default value is true.
+    public func getRenderChoiceFormFieldBorder() -> Bool? {
+        return self.renderChoiceFormFieldBorder;
     }
 
 
