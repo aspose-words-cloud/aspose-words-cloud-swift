@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AsposeWordsCloud'
-  s.version          = '25.1'
+  s.version          = '25.2'
   s.summary          = 'Aspose Words for Cloud.'
   s.homepage         = 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
