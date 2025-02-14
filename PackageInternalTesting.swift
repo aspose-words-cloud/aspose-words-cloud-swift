@@ -12,6 +12,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/allegro/swift-junit.git", from: "1.0.0")
     ],
+    targets: [
         .target(
             name: "AsposeWordsCloud",
             dependencies: []),
@@ -21,7 +22,6 @@ let package = Package(
                 "AsposeWordsCloud",
                 .product(name: "SwiftTestReporter", package: "swift-junit"),
             ]),
-        ),
     ]
 )
 
