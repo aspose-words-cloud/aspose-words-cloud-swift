@@ -68,6 +68,7 @@ node('words-linux') {
             else if (needToBuild) {
                 docker.image('swift:5.0').inside{
                     stage('build'){
+                        sh "cp ./PackageInternalTesting.swift ./Package.swift"
                         sh "swift build"
                     }
                 
