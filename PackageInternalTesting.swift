@@ -21,6 +21,7 @@ let package = Package(
                 "AsposeWordsCloud",
                 .product(name: "SwiftTestReporter", package: "swift-junit"),
             ]),
+        ),
     ]
 )
 
