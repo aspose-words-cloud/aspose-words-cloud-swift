@@ -137,6 +137,18 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
+    // Field of idPrefix. Container class for fixed html save options.
+    private var _idPrefix : String? = nil;
+
+    public var idPrefix : String? {
+        get {
+            return self._idPrefix;
+        }
+        set {
+            self._idPrefix = newValue;
+        }
+    }
+
     // Field of pageHorizontalAlignment. Container class for fixed html save options.
     private var _pageHorizontalAlignment : PageHorizontalAlignment? = nil;
 
@@ -238,6 +250,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         case exportEmbeddedImages = "ExportEmbeddedImages";
         case exportFormFields = "ExportFormFields";
         case fontFormat = "FontFormat";
+        case idPrefix = "IdPrefix";
         case pageHorizontalAlignment = "PageHorizontalAlignment";
         case pageMargins = "PageMargins";
         case resourcesFolder = "ResourcesFolder";
@@ -264,6 +277,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
             self.fontFormat = FontFormat(rawValue: raw_fontFormat);
         }
 
+        self.idPrefix = json["IdPrefix"] as? String;
         if let raw_pageHorizontalAlignment = json["PageHorizontalAlignment"] as? String {
             self.pageHorizontalAlignment = PageHorizontalAlignment(rawValue: raw_pageHorizontalAlignment);
         }
@@ -286,6 +300,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         self.exportEmbeddedImages = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedImages);
         self.exportFormFields = try container.decodeIfPresent(Bool.self, forKey: .exportFormFields);
         self.fontFormat = try container.decodeIfPresent(FontFormat.self, forKey: .fontFormat);
+        self.idPrefix = try container.decodeIfPresent(String.self, forKey: .idPrefix);
         self.pageHorizontalAlignment = try container.decodeIfPresent(PageHorizontalAlignment.self, forKey: .pageHorizontalAlignment);
         self.pageMargins = try container.decodeIfPresent(Double.self, forKey: .pageMargins);
         self.resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder);
@@ -318,6 +333,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         }
         if (self.fontFormat != nil) {
             try container.encode(self.fontFormat, forKey: .fontFormat);
+        }
+        if (self.idPrefix != nil) {
+            try container.encode(self.idPrefix, forKey: .idPrefix);
         }
         if (self.pageHorizontalAlignment != nil) {
             try container.encode(self.pageHorizontalAlignment, forKey: .pageHorizontalAlignment);
@@ -430,6 +448,18 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Gets fontFormat. Gets or sets the export format of fonts.
     public func getFontFormat() -> FontFormat? {
         return self.fontFormat;
+    }
+
+
+    // Sets idPrefix. Gets or sets a prefix that is prepended to all generated element IDs in the output document. Default value is null and no prefix is prepended. If the prefix is specified, it can contain only letters, digits, underscores, and hyphens, and must start with a letter.
+    public func setIdPrefix(idPrefix : String?) -> HtmlFixedSaveOptionsData {
+        self.idPrefix = idPrefix;
+        return self;
+    }
+
+    // Gets idPrefix. Gets or sets a prefix that is prepended to all generated element IDs in the output document. Default value is null and no prefix is prepended. If the prefix is specified, it can contain only letters, digits, underscores, and hyphens, and must start with a letter.
+    public func getIdPrefix() -> String? {
+        return self.idPrefix;
     }
 
 

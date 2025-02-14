@@ -66,6 +66,18 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
+    // Field of idPrefix. Container class for svg save options.
+    private var _idPrefix : String? = nil;
+
+    public var idPrefix : String? {
+        get {
+            return self._idPrefix;
+        }
+        set {
+            self._idPrefix = newValue;
+        }
+    }
+
     // Field of maxImageResolution. Container class for svg save options.
     private var _maxImageResolution : Int? = nil;
 
@@ -138,6 +150,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     private enum CodingKeys: String, CodingKey {
         case exportEmbeddedImages = "ExportEmbeddedImages";
         case fitToViewPort = "FitToViewPort";
+        case idPrefix = "IdPrefix";
         case maxImageResolution = "MaxImageResolution";
         case resourcesFolder = "ResourcesFolder";
         case resourcesFolderAlias = "ResourcesFolderAlias";
@@ -154,6 +167,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         try super.init(from: json);
         self.exportEmbeddedImages = json["ExportEmbeddedImages"] as? Bool;
         self.fitToViewPort = json["FitToViewPort"] as? Bool;
+        self.idPrefix = json["IdPrefix"] as? String;
         self.maxImageResolution = json["MaxImageResolution"] as? Int;
         self.resourcesFolder = json["ResourcesFolder"] as? String;
         self.resourcesFolderAlias = json["ResourcesFolderAlias"] as? String;
@@ -169,6 +183,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.exportEmbeddedImages = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedImages);
         self.fitToViewPort = try container.decodeIfPresent(Bool.self, forKey: .fitToViewPort);
+        self.idPrefix = try container.decodeIfPresent(String.self, forKey: .idPrefix);
         self.maxImageResolution = try container.decodeIfPresent(Int.self, forKey: .maxImageResolution);
         self.resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder);
         self.resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias);
@@ -184,6 +199,9 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         }
         if (self.fitToViewPort != nil) {
             try container.encode(self.fitToViewPort, forKey: .fitToViewPort);
+        }
+        if (self.idPrefix != nil) {
+            try container.encode(self.idPrefix, forKey: .idPrefix);
         }
         if (self.maxImageResolution != nil) {
             try container.encode(self.maxImageResolution, forKey: .maxImageResolution);
@@ -230,6 +248,18 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     // Gets fitToViewPort. Gets or sets a value indicating whether the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
     public func getFitToViewPort() -> Bool? {
         return self.fitToViewPort;
+    }
+
+
+    // Sets idPrefix. Gets or sets specifies a prefix that is prepended to all generated element IDs in the output document. Default value is null and no prefix is prepended. If the prefix is specified, it can contain only letters, digits, underscores, and hyphens, and must start with a letter.
+    public func setIdPrefix(idPrefix : String?) -> SvgSaveOptionsData {
+        self.idPrefix = idPrefix;
+        return self;
+    }
+
+    // Gets idPrefix. Gets or sets specifies a prefix that is prepended to all generated element IDs in the output document. Default value is null and no prefix is prepended. If the prefix is specified, it can contain only letters, digits, underscores, and hyphens, and must start with a letter.
+    public func getIdPrefix() -> String? {
+        return self.idPrefix;
     }
 
 

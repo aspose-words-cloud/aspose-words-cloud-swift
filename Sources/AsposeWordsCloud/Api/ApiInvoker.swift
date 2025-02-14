@@ -27,6 +27,10 @@
 
 import Foundation
 
+#if canImport(FoundationNetworking)
+    import FoundationNetworking
+#endif
+
 // Utility class for executing and processing requests to Cloud API
 public class ApiInvoker {
     // An object containing the configuration for executing API requests 
