@@ -23,7 +23,6 @@ let package = Package(
                 "AsposeWordsCloudHealthProdCheck",
                 .product(name: "SwiftTestReporter", package: "swift-junit"),
                 .product(name: "AsposeWordsCloud", package: "aspose-words-cloud-swift"),
-            ],
-        ),
+            ]),
     ]
 )
