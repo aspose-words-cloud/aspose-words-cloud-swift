@@ -50,8 +50,17 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         // Enum value "pdfA2u"
         case pdfA2u = "PdfA2u"
 
+        // Enum value "pdfA3a"
+        case pdfA3a = "PdfA3a"
+
+        // Enum value "pdfA3u"
+        case pdfA3u = "PdfA3u"
+
         // Enum value "pdfA4"
         case pdfA4 = "PdfA4"
+
+        // Enum value "pdfA4f"
+        case pdfA4f = "PdfA4f"
 
         // Enum value "pdfA4Ua2"
         case pdfA4Ua2 = "PdfA4Ua2"
@@ -855,12 +864,14 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
 
     // Sets embedAttachments. Gets or sets a value determining whether or not to embed attachments to the PDF document. Default value is false and attachments are not embedded. When the value is true attachments are embedded to the PDF document. Embedding attachments is not supported when saving to PDF/A and PDF/UA compliance. false value will be used automatically. Embedding attachments is not supported when encryption is enabled. false value will be used automatically.
+    @available(*, deprecated, message: "This property will be removed in the future.")
     public func setEmbedAttachments(embedAttachments : Bool?) -> PdfSaveOptionsData {
         self.embedAttachments = embedAttachments;
         return self;
     }
 
     // Gets embedAttachments. Gets or sets a value determining whether or not to embed attachments to the PDF document. Default value is false and attachments are not embedded. When the value is true attachments are embedded to the PDF document. Embedding attachments is not supported when saving to PDF/A and PDF/UA compliance. false value will be used automatically. Embedding attachments is not supported when encryption is enabled. false value will be used automatically.
+    @available(*, deprecated, message: "This property will be removed in the future.")
     public func getEmbedAttachments() -> Bool? {
         return self.embedAttachments;
     }
