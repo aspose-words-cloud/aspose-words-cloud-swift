@@ -21,7 +21,8 @@ let package = Package(
             dependencies: [
                 "AsposeWordsCloud",
                 .product(name: "SwiftTestReporter", package: "swift-junit"),
-            ]),
+            ]
+        ),
     ]
 )
 
