@@ -163,6 +163,18 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
     }
 
+    // Field of updateAmbiguousTextFont. base container class for save options data.
+    private var _updateAmbiguousTextFont : Bool? = nil;
+
+    public var updateAmbiguousTextFont : Bool? {
+        get {
+            return self._updateAmbiguousTextFont;
+        }
+        set {
+            self._updateAmbiguousTextFont = newValue;
+        }
+    }
+
     // Field of updateCreatedTimeProperty. base container class for save options data.
     private var _updateCreatedTimeProperty : Bool? = nil;
 
@@ -240,6 +252,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
         case dmlRenderingMode = "DmlRenderingMode";
         case fileName = "FileName";
         case imlRenderingMode = "ImlRenderingMode";
+        case updateAmbiguousTextFont = "UpdateAmbiguousTextFont";
         case updateCreatedTimeProperty = "UpdateCreatedTimeProperty";
         case updateFields = "UpdateFields";
         case updateLastPrintedProperty = "UpdateLastPrintedProperty";
@@ -275,6 +288,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
             self.imlRenderingMode = ImlRenderingMode(rawValue: raw_imlRenderingMode);
         }
 
+        self.updateAmbiguousTextFont = json["UpdateAmbiguousTextFont"] as? Bool;
         self.updateCreatedTimeProperty = json["UpdateCreatedTimeProperty"] as? Bool;
         self.updateFields = json["UpdateFields"] as? Bool;
         self.updateLastPrintedProperty = json["UpdateLastPrintedProperty"] as? Bool;
@@ -292,6 +306,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
         self.dmlRenderingMode = try container.decodeIfPresent(DmlRenderingMode.self, forKey: .dmlRenderingMode);
         self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
         self.imlRenderingMode = try container.decodeIfPresent(ImlRenderingMode.self, forKey: .imlRenderingMode);
+        self.updateAmbiguousTextFont = try container.decodeIfPresent(Bool.self, forKey: .updateAmbiguousTextFont);
         self.updateCreatedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateCreatedTimeProperty);
         self.updateFields = try container.decodeIfPresent(Bool.self, forKey: .updateFields);
         self.updateLastPrintedProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastPrintedProperty);
@@ -322,6 +337,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
         if (self.imlRenderingMode != nil) {
             try container.encode(self.imlRenderingMode, forKey: .imlRenderingMode);
+        }
+        if (self.updateAmbiguousTextFont != nil) {
+            try container.encode(self.updateAmbiguousTextFont, forKey: .updateAmbiguousTextFont);
         }
         if (self.updateCreatedTimeProperty != nil) {
             try container.encode(self.updateCreatedTimeProperty, forKey: .updateCreatedTimeProperty);
@@ -436,6 +454,18 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Gets imlRenderingMode. Gets or sets the value determining how ink (InkML) objects are rendered. The default value is Aspose.Words.Saving.ImlRenderingMode.InkML.
     public func getImlRenderingMode() -> ImlRenderingMode? {
         return self.imlRenderingMode;
+    }
+
+
+    // Sets updateAmbiguousTextFont. Gets or sets a value indicating whether the font attributes will be changed according to the character code being used.
+    public func setUpdateAmbiguousTextFont(updateAmbiguousTextFont : Bool?) -> SaveOptionsData {
+        self.updateAmbiguousTextFont = updateAmbiguousTextFont;
+        return self;
+    }
+
+    // Gets updateAmbiguousTextFont. Gets or sets a value indicating whether the font attributes will be changed according to the character code being used.
+    public func getUpdateAmbiguousTextFont() -> Bool? {
+        return self.updateAmbiguousTextFont;
     }
 
 

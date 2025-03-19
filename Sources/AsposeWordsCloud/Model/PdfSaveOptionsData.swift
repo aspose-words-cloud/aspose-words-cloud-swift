@@ -29,6 +29,22 @@ import Foundation
 
 // Container class for pdf save options.
 public class PdfSaveOptionsData : FixedPageSaveOptionsData {
+    // Gets or sets a value determining how attachments are embedded to the PDF document.
+    // Default value is None and attachments are not embedded.
+    // PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files.
+    // None value will be used automatically.
+    public enum AttachmentsEmbeddingMode : String, Codable
+    {
+        // Enum value "_none"
+        case _none = "None"
+
+        // Enum value "annotations"
+        case annotations = "Annotations"
+
+        // Enum value "documentEmbeddedFiles"
+        case documentEmbeddedFiles = "DocumentEmbeddedFiles"
+    }
+
     // Gets or sets the PDF standards compliance level for output documents.
     public enum Compliance : String, Codable
     {
@@ -176,6 +192,18 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
         // Enum value "fitBox"
         case fitBox = "FitBox"
+    }
+
+    // Field of attachmentsEmbeddingMode. Container class for pdf save options.
+    private var _attachmentsEmbeddingMode : AttachmentsEmbeddingMode? = nil;
+
+    public var attachmentsEmbeddingMode : AttachmentsEmbeddingMode? {
+        get {
+            return self._attachmentsEmbeddingMode;
+        }
+        set {
+            self._attachmentsEmbeddingMode = newValue;
+        }
     }
 
     // Field of cacheBackgroundGraphics. Container class for pdf save options.
@@ -536,6 +564,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     private enum CodingKeys: String, CodingKey {
+        case attachmentsEmbeddingMode = "AttachmentsEmbeddingMode";
         case cacheBackgroundGraphics = "CacheBackgroundGraphics";
         case compliance = "Compliance";
         case createNoteHyperlinks = "CreateNoteHyperlinks";
@@ -574,6 +603,10 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
     public required init(from json: [String: Any]) throws {
         try super.init(from: json);
+        if let raw_attachmentsEmbeddingMode = json["AttachmentsEmbeddingMode"] as? String {
+            self.attachmentsEmbeddingMode = AttachmentsEmbeddingMode(rawValue: raw_attachmentsEmbeddingMode);
+        }
+
         self.cacheBackgroundGraphics = json["CacheBackgroundGraphics"] as? Bool;
         if let raw_compliance = json["Compliance"] as? String {
             self.compliance = Compliance(rawValue: raw_compliance);
@@ -644,6 +677,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.attachmentsEmbeddingMode = try container.decodeIfPresent(AttachmentsEmbeddingMode.self, forKey: .attachmentsEmbeddingMode);
         self.cacheBackgroundGraphics = try container.decodeIfPresent(Bool.self, forKey: .cacheBackgroundGraphics);
         self.compliance = try container.decodeIfPresent(Compliance.self, forKey: .compliance);
         self.createNoteHyperlinks = try container.decodeIfPresent(Bool.self, forKey: .createNoteHyperlinks);
@@ -678,6 +712,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.attachmentsEmbeddingMode != nil) {
+            try container.encode(self.attachmentsEmbeddingMode, forKey: .attachmentsEmbeddingMode);
+        }
         if (self.cacheBackgroundGraphics != nil) {
             try container.encode(self.cacheBackgroundGraphics, forKey: .cacheBackgroundGraphics);
         }
@@ -779,6 +816,18 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
     }
 
+    // Sets attachmentsEmbeddingMode. Gets or sets a value determining how attachments are embedded to the PDF document. Default value is None and attachments are not embedded. PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files. None value will be used automatically.
+    public func setAttachmentsEmbeddingMode(attachmentsEmbeddingMode : AttachmentsEmbeddingMode?) -> PdfSaveOptionsData {
+        self.attachmentsEmbeddingMode = attachmentsEmbeddingMode;
+        return self;
+    }
+
+    // Gets attachmentsEmbeddingMode. Gets or sets a value determining how attachments are embedded to the PDF document. Default value is None and attachments are not embedded. PDF/A-1, PDF/A-2 and regular PDF/A-4 (not PDF/A-4f) standards do not allow embedded files. None value will be used automatically.
+    public func getAttachmentsEmbeddingMode() -> AttachmentsEmbeddingMode? {
+        return self.attachmentsEmbeddingMode;
+    }
+
+
     // Sets cacheBackgroundGraphics. Gets or sets a value determining whether or not to cache graphics placed in document's background. Default value is true and background graphics are written to the PDF document as an xObject. When the value is false background graphics are not cached. Some shapes are not supported for caching(shapes with fields, bookmarks, HRefs). Document background graphic is various shapes, charts, images placed in the footer or header, well as background and border of a page.
     public func setCacheBackgroundGraphics(cacheBackgroundGraphics : Bool?) -> PdfSaveOptionsData {
         self.cacheBackgroundGraphics = cacheBackgroundGraphics;
@@ -864,14 +913,14 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
 
     // Sets embedAttachments. Gets or sets a value determining whether or not to embed attachments to the PDF document. Default value is false and attachments are not embedded. When the value is true attachments are embedded to the PDF document. Embedding attachments is not supported when saving to PDF/A and PDF/UA compliance. false value will be used automatically. Embedding attachments is not supported when encryption is enabled. false value will be used automatically.
-    @available(*, deprecated, message: "This property will be removed in the future.")
+    @available(*, deprecated, message: "Obsolete, please use AttachmentsEmbeddingMode instead.")
     public func setEmbedAttachments(embedAttachments : Bool?) -> PdfSaveOptionsData {
         self.embedAttachments = embedAttachments;
         return self;
     }
 
     // Gets embedAttachments. Gets or sets a value determining whether or not to embed attachments to the PDF document. Default value is false and attachments are not embedded. When the value is true attachments are embedded to the PDF document. Embedding attachments is not supported when saving to PDF/A and PDF/UA compliance. false value will be used automatically. Embedding attachments is not supported when encryption is enabled. false value will be used automatically.
-    @available(*, deprecated, message: "This property will be removed in the future.")
+    @available(*, deprecated, message: "Obsolete, please use AttachmentsEmbeddingMode instead.")
     public func getEmbedAttachments() -> Bool? {
         return self.embedAttachments;
     }
