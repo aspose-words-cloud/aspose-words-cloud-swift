@@ -17,6 +17,7 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 
 - Added 'AttachmentsEmbeddingMode' property for PdfSaveOptionsData class.
 - Added 'UpdateAmbiguousTextFont' property for SaveOptionsData class.
+- Added 'Granularity' property for CompareOptions class.
 
 
 ## Enhancements in Version 25.2
