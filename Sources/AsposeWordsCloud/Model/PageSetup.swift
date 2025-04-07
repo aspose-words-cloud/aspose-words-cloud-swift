@@ -322,6 +322,12 @@ public class PageSetup : LinkElement {
         // Enum value "number10Envelope"
         case number10Envelope = "Number10Envelope"
 
+        // Enum value "jisB4"
+        case jisB4 = "JisB4"
+
+        // Enum value "jisB5"
+        case jisB5 = "JisB5"
+
         // Enum value "custom"
         case custom = "Custom"
     }
