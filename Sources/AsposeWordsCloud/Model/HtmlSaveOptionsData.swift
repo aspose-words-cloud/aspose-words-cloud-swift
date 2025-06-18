@@ -539,6 +539,18 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         }
     }
 
+    // Field of removeJavaScriptFromLinks. Container class for html save options.
+    private var _removeJavaScriptFromLinks : Bool? = nil;
+
+    public var removeJavaScriptFromLinks : Bool? {
+        get {
+            return self._removeJavaScriptFromLinks;
+        }
+        set {
+            self._removeJavaScriptFromLinks = newValue;
+        }
+    }
+
     // Field of replaceBackslashWithYenSign. Container class for html save options.
     private var _replaceBackslashWithYenSign : Bool? = nil;
 
@@ -654,6 +666,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         case metafileFormat = "MetafileFormat";
         case officeMathOutputMode = "OfficeMathOutputMode";
         case prettyFormat = "PrettyFormat";
+        case removeJavaScriptFromLinks = "RemoveJavaScriptFromLinks";
         case replaceBackslashWithYenSign = "ReplaceBackslashWithYenSign";
         case resolveFontNames = "ResolveFontNames";
         case resourceFolder = "ResourceFolder";
@@ -723,6 +736,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         }
 
         self.prettyFormat = json["PrettyFormat"] as? Bool;
+        self.removeJavaScriptFromLinks = json["RemoveJavaScriptFromLinks"] as? Bool;
         self.replaceBackslashWithYenSign = json["ReplaceBackslashWithYenSign"] as? Bool;
         self.resolveFontNames = json["ResolveFontNames"] as? Bool;
         self.resourceFolder = json["ResourceFolder"] as? String;
@@ -770,6 +784,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         self.metafileFormat = try container.decodeIfPresent(MetafileFormat.self, forKey: .metafileFormat);
         self.officeMathOutputMode = try container.decodeIfPresent(OfficeMathOutputMode.self, forKey: .officeMathOutputMode);
         self.prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat);
+        self.removeJavaScriptFromLinks = try container.decodeIfPresent(Bool.self, forKey: .removeJavaScriptFromLinks);
         self.replaceBackslashWithYenSign = try container.decodeIfPresent(Bool.self, forKey: .replaceBackslashWithYenSign);
         self.resolveFontNames = try container.decodeIfPresent(Bool.self, forKey: .resolveFontNames);
         self.resourceFolder = try container.decodeIfPresent(String.self, forKey: .resourceFolder);
@@ -879,6 +894,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         }
         if (self.prettyFormat != nil) {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
+        }
+        if (self.removeJavaScriptFromLinks != nil) {
+            try container.encode(self.removeJavaScriptFromLinks, forKey: .removeJavaScriptFromLinks);
         }
         if (self.replaceBackslashWithYenSign != nil) {
             try container.encode(self.replaceBackslashWithYenSign, forKey: .replaceBackslashWithYenSign);
@@ -1300,6 +1318,18 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Gets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
+    }
+
+
+    // Sets removeJavaScriptFromLinks. Gets or sets the flag that indicates whether JavaScript will be removed from links. Default is false. If this option is enabled, all links containing JavaScript (e.g., links with "javascript:" in the href attribute) will be replaced with "javascript:void(0)". This can help prevent potential security risks, such as XSS attacks.
+    public func setRemoveJavaScriptFromLinks(removeJavaScriptFromLinks : Bool?) -> HtmlSaveOptionsData {
+        self.removeJavaScriptFromLinks = removeJavaScriptFromLinks;
+        return self;
+    }
+
+    // Gets removeJavaScriptFromLinks. Gets or sets the flag that indicates whether JavaScript will be removed from links. Default is false. If this option is enabled, all links containing JavaScript (e.g., links with "javascript:" in the href attribute) will be replaced with "javascript:void(0)". This can help prevent potential security risks, such as XSS attacks.
+    public func getRemoveJavaScriptFromLinks() -> Bool? {
+        return self.removeJavaScriptFromLinks;
     }
 
 
