@@ -13609,6 +13609,60 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of loadWebDocumentOnline method
+    // Downloads a document from the Web using URL and saves it to cloud storage in the specified format.
+    public func loadWebDocumentOnline(request : LoadWebDocumentOnlineRequest, callback : @escaping (_ response : LoadWebDocumentOnlineResponse?, _ error : Error?) -> ()) {
+        do {
+            if (self.apiInvoker == nil) {
+    #if os(Linux)
+                self.apiInvoker = ApiInvoker(configuration: configuration);
+    #else
+                self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+    #endif
+            }
+
+            apiInvoker!.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker!, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? LoadWebDocumentOnlineResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of loadWebDocumentOnline method
+    // Downloads a document from the Web using URL and saves it to cloud storage in the specified format.
+    public func loadWebDocumentOnline(request : LoadWebDocumentOnlineRequest) throws -> LoadWebDocumentOnlineResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : LoadWebDocumentOnlineResponse? = nil;
+        var responseError : Error? = nil;
+        self.loadWebDocumentOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of mergeWithNext method
     // Merge the section with the next one.
     public func mergeWithNext(request : MergeWithNextRequest, callback : @escaping (_ error : Error?) -> ()) {

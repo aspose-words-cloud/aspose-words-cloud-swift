@@ -31,7 +31,8 @@ import XCTest
 // Example of how to load web document.
 class LoadWebDocumentTests: BaseTestContext {
     static var allTests = [
-        ("testLoadWebDocument", testLoadWebDocument)
+        ("testLoadWebDocument", testLoadWebDocument),
+        ("testLoadWebDocumentOnline", testLoadWebDocumentOnline)
     ];
 
     // Test for loading web document.
@@ -49,5 +50,19 @@ class LoadWebDocumentTests: BaseTestContext {
       if (!(actual.getSaveResult() != nil)) { XCTFail("actual.getSaveResult() != nil"); return; }
       if (!(actual.getSaveResult()!.getDestDocument() != nil)) { XCTFail("actual.getSaveResult()!.getDestDocument() != nil"); return; }
       if (!(actual.getSaveResult()!.getDestDocument()!.getHref() == "google.doc")) { XCTFail("actual.getSaveResult()!.getDestDocument()!.getHref() == " + "google.doc"); return; }
+    }
+
+    // Test for loading web document online.
+    func testLoadWebDocumentOnline() throws {
+      let requestDataSaveOptions = DocSaveOptionsData()
+        .setDmlEffectsRenderingMode(dmlEffectsRenderingMode: DocSaveOptionsData.DmlEffectsRenderingMode._none)
+        .setDmlRenderingMode(dmlRenderingMode: DocSaveOptionsData.DmlRenderingMode.drawingML)
+        .setFileName(fileName: "google.doc")
+        .setZipOutput(zipOutput: false);
+      let requestData = LoadWebDocumentData()
+        .setSaveOptions(saveOptions: requestDataSaveOptions as! DocSaveOptionsData)
+        .setLoadingDocumentUrl(loadingDocumentUrl: "http://google.com");
+      let request = LoadWebDocumentOnlineRequest(data: requestData);
+      _ = try super.getApi().loadWebDocumentOnline(request: request);
     }
 }
