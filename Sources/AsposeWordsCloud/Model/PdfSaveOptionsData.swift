@@ -554,6 +554,18 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
+    // Field of exportFloatingShapesAsInlineTag. Container class for pdf save options.
+    private var _exportFloatingShapesAsInlineTag : Bool? = nil;
+
+    public var exportFloatingShapesAsInlineTag : Bool? {
+        get {
+            return self._exportFloatingShapesAsInlineTag;
+        }
+        set {
+            self._exportFloatingShapesAsInlineTag = newValue;
+        }
+    }
+
     // Field of saveFormat. Container class for pdf save options.
     private final let _saveFormat : String? = "pdf";
 
@@ -594,6 +606,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         case useSdtTagAsFormFieldName = "UseSdtTagAsFormFieldName";
         case zoomBehavior = "ZoomBehavior";
         case zoomFactor = "ZoomFactor";
+        case exportFloatingShapesAsInlineTag = "ExportFloatingShapesAsInlineTag";
         case invalidCodingKey;
     }
 
@@ -672,6 +685,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
 
         self.zoomFactor = json["ZoomFactor"] as? Int;
+        self.exportFloatingShapesAsInlineTag = json["ExportFloatingShapesAsInlineTag"] as? Bool;
     }
 
     public required init(from decoder: Decoder) throws {
@@ -707,6 +721,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         self.useSdtTagAsFormFieldName = try container.decodeIfPresent(Bool.self, forKey: .useSdtTagAsFormFieldName);
         self.zoomBehavior = try container.decodeIfPresent(ZoomBehavior.self, forKey: .zoomBehavior);
         self.zoomFactor = try container.decodeIfPresent(Int.self, forKey: .zoomFactor);
+        self.exportFloatingShapesAsInlineTag = try container.decodeIfPresent(Bool.self, forKey: .exportFloatingShapesAsInlineTag);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -801,6 +816,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
         if (self.zoomFactor != nil) {
             try container.encode(self.zoomFactor, forKey: .zoomFactor);
+        }
+        if (self.exportFloatingShapesAsInlineTag != nil) {
+            try container.encode(self.exportFloatingShapesAsInlineTag, forKey: .exportFloatingShapesAsInlineTag);
         }
     }
 
@@ -1175,5 +1193,17 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Gets zoomFactor. Gets or sets the zoom factor (in percentages) for a document.
     public func getZoomFactor() -> Int? {
         return self.zoomFactor;
+    }
+
+
+    // Sets exportFloatingShapesAsInlineTag. Gets or sets a value determining whether floating shapes are exported as inline tags in the document structure. Default value is false and floating shapes will be exported as block-level tags, placed after the paragraph in which they are anchored. When the value is true floating shapes will be exported as inline tags, placed within the paragraph where they are anchored. This value is ignored when ExportDocumentStructure is false.
+    public func setExportFloatingShapesAsInlineTag(exportFloatingShapesAsInlineTag : Bool?) -> PdfSaveOptionsData {
+        self.exportFloatingShapesAsInlineTag = exportFloatingShapesAsInlineTag;
+        return self;
+    }
+
+    // Gets exportFloatingShapesAsInlineTag. Gets or sets a value determining whether floating shapes are exported as inline tags in the document structure. Default value is false and floating shapes will be exported as block-level tags, placed after the paragraph in which they are anchored. When the value is true floating shapes will be exported as inline tags, placed within the paragraph where they are anchored. This value is ignored when ExportDocumentStructure is false.
+    public func getExportFloatingShapesAsInlineTag() -> Bool? {
+        return self.exportFloatingShapesAsInlineTag;
     }
 }

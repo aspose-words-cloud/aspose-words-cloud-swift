@@ -16,6 +16,7 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 ## Enhancements in Version 25.11
 
 - Added 'OfficeMathExportMode' property for TextSaveOptionsData class.
+- Added 'ExportFloatingShapesAsInlineTag' property for PdfSaveOptionsData class.
 
 
 ## Enhancements in Version 25.8
