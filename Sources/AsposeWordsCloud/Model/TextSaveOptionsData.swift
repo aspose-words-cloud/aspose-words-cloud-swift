@@ -30,7 +30,7 @@ import Foundation
 // Container class for text save options.
 public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     // Gets or sets a value that specifies how OfficeMath will be written to the output file.
-    // Default value is Text.
+    // The default value is Text.
     public enum OfficeMathExportMode : String, Codable
     {
         // Enum value "text"
@@ -199,13 +199,13 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
 
-    // Sets officeMathExportMode. Gets or sets a value that specifies how OfficeMath will be written to the output file. Default value is Text.
+    // Sets officeMathExportMode. Gets or sets a value that specifies how OfficeMath will be written to the output file. The default value is Text.
     public func setOfficeMathExportMode(officeMathExportMode : OfficeMathExportMode?) -> TextSaveOptionsData {
         self.officeMathExportMode = officeMathExportMode;
         return self;
     }
 
-    // Gets officeMathExportMode. Gets or sets a value that specifies how OfficeMath will be written to the output file. Default value is Text.
+    // Gets officeMathExportMode. Gets or sets a value that specifies how OfficeMath will be written to the output file. The default value is Text.
     public func getOfficeMathExportMode() -> OfficeMathExportMode? {
         return self.officeMathExportMode;
     }
